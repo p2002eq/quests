@@ -1,15 +1,3 @@
-function event_spawn(e)
-	local xloc = e.self:GetX();
-	local yloc = e.self:GetY();
-	eq.set_proximity(xloc - 50, xloc + 50, yloc - 50, yloc + 50);
-end
-
-function event_enter(e)
-	if(e.other:HasItem(18719) == true) then
-		e.other:Message(15,"As you glance about the crowded room, Kinloc Flamepaw greets you. 'Why hello there. Are you perhaps a new recruits? If you wish to learn the ways of the Magician, read the note in your inventory and hand me your note to start your training.'");
-	end
-end
-
 function event_trade(e)
 	local item_lib =require("items");
 	if(item_lib.check_turn_in(e.trade, {item1 = 18719})) then -- Tattered Note

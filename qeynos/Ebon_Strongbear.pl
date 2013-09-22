@@ -45,6 +45,17 @@ if($text=~/Hail/i){
 }
 
 sub EVENT_ITEM {
+	if (plugin::check_handin(\%itemcount, 18707 => 1)) { #Recruitment Flyer
+		quest::say("Welcome to the Hall of Steel, our swords are strong, and our warriors stronger. Here is our guild tunic. Brin Stolunger is in charge of our new recruits. Go see him, and he'll teach the basics. You look like you'll make a fine addition to our guild.");
+		quest::summonitem(13572); #Dirty Training Tunic*
+		quest::ding();
+		quest::faction( 311, 10); #Steel Warriors
+		quest::faction( 135, 10); #Guard of Qeynos
+		quest::faction( 53, -15); #Corrupted Qeynos Guard
+		quest::faction( 105, -15); #The Freeport Militia
+		quest::faction( 184, 10); #Knight of Truth
+		quest::exp(100);
+	}
   if ($itemcount{27421} == 3 && $itemcount{27422} == 1){
       quest::say("I salute you young warrior! Take this reward with pride.");
       quest::summonitem(27492);
