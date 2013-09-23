@@ -1,15 +1,3 @@
-function event_spawn(e)
-	local xloc = e.self:GetX();
-	local yloc = e.self:GetY();
-	eq.set_proximity(xloc - 50, xloc + 50, yloc - 50, yloc + 50);
-end
-
-function event_enter(e)
-	if(e.other:HasItem(18714) == true) then
-		e.other:Message(15,"As you get your bearings, a healing energy seems to sweep over you and an almost etheral voice seems to echo in your mind. 'Welcome young cleric of Rodcet. I am Priestess Jahnda. Read the note in your inventory and hand it to me to begin your training.'");
-	end
-end
-
 function event_say(e)
 	if(e.message:findi("hail")) then
 		e.self:Say("Welcome to the Temple of Life. where the will of Rodcet Nife, the Prime Healer, is carried out.  I am the High Priestess Jahnda.  If you require any training in our ways. please talk to any of our priests or any of the paladins of the Temple of Life.");

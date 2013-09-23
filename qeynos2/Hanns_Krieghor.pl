@@ -1,15 +1,3 @@
-sub EVENT_SPAWN {
-  $x = $npc->GetX();
-  $y = $npc->GetY();
-  quest::set_proximity($x - 50, $x + 50, $y - 50, $y + 50);
-}
-
-sub EVENT_ENTER {
-  if(plugin::check_hasitem($client, 18708)) { 
-		$client->Message(15,"As your eyes adjust to the dark interior of the room, a sly looking man turns towards you. 'Shh! Not too loudly. I am Hanns if you are here to start your training, read the note in your inventory and hand it to me.'");
-  }
-}
-
 sub EVENT_SIGNAL {
 	if($signal == 1) {
 		quest::say("Yes, I just got some new information from Prak this evening. He says they found out the spy is working for some bandit in the Karanas named Rujahn Tahslek. You used to work out there. do you recognize the name?");
