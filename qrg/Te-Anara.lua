@@ -1,19 +1,5 @@
-function event_spawn(e)
-	local xloc = e.self:GetX();
-	local yloc = e.self:GetY();
-	eq.set_proximity(xloc - 50, xloc + 50, yloc - 50, yloc + 50);
-end
-
-function event_enter(e)
-	if(e.other:HasItem(18713) == true) then
-		e.other:Message(15,"As you orient yourself amongst the peacefulness of the Surefall Glade, a melodic, peaceful voice seems to float on the wind. 'I am Te'Anara, Master of the Woods. Read the note in your inventory and when you wish to begin your training, hand it to me. We must preserve the heart of the Jaggedpine lest all of Norrath will perish!'");
-	end
-end
-
 function event_say(e)
-	if(e.message:findi("hail")) then
-		e.self:Say("Welcome, friend! I hope your stay in Surefall Glade will ease your mind and soothe your soul. While you are here, we ask you to abide by the [laws of the Jaggedpine].");
-	elseif(e.message:findi("laws of the jaggedpine")) then
+	if(e.message:findi("laws of the jaggedpine")) then
 		e.self:Say("We ask that you do not start campfires on our land. Do not litter our land with any items. Do not chop down our pines or tread upon any foliage. Please do not take more than a bellyful of fish. Do not harm any other wildlife and stay clear of [the great bear]!");
 	elseif(e.message:findi("great bear")) then
 		e.self:Say("The great bear I speak of is Mammoth. He has lived among us for over a century. Tunare has truly blessed us with his presence. As long as Mammoth lives, so too does Surefall Glade. We are currently worried. Corun has reported that there is something [wrong with Mammoth].");
