@@ -1,10 +1,12 @@
 function event_waypoint_arrive(e)
-	if(e.wp == 1 or e.wp == 12) then
+	if(e.wp == 1) then
 		eq.set_anim(4052,1);
 	elseif(e.wp == 5) then
 		e.self:SetRunning(true);
 	elseif(e.wp == 9) then
 		e.self:SetRunning(false);
+	elseif(e.wp == 12) then
+		eq.set_anim(4052,1);
 	end
 end
 
