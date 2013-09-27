@@ -28,6 +28,11 @@ function event_trade(e)
 	item_lib.return_items(e.self, e.other, e.trade)
 end
 
+function event_signal(e)
+	e.self:Say("Yea.. Bite that tongue of yours, there shorty, or I might just have to cut it off to shut you up for good.");
+end
+
+
 -- END of FILE Zone:freporte -- Gren_Frikniller
 
 

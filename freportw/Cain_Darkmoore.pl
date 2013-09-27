@@ -1,36 +1,3 @@
-############################################
-# ZONE: West Freeport (freportw)
-# DATABASE: PEQ-Velios
-# DATE: April 5,2005
-# VERSION: 2.0
-# DEVELOPER: MWMDRAGON
-#
-# *** NPC INFORMATION ***
-#
-# NAME: Cain_Darkmoore
-# ID: 9092
-# TYPE: Guild Master Warrior
-# RACE: Human
-# LEVEL: 61
-#
-# *** ITEMS GIVEN OR TAKEN ***
-#
-# A Tattered Note ID-18742
-# Dirty Training Tunic ID-13572
-# Deathfist Slashed Belts ID-13916
-#
-# *** QUESTS INVOLVED IN ***
-#
-#1 - Warrior Newbie Note
-#2 - Deathfist Slashed Belts (Good)
-#
-# *** QUESTS AVAILABLE TO ***
-#
-#1 - Warrior
-#2 - All
-#
-############################################
-
 sub EVENT_SAY {
   if($text=~/hail/i) {
     quest::say("Hail, $name! We are the Steel Warriors of Freeport. Our training disciplines have created some of the finest warriors ever to walk upon Norrath. Perhaps the bards shall sing songs of you one day. Let your first mission be the extermination of [Clan Deathfist].");
@@ -60,7 +27,12 @@ sub EVENT_ITEM {
     quest::say("Welcome to the Steel Warriors, young warrior. It is time to prove your mettle. Look to the outskirts of Freeport and join the fray. Show Clan Deathfist what a warrior of the bunker can do.");
     quest::ding();
     quest::summonitem(13572); #Dirty Training Tunic
-    quest::exp(100);
+ 	quest::faction(311,10);  #Steel Warriors
+	quest::faction(135,10); #Guards of Qeynos
+	quest::faction(53,-15); #Corrupt Qeynos Guards
+	quest::faction(105,-15); #Freeport Militia
+	quest::faction(184,10);  #Knights of Truth   
+	quest::exp(100);
   }
   #do all other handins first with plugin, then let it do disciplines
   plugin::try_tome_handins(\%itemcount, $class, 'Warrior');
