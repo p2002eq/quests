@@ -16,3 +16,7 @@ function event_waypoint_arrive(e)
 		eq.signal(9103, 1);
 	end
 end
+
+function event_death_complete(e)
+	eq.spawn2(9144,86,0,704,-554,-24,0); -- spawn hollish tnoops
+end
