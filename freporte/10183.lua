@@ -1,9 +1,9 @@
 function event_waypoint_arrive(e)
-	if(e.wp == 1) then
+	if(e.wp == 3) then
 		local xloc = e.self:GetX();
 		local yloc = e.self:GetY();
-		eq.set_proximity(xloc - 40, xloc + 40, yloc - 40, yloc + 40);
-	elseif(e.wp == 2) then
+		eq.set_proximity(xloc - 45, xloc + 45, yloc - 45, yloc + 45);
+	elseif(e.wp == 4) then
 		eq.clear_proximity();
 	end
 end
