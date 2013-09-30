@@ -13,5 +13,7 @@ function event_signal(e)
 		e.self:Say("I say!! I have fought side by side with the great Antonius bayle. He is a man of supreme virtue.");
 	elseif(e.signal == 6) then
 		e.self:Say("Bloody right, you are! Those fellows can't keep down any grog.");
+	elseif(e.signal == 7);
+		e.self:Say("Bloody right!! Sir Lucan is no knight. He is nothing more than a mere warrior.");
 	end
 end
