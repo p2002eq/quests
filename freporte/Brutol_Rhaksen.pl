@@ -24,13 +24,13 @@ sub EVENT_ITEM {
 	elsif (plugin::check_handin(\%itemcount, 19932 => 1)) { # Tarsa Yovar's Head ID-19932
 		quest::say("Take this and get it sharpened. Bring it back to me with a Giant Rattlesnake Skin and you will have proven yourself able to wield a Dismal Rage Battle Axe, to help teach the way of Innoruuk!");
 		quest::ding();
-		quest::summonitem("55623"); # Dull Axe ID-55623
+		quest::summonitem("19921"); # Dull Dismal Battleaxe
 		quest::exp("100");
 	}
-	elsif (plugin::check_handin(\%itemcount, 59953 => 1, 19852 => 1)) { # Sharpened Axe ID-59953 - Giant Rattlesnake Skin ID-19852
+	elsif (plugin::check_handin(\%itemcount, 19926 => 1, 19852 => 1)) { # Sharpened Dismal Battleaxe - Giant Rattlesnake Skin ID-19852
 		quest::say("You have proven your faith $name. Take this to vanquish any and all whom question the absolute power of Innoruuk!");
 		quest::ding();
-		quest::summonitem(19938); # Dismal Rage Battle Axe ID- 19938
+		quest::summonitem(19938); # Dismal Rage BattleAxe
 		quest::exp("100");
 	}
 	#do all other handins first with plugin, then let it do disciplines

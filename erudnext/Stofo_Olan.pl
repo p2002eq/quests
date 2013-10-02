@@ -35,11 +35,6 @@ sub EVENT_ITEM {
     quest::faction(342,30);
     quest::summonitem(10603);
   }
-  elsif(plugin::check_handin(\%itemcount, 54008 => 1, 54007 => 1)){#A Dimly Glowing Ring, Note to Stofo
-  	quest::emote("scans the note quickly and gasps. Hardly glancing at you, he begins examining the ring, tearing through notes and books scattered about his dark room. As he pores over a scroll of parchment covered in strange texts his eyes light up, 'Yes, yes this is it! Ofala really found something quite remarkable in this one! Watch my friend.' The slim Erudite slips the ring onto his finger and the gem begins to throb, Stofo seems to draw the power into himself for a moment then carefully places the ring back onto his desk. He closes his eyes a moment then turns to you, the darkness in his eyes almost lends fear for a moment before he smiles. 'Thank you my friend, this stone is very dangerous, but I believe that I have accessed the powers within me through it. Take these words and use them well, perhaps the power shall work for you as well, and please tell my dear sister hello.'");
-  	quest::summonitem(59016);#Spell: Scryer's Trespass
-  	quest::exp(1750000);#1% of level 51 xp
-  }
   plugin::return_items(\%itemcount);
 }
 

@@ -31,7 +31,7 @@ sub EVENT_ITEM {
     quest::faction(193,20);
     quest::faction(24,20);
   }
-  if(plugin::check_handin(\%itemcount, 55978 => 1, 4263 => 1)) { #a journal and dark binder skullcap
+  if(plugin::check_handin(\%itemcount, 18065 => 1, 4263 => 1)) { #a journal and dark binder skullcap
     quest::say("Well done, here's your fifth rank skull cap. You can now track
 down the [Kor Sha Candlestick].");
     quest::exp(200);
