@@ -1,5 +1,4 @@
 # Magician Quests for Torch of Alna, Stein of Ulissa, Broom of Trilon, Shovel of Ponz
-#Modified by Kilelen for the magician spell: primal rememdy, LoY era
 
 sub EVENT_SAY {
   if($text=~/hail/i) {
@@ -62,10 +61,6 @@ sub EVENT_ITEM {
     quest::exp(1000);
     quest::faction(320,15);  #Temple of Solusek Ro
     quest::faction(291,-15); #Shadowed Men
-  }
-  elsif(plugin::check_handin(\%itemcount, 58003 => 1)) { #Vial of Liquid
-    quest::emote("swallows the liquid in the vial. After a few minutes, you notice the fire in the small gnome subside. She looks up at you and says, 'Why thank you. My twin was correct in her assumption of the power of the elements of Broken Skull. It's curious that she remained behind. Here, take this note to her so she can be assured that I am on the road to recovery.'");
-    quest::summonitem(58004); #Note to Vera
   }
   plugin::return_items(\%itemcount);
 }
