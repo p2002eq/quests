@@ -1,15 +1,3 @@
-sub EVENT_SPAWN {
-  $x = $npc->GetX();
-  $y = $npc->GetY();
-  quest::set_proximity($x - 50, $x + 50, $y - 50, $y + 50);
-}
-
-sub EVENT_ENTER {
-  if(plugin::check_hasitem($client, 18207)) { 
-		$client->Message(15,"As your reptilian eyes adjust to the darkness of the room, an imposing Iksar turns towards you, addressing you with a sharp hiss. 'I am Harbinger Glosk. The time has come young one. You have chosen the path of the Necromancer. Open your inventory and read the note within. Once you are ready to begin your training, hand the note to me and we will continue.'");
-  }
-}
-
 sub EVENT_SAY {
 	if ($text=~/hail/i) {
 		quest::emote("halts his chanting.");
@@ -22,12 +10,6 @@ sub EVENT_SAY {
 	if ($text=~/forge of dalnir/i) {
 		quest::emote("scratches his chin.");
 		quest::say("I know little of it other than that it once belonged to the ancient Haggle Baron, Dalnir. From what I have read, its fires require no skill, but will melt any common forge hammer used. Dalnir was said to have called upon the ancients for a hammer which could tolerate the magickal flames.");
-	}
-	if($text=~/gem of reflection/i) {
-		quest::say("I have not been asked that in ages but I can recall the last person that asked me. If you are in league with that scoundrel Ixpacan, I will slay you where you stand! But if you are not, you will not mind ridding your kin of a [menace] as of late.");
-	}
-	if($text=~/menace/i) {
-		quest::say("It seems as though a rogue marauder in a jungle near here has attacked several of our trade suppliers. If you can bring me back his head I will gladly share the information you have asked for.");
 	}
 }
 
@@ -48,10 +30,6 @@ sub EVENT_ITEM {
 		quest::faction(24,20);
 		quest::exp(10000);
 		quest::givecash(0,0,0,2);
-	}
-	elsif (plugin::check_handin(\%itemcount, 48037 => 1)) {
-		quest::say("You have done well in doing what I have asked. To make a gem of reflection you will need some Mt Death mineral salts, a green goblin skin, spiroc bone dust, essence of rathe, blue slumber fungus, and a vial of pure essence. Combine all of these in this container and you will have what it is you seek.");
-		quest::summonitem(48039);
 	}
 	elsif (plugin::check_handin(\%itemcount, 14794 => 1)) {
 		quest::emote("hisses and says venomously,");
