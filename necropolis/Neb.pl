@@ -31,11 +31,6 @@ are joyful, Neb is joyful! Misu na tona Vaniki esa Zlandicar, no re Paebala soka
     quest::faction(32,-150); #chetari
     quest::faction(365,-150); #zlandicar
   }
-  if (plugin::check_handin(\%itemcount, 69341 => 1)) {
-  quest::say("Ika vora isa, viia solta ian raka. Thank you for this concoction. Loka vula riluua zlandicar. We will use this on Zlandicar's allies. Wurna so vi re drikinavi wo isa maka. This will aide us greatly in our struggle against them. Wula vaa ria muta nish ala aknila nexona. Here is a sealed note to give to Nexona as proof of this delivery. Val na vi paebala yi no sa saka! All of the paebala thank you, tallone!"); #For Assist Nexona Quest
-  quest::summonitem(69344);
-  quest::exp(10000);    
-  }
   plugin::return_items(\%itemcount);
 }
 
