@@ -5,18 +5,6 @@ my $rS = int(rand(99));
 my $rC = int(rand(99));
 #Above 3 variables are used to generate random gold silver and copper coin returns
 
-sub EVENT_SPAWN {
-  $x = $npc->GetX();
-  $y = $npc->GetY();
-  quest::set_proximity($x - 50, $x + 50, $y - 50, $y + 50);
-}
-
-sub EVENT_ENTER {
-  if(plugin::check_hasitem($client, 18761)) { 
-		$client->Message(15,"Margyn McCann greets you. 'Welcome to the Church of the Tribunal. Read the note in your inventory and when you are ready to begin your training, hand it to me.'");
-  }
-}
-
 sub EVENT_SAY {
 	if($text=~/hail/i) {
 		quest::say("Hail, young adventurer! I'm the chief overseer o' the Shamans o' Justice. We serve the will o' the Tribunal. Justice is our way. Within Halas, there are none who are above the scales o' justice. There are still some who have defied our laws. We wish to [apprehend the fugitives].");
@@ -26,14 +14,6 @@ sub EVENT_SAY {
 	}
 	if($text=~/young shaman/i) {
 		quest::say("We seek a former member who dared to curse the righteousness of the Tribunal. We'll have his head for that remark. His name is Granin O'Gill and he has run to the wastelands of Everfrost seeking safe haven. Find him. Return his head to me. Do so, and earn the ninth circle spell, Spirit o' the Bear. Go at once!");
-	}
-	if($text=~/trades/i) {
-		quest::say("I thought you might be one who was interested in the various different trades, but which one would suit you? Ahh, alas, it would be better to let you decide for yourself, perhaps you would even like to master them all! That would be quite a feat. Well, lets not get ahead of ourselves, here, take this book. When you have finished reading it, ask me for the [second book], and I shall give it to you. Inside them you will find the most basic recipes for each trade. These recipes are typically used as a base for more advanced crafting, for instance, if you wished to be a smith, one would need to find some ore and smelt it into something usable. Good luck!");
-		quest::summonitem(51121);
-	}
-	if($text=~/second book/i)	{
-		quest::say("Here is the second volume of the book you requested, may it serve you well!");
-		quest::summonitem(51122);
 	}
 }
 
@@ -53,7 +33,7 @@ sub EVENT_ITEM{
 		}
 	}
 	if(plugin::check_handin(\%itemcount, 18761 => 1)) {
-		quest::say("Welcome t' the Church o' the Tribunal. Here, we practice the will o' the Six Hammers. This is our guild tunic - wear it with pride and represent us well. Once you are ready to begin adventuring please see Jinkus Felligan, he can help you with tasks geared towards your development as a great Shaman. Return to me when you have become more experienced in our art, I will be able to further instruct you on how to progress through your early ranks, as well as in some of the various [trades] you will have available to you.");
+		quest::say("Welcome t' the Church o' the Tribunal. Here, we practice the will o' the Six Hammers. This is our guild tunic - wear it with pride and represent us well.");
 		quest::ding();
 		quest::faction(294, 5);   # Shamen of Justice
 		quest::faction(213, 5);   # Merchants of Halas
