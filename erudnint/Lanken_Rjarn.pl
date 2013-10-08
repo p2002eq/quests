@@ -1,17 +1,3 @@
-# Enchanter Guildmaster
-
-sub EVENT_SPAWN {
-  $x = $npc->GetX();
-  $y = $npc->GetY();
-  quest::set_proximity($x - 50, $x + 50, $y - 50, $y + 50);
-}
-
-sub EVENT_ENTER {
-  if(plugin::check_hasitem($client, 18729)) {
-    $client->Message(15, "A commanding, yet kind looking Erudite turns towards you. 'Do not be startled. I am Lanken Rjarn, Guild Master for all aspiring Enchanters. Read the note in your inventory and hand it to me when you are ready to begin your training. I look forward to training you.'");
-  }
-}
-
 sub EVENT_SAY {
 	if($text=~/hail/i){
 		quest::emote("looks up irritably. 'I do not have time to speak with thee. I have a problem on my hands. Feel free to speak with any of my trainers.'");

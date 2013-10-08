@@ -1,15 +1,3 @@
-sub EVENT_SPAWN {
-  $x = $npc->GetX();
-  $y = $npc->GetY();
-  quest::set_proximity($x - 50, $x + 50, $y - 50, $y + 50);
-}
-
-sub EVENT_ENTER {
-  if(plugin::check_hasitem($client, 18728)) { 
-		$client->Message(15,"Markus Jaevins tells you, 'Welcome to the Tower of the Gate Callers, I am Markus Jaevins. Please read the note in your inventory and hand it to me when you are ready to start learning the ways of the Magician.'");
-  }
-}
-
 sub EVENT_SAY {
   if ($text=~/hail/i) {
     quest::say("I am the overseer of the great city of Erudin. You will address me in proper manner. HAIL!!");
