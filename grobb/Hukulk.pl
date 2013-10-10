@@ -1,15 +1,3 @@
-sub EVENT_SPAWN {
-  $x = $npc->GetX();
-  $y = $npc->GetY();
-  quest::set_proximity($x - 50, $x + 50, $y - 50, $y + 50);
-}
-
-sub EVENT_ENTER {
-  if(plugin::check_hasitem($client, 18792)) { 
-		$client->Message(15,"As your eyes adjust to the darkness, a large troll decked out in grimy metal armor turns towards you. 'I be Hukulk. You read note in inventory and hand to me to start training!'");
-  }
-}
-
 sub EVENT_SAY {
   if($text=~/hail/i) {
     quest::say("What you want!! You make fun of [helm of Hukulk]?!! Me smash you!! Maybe you come learn ways of Hate and Fear! You be dark power. You be Pain. You [want join Nightkeep]?");
@@ -30,7 +18,7 @@ sub EVENT_SAY {
 
 sub EVENT_ITEM { 
   if (plugin::check_handin(\%itemcount, 18792 => 1)) { #Tattered Note
-    quest::say("Haaah!! Bow to Hukulk!! Hukulk make you feared.. make you powered! Dark power flow through you! Hate and Fear in your blood!");
+    quest::say("Haaah!! Bow to Hukulk!! Hukulk make you feared.. make you powered! Dark power flow through you! Hate and Fear in your blood! Go to Vergad. He give you first lesson in pain.");
     quest::summonitem(13530); #Black and Green Tunic*
 	quest::ding();
     quest::faction(292,5); #Shadowknights of Night Keep

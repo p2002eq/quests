@@ -1,15 +1,3 @@
-sub EVENT_SPAWN {
-  $x = $npc->GetX();
-  $y = $npc->GetY();
-  quest::set_proximity($x - 50, $x + 50, $y - 50, $y + 50);
-}
-
-sub EVENT_ENTER {
-  if(plugin::check_hasitem($client, 18791)) { 
-		$client->Message(15,"As your eyes adjust to the darkness, a pretty troll (pretty by trollish standards) turns toward you. 'I be Kaglari. You read note in inventory and hand to me to start training!'";
-  }
-}
-
 sub EVENT_SAY {
 	if($text=~/hail/i){
 		quest::say("<SNORT!>  HHUUUUCCCSSH..  Peh!  You speak at Kaglari, High Priestess of Dark Ones.  Children of Hate.  Spawn of Innoruuk.  $name . speak or be gone!  <SNORT!>  You [wish majik power]?");
@@ -40,7 +28,7 @@ sub EVENT_ITEM {
 		quest::exp(150);
 	}
 	elsif (plugin::check_handin(\%itemcount,18791 => 1)){  #Tattered Note
-		quest::say("Good.. Kaglari need you help.. Kaglari teach you majik now.  When you ready for task you tell Kaglari!!  Yooz reeturn to mez when yooz ar strongur, mez teech yooz bout da mor advanced tings.");
+		quest::say("Good.. Kaglari need you help.. Kaglari teach you majik now.");
 		quest::summonitem(13529);  #Muck Stained Tunic
 		quest::ding();
 		quest::faction(70,5);  # +Dark Ones
