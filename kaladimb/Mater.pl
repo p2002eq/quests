@@ -1,16 +1,3 @@
-sub EVENT_SPAWN {
-   $x = $npc->GetX();
-   $y = $npc->GetY();
-   quest::set_proximity($x - 50, $x + 50, $y - 50, $y + 50);
-   quest::settimer("repeat", 530);
-}
-
-sub EVENT_ENTER {
-   if (plugin::check_hasitem($client, 18767)) { 
-      $client->Message(15,"Mater appears a bit startled by your appearance. 'You enjoy sneaking up on people do ya? Come to think of it ya do kind of look like you would make a good rogue. Read the note in your inventory and hand it to me when you wish to start your training.'");
-   }
-}
-
 sub EVENT_SAY {
    if ($text=~/hail/i) {
       if ($faction <= 7) {
@@ -42,14 +29,6 @@ sub EVENT_SAY {
          quest::say("The word around the mines is that you are not to be trusted. You'd best leave before my dagger finds a new home in your back.");
       }
    }
-   elsif ($text=~/trades/i) {
-      quest::say("I thought you might be one who was interested in the various different trades, but which one would suit you? Ahh, alas, it would be better to let you decide for yourself, perhaps you would even like to master them all! That would be quite a feat. Well, lets not get ahead of ourselves, here, take this book. When you have finished reading it, ask me for the [second book], and I shall give it to you. Inside them you will find the most basic recipes for each trade. These recipes are typically used as a base for more advanced crafting, for instance, if you wished to be a smith, one would need to find some ore and smelt it into something usable. Good luck!");
-      quest::summonitem(51121);
-   }
-   elsif ($text=~/second book/i)   {
-      quest::say("Here is the second volume of the book you requested, may it serve you well!");
-      quest::summonitem(51122);
-   }
 }
 
 sub EVENT_ITEM {
@@ -72,7 +51,7 @@ sub EVENT_ITEM {
       }
    }
    elsif (plugin::check_handin(\%itemcount, 18767 => 1)) { #Small, Folded Note
-      quest::say("Ah, welcome! We could use some fresh blood around here. The name's Mater, and I run this little outfit. Work hard for me, and I will reward you well. Cross me, and you'll find yourself buried under the mine cap. Once you are ready to begin your training please make sure that you see Crovsar Dirkbringer, he can assist you in developing your hunting and gathering skills. Return to me when you have become more experienced in our art, I will be able to further instruct you on how to progress through your early ranks, as well as in some of the various [trades] you will have available to you.");
+      quest::say("Ah, welcome! We could use some fresh blood around here. The name's Mater, and I run this little outfit. Work hard for me, and I will reward you well. Cross me, and you'll find yourself buried under the mine cap. Now, let's get to work.");
       quest::summonitem(13516); #Ruined Miner's Tunic
       quest::ding();
       quest::faction(220, 10); # Miners Guild 628
