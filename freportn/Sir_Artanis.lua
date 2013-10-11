@@ -1,8 +1,5 @@
 function event_say(e)
-	if(e.message:findi("received your summons")) then
-		e.self:Say(string.format("Yes %s, thank you for responding with such haste. The Knights of Marr recently captured a Teir'Dal wizard who under intense questioning revealed a variety of disturbing matters. First, he worships Solusek Ro, which is no crime, but considering the nearby temple's past associations with the Burning Dead, specifically Marnek about whom you recently delivered revelations, then his other information seems even more dire. Secondly, he has admitted that he was in Freeport attempting to contact the leaders of the Dismal Rage for he understood that they have nearly completed a phylactery, a device that holds the mortal soul of a lich. In light of this, we ask that you visit the Oracle of K'Arnon in the Ocean of Tears to learn whatever you can about the nature of these phylacteries, including the means to create one so that we better know how to destroy them. This letter will serve as proof that you come in the name of the Knights of Marr.",e.other:GetName()));
-		e.other:SummonItem(55274); -- Letter for the Oracle
-	elseif(e.message:findi("befallen")) then
+	if(e.message:findi("befallen")) then
 		e.self:Say("You did well to ride swiftly with this news. I must take this directly to Valeron Dushire. If you learn more about this plot that would unleash this monster upon Norrath or wish to someday soon aid the Knights of Truth in putting down this evil, then return to speak to me again at a later time.");
 	end
 end

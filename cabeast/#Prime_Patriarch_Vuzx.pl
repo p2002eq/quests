@@ -54,14 +54,6 @@ sub EVENT_ITEM {
 		quest::faction(282,20);
 		quest::faction(193,10);
 	}
-	elsif(plugin::check_handin(\%itemcount, 12409 => 1, 12431 => 1, 12428 => 1, 12727 => 1)){ #Claw of the Cub Quest (Claw of the Spiritual Elder Quest Line 1/6)
-		quest::say("You have done well on your way to becoming a great patriarch. Now I must tend to other pressing issues. Take your reward and wear it proudly.");
-		quest::summonitem(48045);
-		quest::exp(80000);
-		quest::ding();
-		quest::faction(282,20);
-		quest::faction(193,10);
-	}
 	elsif (plugin::check_handin(\%itemcount, 18848 => 1)) { #A tattered note
 		quest::say("The Hierophants have sensed that your spirit is strong with obedience inspiring fear! You must learn to harness your [powers] over the scaled wolves! Wear this tunic so that the Legion of Cabilis will recognize you as a Scaled Spiritist.");
 		quest::summonitem(13577); #Dusty Green Tunic

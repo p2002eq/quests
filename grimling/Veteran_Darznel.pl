@@ -11,9 +11,5 @@ sub EVENT_ITEM {
 Bring me any grimling intelligence reports or documents that you may have found. Place the documents and your Garrison Cloak in this bag and bring them back to me. Complete this task and you may even get a promotion.");
     quest::summonitem(17130);
   }
-  if (plugin::check_handin(\%itemcount, 8472 =>1 )) {
-    quest::say("I cannot help but think that your presence and leadership are what made those missions such wonderful successes. I have been authorized to give you a field promotion for your valor and bravery in combat. Your ability to lead was the keystone in the success of those engagements. Welcome to the rank of Garrison Officer, #name.");
-    quest::summonitem(63168);
-  }
   plugin::return_items(\%itemcount);
 }

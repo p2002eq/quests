@@ -51,17 +51,6 @@ sub EVENT_SAY {
          quest::say("The word around the mines is that you are not to be trusted. You'd best leave before my dagger finds a new home in your back.");
       }
    }
-   #Rogue Epic 1.5 Pre-Quest
-   elsif ($text=~/small job/i) {
-      if (($ulevel >= 46) && ($class eq "Rogue")) {
-         quest::say("Consider this both a favor and a test. I couldn't rest at night knowing that someone carrying around my secrets was anything less than proficient at smithin'. On top of that, relics crafted by the infamous $name will make some fine conversation pieces I think. Ha ha. If that isn't clear enough for ye, I'd like ye to demonstrate your skill with forge and a hammer. Here's a list of items that ye can make for me. Seal them up in this satchel when you're done and bring them back to me, lad.");
-         quest::summonitem(8775);
-         quest::summonitem(52331);
-      }
-      else {
-         quest::emote("doesn't appear to want to speak with you.");
-      }
-   }
 }
 
 sub EVENT_ITEM {

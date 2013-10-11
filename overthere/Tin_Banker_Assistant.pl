@@ -2,7 +2,7 @@
 
 # receives A Metal Key for Necro Skull Cap 5
 
-# obtain A Dusty Tome (55978)
+# obtain journal (18065)
 
 
 
@@ -24,7 +24,7 @@ sub EVENT_ITEM {
 
     quest::say("*Whirrrr*");
 
-    quest::summonitem(55978);
+    quest::summonitem(18065);
 
   }
 

@@ -14,7 +14,6 @@ sub EVENT_SAY
 		quest::emote("Gram Dunnar stops carving and holds up the object between his short fingers. It is a figurine of a swordsman with many intricate details. 'No one really wants to buy them, these days. If there's no magic in it...' he shrugs. 'Still, something to take up some time.' He rummages through some finished pieces on the floor around him, picks up one, and tosses it to you. 'Here,' he says. 'Maybe it'll bring you some luck.");
 		if ($class eq 'Warrior') { quest::summonitem(35001); }
 		elsif ($class eq 'Monk') { quest::summonitem(35007); }
-		elsif ($class eq 'Berserker') { quest::summonitem(35016); }
 		elsif ($class eq 'Rogue') { quest::summonitem(35009); }       
 		elsif ($class eq 'Paladin') { quest::summonitem(35003); }
 		elsif ($class eq 'Ranger') { quest::summonitem(35004); }

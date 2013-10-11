@@ -100,10 +100,6 @@ sub EVENT_ITEM {
     	quest::summonitem(16277);#Beastlord Emblem
     	quest::summonitem(17185);#Druzzil's Mystical Sewing Kit
       }
-      elsif ($class eq "Berserker") {
-    	quest::summonitem(32000);#Berserker Emblem
-    	quest::summonitem(17184);#Mystical Furnace of Ro
-      }
       else {
     	quest::say("What ar ye?");
         quest::givecash($copper,$silver,$gold,$platinum); #Return money
