@@ -3,18 +3,7 @@
 
 sub EVENT_SAY {
   if($text=~/hail/i) {
-    if((plugin::check_hasitem($client, 20544)) && !defined($qglobals{Soulwhisper})) { #Scythe of the Shadowed Soul
-      quest::say("It has been a while since we have talked. You have done well in obtaining your Scythe. The time has come however for you to perform another task for me. I do not wish to waste time, so in short, I want you to collect a most powerful staff for me. I only have a piece of it as the rest has mysteriously disappeared.");
-      quest::say("I wish to research this staff piece but first I need some special research tools. Take this note and travel to Steamfont. Find a gnome named Biddliss Sperandu and give him the note. When you obtain the research tools hand them to me.");
-      quest::summonitem(9831); #Note to Biddliss
-      quest::setglobal("Soulwhisper",1,5,"F");
-    }
-    elsif(defined($qglobals{Soulwhisper})) {
-      quest::say("Don't you have a task to complete?");
-    }
-    else {
-      quest::emote("'s eyes seem to glow as he turns to you and says, 'Leave me be if you have no reason to be here, mortal!'");
-    }
+    quest::emote("'s eyes seem to glow as he turns to you and says, 'Leave me be if you have no reason to be here, mortal!'");
   }
   if($text=~/dark arts/i) {
     if($class eq "Necromancer" && $ulevel >= 50) {
@@ -63,25 +52,6 @@ sub EVENT_ITEM {
     quest::emote("grins wildly and his eyes flare a deep red. The scythe he promised you flies through the air and into your hand. 'Enjoy your toy, I have no more need of you as a servant.'");
     quest::exp(10000);
     quest::summonitem(20544); #Scythe of the Shadowed Soul
-  }
-  elsif(plugin::check_handin(\%itemcount, 20612 => 1)) { #Piece of the Staff
-    if(defined($qglobals{NecroPre}) && ($qglobals{NecroPre} == 2)) {
-      quest::say("Geboron has told me that you would be giving this piece of the staff to me. Do not fear. While I am not angry with you for failing to bring me the staff, I am not thoroughly pleased either. However, this piece could hold the key to discovering the staff's whereabouts. I wish to research this staff piece but first I need some special research tools. Take this note and travel to Steamfont. Find a gnome named Biddliss Sperandu and give him the note. When you obtain the research tools hand them to me.");
-      quest::summonitem(9831); #Note to Biddliss
-      quest::delglobal("NecroPre");
-      quest::setglobal("Soulwhisper",1,5,"F");
-    }
-    else {
-      quest::say("What is this? Why do you waste my time giving me junk? Take it back and begone!"); #Still need real text
-      quest::summonitem(20612); #Piece of the Staff
-    }
-  }
-  elsif(plugin::check_handin(\%itemcount, 21799 => 1)) { #Biddliss's Research Tools
-    quest::emote(" takes the tools from you. He opens the case and pulls out a small magnifying glass. It seems to faintly glow as he passes it over the surface of the staff piece.");
-    quest::say("There appears to be a small rune etched in the wood.");
-    quest::emote(" takes out a piece of parchment and draws a picture of the rune.");
-    quest::say("I am not familiar with this rune. Take this drawing of the rune to Ruandia in the Plane of Knowledge. She is an expert on runes and should know what it means. From here on out I will want you to handle the research of this staff through my assistant Tebarin in the Plane of Knowledge. I am busy and do not wish to be disturbed further. Tebarin will communicate to me any progress you have made with helping to recover the staff.'");
-    quest::summonitem(22691); #Drawing of Rune
   }
   plugin::return_items(\%itemcount);
 }
