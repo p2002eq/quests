@@ -1,15 +1,3 @@
-sub EVENT_SPAWN {
-  $x = $npc->GetX();
-  $y = $npc->GetY();
-  quest::set_proximity($x - 50, $x + 50, $y - 50, $y + 50);
-}
-
-sub EVENT_ENTER {
-  if(plugin::check_hasitem($client, 18716)) { 
-		$client->Message(15,"As you orient yourself amongst the filth and decay of the catacombs, a menacing figure turns to address you. 'I am Xeture Demiagar. Should you wish to dedicate your pathetic life to the way of Bertoxxulous, read the note in your inventory and hand it to me to begin your training.'");
-  }
-}
-
 sub EVENT_SAY {
 	if ($text=~/hail/i) {
 		quest::say("I have much to do here for the defense of our Temple and the appeasing of our patron Bertoxxulous, the Plague Lord. If the Plague Lord has gifted you with the desire to [serve his will] as a priest of the Bloodsabers I will assist in your training. If not, then leave me now and do not interrupt me again.");
