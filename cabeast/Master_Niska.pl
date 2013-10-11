@@ -72,6 +72,10 @@ sub EVENT_ITEM {
   plugin::return_items(\%itemcount);
 }
 
+sub EVENT_SIGNAL {
+	quest::say("You dare disgrace us?' She hisses at you. 'If you have truly lost the marking of our castle, you will need to take this note and speak to the Toilmaster immediatley. Read it on the way and praise the will of Cazic-Thule.'");
+}
+
 #Submitted by: Senzo aka Fatty Beerbelly
 #Item_IDs : taken from : http://eqitems.13th-floor.org/
 #END of FILE : Zone : cabeast : NPC_ID : 3431 : Master_Niska

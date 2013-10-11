@@ -1,15 +1,3 @@
-sub EVENT_SPAWN {
-  $x = $npc->GetX();
-  $y = $npc->GetY();
-  quest::set_proximity($x - 50, $x + 50, $y - 50, $y + 50);
-}
-
-sub EVENT_ENTER {
-  if(plugin::check_hasitem($client, 18849)) { 
-		$client->Message(15,"As you attempt to get your bearings, a noble looking Vah Shir turns towards you. 'The animal instinct is strong in you my, friend. I am Elder Animist Sahdi. Read the note in your inventory and then hand it to me to begin your training.'");
-  }
-}
-
 sub EVENT_SAY { 
 	if($text=~/hail/i){
 		quest::say("Greetings $name. are you one of our new recruits?"); 

@@ -1,15 +1,3 @@
-sub EVENT_SPAWN {
-  $x = $npc->GetX();
-  $y = $npc->GetY();
-  quest::set_proximity($x - 50, $x + 50, $y - 50, $y + 50);
-}
-
-sub EVENT_ENTER {
-  if(plugin::check_hasitem($client, 18553)) { 
-		$client->Message(15,"As you attempt to get your bearings, a powerful looking Vah Shir turns towards you. 'I am High Armsman Trukhanah, your Guild Master. Read the note in your inventory and then hand it to me and we will begin your training in the ways of the Warrior.'");
-  }
-}
-
 sub EVENT_SAY { 
 	if($text=~/Hail/i){
 		quest::say("Well met. friend.  May I be of assistance?");

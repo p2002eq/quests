@@ -1,15 +1,3 @@
-sub EVENT_SPAWN {
-  $x = $npc->GetX();
-  $y = $npc->GetY();
-  quest::set_proximity($x - 50, $x + 50, $y - 50, $y + 50);
-}
-
-sub EVENT_ENTER {
-  if(plugin::check_hasitem($client, 18552)) { 
-		$client->Message(15,"You enter a room filled with the sound of soothing music. A noble looking Vah Shir turns to greet you. 'Hello. Welcome, friend. I am Elder Hymnist Hortitosh. Read the note in your inventory and then hand it to me to begin your training.'");
-  }
-}
-
 sub EVENT_SAY { 
 	if($text=~/hail/i){
 		quest::say("Hail. are you here to assist with something specific or just looking for something to do.");

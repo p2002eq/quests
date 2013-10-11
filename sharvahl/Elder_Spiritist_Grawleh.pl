@@ -1,15 +1,3 @@
-sub EVENT_SPAWN {
-  $x = $npc->GetX();
-  $y = $npc->GetY();
-  quest::set_proximity($x - 50, $x + 50, $y - 50, $y + 50);
-}
-
-sub EVENT_ENTER {
-  if(plugin::check_hasitem($client, 18551)) { 
-		$client->Message(15,"As you attempt to get your bearings, a powerful looking Vah Shir turns towards you. 'I am Elder Spiritist Grawleh, your Guild Master. Read the note in your inventory and then hand it to me and we will begin your training in the ways of the Shaman.'");
-  }
-}
-
 sub EVENT_SAY { 
 	if(($text=~/application/i) && ($qglobals{Shar_Vahl_Cit} == 1)){
 		quest::say("Luckily for you someone found it.");

@@ -1,15 +1,13 @@
 sub EVENT_SAY {
 	if ($text=~/hail/i) {
-		quest::emote("halts his chanting.");
-		quest::say("You dare to interrupt me? You had best have a good reason. I care not for small talk.");
+		quest::emote("halts his chanting. 'You dare to interrupt me? You had best have a good reason. I care not for small talk.'");
 	}
 	if ($text=~/new revenant/i) {
 		quest::say("Yes. You are. You shall do as I command. Take this. It is incomplete and must be ready for the emperor within the half season. You must find the [Four Missing Gems]. When you have them, then you will have to Quest for the [Grand Forge of Dalnir]. Within it's fire, all shall combine. Return the Sceptre to me with your Revenant Skullcap. Go."); 
 		quest::summonitem(12873); #Unfinished Sceptre
 	}
 	if ($text=~/forge of dalnir/i) {
-		quest::emote("scratches his chin.");
-		quest::say("I know little of it other than that it once belonged to the ancient Haggle Baron, Dalnir. From what I have read, its fires require no skill, but will melt any common forge hammer used. Dalnir was said to have called upon the ancients for a hammer which could tolerate the magickal flames.");
+		quest::emote("scratches his chin. 'I know little of it other than that it once belonged to the ancient Haggle Baron, Dalnir. From what I have read, its fires require no skill, but will melt any common forge hammer used. Dalnir was said to have called upon the ancients for a hammer which could tolerate the magickal flames.'");
 	}
 }
 

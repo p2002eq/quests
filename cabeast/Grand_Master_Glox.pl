@@ -1,18 +1,7 @@
-sub EVENT_SPAWN {
-  $x = $npc->GetX();
-  $y = $npc->GetY();
-  quest::set_proximity($x - 50, $x + 50, $y - 50, $y + 50);
-}
-
-sub EVENT_ENTER {
-  if(plugin::check_hasitem($client, 18204)) { 
-		$client->Message(15,"As you enter the Court of Pain, Grand Master Glox, sits in mediation. Without even looking up, he addresses you. 'The time has come for discipline. Read the note in your inventory and then hand it to me to begin your training.'");
-  }
-}
-
 sub EVENT_SAY {
 	if($text=~/hail/i){
 		quest::emote('shows no reaction to your greeting.');
+		quest::signal(106097,1);
 	}
 	if($text=~/trial of agility/i){
 		quest::say('I knew you were not the whiff others claimed you to be, are you sure you are [ready] to be tested in agility?');

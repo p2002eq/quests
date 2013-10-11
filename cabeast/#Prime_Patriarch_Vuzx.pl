@@ -1,18 +1,6 @@
-sub EVENT_SPAWN {
-  $x = $npc->GetX();
-  $y = $npc->GetY();
-  quest::set_proximity($x - 50, $x + 50, $y - 50, $y + 50);
-}
-
-sub EVENT_ENTER {
-  if(plugin::check_hasitem($client, 18848)) { 
-		$client->Message(15,"As your reptilian eyes adjust to the darkness of the room, an imposing Iksar turns towards you, addressing you with a sharp hiss. 'I am Prime Patriarch Vuzx. The time has come young one. You have chosen the path of the Beastlord. Open your inventory and read the note within. Once you are ready to begin your training, hand the note to me and we will continue.'");
-  }
-}
- 
 sub EVENT_SAY {
 	if($text =~ /hail/i) {
-		quest::say("Greetings. I only train those who follow the path of the Patriarchs of Cabilis and have yet to develop their [powers] over the beasts of the wild, or maybe you are trained and are here to [help aid in our cause]?");
+		quest::say("Greetings. I only train those who follow the path of the Patriarchs of Cabilis and have yet to develop their [powers] over the beasts of the wild.");
 	}
 	if($text =~ /powers/i) { #Armor of the Patriarch Quest
 		quest::say("Good. In order to develop your powers over the beasts of the wild, you must complete several [tests] which will prove your loyalty to our cause. ");
@@ -75,7 +63,7 @@ sub EVENT_ITEM {
 		quest::faction(193,10);
 	}
 	elsif (plugin::check_handin(\%itemcount, 18848 => 1)) { #A tattered note
-		quest::say("The Hierophants have sensed that your spirit is strong with obedience inspiring fear! You must learn to harness your [powers] over the scaled wolves! Wear this tunic so that the Legion of Cabilis will recognize you as a Scaled Spiritist."); #Proper text still needed
+		quest::say("The Hierophants have sensed that your spirit is strong with obedience inspiring fear! You must learn to harness your [powers] over the scaled wolves! Wear this tunic so that the Legion of Cabilis will recognize you as a Scaled Spiritist.");
 		quest::summonitem(13577); #Dusty Green Tunic
 		quest::ding();
 		quest::faction(282,10); #Scaled Mystics
