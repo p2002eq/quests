@@ -1,15 +1,3 @@
-sub EVENT_SPAWN {
-  $x = $npc->GetX();
-  $y = $npc->GetY();
-  quest::set_proximity($x - 50, $x + 50, $y - 50, $y + 50);
-}
-
-sub EVENT_ENTER {
-  if(plugin::check_hasitem($client, 18775)) { 
-		$client->Message(15,"Iony Gredlong's tiny voice echoes throughout the room. 'Welcome to the Abbey of Deep Musing $name. I am Iony Gredlong, your new Guild Master should you accept the ways of the Clerics of the Deep Muses. Read the note in your inventory and then hand it to me when you are ready to begin your training.'");
-  }
-}
-
 sub EVENT_SAY {
   if($text=~/hail/i) {
     quest::say("It is very nice to meet you $name. I am Iony Gredlong Priestess of the Underfoot. I coordinate all the training for new clerics here in the Deep Musing. If you are a [cleric] then I might just have some tests for you that will challenge your wisdom as well as your fighting abilities.");
@@ -66,7 +54,7 @@ sub EVENT_ITEM {
 		quest::summonitem(9107); #Walking Staff of the Shortnoble
 	}
 	elsif(plugin::check_handin(\%itemcount, 18775 => 1)) {
-		quest::say("Welcome to the Abbey of Deep Musing.  Here you can train and raise your abilities to the peak of perfection. Take this tunic and wear it with pride. Return to me when you have become more experienced in our art, I will be able to further instruct you on how to progress through your early ranks, as well as in some of the various trades you will have available to you. In addition, if you'd like to make your own set of equipment, please talk to Maldeny Gredlong. You can find her by the shops down by the water.");
+		quest::say("Welcome to the Abbey of Deep Musing.  Here you can train and raise your abilities to the peak of perfection. Take this tunic and wear it with pride.");
 		quest::summonitem(13517);  #worn felt tunic
 		quest::ding();
 		quest::faction(76,10); #Deep Muses
