@@ -4,15 +4,6 @@
 
 
 sub EVENT_SAY {
-  if($text=~/hail/i) {
-    if(quest::istaskactivityactive(13,2)) {
-      quest::say("Thanks for contacting me, $name. Your information on this matter has been most useful.");
-      $client->Message(7,"The ideal of burial grounds nearby is one that can not be easily overlooked. That's exactly why you were sent to check these areas out. Sadly none of them turned out to be the rumored burial grounds, but there's plenty more land to cover, so you maybe called upon again. You'll be recieving some payment, mostly for your time investment, but partially for the danger involved. Good job.");
-    }
-    else {
-      quest::say("I'm sorry, I have neither the time nor the patience to chat right now.");
-    }
-  }
   if($text=~/pool/i) {
     quest::say("Oh Tatlan and Wicas sent you did they? I'll tell you what I told them, nothing is free. If you want to know about the pools then I need something [from you] first.");
   }
