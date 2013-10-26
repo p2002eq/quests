@@ -88,7 +88,7 @@ function items.return_items(npc, client, trade, text)
 		if(inst.valid) then
 			client:PushItemOnCursor(inst);
 			if(text) then
-				npc:Say(string.format("I have no need for this %s, you can have it back.", client:GetCleanName()));
+				npc:Say(string.format("I have no need for this item %s, you can have it back.", client:GetCleanName()));
 			end
 			returned = true;
 		end
