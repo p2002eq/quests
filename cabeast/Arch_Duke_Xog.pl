@@ -59,7 +59,7 @@ sub EVENT_ITEM {
 		quest::exp(10000);
 	}
 	else {
-		plugin::try_tome_handins(\%itemcount, $class, 'Shadowknight');
+		
 	}
 	plugin::return_items(\%itemcount);
 }

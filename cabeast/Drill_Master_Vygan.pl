@@ -53,6 +53,6 @@ sub EVENT_ITEM {
 		quest::givecash(10,0,1,0);
 		quest::summonitem(quest::ChooseRandom(18213,18211,18210));
 	}
-	plugin::try_tome_handins(\%itemcount, $class, 'Warrior');
+	
 	plugin::return_items(\%itemcount);
 }

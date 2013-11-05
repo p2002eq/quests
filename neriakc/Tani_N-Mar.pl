@@ -33,7 +33,7 @@ sub EVENT_ITEM {
     quest::summonitem(5066);
   }
 
-   plugin::try_tome_handins(\%itemcount, $class, 'Rogue');
+   
    plugin::return_items(\%itemcount);
  }
 

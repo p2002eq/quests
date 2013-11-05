@@ -5,7 +5,7 @@ quest::say("Hail. $name!  My name is Roesager Thusten. Paladin of Life.  I am a 
 
 sub EVENT_ITEM {
   #do all other handins first with plugin, then let it do disciplines
-  plugin::try_tome_handins(\%itemcount, $class, 'Paladin');
+  
   plugin::return_items(\%itemcount);
 }
 #END of FILE Zone:qeynos2  ID:2049 -- Roesager_Thusten 

@@ -17,7 +17,7 @@ quest::ChooseRandom(5238,5239,5242,5236,5233,5231,5240,5241,5234,5232,5235,5237)
     quest::faction("275","10"); # 275 : Faction Rogue's of the White Rose
   }
   #do all other handins first with plugin, then let it do disciplines
-  plugin::try_tome_handins(\%itemcount, $class, 'Rogue');
+  
   plugin::return_items(\%itemcount);
 }
 

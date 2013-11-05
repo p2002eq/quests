@@ -19,7 +19,7 @@ sub EVENT_ITEM {
     	quest::summonitem(quest::ChooseRandom(10028, 10037, 22503, 15981));#Random gem: Peridot, Diamond, Blue Diamond, Raw Diamond
     	quest::exp(698775);
   }
-		plugin::try_tome_handins(\%itemcount, $class, 'Beastlord');
+		
 		plugin::return_items(\%itemcount);
 	}
 #END of FILE Zone:poknowledge  ID:202235 -- Savage_Lord_Dwev 

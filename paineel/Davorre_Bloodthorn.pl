@@ -48,7 +48,7 @@ sub EVENT_ITEM {
     quest::faction(56,-5);  #Craftkeepers
     quest::faction(60,-5);  #Crimson Hands
   }
-  plugin::try_tome_handins(\%itemcount, $class, 'Shadowknight'); #Disciplines
+   #Disciplines
   plugin::return_items(\%itemcount);
 }
 #EndFile: Davorre_Bloodthorn.pl

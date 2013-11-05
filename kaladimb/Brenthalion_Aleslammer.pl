@@ -53,7 +53,7 @@ sub EVENT_ITEM {
 		quest::say("This text needs to be collected from live.");
 		quest::summonitem(26077);
 	}
-	plugin::try_tome_handins(\%itemcount, $class, 'Paladin');
+	
 	plugin::return_items(\%itemcount);
 
 }

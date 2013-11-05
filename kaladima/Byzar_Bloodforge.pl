@@ -51,6 +51,6 @@ sub EVENT_ITEM {
     quest::ding;
     quest::summonitem(13314);
   }
-  plugin::try_tome_handins(\%itemcount, $class, 'Warrior');
+  
   plugin::return_items(\%itemcount);
 }

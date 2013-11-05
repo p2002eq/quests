@@ -62,7 +62,7 @@ sub EVENT_ITEM {
   quest::faction(193,10);
  }
   #do all other handins first with plugin, then let it do disciplines
-  plugin::try_tome_handins(\%itemcount, $class, 'Monk');
+  
   plugin::return_items(\%itemcount);
 }
    

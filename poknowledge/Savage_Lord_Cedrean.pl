@@ -20,7 +20,7 @@ sub EVENT_ITEM {
     	quest::exp(698775);
   }
 
-		plugin::try_tome_handins(\%itemcount, $class, 'Beastlord');
+		
 		plugin::return_items(\%itemcount);
 	}
 #END of FILE Zone:poknowledge  ID:202235 -- Savage_Lord_Cedrean 

@@ -5,7 +5,7 @@ quest::say("Hi there. $name! I am Priestess Farinthorn. loyal paladin of House F
 
 sub EVENT_ITEM {
   #do all other handins first with plugin, then let it do disciplines
-  plugin::try_tome_handins(\%itemcount, $class, 'Paladin');
+  
   plugin::return_items(\%itemcount);
 }
 #END of FILE Zone:shadowhaven  ID:150191 -- Priestess_Farinthorn 

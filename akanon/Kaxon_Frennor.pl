@@ -27,7 +27,7 @@ sub EVENT_ITEM {
 		quest::exp(100);
 	}
 	#Do all other handins first With plugin, then let it Do disciplines
-	plugin::try_tome_handins(\%itemcount, $class, 'Rogue');
+	
 	plugin::return_items(\%itemcount);
 }
 

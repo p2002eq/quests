@@ -39,7 +39,7 @@ the honor that you deserve.");
   quest::faction(138,-10); # -Hand Legionnaries
   quest::exp(500);
  }
-  plugin::try_tome_handins(\%itemcount, $class, 'Warrior');
+  
   plugin::return_items(\%itemcount);
 }
 

@@ -60,7 +60,7 @@ sub EVENT_ITEM {
     quest::givecash(0,2,0,0);
   }
   #do all other handins first with plugin, then let it do disciplines
-  plugin::try_tome_handins(\%itemcount, $class, 'Shadowknight');
+  
   plugin::return_items(\%itemcount);
 }
 

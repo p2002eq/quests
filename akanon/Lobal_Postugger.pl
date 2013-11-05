@@ -20,7 +20,7 @@ sub EVENT_ITEM {
   }
   #Moved for preservation, should still work -Kilelen
   #do all other handins first with plugin, then let it do disciplines
-  plugin::try_tome_handins(\%itemcount, $class, 'Rogue');
+  
   plugin::return_items(\%itemcount);
 }
 #Done

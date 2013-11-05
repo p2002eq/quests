@@ -26,7 +26,7 @@ quest::say("The new threat I refer to is the community of goblins which was foun
 
 sub EVENT_ITEM {
   #do all other handins first with plugin, then let it do disciplines
-  plugin::try_tome_handins(\%itemcount, $class, 'Warrior');
+  
   plugin::return_items(\%itemcount);
 }
 #END of FILE Zone:rivervale  ID:19060 -- Marshal_Ghobber 

@@ -56,7 +56,7 @@ sub EVENT_ITEM {
     quest::summonitem(13009,6);
   }
   #do all other handins first with plugin, then let it do disciplines
-  plugin::try_tome_handins(\%itemcount, $class, 'Warrior');
+  
   plugin::return_items(\%itemcount);
 }
 

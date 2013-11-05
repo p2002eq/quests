@@ -50,6 +50,6 @@ sub EVENT_ITEM {
 		quest::faction(260,-10); #Primordial Malice		
 	}
   	#do all other handins first with plugin, then let it do disciplines
-  	plugin::try_tome_handins(\%itemcount, $class, 'Shadowknight');
+  	
   	plugin::return_items(\%itemcount);
 }#END of FILE Zone:neriakc  ID:42043 -- Loveal_S`Nez 

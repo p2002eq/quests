@@ -20,7 +20,7 @@ quest::say("Very good. This meat will supply our warriors with much strength. We
    quest::givecash(0,7,0,23);
 }
   #do all other handins first with plugin, then let it do disciplines
-  plugin::try_tome_handins(\%itemcount, $class, 'Warrior');
+  
   plugin::return_items(\%itemcount);
 }
 #END of FILE Zone:gfaydark  ID:54102 -- Gallin_Woodwind 

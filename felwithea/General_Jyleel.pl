@@ -45,7 +45,7 @@ sub EVENT_ITEM {
 	quest::summonitem(5379); # Falchion of the Koada'Vie 
 }
   #do all other handins first with plugin, then let it do disciplines
-  plugin::try_tome_handins(\%itemcount, $class, 'Paladin');
+  
   plugin::return_items(\%itemcount);
 }
 

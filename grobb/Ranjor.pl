@@ -21,7 +21,7 @@ sub EVENT_ITEM {
 		quest::summonitem(quest::ChooseRandom(94201, 6022, 6025, 7014, 5026));
 	}
 	#do all other handins first with plugin, then let it do disciplines
-	plugin::try_tome_handins(\%itemcount, $class, 'Warrior');
+	
 	plugin::return_items(\%itemcount);
 }
 

@@ -64,7 +64,7 @@ sub EVENT_ITEM {
     quest::faction(138,-10); # -Hand Legionnaries
     quest::exp(1000);
   }
-  plugin::try_tome_handins(\%itemcount, $class, 'Paladin');
+  
   plugin::return_items(\%itemcount);
 }
 

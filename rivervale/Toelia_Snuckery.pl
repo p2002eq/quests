@@ -62,7 +62,7 @@ sub EVENT_ITEM {
  quest::exp(10);
  quest::givecash(12,1,0,0);
 }
-plugin::try_tome_handins(\%itemcount, $class, 'Rogue');
+
   plugin::return_items(\%itemcount);
 }
 

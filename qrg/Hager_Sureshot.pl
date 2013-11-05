@@ -41,7 +41,7 @@ sub EVENT_ITEM {
     quest::faction(135,10); # Guards of Qeynos
   }
 	#do all other handins first with plugin, then let it do discipline
-	plugin::try_tome_handins(\%itemcount, $class, 'Ranger');
+	
 	plugin::return_items(\%itemcount);
 }
 

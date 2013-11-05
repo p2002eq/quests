@@ -30,7 +30,7 @@ sub EVENT_ITEM {
   }
   else {
     #Do all other handins first With plugin, then let it Do disciplines
-    plugin::try_tome_handins(\%itemcount, $class, 'Beastlord');
+    
   }
   plugin::return_items(\%itemcount);
 }

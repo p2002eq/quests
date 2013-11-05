@@ -38,6 +38,6 @@ sub EVENT_ITEM{
 			quest::summonitem(19609);#Black Femur Shield
 		}
 	}
-  	plugin::try_tome_handins(\%itemcount, $class, 'Warrior');
+  	
     plugin::return_items(\%itemcount);
 }

@@ -53,7 +53,7 @@ quest::say("In order to craft some more daggers I am in need of 1 Preserved Orc 
 
 sub EVENT_ITEM {
   #do all other handins first with plugin, then let it do disciplines
-  plugin::try_tome_handins(\%itemcount, $class, 'Rogue');
+  
   plugin::return_items(\%itemcount);
 }
 #END of FILE Zone:gfaydark  ID:54069 -- Tilania_Shadowwalker 

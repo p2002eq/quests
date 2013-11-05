@@ -109,7 +109,7 @@ sub EVENT_ITEM {
       quest::summonitem(9940); #Jagged Blade of the Steel Warrior
     }
   }
-  plugin::try_tome_handins(\%itemcount, $class, 'Warrior');
+  
   plugin::return_items(\%itemcount);
 }
 # Quest edited by mystic414

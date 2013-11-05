@@ -111,7 +111,7 @@ sub EVENT_ITEM
         quest::faction("300","10");
     }
     #do all other handins first with plugin, then let it do disciplines
-    plugin::try_tome_handins(\%itemcount, $class, 'Monk');
+    
     plugin::return_items(\%itemcount);
 }
 #END of FILE Zone:freportw  ID:9086 -- Puab_Closk

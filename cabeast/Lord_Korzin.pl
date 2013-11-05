@@ -25,7 +25,7 @@ sub EVENT_ITEM {
   quest::faction(62,20);
   quest::faction(193,10);
  }
- plugin::try_tome_handins(\%itemcount, $class, 'Shadowknight');
+ 
  plugin::return_items(\%itemcount);
 }
 

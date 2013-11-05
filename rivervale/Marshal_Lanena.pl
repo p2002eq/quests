@@ -61,7 +61,7 @@ if(plugin::check_handin(\%itemcount, 13870 => 1)){
  
  }
   #do all other handins first with plugin, then let it do disciplines
-  plugin::try_tome_handins(\%itemcount, $class, 'Warrior');
+  
   plugin::return_items(\%itemcount);
 }
   

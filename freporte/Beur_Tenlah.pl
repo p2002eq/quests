@@ -67,7 +67,7 @@ sub EVENT_ITEM
  # Signal to Harkin Duskfoot NPCID-10107
  quest::signal(10107,1);
  }
-  plugin::try_tome_handins(\%itemcount, $class, 'Rogue');
+  
   plugin::return_items(\%itemcount);
 }
 #END of FILE Zone:freporte  ID:10106 -- Beur_Tenlah

@@ -31,7 +31,7 @@ sub EVENT_ITEM {
 		quest::ding();
 		quest::exp(10000);
 	}
-	plugin::try_tome_handins(\%itemcount, $class, 'Monk');
+	
 	plugin::return_items(\%itemcount);
 }
 

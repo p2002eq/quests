@@ -37,7 +37,7 @@ sub EVENT_ITEM {
 		quest::exp(10);
 		quest::summonitem("19624");
 	}
-	plugin::try_tome_handins(\%itemcount, $class, 'Ranger');
+	
 	plugin::return_items(\%itemcount);
 }
 

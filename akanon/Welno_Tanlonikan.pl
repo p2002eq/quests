@@ -61,7 +61,7 @@ sub EVENT_ITEM {
     quest::summonitem(9110); # Gemmed Shadowwalkers Dagger
   }
     #do all other handins first with plugin, then let it do disciplines
-    plugin::try_tome_handins(\%itemcount, $class, 'Rogue');
+    
     plugin::return_items(\%itemcount);
 }
 

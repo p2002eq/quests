@@ -75,7 +75,7 @@ quest::summonitem(quest::ChooseRandom(7012,7013,7014,7016,4204,4201,4202,4203,42
       quest::ding();
    }
    #do all other handins first with plugin, then let it do disciplines
-   plugin::try_tome_handins(\%itemcount, $class, 'Paladin');
+   
    plugin::return_items(\%itemcount);
 }
 #updated by TheBlaz

@@ -45,7 +45,7 @@ sub EVENT_ITEM {
 		quest::exp(500000);
 		quest::ding();
 	}
-	plugin::try_tome_handins(\%itemcount, $class, 'Rogue');
+	
 	plugin::return_items(\%itemcount);
 }
 

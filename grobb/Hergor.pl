@@ -7,7 +7,7 @@ quest::say("Yooz makes da good choice.  Me nevers get enuff ta eats.  Eats more 
 }
 
 sub EVENT_ITEM {
-plugin::try_tome_handins(\%itemcount, $class, 'Warrior');
+
 plugin::return_items(\%itemcount);
  }
 #END of FILE Zone:grobb  ID:2548 -- Hergor 

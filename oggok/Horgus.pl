@@ -16,7 +16,7 @@ sub EVENT_ITEM {
     quest::summonitem(quest::ChooseRandom(2136,2135,2132,2128,2130));
   }
   #do all other handins first with plugin, then let it do disciplines
-  plugin::try_tome_handins(\%itemcount, $class, 'Warrior');
+  
   plugin::return_items(\%itemcount);
 }
 #END of FILE Zone:oggok  ID:49042 -- Horgus

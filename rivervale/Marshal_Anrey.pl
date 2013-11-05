@@ -27,7 +27,7 @@ sub EVENT_ITEM {
     quest::givecash(7,3,2,1); #Copper x 7, Silver x 3, Gold x 2, Platinum x 1
   }
   #do all other handins first with plugin, then let it do disciplines
-  plugin::try_tome_handins(\%itemcount, $class, 'Warrior');
+  
   plugin::return_items(\%itemcount);
 }
 #END of FILE Zone:rivervale  ID:19059 -- Marshal_Anrey
