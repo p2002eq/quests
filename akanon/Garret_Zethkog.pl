@@ -29,9 +29,7 @@ sub EVENT_ITEM {
 		quest::faction(76,-15); #Deepmuses
     quest::exp(100);
 	}
-    #do all other handins first with plugin, then let it do disciplines
-    
-    plugin::return_items(\%itemcount);
+     plugin::return_items(\%itemcount);
 }
 
 #END of FILE Zone:akanon  ID:55186 -- Garret_Zethkog

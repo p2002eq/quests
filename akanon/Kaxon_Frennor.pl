@@ -26,8 +26,6 @@ sub EVENT_ITEM {
 		quest::faction(76,-15); #Deepmuses
 		quest::exp(100);
 	}
-	#Do all other handins first With plugin, then let it Do disciplines
-	
 	plugin::return_items(\%itemcount);
 }
 

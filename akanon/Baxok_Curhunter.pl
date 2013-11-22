@@ -30,16 +30,13 @@ sub EVENT_ITEM {
     quest::faction(39,-15); #-Clan Grikbar
 		quest::exp(100);
 	}
-  elsif(plugin::check_handin(\%itemcount, 13344 => 1)) {
+  if(plugin::check_handin(\%itemcount, 13344 => 1)) {
     quest::summonitem(quest::ChooseRandom(9002,1001,1002,1003,1004,1005,1006,1007,1008,1009,1010,1010,1011)); #cloth armor or round shield
     quest::faction(115,10); #+Gem Cutters
     quest::faction(210,10); #+Merchants of Ak'anon
     quest::faction(176,10); #+King Akanon
     quest::faction(71,-10); #-Dark Reflection
     quest::faction(39,-10); #-Clan Grikbar
-  }
-  else {
-    plugin::try_tome_handins(\%itemcount, $class, 'Warrior');
   }
   plugin::return_items(\%itemcount);
 }

@@ -1,5 +1,5 @@
 #Lobal_Postugger.pl
-#Rogue Tomes/Rogue Master Sketch
+#Rogue Master Sketch
 
 sub EVENT_SAY {
   if($text=~/hail/i) {
@@ -18,9 +18,6 @@ sub EVENT_ITEM {
     quest::emote("laughs. 'Here, take this then!'"); #text made up
     quest::summonitem(24096); #Dip Resist Sketch
   }
-  #Moved for preservation, should still work -Kilelen
-  #do all other handins first with plugin, then let it do disciplines
-  
   plugin::return_items(\%itemcount);
 }
 #Done

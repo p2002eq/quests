@@ -68,8 +68,6 @@ sub EVENT_ITEM {
     quest::summonitem(9104);
     quest::exp(500);    
   }
-    #do all other handins first with plugin, then let it do disciplines
-    
     plugin::return_items(\%itemcount);
 }
 

@@ -63,8 +63,6 @@ sub EVENT_ITEM {
     quest::summonitem(12379); # Watchman Boots
     quest::givecash(0,0,0,4);
   }
-  #do all other handins first with plugin, then let it do disciplines
-  plugin::try_tome_handins(\%itemcount, $class, 'Warrior');
   plugin::return_items(\%itemcount);
 }
 # Quest edited by mrsmystic

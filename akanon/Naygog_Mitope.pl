@@ -35,8 +35,6 @@ sub EVENT_ITEM {
     quest::faction(76,-15); #Deepmuses
     quest::exp(100);
 	}
-    #do all other handins first with plugin, then let it do disciplines
-    plugin::try_tome_handins(\%itemcount, $class, 'Warrior');
     plugin::return_items(\%itemcount);
 }
 #END of FILE Zone:akanon  ID:55157 -- Naygog_Mitope

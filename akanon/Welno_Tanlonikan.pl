@@ -60,9 +60,7 @@ sub EVENT_ITEM {
     quest::say("Here is that dagger I promised you $name!");
     quest::summonitem(9110); # Gemmed Shadowwalkers Dagger
   }
-    #do all other handins first with plugin, then let it do disciplines
-    
-    plugin::return_items(\%itemcount);
+   plugin::return_items(\%itemcount);
 }
 
 #END of FILE Zone:akanon  ID:55187 -- Lewis_Reldnok
