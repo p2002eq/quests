@@ -1,0 +1,26 @@
+function event_spawn(e)
+	eq.signal(129003,2);
+	eq.signal(129000,2);
+	eq.signal(129028,2);
+	eq.signal(129035,2);
+	eq.signal(129073,2);
+	eq.signal(129037,2);
+	eq.signal(129075,2);
+	eq.signal(129043,2);
+	eq.signal(129041,2);
+	eq.signal(129078,2);
+	eq.signal(129036,2);
+	eq.signal(129074,2);
+	eq.signal(129040,2);
+	eq.signal(129077,2);
+	eq.signal(129039,2);
+	eq.signal(129076,2);
+	eq.signal(129038,2);
+	eq.signal(129034,2);
+	eq.signal(129072,2);
+	eq.signal(129045,2);
+	eq.signal(129044,2);
+	eq.signal(129080,2);
+	eq.signal(129042,2);
+	eq.signal(129079,2);	
+end

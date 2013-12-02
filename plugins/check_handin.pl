@@ -43,7 +43,7 @@ sub return_items {
 				if ($client)
 				{
 					$client->SummonItem($k, $ItemHash{$r}[1], $ItemHash{$r}[2]);
-					quest::say("I have no need for this $name, you can have it back.");
+					quest::say("I have no need for this item $name, you can have it back.");
 					$items_returned = 1;
 				}
 				else
