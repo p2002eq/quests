@@ -37,8 +37,6 @@ sub EVENT_ITEM {
 		quest::faction(311,10); # 311 : Faction Steel Warriors
 		quest::faction(361,10); # 361 : Faction Wolves of the North
 	}
-    #do all other handins first with plugin, then let it do disciplines
-	
 	plugin::return_items(\%itemcount);
 }
 

@@ -6,8 +6,6 @@ sub EVENT_ITEM {
 		quest::faction(275,5); # Rogues of the White Rose
 		quest::exp(100);
 	} 
-	#do all other handins first with plugin, then let it do disciplines
-	
 	plugin::return_items(\%itemcount);
 }
 
