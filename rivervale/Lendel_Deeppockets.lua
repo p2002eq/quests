@@ -1,11 +1,11 @@
 function event_say(e)
-	elseif(e.message:findi("hail")) then
+	if(e.message:findi("hail")) then
 		e.self:Say("Its nice to meet you " .. e.other:GetName() .. ". Allow me to introduce myself. I am Lendel Deeppockets master Assassin of Rivervale. I am personally in charge of all [training] we have the new recruits go through before they are sent out on specific missions.");
 	elseif(e.message:findi("training")) then
 		e.self:Say("There are many steps that a young rouge must take on the road to stealth. The most important part of your training is learning how to use the tools around you such as the forge. From the looks of you I can tell you could use some more [enchanted armor] as well so I think this would be a good learning experience.");
 	elseif(e.message:findi("enchanted armor")) then
 		e.self:Say("I am pleased to hear that you are interested in making your own armor " .. e.other:GetName() .. ". I have some instructions for you so please listen closely. First, I will present you with your Dusty Mail Assembly kit when you are ready. After that, simply tell me what piece of Slickfinger Chainmail you [want] to craft and I will give you a pattern along with a recipe for  [Coifs], [Bracers], [Sleeves], [Boots], [Legplates], [Gauntlets] and [Tunics]. The recipe I will give you for specific items will need to me combined in the assembly kit to create the magical material necessary. Once you have this material and pattern that I gave you when you told me what item you wanted to craft, put both in the nearest forge to create the armor piece you asked for. Here is your Dusty Mail Assembly Kit.");
-		quest::summonitem(17247); -- Dusty Mail Assembly Kit
+		e.other:SummonItem(17247); -- Dusty Mail Assembly Kit
 	elseif(e.message:findi("coifs")) then
 		e.self:Say("Protecting the ole noggin is probably the smartest move you will make young " .. e.other:GetName() .. ". Here is your pattern, once you have combined 2 Bricks of Crude Iron Ore, 2 Ruined Thorn Drakeling Scales and 1 Carrot in your kit place it in a forge along with this pattern to create your Slickfinger Chainmail Coif.");
 		e.other:SummonItem(22671); -- Enchanted Coif Pattern

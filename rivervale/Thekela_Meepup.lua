@@ -1,5 +1,5 @@
 function event_say(e)
-	elseif(e.message:findi("hail")) then
+	if(e.message:findi("hail")) then
 		e.self:Say("It is a pleasure to meet you " .. e.other:GetName() .. ". I am Thekela Meepup. one of the highest ranking Clerics in all of Rivervale. I pride myself on being the mentor for all of the furryfooted that are called upon by Bristlebane to give life. If you are a [Cleric] I might have some training for you to complete if you so wish.");
 	elseif(e.message:findi("cleric")) then
 		e.self:Say("" .. e.other:GetName() .. " the Templar. Well I suppose that does have quite a nice ring to it don't you say? If you stick with your training perhaps this could be what you are referred to one day. Before that day though. you have a lot to learn and a lot of training ahead of you! Do you want to [begin your training] at this time?");
@@ -34,7 +34,7 @@ function event_say(e)
 	elseif(e.message:findi("research annal")) then
 		e.self:Say("The research annals that I need you to retrieve are very important ones to me. King Tearis Thex of Felwithe presented them to me for study. He entrusted me with them because he felt I could benefit from the knowledge that they contained. Will you [seek out my annals ]?");
 	elseif(e.message:findi("seek out my annal")) then
-		e.self:Say("Please go to the maze of Beholder. otherwise known as the Gorge of King Xorbb and slay the Muddite Recordkeeper. After you have received the annal from him I will also need you to collect 3 Pristine Stingers. Before these annals were stolen I remember him saying I needed those 3 stingers for a special spell so please gather them for me. I hope to see you soon " .. e.other:GetName() .. "."); }
+		e.self:Say("Please go to the maze of Beholder. otherwise known as the Gorge of King Xorbb and slay the Muddite Recordkeeper. After you have received the annal from him I will also need you to collect 3 Pristine Stingers. Before these annals were stolen I remember him saying I needed those 3 stingers for a special spell so please gather them for me. I hope to see you soon " .. e.other:GetName() .. ".");
 	end
 end
 
