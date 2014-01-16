@@ -3,13 +3,13 @@ function event_spawn(e)
 end
 
 function event_timer(e)
-	if(timer == jillin) then
+	if(timer == "jillin") then
 		e.self:Say("[Jillin]? Jillin? Where did he go? Hrumph!");
 	end
 end
 
 function event_say(e)
-	if(e.message:findi("Hail")) then
+	if(e.message:findi("hail")) then
 		e.self:Say(string.format("Hello. %s.  Welcome to the Fool's Gold!  Cards are upstairs. drinks are down here.  Have fun!", e.other:GetCleanName())); 
 	elseif(e.message:findi("jillin")) then
 		e.self:Say("Jillin is my courier. He was supposed to take this pot of [stew] over to Deputy Lowmot in Guardian Stronghold. It is just about ready and Mayor Gubbin hates cold stew!"); 
