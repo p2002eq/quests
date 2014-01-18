@@ -6,7 +6,7 @@
 sub EVENT_DEATH_COMPLETE{
  my $random_result = int(rand(100));
  #these are not PEQ IDs:
- my $a=70060; #npc - an_aqua_goblin_mariner
+ my $a=70020; #npc - an_aqua_goblin_mariner
  my $b=70062; #npc - #an_undertow_skeleton
  my $c=70061; #npc - #aqua_goblin_shaman
  my $d=70063; #npc - #a_cauldron_rat

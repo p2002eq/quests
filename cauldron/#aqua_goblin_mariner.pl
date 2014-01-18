@@ -4,7 +4,7 @@
 
 sub EVENT_DEATH_COMPLETE{
  #this is not a PEQ ID:
- my $a=70060; #npc - an_aqua_goblin_mariner starts the loop
+ my $a=70020; #npc - an_aqua_goblin_mariner starts the loop
  if ($mdied==1){ #mariner died once
   #quest::say("I already died once!");
  }else{

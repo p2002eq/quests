@@ -6,8 +6,8 @@ sub EVENT_DEATH_COMPLETE{
  my $random_result = int(rand(100));
  #these are not PEQ ids:
  my $a=70059; #Bilge
- my $b=70060; #npc - an_aqua_goblin_mariner
- if($random_result<90){
+ my $b=70020; #npc - an_aqua_goblin_mariner
+ if($random_result<98){
   quest::spawn2($b,6,0,-974.5,436.4,-343.8,29);
   #quest::say("spawn mariner");
   }else{
