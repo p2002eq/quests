@@ -16,6 +16,7 @@ function event_trade(e)
 	local item_lib = require("items");
 	if(item_lib.check_turn_in(e.trade, {item1 = 10300})) then -- Lightstone
 		e.self:Say("A lightstone ? Thank you very much. Here is a copy of 'Runes and Research' for you.");
+		e.other:Ding();
 		e.other:SummonItem(eq.ChooseRandom(18175, 18176)); -- Runes and Research Volume I or II
 		e.other:Faction(87,10,0); -- Dreadguard Inner
 		e.other:Faction(88,10,0); -- Dreadguard Outer
@@ -24,6 +25,7 @@ function event_trade(e)
 	end
 	if(item_lib.check_turn_in(e.trade, {item1 = 10400})) then -- Greater Lightstone
 		e.self:Say("A greater lightstone? Thank you very much. Here is a 'Concordance of Research' for you.");
+		e.other:Ding();
 		e.other:SummonItem(17504); -- Concordance of Research
 		e.other:Faction(87,10,0); -- Dreadguard Inner
 		e.other:Faction(88,10,0); -- Dreadguard Outer

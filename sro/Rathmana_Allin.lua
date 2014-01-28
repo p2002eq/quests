@@ -20,6 +20,7 @@ function event_trade(e)
 	-- Rathmana's Scroll Offer
 	if(item_lib.check_turn_in(e.trade, {gold = 30})) then
 		e.self:Say("Good luck, my friend. May Solusek Ro guide your hand.");
+		e.other:Ding();
 		e.other:Faction(320,1,0);  -- Temple of Solusek Ro
 		e.other:Faction(291,-1,0); -- Shadowed Men
 		e.other:AddEXP(100);

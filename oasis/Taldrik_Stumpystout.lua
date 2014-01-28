@@ -17,10 +17,12 @@ function event_trade(e)
 	local item_lib = require("items");
 	if(item_lib.check_turn_in(e.trade, {item1 = 13943, item2 = 13036, item3 = 13035})) then
 		e.self:Say("Ah ha! So ye are Bronlor's chosen aye? Well den these fine brews can only mean one thing! Yep its dat youre a drinker like meh! Arg, if I only had me recipe.");
+		e.other:Ding();
 		e.other:AddEXP(100);
 	end
 	if(item_lib.check_turn_in(e.trade, {item1 = 2440, item2 = 13474, item3 = 1430})) then
 		e.self:Say("Ye are a true Priest of Brell Serillis! And ye make me both proud and happy to have met ye so that I could enjoy this sweet drink once again! Please take this Initiate Symbol of Brell Serillis which will I have crafted to enable you to turn water into this blessed ale for you have truly earned it!");
+		e.other:Ding();
 		e.other:SummonItem(1431);
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
