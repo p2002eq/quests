@@ -2,7 +2,7 @@
 
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Hail e.other:GetCleanName()! I am Garret Zethkog, first Shadowknight of the Dark Reflection. Long ago I made the journey far to the west to the human city of Qeynos. In the catacombs of the Bloodsabres, human disciples of the Plague Lord, Bertoxxulous. I studied the ways of the Shadowknight. I have returned to Ak'Anon with this knowledge and now tutor young gnomes that have [heard the calling] of the Dark Reflection in the ways of a Dark Knight of Bertoxxulous.");
+		e.self:Say("Hail " .. e.other:GetName() .. "! I am Garret Zethkog, first Shadowknight of the Dark Reflection. Long ago I made the journey far to the west to the human city of Qeynos. In the catacombs of the Bloodsabres, human disciples of the Plague Lord, Bertoxxulous. I studied the ways of the Shadowknight. I have returned to Ak'Anon with this knowledge and now tutor young gnomes that have [heard the calling] of the Dark Reflection in the ways of a Dark Knight of Bertoxxulous.");
 	elseif(e.message:findi("heard the calling")) then
 		e.self:Say("Bertoxxulous has gifted his faithful with the sight of the Dark Reflection, the ability to recognize the power of disease and decay and its importance as a catalyst of change and progress. We Shadowknights of the Dark Reflection are the champions of the Plague Bringer. It is our duty to embrace our gifts and use them to act as the agents of Bertoxxulous, doing his bidding unquestioningly. There are many however who oppose the Plague Lord and his servants. They do not understand the importance of our existence and we must [defend ourselves] against these foes lest they would have us destroyed.");
 	elseif(e.message:findi("defend ourselves")) then
@@ -20,7 +20,7 @@ function event_trade(e)
 		e.other:SummonItem(11078);
 		e.other:Ding();
 	elseif (item_lib.check_turn_in(e.trade, {item1 = 18434})) then -- Gnome Shadowknight Note
-		e.self:Say("Welcome to the Dark Reflection, e.other:GetCleanName() ! Take this tunic as a gift for your desire to serve the will of Bertoxxulous, The Plague Lord. Beware of the followers of Brell Serilis, they would see us members of the Dark Reflection exiled from Ak'Anon.");
+		e.self:Say("Welcome to the Dark Reflection, " .. e.other:GetName() .. " ! Take this tunic as a gift for your desire to serve the will of Bertoxxulous, The Plague Lord. Beware of the followers of Brell Serilis, they would see us members of the Dark Reflection exiled from Ak'Anon.");
 		e.other:SummonItem(13518); -- Tin Patched Tunic*
 		e.other:Ding();
 		e.other:Faction(71,10,0); -- Dark Reflection

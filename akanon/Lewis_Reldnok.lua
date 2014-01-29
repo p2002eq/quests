@@ -2,17 +2,17 @@
 
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Greetings e.other:GetCleanName()! I am Lewis Reldnok. first Paladin of the Deep Muses. When I was just a young lad I journeyed to Kaladim. the home of our cousins the Dwarves. At the Temple of the Duke of Below I studied the ways of a Paladin of our creator Brell Serilis. I have returned to Ak'Anon to train interested young gnomes the ways I have mastered so that we may defend Ak'Anon and Brells disciples everywhere from the threats that would see us destroyed. If you are a Paladin of the Deep Muses I have some [armor quests] for you to complete.");
+		e.self:Say("Greetings " .. e.other:GetName() .. "! I am Lewis Reldnok. first Paladin of the Deep Muses. When I was just a young lad I journeyed to Kaladim. the home of our cousins the Dwarves. At the Temple of the Duke of Below I studied the ways of a Paladin of our creator Brell Serilis. I have returned to Ak'Anon to train interested young gnomes the ways I have mastered so that we may defend Ak'Anon and Brells disciples everywhere from the threats that would see us destroyed. If you are a Paladin of the Deep Muses I have some [armor quests] for you to complete.");
 	elseif(e.message:findi("armor quests")) then
 		e.self:Say("I have armor quests that I present to young gnomish paladins when they are ready to venture out into the Mountains of Steamfont and begin their training. Are you a gnome that is [ready for training]?");
 	elseif(e.message:findi("ready for training")) then
-		e.self:Say("Fantastic! Let me first begin by telling you how you will create your armor young e.other:GetCleanName(). I will present you with a Tinkerers Mail Assembly Kit that you will use to collect all different kinds of items from Ak'anon and from the Steamfont Mountaints. You will use specific [armor recipes] in this kit to create materials that you will use along with the molds I provide you with in a forge to create your armor!");
+		e.self:Say("Fantastic! Let me first begin by telling you how you will create your armor young " .. e.other:GetName() .. ". I will present you with a Tinkerers Mail Assembly Kit that you will use to collect all different kinds of items from Ak'anon and from the Steamfont Mountaints. You will use specific [armor recipes] in this kit to create materials that you will use along with the molds I provide you with in a forge to create your armor!");
 		e.other:SummonItem(17252);
 		e.other:Ding();
 	elseif(e.message:findi("armor recipes")) then
 		e.self:Say("I have all the armor recipes and molds that you will need to get started all you must do is simply tell me what armor piece you [want to craft]. I can provide you with the recipes and molds for Deep Muses [Helms]. [Bracers]. [Armguards]. [Boots]. [Greaves]. [Gauntlets] and [Breastplates]. I must recommend that you attempt to gather the items for your breastplate last because the components required for it are the most difficult to collect.");
 	elseif(e.message:findi("helm")) then
-		e.self:Say("That's a great idea young e.other:GetCleanName(). Having good helm on the ol noggin will protect you from many hamrful attacks. To create your helm material you will need to combine 2 Bricks of Crude Bronze. 1 Ruined Cat Pelt. 1 Rat Tooth and 1 Gnomish Spirits in your assembly kit. Once you have created the proper material take it to a forge along with this mold to fashion your very own Deep Muses Helm.");
+		e.self:Say("That's a great idea young " .. e.other:GetName() .. ". Having good helm on the ol noggin will protect you from many hamrful attacks. To create your helm material you will need to combine 2 Bricks of Crude Bronze. 1 Ruined Cat Pelt. 1 Rat Tooth and 1 Gnomish Spirits in your assembly kit. Once you have created the proper material take it to a forge along with this mold to fashion your very own Deep Muses Helm.");
 		e.other:SummonItem(22610);
 		e.other:Ding();
 	elseif(e.message:findi("breastplate")) then
@@ -20,7 +20,7 @@ function event_say(e)
 		e.other:SummonItem(22616);
 		e.other:Ding();
 	elseif(e.message:findi("boots")) then
-		e.self:Say("I wouldn't recommend going out in the Mountains without some Boots on e.other:GetCleanName(). Who knows what kobold surprise you might find out there! To create your boot material you will need to combine 2 Bricks of Crude Bronze. 2 Spiderling Silks. 2 Flasks of Water and 1 Iron Oxide in your assembly kit. Once you have created the proper material take it to a forge along with this mold to fashion your very own Deep Muses Boots.");
+		e.self:Say("I wouldn't recommend going out in the Mountains without some Boots on " .. e.other:GetName() .. ". Who knows what kobold surprise you might find out there! To create your boot material you will need to combine 2 Bricks of Crude Bronze. 2 Spiderling Silks. 2 Flasks of Water and 1 Iron Oxide in your assembly kit. Once you have created the proper material take it to a forge along with this mold to fashion your very own Deep Muses Boots.");
 		e.other:SummonItem(22612);
 		e.other:Ding();
 	elseif(e.message:findi("greaves")) then
@@ -51,7 +51,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	if(item_lib.check_turn_in(e.trade, {item1 = 18433})) then -- Gnome Paladin Note
-		e.self:Say("Welcome to the Abbey of Deep Musing, e.other:GetCleanName()! Here is a tunic that you may wear to announce the beginning of your training as a Paladin of Brell Serilis! Be warned that the only dangers do not lie without Ak'Anon. There is an evil society that lurks in the deepest recesses and shadows of our magnificent city.");
+		e.self:Say("Welcome to the Abbey of Deep Musing, " .. e.other:GetName() .. "! Here is a tunic that you may wear to announce the beginning of your training as a Paladin of Brell Serilis! Be warned that the only dangers do not lie without Ak'Anon. There is an evil society that lurks in the deepest recesses and shadows of our magnificent city.");
 		e.other:SummonItem(13517); 	-- worn felt tunic
 		e.other:Ding();
 		e.other:Faction(76,10,0); 	-- Deep Muses
@@ -60,7 +60,7 @@ function event_trade(e)
 		e.other:Faction(71,-15,0); 	-- Dark Reflection
 		e.other:AddEXP(100);
 	elseif (item_lib.check_turn_in(e.trade, {item1 = 9100,item2 =  9101,item3 =  9102,item4 =  9103})) then
-		e.self:Say("Here e.other:GetCleanName() , I have crafted this for you! May it always strike true!");
+		e.self:Say("Here " .. e.other:GetName() .. " , I have crafted this for you! May it always strike true!");
 		e.other:SummonItem(9104);
 		e.other:Ding();
 		e.other:AddEXP(500);

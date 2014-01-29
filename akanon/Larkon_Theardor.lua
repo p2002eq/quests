@@ -50,7 +50,7 @@ function event_trade(e)
 		e.other:Faction(322,-30,0); -- the dead
 		e.other:GiveCash(6,1,5,1);
 	elseif(item_lib.check_turn_in(e.trade, {item1 = 13272})) then -- Bozinite Pestle
-		e.self:Say("Outstanding e.other:GetCleanName()!! This should be of help to you.");
+		e.self:Say("Outstanding " .. e.other:GetName() .. "!! This should be of help to you.");
 		e.other:SummonItem(eq.ChooseRandom(15205,15211,15288,15310,15311,15313,15331,15050,15093,15315,15316,15058,15317,15318,15036,15094,15246,15322,15323,15325,15851,15324,15332,15400,15399,15398,15042,15613)); -- mage lvl 1-8 spells excluding pet item spells
 		e.other:GiveCash(6,1,5,1);
 		e.other:Ding();

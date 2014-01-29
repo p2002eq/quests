@@ -2,7 +2,7 @@
 
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:emote("gives you a crooked smile. 'Hello there, e.other:GetCleanName(). I'm doin some important 'meditations' to my god here. Maybe you can go somewhere else?'");
+		e.self:emote("gives you a crooked smile. 'Hello there, " .. e.other:GetName() .. ". I'm doin some important 'meditations' to my god here. Maybe you can go somewhere else?'");
 	end
 end
 

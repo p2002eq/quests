@@ -2,7 +2,7 @@
 
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Hail e.other:GetCleanName(). I am Kaxon Frennor, master assassin of the Dark Reflection. I train talented gnomes that feel the calling of the Plaguelord, Bertoxxulous, and wish to [serve as a rogue] of the Dark Reflection. Disease and decay are powerful forces in Norrath that crumble kingdoms and silently kill even the mightiest of heros. It is the calling of the Dark Reflection to sow the seeds of destruction as a catalyst to change. What progress would there be if rulers did not die and clockworks did not malfunction, giving way to greater rulers and better clockworks.");
+		e.self:Say("Hail " .. e.other:GetName() .. ". I am Kaxon Frennor, master assassin of the Dark Reflection. I train talented gnomes that feel the calling of the Plaguelord, Bertoxxulous, and wish to [serve as a rogue] of the Dark Reflection. Disease and decay are powerful forces in Norrath that crumble kingdoms and silently kill even the mightiest of heros. It is the calling of the Dark Reflection to sow the seeds of destruction as a catalyst to change. What progress would there be if rulers did not die and clockworks did not malfunction, giving way to greater rulers and better clockworks.");
 	elseif (e.message:findi("serve as a rogue")) then
 		e.self:Say("We are the spreaders of disease, the masters of poison, the death that comes silently from the shadows. You must outfit yourself with the tools of a rogue, crafted from the disassembled remains of clockworks that are finished serving the purpose for which they were built. Take this parchment to Rebbie Romblerum, he will assist you in the construction of a suit of armor. When you have been properly outfitted return to me for your [next task].");
 		e.other:SummonItem(10988);
@@ -14,7 +14,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	if (item_lib.check_turn_in(e.trade, {item1 = 10992})) then
-		e.self:Say("You have done well e.other:GetCleanName(), here is your reward."); -- unable to locate real reward text.
+		e.self:Say("You have done well " .. e.other:GetName() .. ", here is your reward."); -- unable to locate real reward text.
 		e.other:SummonItem(11079);
 		e.other:Ding();
 		e.other:AddEXP(100);

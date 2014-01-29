@@ -4,7 +4,7 @@
 
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Pleased to meet you, e.other:GetCleanName()! I am Narron Jenork, High Watchman of Ak'anon. I am one of the most skilled Watchmans in all of Ak'anon, and I pride myself on training the most promising young warriors that Ak'anon has to offer. Are you a young gnome warrior?");
+		e.self:Say("Pleased to meet you, " .. e.other:GetName() .. "! I am Narron Jenork, High Watchman of Ak'anon. I am one of the most skilled Watchmans in all of Ak'anon, and I pride myself on training the most promising young warriors that Ak'anon has to offer. Are you a young gnome warrior?");
 	elseif(e.message:findi("young gnome warrior")) then
 		e.self:Say("Well, we can never get enough warriors around these parts, as far as I am concerned! Now if you are a new warrior, then you must go through the training to become a true watchman. I have a series of tests that will require you to test both your hunting and navigational skills. These tests will not leave you with nothing to show for your work, because upon completing them you will be outfitted with a full suit of Initiate Watchman's armor. Are you [ready to be tested]?");
 	elseif(e.message:findi("ready to be tested")) then
@@ -12,7 +12,7 @@ function event_say(e)
 		e.other:SummonItem(17255);
 		e.other:Ding();
 	elseif(e.message:findi("helm")) then
-		e.self:Say("No watchman can even think of going into battle without the proper helmet, and I think this one will do the job for you, e.other:GetCleanName(). To create your helm material, you will need to combine 2 Bricks of Crude Bronze, 1 Piece of Scrap Metal, 1 Ruined Cat Pelt and 1 Raw Bamboo in your assembly kit. Once you have created the proper material, take it to a forge along with this mold to fashion your very own Initiate Watchman's Helm.");
+		e.self:Say("No watchman can even think of going into battle without the proper helmet, and I think this one will do the job for you, " .. e.other:GetName() .. ". To create your helm material, you will need to combine 2 Bricks of Crude Bronze, 1 Piece of Scrap Metal, 1 Ruined Cat Pelt and 1 Raw Bamboo in your assembly kit. Once you have created the proper material, take it to a forge along with this mold to fashion your very own Initiate Watchman's Helm.");
 		e.other:SummonItem(22610);
 		e.other:Ding();
 	elseif(e.message:findi("bracer")) then
@@ -28,7 +28,7 @@ function event_say(e)
 		e.other:SummonItem(22612);
 		e.other:Ding();
 	elseif(e.message:findi("greaves")) then
-		e.self:Say("Pants are a must, young e.other:GetCleanName(). As a Watchman of Ak'anon, you should be known for your noble deeds and commitment to defending your home, not as a gnome that runs around with no pants on. To create your greaves material, you will need to combine 4 Bricks of Crude Bronze, 1 Coyote Pelt, 1 Rusted Blackbox and 1 Bottle in your assembly kit. Once you have created the proper material, take it to a forge along with this mold to fashion your very own Initiate Watchman's Greaves.");
+		e.self:Say("Pants are a must, young " .. e.other:GetName() .. ". As a Watchman of Ak'anon, you should be known for your noble deeds and commitment to defending your home, not as a gnome that runs around with no pants on. To create your greaves material, you will need to combine 4 Bricks of Crude Bronze, 1 Coyote Pelt, 1 Rusted Blackbox and 1 Bottle in your assembly kit. Once you have created the proper material, take it to a forge along with this mold to fashion your very own Initiate Watchman's Greaves.");
 		e.other:SummonItem(22614);
 		e.other:Ding();
 	elseif(e.message:findi("gauntlets")) then
@@ -36,7 +36,7 @@ function event_say(e)
 		e.other:SummonItem(22615);
 		e.other:Ding();
 	elseif(e.message:findi("breastplate")) then
-		e.self:Say("I am very pleased to see that you have progressed so quickly in your training, e.other:GetCleanName()! I do also agree that you are ready to gather the items necessary for crafting your Initiate Watchman's Breastplate. To create your breastplate material, you will need to combine 5 Bricks of Crude Bronze, 1 Runaway Clockwork Motor, 1 Brownie Brain, 1 Rusty Long Sword, 1 Grikbar Kobold Scalp and the evil Diloperia`s Bracer in your assembly kit. Once you have created the proper material, take it to a forge along with this mold to fashion your very own Initiate Watchman's Breastplate. When you are finished with your breastplate, please come back to see me. I have a [final task] for you to complete.");
+		e.self:Say("I am very pleased to see that you have progressed so quickly in your training, " .. e.other:GetName() .. "! I do also agree that you are ready to gather the items necessary for crafting your Initiate Watchman's Breastplate. To create your breastplate material, you will need to combine 5 Bricks of Crude Bronze, 1 Runaway Clockwork Motor, 1 Brownie Brain, 1 Rusty Long Sword, 1 Grikbar Kobold Scalp and the evil Diloperia`s Bracer in your assembly kit. Once you have created the proper material, take it to a forge along with this mold to fashion your very own Initiate Watchman's Breastplate. When you are finished with your breastplate, please come back to see me. I have a [final task] for you to complete.");
 		e.other:SummonItem(22616);
 		e.other:Ding();
 	elseif(e.message:findi("final task")) then
@@ -49,7 +49,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	if(item_lib.check_turn_in(e.trade, {item1 = 9111, item2 = 9112, item3 = 9113, item4 = 9114})) then
-		e.self:Say("Well done, young e.other:GetCleanName()! Since you have brought me the necessary items, I now present you with this Initiate Watchman's Long Sword. Use it worthily."); -- text made up
+		e.self:Say("Well done, young " .. e.other:GetName() .. "! Since you have brought me the necessary items, I now present you with this Initiate Watchman's Long Sword. Use it worthily."); -- text made up
 		e.other:SummonItem(9115);
 		e.other:Ding();
 	elseif(item_lib.check_turn_in(e.trade, {item1 = 12378})) then -- Box of Undead Brownies

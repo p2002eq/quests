@@ -6,7 +6,7 @@ function event_say(e)
 	elseif(e.message:findi("special bread")) then
 		e.self:Say("It little known secret among trolls dat Cagrek know how to make tatsy bread from halfling. Dey say dere is plenty of dem out in the forest, ripe for the picking!! You bring carver Cagrek four of their tender little feet bones.");
 	elseif(e.message:findi("hehe meat")) then
-		e.self:Say("HEHE meat!! What dat stand for? Mes need some of dis HEHE meat!! Gos and get me some. Cagrek not just want some. Cagrek want more dan twenny!! Cagrek want three HEHE meat and mes want HEHE recipe. You get and me makes e.other:GetCleanName() honeraree carver. Me gives you Grobb Cleaver. It cuts skins like dey butter!!");
+		e.self:Say("HEHE meat!! What dat stand for? Mes need some of dis HEHE meat!! Gos and get me some. Cagrek not just want some. Cagrek want more dan twenny!! Cagrek want three HEHE meat and mes want HEHE recipe. You get and me makes " .. e.other:GetName() .. " honeraree carver. Me gives you Grobb Cleaver. It cuts skins like dey butter!!");
 	end
 end
 

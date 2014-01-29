@@ -2,7 +2,7 @@
 
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Greetings there e.other:GetCleanName()! I am Welno Tanlonikan Assassin of Akanon. I pride myself on being one of the few to train our younger prospects in the ways of the rogue. If you are a young gnome rogue in training then I might have some [tasks] for you.");
+		e.self:Say("Greetings there " .. e.other:GetName() .. "! I am Welno Tanlonikan Assassin of Akanon. I pride myself on being one of the few to train our younger prospects in the ways of the rogue. If you are a young gnome rogue in training then I might have some [tasks] for you.");
 	elseif(e.message:findi("tasks")) then
 		e.self:Say("Well I should hope you are truly a Rogue of Akanon or else I dont have any work for ya! However if you are then I have some things for you to do. I will present you with a magical box that you will use to craft together certain components that will make an armor material. You will then take the material that you have fashioned with the proper pattern to the forge to create your own armor. I will provide you with whatever patterns are necessary along with the armor [recipes] should you so ask.");
 	elseif(e.message:findi("recipes")) then
@@ -10,11 +10,11 @@ function event_say(e)
 		e.other:SummonItem(17254); 	-- Welnos Assembly Kit
 		e.other:Ding();
 	elseif(e.message:findi("boots")) then
-		e.self:Say("There are many things in the Steamfont Mountains that I am sure you don't want to step in e.other:GetCleanName(). To create your boot material you will need to combine 3 Bricks of Crude Bronze, 1 Yellow Reculse Silk, 2 Spiderling Eyes and 1 Mead in your assembly kit. Once you have created the proper material take it to a forge along with this mold to fashion your very own Shadowwalkers Chainmail Boots.");
+		e.self:Say("There are many things in the Steamfont Mountains that I am sure you don't want to step in " .. e.other:GetName() .. ". To create your boot material you will need to combine 3 Bricks of Crude Bronze, 1 Yellow Reculse Silk, 2 Spiderling Eyes and 1 Mead in your assembly kit. Once you have created the proper material take it to a forge along with this mold to fashion your very own Shadowwalkers Chainmail Boots.");
 		e.other:SummonItem(19634); 	-- Crude Boot Mold
 		e.other:Ding();
 	elseif(e.message:findi("bracer")) then
-		e.self:Say("A pair of these here bracers will be a great addition to your armor set there e.other:GetCleanName(). To create your bracer material you will need to combine 1 Brick of Crude Bronze, 1 Runaway Clockwork Motor, 1 Infected Rat Liver and 1 Bandage in your assembly kit. Once you have created the proper material take it to a forge along with this mold to fashion your very own Shadowwalkers Chainmail Bracer.");
+		e.self:Say("A pair of these here bracers will be a great addition to your armor set there " .. e.other:GetName() .. ". To create your bracer material you will need to combine 1 Brick of Crude Bronze, 1 Runaway Clockwork Motor, 1 Infected Rat Liver and 1 Bandage in your assembly kit. Once you have created the proper material take it to a forge along with this mold to fashion your very own Shadowwalkers Chainmail Bracer.");
 		e.other:SummonItem(19632); 	-- Crude Bracer Mold
 		e.other:Ding();
 	elseif(e.message:findi("coif")) then
@@ -47,7 +47,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	if(item_lib.check_turn_in(e.trade, {item1 = 18776})) then -- Note
-		e.self:Say("Yes, I just knew you'd see it my way, e.other:GetCleanName(). Anyway, welcome to our little part of Ak'Anon's underworld. We have to pay a high price to keep our small orgainzation hidden, which keeps us all busy around here. Now throw this on, and let's put you to work.");
+		e.self:Say("Yes, I just knew you'd see it my way, " .. e.other:GetName() .. ". Anyway, welcome to our little part of Ak'Anon's underworld. We have to pay a high price to keep our small orgainzation hidden, which keeps us all busy around here. Now throw this on, and let's put you to work.");
 		e.other:SummonItem(13519);	-- Scuffed Tunic*
 		e.other:Ding();
 		e.other:Faction(76,10); 	-- Deep Muses
@@ -56,7 +56,7 @@ function event_trade(e)
 		e.other:Faction(71,-15); 	-- Dark Reflection
 		e.other:AddEXP(100);
 	elseif(item_lib.check_turn_in(e.trade, {item1 = 9108,item2 = 9108, item3 = 9109, item4 = 9109})) then -- Minotaur Scalp x 2, Mountain Lion Jawbone x 2
-		e.self:Say("Here is that dagger I promised you e.other:GetCleanName()!");
+		e.self:Say("Here is that dagger I promised you " .. e.other:GetName() .. "!");
 		e.other:SummonItem(9110); 	-- Gemmed Shadowwalkers Dagger
 	end
 	item_lib.return_items(e.self, e.other, e.trade)

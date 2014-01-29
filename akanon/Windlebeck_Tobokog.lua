@@ -4,7 +4,7 @@ function event_say(e)
 	if(e.message:findi("hail")) then
 		e.self:Say("What do YOU want? Did [Naygog] send you?");
 	elseif(e.message:findi("naygog")) then
-		e.self:Say("Hail e.other:GetCleanName()! You must be one of Naygog's new soldiers. Naygog has asked me to help get you outfitted in a suit of armor to protect you from the weapons of our foes. I have assembled a kit for you that will allow you to construct the armor pieces once you have gathered the necessary components. The required components vary according to which piece of Plague Warrior Armor you are planning on assembling. Do you wish to craft a [plague warrior helm], a [plague warrior bracer], [plague warrior gauntlets], [plague warrior boots], [plague warrior vambraces], [plague warrior greaves], or a [plague warrior breastplate].");
+		e.self:Say("Hail " .. e.other:GetName() .. "! You must be one of Naygog's new soldiers. Naygog has asked me to help get you outfitted in a suit of armor to protect you from the weapons of our foes. I have assembled a kit for you that will allow you to construct the armor pieces once you have gathered the necessary components. The required components vary according to which piece of Plague Warrior Armor you are planning on assembling. Do you wish to craft a [plague warrior helm], a [plague warrior bracer], [plague warrior gauntlets], [plague warrior boots], [plague warrior vambraces], [plague warrior greaves], or a [plague warrior breastplate].");
 		e.other:SummonItem(17124); -- mail assembly kit
 		e.other:Ding();
 	elseif(e.message:findi("plague warrior helm")) then

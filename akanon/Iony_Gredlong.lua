@@ -2,19 +2,19 @@
 
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("It is very nice to meet you e.other:GetCleanName(). I am Iony Gredlong Priestess of the Underfoot. I coordinate all the training for new clerics here in the Deep Musing. If you are a [cleric] then I might just have some tests for you that will challenge your wisdom as well as your fighting abilities.");
+		e.self:Say("It is very nice to meet you " .. e.other:GetName() .. ". I am Iony Gredlong Priestess of the Underfoot. I coordinate all the training for new clerics here in the Deep Musing. If you are a [cleric] then I might just have some tests for you that will challenge your wisdom as well as your fighting abilities.");
 	elseif(e.message:findi("cleric")) then
-		e.self:Say("Well you would certainly be eligible for my training then young e.other:GetCleanName(). I have a number of armor recipes that I give to young clerics to make sure that when they leave the comfort of the Steamfont Mountains they are ready for whatever battles they may face. If you are [interested in creating your own armor] then all you must do is simply ask and I will give you instructions to get started.");
+		e.self:Say("Well you would certainly be eligible for my training then young " .. e.other:GetName() .. ". I have a number of armor recipes that I give to young clerics to make sure that when they leave the comfort of the Steamfont Mountains they are ready for whatever battles they may face. If you are [interested in creating your own armor] then all you must do is simply ask and I will give you instructions to get started.");
 	elseif(e.message:findi("interested in creating")) then
 		e.self:Say("I am always happy to see an eager young one like yourself! Brell certainly takes pride in all young gnomes that draw power from him to give life so you should consider yourself very special. To create your own armor you are going to collect [various items] from Ak`Anon and Steamfont. You will then combine them in this assembly kit. Once you have made a material you will place it in a forge along with molds that I will present to you to create your armor.");
 		e.other:SummonItem(17253);
 	elseif(e.message:findi("various items")) then
 		e.self:Say("There are numerous items that you will need to collect and combine in your kit. I will present you for the recipe for Shortnoble Platemail [Helms], [Bracers], [Armguards], [Boots], [Greaves], [Gauntlets] and [Breastplates]. When you are ready to attempt a specific piece please let me know what piece you want to [craft] and I will give you the necessary mold along with the recipe.");
 	elseif(e.message:findi("helm")) then
-		e.self:Say("Getting something on top of your head is a wise idea e.other:GetCleanName(). To create your helm material you will need to combine 2 Bricks of Crude Bronze, 1 Rat Whisker, 1 Spiderling Silk and 1 Water Flask in your assembly kit. Once you have created the proper material take it to a forge along with this mold to fashion your very own Shortnoble Platemail Helm");
+		e.self:Say("Getting something on top of your head is a wise idea " .. e.other:GetName() .. ". To create your helm material you will need to combine 2 Bricks of Crude Bronze, 1 Rat Whisker, 1 Spiderling Silk and 1 Water Flask in your assembly kit. Once you have created the proper material take it to a forge along with this mold to fashion your very own Shortnoble Platemail Helm");
 		e.other:SummonItem(22610);
 	elseif(e.message:findi("bracer")) then
-		e.self:Say("Bracers are very important to keep your wrists safe in battle e.other:GetCleanName(). To create your bracer material you will need to combine 1 Brick of Crude Bronze, 1 Size 4 Gizmo, 1 Clockwork Spider Mesh and 1 Cloth Choker in your assembly kit. Once you have created the proper material take it to a forge along with this mold to fashion your very own Shortnoble Platemail Bracer.");
+		e.self:Say("Bracers are very important to keep your wrists safe in battle " .. e.other:GetName() .. ". To create your bracer material you will need to combine 1 Brick of Crude Bronze, 1 Size 4 Gizmo, 1 Clockwork Spider Mesh and 1 Cloth Choker in your assembly kit. Once you have created the proper material take it to a forge along with this mold to fashion your very own Shortnoble Platemail Bracer.");
 		e.other:SummonItem(22611);
 	elseif(e.message:findi("boots")) then
 		e.self:Say("Well you cant go running around the Steamfont Mountains with no shoes on now can you. To create your boot material you will need to combine 3 Bricks of Crude Bronze, 1 Kobold Tooth, 2 Spiderling Silks and 1 Mead in your assembly kit. Once you have created the proper material take it to a forge along with this mold to fashion your very own Shortnoble Platemail Boots.");

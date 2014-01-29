@@ -4,9 +4,9 @@
 
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Peh! What am you wanted?! I am Basher Nanrum. You? e.other:GetCleanName() ? Heh, you look for works? Hmm, me tinks you too weakling for [job] me need done. Hmm.. You might do, mebbe.",e.other:GetName());
+		e.self:Say("Peh! What am you wanted?! I am Basher Nanrum. You? " .. e.other:GetName() .. " ? Heh, you look for works? Hmm, me tinks you too weakling for [job] me need done. Hmm.. You might do, mebbe.",e.other:GetName());
 	elseif(e.message:findi("job")) then
-		e.self:Say("Me in charge of making torches for basher patrols. But Nanrum is much too mighty for such stupid job and Nanrum get idea. Dem fire bugses in da desert - dem eyes glowed. And dem don't burneded like torches. If e.other:GetCleanName() getted Nanrum three fire beetle eyes me would giveded e.other:GetCleanName() a shiny thingie dat you wanteded. Go ahed, e.other:GetCleanName() , an' get me da eyes.");
+		e.self:Say("Me in charge of making torches for basher patrols. But Nanrum is much too mighty for such stupid job and Nanrum get idea. Dem fire bugses in da desert - dem eyes glowed. And dem don't burneded like torches. If " .. e.other:GetName() .. " getted Nanrum three fire beetle eyes me would giveded " .. e.other:GetName() .. " a shiny thingie dat you wanteded. Go ahed, " .. e.other:GetName() .. " , an' get me da eyes.");
 	end
 end
 

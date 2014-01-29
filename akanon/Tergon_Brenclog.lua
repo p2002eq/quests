@@ -8,7 +8,7 @@ function event_say(e)
 	elseif(e.message:findi("too superior")) then
 		e.self:Say("Well excuse me!! your majesty. Please forgive my arrogance. Now get out of here, before you stink this place up with that rotting grape you call a brain!");
 	elseif(e.message:findi("further tasks")) then
-		e.self:Say("Not all experience is gained upon the battlefield. We magicians must heighten our minds to become formidable opponents. I see much promise in you, e.other:GetCleanName(). I will require you to [travel abroad] toward Freeport.");
+		e.self:Say("Not all experience is gained upon the battlefield. We magicians must heighten our minds to become formidable opponents. I see much promise in you, " .. e.other:GetName() .. ". I will require you to [travel abroad] toward Freeport.");
 	elseif(e.message:findi("travel abroad")) then
 		e.self:Say("You will go to Freeport and seek out the Academy of Arcane Science. There you shall find my brother Retlon. He has scribed some new spells in my [personal spellbook]. Hand him this note as proof of your alliance. He works closely with Master Dooly Jonkers.");
 		e.other:SummonItem(1717);
@@ -38,7 +38,7 @@ function event_trade(e)
 		e.other:Ding();
 		e.other:AddEXP(150);
 	elseif(item_lib.check_turn_in(e.trade, {item1 = 13387})) then
-		e.self:Say("Thank you e.other:GetCleanName(). I had no doubt you would fulfill my will and return my spellbook.. here is your reward for such effort. Now I have news of a larger matter. It has to do with a [defector].");
+		e.self:Say("Thank you " .. e.other:GetName() .. ". I had no doubt you would fulfill my will and return my spellbook.. here is your reward for such effort. Now I have news of a larger matter. It has to do with a [defector].");
 		e.other:Faction(91,3,0);
 		e.other:Faction(71,-3,0);
 		e.other:Faction(322,-3,0);
@@ -47,7 +47,7 @@ function event_trade(e)
 		e.other:Ding();
 		e.other:AddEXP(150);
 	elseif(item_lib.check_turn_in(e.trade, {item1 = 13388})) then
-		e.self:Say("Excellent work, e.other:GetCleanName(). It's unfortunate this had to be done, but we cannot allow our secrets to fall into the hands of others.");
+		e.self:Say("Excellent work, " .. e.other:GetName() .. ". It's unfortunate this had to be done, but we cannot allow our secrets to fall into the hands of others.");
 		e.other:SummonItem(17502); -- elemental grimoire
 		e.other:Faction(91,3,0);
 		e.other:Faction(71,-3,0);

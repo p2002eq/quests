@@ -38,7 +38,7 @@ function event_trade(e)
 		e.other:SummonItem(12337);
 		e.other:Ding();
 	elseif(item_lib.check_turn_in(e.trade, {item1 = 12254})) then
-		e.self:Say("Double Huzzah!! You are a good friend e.other:GetCleanName(). Now mayhaps I shall find myself a wife. Here pal, the fairy wing. I hope it can give you a great head of hair. You need it.");
+		e.self:Say("Double Huzzah!! You are a good friend " .. e.other:GetName() .. ". Now mayhaps I shall find myself a wife. Here pal, the fairy wing. I hope it can give you a great head of hair. You need it.");
 		e.other:SummonItem(12339);
 		e.other:Ding();
 	elseif(item_lib.check_turn_in(e.trade, {item1 = 13216, item2 = 13217})) then
