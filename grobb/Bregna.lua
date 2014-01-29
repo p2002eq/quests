@@ -11,6 +11,7 @@ function event_say(e)
 		e.self:Say("Kaglari make me do the tasks for her. She tolds me to take crate of speshal poshuns to sumwun in Nektoolos forust. But I make mistake. I fall asleep under da trees becuz I was so tired. I wake up and poshuns are gone! Sumwun take the poshuns frum me. Dey leave dis note wit me. Me tinks dey play trick on me. Me tinks it be da stinkin' Halflings. Me needs ta gets dem back before Kaglari find out. I need sumwun to help me [find da poshuns].");
 	elseif(e.message:findi("find da poshuns")) then
 		e.self:Say("Take dis as it be all me know.");
+		e.other:Ding();
 		e.other:SummonItem(18651);
 	end
 end

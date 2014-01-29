@@ -19,6 +19,7 @@ function event_trade(e)
 		e.other:AddEXP(100);
 	elseif (item_lib.check_turn_in(e.trade, {item1 = 5014, item2 = 5014, gold = 2})) then -- correct text needed
 		e.self:Say("Raar.. Ranjor give yous a good weapon...");
+		e.other:Ding();
 		e.other:SummonItem(eq.ChooseRandom(94201,6022,6025,7014,5026));
 	end
 	-- do all other handins first with plugin, then let it do disciplines

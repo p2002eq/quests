@@ -18,6 +18,7 @@ function event_trade(e)
 	elseif (item_lib.check_turn_in(e.trade, {item1 = 13376})) then
 		e.self:Say("Grooak.. You have done much to help me. This will come in handy soon. Thank you. Here is Marda's information. Take it to her. They must know. Farewell.");
 		e.other:SummonItem(18884);
+		e.other:Ding();
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end

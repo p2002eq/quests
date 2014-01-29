@@ -28,6 +28,7 @@ function event_trade(e)
 		e.other:SummonItem(eq.ChooseRandom(15022, 15035, 15038, 15039, 15303, 15328, 15355, 15364, 15445, 16425, 13360, 13360, 13360, 13360, 13360, 13360, 13360, 13360, 13360, 13360, 13360, 13360, 13360, 13360, 13360, 13360, 13360, 13360, 13360, 13360));
 	-- The Bayle List quest
 	elseif (item_lib.check_turn_in(e.trade, {item1 = 18808, item2 = 18809, item3 = 18810, gold = 20})) then -- Bayle List I, Bayle List II, Bayle List III
+		e.other:Ding();
 		e.self:Say("hmm.  I'm not sure how you knew I could translate these, but I can always use the gold.");
 		e.self:Say("Here is your translation.");
 		e.other:SummonItem(18961); -- Translated Parchment

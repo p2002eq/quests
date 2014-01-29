@@ -28,6 +28,7 @@ function event_trade(e)
 	elseif (item_lib.check_turn_in(e.trade, {item1 = 13073, item2 = 13073, item3 = 13073, item4 = 13073})) then -- Bone Chips
 		e.self:Say("You good. Take dis. Make much pain and hurt. Make tings bleeds. Kill, hurt all. Innoruuk and me say do, now go. You do much, come bak. Teach you how more hurt and pain make. Go.");
 		e.other:SummonItem(5023);	-- Rusty Two Handed Sword
+		e.other:Ding();
 		e.other:Faction(292,10,0);	-- Shadowknights of Night Keep
 		e.other:Faction(128,10,0);	-- Green Blood Knights
 		e.other:Faction(22,-25,0);	-- Broken Skull Clan
