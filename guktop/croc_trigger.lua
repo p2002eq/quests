@@ -5,7 +5,7 @@ function event_spawn(e)
 end
 
 function croc_spawns()
-	local RandomCroc = eq.ChooseRandom(65068,65069,65094,65095,65134);
+	local RandomCroc = 65134;
 	local RandomNumber = 0;
 	RandomNumber = math.random(100);
 	
