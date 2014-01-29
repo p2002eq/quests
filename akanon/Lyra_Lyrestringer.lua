@@ -11,6 +11,7 @@ function event_say(e)
 	elseif(e.message:findi("kelethin")) then
 		e.self:Say("Take this letter to Jakum Webdancer in Kelethin. You can find him at the bard guild hall. I am sure he will compensate you for your troubles.");
 		e.other:SummonItem(18163);
+		e.other:Ding();
 	end
 end
 
