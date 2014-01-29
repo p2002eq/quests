@@ -2,7 +2,7 @@
 
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("<SNORT!>  HHUUUUCCCSSH..  Peh!  You speak at Kaglari, High Priestess of Dark Ones.  Children of Hate.  Spawn of Innoruuk.  $name . speak or be gone!  <SNORT!>  You [wish majik power]?");
+		e.self:Say("<SNORT!>  HHUUUUCCCSSH..  Peh!  You speak at Kaglari, High Priestess of Dark Ones.  Children of Hate.  Spawn of Innoruuk.  e.other:GetCleanName() . speak or be gone!  <SNORT!>  You [wish majik power]?");
 	elseif (e.message:findi("wish majik power")) then
 		e.self:Say("GOOD! <SNORT> Innoruuk needs more childrens.  You show majik skill or I give you to Innoruuk.  You bring two snake scales and two bone chips ..<SNORT>..  from old bones.  I teach you majik.  GO!  <SNORT!!>");
 	elseif (e.message:findi("help innoruuk")) then

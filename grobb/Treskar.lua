@@ -7,7 +7,7 @@ function event_say(e)
 	if(e.message:findi("hail")) then
 		e.self:Say("You dare speak to Master Treskar!! You be [sent by Hukulk] or you be hurtin'!! Me have no time to waste with ugly one like you!!");
 	elseif(e.message:findi("sent by hukulk")) then
-		e.self:Say("Ha!! Hukulk accept puny troll now?!! Ha!! You join us and you join fight. Nightkeep enemy is $name enemy!! You help smash [other weak shadowknights]. Them weak. We true power!! You bash good and maybe you do [secret mission] for Treskar. Or I has sum other [work] fer you.");
+		e.self:Say("Ha!! Hukulk accept puny troll now?!! Ha!! You join us and you join fight. Nightkeep enemy is e.other:GetCleanName() enemy!! You help smash [other weak shadowknights]. Them weak. We true power!! You bash good and maybe you do [secret mission] for Treskar. Or I has sum other [work] fer you.");
 	elseif(e.message:findi("other weak shadowknights")) then
 		e.self:Say("Ha! Dem Ogre Greenbloods are weaklings. Dems your enemy. Frogloks are your enemy. Smash all Greenbloods! Smash all Frogloks!");
 	elseif(e.message:findi("secret mission")) then -- Should have a faction check. However, since the Trolls haven't eaten you, we'll let you do it.

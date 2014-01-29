@@ -22,6 +22,5 @@ function event_trade(e)
 		e.other:Ding();
 		e.other:SummonItem(eq.ChooseRandom(94201,6022,6025,7014,5026));
 	end
-	-- do all other handins first with plugin, then let it do disciplines
 	item_lib.return_items(e.self, e.other, e.trade)
 end

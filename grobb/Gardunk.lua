@@ -11,6 +11,5 @@ function event_trade(e)
 		e.other:Faction(106,-10,0); -- Frogloks of Guk
 		e.other:AddEXP(100);
 	end
-	-- do all other handins first with plugin, then let it do disciplines
 	item_lib.return_items(e.self, e.other, e.trade)
 end
