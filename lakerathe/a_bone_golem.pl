@@ -1,4 +1,4 @@
-# Rogue Epic NPC -- a_bone_golem
+# Necromancer Epic NPC -- a_bone_golem
 
 
 sub EVENT_DEATH_COMPLETE {

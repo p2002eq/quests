@@ -1,5 +1,5 @@
 #BeginFile lakerathe\Kazen_Fecae.pl
-#Quest for Lake Rathetear - Kazen Fecae: Necromancer Epics (1.0, Pre & 1.5)
+#Quest for Lake Rathetear - Kazen Fecae: Necromancer Epics (1.0)
 
 sub EVENT_SAY {
   if($text=~/hail/i) {

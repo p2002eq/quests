@@ -1,4 +1,4 @@
-# Rogue Epic NPC -- a_failed_apprentice
+# Necromancer Epic NPC -- a_failed_apprentice
 
 
 sub EVENT_DEATH_COMPLETE {
