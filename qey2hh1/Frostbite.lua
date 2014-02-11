@@ -21,7 +21,7 @@ function event_timer(e)
 	if(e.timer == "go") then
 		eq.stop_timer("go");
 		eq.set_timer("depop",1200000);
-		eq.unique_spawn(bad_thief,188,0,random_x,random_y,10,0);
+		eq.unique_spawn(bad_thief,11,0,random_x,random_y,10,0);
 		e.self:SetRunning(true);
 		local mobtypeID =  entity_list:GetMobByNpcTypeID(bad_thief);
 		local follow_mob = mobtypeID:GetID();
