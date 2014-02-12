@@ -6,4 +6,11 @@ function event_say(e)
 	end
 end
 
+function event_waypoint_arrive(e)
+	if(e.wp == 4) then
+		e.self:Emote("gathers up a bale of straw");
+		eq.create_ground_object(13990,-5677,-2363,0,0,600000);
+	end
+end
+
 -- END of FILE Zone:qey2hh1  ID:1610 -- Furball_Miller 
