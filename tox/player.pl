@@ -28,13 +28,3 @@ sub EVENT_TIMER {
     $qglobals{message_tox} = undef;
   }
 }
-
-sub EVENT_SIGNAL {
-  if($signal == 666) {
-    quest::updatetaskactivity(218,1,1);
-  }
-  if($signal == 667) {
-    quest::failtask(218);
-    $client->NukeItem(80038);
-  }
-}
