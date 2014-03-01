@@ -27,8 +27,7 @@ function event_trade(e)
 		e.other:Faction(442,10,0);	-- faction better: 'Temple Of Sol Ro'
 		e.other:Faction(291,-30,0);	-- faction worse: 'Shadowed Men'
 		e.other:GiveCash(0,0,0,4);
-	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 1903})) then
+	elseif(item_lib.check_turn_in(e.trade, {item1 = 1903})) then
 		e.self:Say("You will make a fine addition to the crusade. Continue the cleansing of the desert. Let it be known that the Defenders of Ro are here to challenge the evils of the desert. I call upon the righteousness of all paladins to assist me.");
 		e.other:Ding();
 		e.other:AddEXP(250);
