@@ -1,11 +1,3 @@
--- Converted to .lua using MATLAB converter written by Stryd
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------
--- Call Dread, Fright & Terror to aid Cazic Thule if they're still alive
--- code by mystic414
---
--- Cazic Thule also administers the Whistling Fists quest for iksar monks
-
 function event_spawn(e)
 	eq.set_timer("Shout",600000);
 end
@@ -22,7 +14,7 @@ function event_trade(e)
 	if(item_lib.check_turn_in(e.trade, {item1 = 8226, item2 = 18898, item3 = 18899})) then
 		e.self:Emote("seems pleased with the amount of pain that you have been able to inflict. Cazic Thule then grabs your hands and begins to infuse them with his power. Your hands burn like they were placed in lava for a moment, then feel cool as ice. You can feel the sheer power flowing through your new weapons of pain.");
 		e.other:SummonItem(7836);
-		e.other:AddExp(100000);
+		e.other:AddEXP(100000);
 		e.other:Ding();
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
@@ -79,3 +71,10 @@ function event_timer(e)
 end
 
 --(Aggro) Created by Mystic414, (Say, Item, Spawn and Timer) Additions by Jim Mills
+-- Converted to .lua using MATLAB converter written by Stryd
+-- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
+-------------------------------------------------------------------------------------------------
+-- Call Dread, Fright & Terror to aid Cazic Thule if they're still alive
+-- code by mystic414
+--
+-- Cazic Thule also administers the Whistling Fists quest for iksar monks
