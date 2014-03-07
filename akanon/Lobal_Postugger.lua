@@ -1,4 +1,3 @@
-#Rogue Master Sketch
 -- Converted to .lua by Speedz
 
 function event_say(e)
@@ -13,9 +12,9 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 9470})) then -- Bundle of Poisons
-		e.self:emote("laughs. 'Here, take this then!'"); -- text made up
-		e.other:SummonItem(24096); -- Dip Resist Sketch
+	if(item_lib.check_turn_in(e.trade, {item1 = 9470})) then	-- Bundle of Poisons
+		e.self:emote("laughs. 'Here, take this then!'"); 		-- text made up
+		e.other:SummonItem(24096); 								-- Dip Resist Sketch
 		e.other:Ding();
 	end
 	item_lib.return_items(e.self, e.other, e.trade)

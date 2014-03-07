@@ -21,12 +21,12 @@ function event_trade(e)
 		e.other:Ding();
 	elseif (item_lib.check_turn_in(e.trade, {item1 = 18434})) then -- Gnome Shadowknight Note
 		e.self:Say("Welcome to the Dark Reflection, " .. e.other:GetName() .. " ! Take this tunic as a gift for your desire to serve the will of Bertoxxulous, The Plague Lord. Beware of the followers of Brell Serilis, they would see us members of the Dark Reflection exiled from Ak'Anon.");
-		e.other:SummonItem(13518); -- Tin Patched Tunic*
+		e.other:SummonItem(13518); 	-- Tin Patched Tunic*
 		e.other:Ding();
-		e.other:Faction(71,10,0); -- Dark Reflection
-		e.other:Faction(91,-15,0); -- Eldritch Collective
-		e.other:Faction(115,-15,0); -- Gem Choppers
-		e.other:Faction(76,-15,0); -- Deepmuses
+		e.other:Faction(71,10,0); 	-- Dark Reflection
+		e.other:Faction(91,-15,0); 	-- Eldritch Collective
+		e.other:Faction(115,-15,0);	-- Gem Choppers
+		e.other:Faction(76,-15,0); 	-- Deepmuses
 		e.other:AddEXP(100);
 	end
 	item_lib.return_items(e.self, e.other, e.trade)

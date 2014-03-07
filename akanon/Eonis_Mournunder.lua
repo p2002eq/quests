@@ -8,7 +8,7 @@ function event_trade(e)
 		e.other:Ding();
 		e.other:Faction(71,10,0); 	-- Dark Reflection
 		e.other:Faction(91,-15,0); 	-- Eldritch Collective
-		e.other:Faction(115,-15,0); 	-- Gem Choppers
+		e.other:Faction(115,-15,0);	-- Gem Choppers
 		e.other:Faction(76,-15,0); 	-- Deepmuses
 		e.other:AddEXP(100);
 	end

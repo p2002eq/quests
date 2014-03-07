@@ -24,7 +24,7 @@ function event_trade(e)
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
---End of File, Zone:akheva  NPC:179165 -- --A_shimmering_presence
+
 -------------------------------------------------------------------------------------------------
 -- Converted to .lua using MATLAB converter written by Stryd
 -- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen

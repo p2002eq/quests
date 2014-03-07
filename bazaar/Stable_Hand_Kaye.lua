@@ -1,7 +1,6 @@
-function event_death_complete(e)
-	if(math.random(1,100) <= 20) then -- 20% chance
-		eq.spawn2(179165,0,0,e.self:GetX(),e.self:GetY(),e.self:GetZ(),0);
-	end
+function event_trade(e)
+	local item_lib = require("items");
+	item_lib.return_items(e.self, e.other, e.trade)
 end
 
 -------------------------------------------------------------------------------------------------
