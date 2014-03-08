@@ -1,5 +1,5 @@
 function event_spawn(e)
-	e.self:SetRunning(1);
+	e.self:SetRunning(true);
 end
 
 -------------------------------------------------------------------------------------------------

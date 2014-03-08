@@ -4,16 +4,7 @@ function event_trade(e)
 		e.self:Say("The slaves...thank you! Here, this will help you slaughter those foul orcs!");
 		e.other:AddEXP(30000);
 		e.other:Ding();
-		local random = int(rand(3));
-		if(random == 0) then
-			e.other:SummonItem(5037);  end
-		end
-		if(random == 1) then
-			e.other:SummonItem(5029);  end
-		end
-		if(random == 2) then
-			e.other:SummonItem(13313); end
-		end
+		e.other:SummonItem(eq.ChooseRandom(5037,5029,13313));
 	end
 end
 

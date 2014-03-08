@@ -1,15 +1,8 @@
 function event_waypoint_arrive(e)
-	if(e.wp == 1) then
-		e.self:SetRunning(1);
-	end
-	if(e.wp == 4) then
-		e.self:SetRunning(0);
-	end
-	if(e.wp == 7) then
-		e.self:SetRunning(1);
-	end
-	if(e.wp == 10) then
-		e.self:SetRunning(0);
+	if(e.wp == 1 or e.wp == 7) then
+		e.self:SetRunning(true);
+	elseif(e.wp == 4 or e.wp == 10) then
+		e.self:SetRunning(false);
 	end
 end
 
