@@ -1,6 +1,3 @@
--- Converted to .lua using MATLAB converter written by Stryd
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------
 -- Paladin Epic 1.0
 -- NPCID: 72078
 -- Zone: fearplane
@@ -42,9 +39,8 @@ function event_trade(e)
 	item_lib.return_items(e.self, e.other, e.trade)
 end
 
-function event_signal(e)
-	if(e.signal == 0) then
-		e.self:Say("Such is the will of Cazic-Thule!");
-	end
-end
 --END of FILE Zone:fearplane ID:72078 -- Irak_Altil
+-------------------------------------------------------------------------------------------------
+-- Converted to .lua using MATLAB converter written by Stryd
+-- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
+-------------------------------------------------------------------------------------------------

@@ -1,7 +1,7 @@
 function event_enter_zone(e)
 	-- load the current qglobals
 	local qglobals = eq.get_qglobals(e.self);
-	if ( qglobals.time_emote == nil and e.self:Admin() < 10 ) then
+	if ( qglobals["time_emote"] == nil and e.self:Admin() < 10 ) then
 		eq.world_emote(15, "The earth rumbles, sky thunders, volcanoes erupt, and tidal waves crash as the Gods prepare their armies for battle. The first of the mortals have obtained the power to cross into the Plane of Time!");
 		eq.set_global("time_emote","TimeEntered",7,"F");
 	end
@@ -16,8 +16,8 @@ function event_click_door(e)
 		local qglobals = eq.get_qglobals(e.self);
 		-- should never be nil, but just in case.
 		if (instance_id == nil or instance_id == 0) then
-			-- check for lockout qglobal. (potimeLockout is the old one and can be removed when potimeb rewrite is completed.)
-			if (e.self:Admin() <= 80 and (qglobals.potimeb_lockout ~= nil or qglobals.potimeLockout ~= nil)) then
+			-- check for lockout qglobal.
+			if (e.self:Admin() <= 80 and qglobals["potimeb_lockout"] ~= nil) then
 				e.self:Message(13, "You are not ready yet to start a new instance");
 				return;
 			end
