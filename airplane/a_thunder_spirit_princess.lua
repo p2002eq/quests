@@ -18,7 +18,7 @@ function event_trade(e)
 end
 
 function event_death_complete(e)
-	eq.set_global("sirran",1,3,"M20");
+	eq.set_global("sirran","1",3,"M20");
 	eq.spawn2(71058,0,0,688,1381,-645,192);
 end
 

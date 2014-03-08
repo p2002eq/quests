@@ -1,6 +1,5 @@
 function event_death_complete(e)
-	local add1 = eq.spawn2(71100,0,0,e.self:GetX()+10,e.self:GetY(),e.self:GetZ(),e.self:GetHeading());
-	eq.get_entity_list():GetMobByID(add1):AddToHateList(e.other);
+	eq.spawn2(71100,0,0,e.self:GetX()+10,e.self:GetY(),e.self:GetZ(),e.self:GetHeading()):AddToHateList(e.other,1);
 end
 
 -------------------------------------------------------------------------------------------------
