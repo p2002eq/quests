@@ -5,7 +5,6 @@ end
 function event_say(e)
 	if(e.message:findi("hail")) then
 		e.self:Say("Great, let us waste no more time! I offer to you four challenges. Disempowement, Envenoming, Raising of the Dead, or Necropotence. Choose one to be tested on.");
-
 	elseif(e.message:findi("disempowerment")) then 		--shadowknight test of disempowerment
 		e.self:Say("Disempowerment, destroying good magic. Proceed upward through the sky and return to me a Griffon Statuette, a Blood Sky Emerald, and Rusted Pauldrons. This will prove your abilities to me and I will reward you with Blood Sky Face plate.");
 	elseif(e.message:findi("envenoming")) then 			--shadowknight test of envenoming

@@ -1,7 +1,7 @@
 function event_death_complete(e)
-	eq.spawn2(71106,0,0,x+10,y,z,h); --Bazzazzt --2-1
-	eq.spawn2(71106,0,0,x-10,y,z,h); --Bazzazzt --2-2
-	eq.spawn2(71106,0,0,x   ,y,z,h); --Bazzazzt --2-3
+	eq.spawn2(71106,0,0,e.self:GetX() + 10,e.self:GetY(),e.self:GetZ(),e.self:GetHeading()); --Bazzazzt --2-1
+	eq.spawn2(71106,0,0,e.self:GetX() - 10,e.self:GetY(),e.self:GetZ(),e.self:GetHeading()); --Bazzazzt --2-2
+	eq.spawn2(71106,0,0,e.self:GetX(),e.self:GetY(),e.self:GetZ(),e.self:GetHeading()); --Bazzazzt --2-3
 end
 
 -------------------------------------------------------------------------------------------------
