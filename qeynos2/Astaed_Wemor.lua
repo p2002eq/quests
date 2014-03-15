@@ -14,7 +14,7 @@ function event_say(e)
 			e.self:Say("I do not dislike you, but I cannot fully trust one who has yet to prove his service to the Prime Healer.  Perhaps you can assist us in ridding the land of diseased animals.  Priestess Caulria will accept all pelts from rabid beasts."); 
 		end
 	elseif(e.message:findi("staying close to qeynos")) then
-		if ($faction <= 3) then
+		if (fac <= 3) then
 			e.self:Say("Then you can help with one of our distraught members. The priests have noticed that Nerissa Clothspinner has been a little down lately. Go console her and ask her how she is doing. She is a sweet girl and the temple is worried about her.");
 		else
 			e.self:Say("I do not dislike you, but I cannot fully trust one who has yet to prove his service to the Prime Healer.  Perhaps you can assist us in ridding the land of diseased animals.  Priestess Caulria will accept all pelts from rabid beasts."); 
