@@ -1,8 +1,7 @@
 function event_say(e)
 	if(e.message:findi("hail")) then
 		e.self:Say("Hi there " .. e.other:GetName() .. ". It's nice to meet ye. Many great deals here today if I don't say so myself.");
-	end
-	if(e.message:findi("piece")) then
+	elseif(e.message:findi("piece")) then
 		e.self:Say("I'm waiting to have a rhino beetle horn delivered to me to finish off Hardam's helm. I do not want to present it to him with one horn, you know. If you wanted to be a big help, any rhino beetles horn would do fine. Bring one to me and I can then finish Hardam's helm and send it back to his shop in your hands.");
 	end
 end

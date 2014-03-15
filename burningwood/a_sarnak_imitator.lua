@@ -4,26 +4,19 @@
 function event_say(e)
 	if(e.message:findi("are you jeb lumsed")) then
 		e.self:Say("Yes, I am. Use your most enlightened magic to seek the truth of what is around you. When that is done, you will know what you seek.");
-	end
-	if(e.message:findi("the serpent")) then
+	elseif(e.message:findi("the serpent")) then
 		e.self:Say("The first truly powerful enchanter, Krilan Pedin, crafted the Serpent years ago. He trained his students to carry on the trade in a five-step process. Each student then became a master and chose one of their own students to pass the legacy on to. Four others and I, myself, are current practitioners of the crafting.");
-	end
-	if(e.message:findi("masters of enchantment")) then
+	elseif(e.message:findi("masters of enchantment")) then
 		e.self:Say("The masters are enchanters who have reached the plateau of understanding. Their names are Modani Qu'Loni, Mizzle Gepple, Nadia Starfeast, and Polzin Mrid. All are master crafters in their own right.");
-	end
-	if(e.message:findi("modani")) then
+	elseif(e.message:findi("modani")) then
 		e.self:Say("Modani is a master of illusions. You should seek him out first. Keep a careful eye out for him - he is never in his true form. The last time I spoke to him, he seemed very excited about his voyage to the elven outpost. You may or may not find more clues about his location there.");
-	end
-	if(e.message:findi("mizzle")) then
+	elseif(e.message:findi("mizzle")) then
 		e.self:Say("Mizzle is a gnome who has mastered the use of enlightened magic. Go to him once you have spoken to Modani. Mizzle is not one to travel, so you should not have to look far from his home to find him.");
-	end
-	if(e.message:findi("nadia")) then
+	elseif(e.message:findi("nadia")) then
 		e.self:Say("The mistress of charm, Nadia is very beautiful. She, too, traveled with her relatives to the new land. I just recently received a letter from her. She says more and more pilgrims and explorers are arriving every day, and that the outpost is well defended now.");
-	end
-	if(e.message:findi("polzin")) then
+	elseif(e.message:findi("polzin")) then
 		e.self:Say("Master of the Phantasms - he is the last one you will seek out. Hmm...Polzin is native to Erudin, however, after the incident near Paineel, no one has heard from him. I hope that he is well.");
-	end
-	if(e.message:findi("I need a sack")) then
+	elseif(e.message:findi("I need a sack")) then
 		e.self:Say("Take this sack and combine the items I requested in it. Then return it to me.");
 		e.other:SummonItem(17861);
 	end

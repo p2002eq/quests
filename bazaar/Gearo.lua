@@ -1,8 +1,9 @@
 function event_say(e)
+	local qglobals = eq.get_qglobals(e.other);
+
 	if(e.message:findi("hail")) then
 		e.self:Say("Hello there friend. My name is Gearo and as you can see I'm a Gnome, so what can I do for ya?");
-	end
-	if((e.message:findi("take the gems")) and (defined(qglobalsDeliveredToGearoend) and qglobalsDeliveredToGearoend == 1)) then
+	elseif((e.message:findi("take the gems")) and qglobals["DeliveredToGearo"] == "1")) then
 		e.self:Say("Good " .. e.other:GetName() .. "! Here they are, please take them back to that gargantuan barbarian and let him know I want a raise for all this hard work!");
 		e.other:SummonItem(4767);
 		eq.delete_global("DeliveredToGearo"); --Remove global
@@ -18,7 +19,7 @@ function event_trade(e)
 		e.other:Faction(153, 15); 	--House of Midst
 		e.other:Faction(154, 15); 	--House of Stout
 		e.other:AddEXP(1000);		--This quest is doable at level 1, I didn't feel comfortable giving out more xp than this per step
-		eq.set_global("DeliveredToGearo",1,0,"D30");--Set a variable here.
+		eq.set_global("DeliveredToGearo","1",0,"D30");--Set a variable here.
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end

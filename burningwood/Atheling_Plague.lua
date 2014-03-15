@@ -1,29 +1,29 @@
 --Shaman Skull Quest 6
 
+
 function event_say(e)
-	if(e.message:findi("hail") and shmskullquest >= 8) then
+	local qglobals = eq.get_qglobals(e.other);
+
+	if(e.message:findi("hail") and tonumber(qglobals["shmskullquest"]) >= 8) then
 		e.self:Say("Ahh!! A conversationalist. How good to meet you, Cradossk. Yes. I have heard of you. Go ahead and ask for that which has brought you to my tower and emboldened you to slay my weaker minions.");
-	end
-	if(e.message:findi("Give me the skull of the sisters of scale") and shmskullquest >= 8) then
+	elseif(e.message:findi("Give me the skull of the sisters of scale") and tonumber(qglobals["shmskullquest"]) >= 8) then
 		e.self:Say("What a coincidence! I, too, seek a skull. Perhaps you might help me [obtain the skull]. Perhaps then you shall have the skull you desire.");
-	end
-	if(e.message:findi("I will help you obtain the skull") and shmskullquest >= 8) then
+	elseif(e.message:findi("I will help you obtain the skull") and tonumber(qglobals["shmskullquest"]) >= 8) then
 		e.self:Say("I am sure you would not mind removing the head of a scaled mystic. I hope not. There is an old Iksar who once called me slave. Now he shall adorn my wall, mounted on a fine plaque. His name is Digalis. Find him. Do not return until your task is complete.");
 	end
 end
 
 function event_trade(e)
 	local item_lib = require("items");
-	x = e.self:GetX();
-	y = e.self:GetY();
-	z = e.self:GetZ();
-	if(item_lib.check_turn_in(e.trade, {item1 = 12764}) and shmskullquest >= 8) then
+	local qglobals = eq.get_qglobals(e.other);
+	
+	if(item_lib.check_turn_in(e.trade, {item1 = 12764}) and tonumber(qglobals["shmskullquest"]) >= 8) then
 		e.other:SummonItem(12750);
 		e.self:Shout("Excellent. You show signs of a true Iksar slayer. Too, bad I have already given the skull of the Sister of Scale to another. Perhaps you would like to meet him before he departs. Say hello, Doval.");
-		eq.unique_spawn(87154,0,0,x + 5,y,z);
+		eq.unique_spawn(87154,0,0,e.self:GetX() + 5,e.self:GetY(),e.self:GetZ());
 		eq.set_timer("heal",20000);
 	end
-	item_lib.return_items(e.self, e.other, e.trade)
+	item_lib.return_items(e.self, e.other, e.trade);
 end
 
 function event_timer(e)

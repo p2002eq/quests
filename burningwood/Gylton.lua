@@ -1,15 +1,14 @@
 function event_combat(e)
-	local random_result = int(rand(60));
+	local random_result = math.random(60);
+	
 	if(e.joined) then
 		e.self:Say("You will perish!!  You are weak and should have kept to your own realm!!");
 		if(random_result <=20) then
-			e.self:Say("classends like you always bring out the worst in me!");
-
+			e.self:Say("" .. e.other:Class() .. " like you always bring out the worst in me!");
 		elseif(random_result <=40) then
-			e.self:Say("I really hateclassends like you!");
-
+			e.self:Say("I really hate " .. e.other:Class() .. " like you!");
 		else
-			e.self:Say("classends like you are an affront to my senses!");
+			e.self:Say("" .. e.other:Class() .. " like you are an affront to my senses!");
 		end
 	end
 end
