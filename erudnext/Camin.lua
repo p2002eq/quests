@@ -1,6 +1,6 @@
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say(""Go away! I have no time for you!");
+		e.self:Say("Go away! I have no time for you!");
 	elseif(e.message:findi("What are you searching for")) then
 		-- should check faction here...
 		e.self:Say("Ah! A smart one, I see! If you really wish to know about such a thing, you will have to help me finance my studies. The knowledge I have acquired and researched did not come cheaply.");
