@@ -1,6 +1,6 @@
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Hail. $name! I am the master of the paladins among the Peacekeepers. Have you joined the harmony of the Peacekeepers or are you merely a visitor?");
+		e.self:Say("Hail. " .. e.other:GetName() .. "! I am the master of the paladins among the Peacekeepers. Have you joined the harmony of the Peacekeepers or are you merely a visitor?");
 	elseif(e.message:findi("joined")) then
 		e.self:Say("Then go and speak with the other Peacekeepers. Do your part to promote the words of Quellious.");
 	end

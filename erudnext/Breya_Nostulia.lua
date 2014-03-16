@@ -14,7 +14,7 @@ function event_trade(e)
 	local item_lib = require("items");
 
 	if(item_lib.check_turn_in(e.trade, {item1 = 17056,item2 = 1766})) then
-		e.self:Say("Well done, $name. I had a feeling you would return victorious. Here is your reward, the Leggings of Midnight Sea. Wear them with pride for the Ocean Lord. If you are interested in aiding us further, you may want to ask Gans about his brother.");
+		e.self:Say("Well done, " .. e.other:GetName() .. ". I had a feeling you would return victorious. Here is your reward, the Leggings of Midnight Sea. Wear them with pride for the Ocean Lord. If you are interested in aiding us further, you may want to ask Gans about his brother.");
 		e.other:SummonItem(1762);
 		e.other:Ding();
 		e.other:Faction(79,2,0);
