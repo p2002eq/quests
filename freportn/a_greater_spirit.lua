@@ -6,11 +6,11 @@ function event_say(e)
 	elseif(e.message:findi("i follow justice")) then -- Part of Shaman Epic 1.0
 		e.self:Say("Ah, it does me much good to meet with one who holds respect and reverence for the spirits. [Trust] that your place in the whole is important. Rather than trying to enslave and command others with the powers the gods grant you, you live in harmony and balance with the world around you. There are times when we, the [true spirits] and those like you, can work together to achieve goals. Individuals who help us are known as [Heyokah].");
 	elseif(e.message:findi("i follow fear")) then -- Part of Shaman Epic 1.0
-		e.self:Say("You would be best served by speaking to my brother in the next room, $name.");
+		e.self:Say("You would be best served by speaking to my brother in the next room, " .. e.other:GetName() .. ".");
 	elseif(e.message:findi("i follow war")) then -- Part of Shaman Epic 1.0
-		e.self:Say("You would be best served by speaking to my brother in the next room, $name.");
+		e.self:Say("You would be best served by speaking to my brother in the next room, " .. e.other:GetName() .. ".");
 	elseif(e.message:findi("i follow hate")) then -- Part of Shaman Epic 1.0
-		e.self:Say("You would be best served by speaking to my brother in the next room, $name.");
+		e.self:Say("You would be best served by speaking to my brother in the next room, " .. e.other:GetName() .. ".");
 	elseif(e.message:findi("i follow honor")) then -- Part of Shaman Epic 1.0
 		e.self:Say("Ah, it does me much good to meet with one who holds respect and reverence for the spirits. [Trust] that your place in the whole is important. Rather than trying to enslave and command others with the powers the gods grant you, you live in harmony and balance with the world around you. There are times when we, the [true spirits] and those like you, can work together to achieve goals. Individuals who help us are known as [Heyokah].");
 	elseif(e.message:findi("trust")) then -- Part of Shaman Epic 1.0

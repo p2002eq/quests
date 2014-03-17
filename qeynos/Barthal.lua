@@ -21,7 +21,7 @@ end
 
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Hail, $name! We've got the best prices in town..  No need to shop around..  Heh, heh. I think I'll make that my new slogan!");
+		e.self:Say("Hail, " .. e.other:GetName() .. "! We've got the best prices in town..  No need to shop around..  Heh, heh. I think I'll make that my new slogan!");
 	end
 end
 

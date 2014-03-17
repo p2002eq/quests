@@ -5,7 +5,7 @@ function event_say(e)
 		e.self:Say("You must become strong to survive amongst the ranks of the Dismal Rage. Take this note to Rolfic Gohar and he will help you get a suit of armor to protect your scrawny hide from the weapons of our enemies. Once you have been properly outfitted return to me and will give you your [next orders].");
 		e.other:SummonItem(19843); -- Note to Rolfic Gohar
 	elseif(e.message:findi("next orders")) then
-		e.self:Say("Ready to make yourself useful $name ? Beneath West Freeport are sewer tunnels leading to North Freeport being used by the Knights of Truth and the Sentries and Passion that have gained too much notoriety with the Freeport Militia and the Dismal Rage to pass safely through the eastern and western quarters of Freeport. We believe a sympathizer of the Sentries of Passion. Tarsa Yovar. is hiding somewhere in the western tunnel system. The sympathizer is a Steel Warrior faithful to Erollisi and although she is only a minor nuisance must be dealt with. Find her and bring me her head.");
+		e.self:Say("Ready to make yourself useful " .. e.other:GetName() .. " ? Beneath West Freeport are sewer tunnels leading to North Freeport being used by the Knights of Truth and the Sentries and Passion that have gained too much notoriety with the Freeport Militia and the Dismal Rage to pass safely through the eastern and western quarters of Freeport. We believe a sympathizer of the Sentries of Passion. Tarsa Yovar. is hiding somewhere in the western tunnel system. The sympathizer is a Steel Warrior faithful to Erollisi and although she is only a minor nuisance must be dealt with. Find her and bring me her head.");
 	end
 end
 
@@ -27,7 +27,7 @@ function event_trade(e)
 		e.other:SummonItem(19921); -- Dull Dismal Battleaxe
 		e.other:AddEXP(100);
 	elseif(item_lib.check_turn_in(e.trade, {item1 = 19926,item2 = 19852})) then -- Sharpened Dismal Battleaxe - Giant Rattlesnake Skin
-		e.self:Say("You have proven your faith $name. Take this to vanquish any and all whom question the absolute power of Innoruuk!");
+		e.self:Say("You have proven your faith " .. e.other:GetName() .. ". Take this to vanquish any and all whom question the absolute power of Innoruuk!");
 		e.other:Ding();
 		e.other:SummonItem(19938); -- Dismal Rage BattleAxe
 		e.other:AddEXP(100);
