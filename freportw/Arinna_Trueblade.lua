@@ -37,7 +37,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(e.other:Class() == "Warrior") {
+	if(e.other:Class() == "Warrior") then
 		if(item_lib.check_turn_in(e.trade, {item1 = 9919,item2 = 9918,item3 = 9923})) then -- Pristine Giant Scarab Leg, Lion Paw, Vial of Smoke
 			e.self:Say(""..e.other:GetName()..", you have proven your value to the Steel Warriors. Here is a weapon that will let you slay magical creatures that you couldn't with a normal weapon.");
 			e.other:Ding();
