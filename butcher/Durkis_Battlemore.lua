@@ -8,6 +8,7 @@ function event_trade(e)
 	local item_lib = require("items");
 	if(item_lib.check_turn_in(e.trade, {item1 = 8910})) then 	--A Note to Battlemore
 		e.self:Say("What have ye got there, lad? Ack. I thought I would never hear from that crazy old man again. He wants me to give you a pair o' me gauntlets. I suppose I kin do that. Here you are, " .. e.other:GetName() .. " . Wear them in good health.");
+		e.other:Ding();
 		e.other:SummonItem(8909);								--Gem Inlaid Gauntlets
 		e.other:AddEXP(16000);
 	end

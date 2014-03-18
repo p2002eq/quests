@@ -40,8 +40,9 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	if(item_lib.check_turn_in(e.trade, {item1 == 2416})) then
-		e.other:AddEXP(1000);
+		e.other:Ding();
 		e.self:Say("Ahh, I see you have spoken to Ryshon. You seem tired from your long journey. Sit with me as I tell you a tale. A tale about a true friend of mine, a great man known as [Amstaf Trunolis].");
+		e.other:AddEXP(1000);
 	end
 end
 
