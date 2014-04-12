@@ -36,7 +36,7 @@ sub EVENT_ITEM {
 
   # Incandescent Wand
   if(($itemcount{12240} == 1) && ($itemcount{6340} == 1)) {
-    quest::say("Well done, $name.  Here is your wand."); # Made this text up
+    quest::say("I see that you are resourceful... you have earned your incandescent wand.");
     quest::summonitem(6334);
     quest::faction("320","15");
     quest::faction("291","-15");
@@ -45,7 +45,7 @@ sub EVENT_ITEM {
 
   # Incandescent Gloves
   if(($itemcount{2353} == 1) && ($itemcount{2354} == 1) && ($itemcount{2355} == 1) && ($itemcount{2356} == 1)) {
-    quest::say("All four sets of gloves?  Very well done.  Here is your reward."); # Made this text up
+    quest::say("Four pairs of gloves you have given me ? I will give you one pair in return. We shall see who had the better deal.");
     quest::summonitem(2351);
     quest::faction("320","15");
     quest::faction("291","-15");
@@ -54,7 +54,7 @@ sub EVENT_ITEM {
 
   # Incandescent Mask
   if(($itemcount{2352} == 1) && ($itemcount{10530} == 1) && ($itemcount{10531} == 1) && ($itemcount{10532} == 1)) {
-    quest::say("Well done, $name!  Here is your mask, as promised."); # Made this text up
+    quest::say("Fortune favors you .. as will this mask.");
     quest::summonitem(2350);
     quest::faction("320","15");
     quest::faction("291","-15");
