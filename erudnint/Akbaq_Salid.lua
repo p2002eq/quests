@@ -1,4 +1,4 @@
-# Quest for Akbaq_Salid in erudnint - Titan Samples (good) 
+-- Quest for Akbaq_Salid in erudnint - Titan Samples (good) 
 
 
 function event_say(e)
