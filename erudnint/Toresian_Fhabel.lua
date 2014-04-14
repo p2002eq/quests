@@ -9,8 +9,12 @@ function event_say(e)
 			eq.unique_spawn(eq.ChooseRandom(23078,23001),0,0,575,683,-12.13,78);
 		end
 	elseif(e.message:findi("assist Toresian")) then
-		e.self:Say("Ahhhhh $name. Slansin used to have need of those potions, however he mysteriously disappeared long ago. The only person I know of who still wants them is a cleric of the Church of Marr in Freeport.");
-		e.other:SummonItem(13983);
+		if(e.other:GetFaction(e.self) < 5) then
+			e.self:Say("Ahhhhh " .. e.other:GetName() .. ". Slansin used to have need of those potions, however he mysteriously disappeared long ago. The only person I know of who still wants them is a cleric of the Church of Marr in Freeport.");
+			e.other:SummonItem(13983);
+		else
+			e.self:Say("You are lucky to be standing. Leave here immediately or suffer grave consequences! You are not welcome amongst the Craftkeepers.");
+		end
 	end
 end
 
