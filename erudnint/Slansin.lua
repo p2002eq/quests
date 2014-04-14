@@ -13,19 +13,19 @@ function event_trade(e)
 		if(e.self:GetClass() == 41) then
 			e.self:Say("Thank you. I have been expecting this. We require it for mixing.");
 			e.other:Ding();
-			e.other:Faction(56,-15,0);
-			e.other:Faction(145,-15,0);
-			e.other:Faction(143,10,0);
-			e.other:Faction(147,-15,0);
+			e.other:Faction(56,-5,0);
+			e.other:Faction(145,-5,0);
+			e.other:Faction(143,1,0);
+			e.other:Faction(147,-5,0);
 			e.other:AddEXP(300);
 			eq.depop();
 		elseif(e.self:GetClass() == 14) then
 			e.self:Say("Ha!! What a fool!! I have stolen another potion to add to the crate. I shall make a fortune!! The real Slansin is in back. Now it is time for me to leave.");
-			quest::faction(48,10); -- +Coalition of Tradefolk Underground
-			quest::faction(47,10); -- +Coalition of Tradefolk
-			quest::faction(31,10); -- +Carson McCabe
-			quest::faction(53,10); -- +Corrupt Qeynos Guards
-			quest::faction(105,5); -- +Freeport Militia
+			e.other:Faction(48,5,0); -- +Coalition of Tradefolk Underground
+			e.other:Faction(47,5,0); -- +Coalition of Tradefolk
+			e.other:Faction(31,5,0); -- +Carson McCabe
+			e.other:Faction(53,5,0); -- +Corrupt Qeynos Guards
+			e.other:Faction(105,5,0); -- +Freeport Militia
 			e.other:AddEXP(300);
 		end
 	end
