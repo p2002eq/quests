@@ -4,4 +4,4 @@ function event_say(e)
 	end
 end
 
-#END of FILE Zone:erudnint  ID:24051 -- Chief_Adair
+-- END of FILE Zone:erudnint  ID:24051 -- Chief_Adair

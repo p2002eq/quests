@@ -24,11 +24,11 @@ function event_timer(e)
 end
 
 function event_signal(e)
-	if(e.signal == 0) {
+	if(e.signal == 0) then
 		e.self:Say("Again? Oh I don't know Srafen, I don't want to [bore] our company, even if it is an illusion.");
-	elseif(e.signal == 1) {
+	elseif(e.signal == 1) then
 		e.self:Say("Whatever.");
-	elseif(e.signal == 2) {
+	elseif(e.signal == 2) then
 		e.self:Say("Hey wait! I'm coming with!");
 		eq.start(58);
 		eq.set_timer("DillonDepop",20000);

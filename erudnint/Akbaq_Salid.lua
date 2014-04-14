@@ -22,7 +22,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	
-	if (e.other:GetFaction(e.self) <= 5) { -- Require indifferent or greater faction 
+	if (e.other:GetFaction(e.self) <= 5) then -- Require indifferent or greater faction 
 		if(item_lib.check_turn_in(e.trade, {item1 = 6960,item2 = 6946})) then -- astral cloak of the titans 
 			e.self:Say("These are the pelts of the most powerful of the known Titan spirits. You have done well, $name, and you will be rewarded for your services."); 
 			e.other:Ding();
@@ -55,4 +55,4 @@ function event_trade(e)
 	item_lib.return_items(e.self, e.other, e.trade);
 end
  
---END of FILE Zone:erudnint  ID:23077 -- Akbaq_Salid
+-- END of FILE Zone:erudnint  ID:23077 -- Akbaq_Salid

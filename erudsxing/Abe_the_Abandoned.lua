@@ -27,7 +27,8 @@ function event_timer(e)
 		e.self:Say("Shaman? My time will soon be at hand and I fear I will never see our friends again. But the arrow must be given, our holy broken arrow. Shaman, will you bear our obligation and [give them the arrow]? You will know who to give it to when it is time.");
 		eq.stop_timer("AbeAsksAboutArrow");
 	elseif (e.timer == "AbeDepart") then
-		e.self:Emote("suddenly gasps and says, 'I have found it! I know the answer! Come with me and I will tell you. Eyes are everywhere and this knowledeg is not for everyone. Finally my centuries of waiting are over hahahaha! Follow me Shaman!");  quest::start(58);
+		e.self:Emote("suddenly gasps and says, 'I have found it! I know the answer! Come with me and I will tell you. Eyes are everywhere and this knowledeg is not for everyone. Finally my centuries of waiting are over hahahaha! Follow me Shaman!");  
+		eq.start(58);
 		eq.stop_timer("AbeDepart");
 	elseif (e.timer == "SSpawn") then
 		eq.spawn2(98052,0,0,4176.4,-1563.6,-291.4,115.3);
