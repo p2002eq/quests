@@ -14,28 +14,20 @@ function event_trade(e)
 		e.other:AddEXP(1000);
 		e.self:Say("Ok shaman, let us be off.");
 		eq.start(57);
-		eq.set_timer("Speak",105);
 	end
 	item_lib.return_items(e.self, e.other, e.trade);
 end
 
-function event_timer(e)
-	if (e.timer == "Speak") then
+function event_waypoint_arrive(e)
+	if(e.wp == 7) then
 		e.self:Say("Ok, here is place for you to for waiting. Hab fun shaman!");
-		eq.stop_timer("Speak");
-		eq.set_timer("Depart",120);
-	elseif (e.timer == "Depart") then
-		eq.start(58);
-		eq.stop_timer("Depart");
-		eq.set_timer("OoglynDepop",241);
-		eq.set_timer("SrafenSpawn",240);
-	elseif (e.timer == "SrafenSpawn") then
-		eq.spawn2(98046,0,0,4209.4,-1575.5,-289.4,181);
-		eq.stop_timer("SrafenSpawn");
-	elseif (e.timer == "OoglynDepop") then
-		eq.depop_with_timer();
-		eq.stop_timer("OoglynDepop");
+		eq.set_timer("depop",360000);
 	end
+end
+
+function event_timer(e)
+	eq.spawn2(98046,0,0,4209.4,-1575.5,-289.4,181);
+	eq.depop_with_timer();
 end
 
 -- Ooglyn

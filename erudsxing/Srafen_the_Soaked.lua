@@ -1,9 +1,8 @@
+local counting;
+
 function event_spawn(e)
-	eq.set_timer("DillonSpawn",180);
-	eq.set_timer("AskDillon",840);
-	eq.set_timer("SrafenDepart",1020);
-	eq.set_timer("FrohamSpawn",1200);
-	eq.set_timer("SrafenDepop",1201);
+	eq.set_timer("DillonSpawn",170000);
+	counting = 0;
 end
 
 function event_say(e)
@@ -33,23 +32,21 @@ end
 
 function event_timer(e)
 	if (e.timer == "DillonSpawn") then
+		counting = counting + 1;
+	end
+	if(counting == 1) then
 		eq.spawn2(98051,0,0,4198.4,-1563.4,-291.5,152);
-		eq.stop_timer("DillonSpawn");
-	elseif(e.timer == "AskDillon") then
+	elseif(counting == 5) then
 		e.self:Say("Hey Dillon, why don't you tell us again about what happened up top? You know, where they blew that big hole into the ground.");
 		eq.signal(98051,0);
-		eq.stop_timer("AskDillon");
-	elseif(e.timer == "SrafenDepart") then
+	elseif(counting == 6) then
 		eq.start(58);
-		e.self:Say("'Okay, well, I've had enough. Yet again, we've waited for nothing. Sometimes I really wonder if the spirits are real after all. Well I for one am going to go find something fun to do - this is obviously a waste of time. Come with me, shaman, it'll be great fun! Fairwell Dillon.");
+		e.self:Say("Okay, well, I've had enough. Yet again, we've waited for nothing. Sometimes I really wonder if the spirits are real after all. Well I for one am going to go find something fun to do - this is obviously a waste of time. Come with me, shaman, it'll be great fun! Fairwell Dillon.");
 		eq.signal(98051,2);
-		eq.stop_timer("SrafenDepart");
-	elseif(e.timer == "FrohamSpawn") then
+	elseif(counting == 7) then
 		eq.spawn2(98047,0,0,4208.8,-1588.6,-291.7,205);
-		eq.stop_timer("FrohamSpawn");
-	elseif(e.timer == "SrafenDepop") then
+		eq.stop_timer("DillonSpawn");
 		eq.depop();
-		eq.stop_timer("SrafenDepop");
 	end
 end
 
