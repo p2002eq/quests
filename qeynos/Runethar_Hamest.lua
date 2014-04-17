@@ -23,10 +23,10 @@ function event_trade(e)
 		e.self:Say("Greetings, fellow knight of Karana, and welcome to the Temple of Thunder! Here, wear this tunic and help our crusade. Wolten Grafe is my assistant, he will get you started and teach you the ways of the Rainkeeper.");
 		e.other:SummonItem(13505); -- Old Gray Tunic*
 		e.other:Ding();
-		e.other:Faction(183,10,0);
-		e.other:Faction(21,-15,0);
-		e.other:Faction(257,10,0);
-		e.other:Faction(135,10,0);
+		e.other:Faction(183,100,0);
+		e.other:Faction(21,-100,0);
+		e.other:Faction(257,75,0);
+		e.other:Faction(135,75,0);
 		e.other:AddEXP(100);
 	end
 	item_lib.return_items(e.self, e.other, e.trade)

@@ -3,7 +3,7 @@ sub EVENT_ITEM {
 		quest::say("Ah.. ye wish to be a member o' the White Rose, then. eh? Well, let's train ye fer a bit. and see if ye've got what it takes.");
 		quest::ding();
 		quest::summonitem(13513); # torn white tunic
-		quest::faction(275,5); # Rogues of the White Rose
+		quest::faction(275,100); # Rogues of the White Rose
 		quest::exp(100);
 	} 
 	plugin::return_items(\%itemcount);

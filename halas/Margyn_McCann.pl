@@ -35,11 +35,11 @@ sub EVENT_ITEM{
 	if(plugin::check_handin(\%itemcount, 18761 => 1)) {
 		quest::say("Welcome t' the Church o' the Tribunal. Here, we practice the will o' the Six Hammers. This is our guild tunic - wear it with pride and represent us well.");
 		quest::ding();
-		quest::faction(294, 5);   # Shamen of Justice
-		quest::faction(213, 5);   # Merchants of Halas
-		quest::faction(33, -5);   # Circle of Unseen Hands
-		quest::faction(48, -5);   # Coalition of Tradefolk Underground
-		quest::faction(90, -5);   # Ebon Mask
+		quest::faction(294, 100);   # Shamen of Justice
+		quest::faction(213, 15);   # Merchants of Halas
+		quest::faction(33, -15);   # Circle of Unseen Hands
+		quest::faction(48, -15);   # Coalition of Tradefolk Underground
+		quest::faction(90, -20);   # Ebon Mask
 		quest::summonitem(13512); # Faded Blue Tunic
 		quest::exp(100);        # Give exp for turning in quest
 	}
