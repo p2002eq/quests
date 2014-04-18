@@ -36,12 +36,12 @@ sub EVENT_ITEM {
 		quest::say("Just what I need in this outfit, another waste of flesh. Here, put this on. Go bother Noxhil for a while - I'm sure he has some menial task for you.  You'd better prove yourself of value to me. I hear I can get a few plat for the skull of an idiot on the black market, and I could make a fortune from your type. Now, get outta here!");
 		quest::ding();
 		quest::summonitem(13587); #Dark Stained Training Robe*
-		quest::faction(322,10); #The Dead
-		quest::faction(268,10); #Queen Cristanos Thex
+		quest::faction(322,100); #The Dead
+		quest::faction(268,15); #Queen Cristanos Thex
 		quest::faction(177,-15); #King Naythox Thex
 		quest::faction(170,-15); #Keeper of the Art
 		quest::faction(91,-15); #Eldritch Collective
-		quest::faction(260,-15); #Primodial Malice
+		quest::faction(260,-200); #Primodial Malice
 		quest::exp(100);
 	}
   plugin::return_items(\%itemcount);

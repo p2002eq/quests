@@ -23,12 +23,12 @@ sub EVENT_ITEM {
 		quest::say("Welcome, child of Hate. I am Perrir Zexus, High Priest. We all draw power from the very source that created us, the will of Innoruuk. Here, put on this tunic. It is the tunic of our guild. Represent us well.");
 		quest::ding();
 		quest::summonitem(13585); #Crimson Training Tunic*
-		quest::faction(256, 10); #Priests of Innoruuk
-		quest::faction(177, 10); #King Naythox Thex
-		quest::faction(258, -15); #Priests of Marr
-		quest::faction(43, -15); #Clerics of Tunare
+		quest::faction(256, 100); #Priests of Innoruuk
+		quest::faction(177, 15); #King Naythox Thex
+		quest::faction(258, -35); #Priests of Marr
+		quest::faction(43, -25); #Clerics of Tunare
 		quest::faction(257, -15); #Priests of Life
-		quest::faction(260, -15); #Primordial Malice
+		quest::faction(260, -400); #Primordial Malice
 		quest::exp(100); 
 	}
   plugin::return_items(\%itemcount);

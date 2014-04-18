@@ -3,7 +3,7 @@ sub EVENT_ITEM {
 		quest::say("Welcome, young magician. I am Jayna D'Bious. You have much to learn, so let's get you started. Here is your guild tunic.  Go find Belux, he is in charge of instructing our new recruits.  Study hard, and you will do well.");
 		quest::ding();
 		quest::summonitem(13583); #Torn Red Robe*
-		quest::faction(331,10); #The Spurned
+		quest::faction(331,100); #The Spurned
 		quest::faction(322,-15); #The Dead
 		quest::exp(100);
 	}

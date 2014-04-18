@@ -13,10 +13,10 @@ function event_trade(e)
 		e.self:Say("Welcome to the Guardians of the Vale. I'm Roglio Bruth, and I run this proud little outfit. You seem to be of hearty stock, let's put you to work. Here's your guild tunic - hope it fits. Start your training right away.  Speak with the marshals of this guild.");
 		e.other:SummonItem(13540); -- Old Tan Tunic
 		e.other:Ding();
-		e.other:Faction(133, 10,0); -- Gaurdians of the Vale
-		e.other:Faction(208, 10,0); -- Mayor Gubbin
+		e.other:Faction(133, 100,0); -- Gaurdians of the Vale
+		e.other:Faction(208, 15,0); -- Mayor Gubbin
 		e.other:Faction(316, 10,0); -- Storm Reapers
-		e.other:Faction(218, 10,0); -- Merchants of Rivervale
+		e.other:Faction(218, 15,0); -- Merchants of Rivervale
 		e.other:Faction(88,-15,0); -- Dreadguard Outer
 		e.other:AddEXP(100);
 	elseif(item_lib.check_turn_in(e.trade, {item1 = 13931,item2 = 13931,item3 = 13931,item4 = 13931})) then -- Hand in Runnyeye Warbeads
