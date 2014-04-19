@@ -16,8 +16,8 @@ function event_trade(e)
 		e.self:Say("Yes. welcome friend! Here is your guild tunic. You'll make a fine addition to the Deepwater Knights. Go see Dleria, she will get you started in your studies.");
 		e.other:SummonItem(13544); -- Old Blue Tunic*
 		e.other:Ding();
-		e.other:Faction(79,10,0); -- Deepwater Knights
-		e.other:Faction(145,10,0); -- High Council of Erudin
+		e.other:Faction(79,100,0); -- Deepwater Knights
+		e.other:Faction(145,15,0); -- High Council of Erudin
 		e.other:Faction(143,-15,0); -- Heretics
 		e.other:AddEXP(100);
 	elseif(item_lib.check_turn_in(e.trade, {item1 = 1771})) then

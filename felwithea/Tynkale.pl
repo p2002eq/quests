@@ -21,9 +21,9 @@ sub EVENT_ITEM {
 		quest::say("Greetings. young paladin!  I am Master Tynkale of the Clerics of Tunare.  Here. we shall teach and train you in the skills needed to defeat our evil and diseased enemies.  Take this, our guild tunic - it will help protect you. Wear it with pride, for you are now one of us.");
 		quest::summonitem(13591); # Used Gold Training Tunic*
 		quest::ding();
-		quest::faction(43,10);  #Clerics of Tunare
-		quest::faction(178,10); #King Tearis Thex
-		quest::faction(8,10);   #Anti-mage
+		quest::faction(43,100);  #Clerics of Tunare
+		quest::faction(178,100); #King Tearis Thex
+		quest::faction(8,75);   #Anti-mage
 		quest::exp(100); 
 	}
 	elsif ($faction < 5){

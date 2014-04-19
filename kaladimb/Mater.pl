@@ -54,10 +54,10 @@ sub EVENT_ITEM {
       quest::say("Ah, welcome! We could use some fresh blood around here. The name's Mater, and I run this little outfit. Work hard for me, and I will reward you well. Cross me, and you'll find yourself buried under the mine cap. Now, let's get to work.");
       quest::summonitem(13516); #Ruined Miner's Tunic
       quest::ding();
-      quest::faction(220, 10); # Miners Guild 628
-      quest::faction(33, -15); # Circle of Unseen Hands
-      quest::faction(29, -15); # Butcherblock Bandits
-      quest::faction(77, 10); # Deeppoockets
+      quest::faction(220, 100); # Miners Guild 628
+      quest::faction(33, -5); # Circle of Unseen Hands
+      quest::faction(29, -5); # Butcherblock Bandits
+      quest::faction(77, 5; # Deeppoockets
       quest::faction(90, -15); # Ebon Mask
       quest::exp(100);
    }

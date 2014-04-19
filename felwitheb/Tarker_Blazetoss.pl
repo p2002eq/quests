@@ -22,10 +22,10 @@ sub EVENT_ITEM {
 		quest::say("Welcome to the wizards' guild of the Keepers of the Art. My name's Tarker, and I run this guild. You've got a lot of training ahead of you, so let's get started. Here, take this - it's our guild tunic. Wear it with honor, friend.");
 		quest::summonitem(13594); # Singed Training Robe*
 		quest::ding();
-		quest::faction(170,10); # Keepers of the Art
-		quest::faction(178,10); # King Tearis Thex
-		quest::faction(99,10); # Faydark's Champions
-		quest::faction(322,-15); # The Dead	
+		quest::faction(170,100); # Keepers of the Art
+		quest::faction(178,25); # King Tearis Thex
+		quest::faction(99,15); # Faydark's Champions
+		quest::faction(322,-25); # The Dead
 		quest::exp(100);
 	}
   plugin::return_items(\%itemcount);

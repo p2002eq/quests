@@ -37,10 +37,10 @@ sub EVENT_ITEM
 		quest::say("Greetings and welcome aboard!  My name's Kinool. Master Enchanter of the Keepers of the Art.  Here is your guild tunic. Make us proud, young pupil!");
 		quest::summonitem(13593); # Torn Training Robe*
 		quest::ding();
-		quest::faction(170,10); # Keepers of the Art
-		quest::faction(178,10); # King Tearis Thex
-		quest::faction(99,10); # Faydark's Champions
-		quest::faction(322,-15); # The Dead
+		quest::faction(170,100); # Keepers of the Art
+		quest::faction(178,25); # King Tearis Thex
+		quest::faction(99,15); # Faydark's Champions
+		quest::faction(322,-25); # The Dead
 		quest::exp(100);
 	}
 	if (plugin::check_handin(\%itemcount, 12333 => 1, 12334 => 1, 8401 => 1) && $gold >= 3000) 
