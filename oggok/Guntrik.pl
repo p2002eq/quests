@@ -19,9 +19,9 @@ sub EVENT_ITEM {
 		quest::say("Ahh..  good..  good..  here. take..  Now you Craknek! You bash good. Bash lizards. Bash froggies. Bash mushrooms. Remember. you no help Greenbloods. Crakneks stronger than Greenbloods.");
 		quest::summonitem(13525);
 		quest::ding();
-		quest::faction(57,5);  # Craknek Warrior
-		quest::faction(46,5);  # Clurg
-		quest::faction(128,-10); # Green Blood Knight
+		quest::faction(57,100);  # Craknek Warrior
+		quest::faction(46,15);  # Clurg
+		quest::faction(128,-15); # Green Blood Knight
 		quest::exp(100);
 	}
 	elsif (plugin::check_handin(\%itemcount, 13361 => 1)) {

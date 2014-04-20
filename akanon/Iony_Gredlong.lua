@@ -48,9 +48,9 @@ function event_trade(e)
 		e.self:Say("Welcome to the Abbey of Deep Musing.  Here you can train and raise your abilities to the peak of perfection. Take this tunic and wear it with pride.");
 		e.other:SummonItem(13517);  -- worn felt tunic
 		e.other:Ding();
-		e.other:Faction(76,10,0); 	-- Deep Muses
-		e.other:Faction(210,10,0); 	-- Merchants of Ak'Anon
-		e.other:Faction(115,10,0); 	-- Gem Choppers
+		e.other:Faction(76,100,0); 	-- Deep Muses
+		e.other:Faction(210,15,0); 	-- Merchants of Ak'Anon
+		e.other:Faction(115,15,0); 	-- Gem Choppers
 		e.other:Faction(71,-15,0); 	-- Dark Reflection
 		e.other:AddEXP(100);
 	end

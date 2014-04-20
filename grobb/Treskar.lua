@@ -1,7 +1,5 @@
 -- Quest Name: Treskar's Secret Mission
 -- Quest for SK GM Treskar in Grobb
--- Author: BWStripes
--- Converted to .lua by Speedz
 
 function event_say(e)
 	if(e.message:findi("hail")) then

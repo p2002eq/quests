@@ -21,10 +21,10 @@ function event_trade(e)
 	elseif (item_lib.check_turn_in(e.trade, {item1 = 18705})) then -- Old Folded Letter
 		e.other:SummonItem(13518); 	-- Tin Patched Tunic*
 		e.other:Ding();
-		e.other:Faction(71,10,0); 	-- Dark Reflection
-		e.other:Faction(91,-15,0); 	-- Eldritch Collective
-		e.other:Faction(115,-15,0); -- Gem Choppers
-		e.other:Faction(76,-15,0); 	-- Deepmuses
+		e.other:Faction(71,100,0); 	-- Dark reflection
+		e.other:Faction(91,-10,0); 	-- eldritch collective
+		e.other:Faction(115,-10,0); -- gem choppers
+		e.other:Faction(76,-10,0); 	-- Deepmuses
 		e.other:AddEXP(100);
 	end
 	item_lib.return_items(e.self, e.other, e.trade)

@@ -28,7 +28,7 @@ sub EVENT_ITEM {
     quest::say("Take, take.. You now Shaman of War.. Zulort make you majik, too.");
     quest::summonitem(13526); #Dirty Patched Fur Tunic*
 		quest::ding();
-		quest::faction(295, 5); # Shaman of War
+		quest::faction(295, 100); # Shaman of War
 		quest::exp(100);
   }
   plugin::return_items(\%itemcount);

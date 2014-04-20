@@ -50,9 +50,9 @@ function event_trade(e)
 		e.self:Say("Yes, I just knew you'd see it my way, " .. e.other:GetName() .. ". Anyway, welcome to our little part of Ak'Anon's underworld. We have to pay a high price to keep our small orgainzation hidden, which keeps us all busy around here. Now throw this on, and let's put you to work.");
 		e.other:SummonItem(13519);	-- Scuffed Tunic*
 		e.other:Ding();
-		e.other:Faction(76,10); 	-- Deep Muses
-		e.other:Faction(210,10); 	-- Merchants of Ak'Anon
-		e.other:Faction(115,10); 	-- Gem Choppers
+		e.other:Faction(76,100); 	-- Deep Muses
+		e.other:Faction(210,15); 	-- Merchants of Ak'Anon
+		e.other:Faction(115,15); 	-- Gem Choppers
 		e.other:Faction(71,-15); 	-- Dark Reflection
 		e.other:AddEXP(100);
 	elseif(item_lib.check_turn_in(e.trade, {item1 = 9108,item2 = 9108, item3 = 9109, item4 = 9109})) then -- Minotaur Scalp x 2, Mountain Lion Jawbone x 2

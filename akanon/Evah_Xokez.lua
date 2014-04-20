@@ -19,10 +19,10 @@ function event_trade(e)
 		e.self:Say("Join us in fulfilling teh will of Bertoxxulous. You can train with us here, in the shadows of the Abbey. Wear this tunic to help conceal your true identity.");
 		e.other:Ding();
 		e.other:SummonItem(13518);	-- Tin Patched Tunic*
-		e.other:Faction(71,10,0); 	-- Dark reflection
-		e.other:Faction(91,-15,0); 	-- eldritch collective
-		e.other:Faction(115,-15,0); -- gem choppers
-		e.other:Faction(76,-15,0); 	-- Deepmuses
+		e.other:Faction(71,100,0); 	-- Dark reflection
+		e.other:Faction(91,-10,0); 	-- eldritch collective
+		e.other:Faction(115,-10,0); -- gem choppers
+		e.other:Faction(76,-10,0); 	-- Deepmuses
 		e.other:AddEXP(100);
 	elseif(item_lib.check_turn_in(e.trade, {item1 = 10263})) then -- empty infectious vial
 		e.self:Say("I hope you enjoyed the thrill of your first lesson and the awakening of your vision. Now you must prove your utility to our society. Take this airtight container and gather the [components] for another dose of the plague rat disease.");

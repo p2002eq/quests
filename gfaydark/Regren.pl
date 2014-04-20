@@ -9,7 +9,7 @@ sub EVENT_ITEM {
 		quest::say("Welcome to the Emerald Warriors. Hmmm, you have a lot of training to do, so let's get started right away. Here's our guild tunic, represent us well, young $name.");
 		quest::summonitem(13533); #Old Green Tunic
 		quest::ding();
-		quest::faction(92,10); #Emerald Warriors
+		quest::faction(92,100); #Emerald Warriors
 		quest::faction(155,-15); #Indigo Brotherhood
 		quest::faction(212,10); #Merchants of Felwithe
 		quest::faction(174,10);  #Kelethin Merchants

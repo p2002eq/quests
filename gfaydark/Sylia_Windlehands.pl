@@ -12,7 +12,7 @@ sub EVENT_ITEM {
 		quest::say("Greetings. friend. I am Sylia.  I see that you wish to join our humble guild.  Good.  Here is a gift for you - your guild tunic.  Let's get started with your training, shall we?");
 		quest::summonitem(13534); #Faded Brown Tunic
 		quest::ding();
-		quest::faction(306,10); #Song Weavers
+		quest::faction(306,100); #Song Weavers
 		quest::exp(100);
 	}
 	if(plugin::check_handin(\%itemcount, 13099  => 4)) {

@@ -9,9 +9,9 @@ sub EVENT_ITEM {
 		quest::say("Welcome! We are the Soldiers of Tunare, the sworn protectors of Faydark. I thank you for joining our cause, we can always use the help. Here, put on this tunic, and let's get started.. you have much to learn.");
 		quest::summonitem(13537); #Green and Tan Tunic
 		quest::ding();
-		quest::faction(304,10); #soldier of Tunare
-		quest::faction(178,10); #King Tearis Thex
-		quest::faction(99,10);  #Faydark's Champions
+		quest::faction(304,100); #soldier of Tunare
+		quest::faction(178,15); #King Tearis Thex
+		quest::faction(99,15);  #Faydark's Champions
 		quest::exp(100);
 	}
 	if(plugin::check_handin(\%itemcount, 5013 => 1, 5016 => 1, 5019 => 1, 5022 => 1)) {

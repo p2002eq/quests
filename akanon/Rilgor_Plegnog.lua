@@ -12,10 +12,10 @@ function event_trade(e)
 	if(item_lib.check_turn_in(e.trade, {item1 = 18703})) then  -- Old Folded Letter
 		e.other:Ding();
 		e.other:SummonItem(13524);	-- Dark Gold Felt Robe*
-		e.other:Faction(71,10,0); 	-- Dark reflection
-		e.other:Faction(91,-15,0); 	-- eldritch collective
-		e.other:Faction(115,-15,0); 	-- gem choppers
-		e.other:Faction(76,-15,0); 	-- Deepmuses
+		e.other:Faction(71,100,0); 	-- Dark reflection
+		e.other:Faction(91,-10,0); 	-- eldritch collective
+		e.other:Faction(115,-10,0); -- gem choppers
+		e.other:Faction(76,-10,0); 	-- Deepmuses
 		e.other:AddEXP(100);
 	elseif (item_lib.check_turn_in(e.trade, {item1 = 1360})) then
 		e.self:Say("Very nice!! It is perfect! Here take this pen. Have fun with it.");

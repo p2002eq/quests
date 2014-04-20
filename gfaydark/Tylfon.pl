@@ -30,7 +30,7 @@ sub EVENT_ITEM {
       quest::say("Hmm.. I hope you can prove yourself a lot more valuable than you look. Here, throw this on.. it'll help protect you a little. Let's get started on improving your skills.");
       quest::summonitem(13535); #Old Worn Gray Tunic*
       quest::ding();
-      quest::faction(283,10); #Tunare's Scouts
+      quest::faction(283,100); #Tunare's Scouts
       quest::exp(100);
    }
    elsif (($gold >= 2) && (plugin::check_handin(\%itemcount, 7007 => 1))) {

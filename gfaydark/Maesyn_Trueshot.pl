@@ -36,11 +36,11 @@ sub EVENT_ITEM {
   elsif (plugin::check_handin(\%itemcount, 18785 => 1)) { #A tattered note
     quest::say("Hail, $name, and welcome.. I am Maesyn Trueshot, leader of Faydark's Champions. I will teach and train you, as I have done for many others. Let's get started.. Here, put this on.. it'll help protect you from the elements. You look pretty bright. Train hard, and I'm sure you'll do well.");
 	quest::ding();
-    quest::faction(99,10);  # Faydark's Champions
-    quest::faction(178,10); # King Tearis Thex
-    quest::faction(43,10);  # Clerics of Tunare
-    quest::faction(304,10); # Soldiers of Tunare
-    quest::faction(63,-30); # Crushbone Orcs
+    quest::faction(99,100);  # Faydark's Champions
+    quest::faction(178,25); # King Tearis Thex
+    quest::faction(43,25);  # Clerics of Tunare
+    quest::faction(304,25); # Soldiers of Tunare
+    quest::faction(63,-25); # Crushbone Orcs
     quest::exp(100);
     quest::summonitem(13536); # Dirty Green Tunic* 
   }
