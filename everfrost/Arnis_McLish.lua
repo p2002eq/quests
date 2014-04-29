@@ -1,5 +1,7 @@
 function event_say(e)
-	if(e.message:findi("megan")) then
+	if(e.message:findi("hail")) then
+		e.self:Say("My word!! I cannot believe how cold it is out here. I must keep running around just to keep warm.");
+	elseif(e.message:findi("megan")) then
 		if(e.other:GetFaction(e.self) < 5) then
 			e.self:Say("I heard she got lost on the plains. You should go ask her dog, Snowflake, where she is. I hear she is somewhere around the pass to Halas.");
 		elseif(e.other:GetFaction(e.self) == 5) then
