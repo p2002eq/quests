@@ -6,9 +6,9 @@ function event_say(e)
 	local qglobals = eq.get_qglobals(e.self,e.other);
 
 	if(e.message:findi("hail")) then
-		if(qglobals["wizepicB"] == "1") then -- niled qglobals["wizepicB"]))
+		if(qglobals["wizepicB"] == "1") then
 			e.self:Say("Ah yes, you again. Do you have the items? Give me the three you possess and I'll combine them with my own.");
-		elseif(qglobals["wizepicA"] == "1") then -- ~= nild qglobals["wizepicA"]))
+		elseif(qglobals["wizepicA"] == "1") then
 			e.self:Say("Ah, but it pains my heart to see this. How I could love a women like that is beyond me. And yet, I still do love her. It was on the day I was to ask her to marry me that I lost my powers. When I was about to cast my greatest spell to prove my love to her, my magic failed. She ran out on me that day. But enough of me, do you wish to hear my story?");
 		else
 			e.self:Say("Before I tell you anything, I require you to help me. Seek a woman named Challice. Give her this ring and then return to me.");
@@ -24,7 +24,7 @@ function event_say(e)
 		e.self:Say("Ah, the gnome I know very little about. I know he was small and crafty, and that he had a brother. His brother's craft was that of making fireworks, and he was the unfortunate victim of one of his own experiments. His firework exploded, leaving his mind diminished in capacity, even for a gnome. I remember others calling him 'Old Stewpot' in jest. I do not know if this is his birth name, but it may help you to locate him. I hear he also stays close to water because of the explosion. You never know when another gnomish invention will go awry. Give him this letter to help motivate him to remember.");
 		e.other:SummonItem(18169);
 		e.other:Faction(342, 30,0); 									--Truespirit
-		--eq.depop();
+		eq.depop();
 	end
 end
 
@@ -52,7 +52,7 @@ end
 
 function event_timer(e)
 	eq.stop_timer("ArantirDepop");
-	--eq.depop();
+	eq.depop();
 end
 
 -------------------------------------------------------------------------------------------------

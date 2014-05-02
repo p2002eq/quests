@@ -36,7 +36,7 @@ function event_trade(e)
 		e.other:Faction(48, -3);       							-- Coalition of Tradefolk Underground
 		e.other:Faction(90, -3);     							-- Ebon Mask
 		e.other:AddEXP(300);
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 13897, item2 = 13897, item3 = 13897, item4 = 13897, item5 = 2125})) then	--Goblin Ice necklacess x 4
+	elseif(item_lib.check_turn_in(e.trade, {item1 = 13897, item2 = 13897, item3 = 13897, item4 = 13897})) then	--Goblin Ice necklacess x 4
 		e.self:Say("'I see you have brought many of our enemies to justice. You have done an excellent job and should be proud. No doubt your efforts saved lives. It is now time for you to venture out and fight stronger foes. Are you [up to the challenge]?");
 		e.other:Ding();
 		e.other:SummonItem(7367); 								--Field Priest's Kilt
@@ -56,7 +56,7 @@ function event_trade(e)
 		e.other:Faction(48, -3);       							-- Coalition of Tradefolk Underground
 		e.other:Faction(90, -3);     							-- Ebon Mask
 		e.other:AddEXP(300);
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 12223, item2 = 7005, item3 = 8011})) then 									--Wrath Orc Wristbands
+	elseif(item_lib.check_turn_in(e.trade, {item1 = 12223})) then 									--Wrath Orc Wristbands
 		e.self:Say("Thank you very much, you have our thanks. Perhaps you will find some use for this. I have shown you all that I can young one. Now it is up to you. Listen to the spirits and work with them and they will work with you. Now go forth and continue to spread justice throughout the world.");
 		e.other:Ding();
 		e.other:SummonItem(7369); 								--Field Priest's Leather
