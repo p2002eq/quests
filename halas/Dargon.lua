@@ -14,13 +14,13 @@ function event_trade(e)
 	elseif(item_lib.check_turn_in(e.trade, {item1 = 14335})) then
 		eq.unique_spawn(29089,0,0,e.self:GetX(),e.self:GetY(),e.self:GetZ(),e.self:GetHeading());
 		eq.set_global("wizepicA","1",1,"F");
-		eq.depop_with_timer();
+		--eq.depop_with_timer();
 	--Return Oil Note handin
 	elseif(item_lib.check_turn_in(e.trade, {item1 = 18168})) then
 		eq.unique_spawn(29089,0,0,e.self:GetX(),e.self:GetY(),e.self:GetZ(),e.self:GetHeading());
 		eq.delete_global("wizepicA");
 		eq.set_global("wizepicB","1",1,"F");
-		eq.depop_with_timer();
+		--eq.depop_with_timer();
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end

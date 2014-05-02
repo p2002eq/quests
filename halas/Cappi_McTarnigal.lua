@@ -1,9 +1,9 @@
 function event_say(e)
 	if(e.message:findi("Hail")) then
 		e.self:Say("Hail there, " .. e.other:GetName() .. "! If you are not a [member of the White Rose], then it be best that you stay on the lower level. This here floor is for honest ...ermm respectable rogues only.");
-		eq.signal(29070,1001,100);
-	elseif(e.message:findi("i am a member of the white rose")) then
+	elseif(e.message:findi("member of the white rose")) then
 		e.self:Say("I hope that you are indeed respectable and loyal to Halas and the Rogues of the White Rose. To do otherwise would bring the wrath of the Six Hammers down on you. But enough with talk! Our caravan to the frigid north leaves in less than two days. and we are short on mammoth calf hides. Return four of them and you will be given items that show your loyalty to our Clan.");
+		eq.signal(29070,1);
 	end
 end
 
