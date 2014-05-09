@@ -15,17 +15,12 @@ function event_trade(e)
 	if (item_lib.check_turn_in(e.trade, {item1 = 10307, item2 = 10307, item3 = 10307})) then
 		e.self:Say("Heh heh. All da eyeballses! I didn't think ya could do it but ya did. Here is da shiny. If you gets more I always have more shinies.");
 		e.other:SummonItem(eq.ChooseRandom(10351, 10026, 10060, 10018, 10006, 10017),1);
-		e.other:Faction(66,10,0); -- Da Bashers
-		e.other:Faction(22,-5,0); -- Broken Skull Clan
-		e.other:Ding();
+		e.other:Faction(66, 10); -- Da Bashers
+		e.other:Faction(22, -5); -- Broken Skull Clan
 		e.other:AddEXP(100);
-	elseif (item_lib.check_turn_in(e.trade, {item1 = 10307, item2 = 10307})) then
+		e.other:Ding();
+	else
 	 	e.self:Say("Well dat be some of da eyeballses I askeded for. But I you needs ta give me three for da shiny.");
-		e.other:SummonItem(10307);
-		e.other:SummonItem(10307);--still not giving this one back to player
-	elseif (item_lib.check_turn_in(e.trade, {item1 = 10307})) then
-	 	e.self:Say("Well dat be some of da eyeballses I askeded for. But I you needs ta give me three for da shiny.");
-		e.other:SummonItem(10307);
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
