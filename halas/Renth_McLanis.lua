@@ -43,7 +43,7 @@ function event_trade(e)
 		e.other:AddEXP(3000);
 		e.other:GiveCash(0,0,8,0);
 	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 12227, item2 = 13248, item3 = 13247, item4 = 13233}) and e.other:GetFaction(e.self) < 5) then
+	if(item_lib.check_turn_in(e.trade, {item1 = 12227}) and e.other:GetFaction(e.self) < 5) then
 		e.self:Say("Nice work " .. e.other:GetName() .. "! Basil has always been an outcast of sorts. I'm glad to see you were able to stop him. Here is a Langseax for your efforts.");
 		e.other:Ding();
 		e.other:Faction( 361, -15);	--shows neg faction hit on live.   possibly to avoid exploits
@@ -53,7 +53,7 @@ function event_trade(e)
 		e.other:AddEXP(10000);
 		e.other:SummonItem(5367);
 	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 12225, item2 = 13248, item3 = 13247, item4 = 13233}) and e.other:GetFaction(e.self) < 5) then
+	if(item_lib.check_turn_in(e.trade, {item1 = 12225}) and e.other:GetFaction(e.self) < 5) then
 		e.self:Say("Nice work " .. e.other:GetName() .. "! Paglan has always been an outcast of sorts. I'm glad to see you were able to stop him. Here is a Langseax of the Wolves for your efforts.");
 		e.other:Ding();
 		e.other:Faction( 361, -20);

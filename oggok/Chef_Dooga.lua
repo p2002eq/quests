@@ -24,7 +24,7 @@ function event_trade(e)
 		e.other:Faction(232,10); 	--Oggok Gaurds
 		e.other:Faction(169,-15);	--Kazon Stormhammer
 		e.other:GiveCash(0,3,6,9);
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 13452, item2 = 13452, item3 = 13452, item4 = 21962, item5 = 21968})) then
+	elseif(item_lib.check_turn_in(e.trade, {item1 = 13452, item2 = 13452, item3 = 13452})) then
 		e.self:Say("Eww icky frogs. Me promise to give you reward, here yous go."); --Not actual text
 		e.other:SummonItem(12217);
 		e.other:Ding();

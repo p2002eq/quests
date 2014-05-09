@@ -24,7 +24,7 @@ function event_trade(e)
 		e.self:Say("Good job, these keep me warm. Last job for you. Go kill more lizards. Bring four tails.");
 		e.other:SummonItem(7378);
 		e.other:Ding();
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 13354, item2 = 13354, item3 = 13354, item4 = 13354, item5 = 13062, item6 = 13062})) then
+	elseif(item_lib.check_turn_in(e.trade, {item1 = 13354, item2 = 13354, item3 = 13354, item4 = 13354})) then
 		e.self:Say("You quick. You do good work. Me come find you when more jobs need done. Here is last armur me have.");
 		e.other:SummonItem(7379);
 		e.other:Ding();
