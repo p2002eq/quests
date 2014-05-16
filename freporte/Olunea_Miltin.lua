@@ -1,6 +1,11 @@
 function event_say(e)
 	if(e.message:findi("hail")) then
 		e.self:Say("Hello. It is good to meet you. Try not to scare the fish away. This is A good spot I supply fish to the Grub N' Grog. The patrons there love me!");
+	elseif (e.message:findi("boat")) then
+		e.self:Say("Your boat id is: " .. e.other:GetBoatID() .. "");
+	elseif (e.message:findi("disable")) then
+		eq.spawn_condition("freporte",0,3,0);
+		eq.spawn_condition("freporte",0,4,0);
 	end
 end
 
@@ -18,6 +23,38 @@ function event_trade(e)
 		e.other:GiveCash(50,0,0,0);
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
+end
+
+function event_spawn(e)
+	eq.spawn_condition("freporte",0,3,0);
+	eq.spawn_condition("freporte",0,4,0);
+end
+
+function event_signal(e)
+	-- Player is zoning and on a boat. Make sure we have one waiting.
+	local count = eq.get_entity_list():CountClient();
+	if(count == 1) then
+		local zone_time = eq.get_zone_time(); -- Time here is off by 1, so 6AM = 5.
+		local hour = zone_time["zone_hour"] + 1;
+		if(hour == 7 or hour == 19 or hour == 13 or hour == 1) then
+			eq.spawn_condition("freporte",0,3,0);
+			eq.spawn_condition("freporte",0,4,0);
+			e.self:Shout("Reset spawn condition!");
+			if(e.signal == 1) then
+				e.self:Shout("Recieved signal 1!");
+				eq.spawn_condition("freporte",0,3,1);
+				e.self:Shout("Spawning StormBreaker!");
+			elseif(e.signal == 2) then
+				e.self:Shout("Recieved signal 2!");
+				eq.spawn_condition("freporte",0,4,1);
+				e.self:Shout("Spawning SirensBane!");
+			elseif(e.signal == 3) then
+				e.self:Shout("Recieved signal 3!");
+			end
+		else
+			e.self:Shout("Letting spawn_events handle condition!");
+		end
+	end
 end
 
 -- END of FILE Zone:freporte -- Olunea_Miltin

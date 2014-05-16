@@ -1,5 +1,11 @@
+function event_spawn(e)
+	e.self:Shout("I've spawned! Name is: " .. e.self:GetName() .. "");
+end
+
 function event_waypoint_arrive(e)
 	if(e.wp == 6) then
+		eq.spawn_condition("butcher",0,1,0);
+		eq.spawn_condition("butcher",0,2,0);
 		eq.get_entity_list():ForeachClient(
 			function(ent)
 				ent:MovePC(69,10944,1236,-20,0);
@@ -11,6 +17,5 @@ function event_waypoint_arrive(e)
 				return false;
 			end
 		);
-		eq.set_global("ootbutcherboat","770",7,"S90");
 	end
 end
