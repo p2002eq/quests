@@ -36,20 +36,23 @@ function event_signal(e)
 	if(count == 1) then
 		local zone_time = eq.get_zone_time(); -- Time here is off by 1, so 6AM = 5.
 		local hour = zone_time["zone_hour"] + 1;
-		if(hour == 7 or hour == 19 or hour == 13 or hour == 1) then
+		if(hour ~= 6 and hour ~= 18 and hour ~= 12 and hour ~= 24) then
 			eq.spawn_condition("freporte",0,3,0);
 			eq.spawn_condition("freporte",0,4,0);
 			e.self:Shout("Reset spawn condition!");
-			if(e.signal == 1) then
-				e.self:Shout("Recieved signal 1!");
-				eq.spawn_condition("freporte",0,3,1);
-				e.self:Shout("Spawning StormBreaker!");
-			elseif(e.signal == 2) then
-				e.self:Shout("Recieved signal 2!");
-				eq.spawn_condition("freporte",0,4,1);
-				e.self:Shout("Spawning SirensBane!");
-			elseif(e.signal == 3) then
-				e.self:Shout("Recieved signal 3!");
+			if(hour == 7 or hour == 19 or hour == 13 or hour == 1) then
+				if(e.signal == 1) then
+					e.self:Shout("Recieved signal 1!");
+					eq.spawn_condition("freporte",0,3,1);
+					e.self:Shout("Spawning StormBreaker!");
+				elseif(e.signal == 2) then
+					e.self:Shout("Recieved signal 2!");
+					eq.spawn_condition("freporte",0,4,1);
+					e.self:Shout("Spawning SirensBane!");
+			else
+				if(e.signal ~= 3) then
+					e.self:Shout("Sorry, you missed the boat and should be at safe coords.");
+				end
 			end
 		else
 			e.self:Shout("Letting spawn_events handle condition!");
