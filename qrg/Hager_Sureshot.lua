@@ -34,10 +34,10 @@ function event_trade(e)
 		e.self:Say("His days of hunting are over. In the name of the Protectors of the Pine, I offer you this reward. If you are unable to make use of it, you may sell it. I suggest you hold onto it. If you are a ranger it will come in handy.");
 		e.other:SummonItem(17804);
 		e.other:Ding();
-		e.other:Faction(265,10,0); -- Protectors of Pine
-		e.other:Faction(159,10,0); -- Jaggedpine Treefolk
-		e.other:Faction(279,-30,0); -- Sabertooths of Blackburrow
-		e.other:Faction(135,10,0); -- Guards of Qeynos
+		e.other:Faction(265,20,0); -- Protectors of Pine
+		e.other:Faction(159,5,0); -- Jaggedpine Treefolk
+		e.other:Faction(279,-3,0); -- Sabertooths of Blackburrow
+		e.other:Faction(135,5,0); -- Guards of Qeynos
 		e.other:AddEXP(1000);
 		e.other:GiveCash(0,11,8,4);
 	end

@@ -21,11 +21,11 @@ function event_trade(e)
 	if(item_lib.check_turn_in(e.trade, {item1 = 18911})) then
 		e.self:Say("Oh my!! Our Qeynos Ambassador, Gash, is in danger. Please take the note over to Captain Tillin of the Qeynos Guard then find Gash and inform him [they are trying to kill him]. Go!!");
 		e.other:Ding();
-		e.other:Faction(265,10,0);
-		e.other:Faction(159,10,0);
-		e.other:Faction(267,10,0);
-		e.other:Faction(347,-30,0);
-		e.other:Faction(135,10,0);
+		e.other:Faction(159,15,0); -- Jaggedpine Treefolk
+		e.other:Faction(265,3,0); -- Protector of the Pine
+		e.other:Faction(267,2,0); -- QRG Protected Animals
+		e.other:Faction(347,-3,0); -- Unkempt Druids
+		e.other:Faction(135,2,0); -- Guards of Qeynos
 		e.other:AddEXP(200);
 		e.other:GiveCash(random_copper,random_silver,random_gold,random_planinum);
 	elseif(item_lib.check_turn_in(e.trade, {item1 = 12141})) then

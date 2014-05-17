@@ -22,21 +22,21 @@ function event_trade(e)
 		e.self:Say("Oh dear. I hope my mistake will not bring too much grief down on poor Weleth. He was told not to order arrows from me after the last time I fouled up their shipment. But Weleth knew I needed the account to stay in business. Could you please rush this new invoice to him right away? Thank you.");
 		e.other:SummonItem(18824); -- Slip of Parchment
 		e.other:Ding();
-		e.other:Faction(217,10,0); -- Merchants of Qeynos
-		e.other:Faction(33,-20,0); -- Circle Of Unseen Hands
-		e.other:Faction(9,10,0); -- Antonius Bayle
-		e.other:Faction(47,10,0); -- Coalition of Tradefolk
-		e.other:Faction(135,10,0); -- Guards of Qeynos
+		e.other:Faction(217,1,0); -- Merchants of Qeynos
+		e.other:Faction(33,-1,0); -- Circle Of Unseen Hands
+		e.other:Faction(9,1,0); -- Antonius Bayle
+		e.other:Faction(47,1,0); -- Coalition of Tradefolk
+		e.other:Faction(135,1,0); -- Guards of Qeynos
 		e.other:AddEXP(8000);
 	elseif(item_lib.check_turn_in(e.trade, {item1 = 18012})) then
-		e.self:Say("Oh dear. I hope my mistake will not bring too much grief down on poor Weleth. He was told not to order arrows from me after the last time I fouled up their shipment. But Weleth knew I needed the account to stay in business. Could you please rush this new invoice to him right away? Thank you.");
+		e.self:Say("Oh.  Vesteri sent you?  Here you go.  I hope Te'Anara likes it.");
 		e.other:SummonItem(13864);
 		e.other:Ding();
-		e.other:Faction(217,10,0); -- Merchants of Qeynos
-		e.other:Faction(33,-20,0); -- Circle Of Unseen Hands
-		e.other:Faction(9,10,0); -- Antonius Bayle
-		e.other:Faction(47,10,0); -- Coalition of Tradefolk
-		e.other:Faction(135,10,0); -- Guards of Qeynos
+		e.other:Faction(217,1,0); -- Merchants of Qeynos
+		e.other:Faction(33,-1,0); -- Circle Of Unseen Hands
+		e.other:Faction(9,1,0); -- Antonius Bayle
+		e.other:Faction(47,1,0); -- Coalition of Tradefolk
+		e.other:Faction(135,1,0); -- Guards of Qeynos
 		e.other:AddEXP(250);
 	end
 	

@@ -12,12 +12,11 @@ function event_trade(e)
 	if(item_lib.check_turn_in(e.trade, {item1 = 18014})) then
 		e.self:Say("Oh Tunare why!?!? Those foul Bloodsabers will pay for my brother's death!! Here. You have given us valuable information about a new threat to our homes. Take this a token of our appreciation.");
 		e.other:Ding();
-		e.other:Faction(265,10,0);
-		e.other:Faction(159,10,0);
-		e.other:Faction(279,-30,0);
-		e.other:Faction(135,10,0);
+		e.other:Faction(265,5,0); -- Protectors of Pine
+		e.other:Faction(159,1,0); -- Jaggedpine Treefolk
+		e.other:Faction(279,-1,0); -- Sabertooths of Blackburrow
+		e.other:Faction(135,1,0); -- Guards of Qeynos
 		e.other:AddEXP(1000);
-		e.other:GiveCash(math.random(10),math.random(10),math.random(10),math.random(10));
 	end
 	item_lib.return_items(e.self, e.other, e.trade);
 end

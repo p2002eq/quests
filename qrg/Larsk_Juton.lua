@@ -23,10 +23,10 @@ function event_trade(e)
 		e.self:Say("So, I see you rid the hills of the beast. Good work! I have a reward for you. I hope it will be usefull. I am afraid this gnoll\'s death will not halt the alliance between the two. I shall require your services to [assist in the extermination of the gnoll brewers].");
 		e.other:SummonItem(2140);
 		e.other:Ding();
-		e.other:Faction(265,10,0);
-		e.other:Faction(159,10,0);
-		e.other:Faction(279,-30,0);
-		e.other:Faction(135,10,0);
+		e.other:Faction(265,25,0); -- Protectors of Pine
+		e.other:Faction(159,6,0); -- Jaggedpine Treefolk
+		e.other:Faction(279,-3,0); -- Sabertooths of Blackburrow
+		e.other:Faction(135,6,0); -- Guards of Qeynos
 		e.other:AddEXP(1000);
 		e.other:GiveCash(math.random(10),math.random(10),math.random(10),math.random(10));
 	elseif(item_lib.check_turn_in(e.trade, {item1 = 17970,item2 = 17970, item3 = 17970})) then
@@ -43,6 +43,10 @@ function event_trade(e)
 		e.self:Say("Fine Work, " .. e.other:GetName() .. ". Hmmm. It seems this needs taking care of. Take this note to the Captain of the City Guard in Qeynos. His name is Captain Tillin. He will have to attend to this matter. Also.. Let me see the gnoll\'s head. I must know you killed him. Be safe, my friend. I am sure that whoever this McNeal is, he was simply a lackey. Whoever he works for is most likely going to be looking for you. Watch your back in Qeynos.");
 		e.other:SummonItem(18811);
 		e.other:Ding();
+		e.other:Faction(265,5,0); -- Protectors of Pine
+		e.other:Faction(159,1,0); -- Jaggedpine Treefolk
+		e.other:Faction(279,-1,0); -- Sabertooths of Blackburrow
+		e.other:Faction(135,1,0); -- Guards of Qeynos
 		e.other:AddEXP(200);
 	end
 	item_lib.return_items(e.self, e.other, e.trade);
