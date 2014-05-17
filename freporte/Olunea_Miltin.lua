@@ -49,6 +49,7 @@ function event_signal(e)
 					e.self:Shout("Recieved signal 2!");
 					eq.spawn_condition("freporte",0,4,1);
 					e.self:Shout("Spawning SirensBane!");
+				end
 			else
 				if(e.signal ~= 3) then
 					e.self:Shout("Sorry, you missed the boat and should be at safe coords.");
