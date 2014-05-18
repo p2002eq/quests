@@ -36,14 +36,3 @@ function event_waypoint_arrive(e)
 		);
 	end
 end
-		
-function event_signal(e)
-	e.self:PauseWandering(0);
-	if(e.signal == 1) then
-		e.self:SetCurrentWP(15);
-		e.self:ResumeWandering();
-	elseif(e.signal == 2) then
-		e.self:SetCurrentWP(14);
-		e.self:ResumeWandering();
-	end
-end

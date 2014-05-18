@@ -39,22 +39,7 @@ function event_signal(e)
 		if(hour ~= 6 and hour ~= 18 and hour ~= 12 and hour ~= 24) then
 			eq.spawn_condition("freporte",0,3,0);
 			eq.spawn_condition("freporte",0,4,0);
-			e.self:Shout("Reset spawn condition!");
-			if(hour == 7 or hour == 19 or hour == 13 or hour == 1) then
-				if(e.signal == 1) then
-					e.self:Shout("Recieved signal 1!");
-					eq.spawn_condition("freporte",0,3,1);
-					e.self:Shout("Spawning StormBreaker!");
-				elseif(e.signal == 2) then
-					e.self:Shout("Recieved signal 2!");
-					eq.spawn_condition("freporte",0,4,1);
-					e.self:Shout("Spawning SirensBane!");
-				end
-			else
-				if(e.signal ~= 3) then
-					e.self:Shout("Sorry, you missed the boat and should be at safe coords.");
-				end
-			end
+			e.self:Shout("Boat passengers: Sorry, you missed the boat and should be at safe coords.");
 		else
 			e.self:Shout("Letting spawn_events handle condition!");
 		end

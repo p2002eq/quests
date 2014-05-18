@@ -15,13 +15,10 @@ function event_enter_zone(e)
 			e.self:Message(0,"SirensBane is spawned! Name is: " .. sirensbane:GetName() .. "");
 		end	
 	end
-	if(e.self:GetBoatID() == 770) then
+	if(e.self:GetBoatID() == 770 or e.self:GetBoatID() == 771) then
 		eq.signal(68054,1);
 		e.self:Message(0,"My boat is called: " .. e.self:GetBoatName() .. "");
-	elseif(e.self:GetBoatID() == 771) then
-		eq.signal(68054,2);
-		e.self:Message(0,"My boat is called: " .. e.self:GetBoatName() .. "");
 	else
-		eq.signal(68054,3);
+		eq.signal(68054,2);
 	end
 end
