@@ -13,7 +13,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	
-	if(item_lib.check_turn_in(e.trade, {item1 = 14362 => 1)) { -- Flower
+	if(item_lib.check_turn_in(e.trade, {item1 = 14362})) then -- Flower
 		e.self:Say("Thank you. Since you have done me a service with no thought of reward, I offer you this small token of my favor.");
 		e.other:SummonItem(14364); -- Scepter
 		e.other:Ding();
