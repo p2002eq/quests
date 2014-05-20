@@ -28,22 +28,22 @@ function event_trade(e)
 		e.self:Say("You have done well. I sense the one I have been hunting in the distance. As your final test, you must track him down and destroy him.");
 		eq.spawn2(15183,0,0,-800,-2712,15.6,138);
 		e.other:Ding();
-		e.other:Faction(99,50,0);
-		e.other:Faction(178,50,0);
-		e.other:Faction(43,50,0);
-		e.other:Faction(304,50,0);
-		e.other:Faction(63,-50,0);
-		e.other:AddEXP(1000);
+		e.other:Faction(99,100,0); -- faydarks champion
+		e.other:Faction(178,25,0); -- king tearis thex
+		e.other:Faction(43,25,0); -- cleric of tunare
+		e.other:Faction(304,25,0); -- soldier of tunare
+		e.other:Faction(63,-25,0); -- crushbone orcs
+		e.other:AddEXP(10000);
 	elseif(item_lib.check_turn_in(e.trade, {item1 = 20882})) then
 		e.self:Say(string.format("You, %s, are a worthy forester. It brings me great pride to present you this scroll that I have only passed to the finest in all of Norrath. Now you, too, may call the flames.",e.other:GetName()));
 		e.other:SummonItem(15691);
 		e.other:Ding();
-		e.other:Faction(99,50,0);
-		e.other:Faction(178,50,0);
-		e.other:Faction(43,50,0);
-		e.other:Faction(304,50,0);
-		e.other:Faction(63,-50,0);
-		e.other:AddEXP(1000);
+		e.other:Faction(99,100,0); -- faydarks champion
+		e.other:Faction(178,25,0); -- king tearis thex
+		e.other:Faction(43,25,0); -- cleric of tunare
+		e.other:Faction(304,25,0); -- soldier of tunare
+		e.other:Faction(63,-25,0); -- crushbone orcs
+		e.other:AddEXP(10000);
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
