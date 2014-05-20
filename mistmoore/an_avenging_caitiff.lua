@@ -18,6 +18,7 @@ function event_trade(e)
 		e.other:Ding();
 		e.self:Say("Mother? Father? May you find peace at last. I shall avenge your suffering! I will grow stronger and set free the souls of the others.");
 		e.other:AddEXP(50000);
+		eq.depop_with_timer();
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
