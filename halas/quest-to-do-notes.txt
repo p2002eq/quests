@@ -1,0 +1,3 @@
+Halas Folder > Hoyce Mactaegan / Test to live. Verify all quest text
+Halas Folder > Lysbith McNaff / Quest has possible conflicts with dual quest hail text. check against live.
+Halas Folder > Both Holana and Margyn need text verified on live. Made text reward appropriate. Not sure if is "true to live" even tho it makes sense.

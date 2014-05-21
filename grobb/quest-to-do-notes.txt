@@ -1,0 +1,2 @@
+Grobb Folder > "A Job For Nanrum" / Quest needs to be looked at: will not return QTY 2 eyeballs if incorrect qty. is given. Still does not give 2nd one back.
+Grobb Folder > "Bregna's big mistake" / Quest needs to be looked at on Live. Allakaz, is missing info for comparison / may have inaccuracies.
