@@ -29,4 +29,15 @@ function event_enter_zone(e)
 	end
 end
 
+function event_board_boat(e)
+	local zone_time = eq.get_zone_time(); -- Time here is off by 1, so 6AM = 5.
+	local hour = zone_time["zone_hour"] + 1;
+	e.self:Message(0," At: " .. hour .. ":00 BoatID: " .. e.boat_id .. " was boarded. Its name is: " .. e.self:GetBoatName() .. ".");
+end
+
+function event_leave_boat(e)
+	local zone_time = eq.get_zone_time(); -- Time here is off by 1, so 6AM = 5.
+	local hour = zone_time["zone_hour"] + 1;
+	e.self:Message(0," At: " .. hour .. ":00 I left BoatID: " .. e.boat_id .. ".");
+end
 			
