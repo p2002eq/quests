@@ -31,7 +31,7 @@ function event_trade(e)
 		e.self:Say("Ah, very good. I'll make sure to note Leanon's report in our journals. Here's a little something for your troubles, " .. e.other:GetName() .. ".");
 		item_check = 1;
 	elseif(item_lib.check_turn_in(e.trade, {item1 = 18022})) then
-		e.self:Say("Ah, very good. I'll make sure to note Anehan's report in our journals. Here's a little something for your troubles, " .. e.other:GetName() .. ".");  -- not live text
+		e.self:Say("Ok, good work, " .. e.other:GetName() .. ". I'll make sure to note the day's activities in our journal. Here's a little something for your efforts.");  -- not live text
 		item_check = 1;
 	elseif(item_lib.check_turn_in(e.trade, {item1 = 18025})) then
 		e.self:Say("Ah, very good. I'll make sure to note Quinon's report in our journals. Here's a little something for your troubles, " .. e.other:GetName() .. "."); -- not live text
@@ -40,11 +40,11 @@ function event_trade(e)
 	
 	if(item_check == 1) then
 		e.other:Ding();
-		e.other:Faction(192,3,0); -- league of antonican bards
+		e.other:Faction(192,25,0); -- league of antonican bards
 		e.other:Faction(184,3,0); -- knights of truth
 		e.other:Faction(135,3,0); -- guards of qeynos
-		e.other:Faction(273,-3,0); -- ring of scale
-		e.other:Faction(207,-3,0); -- mayong mistmoore
+		e.other:Faction(273,-1,0); -- ring of scale
+		e.other:Faction(207,-1,0); -- mayong mistmoore
 		e.other:AddEXP(500);
 		e.other:GiveCash(10,2,0,0);
 	end
