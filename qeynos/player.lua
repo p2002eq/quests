@@ -1,11 +1,17 @@
 function event_enter_zone(e)
-	e.self:Message(0," BoatID is: " .. e.self:GetBoatID() .. "");
+	local sea = eq.get_spawn_condition("qeynos",0,3);
+	local golden = eq.get_spawn_condition("qeynos",0,4);
+	e.self:Message(0,"Sea King condition is: " .. sea .."");
+	e.self:Message(0,"Golden Maiden condition is: " .. golden .."");
+		if(e.self:GetBoatID() > 0) then
+		e.self:Message(0," BoatID is: " .. e.self:GetBoatID() .. "");
+	end
 	local zone_time = eq.get_zone_time(); -- Time here is off by 1, so 6AM = 5.
 	local hour = zone_time["zone_hour"] + 1;
 	e.self:Message(0," Local time is: " .. hour .. ":00");
-	-- We know we can have a boat at 1,4,5,8,9,or 12
-	if(hour == 1 or hour == 9 or hour == 5 or hour == 4 or hour == 12 or hour == 8 or
-	hour == 13 or hour == 21 or hour == 17 or hour == 16 or hour == 24 or hour == 20) then
+	-- We know we can have a boat at 1,5,7, or 11
+	if(hour == 1 or hour == 5 or hour == 7 or hour == 11 or
+	hour == 13 or hour == 17 or hour == 19 or hour == 23) then
 		e.self:Message(0,"A boat *might* be spawned!");
 	end
 	entity_list = eq.get_entity_list();
@@ -23,4 +29,16 @@ function event_enter_zone(e)
 	else
 		eq.signal(1138,1);
 	end
+end
+
+function event_board_boat(e)
+	local zone_time = eq.get_zone_time(); -- Time here is off by 1, so 6AM = 5.
+	local hour = zone_time["zone_hour"] + 1;
+	e.self:Message(0," At: " .. hour .. ":00 BoatID: " .. e.boat_id .. " was boarded. Its name is: " .. e.self:GetBoatName() .. ".");
+end
+
+function event_leave_boat(e)
+	local zone_time = eq.get_zone_time(); -- Time here is off by 1, so 6AM = 5.
+	local hour = zone_time["zone_hour"] + 1;
+	e.self:Message(0," At: " .. hour .. ":00 I left BoatID: " .. e.boat_id .. ".");
 end
