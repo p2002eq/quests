@@ -69,6 +69,7 @@ function event_trade(e)
 		e.other:AddEXP(500);
 		e.other:GiveCash(0,3,0,0);
 		e.other:Ding();
+	end
 	if((e.other:GetFaction(e.self) < 5) and (item_lib.check_turn_in(e.trade, {item1 = 13282}))) then -- Scrap Metal
 		e.self:Say("I thank you, my friend. I was to destroy this metal monster months ago. I could never find him. Please accept this reward for such good service. Oh yes.. And take this card to a man named [Doran Vargnus]. He is a fine blacksmith. I am sure he will reward you with one of his finest suits of armor. Perhaps you may now assist in an [important Stormguard matter].");
 		e.other:SummonItem(13995); -- Knight (Card)
