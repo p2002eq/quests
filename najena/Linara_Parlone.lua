@@ -15,12 +15,12 @@ function event_trade(e)
 	
 	if(item_lib.check_turn_in(e.trade, {item1 = 12269})) then -- tarnished bronze key
 		e.self:Say("Oh my! Thank you so very much! here, take this note to my father. I am sure he will reward you well for my safety.");
-		quest::summonitem(5573);
+		e.other:SummonItem(5573);
 		e.other:Ding();
 		e.other:Faction(170,10);
 		e.other:Faction(178,2);
 		e.other:Faction(99,1);
 		e.other:Faction(322,-2);
 	end
-	item_lib.return_items(e.self, e.other, e.trade)
+	item_lib.return_items(e.self, e.other, e.trade);
 end
