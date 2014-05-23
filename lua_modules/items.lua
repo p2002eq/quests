@@ -86,7 +86,9 @@ function items.return_items(npc, client, trade, text)
 	for i = 1, 4 do
 		local inst = trade["item" .. i];
 		if(inst.valid) then
-			client:PushItemOnCursor(inst);
+			local itemid = inst:GetID();
+			local charges = inst:GetCharges();
+			client:SummonItem(itemid,charges);
 			if(text == true) then
 				npc:Say(string.format("I have no need for this item %s, you can have it back.", client:GetCleanName()));
 			end
