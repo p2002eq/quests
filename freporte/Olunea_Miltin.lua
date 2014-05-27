@@ -34,14 +34,16 @@ function event_signal(e)
 	-- Player is zoning and on a boat. Make sure we have one waiting.
 	local count = eq.get_entity_list():CountClient();
 	if(count == 1) then
-		local zone_time = eq.get_zone_time(); -- Time here is off by 1, so 6AM = 5.
-		local hour = zone_time["zone_hour"] + 1;
-		if(hour ~= 6 and hour ~= 18 and hour ~= 12 and hour ~= 24) then
+		if(e.signal == 1) then
+			local zone_time = eq.get_zone_time(); -- Time here is off by 1, so 6AM = 5.
+			local hour = zone_time["zone_hour"] + 1;
+			if(hour ~= 6 and hour ~= 18 and hour ~= 12 and hour ~= 24) then
+				eq.spawn_condition("freporte",0,3,0);
+				eq.spawn_condition("freporte",0,4,0);
+			end
+		else
 			eq.spawn_condition("freporte",0,3,0);
 			eq.spawn_condition("freporte",0,4,0);
-			e.self:Shout("Boat passengers: Sorry, you missed the boat and should be at safe coords.");
-		else
-			e.self:Shout("Letting spawn_events handle condition!");
 		end
 	end
 end
