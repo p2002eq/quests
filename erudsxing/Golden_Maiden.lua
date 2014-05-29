@@ -1,7 +1,7 @@
 function event_waypoint_arrive(e)
 	-- Qeynos
 	if(e.self:GetGrid() == 59 and e.wp == 2) then
-		eq.set_timer("1",10000);
+		eq.set_timer("1",25000);
 	-- Erud
 	elseif(e.self:GetGrid() == 61 and e.wp == 19) then
 		eq.get_entity_list():ForeachClient(
