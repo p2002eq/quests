@@ -31,6 +31,14 @@ function event_trade(e)
 		e.other:Faction(311,10,0);
 		e.other:AddEXP(1000);
 		e.other:GiveCash(0,0,7,1);
+	elseif(item_lib.check_turn_in(e.trade, {item1 = 18735})) then -- Tattered Note
+		e.self:Say("The Truthbringer welcomes you into his life. Here is the tunic of Marr. Wear it with pride and be sure to conduct yourself with valor.");
+		e.other:Faction(184,100,0); -- knight of truth
+		e.other:Faction(86,-15,0); -- dismal rage
+		e.other:Faction(105,-15,0); -- freeport militia
+		e.other:Faction(258,20,0); -- priest of marr
+		e.other:Faction(311,10,0); -- steel warrior
+		e.other:QuestReward(e.self,0,0,0,0,13554,100); -- Faded Purple Tunic*
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
