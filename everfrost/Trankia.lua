@@ -13,19 +13,13 @@ function event_trade(e)
 
 	if(item_lib.check_turn_in(e.trade, {item1 = 10528})) then
 		e.self:Say("You must be another one from Vilissia. I will tell you what I tell all the others--you must help me [avenge] my [brother] before I will help you attain Tishan's Kilt.");
-		e.other:SummonItem(18797);
-		e.other:Ding();
-		e.other:AddEXP(500);
+		e.other:QuestReward(e.self,0,0,0,0,18797,500);
 	elseif(item_lib.check_turn_in(e.trade, {item1 = 10556})) then
 		e.self:Say("Oh Wulfthan, look what has become of you. I told you that you should not have trusted Martar.  $name, as a final service, I want you to kill Martar IceBear for me. He is known to roam these parts. Bring me the Warthread Kilt that he wears and my two reminder notes, and I will give to you Tishan's Kilt.");
-		e.other:SummonItem(18798);
-		e.other:Ding();
-		e.other:AddEXP(500);
+		e.other:QuestReward(e.self,0,0,0,0,18798,500);
 	elseif(item_lib.check_turn_in(e.trade, {item1 = 1347,item2 = 18797,item3 = 18798})) then
 		e.self:Say("Ah, Wulfthan, you are at last avenged. Thank you, " .. e.other:GetName() .. "- please take this kilt as a reward for services well done.");
-		e.other:SummonItem(2365);
-		e.other:Ding();
-		e.other:AddEXP(1500);
+		e.other:QuestReward(e.self,0,0,0,0,2365,1500);
 	end
 	item_lib.return_items(e.self, e.other, e.trade);
 end
