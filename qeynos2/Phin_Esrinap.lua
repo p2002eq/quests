@@ -32,45 +32,8 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	local fac = e.other:GetFaction(e.self);
-	
-	-- White Headband ID-10110 requires four Gnoll Pup Scalp ID-13789 and Kindly or better faction
-	if(item_lib.check_turn_in(e.trade, {item1 = 13789,item2 = 13789, item3 = 13789,item4 = 13789}) and fac <= 3) then
-		e.self:Say("Good job, " .. e.other:GetName() .. ", keep up the good work! Here is your white training headband. Wear it with honor, and make Lu'Sun proud.");
-		e.other:SummonItem(10110);
-		e.other:Ding();
-		e.other:Faction(300,5,0);
-		e.other:Faction(135,5,0);
-		e.other:Faction(12,5,0);
-		e.other:AddEXP(100);
-	-- Has the items but not the required faction for the White Headband
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 13789,item2 = 13789, item3 = 13789,item4 = 13789})) then
-		e.self:Say("Good.. the more of these vile dogs we slay, the safer the citizens of Qeynos will be.");
-		e.other:Ding();
-		e.other:Faction(300,2,0);
-		e.other:Faction(135,2,0);
-		e.other:Faction(12,2,0);
-		e.other:AddEXP(100);
-	-- Yellow Headband ID-10111 requires three Putrid Rib Bone ID-13722 and the White Headband ID-10110
-	-- We don't need to check faction again because they must have the White Headband
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 13722,item2 = 13722, item3 = 13722,item4 = 10110})) then
-		e.self:Say("Good work.. and, as promised, here is your reward. It is an honor to present this yellow headband to " .. e.other:GetName() .. ", for recent acts of courage and heroism, on behalf of the Silent Fist Clan.");
-		e.other:SummonItem(10111);
-		e.other:Ding();
-		e.other:Faction(300,2,0);
-		e.other:Faction(135,2,0);
-		e.other:Faction(12,2,0);
-		e.other:AddEXP(200);
-	-- Orange Headband ID-10112 requires two Blackburrow Gnoll Pelt ID-13027, one Blackburrow Gnoll Skin ID-13028 and the Yellow Headband ID-10111
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 13027,item2 = 13027, item3 = 13028,item4 = 10111})) then
-		e.self:Say("It is an honor to present the orange headband of the Silent Fist Clan to one of our finest members, " .. e.other:GetName() .. " the mighty!");
-		e.other:SummonItem(10112);
-		e.other:Ding();
-		e.other:Faction(300,3,0);
-		e.other:Faction(135,3,0);
-		e.other:Faction(12,3,0);
-		e.other:AddEXP(300);
 	-- Note from Konem, Grathins Invoice ID-18922
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 18922})) then
+	if(item_lib.check_turn_in(e.trade, {item1 = 18922})) then
 		e.self:Say("Oh this is not good. Too many inoccent traders have been getting robbed lately by those vile bandits out in the Karanas. Something must be done soon. Anyway, thank you for delivering the message... you did very well, young " .. e.other:GetName() .. ". Here's a little something to quench your thirst from all that running around.");
 		e.other:SummonItem(13006); -- Water Flask
 		e.other:Ding();
@@ -78,6 +41,46 @@ function event_trade(e)
 		e.other:Faction(135,1,0);
 		e.other:Faction(12,1,0);
 		e.other:AddEXP(100);
+	end
+	if(fac <= 3) then
+		-- White Headband ID-10110 requires four Gnoll Pup Scalp ID-13789 and Kindly or better faction
+		if(item_lib.check_turn_in(e.trade, {item1 = 13789,item2 = 13789, item3 = 13789,item4 = 13789})) then
+			e.self:Say("Good job, " .. e.other:GetName() .. ", keep up the good work! Here is your white training headband. Wear it with honor, and make Lu'Sun proud.");
+			e.other:SummonItem(10110);
+			e.other:Ding();
+			e.other:Faction(300,5,0);
+			e.other:Faction(135,5,0);
+			e.other:Faction(12,5,0);
+			e.other:AddEXP(100);
+		-- Yellow Headband ID-10111 requires three Putrid Rib Bone ID-13722 and the White Headband ID-10110
+		elseif(item_lib.check_turn_in(e.trade, {item1 = 13722,item2 = 13722, item3 = 13722,item4 = 10110})) then
+			e.self:Say("Good work.. and, as promised, here is your reward. It is an honor to present this yellow headband to " .. e.other:GetName() .. ", for recent acts of courage and heroism, on behalf of the Silent Fist Clan.");
+			e.other:SummonItem(10111);
+			e.other:Ding();
+			e.other:Faction(300,2,0);
+			e.other:Faction(135,2,0);
+			e.other:Faction(12,2,0);
+			e.other:AddEXP(200);
+		-- Orange Headband ID-10112 requires two Blackburrow Gnoll Pelt ID-13027, one Blackburrow Gnoll Skin ID-13028 and the Yellow Headband ID-10111
+		elseif(item_lib.check_turn_in(e.trade, {item1 = 13027,item2 = 13027, item3 = 13028,item4 = 10111})) then
+			e.self:Say("It is an honor to present the orange headband of the Silent Fist Clan to one of our finest members, " .. e.other:GetName() .. " the mighty!");
+			e.other:SummonItem(10112);
+			e.other:Ding();
+			e.other:Faction(300,3,0);
+			e.other:Faction(135,3,0);
+			e.other:Faction(12,3,0);
+			e.other:AddEXP(300);
+		end
+	else
+		-- Has the items but not the required faction for the White Headband
+		if(item_lib.check_turn_in(e.trade, {item1 = 13789, item2 = 13789, item3 = 13789, item4 = 13789})) then
+			e.self:Say("Good.. the more of these vile dogs we slay, the safer the citizens of Qeynos will be.");
+			e.other:Ding();
+			e.other:Faction(300,2,0);
+			e.other:Faction(135,2,0);
+			e.other:Faction(12,2,0);
+			e.other:AddEXP(100);
+		end
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
