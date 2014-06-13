@@ -11,71 +11,57 @@ function event_say(e)
 		e.self:Say("The Mudtoes were a small clan of ogres. They lived somewhere in the Butcherblock Mountains. They had an insatiable appetite for dwarves. They were finally destroyed by the hand of Trondle Ogrebane.");
 	end
 end
+
 function event_trade(e)
+	local belt = 0;
+	local shoulder = 0;
+	
 	local item_lib = require("items");
 	if(item_lib.check_turn_in(e.trade, {item1 = 13318, item2 = 13318, item3 = 13318, item4 = 13318})) then
-		e.self:Say("Good work, warrior! Now continue with your training. Only on the battlefield can one become a great warrior.");
-		e.other:SummonItem(eq.ChooseRandom(9009,2113,2114,2115,2116,2117,2118,2119,2120,2122,2123,2124));
-		e.other:Faction(314,40);
-		e.other:Faction(169,40);
-		e.other:Faction(219,40);
-		e.other:Faction(215,40);
-		e.other:Faction(57,-120);
-		e.other:AddEXP(14580);
-		e.other:GiveCash(0,eq.ChooseRandom(5,6,7,8,9,10,11,12,13,14,15),0,0);
-		e.other:Ding();
+		belt = 4;
+	elseif(item_lib.check_turn_in(e.trade, {item1 = 13318, item2 = 13318, item3 = 13318})) then	
+		belt = 3;
+	elseif(item_lib.check_turn_in(e.trade, {item1 = 13318, item2 = 13318})) then
+		belt = 2;
+	elseif(item_lib.check_turn_in(e.trade, {item1 = 13318})) then
+		belt = 1;
 	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 13318, item2 = 13318, item3 = 13318})) then
-		e.self:Say("Good work, warrior! Now continue with your training. Only on the battlefield can one become a great warrior.");
-		e.other:SummonItem(eq.ChooseRandom(9009,2113,2114,2115,2116,2117,2118,2119,2120,2122,2123,2124));
-		e.other:Faction(314,30);
-		e.other:Faction(169,30);
-		e.other:Faction(219,30);
-		e.other:Faction(215,30);
-		e.other:Faction(57,-90);
-		e.other:AddEXP(10935);
-		e.other:GiveCash(0,eq.ChooseRandom(5,6,7,8,9,10,11,12,13,14,15),0,0);
-		e.other:Ding();
+
+	if(item_lib.check_turn_in(e.trade, {item1 = 13319, item2 = 13319,item3 = 13319,item4 = 13319})) then
+		shoulder = 2;
+	elseif(item_lib.check_turn_in(e.trade, {item1 = 13319, item2 = 13319})) then
+		shoulder = 1;
 	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 13318, item2 = 13318})) then
-		e.self:Say("Good work. warrior! Now continue with your training. Only on the battlefield can one become a great warrior.");
-		e.other:SummonItem(eq.ChooseRandom(9009,2113,2114,2115,2116,2117,2118,2119,2120,2122,2123,2124));
-		e.other:Faction(314,20);
-		e.other:Faction(169,20);
-		e.other:Faction(219,20);
-		e.other:Faction(215,20);
-		e.other:Faction(57,-60);
-		e.other:AddEXP(7290);
-		e.other:GiveCash(0,eq.ChooseRandom(5,6,7,8,9,10,11,12,13,14,15),0,0);
-		e.other:Ding();
-	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 13318})) then
-		e.self:Say("Good work. warrior! Now continue with your training. Only on the battlefield can one become a great warrior.");
-		e.other:SummonItem(eq.ChooseRandom(9009,2113,2114,2115,2116,2117,2118,2119,2120,2122,2123,2124));
-		e.other:Faction(314,10);
-		e.other:Faction(169,10);
-		e.other:Faction(219,10);
-		e.other:Faction(215,10);
-		e.other:Faction(57,-30);
-		e.other:AddEXP(3645);
-		e.other:GiveCash(0,eq.ChooseRandom(5,6,7,8,9,10,11,12,13,14,15),0,0);
-		e.other:Ding();
-	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 13319, item2 = 13319})) then
-		e.self:Say("Aha!! You have downed a Crushbone legionnaire!! You have shown yourself to be a strong warrior. Take this. This is more becoming of a great warrior such as yourself. Let no creature stand in the way of the Stormguard!");
-		e.other:SummonItem(10017);
-		e.other:Faction(314,10);
-		e.other:Faction(169,10);
-		e.other:Faction(219,10);
-		e.other:Faction(215,10);
-		e.other:Faction(57,-30);
-		e.other:AddEXP(7290);
-		e.other:GiveCash(0,0,4,0);
-		e.other:Ding();
+	
+	if(belt > 0) then
+		repeat
+			e.self:Say("Good work, warrior! Now continue with your training. Only on the battlefield can one become a great warrior.");
+			e.other:Faction(314,10); -- Storm Guard
+			e.other:Faction(169,1); -- Kazon Stormhammer
+			e.other:Faction(219,1); -- Miners Guild 249
+			e.other:Faction(215,2); -- Merchants of Kaladim
+			e.other:Faction(57,-2); -- Craknek Warriors
+			e.other:QuestReward(e.self,0,eq.ChooseRandom(5,6,7,8,9,10,11,12,13,14,15),0,0,eq.ChooseRandom(9009,2113,2114,2115,2116,2117,2118,2119,2120,2122,2123,2124),20000);
+			belt = belt - 1;
+		until belt == 0
+	end		
+
+	if(shoulder > 0) then
+		repeat
+			e.self:Say("Aha!! You have downed a Crushbone legionnaire!! You have shown yourself to be a strong warrior. Take this. This is more becoming of a great warrior such as yourself. Let no creature stand in the way of the Stormguard!");
+			e.other:Faction(314,15); -- Storm Guard
+			e.other:Faction(169,2); -- Kazon Stormhammer
+			e.other:Faction(219,2); -- Miners Guild 249
+			e.other:Faction(215,3); -- Merchants of Kaladim
+			e.other:Faction(57,-3); -- Craknek Warriors
+			e.other:QuestReward(e.self,0,0,4,0,10017,20000);
+			shoulder = shoulder - 1;
+		until shoulder == 0;
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
 
+-- revised by robregen.
 -------------------------------------------------------------------------------------------------
 -- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
 -- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
