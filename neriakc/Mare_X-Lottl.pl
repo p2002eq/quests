@@ -10,7 +10,7 @@ sub EVENT_SAY {
 sub EVENT_ITEM {
   if(plugin::check_handin(\%itemcount, 10020 => 1)) { #Jasper
     quest::say("Jasper! My one and only love! All right.. That Tayla creature was lost in a game of King's Court with a very important and secret merchant. Belyea will not speak of him but that he was some sort of Baron. He did give me this trinket from his new friend and owner of the half-elf scamp. You keep it. It is worth nothing compared to sweet, beautiful Jasper.");
-    quest::summonitem(54026); #Klok's Seal
+    quest::summonitem(1096); #Klok's Seal
   }
   plugin::return_items(\%itemcount);
 }

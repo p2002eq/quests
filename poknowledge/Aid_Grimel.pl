@@ -57,7 +57,7 @@ sub EVENT_SAY {
           quest::say("You do not seem to be skilled enough.");
         }
       }
-      if(($text=~/skills with a fletching knife/i) && plugin::check_hasitem($client, 32800)) { #Marked Signet
+      if(($text=~/skills with a fletching knife/i) && plugin::check_hasitem($client, 1079)) { #Marked Signet
         if($client->GetRawSkill(64) >= 220) { #Fletching
           quest::say("Aye I can see you are skilled with the fletching knife $name. It is good too, I need to replace Councilman Taldarius's bow from Plane of Air. Combine a planing tool, two wind metal bow cams, an air arachnid silk string, a featherwood staff and the signet. I hope the bow will be up to his standards, he sure loved his old bow.");
         }
@@ -100,7 +100,7 @@ sub EVENT_ITEM {
   }
   elsif(plugin::check_handin(\%itemcount, 15986 => 1)) { #Fire Undergarment Tunic
     quest::say("Good work $name. This will definitely serve Councilman Taldarius well. Here take this! If you have skills with a fletching knife I may have a job for you to do.");
-    quest::summonitem(32800); #Marked Signet
+    quest::summonitem(1079); #Marked Signet
   }
   elsif(plugin::check_handin(\%itemcount, 16247 => 1)) { #Signet Featherwood Bow
     quest::say("Masterful work $name! I can see your skill in the curves of the bow. Take this as a sign of my respect for your skill. The last item I need before we can be off is some food. I warn you this will truly test your skills. Do you fancy yourself a master chef?");
