@@ -1,5 +1,4 @@
 function event_waypoint_arrive(e)
-	if(e.wp == 6) then
 		eq.spawn_condition("butcher",0,1,0);
 		eq.spawn_condition("butcher",0,2,0);
 		eq.get_entity_list():ForeachClient(

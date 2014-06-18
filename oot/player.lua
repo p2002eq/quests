@@ -4,4 +4,4 @@ function event_enter_zone(e)
 	else
 		eq.signal(69078,2);
 	end
-end	
+end

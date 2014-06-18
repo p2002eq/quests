@@ -1,11 +1,6 @@
 function event_say(e)
 	if(e.message:findi("hail")) then
 		e.self:Say("Hello. It is good to meet you. Try not to scare the fish away. This is A good spot I supply fish to the Grub N' Grog. The patrons there love me!");
-	elseif (e.message:findi("boat")) then
-		e.self:Say("Your boat id is: " .. e.other:GetBoatID() .. "");
-	elseif (e.message:findi("disable")) then
-		eq.spawn_condition("freporte",0,3,0);
-		eq.spawn_condition("freporte",0,4,0);
 	end
 end
 
@@ -31,17 +26,9 @@ function event_spawn(e)
 end
 
 function event_signal(e)
-	-- Player is zoning and on a boat. Make sure we have one waiting.
 	local count = eq.get_entity_list():CountClient();
 	if(count == 1) then
-		if(e.signal == 1) then
-			local zone_time = eq.get_zone_time(); -- Time here is off by 1, so 6AM = 5.
-			local hour = zone_time["zone_hour"] + 1;
-			if(hour ~= 6 and hour ~= 18 and hour ~= 12 and hour ~= 24) then
-				eq.spawn_condition("freporte",0,3,0);
-				eq.spawn_condition("freporte",0,4,0);
-			end
-		else
+		if(e.signal == 2) then
 			eq.spawn_condition("freporte",0,3,0);
 			eq.spawn_condition("freporte",0,4,0);
 		end
