@@ -19,15 +19,12 @@ function event_trade(e)
 	
 	if(item_lib.check_turn_in(e.trade, {item1 = 18863})) then -- Sealed Letter
 		e.self:Say("Oh! thank you! Now I know she is safe. My sweet Tayla. Here is your reward, as promised. A hero such as yourself deserves a weapon with which to uphold your noble values.");
-		local random_item = eq.RandomNumber({5303,5304,5305,5313,6303,6311,6312,7300,7301,7311,7499});
-		e.other:SummonItem(random_item);
-		e.other:Ding();
-		e.other:Faction(9,10,0); -- Antonius Bayle
-		e.other:Faction(47,10,0); -- Coalition of Tradefolk
-		e.other:Faction(135,10,0); -- Guards of Qeynos
-		e.other:Faction(217,10,0); -- Merchants of Qeynos
-		e.other:Faction(33,-10,0); -- Circle of Unseen Hands
-		e.other:AddEXP(1000);
+		e.other:Faction(217,50); -- Merchants of Qeynos
+		e.other:Faction(33,-10); -- Circle of Unseen Hands
+		e.other:Faction(9,7); -- Antonius Bayle
+		e.other:Faction(47,5); -- Coalition of Tradefolk
+		e.other:Faction(135,10); -- Guards of Qeynos
+		e.other:QuestReward(e.self,0,0,0,0,eq.ChooseRandom(5303,5304,5305,5313,6303,6311,6312,7300,7301,7311,7499),1000);
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
