@@ -15,7 +15,7 @@ sub EVENT_SIGNAL {
 sub EVENT_TIMER {
   if(!defined($qglobals{CargoClockwork}) && ($zonehour == 8)) {
     quest::setglobal("CargoClockwork",1,1,"H2");
-    quest::start(177); #Path to windmills
+    quest::start(5); #Path to windmills
   }
   if($x == 700 && $y == -1783 && $delivery == 1) {
     quest::stop();

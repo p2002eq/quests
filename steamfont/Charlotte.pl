@@ -8,9 +8,9 @@ sub EVENT_SIGNAL{
 		quest::pause(60);
 	}
 	if($signal==2){
-		quest::start(178);
+		quest::start(6);
 	}
 	if($signal==3){
-		quest::start(179);
+		quest::start(7);
 	}
 }
