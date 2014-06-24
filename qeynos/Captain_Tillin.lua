@@ -14,41 +14,49 @@ function event_signal(e)
 end
 
 function event_trade(e)
+	local fang = 0;
+	
 	local item_lib = require("items");
-
-	if(item_lib.check_turn_in(e.trade, {item1 = 13915})) then -- Gnoll Fang
-		e.self:Say("Very good! One less gnoll the people of Qeynos need to fear. Here is your bounty as promised.");
-		e.other:SummonItem(10070); -- Moonstone
-		e.other:Ding();
-		e.other:Faction(9,1,0); -- Antonius Bayle
-		e.other:Faction(33,-1,0); -- Circle of Unseen Hands
-		e.other:Faction(53,-1,0); -- Corrupt Qeynos Guards
-		e.other:Faction(135,1,0); -- Guards of Qeynos
-		e.other:Faction(217,1,0); -- Merchants of Qeynos
-		e.other:AddEXP(500);
+	if(item_lib.check_turn_in(e.trade, {item1 = 13915, item2 = 13915, item3 = 13915, item4 = 13915})) then -- Gnoll Fang
+		fang = 4;
+	elseif(item_lib.check_turn_in(e.trade, {item1 = 13915, item2 = 13915, item3 = 13915})) then	
+		fang = 3;
+	elseif(item_lib.check_turn_in(e.trade, {item1 = 13915, item2 = 13915})) then
+		fang = 2;
+	elseif(item_lib.check_turn_in(e.trade, {item1 = 13915})) then
+		fang = 1;
 	elseif(item_lib.check_turn_in(e.trade, {item1 = 18811})) then
 		e.self:Say("I heard you were on your way.  I have called for the state [executioner].  She should be on her way now.  She will deal with our friend, McNeal Jocub.  Thank you for your help, citizen.");
-		e.other:SummonItem(13305);
-		e.other:Ding();
 		e.other:Faction(135,40,0); -- Guards of Qeynos
 		e.other:Faction(9,6,0); -- Antonius Bayle
 		e.other:Faction(53,-6,0); -- Corrupt Qeynos Guards
 		e.other:Faction(33,-10,0); -- Circle of Unseen Hands
 		e.other:Faction(217,4,0); -- Merchants of Qeynos
-		e.other:AddEXP(500);
-		e.other:GiveCash(math.random(10),math.random(10),math.random(10),math.random(10));
+		e.other:QuestReward(e.self,math.random(10),math.random(9),math.random(9),math.random(9),13305,500);
 		eq.spawn2(1202,62,0,-412,75,-24,0);
 	elseif(item_lib.check_turn_in(e.trade, {item1 = 18912})) then
 		e.self:Say("So, an assassin has been sent to Qeynos! I shall have my guards keep an eye out for any suspicious looking visitors. As for you... you should speak with the Surefall Glade ambassador. Ambassador Gash is staying at the Lion's Mane Inn here in South Qeynos. Inform him that [an assassin has been sent to kill] him. Do not let the assassin near him!");
-		e.other:Ding();
 		e.other:Faction(135,5,0); -- Guards of Qeynos
 		e.other:Faction(9,1,0); -- Antonius Bayle
 		e.other:Faction(53,-1,0); -- Corrupt Qeynos Guards
 		e.other:Faction(33,-1,0); -- Circle of Unseen Hands
 		e.other:Faction(217,1,0); -- Merchants of Qeynos
-		e.other:AddEXP(500);
-		e.other:GiveCash(math.random(10),math.random(10),math.random(10),math.random(10));
+		e.other:QuestReward(e.self,math.random(10),math.random(9),math.random(9),math.random(9),0,500);
 	end
+	
+	if(fang > 0) then
+		repeat
+			e.self:Say("Very good! One less gnoll the people of Qeynos need to fear. Here is your bounty as promised.");
+			e.other:Faction(135,3); -- Guards of Qeynos
+			e.other:Faction(9,1); -- Antonius Bayle
+			e.other:Faction(53,-1); -- Corrupt Qeynos Guards
+			e.other:Faction(33,-1); -- Circle of Unseen Hands
+			e.other:Faction(217,1); -- Merchants of Qeynos
+			e.other:QuestReward(e.self,0,0,0,0,10070,2000);
+			fang = fang - 1;
+		until fang == 0
+	end		
+	
 	item_lib.return_items(e.self, e.other, e.trade)
 end
 

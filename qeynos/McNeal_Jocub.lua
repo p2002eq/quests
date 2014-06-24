@@ -51,11 +51,11 @@ function event_trade(e)
 		repeat
 			e.self:Say("Here you go then. Don't go tellin' no Guards where that came from, I would hate to rid myself of a good paying customer.");
 			e.other:Ding();
-			e.other:SummonItem(13107,5);
-			e.other:Faction(167,5,0);
-			e.other:Faction(135,5,0);
-			e.other:Faction(257,5,0);
-			e.other:Faction(183,5,0);
+			e.other:SummonItem(13107);
+			e.other:Faction(167,1);
+			e.other:Faction(135,1);
+			e.other:Faction(257,1);
+			e.other:Faction(183,1);
 			e.other:AddEXP(500);
 			moonstone = moonstone - 1;
 		until moonstone == 0
