@@ -25,16 +25,6 @@ function event_spawn(e)
 	eq.spawn_condition("freporte",0,4,0);
 end
 
-function event_signal(e)
-	local count = eq.get_entity_list():CountClient();
-	if(count == 1) then
-		if(e.signal == 2) then
-			eq.spawn_condition("freporte",0,3,0);
-			eq.spawn_condition("freporte",0,4,0);
-		end
-	end
-end
-
 -- END of FILE Zone:freporte -- Olunea_Miltin
 
 
