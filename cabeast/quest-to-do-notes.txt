@@ -1,0 +1,1 @@
+Cabilis East Folder > Hierophant_Oxyn comments in quest point to a likely incomplete state. Verify to live.  globals works in script.
