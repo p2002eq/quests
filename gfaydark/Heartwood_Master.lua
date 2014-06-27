@@ -14,7 +14,7 @@ function event_trade(e)
 		e.other:Faction(99,15);  -- Faydark's Champions
 		e.other:QuestReward(e.self,0,0,0,0,13537,200);
 	elseif(item_lib.check_turn_in(e.trade, {item1 = 5013,item2 = 5016,item3 = 5019,item4 = 5022})) then
-		quest::say("You have done well, child! Take this as a blessing from Tunare for doing her will.");
+		e.self:Say("You have done well, child! Take this as a blessing from Tunare for doing her will.");
 		e.other:Faction(304,1); -- soldier of Tunare
 		e.other:Faction(178,1); -- King Tearis Thex
 		e.other:Faction(99,1);  -- Faydark's Champions
