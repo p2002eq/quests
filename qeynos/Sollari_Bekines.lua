@@ -3,7 +3,7 @@ function event_say(e)
 		e.self:Say("Hello, there! I am Sollari Bekines of the League of Antonican Bards. I am at your service to train you as best I can. There have been a number of young bards entering our concert halls lately seeking guidance. If you are a [young bard in search of training]. I might have some work for you.");
 	elseif(e.message:findi("young bard in search of training")) then
 		e.self:Say("You need to look no further then. I can surely provide you with the knowledge you will need to make it in this world as a songweaver. The exercises that you will need to complete will test your gathering and fighting skills. Once you have completed your training you will be outfitted with a suit of your very own armor! When you are [ready to begin] I will explain to you how the training will work.");
-	elseif(e.message:findi("i am ready to begin")) then
+	elseif(e.message:findi("begin")) then
 		e.self:Say("Here is your Wind Spirits Assembly Kit. In this kit you will collect a different items that will be combined in certain quantities to create infused armor materials. These armor materials that you create can then be taken to a forge along with the applicable armor mold to fashion together a piece of Wind Spirits Armor. When you would like to craft an armor piece you must simply tell me what piece you [want] to craft. I will then provide you with the recipe and mold necessary for creating Wind Spirits [Helms], [Bracers], [Armguards], [Boots], [Greaves], [Gauntlets] and [Breastplates].");
 		e.other:SummonItem(17269);
 	elseif(e.message:findi("helm")) then
@@ -38,11 +38,11 @@ function event_trade(e)
 	if(item_lib.check_turn_in(e.trade, {item1 = 27423, item2 = 27423, item3 = 27424,item4 = 27424})) then
 		e.self:Say("Great work, " .. e.other:GetName() .. ".  You have rid the world of more gnolls and brought me the components I require.  Take this blade and use it well!");
 		e.other:SummonItem(27493);
-		e.other:Ding();
 		e.other:Faction(192,1,0);
 		e.other:Faction(217,1,0);
 		e.other:Faction(36,1,0);
 		e.other:AddEXP(100);
+		e.other:Ding();
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end

@@ -11,11 +11,11 @@ function event_say(e)
 		e.self:Say("Young bards are often not the wealthiest people in Norrath, and oftentimes, they have nothing to accompany their beautiful voices when they sing. If young bards are able to locate, and bring to me the [various parts] to assemble a lute with, I provide the labor for free.");
 	elseif(e.message:findi("parts")) then
 		e.self:Say("If you are able to find an unfinished lute body, an unfinished lute neck, a box of lute strings, and a set of fine lute tuners I will be able to craft for you one of the best sounding lutes that you have ever heard in your young life, and it will be yours, free of charge. It has long been my desire to help out any young men and women who wish to explore the bardic arts.");
-	elseif(e.message:findi("i seek a famous bard")) then
+	elseif(e.message:findi("bard")) then
 		e.self:Say("A famous bard, you say? Why you must be seeking none other than the great Baenar Swiftsong! He is not here as you can see. Mayhap you seek an audience with him? He is a busy man and has not the time to speak with everyone who wishes to preoccupy his time with useless prattle! You are many and he is but one! Leave him be, I beg of you, to continue his songwriting in peace.");
-	elseif(e.message:findi("i seek an audience with him")) then
+	elseif(e.message:findi("audience")) then
 		e.self:Emote("laughs briefly. 'Ah! In order to gain an audience with him, you must have a letter of introduction from me, otherwise he will not give you the time of day.'");
-	elseif(e.message:findi("give me a letter of introduction")) then
+	elseif(e.message:findi("introduction")) then
 		e.self:Emote("looks around. 'Well, you want a letter of introduction, eh? I think that fifty shiny platinum pieces sounds like a good introduction to me, my friend.'");
 	end
 end
