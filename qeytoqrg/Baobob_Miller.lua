@@ -16,7 +16,7 @@ end
 
 function event_say(e)
 	local fac = e.other:GetFaction(e.self);
-	
+
 	if(fac < 6) then
 		if(e.message:findi("hail")) then
 			e.self:Say("Hello, there. My name is Baobob Miller. My [sister] and I are the best tanners in all of Norath. Wolves are my specialty. A nice wolf skin [garment] would be the perfect accessory to your stylish ensemble.");
@@ -30,7 +30,7 @@ function event_say(e)
 			e.self:Say("Yes! One of my wold skin cloaks would go very well with your.. eeerr.. style.. Ahem! Let's see.. I think I can get you into one for 21 gold pieces, but, you have to provide the skin, and I make my cloaks with only the highest quality wolf skins.");
 		elseif(e.message:findi("belt")) then
 			e.self:Say("Belts are far more forgiving than cloaks or boots. A lesser quality pelt and 5 gold pieces would get you a nice wolf-hide belt.");
-		end	
+		end
 	else
 		e.self:Say("Hmm.. I really would not feel comfortable helping you in that way. You need to prove yourself to me by aiding my friends and family in the Plains of Karana before I will help you.");
 	end
@@ -39,36 +39,38 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 13755, gold == 21})) then
+	if(item_lib.check_turn_in(e.trade, {item1 = 13755, gold = 21})) then
 		e.self:Say("Good work! Now have you the rest of what I require?");
 		e.self:Say("Here ya go! That should keep ya nice and warm! Be sure to tell all the friends you're going to impress where you got this fine cloak. Although I am sure they probably have heard of me already.");
 		e.other:SummonItem(2905);
-		e.other:Ding();
 		e.other:Faction(167,1,0); -- Karana Residents
 		e.other:Faction(135,1,0); -- Guards of Qeynos
 		e.other:Faction(257,1,0); -- Priests of Life
 		e.other:Faction(183,1,0); -- Priests of Life
 		e.other:AddEXP(500);
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 13754, gold == 15})) then
+		e.other:Ding();
+	end
+	if(item_lib.check_turn_in(e.trade, {item1 = 13754, gold = 15})) then
 		e.self:Say("Good work! Now have you the rest of what I require?");
 		e.self:Say("They are exquisite, if I do say so myself. Hope they fit.");
 		e.other:SummonItem(2906);
-		e.other:Ding();
 		e.other:Faction(167,1,0); -- Karana Residents
 		e.other:Faction(135,1,0); -- Guards of Qeynos
 		e.other:Faction(257,1,0); -- Priests of Life
 		e.other:Faction(183,1,0); -- Priests of Life
 		e.other:AddEXP(500);
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 13753, gold == 5})) then
+		e.other:Ding();
+	end
+	if(item_lib.check_turn_in(e.trade, {item1 = 13753, gold = 5})) then
 		e.self:Say("Good work! Now have you the rest of what I require?");
 		e.self:Say("I hate working with such low quality hides. They lack the sheen that makes a high quality pelt look so fine! Anyhow, here's your belt.");
 		e.other:SummonItem(2907);
-		e.other:Ding();
 		e.other:Faction(167,1,0); -- Karana Residents
 		e.other:Faction(135,1,0); -- Guards of Qeynos
 		e.other:Faction(257,1,0); -- Priests of Life
 		e.other:Faction(183,1,0); -- Priests of Life
 		e.other:AddEXP(500);
+		e.other:Ding();
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
