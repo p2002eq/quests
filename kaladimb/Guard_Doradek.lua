@@ -2,8 +2,7 @@ function event_combat(e)
 	if(e.joined) then
 		local cur_target = e.self:GetHateTop();
 		if(cur_target) then
-			local target_name = cur_target:GetCleanName();
-			e.self:Say("Time to die target_name!");
+			e.self:Say(string.format("Time to die %s!",e.other:GetCleanName()));
 		end
 	end
 end

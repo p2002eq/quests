@@ -1,10 +1,5 @@
-function event_combat(e)
-	if(e.joined) then
-		local cur_target = e.self:GetHateTop();
-		if(cur_target) then
-			e.self:Say(string.format("Time to die %s!",e.other:GetCleanName()));
-		end
-	end
+function event_death_complete(e)
+	eq.unique_spawn(51002,0,0,e.self:GetX(),e.self:GetY(),e.self:GetZ(),e.self:GetHeading());
 end
 
 -------------------------------------------------------------------------------------------------
