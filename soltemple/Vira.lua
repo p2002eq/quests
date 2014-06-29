@@ -29,12 +29,12 @@ function event_trade(e)
 		e.self:Say("Each of the four items needed to construct the famed Shovel of Ponz!  Very well.  As you have displayed ingenuity, I grant you this shovel.");
 		e.other:Faction(320,5,0);
 		e.other:Faction(291,-1,0);
-		e.other:QuestReward(e.self,0,0,0,0,6361,1000); -- Shovel of Ponz
+		e.other:QuestReward(e.self,0,0,0,0,6360,1000); -- Broom of Trilon
 	elseif(item_lib.check_turn_in(e.trade, {item1 = 10035, item2 = 10014, item3 = 16545, item4 = 16539})) then 
 		e.other:Say("All of the components to make the infamous broom of Trilon!  Well done, adventurer.  As you have proven yourself worthy, I grant you this broom.");
 		e.other:Faction(320,5,0);
 		e.other:Faction(291,-1,0);
-		e.other:QuestReward(e.self,0,0,0,0,6360,1000); -- Broom of Trilon
+		e.other:QuestReward(e.self,0,0,0,0,6361,1000); --  Shovel of Ponz
 	elseif(item_lib.check_turn_in(e.trade, {item1 = 16546, item2 = 16534, item3 = 10033, item4 = 16541})) then 
 		e.other:Say("All of the pieces of the famous Torch of Alna!  I never thought you would find them all!  As you have displayed courage, I grant you this torch.");
 		e.other:Faction(320,5,0);
