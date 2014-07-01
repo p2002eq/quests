@@ -17,8 +17,8 @@ function event_trade(e)
 		e.other:Faction(273,-10,0); -- Ring of Scale
 		e.other:Faction(149,10,0); -- Highpass Guards
 		e.other:Faction(214,10,0); -- Merchants of Highpass
+		eq.unique_spawn(5119,0,0,464,127,31.75,47);
 		e.other:AddEXP(500);
-		e.other:GiveCash(0,0,0,0);
 	elseif(item_lib.check_turn_in(e.trade, {item1 = 13793})) then
 		e.self:Say("Great! Thanks for taking care of this 'problem' for us " .. e.other:GetName() .. ". Please return to Zannsin with this note and he should reward you for your assistance."); -- Made up text
 		e.other:SummonItem(18028);
