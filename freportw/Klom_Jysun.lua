@@ -1,7 +1,7 @@
 function event_say(e)
 	if(e.message:findi("hail")) then
 		e.self:Say("Pleasure to meet you "..e.other:GetName()..". I am Klom Jysun, Grandmaster of the Ashen Order. I have lived in the great city of Freeport for quite sometime now and have watched the city evolve and change. Nowadays though I am in charge of training new members of the Ashen Fist. If you are a young monk and are in need of some armor I might have some work for you. Are you a [monk]?");
-	elseif(e.other:Class() == "Monk") then
+	elseif(e.other:GetClass() == 7) then
 		if(e.message:findi("monk")) then
 			e.self:Say("I am always pleased when a new disciple visits our sacred halls. If you are [interested] in crafting your own armor I have a number of gathering tasks for you to do that will test both your navigational and fighting skills.");
 		elseif(e.message:findi("interested")) then
