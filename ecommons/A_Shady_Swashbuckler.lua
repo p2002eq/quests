@@ -376,6 +376,38 @@ function event_say(e)
 	--ALCHEMY
 	elseif(e.message:findi("Alchemy")) then
 		e.self:Say("My master has not told me of these items yet. Please check back later.");
+		--e.self:Say("What skill range max? [AL31] [AL52] [AL79] [AL106] [AL142] [AL178]");
+		--e.self:Say(warningRoom);
+	elseif(e.message:findi("AL31")) then --31 - Distillate of Skinspikes I
+		e.other:SummonItem(16512,20); --Sticklewort
+		e.other:SummonItem(14950,20); --Primitive Potion Vial
+		e.other:SummonItem(14950,20); --Acaana Leaf
+		e.other:SummonItem(14950,20); --Comfrey Leaf
+		e.other:SummonItem(14950,20); --Flamewort Leaf
+	elseif(e.message:findi("AL52")) then --52 - Distillate of Skinspikes II
+		e.other:SummonItem(14950,20); --Vox's Dust
+		e.other:SummonItem(14950,20); --Crude Potion Vial
+		e.other:SummonItem(14950,20); --Acaana Leaf
+		e.other:SummonItem(14950,20); --Comfrey Leaf
+		e.other:SummonItem(14950,20); --Flamewort Leaf
+	elseif(e.message:findi("AL79")) then --79 - Distillate of Skinspikes III
+		e.other:SummonItem(14950,20); --Violet Tri-Tube Sap
+		e.other:SummonItem(14950,20); --Rough Potion Vial
+		e.other:SummonItem(14950,20); --Acaana Leaf
+		e.other:SummonItem(14950,20); --Comfrey Leaf
+		e.other:SummonItem(14950,20); --Flamewort Leaf
+	elseif(e.message:findi("AL106")) then --106 - Distillate of Skinspikes IV
+		e.other:SummonItem(14950,20); --Blue Vervain Bulb
+		e.other:SummonItem(14950,20); --Makeshift Potion Vial
+		e.other:SummonItem(14950,20); --Sprig of Acaana
+		e.other:SummonItem(14950,20); --Sprig of Comfrey
+		e.other:SummonItem(14950,20); --Sprig of Flamewort
+	elseif(e.message:findi("AL142")) then --142 - Distillate of Skinspikes V
+		e.other:SummonItem(14950,20); --Betherium Bark
+		e.other:SummonItem(14950,20); --Simple Potion Vial
+		e.other:SummonItem(14950,20); --Sprig of Acaana
+		e.other:SummonItem(14950,20); --Sprig of Comfrey
+		e.other:SummonItem(14950,20); --Sprig of Flamewort
 		
 	--BAKING
 	elseif(e.message:findi("Baking")) then
@@ -410,7 +442,51 @@ function event_say(e)
 		
 	--BREWING
 	elseif(e.message:findi("Brewing")) then
-		e.self:Say("My master has not told me of these items yet. Please check back later.");
+		e.self:Say("What skill range max? [BR31] [BR62] [BR95] [BR122] [BR151] [BR162] [BR226] [BR248]");
+		e.self:Say(warningRoom);
+	elseif(e.message:findi("BR31")) then --31 - Short Beer
+		e.other:SummonItem(16590,20); --Barley
+		e.other:SummonItem(16580,20); --Cask
+		e.other:SummonItem(16591,20); --Hops
+		e.other:SummonItem(16595,20); --Malt
+	elseif(e.message:findi("BR62")) then --62 - Fish Wine
+		e.other:SummonItem(16598,20); --Bottle
+		e.other:SummonItem(13019,20); --Fresh Fish
+		e.other:SummonItem(16592,20); --Grapes
+		e.other:SummonItem(13006,20); --Water Flask
+	elseif(e.message:findi("BR95")) then --95 - Red Wine
+		e.other:SummonItem(13045,20); --Berries
+		e.other:SummonItem(16598,20); --Bottle
+		e.other:SummonItem(16592,20); --Grapes
+		e.other:SummonItem(16597,20); --Wine Yeast
+	elseif(e.message:findi("BR122")) then --122 - Fetid Essence
+		e.other:SummonItem(13106,20); --Fishing Grubs
+		e.other:SummonItem(13006,20); --Water Flask
+	elseif(e.message:findi("BR151")) then --151 - Skull Ale
+		e.other:SummonItem(12308); --Cyclops Skull
+		e.other:SummonItem(13032,20); --Short Beer
+		e.other:SummonItem(13425,20); --Spices
+		e.other:SummonItem(13428,20); --Vinegar
+	elseif(e.message:findi("BR162")) then --162 - Jumjum Spiced Beer
+		e.other:SummonItem(16590,20); --Barley
+		e.other:SummonItem(16598,20); --Bottle
+		e.other:SummonItem(16591,20); --Hops
+		e.other:SummonItem(13425,20); --Spices
+		e.other:SummonItem(13006,20); --Water Flask
+		e.other:SummonItem(13973,20); --Jumjum Stalk								****NOTE there is a duplicate of this in DB 13974,13975
+	elseif(e.message:findi("BR226")) then --226 - Qeynos Afternoon Tea
+		e.other:SummonItem(9759,20); --Bayle's Delight
+		e.other:SummonItem(9650,20); --Celestial Essence
+		e.other:SummonItem(9726,20); --Cream
+		e.other:SummonItem(14239,20); --Eucalyptus Leaf
+		e.other:SummonItem(14915,20); --Tea Leaves
+		e.other:SummonItem(13006,20); --Water Flask
+	elseif(e.message:findi("BR248")) then --248 - Minotaur Hero's Brew
+		e.other:SummonItem(16580,20); --Cask
+		e.other:SummonItem(16595,20); --Malt
+		e.other:SummonItem(13032,20); --Short Beer
+		e.other:SummonItem(13006,20); --Water Flask
+		e.other:SummonItem(16596,20); --Yeast 
 		
 	--FISHING
 	elseif(e.message:findi("Fishing")) then
