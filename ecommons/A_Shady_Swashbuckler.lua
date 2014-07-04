@@ -13,10 +13,16 @@ function event_say(e)
 	local nc = "[erudnext] [erudnint] [felwithea] [felwitheb] [freporte] [freportn] [freportw] [grobb] [halas] [kaladima] [kaladimb] [neriaka] [neriakb] [neriakc] [paineel] [qeynos] [qeynos2] [rivervale] [soltemple]";
 	local pvp = "[arena]";
 	local timecnd = "[kithicor]";
+	local randX;
+	local randY;
 	--e.other:Message(15,"");
 	if(e.message:findi("hail")) then
-		e.other:Message(15,"Hello my friend, you need some [plat] an [hpbuff] / [manabuff] or have you come to the ease your pain of doing [tradeskills]?");
-		e.other:Message(15,"Want a [port] to go kill stuff or need a ride [home] to bind point or would you like to [bind] here?");
+		e.other:Message(15,"Hello my friend, you need some [plat] an [hpbuff] / [manabuff]?");
+		e.other:Message(15,"Have you come to the ease your pain of doing [tradeskills]?");
+		e.other:Message(15,"Want a [port] to go kill stuff?");
+		e.other:Message(15,"Need a ride [home] to bind point");
+		e.other:Message(15,"Would you like to [bind] here?");
+		e.other:Message(15,"Have you went and lost all your [corpses]?");
 		e.other:Message(13,"Do you need [help] with the usage of tradskill commands?");
 		e.other:Message(12,"If I am bugged or if any adjustments need to be made to my script. Send a /petition attn. Speedz with full details.");
 	elseif(e.message:findi("tradeskills")) then
@@ -876,6 +882,11 @@ function event_say(e)
 	elseif(e.message:findi("bind")) then
 		e.self:Say("Binding your soul. You will return here when you die.");
 		e.self:CastSpell(2049,e.other:GetID(),0,1);
+	
+	elseif(e.message:findi("corpses")) then
+		randX = math.random(-10,10) + e.self:GetX();
+		randY = math.random(-10,10) + e.self:GetY();
+		eq.summon_all_player_corpses(e.other:CharacterID(),randX,randY,e.self:GetZ(),0);
 	
 	elseif(e.message:findi("colors")) then
 		e.other:Message(1,"grey");
