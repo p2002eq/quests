@@ -1,24 +1,39 @@
 function event_say(e)
 	local warningRoom = "I hope you have room for all of this.";
+	local notready = "This feature is not ready or implemented yet, hang tight.";
+	local lvl1 = "Zones for levels 1 to 4 [akanon] [butcher] [everfrost] [feerott] [gfaydark] [innothule] [misty] [nektulos] [qcat] [steamfont] [tox]";
+	local lvl5 = "Zones for levels 5 to 9 [blackburrow] [crushbone] [ecommons] [guktop] [erudsxing] [qeytoqrg] [befallen] [sro]";
+	local lvl10 = "Zones for levels 10 to 14 [cauldron] [kerraridge] [northkarana] [nro] [oot] [qey2hh1] [qrg] [unrest]";
+	local lvl15 = "Zones for levels 15 to 19 [oasis] [beholder] [commons] [highpass] [lakerathe] [lavastorm]";
+	local lvl20 = "Zones for levels 20 to 24 [eastkarana] [lfaydark] [mistmoore] [runnyeye] [southkarana] [najena]";
+	local lvl25 = "Zones for levels 25 to 29 [highkeep] [rathemtn] [soldunga]";
+	local lvl30 = "Zones for levels 30 to 34 [paw]";
+	local lvl35 = "Zones for levels 35 to 44 [gukbottom] [permafrost]";
+	local lvl45 = "Zones for levels 45+ [kedge] [oggok] [soldungb]";
+	local nc = "[erudnext] [erudnint] [felwithea] [felwitheb] [freporte] [freportn] [freportw] [grobb] [halas] [kaladima] [kaladimb] [neriaka] [neriakb] [neriakc] [paineel] [qeynos] [qeynos2] [rivervale] [soltemple]";
+	local pvp = "[arena]";
+	local timecnd = "[kithicor]";
+	--e.other:Message(15,"");
 	if(e.message:findi("hail")) then
-		e.self:Say("Hello my friend, you need some [plat] an [hpbuff] / [manabuff] or have you come to the ease your pain of doing [tradeskills]?");
-		e.self:Say("Do you need [help] with the usage of tradskill commands?");
-		e.self:Say("Need a ride [home] to bind point?");
+		e.other:Message(15,"Hello my friend, you need some [plat] an [hpbuff] / [manabuff] or have you come to the ease your pain of doing [tradeskills]?");
+		e.other:Message(15,"Want a [port] to go kill stuff or need a ride [home] to bind point or would you like to [bind] here?");
+		e.other:Message(13,"Do you need [help] with the usage of tradskill commands?");
+		e.other:Message(12,"If I am bugged or if any adjustments need to be made to my script. Send a /petition attn. Speedz with full details.");
 	elseif(e.message:findi("tradeskills")) then
 		e.self:Emote(" says under his breath 'Alrighty then if you insist.....'");
-		e.self:Say("Tell me which tradeskill type you need materials for from these choices. [Research] [Alchemy] [Baking] [Brewing] [Fishing] [Fletching] [Jewelcraft] [Poison] [Pottery] [Smithing] [Tailoring] [Tinkering]");
+		e.other:Message(15,"Tell me which tradeskill type you need materials for from these choices. [Research] [Alchemy] [Baking] [Brewing] [Fishing] [Fletching] [Jewelcraft] [Poison] [Pottery] [Smithing] [Tailoring] [Tinkering]");
 	elseif(e.message:findi("help")) then
-		e.self:Say("Each skill range is for only the prior skill range to the one you specify. So an [RS26] would be only for skills 23 to 26.");
-		e.self:Say("Example Usage1: 'RS41' (will give only mats for 27 to 41 research skillups for your class)");
-		e.self:Say("Example Usage2: 'RS41 all' (will give only mats for 27 to 41 skillups for all research classes)");
-		e.self:Say("Example Usage3: 'FL41' (will give only mats for 46 to 56 skillups for fletching.)");
-		e.self:Say("WARNING: You need to make sure you have plenty of inventory space before using this feature.");
+		e.other:Message(13,"Each skill range is for only the prior skill range to the one you specify. So an [RS26] would be only for skills 23 to 26.");
+		e.other:Message(13,"Example Usage1: 'RS41' (will give only mats for 27 to 41 research skillups for your class)");
+		e.other:Message(13,"Example Usage2: 'RS41 all' (will give only mats for 27 to 41 skillups for all research classes)");
+		e.other:Message(13,"Example Usage3: 'FL41' (will give only mats for 46 to 56 skillups for fletching.)");
+		e.other:Message(13,"WARNING: You need to make sure you have plenty of inventory space before using this feature.");
 
 	--RESEARCH
 	elseif(e.message:findi("Research")) then
-		e.self:Say("What skill range max? [RS22] [RS26] [RS41] [RS42] [RS46] [RS62] [RS71] [RS82] [RS83] [RS87] [RS96] [RS102] [RS116] [RS120] [RS122] [RS140] [RS142] [RS162] [RS166] [RS182] [RS184] [RS no fail]");
-		e.self:Say("If you want to research other classes than your own add [all] after range max.");
-		e.self:Say(warningRoom);
+		e.other:Message(15,"What skill range max? [RS22] [RS26] [RS41] [RS42] [RS46] [RS62] [RS71] [RS82] [RS83] [RS87] [RS96] [RS102] [RS116] [RS120] [RS122] [RS140] [RS142] [RS162] [RS166] [RS182] [RS184] [RS no fail]");
+		e.other:Message(15,"If you want to research other classes than your own add [all] after range max.");
+		e.other:Message(15,warningRoom);
 	elseif(e.message:findi("RS22 all") or e.other:GetClass() == "11" and (e.message:findi("RS22"))) then --Necro
 		e.other:SummonItem(16024,20); --necro   21   Words of Derivation
 		e.other:SummonItem(11810,20); --necro   21   Words of Eradication
@@ -375,9 +390,9 @@ function event_say(e)
 		
 	--ALCHEMY
 	elseif(e.message:findi("Alchemy")) then
-		e.self:Say("My master has not told me of these items yet. Please check back later.");
-		--e.self:Say("What skill range max? [AL31] [AL52] [AL79] [AL106] [AL142] [AL178]");
-		--e.self:Say(warningRoom);
+		e.other:Message(13,notready);
+		--e.other:Message(15,"What skill range max? [AL31] [AL52] [AL79] [AL106] [AL142] [AL178]");
+		--e.other:Message(15,warningRoom);
 	elseif(e.message:findi("AL31")) then --31 - Distillate of Skinspikes I
 		e.other:SummonItem(16512,20); --Sticklewort
 		e.other:SummonItem(14950,20); --Primitive Potion Vial
@@ -411,15 +426,15 @@ function event_say(e)
 		
 	--BAKING
 	elseif(e.message:findi("Baking")) then
-		e.self:Say("What skill range max? [BK17] [BK75] [BK83] [BK135] [BK143] [BK152] [BK226]");
-		e.self:Say(warningRoom);
+		e.other:Message(15,"What skill range max? [BK17] [BK75] [BK83] [BK135] [BK143] [BK152] [BK226]");
+		e.other:Message(15,warningRoom);
 	elseif(e.message:findi("BK17")) then --17 - Clump of Dough
 		e.other:SummonItem(14950,20); --basilisk Eggs
-		e.other:SummonItem(13089,20); --Cup of Flour								****NOTE there is a duplicate of this in DB 13193
+		e.other:SummonItem(13193,20); --Cup of Flour								****NOTE there is a duplicate of this in DB 13089
 		e.other:SummonItem(13087,20); --Bottle of Milk
 	elseif(e.message:findi("BK75")) then --75 - Creamy Fennel Sauce
 		e.other:SummonItem(9726,20); --Cream
-		e.other:SummonItem(13089,20); --Cup of Flour								****NOTE there is a duplicate of this in DB 13193
+		e.other:SummonItem(13193,20); --Cup of Flour								****NOTE there is a duplicate of this in DB 13089
 		e.other:SummonItem(14234,20); --Fennel
 	elseif(e.message:findi("BK83")) then --83 - Cream
 		e.other:SummonItem(14221,20); --Benzoin
@@ -442,8 +457,8 @@ function event_say(e)
 		
 	--BREWING
 	elseif(e.message:findi("Brewing")) then
-		e.self:Say("What skill range max? [BR31] [BR62] [BR95] [BR122] [BR151] [BR162] [BR226] [BR248]");
-		e.self:Say(warningRoom);
+		e.other:Message(15,"What skill range max? [BR31] [BR62] [BR95] [BR122] [BR151] [BR162] [BR226] [BR248]");
+		e.other:Message(15,warningRoom);
 	elseif(e.message:findi("BR31")) then --31 - Short Beer
 		e.other:SummonItem(16590,20); --Barley
 		e.other:SummonItem(16580,20); --Cask
@@ -490,12 +505,12 @@ function event_say(e)
 		
 	--FISHING
 	elseif(e.message:findi("Fishing")) then
-		e.self:Say("My master has not told me of these items yet. Please check back later.");
+		e.other:Message(13,notready);
 		
 	--FLETCHING
 	elseif(e.message:findi("Fletching")) then
-		e.self:Say("What skill range max? [FL46] [FL56] [FL68] [FL102] [FL135] [FL182] [FL202]");
-		e.self:Say(warningRoom);
+		e.other:Message(15,"What skill range max? [FL46] [FL56] [FL68] [FL102] [FL135] [FL182] [FL202]");
+		e.other:Message(15,warningRoom);
 	elseif(e.message:findi("FL46")) then --46 - CLASS 2 Wood Point Arrow (large nock)
 		e.other:SummonItem(8060,20); --Bundled Wooden Arrow Shafts
 		e.other:SummonItem(8055,20); --Field Point Arrowhead
@@ -534,8 +549,8 @@ function event_say(e)
 		
 	--JEWELCRAFT
 	elseif(e.message:findi("Jewelcraft")) then
-		e.self:Say("What skill range max? [JC17] [JC30] [JC40] [JC50] [JC60] [JC74] [JC92] [JC106] [JC119] [JC132] [JC146] [JC164] [JC178] [JC191] [JC204] [JC218] [JC236] [JC250]");
-		e.self:Say(warningRoom);
+		e.other:Message(15,"What skill range max? [JC17] [JC30] [JC40] [JC50] [JC60] [JC74] [JC92] [JC106] [JC119] [JC132] [JC146] [JC164] [JC178] [JC191] [JC204] [JC218] [JC236] [JC250]");
+		e.other:Message(15,warningRoom);
 	elseif(e.message:findi("JC17")) then --
 		e.other:SummonItem(16500,20); --silver bar 17 to 63
 		e.other:SummonItem(10015,20); --Malachite
@@ -593,20 +608,20 @@ function event_say(e)
 		
 	--POISON
 	elseif(e.message:findi("Poison")) then
-		e.self:Say("My master has not told me of these items yet. Please check back later.");
+		e.other:Message(13,notready);
 		
 	--POTTERY
 	elseif(e.message:findi("Pottery")) then
-		e.self:Say("My master has not told me of these items yet. Please check back later.");
+		e.other:Message(13,notready);
 		
 	--SMITHING
 	elseif(e.message:findi("Smithing")) then
-		e.self:Say("My master has not told me of these items yet. Please check back later.");
+		e.other:Message(13,notready);
 		
 	--TAILORING
 	elseif(e.message:findi("Tailoring")) then
-		e.self:Say("What skill range max? [TR15] [TR26] [TR31] [TR36] [TR56] [TR82] [TR88] [TR108] [TR135] [TR151] [TR158] [TR229] [TR295]");
-		e.self:Say(warningRoom);
+		e.other:Message(15,"What skill range max? [TR15] [TR26] [TR31] [TR36] [TR56] [TR82] [TR88] [TR108] [TR135] [TR151] [TR158] [TR229] [TR295]");
+		e.other:Message(15,warningRoom);
 	elseif(e.message:findi("TR15")) then --15 - silk swatches
 		e.other:SummonItem(13041,20); --spider silk
 	elseif(e.message:findi("TR26")) then --26 - Tattered mask
@@ -627,10 +642,10 @@ function event_say(e)
 		e.other:SummonItem(16480,20); --heady kiola
 		e.other:SummonItem(13802,20); --mask pattern
 	elseif(e.message:findi("TR88")) then --88 - Tailored backpack
-		e.other:SummonItem(13800,20); --high quality bear skin
+		e.other:SummonItem(13752,20); --high quality bear skin
 		e.other:SummonItem(12089,20); --backpack pattern
 	elseif(e.message:findi("TR108")) then --108 - Reinforced mask
-		e.other:SummonItem(13754,20); --medium quality wolf skin
+		e.other:SummonItem(13755,20); --high quality wolf skin
 		e.other:SummonItem(12073,20); --steel boning
 		e.other:SummonItem(13802,20); --mask pattern
 	elseif(e.message:findi("TR135")) then --135 - Wu's fighting mask
@@ -657,8 +672,8 @@ function event_say(e)
 		
 	--TINKERING
 	elseif(e.message:findi("Tinkering")) then
-		e.self:Say("What skill range max? [TK68] [TK95] [TK102] [TK122] [TK148] [TK175]");
-		e.self:Say(warningRoom);
+		e.other:Message(15,"What skill range max? [TK68] [TK95] [TK102] [TK122] [TK148] [TK175]");
+		e.other:Message(15,warningRoom);
 	elseif(e.message:findi("TK68")) then --68 - Flameless Lantern
 		e.other:SummonItem(13004,20); --Large Lantern
 		e.other:SummonItem(16857,20); --Metal Twine
@@ -707,7 +722,7 @@ function event_say(e)
 		end		
 		pcount = tonumber(qglobals["platz"]);
 		pcountAdd = pcount + 1;
-		e.self:Say("have fun");
+		e.other:Message(15,"have fun");
 		eq.set_global("platz",tostring(pcountAdd),9,"F");
 		
 	--BUFFS
@@ -716,8 +731,172 @@ function event_say(e)
 	elseif(e.message:findi("manabuff")) then
 		e.self:CastSpell(697,e.other:GetID(),0,1);
 		
-	--TLs
+	--TLs	
+	--elseif(e.message:findi("port")) then
+	--	e.other:Message(13,notready);
+	
+	elseif(e.message:findi("port") and (e.other:Admin() > 79)) then
+			e.other:Message(15,lvl1);
+			e.other:Message(15,lvl5);
+			e.other:Message(15,lvl10);
+			e.other:Message(15,lvl15);
+			e.other:Message(15,lvl20);
+			e.other:Message(15,lvl25);
+			e.other:Message(15,lvl30);
+			e.other:Message(15,lvl35);
+			e.other:Message(15,lvl45);
+	elseif(e.message:findi("port") and (e.other:GetLevel() < 5)) then
+			e.other:Message(15,lvl1);
+	elseif(e.message:findi("port") and (e.other:GetLevel() < 10) and (e.other:GetLevel() > 4)) then
+			e.other:Message(15,lvl5);
+	elseif(e.message:findi("port") and (e.other:GetLevel() < 15) and (e.other:GetLevel() > 9)) then
+			e.other:Message(15,lvl10);
+	elseif(e.message:findi("port") and (e.other:GetLevel() < 20) and (e.other:GetLevel() > 14)) then
+			e.other:Message(15,lvl15);
+	elseif(e.message:findi("port") and (e.other:GetLevel() < 25) and (e.other:GetLevel() > 19)) then
+			e.other:Message(15,lvl20);
+	elseif(e.message:findi("port") and (e.other:GetLevel() < 30) and (e.other:GetLevel() > 24)) then
+			e.other:Message(15,lvl25);
+	elseif(e.message:findi("port") and (e.other:GetLevel() < 35) and (e.other:GetLevel() > 29)) then
+			e.other:Message(15,lvl30);
+	elseif(e.message:findi("port") and (e.other:GetLevel() < 40) and (e.other:GetLevel() > 34)) then
+			e.other:Message(15,lvl35);
+	elseif(e.message:findi("port") and (e.other:GetLevel() > 44)) then
+			e.other:Message(15,lvl45);
+
+	--LEVEL 1-4 ports
+	elseif(e.message:findi("akanon") and (e.other:GetLevel() < 5)) then
+		e.other:MovePC(55,-35,47,4,0);
+	elseif(e.message:findi("butcher") and (e.other:GetLevel() < 5)) then
+		e.other:MovePC(68,-700,2550,3,0);
+	elseif(e.message:findi("everfrost") and (e.other:GetLevel() < 5)) then
+		e.other:MovePC(30,629,3139,-60,0);
+	elseif(e.message:findi("feerott") and (e.other:GetLevel() < 5)) then
+		e.other:MovePC(47,905,1051,25,0);
+	elseif(e.message:findi("gfaydark") and (e.other:GetLevel() < 5)) then
+		e.other:MovePC(54,10,-20,0,0);
+	elseif(e.message:findi("innothule") and (e.other:GetLevel() < 5)) then
+		e.other:MovePC(46,-588,-2192,-25,0);
+	elseif(e.message:findi("misty") and (e.other:GetLevel() < 5)) then
+		e.other:MovePC(33,0,0,2.43,0);
+	elseif(e.message:findi("nektulos") and (e.other:GetLevel() < 5)) then
+		e.other:MovePC(25,-279,-1201,-5,0);
+	elseif(e.message:findi("qcat") and (e.other:GetLevel() < 5)) then
+		e.other:MovePC(45,80,860,-38,0);
+	elseif(e.message:findi("steamfont") and (e.other:GetLevel() < 5)) then
+		e.other:MovePC(56,-272.86,159.86,-21.4,0);
+	elseif(e.message:findi("tox") and (e.other:GetLevel() < 5)) then
+		e.other:MovePC(38,203,2295,-45,0);
+	--LEVEL 5-9 ports
+	elseif(e.message:findi("blackburrow") and (e.other:GetLevel() < 10) and  (e.other:GetLevel() > 4)) then
+		e.other:MovePC(17,39,-159,3,0);
+	elseif(e.message:findi("crushbone") and (e.other:GetLevel() < 10) and  (e.other:GetLevel() > 4)) then
+		e.other:MovePC(58,158,-644,4,0);
+	elseif(e.message:findi("ecommons") and (e.other:GetLevel() < 10) and  (e.other:GetLevel() > 4)) then
+		e.other:MovePC(22,-1485,9.2,-51,0);
+	elseif(e.message:findi("guktop") and (e.other:GetLevel() < 10) and  (e.other:GetLevel() > 4)) then
+		e.other:MovePC(65,7,-36,4,0);
+	elseif(e.message:findi("erudsxing") and (e.other:GetLevel() < 10) and  (e.other:GetLevel() > 4)) then
+		e.other:MovePC(98,795,-1767,11,0);
+	elseif(e.message:findi("qeytoqrg") and (e.other:GetLevel() < 10) and  (e.other:GetLevel() > 4)) then
+		e.other:MovePC(4,83,508,0,0);
+	elseif(e.message:findi("befallen") and (e.other:GetLevel() < 10) and  (e.other:GetLevel() > 4)) then
+		e.other:MovePC(36,35,-82,3,0);
+	elseif(e.message:findi("sro") and (e.other:GetLevel() < 10) and  (e.other:GetLevel() > 4)) then
+		e.other:MovePC(35,286,1265,79,0);
+	--LEVEL 10-14 ports
+	elseif(e.message:findi("cauldron") and (e.other:GetLevel() < 15) and  (e.other:GetLevel() > 9)) then
+		e.other:MovePC(70,320,2815,473,0);
+	elseif(e.message:findi("kerraridge") and (e.other:GetLevel() < 15) and  (e.other:GetLevel() > 9)) then
+		e.other:MovePC(74,-859.97,474.96,23.75,0);
+	elseif(e.message:findi("northkarana") and (e.other:GetLevel() < 15) and  (e.other:GetLevel() > 9)) then
+		e.other:MovePC(13,-382,-284,-8,0);
+	elseif(e.message:findi("nro") and (e.other:GetLevel() < 15) and  (e.other:GetLevel() > 9)) then
+		e.other:MovePC(34,299.12,3537.9,-24.5,0);
+	elseif(e.message:findi("oot") and (e.other:GetLevel() < 15) and  (e.other:GetLevel() > 9)) then
+		e.other:MovePC(69,-9200,390,6,0);
+	elseif(e.message:findi("qey2hh1") and (e.other:GetLevel() < 15) and  (e.other:GetLevel() > 9)) then
+		e.other:MovePC(12,-531,15,-3,0);
+	elseif(e.message:findi("qrg") and (e.other:GetLevel() < 15) and  (e.other:GetLevel() > 9)) then
+		e.other:MovePC(3,0,0,2,0);
+	elseif(e.message:findi("unrest") and (e.other:GetLevel() < 15) and  (e.other:GetLevel() > 9)) then
+		e.other:MovePC(63,52,-38,3,0);
+	--LEVEL 15-19 ports
+	elseif(e.message:findi("oasis") and (e.other:GetLevel() < 20) and  (e.other:GetLevel() > 14)) then
+		e.other:MovePC(37,903.98,490.03,6.4,0);
+	elseif(e.message:findi("beholder") and (e.other:GetLevel() < 20) and  (e.other:GetLevel() > 14)) then
+		e.other:MovePC(16,-21.44,-512.23,45.13,0);
+	elseif(e.message:findi("commons") and (e.other:GetLevel() < 20) and  (e.other:GetLevel() > 14)) then
+		e.other:MovePC(21,-1334.24,209.57,-51.47,0);
+	elseif(e.message:findi("highpass") and (e.other:GetLevel() < 20) and  (e.other:GetLevel() > 14)) then
+		e.other:MovePC(5,-104,-14,4,0);
+	elseif(e.message:findi("lakerathe") and (e.other:GetLevel() < 20) and  (e.other:GetLevel() > 14)) then
+		e.other:MovePC(51,1213,4183,3,0);
+	elseif(e.message:findi("lavastorm") and (e.other:GetLevel() < 20) and  (e.other:GetLevel() > 14)) then
+		e.other:MovePC(27,154,-1833,-15,0);
+	--LEVEL 20-24 ports
+	elseif(e.message:findi("eastkarana") and (e.other:GetLevel() < 25) and  (e.other:GetLevel() > 19)) then
+		e.other:MovePC(15,865,15,-33,0);
+	elseif(e.message:findi("lfaydark") and (e.other:GetLevel() < 25) and  (e.other:GetLevel() > 19)) then
+		e.other:MovePC(57,-1770,-108,0,0);
+	elseif(e.message:findi("mistmoore") and (e.other:GetLevel() < 25) and  (e.other:GetLevel() > 19)) then
+		e.other:MovePC(59,120,-330,-178,0);
+	elseif(e.message:findi("runnyeye") and (e.other:GetLevel() < 25) and  (e.other:GetLevel() > 19)) then
+		e.other:MovePC(11,201,90,4,0);
+	elseif(e.message:findi("southkarana") and (e.other:GetLevel() < 25) and  (e.other:GetLevel() > 19)) then
+		e.other:MovePC(14,1294,2348,-6,0);
+	elseif(e.message:findi("najena") and (e.other:GetLevel() < 25) and  (e.other:GetLevel() > 19)) then
+		e.other:MovePC(44,858,-76,4,0);
+	--LEVEL 25-29 ports
+	elseif(e.message:findi("highkeep") and (e.other:GetLevel() < 30) and  (e.other:GetLevel() > 24)) then
+		e.other:MovePC(6,88,-16,4,0);
+	elseif(e.message:findi("rathemtn") and (e.other:GetLevel() < 30) and  (e.other:GetLevel() > 24)) then
+		e.other:MovePC(50,1831,3825,28,0);
+	elseif(e.message:findi("soldunga") and (e.other:GetLevel() < 30) and  (e.other:GetLevel() > 24)) then
+		e.other:MovePC(31,-486,-476,73,0);
+	--LEVEL 30-34 ports
+	elseif(e.message:findi("paw") and (e.other:GetLevel() < 35) and  (e.other:GetLevel() > 29)) then
+		e.other:MovePC(18,63,-122,3,0);
+	--LEVEL 35-44 ports
+	elseif(e.message:findi("gukbottom") and (e.other:GetLevel() < 40) and  (e.other:GetLevel() > 34)) then
+		e.other:MovePC(66,-217,1197,-78,0);
+	elseif(e.message:findi("permafrost") and (e.other:GetLevel() < 40) and  (e.other:GetLevel() > 34)) then
+		e.other:MovePC(73,61,-121,2,0);
+	--LEVEL 45+ ports
+	elseif(e.message:findi("kedge") and (e.other:GetLevel() > 44)) then
+		e.other:MovePC(64,14,100,302,0);
+	elseif(e.message:findi("oggok") and (e.other:GetLevel() > 44)) then
+		e.other:MovePC(49,-99,-345,4,0);
+	elseif(e.message:findi("soldungb") and (e.other:GetLevel() > 44)) then
+		e.other:MovePC(32,-263,-424,-108,0);
+	
 	elseif(e.message:findi("home")) then
 		e.self:CastSpell(1422,e.other:GetID(),0,1);
+		
+	elseif(e.message:findi("bind")) then
+		e.self:Say("Binding your soul. You will return here when you die.");
+		e.self:CastSpell(2049,e.other:GetID(),0,1);
+	
+	elseif(e.message:findi("colors")) then
+		e.other:Message(1,"grey");
+		e.other:Message(2,"dark green");
+		e.other:Message(3,"grey");
+		e.other:Message(4,"dark blue");
+		e.other:Message(5,"pink");
+		e.other:Message(6,"light grey");
+		e.other:Message(7,"white");
+		e.other:Message(8,"grey");
+		e.other:Message(9,"grey");
+		e.other:Message(10,"white");
+		e.other:Message(11,"grey");
+		e.other:Message(12,"lighter grey");
+		e.other:Message(13,"red");
+		e.other:Message(14,"green");
+		e.other:Message(15,"yellow");
+		e.other:Message(16,"dark blue");
+		e.other:Message(17,"grey");
+		e.other:Message(18,"light blue");
+		e.other:Message(19,"grey");
+		e.other:Message(20,"white");
 	end
 end
