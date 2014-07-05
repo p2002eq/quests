@@ -8,9 +8,9 @@ function event_say(e)
 	local lvl15 = "Zones for levels 15 to 19 [oasis] [beholder] [commons] [highpass] [lakerathe] [lavastorm]";
 	local lvl20 = "Zones for levels 20 to 24 [eastkarana] [lfaydark] [mistmoore] [runnyeye] [southkarana] [najena]";
 	local lvl25 = "Zones for levels 25 to 29 [highkeep] [rathemtn] [soldunga]";
-	local lvl30 = "Zones for levels 30 to 34 [paw]";
-	local lvl35 = "Zones for levels 35 to 44 [gukbottom] [permafrost]";
-	local lvl45 = "Zones for levels 45+ [kedge] [oggok] [soldungb]";
+	local lvl30 = "Zones for levels 30 to 34 [paw] [soldungb] [permafrost]";
+	local lvl35 = "Zones for levels 35 to 44 [gukbottom]";
+	local lvl45 = "Zones for levels 45+ [kedge] [oggok]";
 	local nc = "No combat zones [erudnext] [erudnint] [felwithea] [felwitheb] [freporte] [freportn] [freportw] [grobb] [halas] [kaladima] [kaladimb] [neriaka] [neriakb] [neriakc] [paineel] [qeynos] [qeynos2] [rivervale] [soltemple]";
 	local pvp = "[arena]";
 	local timecnd = "[kithicor]";
@@ -1423,20 +1423,20 @@ function event_say(e)
 	--LEVEL 30-34 ports
 	elseif(e.message:findi("paw") and (e.other:GetLevel() > 29)) then
 		e.other:MovePC(18,63,-122,3,0);
+	elseif(e.message:findi("permafrost") and (e.other:GetLevel() > 29)) then
+		e.other:MovePC(73,61,-121,2,0);
+	elseif(e.message:findi("soldungb") and (e.other:GetLevel() > 29)) then
+		e.other:MovePC(32,-263,-424,-108,0);
 		
 	--LEVEL 35-44 ports
 	elseif(e.message:findi("gukbottom") and (e.other:GetLevel() > 34)) then
 		e.other:MovePC(66,-217,1197,-78,0);
-	elseif(e.message:findi("permafrost") and (e.other:GetLevel() > 34)) then
-		e.other:MovePC(73,61,-121,2,0);
 		
 	--LEVEL 45+ ports
 	elseif(e.message:findi("kedge") and (e.other:GetLevel() > 44)) then
 		e.other:MovePC(64,14,100,302,0);
 	elseif(e.message:findi("oggok") and (e.other:GetLevel() > 44)) then
 		e.other:MovePC(49,-99,-345,4,0);
-	elseif(e.message:findi("soldungb") and (e.other:GetLevel() > 44)) then
-		e.other:MovePC(32,-263,-424,-108,0);
 	
 	elseif(e.message:findi("home")) then
 		e.self:CastSpell(1422,e.other:GetID(),0,1);
