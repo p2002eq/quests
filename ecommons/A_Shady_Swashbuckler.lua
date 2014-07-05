@@ -1239,7 +1239,7 @@ function event_say(e)
 		end
 		
 	--TLs
-	elseif(e.message:findi("port")) then
+	elseif(e.message:findi("port") and not e.message:findi("freport")) then
 		e.other:Message(13,pvp);
 		e.other:Message(18,nc);
 		e.other:Message(15,lvl1);
