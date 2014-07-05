@@ -16,6 +16,7 @@ function event_say(e)
 	local timecnd = "[kithicor]";
 	local randX;
 	local randY;
+	local randH;
 	
 	if(e.message:findi("hail")) then
 		e.other:Message(15,"Hello my friend, you need some [plat] an [hpbuff] / [manabuff]?");
