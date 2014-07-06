@@ -1,6 +1,4 @@
 function event_say(e)
-	local fac = e.other:GetFaction(e.self);
-
 	if(e.message:findi("hail")) then
 		e.self:Say("Hello, my name is Phin. Practice, practice, practice.. That's my motto. It is my responsibility to train our members, and help them to advance their skills and abilities. I also reward our members with colored [Headbands] for completing certain tasks.");
 	elseif(e.message:findi("Headband")) then
@@ -16,7 +14,7 @@ function event_say(e)
 	elseif(e.message:findi("gnoll")) then
 		e.self:Say("Those vile creatures are constantly attacking our city.. and often killing innocent citizens. It is our duty to help defend Qeynos from their vicious raids.");
 	-- Requires Kindly Faction for Headband Quests
-	elseif(fac <= 3) then
+	elseif(e.other:GetClass() == 7) then
 		if(e.message:findi("white headband")) then
 			e.self:Say("That is our training headband.. Beginning students can earn this by slaying four [gnoll] pups, and bringing their scalps back to me.");
 		elseif(e.message:findi("yellow headband")) then
@@ -31,7 +29,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	local fac = e.other:GetFaction(e.self);
+
 	-- Note from Konem, Grathins Invoice ID-18922
 	if(item_lib.check_turn_in(e.trade, {item1 = 18922})) then
 		e.self:Say("Oh this is not good. Too many inoccent traders have been getting robbed lately by those vile bandits out in the Karanas. Something must be done soon. Anyway, thank you for delivering the message... you did very well, young " .. e.other:GetName() .. ". Here's a little something to quench your thirst from all that running around.");
@@ -42,8 +40,8 @@ function event_trade(e)
 		e.other:Faction(12,1,0);
 		e.other:AddEXP(100);
 	end
-	if(fac <= 3) then
-		-- White Headband ID-10110 requires four Gnoll Pup Scalp ID-13789 and Kindly or better faction
+	if(e.other:GetClass() == 7) then
+		-- White Headband ID-10110 requires four Gnoll Pup Scalp ID-13789 and Monk Class
 		if(item_lib.check_turn_in(e.trade, {item1 = 13789,item2 = 13789, item3 = 13789,item4 = 13789})) then
 			e.self:Say("Good job, " .. e.other:GetName() .. ", keep up the good work! Here is your white training headband. Wear it with honor, and make Lu'Sun proud.");
 			e.other:SummonItem(10110);
