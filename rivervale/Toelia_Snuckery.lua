@@ -1,12 +1,12 @@
 function event_say(e)
-	local fac = e.other:GetFaction(e.self);
-
 	if(e.message:findi("hail")) then
 		e.self:Say("Oh. hi.  Listen. um.. " .. e.other:GetName() .. ". was it?  Listen. pal.  I really don't have time for the friendly-friendly. so why don't you just move on?");
-	elseif(e.message:findi("new dishwasher") and fac == 5) then
-		e.self:Say("You need to prove your dedication to our cause before I can discuss such matters with you.");
-	elseif(e.message:findi("new dishwasher") and fac < 5) then
-		e.self:Say("Dishwasher, huh?  You must not mind getting your feet wet then, huh?  Well, I do have a job for you.  It seems one of our younger employees got a little nevous around a Deputy and ditched his um..  recent purchase into the river.  We sent the fool after it but ol' [Chomper] got him.  He said he had dropped it off the docks but the currents might have moved it from there.  It should be in an old pouch.  Return the merchandise to me.  Well?  Get going!");
+	elseif(e.message:findi("new dishwasher")) then
+		if(e.other:GetFaction(e.self) < 5) then
+			e.self:Say("Dishwasher, huh?  You must not mind getting your feet wet then, huh?  Well, I do have a job for you.  It seems one of our younger employees got a little nevous around a Deputy and ditched his um..  recent purchase into the river.  We sent the fool after it but ol' [Chomper] got him.  He said he had dropped it off the docks but the currents might have moved it from there.  It should be in an old pouch.  Return the merchandise to me.  Well?  Get going!");
+		else
+			e.self:Say("You need to prove your dedication to our cause before I can discuss such matters with you.");
+		end
 	elseif(e.message:findi("chomper")) then
 		e.self:Say("Chomper is a big, mean ol' fish.  He looks like a normal fish, but a little bigger, and boy, oh boy, is he mean!");
 	end
