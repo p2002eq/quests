@@ -26,7 +26,7 @@ function event_say(e)
 		e.other:Message(15,"Would you like to [bind] here?");
 		e.other:Message(15,"Have you went and lost all your [corpses]?");
 		e.other:Message(13,"Do you need [help] with the usage of tradskill commands?");
-		e.self:Shout("Celebrating the 4th? How bout [fireworks]!!");
+		--e.self:Shout("Celebrating the 4th? How bout [fireworks]!!");
 		e.other:Message(12,"If I am bugged or if any adjustments need to be made to my script. Send a /petition attn. Speedz with full details.");
 	elseif(e.message:findi("tradeskills")) then
 		e.self:Emote(" says under his breath 'Alrighty then if you insist.....'");
@@ -1474,12 +1474,12 @@ function event_say(e)
 		randH = math.random(720);
 		eq.summon_all_player_corpses(e.other:CharacterID(),randX,randY,e.self:GetZ(),randH);
 		
-	elseif(e.message:findi("fireworks")) then
-		e.other:SummonItem(8990,20);
-		e.other:SummonItem(16877,20);
-		e.other:SummonItem(16878,20);
-		e.other:SummonItem(16879,20);
-		e.other:SummonItem(16880,20);
+	--elseif(e.message:findi("fireworks")) then
+	 --  e.other:SummonItem(8990,20);
+	 --  e.other:SummonItem(16877,20);
+	 --  e.other:SummonItem(16878,20);
+	 --  e.other:SummonItem(16879,20);
+	 --  e.other:SummonItem(16880,20);
 	
 	elseif(e.message:findi("colors") and e.other:Admin() > 79) then
 		e.other:Message(1,"1 grey");
