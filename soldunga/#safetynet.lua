@@ -1,8 +1,12 @@
-function event_death_complete(e)
-	--e.other:SummonItem("3000");
+function event_spawn(e)
+	local xloc = e.self:GetX();
+	local yloc = e.self:GetY();
+	eq.set_proximity(xloc - 5, xloc + 5, yloc - 5, yloc + 5);
 end
---END of FILE Zone:permafrost  ID:Not_Found -- High_Priest_Zaharn
 
+function event_enter(e)
+	e.other:MovePC(31,-485,-476,73);
+end
 
 -------------------------------------------------------------------------------------------------
 -- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz

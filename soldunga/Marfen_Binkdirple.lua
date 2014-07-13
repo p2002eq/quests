@@ -1,12 +1,3 @@
---Zone: Solusek's Eye
---Short Name: soldunga
---Zone ID: 31
---
---NPC Name: Marfen Binkdirple
---NPC ID: 31080
---Quest Status: finished
---
-
 function event_trade(e)
 	local item_lib = require("items");
 	if(item_lib.check_turn_in(e.trade, {item1 = 20372})) then
@@ -15,9 +6,7 @@ function event_trade(e)
 	end
 end
 
---END of FILE Zone:soldunga  ID:31080 -- Marfen_Binkdirple
-
-
+--ID:31080 -- Marfen_Binkdirple
 -------------------------------------------------------------------------------------------------
 -- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
 -- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen

@@ -1,14 +1,9 @@
-function event_say(e)
-	if(e.message:findi("Hail")) then
-		e.self:Say("You have much to learn.' and 'Your actions and history are a personal affront to all I stand for.");
+function event_target_change(e)
+	if((e.self:GetTarget():GetCleanName() == "Lady Vox") and (e.other:GetLevel() > 52) and (e.other:Admin() < 80)) then
+		eq.zone_emote(0,"I will not fight you, but I will banish you!");
+		e.self:MovePC(30,-7024,2020,-60.7,0);
 	end
 end
-
-function event_attack(e)
-	e.self:Say("You have much to learn.' and 'Your actions and history are a personal affront to all I stand for.");
-end
---END of FILE Zone:soldungb  ID:4900 -- Targin_the_Rock
-
 
 -------------------------------------------------------------------------------------------------
 -- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
