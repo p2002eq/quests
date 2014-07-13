@@ -21,9 +21,7 @@ function event_trade(e)
 	local item_lib = require("items");
 	if(item_lib.check_turn_in(e.trade, {item1 = 13384})) then
 		e.self:Say("Uggh!! Froglok legs!! Me hate smelly legs, but me need it for fat trolls.");
-		e.other:Faction(378,5);
-		e.other:AddEXP(150);
-		e.other:Ding();
+		e.other:QuestReward(e.self,0,math.random(9),0,0,0,150);
 		if(math.random(100) < 20) then
 			e.other:SummonItem(eq.ChooseRandom(13386,13385));
 		end

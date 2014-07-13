@@ -19,6 +19,8 @@ function event_say(e)
 		e.self:Say("The Sashes of Order are given out by the various trainers of our clan.  I give out the [white training sash] and the [yellow Sash of Order]. and [Reyia] is in charge of the [orange and red sashes].");
 	elseif(e.message:findi("orcs")) then
 		e.self:Say("The Deathfist Orcs are a large tribe of Orcs who live out in the desert. They are constantly sending small raiding parties and scouts to attack Freeport and its citizens.");
+	elseif(e.message:findi("reyia") or e.message:findi("orange and red")) then
+		e.self:Say("Reyia Beslin is one of our head trainers. She helps our members to improve their skills, and is also in charge of the orange and red Sashes of Order.");
 	end
 end
 
@@ -38,7 +40,7 @@ function event_trade(e)
 	-- White Training Sash - Giant Snake Rattle - Deathfist Slashed Belt - Desert Tarantula Chitin
 	-- No need to check faction again since they must have the White Training Sash
 	if(item_lib.check_turn_in(e.trade, {item1 = 10130,item2 = 13058,item3 = 13916,item4 = 20901})) then
-		e.self:Say("Good work, " .. e.other:GetName() .. ", you've worked hard and proven yourself a valuable addition to the Ashen Order. Here's your white sash, wear it with pride.");
+		e.self:Say("Ah, well done, " .. e.other:GetName() .. ". You have proven that you are a very skillful fighter and it is an honor to have you as a member of the Ashen Order. On behalf of Master Closk, and under the watchful eyes of Quellious, I present you, " .. e.other:GetName() .. ", with this, the yellow Sash of Order. Go out and make us proud.");
 		e.other:Faction(12,5,0); -- Ashen Order
 		e.other:Faction(184,5,0); -- Knights of Truth
 		e.other:Faction(300,5,0); -- Silent Fist Clan
