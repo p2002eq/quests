@@ -13,15 +13,15 @@ function croc_spawns()
 		eq.spawn2(RandomCroc,0,0,470,1661,-70,66);
 		eq.spawn2(RandomCroc,0,0,462,1653,-70,66);
 		CrocUp = 2;
-	elseif(RandomNumber > 45 and RandomNumber <= 75) then
+	elseif(RandomNumber > 45 and RandomNumber <= 73) then
 		eq.spawn2(RandomCroc,0,0,470,1661,-70,66);
 		eq.spawn2(RandomCroc,0,0,462,1653,-70,66);
 		eq.spawn2(RandomCroc,0,0,450,1661,-70,66);
 		CrocUp = 3;
-	elseif(RandomNumber > 75 and RandomNumber <= 90) then
+	elseif(RandomNumber > 73 and RandomNumber <= 85) then
 		eq.spawn2(RandomCroc,0,0,470,1661,-70,66);
 		CrocUp = 1;
-	elseif(RandomNumber > 90 and RandomNumber <= 95) then
+	elseif(RandomNumber > 85 and RandomNumber <= 95) then
 		eq.spawn2(65139,0,0,462,1653,-70,66); -- an ancient croc
 		CrocUp = 1;
 	elseif(RandomNumber > 95 and RandomNumber <= 98) then
