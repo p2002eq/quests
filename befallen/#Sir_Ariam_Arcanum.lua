@@ -30,6 +30,10 @@ function event_trade(e)
 	item_lib.return_items(e.self, e.other, e.trade)
 end
 
+function event_timer(e)
+	eq.depop();
+end
+
 --Edited by Sarepean to include Ariam's Medallion Quest
 -------------------------------------------------------------------------------------------------
 -- Converted to .lua using MATLAB converter written by Stryd
