@@ -1,5 +1,5 @@
 function event_death_complete(e)
-	eq.unique_spawn(36091,0,0,-43.5,-339.8,-10.9); ----Sir Ariam Arcanum
+	eq.unique_spawn(36091,0,0,e.self:GetX(),e.self:GetY(),e.self:GetZ(),e.self:GetHeading()); ----Sir Ariam Arcanum
 end
 
 -------------------------------------------------------------------------------------------------
