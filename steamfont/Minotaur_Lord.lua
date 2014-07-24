@@ -1,7 +1,7 @@
 --NPC: Minotaur_Lord   Zone: steamfont
 
 function event_combat(e)
-	if(e.joined == true) then
+	if(e.joined) then
 		e.self:Say("I survived the gladiator pens of Qeynos!! What can you do to one such as I?!!");
 	end
 end
