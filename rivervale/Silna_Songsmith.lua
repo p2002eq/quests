@@ -2,7 +2,7 @@
 --#Quest Name: Bard Mail Quest
 --#Author: RealityIncarnate
 --#Converted to Lua: robregen
---#NPCs Involved: Tralyn Marsinger, Eve Marsinger, Lislia Goldtune, Felisity Starbright, Jakum Webdancer, Ton Twostring, Idia, Sivina Lutewhisper, Ticar Lorestring, Marton Stringsinger, Drizda Tunesinger, Travis Two Tone, Silna Songsmith, Siltria Marwind, Tacar Tissleplay, Kilam Oresinger, Lyra Lyrestringer 
+--#NPCs Involved: Tralyn Marsinger, Eve Marsinger, Lislia Goldtune, Felisity Starbright, Jakum Webdancer, Ton Twostring, Idia, Sivina Lutewhisper, Ticar Lorestring, Marton Stringsinger, Drizda Tunesinger, Travis Two Tone, Silna Songsmith, Siltria Marwind, Tacar Tissleplay, Kilam Oresinger, Lyra Lyrestringer
 --#Items Involved: Bardic letters: 18150-18167
 --#################
 
@@ -15,7 +15,7 @@ function event_say(e)
 		e.self:Say("I have messages that need to go to - well, right now I have one that needs to go to Freeport. Will you [deliver] mail to [Freeport] for me?");
 	elseif(e.message:findi("deliver") or e.message:findi("freeport")) then
 		e.self:Say("Take this pouch of mail to Ton Twostring. You can find him at the bard guild hall. I'm sure he will compensate you for your trouble.");
-		e.other:SummonItem(18164); -- Pouch of Mail (Freeport)
+		e.other:SummonItem(18155); -- Pouch of Mail (Freeport)
 		e.other:Ding();
 	end
 end

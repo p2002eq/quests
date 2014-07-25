@@ -7,7 +7,7 @@ function event_say(e)
 		e.self:Say("The League of Antonican Bards has a courier system made up of travelers and adventurers.  We pay good gold to anyone who will take messages from bards such as myself to one of our more central offices.  Are you [interested]?");
 	elseif(e.message:findi("interested")) then
 		e.self:Say("I have messages that need to go to - well, right now I have one that needs to go to Qeynos.  Will you [deliver] mail to [Qeynos] for me?");
-	elseif(e.message:findi("deliver") or e.message:findi("Qeynos")) then
+	elseif(e.message:findi("deliver") and e.message:findi("Qeynos")) then
 		e.self:Say("Take this letter to Tralyn Marsinger in Qeynos.  You can find him at the bard guild hall.  I am sure he will compensate you for your troubles.");
 		e.other:SummonItem(18151);
 		e.other:Ding();

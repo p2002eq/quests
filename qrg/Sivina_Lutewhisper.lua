@@ -9,7 +9,7 @@ function event_say(e)
 		e.self:Say("I have messages that need to go to - well, right now I have one that needs to go to Qeynos.  Will you [deliver] mail to [Qeynos] for me?");
 	elseif(e.message:findi("deliver") or e.message:findi("Qeynos")) then
 		e.self:Say("Take this letter to Tralyn Marsinger in Qeynos.  You can find him at the bard guild hall.  I am sure he will compensate you for your troubles.");
-		e.other:SummonItem(18150);
+		e.other:SummonItem(18154);
 		e.other:Ding();
 	end
 end

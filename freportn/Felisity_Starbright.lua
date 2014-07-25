@@ -16,7 +16,7 @@ function event_trade(e)
 		e.other:Faction(273,-30,0); -- ring of scale
 		e.other:Faction(207,-30,0); -- mayong mistmoore
 		e.other:AddEXP(80);
-		e.other:GiveCash(0,0,eq.ChooseRandom(6,7,8,9),0);
+		e.other:GiveCash(0,0,math.random(9),0);
 	elseif(item_lib.check_turn_in(e.trade, {item1 = 18159})) then
 		e.self:Say("Incoming mail - very good!  Please take this gold for your troubles.");
 		e.other:Ding();
@@ -26,7 +26,7 @@ function event_trade(e)
 		e.other:Faction(273,-30,0); -- ring of scale
 		e.other:Faction(207,-30,0); -- mayong mistmoore
 		e.other:AddEXP(100);
-		e.other:GiveCash(0,0,eq.ChooseRandom(8,9,10,11,12),0);
+		e.other:GiveCash(0,0,math.random(9),0);
 	elseif(item_lib.check_turn_in(e.trade, {item1 = 18155})) then
 		e.self:Say("Incoming mail - very good!  Please take this gold for your troubles.");
 		e.other:Ding();
@@ -36,7 +36,7 @@ function event_trade(e)
 		e.other:Faction(273,-30,0); -- ring of scale
 		e.other:Faction(207,-30,0); -- mayong mistmoore
 		e.other:AddEXP(150);
-		e.other:GiveCash(0,0,eq.ChooseRandom(11,12,13,14,15),0);
+		e.other:GiveCash(0,0,math.random(9),0);
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
