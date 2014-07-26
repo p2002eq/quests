@@ -6,8 +6,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-
-	if(item_lib.check_turn_in(e.trade, {item1 = 18158}) or item_lib.check_turn_in(e.trade, {item1 = 18157})) then
+	if(item_lib.check_turn_in(e.trade, {item1 = 18158}) or item_lib.check_turn_in(e.trade, {item1 = 18155}) or item_lib.check_turn_in(e.trade, {item1 = 18157}) or item_lib.check_turn_in(e.trade, {item1 = 18159}) or item_lib.check_turn_in(e.trade, {item1 = 18166})) then
 		e.self:Say("Incoming mail - very good!  Please take this gold for your troubles.");
 		e.other:Ding();
 		e.other:Faction(192,10,0); -- league of antonican bards
@@ -16,26 +15,6 @@ function event_trade(e)
 		e.other:Faction(273,-30,0); -- ring of scale
 		e.other:Faction(207,-30,0); -- mayong mistmoore
 		e.other:AddEXP(80);
-		e.other:GiveCash(0,0,math.random(9),0);
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 18159})) then
-		e.self:Say("Incoming mail - very good!  Please take this gold for your troubles.");
-		e.other:Ding();
-		e.other:Faction(192,10,0); -- league of antonican bards
-		e.other:Faction(184,10,0); -- knights of truth
-		e.other:Faction(135,10,0); -- guards of qeynos
-		e.other:Faction(273,-30,0); -- ring of scale
-		e.other:Faction(207,-30,0); -- mayong mistmoore
-		e.other:AddEXP(100);
-		e.other:GiveCash(0,0,math.random(9),0);
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 18155})) then
-		e.self:Say("Incoming mail - very good!  Please take this gold for your troubles.");
-		e.other:Ding();
-		e.other:Faction(192,10,0); -- league of antonican bards
-		e.other:Faction(184,10,0); -- knights of truth
-		e.other:Faction(135,10,0); -- guards of qeynos
-		e.other:Faction(273,-30,0); -- ring of scale
-		e.other:Faction(207,-30,0); -- mayong mistmoore
-		e.other:AddEXP(150);
 		e.other:GiveCash(0,0,math.random(9),0);
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
