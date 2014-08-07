@@ -25,13 +25,14 @@ function event_say(e)
 		e.self:Say("Young Kodiak Bears often wander into the Nektulos Forest from the Commonlands searching for food. You do not appear to have the strength to arm wrestle a pixie. If you prove me wrong by slaying Young Kodiaks and bringing me four Young Kodiak Femurs I will guide you in the construction of a shield worthy of a warrior of the Indigo Brotherhood.");
 	end
 end
+
 function event_trade(e)
 	local item_lib = require("items");
 	if(item_lib.check_turn_in(e.trade, {item1 = 16173, item2 = 19565, item3 = 19564})) then--Deathfist Orc Scalp, Orc Clavicle, Orc Fibula
 		-- [FLAG: Possible incorrect client target: e.self:Race() ==] -- [FLAG: Possible incorrect client target: e.self:Class() ==] if((e.self:Class() == "Warrior") and (e.self:Race() == "Dark Elf")) then
 			e.self:Say("Excellent.  Here is your weapon, " .. e.other:GetName() .. ".  Use it to slay more!");--text made up
 			e.other:SummonItem(19606);--Jagged Orc Slayer Sword
-		end
+		-- end
 	end
 	if(item_lib.check_turn_in(e.trade, {item1 = 19562, item2 = 19562, item3 = 19562, item4 = 19562})) then--Young Kodiak Femurs
 		-- [FLAG: Possible incorrect client target: e.self:Race() ==] -- [FLAG: Possible incorrect client target: e.self:Class() ==] if((e.self:Class() == "Warrior") and (e.self:Race() == "Dark Elf")) then
