@@ -38,7 +38,7 @@ function event_trade(e)
 		-- [FLAG: Possible incorrect client target: e.self:Race() ==] -- [FLAG: Possible incorrect client target: e.self:Class() ==] if((e.self:Class() == "Warrior") and (e.self:Race() == "Dark Elf")) then
 			e.self:Say("So you have more strength than you seem to.  Hmm...here is your shield, " .. e.other:GetName() .. ".");--text made up
 			e.other:SummonItem(19609);--Black Femur Shield
-		end
+		-- end
 	end
 	
 	item_lib.return_items(e.self, e.other, e.trade)
