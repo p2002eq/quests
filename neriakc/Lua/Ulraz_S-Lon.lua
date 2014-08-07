@@ -26,7 +26,7 @@ function event_trade(e)
 		e.self:Say("Well, you're not completely useless, afterall. Take this sword and sharpen it. Then, return it to me.");
 		e.other:SummonItem(19572);
 	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 19573, item2 = 16197, item3 = 19554})) then
+	if(item_lib.check_turn_in(e.trade, {item1 = 19573})) then
 		e.self:Say("I'm surprised, I really am. I didn't think somebody like you could pull it off. Here, take this before I change my mind.");
 		e.other:SummonItem(19607);
 		e.other:AddEXP(1000);
@@ -36,7 +36,7 @@ function event_trade(e)
 		e.other:Faction(322,10);
 		e.other:Faction(91,-20);
 	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 19570, item2 = 19570, item3 = 19570, item4 = 19570, item5 = 16197, item6 = 19554})) then
+	if(item_lib.check_turn_in(e.trade, {item1 = 19570, item2 = 19570, item3 = 19570, item4 = 19570})) then
 		e.self:Emote("fashions the petrified femurs into a shield frame. This will be the frame of your new shield. Return now again to the Nektulos Forest, in the gray ashen region of the forest near the Lavastorm mountains the basilisks often come down from the fiery peaks to lay their eggs in the ashen soil. Basilisk hatchlings can be found there as they make their way towards the warmer interior of the mountains. Hunt these basilisk hatchlings and gather two Basilisk Hatchling Skins. Once this is done take the skins and frame to Medron Y'Lask at the Furrier Royale.");
 		e.other:SummonItem(19571);
 		e.other:AddEXP(1000);
@@ -47,7 +47,8 @@ function event_trade(e)
 		e.other:Faction(91,-20);
 		e.other:Faction(260,-20);
 	end
-	-- [FLAG: Manual conversion needed: $item] if($item1=="18757") then{e.self:Say("Thanks.");
+	if(item_lib.check_turn_in(e.trade, {item1 =  18757})) then
+		e.self:Say("Thanks.");
 		e.other:SummonItem("13586");
 		e.other:AddEXP("100");
 	end

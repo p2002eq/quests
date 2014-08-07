@@ -12,7 +12,7 @@ function event_say(e)
 		e.self:Say("Go to the Lavastorm Mountain Range. It is a dangerous place, but the one you seek must leave by the direction you entered. He is a goblin. Apparently the Erudite is employing their strength. The fire goblin runner shall be an easy kill for you. At least, he should be. Return his runner pouch to me.");
 	end
 	if(e.message:findi("leatherfoot")) then
-		-- [FLAG: Possible incorrect client target: e.self:Class() ==] if(e.self:Class() == "Warrior") then
+		if(e.self:Class() == 1 and e.self:Class() == "Warrior") then
 			e.self:Say("Where have you been? The halflings of Rivervale have an elite force of warriors. They are called the Leatherfoot Raiders. They have been infiltrating our glorious city of Neriak for quite some time. They must be exterminated! I must hire strong warriors who wish to [collect the bounty].");
 		
 		else

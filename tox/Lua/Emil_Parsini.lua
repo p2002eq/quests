@@ -2,7 +2,7 @@ function event_say(e)
 	
 	if(e.message:findi("Hail")) then
 		
-		e.self:Say("Good to meet you. " .. e.other:GetName() .. ".  Please look around.  I have much to offer.  I am a master woodworker.  It runs in the Parsini family."); end
+		e.self:Say("Good to meet you. " .. e.other:GetName() .. ".  Please look around.  I have much to offer.  I am a master woodworker.  It runs in the Parsini family.");
 	end
 	
 end
@@ -10,7 +10,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	
-	-- [FLAG: Manual conversion needed: $itemcount{] if($itemcount{18833} == 1) then{
+	if(item_lib.check_turn_in(e.trade, {item1 = 18833})) then
 		
 		e.self:Say("I have been waiting for someone to come and retrieve this staff.  Here you are.  You will have to combine it with treant resin and an Odus pearl.  You can find Odus pearls in the water in the harbor. As for the resin. I can make it if you can find me some treant shards.  Maybe another woodworker or cobbler in Qeynos has some.");
 		

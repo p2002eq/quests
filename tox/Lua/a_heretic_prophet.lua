@@ -1,6 +1,6 @@
 function event_say(e)
 	if(e.message:findi("Hail")) then
-		e.self:Say("Haha!! Another victory for our lord Cazic-Thule!  May your corpse be a dread-inspiring sign to those who travel this forest!"); end
+		e.self:Say("Haha!! Another victory for our lord Cazic-Thule!  May your corpse be a dread-inspiring sign to those who travel this forest!");
 	end
 end
 --END of FILE Zone:tox  ID:2546 -- a_heretic_prophet

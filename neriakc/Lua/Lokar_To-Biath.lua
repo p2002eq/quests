@@ -20,8 +20,7 @@ function event_trade(e)
 		e.other:Faction(88, 10);--Dreadguard Outer
 		e.other:Faction(69, 10);--Dark Bargainers
 		e.other:AddEXP(2000);
-	end
-	-- [FLAG: Manual conversion needed: $platinum] if(($copper == 7000) || ($silver == 700) || ($gold == 70) || ($platinum == 7)) then{#7pp worth of coins
+	elseif(item_lib.check_turn_in(e.trade, {platinum = 7})) then
 		e.self:Say("Take this note to the Scribe of Dal, and perhaps she will break her vow.");
 		e.other:SummonItem(18200);--a note (renounce the D'al, Text: TomeOfAges1)
 		e.other:Faction(87, 10);--Dreadguard Inner

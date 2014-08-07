@@ -45,12 +45,9 @@ function event_trade(e)
 		e.self:Say("Greetings, " .. e.other:GetName() .. ". So you are one of Selzar's new recruits. You are to assist in the construction of the armor you will don as a new Rogue of the House of the Ebon Mask. I have assembled a kit that is used in the crafting of Ashen Bone Mail. You must travel beyond Neriak into the Nektulos Forest for the [materials] that compose the armor.");
 		e.other:AddEXP(500);
 	
-	else
-		e.self:Say("I do not need this.");
-		plugin::check_handin(\%itemcount);
 	end
+	item_lib.return_items(e.self, e.other, e.trade)
 end
-
 -------------------------------------------------------------------------------------------------
 -- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
 -- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen

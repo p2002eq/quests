@@ -1,6 +1,6 @@
 function event_say(e)
 	if(e.message:findi("Hail")) then
-		e.self:Say("Come in! Come in! Enjoy the sights of the Blind Fish Tavern! We serve the finest alcohol in Neriak!"); end
+		e.self:Say("Come in! Come in! Enjoy the sights of the Blind Fish Tavern! We serve the finest alcohol in Neriak!");
 	end
 end
 --END of FILE Zone:neriakb  ID:41043 -- Marenkor_To`Biath

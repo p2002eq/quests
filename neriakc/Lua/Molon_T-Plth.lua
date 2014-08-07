@@ -1,6 +1,6 @@
 function event_say(e)
 	if(e.message:findi("Hail")) then
-		e.self:Say("Hey! What's up? If you want some real fun. go downstairs at the Maiden's Fancy."); end
+		e.self:Say("Hey! What's up? If you want some real fun. go downstairs at the Maiden's Fancy.");
 	end
 end
 --END of FILE Zone:neriakc  ID:42040 -- Molon_T`Plth

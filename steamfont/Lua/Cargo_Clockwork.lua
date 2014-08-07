@@ -14,19 +14,16 @@ end
 
 function event_timer(e)
 	-- [FLAG: Check target: eq.get_globals()] local qglobals = eq.get_qglobals();
-	if(qglobals["CargoClockwork"] == nil and (e.self:GetZ()onehour == 8)) then
-		eq.set_global("CargoClockwork",1,1,"H2");
+	if(eq.get_qglobals()["CargoClockwork"] == nil and (eq.get_zone_time().zone_time == 8)) then
+		eq.set_global("CargoClockwork","1",1,"H2");
 		eq.start(5); --Path to windmills
-	end
-	if(x == 700 and e.self:GetY() == -1783 and delivery == 1) then
+	elseif(e.self:GetX() == 700 and e.self:GetY() == -1783 and delivery == 1) then
 		eq.stop();
 		delivery = 0;
-	end
-	if(x == 550 and e.self:GetY() == -830) then
+	elseif(e.self:GetX() == 550 and e.self:GetY() == -830) then
 		e.self:Say("kachunk .. kachunk..");
 		eq.signal(56066,1); --Watchman Grep
-	end
-	if(x == 90 and e.self:GetY() == -700 and delivery == 0) then
+	elseif(e.self:GetX() == 90 and e.self:GetY() == -700 and delivery == 0) then
 		delivery = 1;
 		e.self:Emote("Chuga.. Chug..Chug..");
 		e.self:Emote("The chugging of the Cargo Clockwork comes to a halt.");
@@ -47,8 +44,7 @@ function event_timer(e)
 		bandit3npc:AddToHateList(npc,1);
 		
 		e.self:Say("This is highway robbery.");
-	end
-	if(targetname=~/highway_bandit") then)
+	elseif(targetname=="highway_bandit") then
 		e.self:WipeHateList();
 	end
 end

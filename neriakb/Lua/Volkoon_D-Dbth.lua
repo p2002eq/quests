@@ -1,6 +1,6 @@
 function event_say(e)
 	if(e.message:findi("Hail")) then
-		e.self:Say("Greetings. I am pleased to report that I am fully stocked. Please have a look at the goods I have for sale."); end
+		e.self:Say("Greetings. I am pleased to report that I am fully stocked. Please have a look at the goods I have for sale.");
 	end
 end
 --END of FILE Zone:neriakb  ID:41059 -- Volkoon_D`Dbth

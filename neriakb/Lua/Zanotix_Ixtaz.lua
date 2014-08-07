@@ -17,7 +17,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	-- 75pp
-	-- [FLAG: Manual conversion needed: $platinum] if($platinum == 75) then {
+	if(item_lib.check_turn_in(e.trade, {platinum = 75})) then
 		e.self:Emote("quickly pockets the coins and says, 'Go see the Librarian, Nallar. Tell him Denouncer Ixtaz sent you. Do not return here for at least 3 days, now go, " .. e.other:Race() .. ".");
 		e.other:AddEXP(26555);   -- 0.5% @ level 30
 	

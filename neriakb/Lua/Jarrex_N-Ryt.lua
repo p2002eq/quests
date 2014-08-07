@@ -7,7 +7,7 @@ function event_say(e)
 		e.self:Say("What have we here? A new weakling that wishes to reap some sort of self-value and renown through service to the Indigo Brotherhood perhaps? Well speak up whelp!! Have you come to [destroy the enemies of Neriak] or are you a coward better suited to mop the filth from the back rooms of the Maidens Fancy.");
 	end
 	if(e.message:findi("destroy the enemies of Neriak")) then
-		-- [FLAG: Possible incorrect client target: e.self:Race() ==] -- [FLAG: Possible incorrect client target: e.self:Class() ==] if((e.self:Class() == "Warrior") and (e.self:Race() == "Dark Elf")) then
+		if(e.self:GetClass() == 1 and e.self:Race() == "Dark Elf") then
 			e.self:Say("If you are going to be of any value to the Indigo Brotherhood you will need to outfit yourself in a suit of armor that will turn aside the blades of enemy forces. From the looks of you even the tiny fangs of a moss snake could bring you death. Take this request form to Issva H'Rugla to get yourself started on the assembly of your armor. When you have procured some protection for your weakling body return to me for [further instruction].");
 			e.other:SummonItem(31753);--Request Form
 		
@@ -33,7 +33,7 @@ function event_trade(e)
 			e.other:SummonItem(19606);--Jagged Orc Slayer Sword
 		end
 	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 19562, item2 = 19562, item3 = 19562, item4 = 19562, item5 = 19565, item6 = 19564})) then--Young Kodiak Femurs
+	if(item_lib.check_turn_in(e.trade, {item1 = 19562, item2 = 19562, item3 = 19562, item4 = 19562})) then--Young Kodiak Femurs
 		-- [FLAG: Possible incorrect client target: e.self:Race() ==] -- [FLAG: Possible incorrect client target: e.self:Class() ==] if((e.self:Class() == "Warrior") and (e.self:Race() == "Dark Elf")) then
 			e.self:Say("So you have more strength than you seem to.  Hmm...here is your shield, " .. e.other:GetName() .. ".");--text made up
 			e.other:SummonItem(19609);--Black Femur Shield

@@ -3,8 +3,7 @@ function event_say(e)
 		e.self:Say("Eh?  Eh?!  Talk not now!  My [creation] is running wild!  Destroy it for me. please!  If you do you can keep whatever parts you want from it.");
 	end
 	if(e.message:findi("what creation")) then
-		e.self:Say("Did you kill it yet? What?  Bah!  Yes. I made it.  Nilit's clockwork it is.  I made it to carry my toys to and from Ak'Anon but now it's gone wild and started attacking people.  Please. destroy it!"); end
-	end
+		e.self:Say("Did you kill it yet? What?  Bah!  Yes. I made it.  Nilit's clockwork it is.  I made it to carry my toys to and from Ak'Anon but now it's gone wild and started attacking people.  Please. destroy it!");
 end
 --END of FILE Zone:steamfont  ID:56136 -- Nilit_Druzlit
 

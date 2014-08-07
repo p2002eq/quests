@@ -2,7 +2,6 @@ function event_trade(e)
 	local item_lib = require("items");
 	if(item_lib.check_turn_in(e.trade, {item1 = 18753})) then --tattered note
 		e.self:Say("Greetings, and welcome to the Tower of the Spurned! I am Camia V'Retta, master enchantress. Here is your guild tunic, wear it with pride.  Go to Ulvex D'Jerna; he whall help you with your new studies.");
-		he whall help you with your new studies.")
 		e.other:Ding();
 		e.other:SummonItem(13582); --Ruined Red Robe*
 		e.other:Faction(331,100); --The Spurned

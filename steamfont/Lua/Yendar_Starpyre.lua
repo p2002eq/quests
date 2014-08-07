@@ -21,9 +21,8 @@ function event_say(e)
 	if(e.message:findi("book of souls")) then
 		e.self:Say("The Book of Souls chronicles all the lives Innoruuk has tainted over the years. It is in the care of the Maestro of Rancor. I can use this tome as a basis for my translation, if you return it and the note to me. An experienced practitioner in the art of non-detection should be able to snatch it from its resting place, don't you think, " .. e.other:Race() .. "?'");
 	end
+end
 	
-
-
 function event_trade(e)
 	local item_lib = require("items");
 	if(item_lib.check_turn_in(e.trade, {item1 = 28053})) then
@@ -31,17 +30,17 @@ function event_trade(e)
 		e.other:Ding();
 		e.other:AddEXP(500);
 		e.other:SummonItem(28055);
-		elseif(item_lib.check_turn_in(e.trade, {item1 = 28055, item2 = 28016})) then
-			-- local x = e.self:GetX();
-			-- local y = e.self:GetY();
-			-- local z = e.self:GetZ();
-			-- local h = e.self:GetHeading();
-			e.self:Say("My, this is quite a large list! Yes, I can use the names and dates recorded here to help me understand the script. It should be a simple matter now. A moment, please. Aha, yes, there we go. Translated as best I can! I do hope you're not involved in what is described here, as it is quite fiendish. Oi! You, woman! Give that back! " .. e.other:GetName() .. ", that woman there took your letter! I think I should leave you to discuss it with her. Best of luck!.");
-			eq.spawn2(56172,0,0,x - 10,y + 10,z,h);
-			eq.depop_with_timer();
-		end
-		item_lib.return_items(e.self, e.other, e.trade)
+	elseif(item_lib.check_turn_in(e.trade, {item1 = 28055, item2 = 28016})) then
+		-- local x = e.self:GetX();
+		-- local y = e.self:GetY();
+		-- local z = e.self:GetZ();
+		-- local h = e.self:GetHeading();
+		e.self:Say("My, this is quite a large list! Yes, I can use the names and dates recorded here to help me understand the script. It should be a simple matter now. A moment, please. Aha, yes, there we go. Translated as best I can! I do hope you're not involved in what is described here, as it is quite fiendish. Oi! You, woman! Give that back! " .. e.other:GetName() .. ", that woman there took your letter! I think I should leave you to discuss it with her. Best of luck!.");
+		eq.spawn2(56172,0,0,x - 10,y + 10,z,h);
+		eq.depop_with_timer();
 	end
+	item_lib.return_items(e.self, e.other, e.trade)
+end
 	
 	
 	
