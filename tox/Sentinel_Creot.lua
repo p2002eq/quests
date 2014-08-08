@@ -1,10 +1,12 @@
-function event_say(e)
-	if(e.message:findi("Hail")) then
-		e.self:Say("Hail. good citizen! You are safe when you are near a sentinel of the High Guard. Feel free to rest and recuperate.");
+function event_waypoint_arrive(e)
+	if((e.wp == 1) or (e.wp == 3)) then
+		e.self:Say("Hail citizens.  Sentinel Creot of the High Guard is on watch.");
+	elseif(e.wp == 1) then
+		e.self:SetRunning(true);
+	elseif(e.wp == 2) then
+		e.self:SetRunning(false);
 	end
 end
---END of FILE Zone:tox  ID:38123 -- Sentinel_Flavius
-
 
 -------------------------------------------------------------------------------------------------
 -- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
