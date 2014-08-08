@@ -17,9 +17,9 @@ function event_say(e)
 	local randX;
 	local randY;
 	local randH;
-	
+
 	if(e.message:findi("hail")) then
-		e.other:Message(15,"Hello my friend, you need some [plat] an [hpbuff] / [manabuff]?");
+		e.other:Message(15,"Hello my friend, you need some [plat] an [hpbuff] / [manabuff] or [SoW]?");
 		e.other:Message(15,"Have you come to the ease your pain of doing [tradeskills]?");
 		e.other:Message(15,"Want a [port] to go kill stuff?");
 		e.other:Message(15,"Need a ride [home] to bind point");
@@ -43,7 +43,7 @@ function event_say(e)
 		e.other:Message(15,"What skill range max? [RS22] [RS26] [RS41] [RS42] [RS46] [RS62] [RS71] [RS82] [RS83] [RS87] [RS96] [RS102] [RS116] [RS120] [RS122] [RS140] [RS142] [RS162] [RS166] [RS182] [RS184] [RS no fail]");
 		e.other:Message(15,"If you want to research other classes than your own add [all] after range max.");
 		e.other:Message(15,warningRoom);
-		
+
 	--22
 	elseif(e.message:findi("RS22")) then
 		if(e.message:findi("RS22 all")) then
@@ -95,7 +95,7 @@ function event_say(e)
 			e.other:SummonItem(16071,20); --enchanter   22   Part of Tasarin's Grimoire Pg. 24 (Right)
 			e.other:SummonItem(16073,20); --enchanter   22   Part of Tasarin's Grimoire Pg. 26 (Right)
 		end
-		
+
 	--26
 	elseif(e.message:findi("RS26")) then
 		if(e.message:findi("RS26 all")) then
@@ -136,7 +136,7 @@ function event_say(e)
 		elseif(e.other:Class() == "Enchanter" and not e.message:findi("RS26 all")) then --Chanter
 			e.other:Message(13,"Chanter".. noMatch);
 		end
-	
+
 	--41
 	elseif(e.message:findi("RS41")) then
 		if(e.message:findi("RS41 all")) then
@@ -168,7 +168,7 @@ function event_say(e)
 		elseif(e.other:Class() == "Enchanter" and not e.message:findi("RS41 all")) then --Chanter
 			e.other:Message(13,"Chanter".. noMatch);
 		end
-			
+
 	--42
 	elseif(e.message:findi("RS42")) then
 		if(e.message:findi("RS42 all")) then
@@ -211,7 +211,7 @@ function event_say(e)
 			e.other:SummonItem(16076,20); --enchanter   42   Part of Tasarin's Grimoire Pg. 312 (Left)
 			e.other:SummonItem(16077,20); --enchanter   42   Part of Tasarin's Grimoire Pg. 312 (Right)
 		end
-		
+
 	--46
 	elseif(e.message:findi("RS46")) then
 		if(e.message:findi("RS46 all")) then
@@ -234,7 +234,7 @@ function event_say(e)
 		elseif(e.other:Class() == "Enchanter" and not e.message:findi("RS46 all")) then --Chanter
 			e.other:Message(13,"Chanter".. noMatch);
 		end
-	
+
 	--62
 	elseif(e.message:findi("RS62")) then
 		if(e.message:findi("RS62 all")) then
@@ -309,7 +309,7 @@ function event_say(e)
 			e.other:SummonItem(16083,20); --enchanter   62   Velishoul's Tome Pg. 9
 			e.other:SummonItem(16086,20); --enchanter   62   Velishoul's Tome Pg. 17
 		end
-		
+
 	--71
 	elseif(e.message:findi("RS71")) then
 		if(e.message:findi("RS71 all")) then
@@ -338,7 +338,7 @@ function event_say(e)
 		elseif(e.other:Class() == "Enchanter" and not e.message:findi("RS71 all")) then --Chanter
 			e.other:Message(13,"Chanter".. noMatch);
 		end
-	
+
 	--82
 	elseif(e.message:findi("RS82")) then
 		if(e.message:findi("RS82 all")) then
@@ -371,7 +371,7 @@ function event_say(e)
 			e.other:SummonItem(16093,20); --enchanter   82   Velishoul's Tome Pg. 76
 			e.other:SummonItem(11702,20); --enchanter   82   Velishoul's Tome Pg. 109
 		end
-	
+
 	--83
 	elseif(e.message:findi("RS83")) then
 		if(e.message:findi("RS83 all")) then
@@ -398,7 +398,7 @@ function event_say(e)
 		elseif(e.other:Class() == "Enchanter" and not e.message:findi("RS83 all")) then --Chanter
 			e.other:Message(13,"Chanter".. noMatch);
 		end
-	
+
 	--87
 	elseif(e.message:findi("RS87")) then
 		if(e.message:findi("RS87 all")) then
@@ -419,7 +419,7 @@ function event_say(e)
 		elseif(e.other:Class() == "Enchanter" and not e.message:findi("RS87 all")) then --Chanter
 			e.other:Message(13,"Chanter".. noMatch);
 		end
-	
+
 	--96
 	elseif(e.message:findi("RS96")) then
 		if(e.message:findi("RS96 all")) then
@@ -458,7 +458,7 @@ function event_say(e)
 		elseif(e.other:Class() == "Enchanter" and not e.message:findi("RS96 all")) then --Chanter
 			e.other:Message(13,"Chanter".. noMatch);
 		end
-	
+
 	--102
 	elseif(e.message:findi("RS102")) then
 		if(e.message:findi("RS102 all")) then
@@ -489,7 +489,7 @@ function event_say(e)
 		elseif(e.other:Class() == "Enchanter" and not e.message:findi("RS102 all")) then --Chanter
 			e.other:Message(13,"Chanter".. noMatch);
 		end
-	
+
 	--116
 	elseif(e.message:findi("RS116")) then
 		if(e.message:findi("RS116 all")) then
@@ -510,7 +510,7 @@ function event_say(e)
 		elseif(e.other:Class() == "Enchanter" and not e.message:findi("RS116 all")) then --Chanter
 			e.other:Message(13,"Chanter".. noMatch);
 		end
-	
+
 	--120
 	elseif(e.message:findi("RS120")) then
 		if(e.message:findi("RS120 all")) then
@@ -551,7 +551,7 @@ function event_say(e)
 		elseif(e.other:Class() == "Enchanter" and not e.message:findi("RS120 all")) then --Chanter
 			e.other:Message(13,"Chanter".. noMatch);
 		end
-	
+
 	--122
 	elseif(e.message:findi("RS122")) then
 		if(e.message:findi("RS122 all")) then
@@ -596,7 +596,7 @@ function event_say(e)
 			e.other:SummonItem(11708,20); --enchanter   122   Salil's Writ Pg. 90 (Left)
 			e.other:SummonItem(11709,20); --enchanter   122   Salil's Writ Pg. 90 (Right) (Faded)
 		end
-		
+
 	--140
 	elseif(e.message:findi("RS140")) then
 		if(e.message:findi("RS140 all")) then
@@ -645,7 +645,7 @@ function event_say(e)
 		elseif(e.other:Class() == "Enchanter" and not e.message:findi("RS140 all")) then --Chanter
 			e.other:Message(13,"Chanter".. noMatch);
 		end
-	
+
 	--142
 	elseif(e.message:findi("RS142")) then
 		if(e.message:findi("RS142 all")) then
@@ -688,7 +688,7 @@ function event_say(e)
 			e.other:SummonItem(11711); --enchanter   142   Salil's Writ Pg. 153 (Left)
 			e.other:SummonItem(11712); --enchanter   142   Salil's Writ Pg. 153 (Right)
 		end
-		
+
 	--162
 	elseif(e.message:findi("RS162")) then
 		if(e.message:findi("RS162 all")) then
@@ -719,7 +719,7 @@ function event_say(e)
 			e.other:SummonItem(11723,20); --enchanter   162   Nilitim's Grimoire Pg. 36
 			e.other:SummonItem(11729,20); --enchanter   162   Nilitim's Grimoire Pg. 352
 		end
-		
+
 	--166
 	elseif(e.message:findi("RS166")) then
 		if(e.message:findi("RS166 all")) then
@@ -746,7 +746,7 @@ function event_say(e)
 		elseif(e.other:Class() == "Enchanter" and not e.message:findi("RS166 all")) then --Chanter
 			e.other:Message(13,"Chanter".. noMatch);
 		end
-	
+
 	--182
 	elseif(e.message:findi("RS182")) then
 		if(e.message:findi("RS182 all")) then
@@ -775,7 +775,7 @@ function event_say(e)
 		elseif(e.other:Class() == "Enchanter" and not e.message:findi("RS182 all")) then --Chanter
 			e.other:Message(13,"Chanter".. noMatch);
 		end
-	
+
 	--184
 	elseif(e.message:findi("RS184")) then
 		if(e.message:findi("RS184 all")) then
@@ -814,7 +814,7 @@ function event_say(e)
 		elseif(e.other:Class() == "Enchanter" and not e.message:findi("RS184 all")) then --Chanter
 			e.other:Message(13,"Chanter".. noMatch);
 		end
-	
+
 	--no fail
 	elseif(e.message:findi("RS no fail")) then
 		if(e.message:findi("RS no fail all")) then
@@ -845,7 +845,7 @@ function event_say(e)
 			e.other:SummonItem(11733,20); --enchanter   ?   Nilitim's Grimoire Pg. 401
 			e.other:SummonItem(11735,20); --enchanter   ?   Nilitim's Grimoire Pg. 416
 		end
-		
+
 	--ALCHEMY
 	elseif(e.message:findi("Alchemy")) then
 		e.other:Message(13,notready);
@@ -887,7 +887,7 @@ function event_say(e)
 			e.other:SummonItem(14950,20); --Sprig of Comfrey
 			e.other:SummonItem(14950,20); --Sprig of Flamewort
 		end
-		
+
 	--BAKING
 	elseif(e.message:findi("Baking")) then
 		e.other:Message(15,"What skill range max? [BK17] [BK75] [BK83] [BK135] [BK143] [BK152] [BK226]");
@@ -926,7 +926,7 @@ function event_say(e)
 			e.other:SummonItem(9750,20); --Wolf Fillet in Cream
 			e.other:SummonItem(14215,20); --Sage Leaf
 		end
-		
+
 	--BREWING
 	elseif(e.message:findi("Brewing")) then
 		e.other:Message(15,"What skill range max? [BR31] [BR62] [BR95] [BR122] [BR151] [BR162] [BR226] [BR248]");
@@ -983,11 +983,11 @@ function event_say(e)
 			e.other:SummonItem(13006,20); --Water Flask
 			e.other:SummonItem(16596,20); --Yeast
 		end
-		
+
 	--FISHING
 	elseif(e.message:findi("Fishing")) then
 		e.other:Message(13,notready);
-		
+
 	--FLETCHING
 	elseif(e.message:findi("Fletching")) then
 		e.other:Message(15,"What skill range max? [FL46] [FL56] [FL68] [FL102] [FL135] [FL182] [FL202]");
@@ -1035,7 +1035,7 @@ function event_say(e)
 			e.other:SummonItem(8052,20); --Small Groove Nocks
 			e.other:SummonItem(8065,20); --Several Parabolic Cut Fletchings
 		end
-		
+
 	--JEWELCRAFT
 	elseif(e.message:findi("Jewelcraft")) then
 		e.other:Message(15,"What skill range max? [JC17] [JC30] [JC40] [JC50] [JC60] [JC74] [JC92] [JC106] [JC119] [JC132] [JC146] [JC164] [JC178] [JC191] [JC204] [JC218] [JC236] [JC250]");
@@ -1113,19 +1113,19 @@ function event_say(e)
 			e.other:SummonItem(16503,20); --platinum bar 218 to 279
 			e.other:SummonItem(10023,20); --Jade
 		end
-		
+
 	--POISON
 	elseif(e.message:findi("Poison")) then
 		e.other:Message(13,notready);
-		
+
 	--POTTERY
 	elseif(e.message:findi("Pottery")) then
 		e.other:Message(13,notready);
-		
+
 	--SMITHING
 	elseif(e.message:findi("Smithing")) then
 		e.other:Message(13,notready);
-		
+
 	--TAILORING
 	elseif(e.message:findi("Tailoring")) then
 		e.other:Message(15,"What skill range max? [TR15] [TR26] [TR31] [TR36] [TR56] [TR82] [TR88] [TR108] [TR135] [TR151] [TR158] [TR229] [TR295]");
@@ -1191,7 +1191,7 @@ function event_say(e)
 			e.other:SummonItem(27761,2); --hardened lizard hide
 			e.other:SummonItem(13811,2); --pant pattern
 		end
-		
+
 	--TINKERING
 	elseif(e.message:findi("Tinkering")) then
 		e.other:Message(15,"What skill range max? [TK68] [TK95] [TK102] [TK122] [TK148] [TK175]");
@@ -1238,7 +1238,7 @@ function event_say(e)
 			e.other:SummonItem(16881,20); --Firewater
 			e.other:SummonItem(16888,20); --Metal Fastening
 		end
-		
+
 	--TLs
 	elseif(e.message:findi("port") and not e.message:findi("freport")) then
 		e.other:Message(13,pvp);
@@ -1278,11 +1278,11 @@ function event_say(e)
 			e.other:Message(15,lvl35);
 			e.other:Message(15,lvl45);
 		end
-		
+
 	--PVP Port
 	elseif(e.message:findi("arena")) then
-		e.other:MovePC(77,-817,-11,11,0);	
-	
+		e.other:MovePC(77,-817,-11,11,0);
+
 	--NO COMBAT PORTS
 	elseif(e.message:findi("erudnext")) then
 		e.other:MovePC(24,-338,75,20,0);
@@ -1322,7 +1322,7 @@ function event_say(e)
 		e.other:MovePC(19,0,0,4,0);
 	elseif(e.message:findi("soltemple")) then
 		e.other:MovePC(80,36,262,0,0);
-		
+
 	--LEVEL 1-4 ports
 	elseif(e.message:findi("akanon")) then
 		e.other:MovePC(55,-35,47,4,0);
@@ -1346,7 +1346,7 @@ function event_say(e)
 		e.other:MovePC(56,-272.86,159.86,-21.4,0);
 	elseif(e.message:findi("tox")) then
 		e.other:MovePC(38,203,2295,-45,0);
-		
+
 	--LEVEL 5-9 ports
 	elseif(e.message:findi("blackburrow") and (e.other:GetLevel() > 4)) then
 		e.other:MovePC(17,39,-159,3,0);
@@ -1364,7 +1364,7 @@ function event_say(e)
 		e.other:MovePC(36,35,-82,3,0);
 	elseif(e.message:findi("sro") and (e.other:GetLevel() > 4)) then
 		e.other:MovePC(35,286,1265,79,0);
-		
+
 	--LEVEL 10-14 ports
 	elseif(e.message:findi("cauldron") and (e.other:GetLevel() > 9)) then
 		e.other:MovePC(70,320,2815,473,0);
@@ -1384,7 +1384,7 @@ function event_say(e)
 		e.other:MovePC(3,0,0,2,0);
 	elseif(e.message:findi("unrest") and (e.other:GetLevel() > 9)) then
 		e.other:MovePC(63,52,-38,3,0);
-		
+
 	--LEVEL 15-19 ports
 	elseif(e.message:findi("oasis") and (e.other:GetLevel() > 14)) then
 		e.other:MovePC(37,903.98,490.03,6.4,0);
@@ -1398,7 +1398,7 @@ function event_say(e)
 		e.other:MovePC(51,1213,4183,3,0);
 	elseif(e.message:findi("lavastorm") and (e.other:GetLevel() > 14)) then
 		e.other:MovePC(27,154,-1833,-15,0);
-		
+
 	--LEVEL 20-24 ports
 	elseif(e.message:findi("eastkarana") and (e.other:GetLevel() > 19)) then
 		e.other:MovePC(15,865,15,-33,0);
@@ -1412,7 +1412,7 @@ function event_say(e)
 		e.other:MovePC(14,1294,2348,-6,0);
 	elseif(e.message:findi("najena") and (e.other:GetLevel() > 19)) then
 		e.other:MovePC(44,858,-76,4,0);
-		
+
 	--LEVEL 25-29 ports
 	elseif(e.message:findi("highkeep") and (e.other:GetLevel() > 24)) then
 		e.other:MovePC(6,88,-16,4,0);
@@ -1420,7 +1420,7 @@ function event_say(e)
 		e.other:MovePC(50,1831,3825,28,0);
 	elseif(e.message:findi("soldunga") and (e.other:GetLevel() > 24)) then
 		e.other:MovePC(31,-486,-476,73,0);
-		
+
 	--LEVEL 30-34 ports
 	elseif(e.message:findi("paw") and (e.other:GetLevel() > 29)) then
 		e.other:MovePC(18,63,-122,3,0);
@@ -1428,20 +1428,20 @@ function event_say(e)
 		e.other:MovePC(73,61,-121,2,0);
 	elseif(e.message:findi("soldungb") and (e.other:GetLevel() > 29)) then
 		e.other:MovePC(32,-263,-424,-108,0);
-		
+
 	--LEVEL 35-44 ports
 	elseif(e.message:findi("gukbottom") and (e.other:GetLevel() > 34)) then
 		e.other:MovePC(66,-217,1197,-78,0);
-		
+
 	--LEVEL 45+ ports
 	elseif(e.message:findi("kedge") and (e.other:GetLevel() > 44)) then
 		e.other:MovePC(64,14,100,302,0);
 	elseif(e.message:findi("oggok") and (e.other:GetLevel() > 44)) then
 		e.other:MovePC(49,-99,-345,4,0);
-	
+
 	elseif(e.message:findi("home")) then
 		e.self:CastSpell(1422,e.other:GetID(),0,1);
-		
+
 	elseif(e.message:findi("bind")) then
 		e.self:Say("Binding your soul. You will return here when you die.");
 		e.self:CastSpell(2049,e.other:GetID(),0,1);
@@ -1455,32 +1455,34 @@ function event_say(e)
 		local pcountAdd;
 		if(qglobals["platz"] == nil) then
 			eq.set_global("platz","1",9,"F");
-		end		
+		end
 		pcount = tonumber(qglobals["platz"]);
 		pcountAdd = pcount + 1;
 		e.other:Message(15,"have fun");
 		eq.set_global("platz",tostring(pcountAdd),9,"F");
-		
+
 	--BUFFS
 	elseif(e.message:findi("hpbuff")) then
 		e.self:CastSpell(3692,e.other:GetID(),0,1);
 	elseif(e.message:findi("manabuff")) then
 		e.self:CastSpell(697,e.other:GetID(),0,1);
-	
+	elseif(e.message:findi("sow")) then
+		e.self:CastSpell(278,e.other:GetID(),0,1);
+
 	--OTHER
 	elseif(e.message:findi("corpses")) then
 		randX = math.random(-10,10) + e.self:GetX();
 		randY = math.random(-10,10) + e.self:GetY();
 		randH = math.random(720);
 		eq.summon_all_player_corpses(e.other:CharacterID(),randX,randY,e.self:GetZ(),randH);
-		
+
 	--elseif(e.message:findi("fireworks")) then
 	 --  e.other:SummonItem(8990,20);
 	 --  e.other:SummonItem(16877,20);
 	 --  e.other:SummonItem(16878,20);
 	 --  e.other:SummonItem(16879,20);
 	 --  e.other:SummonItem(16880,20);
-	
+
 	elseif(e.message:findi("colors") and e.other:Admin() > 79) then
 		e.other:Message(1,"1 grey");
 		e.other:Message(2,"2 dark green");
