@@ -1,11 +1,13 @@
-function event_spawn(e)
-	eq.attack_npc_type(56105);
+function event_trade(e)
+	local item_lib = require("items");
+	item_lib.return_items(e.self, e.other, e.trade)
 end
 
 function event_signal(e)
-	e.self:Say("I shall eat well tonight!");
-	eq.depop();
+	e.self:Say("What a glorious machine the cargo clockwork is!!");
+	eq.signal(56105,1);
 end
+
 
 -------------------------------------------------------------------------------------------------
 -- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
