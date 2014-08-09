@@ -1,5 +1,5 @@
 ------------------------------------------------------------------------------------------------------------------
--- Tindo Frugrin (ID:56116)
+-- Phiz Frugrin (ID:56177)
 -- Zone:   Steamfont (steamfont)
 -- Quest:  Telescope Lenses
 -- Author: a_sewer_rat
@@ -7,14 +7,14 @@
 
 function event_say(e)
 	if(e.message:findi("Hail")) then
-		e.self:Say("Greetings! It is good to see a new face out here. I am Tindo Frugrin, observer for the Eldritch Collective.");
-	end
-	if(e.message:findi("lens")) then
-		e.self:Say("I was hoping you were not the one they sent. I have a slight problem. My brother Bidl Frugrin is holding the lens. He went to Kelethin for a little observation. He has been there for quite some time. I fear he has found the local tavern. He will no doubt spend the day in the forest and every night at the tavern.");
+		e.self:Say("Hello my friend. Good to meet you.");
+	elseif(e.message:findi("lens")) then
+		e.self:Say("Oh my. I have bad news. It was stolen by a dark elf rogue. She fled very quickly. My little legs could not keep up. Here. She dropped this. You must find her. Get it back. We have very few Lenses.");
+		e.other:SummonItem(18867); -- filthy towel
 	end
 end
 
---END of FILE Zone:steamfont  ID:56116 -- Tindo_Frugrin
+--END of FILE Zone:steamfont  ID:56115 -- Phiz_Frugrin
 
 -------------------------------------------------------------------------------------------------
 -- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz

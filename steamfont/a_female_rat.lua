@@ -4,12 +4,7 @@ function event_trade(e)
 	local item_lib = require("items");
 	if(item_lib.check_turn_in(e.trade, {item1 = 10262})) then
 		e.self:Emote("ingests the virulent substance and becomes ill.");
-		e.other:SummonItem(10263); --Empty infectious vial
-		e.other:AddEXP(100);
-		-- local x = e.self:GetX();
-		-- local y = e.self:GetY();
-		-- local z = e.self:GetZ();
-		-- local h = e.self:GetHeading();
+		e.other:QuestReward(e.self,0,0,0,0,10263,100); --Empty infectious vial
 		eq.spawn2(56003,0,0,e.self:GetX(),e.self:GetY(),e.self:GetZ(),e.self:GetHeading());
 		eq.depop_with_timer();
 	end

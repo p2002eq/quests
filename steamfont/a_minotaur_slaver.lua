@@ -1,13 +1,8 @@
 --NPC: a_minotaur_slaver   Zone: steamfont
---
---Emotes & Chance to trigger Minotaur Hero spawn on death
---
---by Qadar
 
 function event_death_complete(e)
-	local random_result = int(rand(100));
-	if(random_result >= 94) then
-		eq.unique_spawn(56152,177,0,-1294,1360,-103);
+	if(math.random(100) > 98) then
+		eq.unique_spawn(56152,0,0,-1294,1360,-103);
 	end
 	e.self:Say("I die soon! Meldrath, help me!");
 end

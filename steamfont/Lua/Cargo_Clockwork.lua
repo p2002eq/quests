@@ -8,8 +8,7 @@ function event_spawn(e)
 end
 
 function event_signal(e)
-	e.self:Emote("Chuga.. Chug..Chug..");
-	e.self:Say("This unit requires maintenance.");
+	e.self:Emote("Chuga.. Chug..Chug.. 'This unit requires maintenance.'");
 end
 
 function event_timer(e)
