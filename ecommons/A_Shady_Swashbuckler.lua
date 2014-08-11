@@ -1444,7 +1444,7 @@ function event_say(e)
 
 	elseif(e.message:findi("bind")) then
 		e.self:Say("Binding your soul. You will return here when you die.");
-		e.self:CastSpell(2049,e.other:GetID(),0,1);
+		e.self:CastSpell(2049,e.other:GetID());
 
 	--PLAT
 	elseif(e.message:findi("plat")) then

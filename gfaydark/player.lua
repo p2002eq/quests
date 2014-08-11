@@ -1,3 +1,7 @@
+function event_enter_zone(e)
+	eq.set_timer("spires",10000);
+end
+
 function event_timer(e)
 	if(eq.get_qglobals(e.self).nexus_gf ~= nil and eq.get_qglobals(e.self).spire_gf ~= nil and eq.get_qglobals(e.self).spire_gf == "1" and e.self:HasItem(19720)) then
 		eq.SelfCast(2433); -- self only to avoid AE
