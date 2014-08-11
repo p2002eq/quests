@@ -14,8 +14,7 @@ function event_trade(e)
 	if(item_lib.check_turn_in(e.trade, {gold = 50})) then
 		e.self:Say("Ahhh - gold. Here is the rune you desire.");
 		e.other:QuestReward(e.self,0,0,0,0,10531); -- Rune of Fortune (middle)
-	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 10791})) then
+	elseif(item_lib.check_turn_in(e.trade, {item1 = 10791})) then
 		e.self:Say("Ah - the Coin of Tash - and already enchanted by.. ? Tarn? Very good! I have enchanted it further - you must now take the coin to Raine Beteria in the Library of Erudin to get the final enchantment.");
 		e.other:QuestReward(e.self,0,0,0,0,10792,1000); -- Gleaming Coin of Tash
 	end
