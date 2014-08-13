@@ -1,6 +1,0 @@
-Oggok Folder > Chef Dooga / Check to live, maybe loose with the cash.
-Oggok Folder > Clurg / Check to live, seems to be missing some text and allakhaz. is incomplete. 
-Oggok Folder > Kogna / Check to Live. only faction is given when he says he will reward for the 4 lizard meats. Allakhaz. is incomplete.
-Oggok Folder > Lork / Check to Live, Lua file seems to have extra quest data, unsure of complete accuracy of of Allakhaz.
-Oggok Folder > Varrok Neckchopper / Verify to live. AllaKhazam doesn't have the recipes he cites listed.
-Oggok Folder > Marda-Glib / Quests need to be reviewed, database does not show all npcs associated with quests.

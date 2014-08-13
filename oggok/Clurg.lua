@@ -1,4 +1,3 @@
---verify all dialog with live, seems inaccurate to alla
 function event_say(e)
 	if(e.message:findi("hail")) then
 		e.self:Say("Hello, friend. Have a drink. I have some [unique drinks]. Try one. And remember. You get rowdy, the [Bouncers] crush you.");
@@ -16,22 +15,23 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 13740})) then
-		e.self:Say("Ahahaha! Dat witch sur did get wat was commin ta her!");
-		e.other:GiveCash(0,0,1,5);
-		e.other:Ding();
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 13379})) then
-		e.other:SummonItem(13380);
+
+	if(item_lib.check_turn_in(e.trade, {item1 = 13379})) then
+		e.self:Say("Ahhh!! My Barkeep Compendium has been returned!! I am in your debt. I do not like to be in any man's debt. Let me offer you this as payment for your great service. Obtaining my book could not have been a simple task.");
 		e.other:Faction(46,10);   --Clurg
-		e.other:Faction(169,-30); --Kazon Stormhammer
+		e.other:Faction(169,-10); --Kazon Stormhammer
 		e.other:Faction(128,10);  --Green Blood Knights
 		e.other:Faction(57,10);   --Craknek Warriors
 		e.other:Faction(232,10);  --Oggok Guards
-		e.other:Ding();
+		e.other:QuestReward(e.self,0,0,0,0,13380,500);
 	elseif(item_lib.check_turn_in(e.trade, {item1 = 13378})) then
-		e.self:Say("Ahahaha! Dat witch sur did get wat was commin ta her!");
-		e.other:GiveCash(0,0,1,5);
-		e.other:Ding();
+		e.self:Say("Haha! He shall mix no more Flaming Pungla's! I shall drink from his rotting skull tonight. As for you, take this and call it yours. Consider yourself a friend of Clurg.");
+		e.other:Faction(46,10);   --Clurg
+		e.other:Faction(169,-10); --Kazon Stormhammer
+		e.other:Faction(128,10);  --Green Blood Knights
+		e.other:Faction(57,10);   --Craknek Warriors
+		e.other:Faction(232,10);  --Oggok Guards
+		e.other:QuestReward(e.self,0,0,1,5,eq.ChooseRandom(10021,10024,6302,13355,6006),500);
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end

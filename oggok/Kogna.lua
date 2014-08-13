@@ -12,9 +12,9 @@ function event_trade(e)
 	local item_lib = require("items");
 	if(item_lib.check_turn_in(e.trade, {item1 = 13410, item2 = 13410, item3 = 13410, item4 = 13410})) then
 		e.self:Say("Yous really did it. Mebbe you tuff Craknek after all.");
-		e.other:Faction( 46, 15);
-		e.other:Faction( 57, 15);
-		e.other:Ding();
+		e.other:Faction(46,15);
+		e.other:Faction(57,15);
+		e.other:QuestReward(e.self,0,0,0,0,eq.ChooseRandom(2136,2135,2132,2128,2130),500);
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end

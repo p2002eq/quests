@@ -12,25 +12,16 @@ function event_trade(e)
 	local item_lib = require("items");
 	if(item_lib.check_turn_in(e.trade, {item1 = 13187, item2 = 13187, item3 = 13187, item4 = 13187})) then
 		e.self:Say("Oh, me.. um.. Warlord BERRY happy. Berry like dese. Gimme. Uh, why is you still here? Take dis and gets more kills. You learning good, come sees me. I teaches you bout stuff. Make you [bedder shaman]. Go. He and me watching.");
-		e.other:SummonItem(15093);
 		e.other:Faction(295, 10);
-		e.other:AddEXP(100);
-		e.other:Ding();
-	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 14199, item2 = 13367, item3 = 13367, item4 = 13367})) then
+		e.other:QuestReward(e.self,0,0,0,0,15093,500);
+	elseif(item_lib.check_turn_in(e.trade, {item1 = 14199, item2 = 13367, item3 = 13367, item4 = 13367})) then
 		e.self:Say("Dis good stuff! Me and Warlord happy! Wear dis symbol and he make yoo strong with majik!");
-		e.other:SummonItem(1444);
 		e.other:Faction(295, 10);
-		e.other:AddEXP(100);
-		e.other:Ding();
-	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 18788})) then --Tattered Note
+		e.other:QuestReward(e.self,0,0,0,0,1444,500);
+	elseif(item_lib.check_turn_in(e.trade, {item1 = 18788})) then --Tattered Note
 		e.self:Say("Take, take.. You now Shaman of War.. Zulort make you majik, too.");
-		e.other:SummonItem(13526);	--Dirty Patched Fur Tunic*
-		e.other:Ding();
 		e.other:Faction(295,-100);	-- Shaman of War
-		e.other:AddEXP(100);
-		e.other:Ding();
+		e.other:QuestReward(e.self,0,0,0,0,13526,100);	--Dirty Patched Fur Tunic*
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end

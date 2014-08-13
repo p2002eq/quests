@@ -5,8 +5,7 @@ function event_say(e)
 		e.self:Say("Boz like to grow perty flowers in her [garden]. But [garden] no more.");
 	elseif(e.message:findi("garden")) then
 		e.self:Say("Boz not know what happen. Only see der biggins footprints in it. Me perty sure my puppy not smash garden. He has tiny feets. Right, puppy?");
-		-- e.self:MessageClose(e.self,FALSE,200,10,"Bozlum Blossom's pet wags his tail.");
-		-- nameless emotes don't work yet
+		eq.signal(49022,1);
 	end
 end
 

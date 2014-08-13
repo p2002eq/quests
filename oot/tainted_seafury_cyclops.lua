@@ -1,13 +1,4 @@
-local x;
-local y;
-local z;
-local h;
-
 function event_death_complete(e)
-	-- local x = e.self:GetX();
-	-- local y = e.self:GetY();
-	-- local z = e.self:GetZ();
-	-- local h = e.self:GetHeading();
 	eq.spawn2(69142,0,0,e.self:GetX(),e.self:GetY(),e.self:GetZ(),e.self:GetHeading());
 end
 

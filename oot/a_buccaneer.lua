@@ -1,6 +1,6 @@
-function event_say(e)
-	if(e.message:findi("Hail")) then
-		e.self:Say("Huh? Oh hi " .. e.other:GetName() .. ". Youse want to buy sumthin?");
+function event_combat(e)
+	if(e.joined == true) then
+		e.self:Say("Time to die " .. e.other:GetName() .. ".");
 	end
 end
 
