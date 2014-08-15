@@ -19,14 +19,14 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	
-	if(item_lib.check_turn_in(e.trade, {item1 = 14105})) then
-		e.self:Say("Wear this shield imbued with my very essence. Wear it in honor of your great services to our Lord Cazic-Thule!");
+	if(item_lib.check_turn_in(e.trade, {item1 = 14106})) then -- mundane mask
+		e.self:Say("Wear this mask imbued with my very essence. Wear it in honor of your great services to our Lord Cazic-Thule!");
 		e.other:Faction(143,50,0);
 		e.other:Faction(79,-50,0);
 		e.other:Faction(112,-50,0);
 		e.other:Faction(56,-50,0);
 		e.other:Faction(60,-50,0);
-		e.other:QuestReward(e.self,0,0,0,0,14107,1000);
+		e.other:QuestReward(e.self,0,0,0,0,14108,5000); -- terror forged mask
 		eq.depop();
 	end
 	item_lib.return_items(e.self, e.other, e.trade)

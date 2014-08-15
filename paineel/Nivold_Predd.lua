@@ -13,20 +13,16 @@ function event_trade(e)
 	
 	if(item_lib.check_turn_in(e.trade, {item1 = 16540,item2 = 13739,item3 = 14111,item4 = 14112}) and e.other:GetFaction(e.self) < 5) then
 		e.self:Say("Commendable work, you have proven yourself a valuable member of our order. Our chanters have summoned the avatar of Dread. Hurry and take him this mundane shield so that he may forge it into a truly valuable symbol of your devotion to the lord of Fear!");
-		e.other:SummonItem(14105);
-		e.other:Ding();
 		e.other:Faction(143,400,0);
 		e.other:Faction(79,-400,0);
 		e.other:Faction(112,-400,0);
 		e.other:Faction(56,-400,0);
 		e.other:Faction(60,-400,0);
-		e.other:AddEXP(1000);
-		e.other:GiveCash(math.random(9),math.random(9),math.random(9),math.random(9));
+		e.other:QuestReward(e.self,math.random(9),math.random(9),math.random(9),math.random(9),14105,5000);
 		eq.unique_spawn(75194,0,0,474,1230,-37,128); -- spawn avatar of dread
-	else
-		item_lib.return_items(e.self, e.other, e.trade, false);
-		e.self:Say("I require all four reagents, anything less is useless. Incompetence will get you nowhere amongst the faithful of Cazic-Thule!");
 	end
+	item_lib.return_items(e.self, e.other, e.trade, false);
+	e.self:Say("I require all four reagents, anything less is useless. Incompetence will get you nowhere amongst the faithful of Cazic-Thule!");
 end
 
 -- END of FILE Zone:paineel  ID:75071 -- Nivold_Predd 
