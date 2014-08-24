@@ -40,7 +40,7 @@ function event_trade(e)
 		e.other:Faction(347,-1); -- unkempt druids
 		e.other:QuestReward(e.self,0,0,0,0,3192,10000);
 	end
-	plugin::returnUnusedItems();
+	item_lib.return_items(e.self, e.other, e.trade)
 end
 
 -- END of FILE Zone:kithicor  ID:20077 -- Leaf_Falldim

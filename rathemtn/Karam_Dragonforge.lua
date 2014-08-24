@@ -22,7 +22,7 @@ function event_trade(e)
 	if(item_lib.check_turn_in(e.trade, {item1 = 14707, item2 = 14703, item3 = 9240})) then
 		e.self:Say("My fiancee will be so excited! An exquisite ring for the wedding and a gorgeous necklace as my wedding gift to her. Well, as promised, here is your white dragonscale cloak.");
 		e.other:QuestReward(e.self,0,0,0,0,11603); -- White Dragonscale Cloak
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 11622, item2 = 14402, platinum = 1000)) then {
+	elseif(item_lib.check_turn_in(e.trade, {item1 = 11622, item2 = 14402, platinum = 1000})) then
 		e.self:Say("Wonderful! Now I can get back to my fiance instantly! Isn't Love grand? As for your Red Dragonscale Armor, it is all done. Farewell!");
 		e.other:QuestReward(e.self,0,0,0,0,11623); -- Red Dragonscale Armor
 	end
