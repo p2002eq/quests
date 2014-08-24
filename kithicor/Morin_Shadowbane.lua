@@ -22,7 +22,7 @@ function event_trade(e)
 		e.self:Say("Excellent work, " .. e.other:GetName() .. "!! It is obvious that you are a highly skilled tracker and warrior. Accept this reward, my personal sword which has served me well in countless battles. Perhaps you are willing to perform [another service] on our behalf?");
 		e.other:QuestReward(e.self,0,0,0,0,5422,5000); --Short Sword of Morin (5422)
 	elseif(item_lib.check_turn_in(e.trade, {item1 = 20638})) then --Handin: 1x Sealed Ghoul Boss' Log Book (20638)
-		e.self:Say("We meet again, " .. e.other:GetName() .. ". This log reveals much of the machinations of our dark oppressors, but not enough. Deliver these orders to Bryn in Lesser Faydark, and he will provide you with another weapon to aid in our defense of Kithicor.");
+		e.self:Say("We meet again, " .. e.other:GetName() .. ".  The ghoul boss' log reveals much of the machinations of our dark oppressors, but not enough.  Deliver these orders to Bryn in Lesser Faydark, and he will provide you with another weapon to aid in our defense of Kithicor.");
 		e.other:QuestReward(e.self,0,0,0,0,20639,1000); --Orders for Bryn
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
