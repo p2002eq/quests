@@ -13,6 +13,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
+	local randomloot = math.random(3)
 	
 	if(item_lib.check_turn_in(e.trade, {item1 = 13389})) then--Box of Beetle Eyes
 		e.self:Say("Fantastic work, my child! We shall store these for further experiments. Take this as extra payment for a fine job. You have done so well I believe you can assist in obtaining two [other components].");
@@ -22,7 +23,13 @@ function event_trade(e)
 		e.other:Faction(170,-2); --Keepers of Art
 		e.other:Faction(91,-2); --Eldritch Collective
 		e.other:Faction(260,-30); --Primordial Malice
-		e.other:QuestReward(e.self,0,16,0,0,eq.ChooseRandom(13021, 13022),17150);
+		e.other:QuestReward(e.self,0,16,0,0,0,17150);
+		if(randomloot == 1) then
+			e.other:SummonItem(eq.ChooseRandom(13021,13022));
+		elseif(randomloot ==2) then
+			e.other:SummonItem(13021,2);
+			e.other:SummonItem(13022,2);
+		end
 	elseif(item_lib.check_turn_in(e.trade, {item1 = 10124, item2 = 10124})) then--Mammoth Tusks
 		e.self:Say("These will do.  Thank you, child.");--text made up
 		e.other:Faction(322,15); --The Dead
