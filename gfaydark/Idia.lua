@@ -3,11 +3,11 @@ function event_say(e)
 		e.self:Say("Hail. " .. e.other:GetName() .. " - Are you [interested] in helping the League of Antonican Bards by delivering some [mail]?");
 	elseif(e.message:findi("interested")) then
 		e.self:Say("I have messages that need to go to - well. right now I have one that needs to go to Freeport.  Will you [deliver] mail to [Freeport] for me?");
-	elseif(e.message:findi("mail")) then
+	elseif(e.message:findi("mail") and not e.message:findi("deliver") and not e.message:findi("freeport") and not e.message:findi("qeynos")) then
 		e.self:Say("The League of Antonican Bards has a courier system made up of travelers, adventurers, and [agents].  We pay good gold to anyone who will take messages from bards such as myself to one of our more distant offices.  Are you [interested]?");
 	elseif(e.message:findi("agents")) then
 		e.self:Say("Lyra Lyrestringer, Tacar Tissleplay, Kilam Oresinger and Siltria Marwind all report to Jakum Webdancer.");
-	elseif(e.message:findi("deliver to freeport")) then
+	elseif(e.message:findi("deliver") and e.message:findi("Freeport")) then
 		e.self:Say("Take this letter to Felisity Starbright. You can find her at the bard guild hall. I'm sure she will compensate you for your trouble.");
 		e.other:SummonItem(18166);
 	end
