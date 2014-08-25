@@ -20,12 +20,10 @@ function event_trade(e)
 			e.other:SummonItem(eq.ChooseRandom(2104, 2106, 2108, 2111, 2112)); -- Patchwork Tunic, Patchwork Cloak, Patchwork Sleeves, Patchwork Pants, Patchwork Boots
 		end
 		e.other:Faction(283,15); -- Scouts of Tunare
-		e.other:AddEXP(800); -- 10% of level 3 experience.  Newbie quest, being a bit generous compared to the guidelines.
-		e.other:GiveCash(0,2,0,0);
+		e.other:QuestReward(e.self,0,2,0,0,0,800); -- 10% of level 3 experience.  Newbie quest, being a bit generous compared to the guidelines.
 	elseif(item_lib.check_turn_in(e.trade, {item1 = 16390})) then -- Crumpled Piece of Paper
 		e.self:Say("Ahhh! You found it! Here let me make you a copy and put this in a secure spot so I don't lose it again.");
-		e.other:SummonItem(24098); -- Remiss Sketch
-		e.other:AddEXP(5061818); -- This is 2% of level 53 xp.
+		e.other:QuestReward(e.self,0,0,0,0,24098,5061818); -- Remiss Sketch
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
