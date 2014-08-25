@@ -1,7 +1,7 @@
 function event_say(e)
 	if(e.message:findi("hail")) then
 		e.self:Say("Greetings child, what business do you have here? I'm sorry but I will only deal with Clerics that are willing to prove their loyalty to Innoruuk. I cannot deal with every single heathen that feels it is necessary to bid me a good day. If you are a [Cleric of Innoruuk] I might be able to aid you in your training.");
-	elseif(e.other:GetClass() == 5 and e.other:GetRace() == 6) then
+	elseif(e.other:GetClass() == 2 and e.other:GetRace() == 6) then
 		if(e.message:findi("cleric of innoruuk")) then
 			e.self:Say("Is that so " .. e.other:Race() .. " " .. e.other:GetName() .. ". Well from the looks of you I wouldn't say you are much of anything yet. However, if you have the willingness and determination to serve your God then there might just be more hope for you then I would have thought. Obviously, to move forward in your training, you will need to shield yourself from your enemies and from the elements. I believe I have something that could help you if you are still [interested in proving yourself]");
 		elseif(e.message:findi("interested in proving myself")) then
