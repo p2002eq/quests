@@ -19,7 +19,7 @@ function event_trade(e)
 		e.other:Faction(322,-25,0); -- The Dead
 		e.other:AddEXP(100);
 	elseif(item_lib.check_turn_in(e.trade, {item1 = 13758})) then
-		e.self:Say("Ah yes.  This is exactly what I need.  Thank you very much.");
+		e.self:Say("This is just what I needed.. and with hardly a mark on it! You have my thanks. Here is a something that you might find useful.");
 		e.other:SummonItem(eq.ChooseRandom(7007,13009,6012,15374,10004));
 		e.other:Ding();
 		e.other:Faction(170,10,0); -- Keepers of the Art
