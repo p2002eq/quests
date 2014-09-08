@@ -20,7 +20,7 @@ function event_trade(e)
 		e.other:AddEXP(100);
 	elseif(item_lib.check_turn_in(e.trade, {item1 = 13758})) then
 		e.self:Say("Ah yes.  This is exactly what I need.  Thank you very much.");
-		e.other:SummonItem(eq.ChooseRandom(7007,13009,58094,59964,6012));
+		e.other:SummonItem(eq.ChooseRandom(7007,13009,6012,15374,10004));
 		e.other:Ding();
 		e.other:Faction(170,10,0); -- Keepers of the Art
 		e.other:Faction(178,10,0); -- King Tearis Thex
