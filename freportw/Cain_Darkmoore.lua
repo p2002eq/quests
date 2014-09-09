@@ -23,7 +23,7 @@ function event_trade(e)
 		e.other:Faction(184,1,0); -- Knights of Truth
 		e.other:AddEXP(100);
 		e.other:GiveCash(0,0,8,0);
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 18742})) then -- A Tattered Note
+	elseif(item_lib.check_turn_in(e.trade, {item1 = 18748})) then -- A Tattered Note
 		e.self:Say("Welcome to the Steel Warriors, young warrior. It is time to prove your mettle. Look to the outskirts of Freeport and join the fray. Show Clan Deathfist what a warrior of the bunker can do.");
 		e.other:SummonItem(13572); -- Dirty Training Tunic
 		e.other:Ding();
