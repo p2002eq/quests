@@ -20,7 +20,7 @@ function event_trade(e)
 		e.other:Faction(320,5);
 		e.other:Faction(291,-5);
 		e.other:QuestReward(e.self,0,0,0,0,18944,500); -- a note(VurgoHarv)
-	if(item_lib.check_turn_in(e.trade, {item1 = 10529})) then
+	elseif(item_lib.check_turn_in(e.trade, {item1 = 10529})) then
 		e.self:Say("A shadowed book! Well done! The more banished shadowed men the better. As the items of the shadowed men tend to disappear, I have given you a note to remind me that you have indeed supplied me with a book. Give me the note with the following items, and I will scribe for you Words of Darkness: a book of darkness from the Erudites in the tower by Lake Rathe, a book of frost from the icy goblin in Permafrost Keep and 300 golden coins. Bring me these items, and I will scribe for you the Words of Darkness.");
 		e.other:Faction(320,5);
 		e.other:Faction(291,-5);

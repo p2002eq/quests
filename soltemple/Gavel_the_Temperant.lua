@@ -43,6 +43,7 @@ function event_trade(e)
 		e.other:Faction(320,5");
 		e.other:Faction(291,-5");
 		e.other:QuestReward(e.self,0,0,0,0,9427,1000);
+	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
 
