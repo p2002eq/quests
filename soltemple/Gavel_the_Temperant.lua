@@ -25,23 +25,23 @@ function event_trade(e)
 	
 	if(item_lib.check_turn_in(e.trade, {item1 = 16507, item2 = 16507, item3 = 19010, item4 = 19009})) then
 		e.self:Say("Well done! You are truly a skilled cleric. I have crafted you a bracer - take it.");
-		e.other:Faction(320,5");
-		e.other:Faction(291,-5");
+		e.other:Faction(320,5);
+		e.other:Faction(291,-5);
 		e.other:QuestReward(e.self,0,0,0,0,4925,1000);
 	elseif(item_lib.check_turn_in(e.trade, {item1 = 16507, item2 = 16507, item3 = 19016, item4 = 19015})) then
 		e.self:Say("Well done! You are truly a skilled cleric. I have crafted you a weapon - take it.");
-		e.other:Faction(320,5");
-		e.other:Faction(291,-5");
+		e.other:Faction(320,5);
+		e.other:Faction(291,-5);
 		e.other:QuestReward(e.self,0,0,0,0,6407,1000);
 	elseif(item_lib.check_turn_in(e.trade, {item1 = 19047, item2 = 19047, item3 = 19011, item4 = 19012})) then
 		e.self:Say("Well done! You are truly a skilled cleric. I have crafted you a chestplate - take it.");
-		e.other:Faction(320,5");
-		e.other:Faction(291,-5");
+		e.other:Faction(320,5);
+		e.other:Faction(291,-5);
 		e.other:QuestReward(e.self,0,0,0,0,4926,1000);
 	elseif(item_lib.check_turn_in(e.trade, {item1 = 19048, item2 = 19048, item3 = 19013, item4 = 19014})) then
 		e.self:Say("Well done! You are truly a skilled cleric. I have crafted you a shield - take it.");
-		e.other:Faction(320,5");
-		e.other:Faction(291,-5");
+		e.other:Faction(320,5);
+		e.other:Faction(291,-5);
 		e.other:QuestReward(e.self,0,0,0,0,9427,1000);
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
