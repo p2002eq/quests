@@ -29,7 +29,7 @@ function event_trade(e)
 		e.other:Faction(63,-1); -- Crushbone Orcs got worse. 
 		e.other:QuestReward(e.self,0,math.random(9),0,0,8091,500); -- Treant Bow Staff
 	elseif(item_lib.check_turn_in(e.trade, {item1 = 18785})) then -- A tattered note
-		e.self:Say("Hail, $name, and welcome.. I am Maesyn Trueshot, leader of Faydark's Champions. I will teach and train you, as I have done for many others. Let's get started.. Here, put this on.. it'll help protect you from the elements. You look pretty bright. Train hard, and I'm sure you'll do well.");
+		e.self:Say("Hail, " .. e.other:GetName() .. ", and welcome.. I am Maesyn Trueshot, leader of Faydark's Champions. I will teach and train you, as I have done for many others. Let's get started.. Here, put this on.. it'll help protect you from the elements. You look pretty bright. Train hard, and I'm sure you'll do well.");
 		e.other:Faction(99,100);  --  Faydark's Champions
 		e.other:Faction(178,25); --  King Tearis Thex
 		e.other:Faction(43,25);  --  Clerics of Tunare

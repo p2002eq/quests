@@ -2,11 +2,11 @@ function event_say(e)
  if(e.message:findi("hail"))then
 		e.self:Say("Might you be an [apprentice] or a [guide]?' Llara then grins evilly...");
 	elseif(e.message:findi("apprentice"))then
-		e.self:Say("Welcome to the Guide Program, $name. I am sure you will enjoy your time here. Do not worry about being only an apprentice right now, I'm sure that in time you will be ready for promotion. This is truly the best place to be in the world. Good luck to you, $name!");
+		e.self:Say("Welcome to the Guide Program, " .. e.other:GetName() .. ". I am sure you will enjoy your time here. Do not worry about being only an apprentice right now, I'm sure that in time you will be ready for promotion. This is truly the best place to be in the world. Good luck to you, " .. e.other:GetName() .. "!");
 	elseif(e.message:findi("guide"))then
-		e.self:Emote("cracks her whip in $name's direction and says, 'Well, if you are a guide, then what the heck are you doing here!?! Get to work on the queue, it's not going to be under 20 all day!.'");
+		e.self:Emote("cracks her whip in " .. e.other:GetName() .. "'s direction and says, 'Well, if you are a guide, then what the heck are you doing here!?! Get to work on the queue, it's not going to be under 20 all day!.'");
 	elseif(e.message:findi("miss you"))then
-		e.self:Say("I miss you, too, $name! But don't worry about me. I am in a good place now, watching over all of you.");
+		e.self:Say("I miss you, too, " .. e.other:GetName() .. "! But don't worry about me. I am in a good place now, watching over all of you.");
 	elseif(e.message:findi("Valtron"))then
 		e.self:Say("I am Llara. I was a guide on Erollisi Marr some time ago. I passed away shortly after becoming an apprentice trainer. My rebirth came from the help of Valtron. He is that stinky little dorf always running around Norrath. Valtron held a memorial service on Erollisi Marr shortly after I passed away. It was truly a beautiful event. Many people showed up to honor my passage.' Llara smiles...");
 	elseif(e.message:findi("your story"))then

@@ -41,7 +41,7 @@ function event_trade(e)
 		e.other:Faction(8,15,0);   --Anti-mage
 		e.other:AddEXP(4000);
 	elseif(item_lib.check_turn_in(e.trade, {item1 = 1571,item2 = 1599})) then --Disciple Symbol of Tunare, Powder of Unanimation
-		e.self:Say("Praise Tunare!! I will have our sorcerers examine this power immediately to see if we can reproduce it in quantities enough to eliminate the undead plague. I award you the rank of Warden of Tunare, the All Mother smiles upon you, $name!");
+		e.self:Say("Praise Tunare!! I will have our sorcerers examine this power immediately to see if we can reproduce it in quantities enough to eliminate the undead plague. I award you the rank of Warden of Tunare, the All Mother smiles upon you, " .. e.other:GetName() .. "!");
 		e.other:SummonItem(1572); -- Warden Symbol of Tunare
 		e.other:Ding();
 		e.other:Faction(43,15,0);  --Clerics of Tunare

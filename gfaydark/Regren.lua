@@ -8,7 +8,7 @@ function event_trade(e)
 	local item_lib = require("items");
 	
 	if(item_lib.check_turn_in(e.trade, {item1 = 18782})) then -- Recruitment Letter
-		e.self:Say("Welcome to the Emerald Warriors. Hmmm, you have a lot of training to do, so let's get started right away. Here's our guild tunic, represent us well, young $name.");
+		e.self:Say("Welcome to the Emerald Warriors. Hmmm, you have a lot of training to do, so let's get started right away. Here's our guild tunic, represent us well, young " .. e.other:GetName() .. ".");
 		e.other:Faction(92,100); -- Emerald Warriors
 		e.other:Faction(155,-15); -- Indigo Brotherhood
 		e.other:Faction(212,10); -- Merchants of Felwithe

@@ -2,7 +2,7 @@ function event_say(e)
 	local fac = e.other:GetFaction(e.self);
 
 	if(e.message:findi("hail")) then
-		e.self:Say("Peace and tranquility be with you. $name.  Are you a [new acolyte of peace] or are you [here to pay homage] to the child of tranquility?");
+		e.self:Say("Peace and tranquility be with you. " .. e.other:GetName() .. ".  Are you a [new acolyte of peace] or are you [here to pay homage] to the child of tranquility?");
 	elseif(e.message:findi("new acolyte of peace")) then
 		e.self:Say("Then you shall learn the ways of Quellious and learn to do as you are told by higher ranking members. It is time for you to do the lesser duties of a young priest. Which will it be? [Retrieve the Peacekeeper staffs] or [battle the undead]?")
 	elseif(e.message:findi("retrieve the Peacekeeper staffs")) then

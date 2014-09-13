@@ -19,7 +19,7 @@ function event_trade(e)
 		e.self:Say("What is this? I cannot believe you found it! Where did you get this?");
 		e.other:AddEXP(50);
 	elseif(item_lib.check_turn_in(e.trade, {item1 = 28000,item2 = 28001,item3 = 28002})) then
-		e.self:Say("Rykas may have been right about you, " .. e.other:GetName() .. ". Now, go find Walnan. Walnan was apprenticed to a very powerful Mage. After her apprenticeship was complete, she wished to begin teaching other beings of Norrath. Even those who knew nothing of the art! I do not believe she was successful, though. Seek her out to further your tale. Good luck in your journeys, $name!");
+		e.self:Say("Rykas may have been right about you, " .. e.other:GetName() .. ". Now, go find Walnan. Walnan was apprenticed to a very powerful Mage. After her apprenticeship was complete, she wished to begin teaching other beings of Norrath. Even those who knew nothing of the art! I do not believe she was successful, though. Seek her out to further your tale. Good luck in your journeys, " .. e.other:GetName() .. "!");
 		e.other:SummonItem(28003);
 	end
 	item_lib.return_items(e.self, e.other, e.trade)

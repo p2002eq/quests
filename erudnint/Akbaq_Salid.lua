@@ -24,7 +24,7 @@ function event_trade(e)
 	
 	if (e.other:GetFaction(e.self) <= 5) then -- Require indifferent or greater faction 
 		if(item_lib.check_turn_in(e.trade, {item1 = 6960,item2 = 6946})) then -- astral cloak of the titans 
-			e.self:Say("These are the pelts of the most powerful of the known Titan spirits. You have done well, $name, and you will be rewarded for your services."); 
+			e.self:Say("These are the pelts of the most powerful of the known Titan spirits. You have done well, " .. e.other:GetName() .. ", and you will be rewarded for your services."); 
 			e.other:Ding();
 			e.other:Faction(60,10,0); -- Crimson hands 
 			e.other:Faction(145,10,0); -- High Council of Erudin 

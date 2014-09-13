@@ -10,7 +10,7 @@ end
 function event_say(e)
 	if(e.other:Class() == "Shaman") then
 		if(e.message:findi("hail")) then
-			e.self:Say("So, you've come. I suppose my brothers have sent you to lead me back to their flock. Those fools are so blinded by their devotion they know nothing of life. If they only knew the power I've become, the luxuries I've amassed, the pleasures I've known, they too would leave that sour and unrewarding existence in seconds. You know, you could come to know what I have, shaman. You found me, which speaks of your intelligence; we could use you. What do you say, $name? [Will you join] my master Mayong Mistmoore?");
+			e.self:Say("So, you've come. I suppose my brothers have sent you to lead me back to their flock. Those fools are so blinded by their devotion they know nothing of life. If they only knew the power I've become, the luxuries I've amassed, the pleasures I've known, they too would leave that sour and unrewarding existence in seconds. You know, you could come to know what I have, shaman. You found me, which speaks of your intelligence; we could use you. What do you say, " .. e.other:GetName() .. "? [Will you join] my master Mayong Mistmoore?");
 		elseif(e.message:findi("will not join")) then
 			e.self:Say("Good shaman, now bare your neck that I may show our master your devotion in death. The more blood you spill upon the grass, the more impressed our Lord Mistmoore will be. Then maybe, just maybe, you will be allowed to scour our kitchen floors in the eternity of unlife. TEAR him to pieces, my wolves!");
 			eq.attack(e.other:GetName());
