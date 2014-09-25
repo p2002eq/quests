@@ -7,6 +7,7 @@ function event_say(e)
 		e.self:Say("The fairies should be bringing me some tea soon.");
 	end
 end
+
 function event_trade(e)
 	local item_lib = require("items");
 	if(item_lib.check_turn_in(e.trade, {item1 = 18087})) then
