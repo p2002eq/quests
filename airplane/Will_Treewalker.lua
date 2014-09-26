@@ -4,6 +4,8 @@ end
 
 function event_say(e)
 	if(e.message:findi("hail")) then
+		e.self:Say("Children of the trees, friend and protector of nature. We are brothers and sisters to the wolves and bears. The call of the Great Pine has filled your soul and you have found your way here to be tested. Are you ready to be tested?");
+	elseif(e.message:findi("ready to be test")) then
 		e.self:Say("The tests of old are difficult and dangerous, but the rewards for perseverance are great. I hold rewards for three tests. The test of the Wolf, test of the Bear and the test of the Tree.");
 	elseif(e.message:findi("test of the wolf")) then --druid test of the wolf
 		e.self:Say("So you wish the test of The Wolf do you? Go forth unto the islands and find an Azure Tessera, Black Face Paint and finally a Worn Leather Mask. Bring them back to me, but not until you have all three and you shall be rewarded.");
@@ -17,19 +19,16 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	if(item_lib.check_turn_in(e.trade, {item1 = 20930, item2 = 20728, item3 = 20729})) then 	--druid test of the wolf using azure tessera, black face paint, worn leather mask
-		e.other:SummonItem(2706);  	--drake-hide mask
-		e.other:AddEXP(100000);
-		e.self:Say("Good work.");
+		e.self:Say("Good work, " .. e.other:GetName() .. "");
+		e.other:QuestReward(e.self,0,0,0,0,2706,100000);  	--drake-hide mask
 		eq.depop();
 	elseif(item_lib.check_turn_in(e.trade, {item1 = 20936, item2 = 20731, item3 = 20730})) then --druid test of the bear using copper disc, mantle of woven grass, nature walker's sky emerald
-		e.other:SummonItem(2705); 	--nature walker's mantle
-		e.other:AddEXP(100000);
-		e.self:Say("Good work.");
+		e.self:Say("Good work, " .. e.other:GetName() .. "");
+		e.other:QuestReward(e.self,0,0,0,0,2705,100000); 	--nature walker's mantle
 		eq.depop();
 	elseif(item_lib.check_turn_in(e.trade, {item1 = 20943, item2 = 20732, item3 = 20733})) then --druid test of the tree using diaphanous globe, hardened clay, spiroc battle staff
-		e.other:SummonItem(6411); 	--shillelagh
-		e.other:AddEXP(100000);
-		e.self:Say("Good work.");
+		e.self:Say("Good work, " .. e.other:GetName() .. "");
+		e.other:QuestReward(e.self,0,0,0,0,6411,100000); 	--shillelagh
 		eq.depop();
 	end
 	item_lib.return_items(e.self, e.other, e.trade)

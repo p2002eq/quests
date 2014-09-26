@@ -1,7 +1,7 @@
 --Inte Akera, paladin Epic quest turn-in NPC
 
 function event_spawn(e)
-	eq.set_timer("depop",300000);
+	eq.set_timer("depop",600000);
 end
 
 function event_say(e)
@@ -28,19 +28,16 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(faction == 1) then
-		if(item_lib.check_turn_in(e.trade, {item1 = 5504})) then		--soulfire
-			e.other:SummonItem(18033); 									--inte's first blessing
-			e.other:AddEXP(100000);
+	if(e.other:GetFaction(e.self) == 1) then
+		if(item_lib.check_turn_in(e.trade, {item1 = 5504})) then --soulfire
 			e.self:Say("You have chosen wisely, my friend. Take this note as a token of my blessing upon you.");
-		elseif(item_lib.check_turn_in(e.trade, {item1 = 5403})) then 	--ghoulbane
-			e.other:SummonItem(18034); 									--inte's second blessing
-			e.other:AddEXP(100000);
+			e.other:QuestReward(e.self,0,0,0,0,18033,100000); --inte's first blessing
+		elseif(item_lib.check_turn_in(e.trade, {item1 = 5403})) then --ghoulbane
 			e.self:Say("You have chosen wisely, my friend. Take this note as a token of my blessing upon you.");
+			e.other:QuestReward(e.self,0,0,0,0,18034,100000); 	--inte's second blessing
 		elseif(item_lib.check_turn_in(e.trade, {item1 = 18033, item2 = 18034, item3 = 19073, item4 = 1254})) then --inte's first blessing, inte's second blessing, miragul's head, miragul's robe
-			e.other:SummonItem(11050); 									--fiery avenger
-			e.other:AddEXP(1000000);
 			e.self:Say("Long have I awaited this moment. You have done what even I thought impossible. Take this sword, the Fiery Avenger. You have earned both it and my deepest respect.");
+			e.other:QuestReward(e.self,0,0,0,0,11050,1000000); 	--fiery avenger
 			eq.depop();
 		end
 	end

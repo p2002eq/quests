@@ -4,6 +4,8 @@ end
 
 function event_say(e)
 	if(e.message:findi("hail")) then
+		e.self:Say("Hail and well met! You have traveled far indeed to cross my path. I will be testing you in compassion, sacrifice, and love. Are you ready for the test of the heart, " .. e.other:GetName() .. "? If you've already passed one of these tests I may have something else you might be interested in.");
+	elseif(e.message:findi("test of the heart")) then
 		e.self:Say("As I said before, the test of the heart is in three parts.  Compassion, Sacrifice and Love. Choose one and we will begin.");
 	elseif(e.message:findi("compassion")) then 	--paladin test of compassion
 		e.self:Say("Compassion is of great importance to us. Without it, we do not feel empathy, and cannot truly follow the path we claim to travel. Return to me an Efreeti zweihander, dulcet nectar, a golden hilt, and a large sky diamond. If you present these to me, I will award you Truvinan, the divine wind.");
@@ -17,19 +19,16 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	if(item_lib.check_turn_in(e.trade, {item1 = 20725, item2 = 20964, item3 = 20726, item4 = 20727})) then 		--paladin test of compassion using efreeti zweihander, dulcet nectar, golden hilt, large sky diamond
-		e.other:SummonItem(11682); --Truvinan, the divine wind
-		e.other:AddEXP(100000);
-		e.self:Say("");
+		e.self:Say("Truvinan is now yours, " .. e.other:GetName() .. ". I pray that you use the Divine Wind wisely.");
+		e.other:QuestReward(e.self,0,0,0,0,11682,100000); --Truvinan, the divine wind
 		eq.depop();
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 20950, item2 = 20721, item3 = 20722, item4 = 20727})) then 	--paladin test of sacrifice using griffon statuette, spiroc peace totem, bixie sword blade
-		e.other:SummonItem(27708); --Aldryn, blade of the ocean
-		e.other:AddEXP(100000);
-		e.self:Say("");
+	elseif(item_lib.check_turn_in(e.trade, {item1 = 20950, item2 = 20721, item3 = 20722})) then 	--paladin test of sacrifice using griffon statuette, spiroc peace totem, bixie sword blade
+		e.self:Say("Rare is it to see one such as yourself go so far. Wield Aldryn with pride, " .. e.other:GetName() .. ", and know that you are perhaps unique among your peers.");
+		e.other:QuestReward(e.self,0,0,0,0,27708,100000); --Aldryn, blade of the ocean
 		eq.depop();
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 20957, item2 = 20723, item3 = 20724, item4 = 20727})) then 	--paladin test of love using dark spiroc feather, ethereal topaz, sphinx claw
-		e.other:SummonItem(11681); --Zephyrwind
-		e.other:AddEXP(100000);
-		e.self:Say("");
+	elseif(item_lib.check_turn_in(e.trade, {item1 = 20957, item2 = 20723, item3 = 20724})) then 	--paladin test of love using dark spiroc feather, ethereal topaz, sphinx claw
+		e.self:Say("You are indeed worthy of this divine sword, " .. e.other:GetName() .. ". As long as you wield Zephyrwind, you will follow the true path.");
+		e.other:QuestReward(e.self,0,0,0,0,11681,100000); --Zephyrwind
 		eq.depop();
 	end
 	item_lib.return_items(e.self, e.other, e.trade)

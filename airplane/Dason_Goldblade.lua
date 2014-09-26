@@ -1,5 +1,5 @@
 function event_say(e)
-	if(e.message:findi("Hail")) then
+	if(e.message:findi("hail")) then
 		e.self:Say("Greetings, " .. e.other:GetName() .. ".  Are you pure of heart and soul?");
 	elseif(e.message:findi("Heart and Soul")) then
 		e.self:Say("Then choose. Do you wish your purity to be tested by Gregori or Dirkog?");

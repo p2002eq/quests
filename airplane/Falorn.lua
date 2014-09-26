@@ -21,19 +21,16 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	if(item_lib.check_turn_in(e.trade, {item1 = 20935, item2 = 20972, item3 = 20973})) then			--warrior test of strength using bronze disc, small pick, stone amulet
-		e.other:SummonItem(14569); 	--runed wind amulet
-		e.other:AddEXP(100000);
 		e.self:Say("You have proven yourself worthy.");
+		e.other:QuestReward(e.self,0,0,0,0,14569,100000); 	--runed wind amulet
 		eq.depop();
 	elseif(item_lib.check_turn_in(e.trade, {item1 = 20942, item2 = 20974, item3 = 20975})) then		--warrior test of force using pearlescent globe, silver mesh, spiroc air totem
-		e.other:SummonItem(4321); 	--aerated pauldrons
-		e.other:AddEXP(100000);
 		e.self:Say("You have proven yourself worthy.");
+		e.other:QuestReward(e.self,0,0,0,0,4321,100000); 	--aerated pauldrons
 		eq.depop();
 	elseif(item_lib.check_turn_in(e.trade, {item1 = 20928, item2 = 20795, item3 = 20971})) then		--warrior test of skill using ivory tessera, tiny ruby, azure ring
-		e.other:SummonItem(14551); 	--azure ruby ring
-		e.other:AddEXP(100000);
 		e.self:Say("You have proven yourself worthy.");
+		e.other:QuestReward(e.self,0,0,0,0,14551,100000); 	--azure ruby ring
 		eq.depop();
 	end
 	item_lib.return_items(e.self, e.other, e.trade)

@@ -17,21 +17,16 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	if(item_lib.check_turn_in(e.trade, {item1 = 20928, item2 = 20984, item3 = 20985})) then 	--rogue test of thievery using ivory tessera, gem of invigoration, inlaid choker
-		e.other:SummonItem(14552); 	--wispy choker of vigor
-		e.other:AddEXP(100000);
 		e.self:Say("Excellent! Fizzlethorpe blesses you with this gift.");
+		e.other:QuestReward(e.self,0,0,0,0,14552,100000); 	--wispy choker of vigor
 		eq.depop();
-
 	elseif(item_lib.check_turn_in(e.trade, {item1 = 20989, item2 = 20942, item3 = 20988})) then --rogue test of silence using spiroc sky totem, pearlescent globe, black griffon feather
-		e.other:SummonItem(2703); 	--griffon wing spauldors
-		e.other:AddEXP(100000);
 		e.self:Say("Excellent! Fizzlethorpe blesses you with this gift.");
+		e.other:QuestReward(e.self,0,0,0,0,2703,100000); 	--griffon wing spauldors
 		eq.depop();
-
 	elseif(item_lib.check_turn_in(e.trade, {item1 = 20956, item2 = 20992, item3 = 20993})) then --rogue test of trickery using mottled spiroc feather, cracked leather belt, sphinxian circlet
-		e.other:SummonItem(11676); 	--renard's belt of quickness
-		e.other:AddEXP(100000);
 		e.self:Say("Excellent! Fizzlethorpe blesses you with this gift.");
+		e.other:QuestReward(e.self,0,0,0,0,11676,100000); 	--renard's belt of quickness
 		eq.depop();
 	end
 	item_lib.return_items(e.self, e.other, e.trade)

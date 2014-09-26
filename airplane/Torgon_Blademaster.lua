@@ -3,11 +3,11 @@ function event_say(e)
 		e.self:Say("Greetings, " .. e.other:GetName() .. ". Are you a [true warrior]?");
 	elseif(e.message:findi("true warrior")) then
 		e.self:Say("Then you shall be tested as one. Choose. Do you wish to be tested by Falorn or Ogog?");
-	elseif((e.message:findi("falorn")) and (e.other:Class() == "Warrior")) then
+	elseif((e.message:findi("falorn")) and (e.other:GetClass() == 1)) then
 		e.self:Say("I will summon him for you then");
 		eq.spawn2(71067,0,0,563.3,1392.4,-766.9,63.4);
 		eq.depop_with_timer();
-	elseif((e.message:findi("ogog")) and (e.other:Class() == "Warrior")) then
+	elseif((e.message:findi("ogog")) and (e.other:GetClass() == 1)) then
 		e.self:Say("I will summon him for you then");
 		eq.spawn2(71064,0,0,563.3,1392.4,-766.9,63.4);
 		eq.depop_with_timer();
