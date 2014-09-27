@@ -17,19 +17,16 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	if(item_lib.check_turn_in(e.trade, {item1 = 20947, item2 = 20824, item3 = 20825})) then 	--bard test of pitch using crude wooden flute, phosphoric globe, and shimmering diamond
-		e.other:SummonItem(27722); --Ervaj's flute of flight
-		e.other:AddEXP(100000);
 		e.self:Say("Excellent! Take this as your reward.");
+		e.other:QuestReward(e.self,0,0,0,0,27722,100000); --Ervaj's flute of flight
 		eq.depop();
 	elseif(item_lib.check_turn_in(e.trade, {item1 = 20940, item2 = 20822, item3 = 20823})) then --bard test of voice using light woolen mantle, music box, platinum disc
-		e.other:SummonItem(27721); --mantle of the songweaver
-		e.other:AddEXP(100000);
 		e.self:Say("Excellent! Take this as your reward.");
+		e.other:QuestReward(e.self,0,0,0,0,27721,100000); --mantle of the songweaver
 		eq.depop();
 	elseif(item_lib.check_turn_in(e.trade, {item1 = 20933, item2 = 20823, item3 = 20820})) then --bard test of tone using ochre tessera, songbird statuette, light wooden cloak
-		e.other:SummonItem(27720); --mask of song
-		e.other:AddEXP(100000);
 		e.self:Say("Excellent! Take this as your reward.");
+		e.other:QuestReward(e.self,0,0,0,0,27720,100000); --mask of song
 		eq.depop();
 	end
 	item_lib.return_items(e.self, e.other, e.trade)

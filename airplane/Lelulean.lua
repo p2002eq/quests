@@ -16,20 +16,17 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 20931, item2 = 20767, item3 = 20768})) then 	--enchanter test of illusion using crimson tessera, darkstone emerald, finely woven cloth cord
-		e.other:SummonItem(1277); --sphinx hair cord
-		e.other:AddEXP(100000);
+	if(item_lib.check_turn_in(e.trade, {item1 = 20931, item2 = 20767, item3 = 20768})) then --enchanter test of illusion using crimson tessera, darkstone emerald, finely woven cloth cord
 		e.self:Say("Excellent work!");
+		e.other:QuestReward(e.self,0,0,0,0,1277,100000); --sphinx hair cord
 		eq.depop();
 	elseif(item_lib.check_turn_in(e.trade, {item1 = 20769, item2 = 20770, item3 = 20938})) then --enchanter test of metamorphism using bluish stone, light cloth mantle, silver disc
-		e.other:SummonItem(1276);  --wind walker's mantle
-		e.other:AddEXP(100000);
 		e.self:Say("Excellent work!");
+		e.other:QuestReward(e.self,0,0,0,0,1276,100000); --wind walker's mantle
 		eq.depop();
 	elseif(item_lib.check_turn_in(e.trade, {item1 = 20945, item2 = 20772, item3 = 20771})) then --enchanter test of deception using rugous globe, silken mask, sky pearl
-		e.other:SummonItem(1275);  --ivory mask
-		e.other:AddEXP(100000);
 		e.self:Say("Excellent work!");
+		e.other:QuestReward(e.self,0,0,0,0,1275,100000); --ivory mask
 		eq.depop();
 	end
 	item_lib.return_items(e.self, e.other, e.trade)

@@ -18,25 +18,21 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 20931, item2 = 20754, item3 = 20755})) then 					--magician test of clarification using crimson tessera, ethereal sapphire, feathered cape
-		e.other:SummonItem(1274); 	--bracelet of clarification
-		e.other:AddEXP(100000);
+	if(item_lib.check_turn_in(e.trade, {item1 = 20931, item2 = 20754, item3 = 20755})) then --magician test of clarification using crimson tessera, ethereal sapphire, feathered cape
 		e.self:Say("Take this as your reward.");
+		e.other:QuestReward(e.self,0,0,0,0,1274,100000); --bracelet of clarification
 		eq.depop();
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 20937, item2 = 20756, item3 = 20757})) then 				--magician test of empowerment using iron disc, gem of empowerment, ceramic mask
-		e.other:SummonItem(2707); 	--mask of empowerment
-		e.other:AddEXP(100000);
+	elseif(item_lib.check_turn_in(e.trade, {item1 = 20937, item2 = 20756, item3 = 20757})) then --magician test of empowerment using iron disc, gem of empowerment, ceramic mask
 		e.self:Say("Take this as your reward.");
+		e.other:QuestReward(e.self,0,0,0,0,2707,100000); --mask of empowerment
 		eq.depop();
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 20870, item2 = 20966, item3 = 20871, item4 = 20872})) then 	--magician test of gesticulationt Efreeti Magi Staff, Sweet Nectar, Sphinx Crown, Hazy Opal
-		e.other:SummonItem(11650); 	--Staff of the Magister
-		e.other:AddEXP(100000);
+	elseif(item_lib.check_turn_in(e.trade, {item1 = 20870, item2 = 20966, item3 = 20871, item4 = 20872})) then --magician test of gesticulationt Efreeti Magi Staff, Sweet Nectar, Sphinx Crown, Hazy Opal
 		e.self:Say("Take this as your reward.");
+		e.other:QuestReward(e.self,0,0,0,0,11650,100000); --Staff of the Magister
 		eq.depop();
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 20944, item2 = 20758, item3 = 20759, item4 = 20872})) then	--magician test of shielding using hyaline globe, ivory pendant, golden coffer
-		e.other:SummonItem(14557); 	--gold white pendant
-		e.other:AddEXP(100000);
+	elseif(item_lib.check_turn_in(e.trade, {item1 = 20944, item2 = 20758, item3 = 20759})) then	--magician test of shielding using hyaline globe, ivory pendant, golden coffer
 		e.self:Say("Take this as your reward.");
+		e.other:QuestReward(e.self,0,0,0,0,14557,100000); --gold white pendant
 		eq.depop();
 	end
 	item_lib.return_items(e.self, e.other, e.trade)

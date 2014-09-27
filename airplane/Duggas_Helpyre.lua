@@ -17,22 +17,17 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	if(item_lib.check_turn_in(e.trade, {item1 = 20953, item2 = 20786, item3 = 20787})) then 					--necromancer test of heart using imp statuette, obsidian amulet, pulsating ruby
-		e.other:SummonItem(14560); --sphinx heart amulet
-		e.other:AddEXP(100000);
 		e.self:Say("Haha! So you lived! Take this and be gone!");
+		e.other:QuestReward(e.self,0,0,0,0,14560,1000000); --sphinx heart amulet
 		eq.depop();
 	elseif(item_lib.check_turn_in(e.trade, {item1 = 20790, item2 = 20967, item3 = 20791, item4 = 20792})) then 	--necromancer test of hands using gorgon's head, aged nectar, glowing black pearl, efreeti's great staff
-		e.other:SummonItem(11689); --gorgon head staff
-		e.other:AddEXP(100000);
 		e.self:Say("Haha! So you lived! Take this and be gone!");
+		e.other:QuestReward(e.self,0,0,0,0,11689,1000000); --gorgon head staff
 		eq.depop();
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 20960, item2 = 20788, item3 = 20789, item4 = 20792})) then 	--necromancer test of the finger using white spiroc feather, nebulous ruby, ring of veeshan
-		e.other:SummonItem(27713); --band of wailing winds
-		e.other:AddEXP(100000);
+	elseif(item_lib.check_turn_in(e.trade, {item1 = 20960, item2 = 20788, item3 = 20789})) then 	--necromancer test of the finger using white spiroc feather, nebulous ruby, ring of veeshan
 		e.self:Say("Haha! So you lived! Take this and be gone!");
+		e.other:QuestReward(e.self,0,0,0,0,27713,1000000); --band of wailing winds
 		eq.depop();
-	else
-		e.self:Say("What? What are these for? Go Away!");
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end

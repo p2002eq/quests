@@ -17,21 +17,16 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	if(item_lib.check_turn_in(e.trade, {item1 = 20930, item2 = 20741, item3 = 20742})) then 	--wizard test of concentration using azure tessera, augmentor's gem, grey damask cloak
-		e.other:SummonItem(1272); --augmentor's mask
-		e.other:AddEXP(100000);
 		e.self:Say("Ah good. Take this as your reward.");
+		e.other:QuestReward(e.self,0,0,0,0,1272,100000); --augmentor's mask
 		eq.depop();
-
 	elseif(item_lib.check_turn_in(e.trade, {item1 = 20937, item2 = 20743, item3 = 20744})) then --wizard test of focus using iron disc, ethereal opal, woven skull cap
-		e.other:SummonItem(1271); --Al`kabor's cap of binding
-		e.other:AddEXP(100000);
 		e.self:Say("Ah good. Take this as your reward.");
+		e.other:QuestReward(e.self,0,0,0,0,1271,100000); --Al`kabor's cap of binding
 		eq.depop();
-
 	elseif(item_lib.check_turn_in(e.trade, {item1 = 20944, item2 = 20745, item3 = 20746})) then --wizard test of meditation using hyaline globe, sky topaz, high quality raiment
-		e.other:SummonItem(1273); --raiment of thunder
-		e.other:AddEXP(100000);
 		e.self:Say("Ah good. Take this as your reward.");
+		e.other:QuestReward(e.self,0,0,0,0,1273,100000); --raiment of thunder
 		eq.depop();
 	end
 	item_lib.return_items(e.self, e.other, e.trade)

@@ -17,20 +17,17 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 20830, item2 = 20961, item3 = 20828, item4 = 20829})) then		--Bard test of Brass using Adamantium Bands, Effreeti War horn, glowing diamond, and saffron spiroc feather
-		e.other:SummonItem(27724); --Denon's Horn of Disaster
-		e.other:AddEXP(100000);
+	if(item_lib.check_turn_in(e.trade, {item1 = 20830, item2 = 20961, item3 = 20828, item4 = 20829})) then --Bard test of Brass using Adamantium Bands, Effreeti War horn, glowing diamond, and saffron spiroc feather
 		e.self:Say("Well done, " .. e.other:GetName() .. ". Here is your reward.");
+		e.other:QuestReward(e.self,0,0,0,0,27724,100000); --Denon's Horn of Disaster
 		eq.depop();
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 20953, item2 = 20826, item3 = 20827, item4 = 20829})) then	--Bard test of Wind using Amulet of woven hair, dull stone, and imp statuette
-		e.other:SummonItem(14565); --Fae amulet
-		e.other:AddEXP(100000);
+	elseif(item_lib.check_turn_in(e.trade, {item1 = 20953, item2 = 20826, item3 = 20827})) then	--Bard test of Wind using Amulet of woven hair, dull stone, and imp statuette
 		e.self:Say("Well done, " .. e.other:GetName() .. ". Here is your reward.");
+		e.other:QuestReward(e.self,0,0,0,0,14565,100000); --Fae amulet
 		eq.depop();
 	elseif(item_lib.check_turn_in(e.trade, {item1 = 20831, item2 = 20968, item3 = 20832, item4 = 20833})) then	--Bard test of harmony using Effreeti war spear, manna nectar, nebulous diamond, and nebulous emerald
-		e.other:SummonItem(10852); --harmonic spear
-		e.other:AddEXP(100000);
 		e.self:Say("Well done, " .. e.other:GetName() .. ". Here is your reward.");
+		e.other:QuestReward(e.self,0,0,0,0,10852,100000); --harmonic spear
 		eq.depop();
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
