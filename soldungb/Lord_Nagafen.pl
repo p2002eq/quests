@@ -39,7 +39,7 @@ sub EVENT_AGGRO {
 
 sub EVENT_TIMER {
   if ($timer == 1) {
-    if($x < -1000 || $x > -650 || $y < -1500 || $y > -1290) {
+    if($x < -1000 || $x > -650 || $y < -1500 || $y > -1170) {
       WIPE_AGGRO();
     }
     my @hate_list = $npc->GetHateList();
