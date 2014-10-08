@@ -3,14 +3,14 @@ function event_say(e)
 		e.self:Say("Welcome. A brother of the Indigo you must be. Why else would one dare to roam the corridors of the Cauldron of Hate? You were most likely sent to speak with Yegek. If so. speak up and tell Yegek who [sent] you.");
 	elseif(e.message:findi("seloxia")) then
 		if(e.other:GetFaction(e.self) < 5) then
-			e.self:Say("YOu are a new blood!  I shall help you to face the dangers. For now, you must listen. First we must be sure to increase your skill by combat. Take this bag to the outside and fill it with three beetle eyes adn three bone shards from the undead. Combine and return it. Then we shall reward you and continue. Do not lose the short sword you had upon entering our brotherhood. We just may need it later on.");
+			e.self:Say("You are a new blood!  I shall help you to face the dangers. For now, you must listen. First we must be sure to increase your skill by combat. Take this bag to the outside and fill it with three beetle eyes and three bone shards from the undead. Combine and return it. Then we shall reward you and continue. Do not lose the short sword you had upon entering our brotherhood. We just may need it later on.");
 			e.other:SummonItem(17942);
 		else
 			e.self:Say("Go! Return when you have done more to serve the Indigo Brotherhood of Neriak. Fewer Leatherfoot Raiders in Nektulos and a few Leatherfoot skullcaps in the palms of Master Narex shall prove your true warrior nature and loyalty to our house.");
 		end
 	elseif(e.message:findi("second test")) then
 		if(e.other:GetFaction(e.self) < 5) then
-			e.self:Say("You will now learn what happens to those undesirables who once called themselves Indigo. But first, you will hand me your sword wich was given to you by the Indigo Brotherhood. This battle must be fought without a blade. Show us your strenth!");
+			e.self:Say("You will now learn what happens to those undesirables who once called themselves Indigo. But first, you will hand me your sword which was given to you by the Indigo Brotherhood. This battle must be fought without a blade. Show us your strength!");
 		else
 			e.self:Say("Go! Return when you have done more to serve the Indigo Brotherhood of Neriak. Fewer Leatherfoot Raiders in Nektulos and a few Leatherfoot skullcaps in the palms of Master Narex shall prove your true warrior nature and loyalty to our house.");
 		end
