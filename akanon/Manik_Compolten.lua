@@ -38,7 +38,11 @@ function event_trade(e)
 		e.other:Faction(210,1,0); 	-- Merchants of Ak'Anon
 		e.other:Faction(39,-1,0); 	-- Clan Grikbar
 		e.other:Faction(71,-1,0); 	-- Dark Reflection
-		e.other:QuestReward(e.self,1,3,0,0,eq.ChooseRandom(13219, 13219, 13220, 13220, 1013, 1018, 1015, 1019, 1022, 1023, 1024, 1017, 1016, 1020, 1014, 1021),5000);
+		if(math.random(100) < 20) then
+			e.other:QuestReward(e.self,1,3,0,0,eq.ChooseRandom(13219,13220),5000);
+		else
+			e.other:QuestReward(e.self,1,3,0,0,eq.ChooseRandom(1013, 1018, 1015, 1019, 1022, 1023, 1024, 1017, 1016, 1020, 1014, 1021),5000);
+		end		
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
