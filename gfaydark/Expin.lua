@@ -2,7 +2,7 @@ function event_say(e)
 	if(e.message:findi("hail")) then
 		e.self:Say("How are you, my friend?  You must be a [new scout of Kelethin].  I would hope so.  We dearly need more recruits.  Most of the Fier'Dal choose the path of the ranger.");
 	elseif(e.message:findi("new scout of kelethin")) then
-		e.self:Say("Good.  I have an easy, but very important, task for you.  We require all young members to cleanse these woods of the troublesome pixie tricksters.  Take this pouch, fill it, and when it is combined, return it to me.  I just may have some used armor lying around for you.");
+		e.self:Say("Good. I have an easy, but very important, task for you. We require all young members to cleanse these woods of the troublesome pixie tricksters. Take this pouch, fill it with pixie dust, and when it is combined, return it to me. I just may have some used armor lying around for you.");
 		e.other:SummonItem(17957); -- Empty Pouch
 	elseif(e.message:findi("dark assassin")) then
 		e.self:Emote("squints at you and says, 'So you have heard about him as well? I had heard of him through the rogue grapevine, so I was wary when the home guard spoke of the arrival of a dark stranger. I was approaching him from behind and some loud ranger clompipng about in the bushes must of spooked him, for off he ran. As he was running I took the liberty to swipe a piece of paper protruding from his pocket.' Expin mumbles to himself, 'Now where did I put that note?'");
