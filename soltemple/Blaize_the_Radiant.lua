@@ -18,14 +18,14 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	
-	
+
+
 	if(item_lib.check_turn_in(e.trade, {item1 = 19001,item2 = 19002,item3 = 16507})) then
 		e.self:Say("Wear this with pride!");
 		e.other:Faction(320,15);
 		e.other:Faction(291,-15);
 		e.other:QuestReward(e.self,0,0,0,0,4921,1000); -- boots of the reliant
-	
+
 	elseif(item_lib.check_turn_in(e.trade, {item1 = 19007,item2 = 19008,item3 = 19049})) then
 		e.self:Say("Wear this with pride!");
 		e.other:Faction(320,15);
