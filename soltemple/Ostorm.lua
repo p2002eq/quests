@@ -21,24 +21,8 @@ function event_trade(e)
 		e.self:Say("..hear me? Ah, you seem to be coming out of your stupor. I think you have been exposed to the crystal long enough. By the time you leave the temple, your memories should have faded. Do you have the [fifty gold] coins that you owe me?");
 		e.other:Faction(320,15);
 		e.other:Faction(291,-15);
-		--foreach skill (43, 44, 45, 46, 47) -- unknown conversion needed
-		--if(e.self:GetSkill(skill) > 49) then -- unknown conversion needed
-		--	e.self:SetSkill(skill, 49); -- unknown conversion needed
-		--end
-		if(e.other:GetSkill(43) > 49) then
-			e.other:SetSkill(43, 49);
-		end
-		if(e.other:GetSkill(44) > 49) then
-			e.other:SetSkill(44, 49);
-		end
-		if(e.other:GetSkill(45) > 49) then
-			e.other:SetSkill(45, 49);
-		end
-		if(e.other:GetSkill(46) > 49) then
-			e.other:SetSkill(46, 49);
-		end
-		if(e.other:GetSkill(47) > 49) then
-			e.other:SetSkill(47, 49);
+		for skill=43,47,1 do
+			e.other:SetSkill(skill,49);
 		end
 		e.other:Message(7, "Your specialize skills have all been set to 49.");
 		e.other:QuestReward(e.self,0,0,0,0,0,1000);
@@ -47,20 +31,20 @@ function event_trade(e)
 		e.self:Say("Thank you.");
 		e.other:Faction(320, 15);
 		e.other:Faction(291, -15);
-		e.other:QuestReward(e.self,0,0,0,0,0,0);
+		e.other:Ding();
 	end
 --Lambent Fire Opal
 	if(item_lib.check_turn_in(e.trade, {item1 = 10031, item2 = 10031, item3 = 10000})) then
 		e.self:Say("Ahh, Genni must have sent you to me.  Very well, here is your Lambent Fire Opal.");
 		e.other:Faction(320, 15);
 		e.other:Faction(291, -15);
-		e.other:QuestReward(e.self,0,0,0,0,10128,0);
+		e.other:QuestReward(e.self,0,0,0,0,10128);
 	end
 --magnetized platinum
 	if(item_lib.check_turn_in(e.trade, {item1 = 16507})) then
 		e.self:Say("I see that Gavel has sent you to me.  Very well, I have magnetized your platinum bar - take it.");
 		e.other:SummonItem(19049);
-		e.other:QuestReward(e.self,0,0,0,0,19049,0);
+		e.other:QuestReward(e.self,0,0,0,0,19049);
 	end
 end
 
