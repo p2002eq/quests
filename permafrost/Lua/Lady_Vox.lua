@@ -41,7 +41,7 @@ function event_combat(e)
 end
 
 function event_timer(e)
-	if(timer == 1) then
+	if(e.timer == "1") then
 		if(x < -431 or x > -85 or y < 770 or y > 1090 or z < -50) then
 			WIPE_AGGRO();
 		end
