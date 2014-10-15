@@ -14,7 +14,7 @@ my $hold_event = 0;
 
 sub EVENT_SPAWN {
    #Depop any existing controllers
-   quest::signalwith(201425, 0, 0);
+	quest::depopall(201425);
    #Spawn the controller
    quest::spawn2(201425, 0, 0, 194, -1120, 72, 0);
 }
@@ -89,6 +89,15 @@ sub EVENT_SAY
             $client->Message(15,"You receive a character flag!");
          }
       }
+		elsif($text=~/i seek knowledge/i) {
+			if (plugin::check_hasitem($client, 31842) && plugin::check_hasitem($client, 31796) && plugin::check_hasitem($client, 31960) && plugin::check_hasitem($client, 31845) && plugin::check_hasitem($client, 31844) && plugin::check_hasitem($client, 31846) ) { 
+				if (!plugin::check_hasitem($client, 31599)) {
+					quest::summonitem(31599);
+				} 
+			}elsif (plugin::check_hasitem($client, 31842) || plugin::check_hasitem($client, 31796) || plugin::check_hasitem($client, 31960) || plugin::check_hasitem($client, 31845) || plugin::check_hasitem($client, 31844) || plugin::check_hasitem($client, 31846) ) { 
+				quest::say("You have done well, mortal, but there are more trials yet for you to complete.");
+			}
+		}
    }
 }
          
