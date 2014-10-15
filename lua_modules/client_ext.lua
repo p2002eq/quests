@@ -144,7 +144,7 @@ function Client:HasItem(itemid)
 	end
 
 	--main/cursor containers
-	for i = 251, 340, 1 do
+	for i = 250, 339, 1 do
 		local thisitem = self:GetItemIDAt(i);
 		for a = 0, 5, 1 do
 			local thisaugitem = self:GetAugmentIDAt(i,a);
@@ -158,7 +158,7 @@ function Client:HasItem(itemid)
 	end
 
 	--bank
-	for i = 2000, 2015, 1 do
+	for i = 2000, 2007, 1 do
 		local thisitem = self:GetItemIDAt(i);
 		for a = 0, 5, 1 do
 			local thisaugitem = self:GetAugmentIDAt(i,a);
@@ -172,7 +172,7 @@ function Client:HasItem(itemid)
 	end
 
 	--bank containers
-	for i = 2030, 2190, 1 do
+	for i = 2030, 2109, 1 do
 		local thisitem = self:GetItemIDAt(i);
 		for a = 0, 5, 1 do
 			local thisaugitem = self:GetAugmentIDAt(i,a);
@@ -211,7 +211,7 @@ function Client:HasItem(itemid)
 					return true;
 				end
 			end
-			for i = 251, 340, 1 do
+			for i = 250, 339, 1 do
 				local thisitem = self:GetCorpseItemAt(bodyid, i);
 				if(thisitem == itemid) then
 					return true;
