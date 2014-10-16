@@ -1,6 +1,47 @@
 function event_say(e)
 	local qglobals = eq.get_qglobals(e.other);
-	if(e.message:findi("Hail")) then
+	---------------------------------------------------------------
+	---------------------------------------------------------------
+	--PoP Flag testing:
+	if(e.message:findi("flagme")) then
+		eq.set_global("pop_poj_mavuin","1",5,"F");				eq.set_global("pop_pod_grimmus_planar_projection","1",5,"F");	eq.set_global("pop_tactics_tallon","1",5,"F");
+		eq.set_global("pop_poj_execution","1",5,"F");			eq.set_global("pop_pod_elder_fuirstel","1",5,"F");				eq.set_global("pop_tactics_vallon","1",5,"F");
+		eq.set_global("pop_poj_flame","1",5,"F");				eq.set_global("pop_pov_aerin_dar","1",5,"F");					eq.set_global("pop_tactics_ralloz","1",5,"F");
+		eq.set_global("pop_poj_hanging","1",5,"F");				eq.set_global("pop_pos_askr_the_lost","3",5,"F");				eq.set_global("pop_sol_ro_arlyxir","1",5,"F");
+		eq.set_global("pop_poj_lashing","1",5,"F");				eq.set_global("pop_pos_askr_the_lost_final","1",5,"F");			eq.set_global("pop_sol_ro_dresolik","1",5,"F");
+		eq.set_global("pop_poj_stoning","1",5,"F");				eq.set_global("pop_cod_preflag","1",5,"F");						eq.set_global("pop_sol_ro_jiva","1",5,"F");
+		eq.set_global("pop_poj_torture","1",5,"F");				eq.set_global("pop_cod_bertox","1",5,"F");						eq.set_global("pop_sol_ro_rizlona","1",5,"F");
+		eq.set_global("pop_poj_tribunal","1",5,"F");			eq.set_global("pop_cod_final","1",5,"F");						eq.set_global("pop_sol_ro_xuzl","1",5,"F");
+		eq.set_global("pop_poj_valor_storms","1",5,"F");		eq.set_global("pop_pot_shadyglade","1",5,"F");					eq.set_global("pop_sol_ro_solusk","1",5,"F");
+		eq.set_global("pop_pon_hedge_jezith","1",5,"F");		eq.set_global("pop_pot_newleaf","1",5,"F");						eq.set_global("pop_elemental_grand_librarian","1",5,"F");
+		eq.set_global("pop_pon_construct","1",5,"F");			eq.set_global("pop_pot_saryrn","1",5,"F");						eq.set_global("pop_fire_fennin_projection","1",5,"F");
+		eq.set_global("pop_ponb_terris","1",5,"F");				eq.set_global("pop_pot_saryrn_final","1",5,"F");				eq.set_global("pop_wind_xegony_projection","1",5,"F");
+		eq.set_global("pop_ponb_poxbourne","1",5,"F");			eq.set_global("pop_hoh_faye","1",5,"F");						eq.set_global("pop_water_coirnav_projection","1",5,"F");
+		eq.set_global("pop_poi_dragon","1",5,"F");				eq.set_global("pop_hoh_trell","1",5,"F");						eq.set_global("pop_eartha_arbitor_projection","1",5,"F");
+		eq.set_global("pop_poi_behometh_preflag","1",5,"F");	eq.set_global("pop_hoh_garn","1",5,"F");						eq.set_global("pop_earthb_rathe","1",5,"F");
+		eq.set_global("pop_poi_behometh_flag","1",5,"F");		eq.set_global("pop_hohb_marr","1",5,"F");						eq.set_global("pop_time_maelin","1",5,"F");
+		eq.set_global("pop_pod_alder_fuirstel","1",5,"F");		eq.set_global("pop_bot_agnarr","1",5,"F");		
+
+	elseif(e.message:findi("deflagme")) then
+		eq.delete_global("pop_poj_mavuin");				eq.delete_global("pop_pod_grimmus_planar_projection");	eq.delete_global("pop_tactics_tallon");
+		eq.delete_global("pop_poj_execution");			eq.delete_global("pop_pod_elder_fuirstel");				eq.delete_global("pop_tactics_vallon");
+		eq.delete_global("pop_poj_flame");				eq.delete_global("pop_pov_aerin_dar");					eq.delete_global("pop_tactics_ralloz");
+		eq.delete_global("pop_poj_hanging");			eq.delete_global("pop_pos_askr_the_lost","3",5,"F");	eq.delete_global("pop_sol_ro_arlyxir");
+		eq.delete_global("pop_poj_lashing");			eq.delete_global("pop_pos_askr_the_lost_final");		eq.delete_global("pop_sol_ro_dresolik");
+		eq.delete_global("pop_poj_stoning");			eq.delete_global("pop_cod_preflag");					eq.delete_global("pop_sol_ro_jiva");
+		eq.delete_global("pop_poj_torture");			eq.delete_global("pop_cod_bertox");						eq.delete_global("pop_sol_ro_rizlona");
+		eq.delete_global("pop_poj_tribunal");			eq.delete_global("pop_cod_final");						eq.delete_global("pop_sol_ro_xuzl");
+		eq.delete_global("pop_poj_valor_storms");		eq.delete_global("pop_pot_shadyglade");					eq.delete_global("pop_sol_ro_solusk");
+		eq.delete_global("pop_pon_hedge_jezith");		eq.delete_global("pop_pot_newleaf");					eq.delete_global("pop_elemental_grand_librarian");
+		eq.delete_global("pop_pon_construct");			eq.delete_global("pop_pot_saryrn");						eq.delete_global("pop_fire_fennin_projection");
+		eq.delete_global("pop_ponb_terris");			eq.delete_global("pop_pot_saryrn_final");				eq.delete_global("pop_wind_xegony_projection");
+		eq.delete_global("pop_ponb_poxbourne");			eq.delete_global("pop_hoh_faye");						eq.delete_global("pop_water_coirnav_projection");
+		eq.delete_global("pop_poi_dragon");				eq.delete_global("pop_hoh_trell");						eq.delete_global("pop_eartha_arbitor_projection");
+		eq.delete_global("pop_poi_behometh_preflag");	eq.delete_global("pop_hoh_garn");						eq.delete_global("pop_earthb_rathe");
+		eq.delete_global("pop_poi_behometh_flag");		eq.delete_global("pop_hohb_marr");						eq.delete_global("pop_time_maelin");
+		eq.delete_global("pop_pod_alder_fuirstel");		eq.delete_global("pop_bot_agnarr");	
+		
+	elseif(e.message:findi("Hail")) then
 		e.other:Say("Greetings, " .. e.other:GetName() .. ". I can provide you information upon your travels through the planes by [guided meditation].");
 	elseif(e.message:findi("guided meditation")) then
 		e.other:Message(1,"You converse with Seer Mal Nae`Shi as she guides your meditation... You feel a power within your being, pulling your thougts left and right.  After some time, your mind clears, and Seer Mal Nae`Shi speaks.");
