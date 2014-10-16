@@ -1,6 +1,6 @@
 function event_combat(e)
 	local random_result = math.random(60);
-	
+
 	if(e.joined) then
 		e.self:Say("You will perish!!  You are weak and should have kept to your own realm!!");
 		if(random_result <=20) then
@@ -15,6 +15,11 @@ end
 
 function event_death_complete(e)
 	e.self:Emote("slams to the ground with a loud THUD!!  The ground around you still trembles.  'Now.. I shall never slay my blasphemous.. brother..  Xyl..'");
+end
+
+function event_trade(e)
+	local item_lib = require("items");
+	item_lib.return_items(e.self, e.other, e.trade)
 end
 
 --by: Qadar

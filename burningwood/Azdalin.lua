@@ -1,6 +1,6 @@
 function event_combat(e)
 	local random_result = math.random(60);
-	
+
 	if(e.joined) then
 		e.self:Say("Foolish adventurer!!  You shall die.  You are nothing to Azdalin. ");
 		if(random_result <=20) then
@@ -11,6 +11,11 @@ function event_combat(e)
 			e.self:Say("" .. e.other:Class() .. " like you are an affront to my senses!");
 		end
 	end
+end
+
+function event_trade(e)
+	local item_lib = require("items");
+	item_lib.return_items(e.self, e.other, e.trade)
 end
 
 --by: Qadar
