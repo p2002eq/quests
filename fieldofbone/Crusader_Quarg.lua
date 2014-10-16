@@ -18,8 +18,7 @@ function event_trade(e)
 		e.other:QuestReward(e.self,0,0,0,0,17034,10000); --Give the player a six slot container to combine the 5 skulls with an "X" in
 		eq.set_global("shmskullquest","5",5,"F"); --set a global flag so that user can do shm skull quest part 3.3
 	--turn in the Full C.O.B.B. Chest and your Iron Cudgel of the Seer
-	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 12735, item2 = 5142}) and e.other:GetFaction(e.self) < 6 and shmskullquest > 4) then
+	elseif(item_lib.check_turn_in(e.trade, {item1 = 12735, item2 = 5142}) and e.other:GetFaction(e.self) < 6 and shmskullquest > 4) then
 		e.self:Say("The temple shall be pleased. As instructed by the Hierophants, here is your Iron Cudgel of the Mystic. You have done well that I must ask you to [collect the Crusaders of Rok Nilok]. Take this chest. Inside you shall combine the skull of their leader and at least five of the caste members. You then will go to the Swamp Garrison and deliver the full chest and your Iron Cudgel of the Mystic to Mystic Dovan. Go to him now and inquire of the Crusaders of Rok Nolok.");
 		e.other:Faction(282, 10); --Scaled Mystics
 		e.other:Faction(193, 10); --Legion of Cabilis

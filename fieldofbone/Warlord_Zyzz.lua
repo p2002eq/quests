@@ -16,12 +16,10 @@ function event_trade(e)
 		e.other:Faction(62,5);   -- +Crusaders of Greenmist
 		e.other:Faction(317,5);  -- +Swifttails
 		e.other:QuestReward(e.self,4,2,0,0,0,10);
-	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 18213})) then
+	elseif(item_lib.check_turn_in(e.trade, {item1 = 18213})) then
 		e.self:Say("Ah!! Good to have you on board. We lack strong young recruits such as yourself. Take this box. Your task is to seek milita skeletons near this gate. Apparently, someone or something has been raising militia corpses and they now walk the land not knowing the difference between friend or foe. They even continue using their old call, 'Halt Who goes there?'. Fill and combine within the box their charred bone shards and return the filled box to me for your geozite tool.");
 		e.other:QuestReward(e.self,0,0,0,0,17996);
-	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 12668})) then
+	elseif(item_lib.check_turn_in(e.trade, {item1 = 12668})) then
 		e.self:Say("Great work!! You have helped keep the gate safe. I reward you with the geozite tool. You may find its purpose within Cabils' warriors guild. A true Iksar warrior should always have one.");  --text not from live
 		e.other:QuestReward(e.self,0,0,0,0,12657);
 	end
