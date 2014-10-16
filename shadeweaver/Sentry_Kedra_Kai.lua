@@ -10,11 +10,6 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	--Handin: Mud Burrower Carapace, Muck Digger Carapace, Grime Tunneler Carapace, Sediment Delver Carapace
-	if(item_lib.check_turn_in(e.trade, {item1 = 10644, item2 = 10645, item3 = 10646, item4 = 10647})) then
-		e.other:Faction(132,5); -- +Guardians of Shar Vahl
-		e.other:QuestReward(e.self,0,0,0,0,85054,250);
-	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
 
