@@ -49,7 +49,7 @@ function event_trade(e)
 		e.other:Ding();
 		e.other:Faction(434,5,0); -- Qeynos Citizen
 		e.other:AddEXP(200);
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 13065,item2 = 13071,item3 = 13071,item4 = 13033})) then
+	elseif(item_lib.check_turn_in(e.trade, {item1 = 13065,item2 = 13071,item3 = 13033})) then
 		e.self:Say("Hey. look at this. some of my best work, if I do say so myself. Enjoy, and tell your friends");
 		e.other:SummonItem(1053); -- rat's foot necklace
 		e.other:Ding();
