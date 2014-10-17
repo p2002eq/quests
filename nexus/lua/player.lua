@@ -50,7 +50,7 @@ function event_timer(e)
 		--qglobals["velious_port"] = nil;
 		--qglobals["odus_port"] = nil;
 	end
-	
+
 	--qglobals["nexus_ant"] = nil;
 	--qglobals["antonica_port"] = nil;
 	--qglobals["nexus_fay"] = nil;
@@ -60,7 +60,7 @@ function event_timer(e)
 	--qglobals["velious_port"] = nil;
 	--qglobals["nexus_kun"] = nil;
 	--qglobals["kunark_port"] = nil;
-	
+
 	qglobals.nexus_ant = nil;
 	qglobals.antonica_port = nil;
 	qglobals.nexus_fay = nil;
@@ -70,11 +70,6 @@ function event_timer(e)
 	qglobals.velious_port = nil;
 	qglobals.nexus_kun = nil;
 	qglobals.kunark_port = nil;
-end
-
-function event_trade(e)
-	local item_lib = require("items");
-	item_lib.return_items(e.self, e.other, e.trade)
 end
 
 -------------------------------------------------------------------------------------------------

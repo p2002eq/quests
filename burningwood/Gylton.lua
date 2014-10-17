@@ -3,9 +3,9 @@ function event_combat(e)
 
 	if(e.joined) then
 		e.self:Say("You will perish!!  You are weak and should have kept to your own realm!!");
-		if(random_result <=20) then
+		if(random_result < 21) then
 			e.self:Say("" .. e.other:Class() .. " like you always bring out the worst in me!");
-		elseif(random_result <=40) then
+		elseif(random_result < 41) then
 			e.self:Say("I really hate " .. e.other:Class() .. " like you!");
 		else
 			e.self:Say("" .. e.other:Class() .. " like you are an affront to my senses!");

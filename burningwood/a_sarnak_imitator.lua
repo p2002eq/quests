@@ -26,11 +26,11 @@ function event_trade(e)
 	local item_lib = require("items");
 	if(item_lib.check_turn_in(e.trade, {item1 = 10603})) then
 		e.self:Say("I see that you have what I was waiting for. Stofo does do excellent work. It seems that you are to start on a long journey. Take this seal and it will guide you on your next step. Seek out the masters of enchantment. In time we will craft the Serpent for you. When you have collected the four parts of the staff, you must combine them in a bundle for me.");
-	e.other:QuestReward(e.self,0,0,0,0,10604);
+		e.other:QuestReward(e.self,0,0,0,0,10604);
 	elseif(item_lib.check_turn_in(e.trade, {item1 = 10639})) then
 		e.self:Say("The path you trod was long and hard. Now you are worthy to bear the Serpent. Use it well.");
 		e.other:Faction(342,30);
-	e.other:QuestReward(e.self,0,0,0,0,10650,1500000);
+		e.other:QuestReward(e.self,0,0,0,0,10650,1500000);
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
