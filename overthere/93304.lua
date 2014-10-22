@@ -7,3 +7,8 @@ function event_spawn(e)
 	eq.signal(93125,1);
 	eq.signal(93086,1);
 end
+
+function event_trade(e)
+	local item_lib = require("items");
+	item_lib.return_items(e.self, e.other, e.trade)
+end
