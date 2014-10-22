@@ -22,7 +22,7 @@ function event_trade(e)
 		e.self:Emote("places his seal on the certificate before returning it to you.");
 		e.self:Say("Ahh, a new taxpayer, wonderful! You must always remember that it is a distinct privilege to contribute to the upkeep of our noble society and not merely a duty or a burden. I look forward to collecting your honorable taxes in the future. May the spirits prosper you, " .. e.other:GetName() .. ".'");
 		eq.set_global("Shar_Vahl_Cit","3",5,"F");
-		e.other:QuestReward(e.self,0,0,0,0,2875,100); -- Stamped Certificate of Taxability
+		e.other:QuestReward(e.self,0,0,0,0,2875,500); -- Stamped Certificate of Taxability
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end

@@ -19,7 +19,7 @@ function event_trade(e)
 	if(item_lib.check_turn_in(e.trade, {item1 = 18299})) then
 		e.self:Say("Your humility and willingness to serve shall not be wasted. There is much to be done. " .. e.other:GetName() .. ". and our people thank you in advance for your selfless service.");
 		eq.set_global("Shar_Vahl_Cit","5",5,"F");
-		e.other:QuestReward(e.self,0,0,0,0,18304,100);
+		e.other:QuestReward(e.self,0,0,0,0,18304,500);
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
