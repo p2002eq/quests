@@ -32,16 +32,14 @@ function event_trade(e)
 		-- Certificate of Taxability
 		eq.set_global("Shar_Vahl_Cit","2",5,"F");
 		e.other:QuestReward(e.self,0,0,0,0,2874,100);
-	end
 	-- Stamped Certificate of Taxability & Acrylia Slate
-	if(item_lib.check_turn_in(e.trade, {item1 = 2875, item2 = 2876})) then
+	elseif(item_lib.check_turn_in(e.trade, {item1 = 2875, item2 = 2876})) then
 		e.self:Say("Ahh, there you are. I was about to send someone looking for you. Everything seems to be in order here, only one task remains. You must gain audience with the king and swear fealty to his highness by handing him this document. Return to me when this is done.");
 		-- Note to King Raja
 		eq.set_global("Shar_Vahl_Cit","4",5,"F");
 		e.other:QuestReward(e.self,0,0,0,0,18299,100);
 	-- Note from King Raja
-	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 18304})) then
+	elseif(item_lib.check_turn_in(e.trade, {item1 = 18304})) then
 		e.self:Say("Well done, " .. e.other:GetName() .. ", I am honored to be the first to welcome you to citizenship of Shar Vahl! May you serve our society as well as it serves you. Return to your guildmaster and present both the slate and the application to him. The acrylia slate shall henceforth serve as proof of your citizenship.");
 		-- Acrylia Slate of Shar Vahl
 		e.other:SummonItem(2877);
