@@ -18,39 +18,35 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
+	
 	if(item_lib.check_turn_in(e.trade, {item1 = 30665})) then
 		e.self:Say("A blessing indeed! You have done well to bring this to me. With these glands I will be able to save many lives. Thank you friend. Shar Vahl and its people are in your debt. Please, accept these gifts to assist you in your endeavors. It Is the least I can do to return the favor!");
 		e.other:Faction(132,2);
 		e.other:QuestReward(e.self,0,8,0,0,eq.ChooseRandom(31584,31589,31586,31590,31593,31594,31595,31588,31585,31592),250);
-	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 30665, item2 = 30665})) then
+	elseif(item_lib.check_turn_in(e.trade, {item1 = 30665, item2 = 30665})) then
 		e.self:Say("A blessing indeed! You have done well to bring this to me. With these glands I will be able to save many lives. Thank you friend. Shar Vahl And its people are in your debt. Please, accept these gifts to assist you in your endeavors. It Is the least I can do to return the favor!");
 		e.other:Faction(132,4);
 		e.other:SummonItem(eq.ChooseRandom(31584,31589,31586,31590,31593,31594,31595,31588,31585,31592));
 		e.other:QuestReward(e.self,0,6,1,0,eq.ChooseRandom(31584,31589,31586,31590,31593,31594,31595,31588,31585,31592),500);
-	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 30665, item2 = 30665, item3 = 30665})) then
+	elseif(item_lib.check_turn_in(e.trade, {item1 = 30665, item2 = 30665, item3 = 30665})) then
 		e.self:Say("A blessing indeed! You have done well to bring this to me. With these glands I will be able to save many lives. Thank you friend. Shar Vahl And its people are in your debt. Please, accept these gifts to assist you in your endeavors. It Is the least I can do to return the favor!");
 		e.other:Faction(132,6);
 		e.other:SummonItem(eq.ChooseRandom(31584,31589,31586,31590,31593,31594,31595,31588,31585,31592));
 		e.other:SummonItem(eq.ChooseRandom(31584,31589,31586,31590,31593,31594,31595,31588,31585,31592));
 		e.other:QuestReward(e.self,0,4,2,0,eq.ChooseRandom(31584,31589,31586,31590,31593,31594,31595,31588,31585,31592),750);
-	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 30665, item2 = 30665, item3 = 30665, item4 = 30665})) then
+	elseif(item_lib.check_turn_in(e.trade, {item1 = 30665, item2 = 30665, item3 = 30665, item4 = 30665})) then
 		e.self:Say("A blessing indeed! You have done well to bring this to me. With these glands I will be able to save many lives. Thank you friend. Shar Vahl And its people are in your debt. Please, accept these gifts to assist you in your endeavors. It Is the least I can do to return the favor!");
 		e.other:Faction(132,8);
 		e.other:SummonItem(eq.ChooseRandom(31584,31589,31586,31590,31593,31594,31595,31588,31585,31592));
 		e.other:SummonItem(eq.ChooseRandom(31584,31589,31586,31590,31593,31594,31595,31588,31585,31592));
 		e.other:SummonItem(eq.ChooseRandom(31584,31589,31586,31590,31593,31594,31595,31588,31585,31592));
 		e.other:QuestReward(e.self,0,2,3,0,eq.ChooseRandom(31584,31589,31586,31590,31593,31594,31595,31588,31585,31592),1000);
-	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 30602, item2 = 30964})) then
+	elseif(item_lib.check_turn_in(e.trade, {item1 = 30602, item2 = 30964})) then
 		e.self:Say("Well done " .. e.other:GetName() .. ". I hope it isnt too late.");
 		e.self:Emote("begins to chant over the carapace and the claw, holding each in opposite hands. A soft light travels from the claw to the carapace as the claw turns to dust. Ragnar opens his eyes and begins to speak.");
 		e.self:Say("It has worked, but all we have done is buy ourselves more time. While you were away, I have been speaking to Master Barkhem. He has a shield frame that can support these carapaces. You will need to craft such a shield by including this carapace and into the frame along with enough to fill each slot. You are doing quite well young " .. e.other:GetName() .. ", Siver has grown a little stronger. You can make use of her innate strength by weaving this spell.''");
 		e.other:QuestReward(e.self,0,0,0,0,30977);
-	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 30965})) then
+	elseif(item_lib.check_turn_in(e.trade, {item1 = 30965})) then
 		e.self:Say("Nicely done " .. e.other:GetName() .. ". This anchor should be sufficient to keep Siver bound to this realm for a while. She is strong enough to blind your enemies with a bright flash of light now, all you have to do is call on her spirit. I still cannot make complete sense of her thoughts. I think she is trying to tell me of another whisperling entrapped within the crater. Keep an eye open for the whisperling Scorpialis.");
 		e.self:Say("In the meantime, you can seek out a shield made of Xakra. Xakra made of the ethereal fabric of the spirit realm. I know the Shak Dratha within the thicket are weavers of this rare form of shadow silk. Such a shield can help us strengthen the anchor, making it easier for Siver to aid you. It will also improve her health greatly. She has been through a lot and is in rather poor condition as it stands now.");
 		e.other:QuestReward(e.self,0,0,0,0,15021);
