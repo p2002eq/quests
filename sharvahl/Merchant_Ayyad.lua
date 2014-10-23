@@ -1,7 +1,9 @@
 --Changes by Kagehi
 function event_say(e)
-	if(e.message:findi("Hail")) then
-		e.self:Say("Hello " .. e.other:GetName() .. ". sorry but I have no time to chitchat. I'm looking for the help of a citizen.");
+	if(e.message:findi("hail")) then
+		e.self:Say("Hello " .. e.other:GetName() .. ", sorry but I have no time to chitchat. I'm looking for the help of a citizen.");
+	elseif(e.message:findi("citizen")) then
+		e.self:Emote("looks at you excitedly, 'Show me your acrylia slate and I'll explain my situation.'");
 	end
 end
 
@@ -12,8 +14,7 @@ function event_trade(e)
 		e.other:SummonItem(2877);
 		e.other:SummonItem(3497); --Reusable Jar Sketch
 		e.other:QuestReward(e.self,0,0,0,0,17233); --Ayyad's Clay Bowl.
-	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 3498})) then
+	elseif(item_lib.check_turn_in(e.trade, {item1 = 3498})) then
 		e.self:Say("Excellent! Please accept this knapsack as payment for your trouble. Here is my seal as well. I can always use more jars and if you give me four of my seals I will share with you a family secret.");
 		e.other:SummonItem(17234); --Ayyad's Knapsack.
 		e.other:QuestReward(e.self,0,0,0,0,3499); --Ayyad's Seal.
