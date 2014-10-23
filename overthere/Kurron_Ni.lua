@@ -3,7 +3,7 @@ function event_say(e)
 	if(e.message:findi("Hail")) then
 		e.self:Say("Out of my way, stranger!  I am on a delicate mission; interfere with my search and I shall relieve you of your head! Bother me no more.");
 	elseif(e.message:findi("mission")) then
-		if(e.other:GetFaction(342) < 7) then
+		if(e.other:GetCharacterFactionLevel(342) < 7) then
 			e.self:Say("My mission is none of your concern!  Now you die, pitiful fool!");
 			eq.attack("" .. e.other:GetName() .. "");
 		else
