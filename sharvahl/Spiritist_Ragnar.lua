@@ -19,28 +19,28 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	
-	if(item_lib.check_turn_in(e.trade, {item1 = 30665})) then
-		e.self:Say("A blessing indeed! You have done well to bring this to me. With these glands I will be able to save many lives. Thank you friend. Shar Vahl and its people are in your debt. Please, accept these gifts to assist you in your endeavors. It Is the least I can do to return the favor!");
-		e.other:Faction(132,2);
-		e.other:QuestReward(e.self,0,8,0,0,eq.ChooseRandom(31584,31589,31586,31590,31593,31594,31595,31588,31585,31592),250);
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 30665, item2 = 30665})) then
-		e.self:Say("A blessing indeed! You have done well to bring this to me. With these glands I will be able to save many lives. Thank you friend. Shar Vahl And its people are in your debt. Please, accept these gifts to assist you in your endeavors. It Is the least I can do to return the favor!");
-		e.other:Faction(132,4);
-		e.other:SummonItem(eq.ChooseRandom(31584,31589,31586,31590,31593,31594,31595,31588,31585,31592));
-		e.other:QuestReward(e.self,0,6,1,0,eq.ChooseRandom(31584,31589,31586,31590,31593,31594,31595,31588,31585,31592),500);
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 30665, item2 = 30665, item3 = 30665})) then
-		e.self:Say("A blessing indeed! You have done well to bring this to me. With these glands I will be able to save many lives. Thank you friend. Shar Vahl And its people are in your debt. Please, accept these gifts to assist you in your endeavors. It Is the least I can do to return the favor!");
-		e.other:Faction(132,6);
-		e.other:SummonItem(eq.ChooseRandom(31584,31589,31586,31590,31593,31594,31595,31588,31585,31592));
-		e.other:SummonItem(eq.ChooseRandom(31584,31589,31586,31590,31593,31594,31595,31588,31585,31592));
-		e.other:QuestReward(e.self,0,4,2,0,eq.ChooseRandom(31584,31589,31586,31590,31593,31594,31595,31588,31585,31592),750);
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 30665, item2 = 30665, item3 = 30665, item4 = 30665})) then
+	if(item_lib.check_turn_in(e.trade, {item1 = 30665, item2 = 30665, item3 = 30665, item4 = 30665})) then
 		e.self:Say("A blessing indeed! You have done well to bring this to me. With these glands I will be able to save many lives. Thank you friend. Shar Vahl And its people are in your debt. Please, accept these gifts to assist you in your endeavors. It Is the least I can do to return the favor!");
 		e.other:Faction(132,8);
 		e.other:SummonItem(eq.ChooseRandom(31584,31589,31586,31590,31593,31594,31595,31588,31585,31592));
 		e.other:SummonItem(eq.ChooseRandom(31584,31589,31586,31590,31593,31594,31595,31588,31585,31592));
 		e.other:SummonItem(eq.ChooseRandom(31584,31589,31586,31590,31593,31594,31595,31588,31585,31592));
 		e.other:QuestReward(e.self,0,2,3,0,eq.ChooseRandom(31584,31589,31586,31590,31593,31594,31595,31588,31585,31592),1000);
+	elseif(item_lib.check_turn_in(e.trade, {item1 = 30665, item2 = 30665, item3 = 30665})) then
+		e.self:Say("A blessing indeed! You have done well to bring this to me. With these glands I will be able to save many lives. Thank you friend. Shar Vahl And its people are in your debt. Please, accept these gifts to assist you in your endeavors. It Is the least I can do to return the favor!");
+		e.other:Faction(132,6);
+		e.other:SummonItem(eq.ChooseRandom(31584,31589,31586,31590,31593,31594,31595,31588,31585,31592));
+		e.other:SummonItem(eq.ChooseRandom(31584,31589,31586,31590,31593,31594,31595,31588,31585,31592));
+		e.other:QuestReward(e.self,0,4,2,0,eq.ChooseRandom(31584,31589,31586,31590,31593,31594,31595,31588,31585,31592),750);
+	elseif(item_lib.check_turn_in(e.trade, {item1 = 30665, item2 = 30665})) then
+		e.self:Say("A blessing indeed! You have done well to bring this to me. With these glands I will be able to save many lives. Thank you friend. Shar Vahl And its people are in your debt. Please, accept these gifts to assist you in your endeavors. It Is the least I can do to return the favor!");
+		e.other:Faction(132,4);
+		e.other:SummonItem(eq.ChooseRandom(31584,31589,31586,31590,31593,31594,31595,31588,31585,31592));
+		e.other:QuestReward(e.self,0,6,1,0,eq.ChooseRandom(31584,31589,31586,31590,31593,31594,31595,31588,31585,31592),500);
+	elseif(item_lib.check_turn_in(e.trade, {item1 = 30665})) then
+		e.self:Say("A blessing indeed! You have done well to bring this to me. With these glands I will be able to save many lives. Thank you friend. Shar Vahl and its people are in your debt. Please, accept these gifts to assist you in your endeavors. It Is the least I can do to return the favor!");
+		e.other:Faction(132,2);
+		e.other:QuestReward(e.self,0,8,0,0,eq.ChooseRandom(31584,31589,31586,31590,31593,31594,31595,31588,31585,31592),250);
 	elseif(item_lib.check_turn_in(e.trade, {item1 = 30602, item2 = 30964})) then
 		e.self:Say("Well done " .. e.other:GetName() .. ". I hope it isnt too late.");
 		e.self:Emote("begins to chant over the carapace and the claw, holding each in opposite hands. A soft light travels from the claw to the carapace as the claw turns to dust. Ragnar opens his eyes and begins to speak.");
