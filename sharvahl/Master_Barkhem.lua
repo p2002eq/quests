@@ -31,43 +31,78 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
+	-- You can buy Nepeta Oil Extract from a merchant named Chialle in the southern part of Shar Vahl. The mail sectional mold is sold by Apprentice Garr, near Master Barkhem. Combine the oil, mold and two plates in a forge (trivial 32) to create a Bloodling Plate Mail.
+	-- give Bloodling plate mail
+	if(item_lib.check_turn_in(e.trade, {item1 = 30646})) then
+		e.other:SummonItem(30646);
+		vah_armor = 1;
+	elseif(item_lib.check_turn_in(e.trade, {item1 = 30647})) then
+		e.other:SummonItem(30647);
+		vah_armor = 1;
+	elseif(item_lib.check_turn_in(e.trade, {item1 = 30648})) then
+		e.other:SummonItem(30648);
+		vah_armor = 1;
+	elseif(item_lib.check_turn_in(e.trade, {item1 = 30649})) then
+		e.other:SummonItem(30649);
+		vah_armor = 1;
+	elseif(item_lib.check_turn_in(e.trade, {item1 = 30650})) then
+		e.other:SummonItem(30650);
+		vah_armor = 1;
+	elseif(item_lib.check_turn_in(e.trade, {item1 = 30651})) then
+		e.other:SummonItem(30651);
+		vah_armor = 1;
+	elseif(item_lib.check_turn_in(e.trade, {item1 = 30652})) then
+		e.other:SummonItem(30652);
+		vah_armor = 1;
+	elseif(item_lib.check_turn_in(e.trade, {item1 = 30653})) then
+		e.other:SummonItem(30653);
+		vah_armor = 1;
+	elseif(item_lib.check_turn_in(e.trade, {item1 = 30654})) then
+		e.other:SummonItem(30654);
+		vah_armor = 1;
+	elseif(item_lib.check_turn_in(e.trade, {item1 = 30655})) then
+		e.other:SummonItem(30655);
+		vah_armor = 1;
+	elseif(item_lib.check_turn_in(e.trade, {item1 = 30656})) then
+		e.other:SummonItem(30656);
+		vah_armor = 1;
+	elseif(item_lib.check_turn_in(e.trade, {item1 = 30657})) then
+		e.other:SummonItem(30657);
+		vah_armor = 1;
+	end
+	if(vah_armor == 1) then
+		e.self:Say("I knew that old thing would make a fine bit of armor in the right hands. Talent like yours should not go to waste! Take this, it is the mallet that I used to smith my very first bit, you can learn with it until you earn something better. Here is your first lesson " .. e.other:GetName() .. ", use this mallet to pound out the dents in the guard's shields. The ones guarding the bridges into town will need it most, as they can not leave their posts. Show each guard a [repair order] and have them sign off on it when you are through.");
+		e.other:QuestReward(e.self,0,0,0,0,29802);
+		vah_armor = 0;
+	end
 	-- give 2 Bloodling shields : buy 2 carapace shield frame from Barkhem, fill them with Cht`Thk carapaces, combine
 	if(item_lib.check_turn_in(e.trade, {item1 = 30658, item2 = 30658})) then
 		e.self:Emote("smiles and nods his head in approval before speaking. 'This is some quality work my friend. Although you could use some practice in your style, I can sense true potential in your smithing skills. This was too large for me to use for a shield, but I think you can craft it into some fairly good armor. Just treat it in a forge with nepeta oil and the proper mold, the oil should soften it up enough to become pliable. Once fired in the forge it will harden to the mold. I'd love to see how It turns out.'");
 		e.other:SummonItem(30664);
 		e.other:QuestReward(e.self,0,0,0,0,30664);
-	end
-	-- You can buy Nepeta Oil Extract from a merchant named Chialle in the southern part of Shar Vahl. The mail sectional mold is sold by Apprentice Garr, near Master Barkhem. Combine the oil, mold and two plates in a forge (trivial 32) to create a Bloodling Plate Mail.
-	-- give Bloodling plate mail
-	if(item_lib.check_turn_in(e.trade, {item1 = 30646}) or item_lib.check_turn_in(e.trade, {item1 = 30647}) or item_lib.check_turn_in(e.trade, {item1 = 30648}) or item_lib.check_turn_in(e.trade, {item1 = 30649}) or item_lib.check_turn_in(e.trade, {item1 = 30650}) or item_lib.check_turn_in(e.trade, {item1 = 30651}) or item_lib.check_turn_in(e.trade, {item1 = 30652}) or item_lib.check_turn_in(e.trade, {item1 = 30653}) or item_lib.check_turn_in(e.trade, {item1 = 30654}) or item_lib.check_turn_in(e.trade, {item1 = 30655}) or item_lib.check_turn_in(e.trade, {item1 = 30656}) or item_lib.check_turn_in(e.trade, {item1 = 30657})) then
-		e.self:Say("I knew that old thing would make a fine bit of armor in the right hands. Talent like yours should not go to waste! Take this, it is the mallet that I used to smith my very first bit, you can learn with it until you earn something better. Here is your first lesson " .. e.other:GetName() .. ", use this mallet to pound out the dents in the guard's shields. The ones guarding the bridges into town will need it most, as they can not leave their posts. Show each guard a [repair order] and have them sign off on it when you are through.");
-		e.other:QuestReward(e.self,0,0,0,0,29802);
-	end
+
 	-- Give Master Barkhem the four work orders, from the 4 khala dun
-	if(item_lib.check_turn_in(e.trade, {item1 = 29806, item2 = 29809, item3 = 29812, item4 = 29815})) then
+	elseif(item_lib.check_turn_in(e.trade, {item1 = 29806, item2 = 29809, item3 = 29812, item4 = 29815})) then
 		e.self:Emote("shuffles through the work orders. 'Well they have some lovely things to say about your work!'");
 		e.self:Emote("disappears into the back room for a moment only to return dragging some sort of large iron block in his hands and crashes it down on the counter. 'Do you know what this is? I see you nodding your head, and yes it is an anvil... but it is so much more. This is a specially crafted anvil for only my most promising students as not just anyone has it within them to smith on a [spirit anchor].'");
 		e.other:Faction(132,10);
 		e.other:QuestReward(e.self,0,0,0,0,29816,500); -- Vah Shir Anvil
-	end
 	-- Receive Barkhem's Box. Gather eight Swirling Shadows (dropped by shade NPCs in Luclin -- easiest farmable, Lesser Shades in Shadeweaver's Thicket.). Now inside a forge, combine 1 x Swirling Shadows + 1 x Metal Bits + 1 x Vah Shir Anvil + 1 x Vah Shir Apprentice Mallet to create a Shadow Disk (trivial 108). Repeat this process seven more times. Place the eight Shadow Disks into Barkhem's Box to create a Box of Shadow Disks.
 	-- Head back to Master Barkhem and hand him the box and apprentice mallet.
 	-- box of shadow disks 29819 (from 8 shadow disk 29818)
 	-- apprentice mallet 29802
-	if(item_lib.check_turn_in(e.trade, {item1 = 29802, item2 = 29819})) then
+	elseif(item_lib.check_turn_in(e.trade, {item1 = 29802, item2 = 29819})) then
 		e.self:Say("Well done, " .. e.other:GetName() .. "! I trust you are beginning to see the power that shadow can grant you. Now it is time for you to learn to manipulate sound. Here is your very own mallet, use it to form the substance of sound into tangible matter. Pound yourself out a few humming orbs and I'll know you're ready to combine shadow and sound into a precarious balance of forces.");
 		e.other:Faction(132,10);
 		e.other:QuestReward(e.self,0,0,0,0,29820,500); -- Luclinite Mallet
-	end
 	-- Create three Humming Orbs and head back to Master Barkhem for your final turn-in. Give the orbs + your Luclinite Mallet in exchange for a Humming Luclinite Mallet, used to make Shadowscream armor.
 	-- 3 humming orbs 29823 + Luclinite Mallet
-	if(item_lib.check_turn_in(e.trade, {item1 = 29820, item2 = 29823, item3 = 29823, item4 = 29823})) then
+	elseif(item_lib.check_turn_in(e.trade, {item1 = 29820, item2 = 29823, item3 = 29823, item4 = 29823})) then
 		e.self:Emote("looks genuinely pleased with your craftsmanship. He sets down one of the orbs onto a special anvil and swings your mallet high in the air crashing it down on the orb causing it to shatter with a terrible shriek. He repeats this action with each of the remaining orbs and hands you back the now humming mallet. 'Here, " .. e.other:GetName() .. ", this mallet will enable you to combine shadow with sound. Smith wisely and be careful what you create with it,' Barkhem pauses, looking quite serious, 'it is very powerful. You'll be able to make Shadowscream steel with it.'");
 		e.other:Faction(132,10);
 		e.other:QuestReward(e.self,0,0,0,0,29824,500); -- Humming Luclinite Mallet
-	end
 	-- receive Rakutah's Seal
-	if(item_lib.check_turn_in(e.trade, {item1 = 29826})) then
+	elseif(item_lib.check_turn_in(e.trade, {item1 = 29826})) then
 		e.self:Say("Back already, " .. e.other:GetName() .. "? I've only just sent you out and you've finished your very first professional job, well done! I'm very proud of your progression! My wife and I have made you a pair of greaves that I'm sure you'll love to wear. Take them as a reward on a job well done. I have pressing matters that require my attention right now, or else I'd teach you more about the powers of shadow and sound. Experiment with the Shadowscream steel until I can teach you more.");
 		e.other:Faction(132,10);
 		e.other:QuestReward(e.self,0,0,0,0,29827,500); -- Barkhem Fancy Pantaloons
