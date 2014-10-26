@@ -5,7 +5,7 @@
 function event_say(e)
 	if(e.message:findi("Hail")) then
 		e.self:Say("Ah. greetings!  I am Kaza Raj, trainer of young Vah'shir!  Bring me the items I ask and I will reward you with pieces of armor to protect you in your travels.  I have a fine pair of [gloves] available now if you're interested.");
-	elseif(e.message:findi("gloves")) then
+	elseif(e.message:findi("glove")) then
 		e.self:Say("Great!  Let's start with the gloves then, shall we?  Gloves, yes indeed - I will give them to you if you go out and kill Cht'Thk Bloodlings.  Bring me four Sharp Bloodling Mandibles as proof of your deeds.");
 	elseif(e.message:findi("bracer")) then
 		e.self:Say("Ah yes, a  Bracer. I'm sure I have one here somewhere.  I'll look for it while you do me a service.  Skeletal Brigands and Hunters have been endangering our young ones, seek them out and bring me four Broken Skulls!");
@@ -17,6 +17,8 @@ function event_say(e)
 		e.self:Say("Excellent work dispatching those Brigands! Now seek out Loda Kai thugs and return with four Insignia, I shall give you a useful cap if you serve me well!");
 	elseif(e.message:findi("tunic")) then
 		e.self:Say("A breastplate shall complete your set! Bring me four carapaces from Cht'Thk Bloodbulks and I will give you a wonderful tunic!");
+	elseif(e.message:findi("pant")) then
+		e.self:Say("Hmm, you are growing more mighty as time passes - Kill Saurek Claw Beasts and bring me four fangs, I have most excellent pants if you succeed.");
 	end
 end
 
@@ -25,28 +27,22 @@ function event_trade(e)
 	if(item_lib.check_turn_in(e.trade, {item1 = 2476, item2 = 2476, item3 = 2476, item4 = 2476})) then--Broken Brigand Skull  x4
 		e.self:Say("Excellent! Here are your Bracer! Would you like to get some [Boots]?");
 		e.other:QuestReward(e.self,0,0,0,0,2453); --Ghulam Bracer
-	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 2460, item2 = 2460, item3 = 2460, item4 = 2460})) then--Sharp Bloodling Mandible  x4
+	elseif(item_lib.check_turn_in(e.trade, {item1 = 2460, item2 = 2460, item3 = 2460, item4 = 2460})) then--Sharp Bloodling Mandible  x4
 		e.self:Say("Excellent! Here are your Gloves! Would you like to get a [Bracer]?");
 		e.other:QuestReward(e.self,0,0,0,0,2452); --Ghulam Gloves
-	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 2477, item2 = 2477, item3 = 2477, item4 = 2477})) then--Shadowed Claw  x4
+	elseif(item_lib.check_turn_in(e.trade, {item1 = 2477, item2 = 2477, item3 = 2477, item4 = 2477})) then--Shadowed Claw  x4
 		e.self:Say("Excellent! Here are your Boots! Would you like to get some [Sleeves]?");
 		e.other:QuestReward(e.self,0,0,0,0,2454); --Ghulam Boots
-	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 2478, item2 = 2478, item3 = 2478, item4 = 2478})) then--Loda Kai Earring  x4
+	elseif(item_lib.check_turn_in(e.trade, {item1 = 2478, item2 = 2478, item3 = 2478, item4 = 2478})) then--Loda Kai Earring  x4
 		e.self:Say("Excellent! Here are your Sleeves! Would you like to get a [Cap]?");
 		e.other:QuestReward(e.self,0,0,0,0,2455); --Ghulam Armguards
-	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 2479, item2 = 2479, item3 = 2479, item4 = 2479})) then--Loda Kai Insignia  x4
+	elseif(item_lib.check_turn_in(e.trade, {item1 = 2479, item2 = 2479, item3 = 2479, item4 = 2479})) then--Loda Kai Insignia  x4
 		e.self:Say("Excellent! Here is your Cap! Would you like to get some [Pants]?");
 		e.other:QuestReward(e.self,0,0,0,0,2456); --Ghulam Cap
-	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 2480, item2 = 2480, item3 = 2480, item4 = 2480})) then--Saurek Fang  x4
+	elseif(item_lib.check_turn_in(e.trade, {item1 = 2480, item2 = 2480, item3 = 2480, item4 = 2480})) then--Saurek Fang  x4
 		e.self:Say("Excellent! Here are your Pants! Would you like to get a [Tunic]?");
 		e.other:QuestReward(e.self,0,0,0,0,2457); --Ghulam Legplates
-	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 2481, item2 = 2481, item3 = 2481, item4 = 2481})) then--Bloodbulk Carapace  x4
+	elseif(item_lib.check_turn_in(e.trade, {item1 = 2481, item2 = 2481, item3 = 2481, item4 = 2481})) then--Bloodbulk Carapace  x4
 		e.self:Say("Excellent! Here is your Tunic!");
 		e.other:QuestReward(e.self,0,0,0,0,2459); --Ghulam Tunic
 	end
