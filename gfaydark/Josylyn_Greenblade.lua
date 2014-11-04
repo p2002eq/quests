@@ -12,25 +12,25 @@ function event_say(e)
 		e.self:Say("The Arboreans are an ancient species of sentient plant-folk. Their sentience however does not manifest as intelligence or wisdom. They are little more than mobile weeds, multiplying quickly and draining the nutrients from the soil and flora they come into contact with. Old legends from when our people first migrated to Faydwere from the Eldarr Forest of Tunaria tell of a great famine caused by the Arboreans. The Heartwood Master and his most blessed of druids wove powerful magics that destroyed the Arboreans, but some of their seeds endured, buried in the soil for centuries, and recently they have sprouted and are once again destroying our beloved forests.");
 	elseif(e.message:findi("gauntlet")) then
 		e.self:Say("To assemble emerald novice gauntlets you will need to obtain two bricks of crude bronze and smelt them in a forge with a Water Flask and this crude Gauntlet Mold. Once that is done combine the Crude Bronze Gauntlets with a Ruined Forest Drakeling Scales and two Arborean Sprout Twigs in the Mail Assembly Kit.");
-		e.other:SummonItem("19633");
+		e.other:SummonItem(19633);
 	elseif(e.message:findi("boot")) then
 		e.self:Say("To assemble emerald novice boots you will need to obtain two bricks of crude bronze and smelt them in a forge with a Water Flask and this crude Boot Mold. Once that is done combine the Crude Bronze Boots with two Ruined Forest Drakeling Scales, and two Arborean Sprout Roots in the Mail Assembly Kit.");
-		e.other:SummonItem("19634");
+		e.other:SummonItem(19634);
 	elseif(e.message:findi("bracer")) then
 		e.self:Say("To assemble an emerald novice bracer you will need to obtain a brick of crude bronze and smelt it in a forge with a Water Flask and this Crude Bracer Mold. Once that is done, combine the Crude Bronze Bracer with a Ruined Forest Drakeling Scales and an Arborean Sprout Bark in the Mail Assembly Kit.");
-		e.other:SummonItem("19632");
+		e.other:SummonItem(19632);
 	elseif(e.message:findi("helm")) then
 		e.self:Say("To assemble an emerald novice helm you will need to obtain two bricks of crude bronze and smelt them in a forge with a Water Flask and this Crude Helm Mold. Once that is done combine the Crude Bronze Helm with a Ruined Forest Drakeling Scales and an Arborean Sapling Bark in the Mail Assembly Kit.");
-		e.other:SummonItem("19631");
+		e.other:SummonItem(19631);
 	elseif(e.message:findi("greave")) then
 		e.self:Say("To assemble emerald novice greaves you will need to obtain two bricks of crude bronze and smelt them in a forge with a Water Flask and this Crude Greaves Mold. Once that is done combine the Crude Bronze Greaves with two Forest Drakeling Scales and two Arborean Sapling Barks in the Mail Assembly Kit.");
-		e.other:SummonItem("19636");
+		e.other:SummonItem(19636);
 	elseif(e.message:findi("vambrace")) then
 		e.self:Say("To assemble emerald novice vambraces you will need to obtain two bricks of crude bronze and smelt them in a forge with a Water Flask and this Crude Vambrace Mold. Once that is done combine the Crude Bronze Vambraces with a Forest Drakeling Scales and two Arborean Sapling Barks in the Mail Assembly Kit.");
-		e.other:SummonItem("19635");
+		e.other:SummonItem(19635);
 	elseif(e.message:findi("breastplate")) then
 		e.self:Say("To assemble an emerald novice breastplate you will need to obtain four bricks of crude bronze and smelt them in a forge with a Water Flask and this Crude Breastplate Mold. Once that is done combine the Crude Bronze Breastplate with a Pristine Forest Drakeling Scales, and two Mature Arborean Barks in the Mail Assembly Kit.");
-		e.other:SummonItem("19637"); 
+		e.other:SummonItem(19637); 
 	end
 end
 
