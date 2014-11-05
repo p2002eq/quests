@@ -25,14 +25,12 @@ function event_trade(e)
 	if(ear > 0) then
 		repeat
 			e.self:Say("Well done! We could really use the extra help around here.");
-			e.other:Ding();
 			e.other:Faction(149,4,0);
 			e.other:Faction(31,4,0);
 			e.other:Faction(214,4,0);
 			e.other:Faction(53,4,0);
 			e.other:Faction(105,4,0);
-			e.other:AddEXP(100);
-			e.other:GiveCash(3,3,4,0);
+			e.other:QuestReward(e.self,3,3,4,0,0,1000);
 			ear = ear - 1;
 		until ear == 0
 	end

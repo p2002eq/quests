@@ -21,15 +21,12 @@ function event_trade(e)
 	local item_lib = require("items");
 	if(item_lib.check_turn_in(e.trade, {item1 = 13916})) then
 		e.self:Say("Grand work. Deputy " .. e.other:GetName() .. "! You will become a full-fledged deputy in no time. You should check in with Marshal Ghobber from time to time to see if you have earned your squad ring. Just go up to him and ask. 'Am I one with the Wall?' He will know. but you must first show your bravery in many battles against the goblins.");
-		e.other:SummonItem(13024);
 		e.other:Faction(133, 4);
 		e.other:Faction(208, 4);
 		e.other:Faction(316, 4);
 		e.other:Faction(218, 4);
 		e.other:Faction(88, -10);
-		e.other:AddEXP(100);
-		e.other:GiveCash("0","0","9","0");
-		e.other:Ding();
+		e.other:QuestReward(e.self,0,0,9,0,13024,1000);
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
