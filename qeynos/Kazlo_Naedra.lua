@@ -19,9 +19,9 @@ function event_trade(e)
 		e.self:Say(string.format("Good work, %s! Here's a little something for your troubles. Your quick work and loyalty will be noted by the Order of Three.",e.other:GetName()));
 		e.other:Ding();
 		e.other:Faction(240,5,0);
-		e.other:Faction(135,5,0);
-		e.other:Faction(21,-5,0);
-		e.other:Faction(235,-5,0);
+		e.other:Faction(135,1,0);
+		e.other:Faction(21,-1,0);
+		e.other:Faction(235,-1,0);
 		e.other:AddEXP(500);
 		e.other:GiveCash(9,0,0,0);
 	end

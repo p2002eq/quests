@@ -17,9 +17,9 @@ function event_trade(e)
     e.self:Say(string.format("Hmm. Good job, %s, let's give this a try. Flame and fire. Heat and spark. Touch of Ro, light this dark! Ahh. It stills needs a little work, I guess. Thanks for your help, here's a little something for your effort.",e.other:GetName()));
 	e.other:SendSound();
     e.other:Faction(240,5,0);
-    e.other:Faction(135,5,0);
-    e.other:Faction(21,-10,0);
-    e.other:Faction(235,-10,0);
+    e.other:Faction(135,1,0);
+    e.other:Faction(21,-1,0);
+    e.other:Faction(235,-1,0);
     e.other:AddEXP(200);
 	e.other:GiveCash(8, 0, 0, 0);
   end

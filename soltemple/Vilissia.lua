@@ -26,7 +26,7 @@ function event_trade(e)
 		e.other:Say("Here is your prize - a lambent ruby.");
 		e.other:Faction(320,1,0);
 		e.other:Faction(291,-1,0);
-		e.other:QuestReward(e.self,0,0,0,0,18032,1000); -- Lambent Ruby
+		e.other:QuestReward(e.self,0,0,0,0,10118,1000); -- Lambent Ruby
 	elseif(item_lib.check_turn_in(e.trade, {item1 = 2332, item2 = 10553, item3 = 10554, item4 = 10555})) then 
 		e.other:Say("You impress me, adventurer! I had not expected you to return with all of the runes. Very well, I shall keep my half of the bargain. Here is your Runescale Cloak.");
 		e.other:Faction(320,10,0);
