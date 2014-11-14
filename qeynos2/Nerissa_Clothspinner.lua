@@ -1,6 +1,10 @@
 function event_waypoint_arrive(e)
 	if(e.wp == 17) then
 		e.self:Say("When will my sister show up? I need her!");
+	elseif(e.wp == 27) then
+		e.self:MerchantOpenShop();
+	elseif(e.wp == 28) then
+		e.self:MerchantCloseShop();
 	elseif(e.wp == 43) then
 		e.self:Say("Bartender! Some water, please.");
 	end

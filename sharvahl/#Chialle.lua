@@ -17,12 +17,12 @@ end
 function event_waypoint_arrive(e)
 	if(e.wp == 1) then
 		eq.set_timer("1",120000);
-	end
-	if(e.wp == 2) then
+		e.self:MerchantOpenShop();
+	elseif(e.wp == 2) then
 		eq.stop_timer("1");
 		e.self:Say("Whew! I sure could use something sweet to drink.");
-	end
-	if(e.wp == 13) then
+		e.self:MerchantCloseShop();
+	elseif(e.wp == 13) then
 		e.self:Emote("makes a deposit.");
 	end
 end
