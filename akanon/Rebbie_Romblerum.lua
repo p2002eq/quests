@@ -5,31 +5,31 @@ function event_say(e)
 		e.self:Say("Hail " .. e.other:GetName() .. "!");
 	elseif(e.message:findi("silk thread")) then
 		e.self:Say("Silk Thread is created by combineing two spiderling silk in a sewing kit."); -- text is made up as i could not find the real text reply.
-	elseif(e.message:findi("plague rust boots")) then
+	elseif(e.message:findi("boot")) then
 		e.self:Say("To assemble Plague Rust Boots you will require two [silk thread], two ruined ebon drakeling scales, and two rebel clockwork foot plates. Once you have the necessary components combine them in your Mail Assembly Kit with this Tattered Boot Pattern.");
 		e.other:SummonItem(19561);
 		e.other:Ding();
-	elseif(e.message:findi("plague rust bracer")) then
+	elseif(e.message:findi("bracer")) then
 		e.self:Say("To assemble a Plague Rust Bracer you will require a [silk thread], ruined ebon drakeling scales, and a rebel clockwork wrist section. Once you have the necessary components combine them in your Mail Assembly Kit with this Tattered Wristband Pattern.");
 		e.other:SummonItem(19558);
 		e.other:Ding();
-	elseif(e.message:findi("plague rust gloves")) then
+	elseif(e.message:findi("glove")) then
 		e.self:Say("To assemble Plague Rust Gloves you will require two [silk thread], ruined ebon drakeling scales, and two rebel clockwork hand plates. Once you have the necessary components combine them in your Mail Assembly Kit with this Tattered Glove Pattern.");
 		e.other:SummonItem(19559);
 		e.other:Ding();
-	elseif(e.message:findi("plague rust leggings")) then
+	elseif(e.message:findi("legging")) then
 		e.self:Say("To assemble Plague Rust Leggings you will require three [silk thread], two ebon drakeling scales, and two rebel clockwork leg sections. Once you have the necessary components combine them in your Mail Assembly Kit with this Tattered Leggings Pattern.");
 		e.other:SummonItem(19560);
 		e.other:Ding();
-	elseif(e.message:findi("plague rust sleeves")) then
+	elseif(e.message:findi("sleeve")) then
 		e.self:Say("To assemble Plague Rust Sleeves you will require two [silk thread], ebon drakeling scales, and two rebel clockwork arm sections. Once you have the necessary components combine them in your Mail Assembly Kit with this Tattered Sleeves Pattern.");
 		e.other:SummonItem(19557);
 		e.other:Ding();
-	elseif (e.message:findi("plague rust tunic")) then
+	elseif (e.message:findi("tunic")) then
 		e.self:Say("To assemble a Plague Rust Tunic you will require four [silk thread], pristine ebon drakeling scales, a giant rat pelt, and a rebel clockwork chest plate. Once you have the necessary components combine them in your Mail Assembly Kit with this Tattered Tunic Pattern.");
 		e.other:SummonItem(19556);
 		e.other:Ding();
-	elseif(e.message:findi("plague rust coif")) then
+	elseif(e.message:findi("coif")) then
 		e.self:Say("To assemble a Plague Rust Coif you will require two [silk thread], ruined ebon drakeling scales, and a rebel clockwork head plate. Once you have the necessary components combine them in your Mail Assembly Kit with this Tattered Cap Pattern.");
 		e.other:SummonItem(19555);
 		e.other:Ding();
