@@ -11,7 +11,11 @@ function event_trade(e)
 
 	if(item_lib.check_turn_in(e.trade, {item1 = 10035})) then -- Handin: Ruby
 		e.self:Say("Mmm. Ruby!! Me thank's you! Here take this, me got it off dead someone who try take my collection. Me think's this valuable thing..");
-		e.other:SummonItem(eq.ChooseRandom(10080, 10081, 10082)); -- Random: Brutechopper, Midnight Mallet, Ivandyr's Hoop
+		if(math.random(100) < 5) then
+			e.other:SummonItem(10082); --  Ivandyr's Hoop
+		else
+			e.other:SummonItem(eq.ChooseRandom(10080, 10081)); -- Random: Brutechopper, Midnight Mallet
+		end
 		e.other:Ding();
 		e.other:Faction(22,5,0);
 		e.other:Faction(292,-5,0);
