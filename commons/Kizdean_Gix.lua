@@ -7,4 +7,10 @@ function event_say(e)
 	end
 end
 
+function event_death_complete(e)
+	if(math.random(100) < 15) then
+		eq.spawn2(21141,0,0,3036,-706,-39,0); -- chance for Dragoon Zytl to spawn.
+	end
+end
+
 -- EOF commons - Kizdean_Gix
