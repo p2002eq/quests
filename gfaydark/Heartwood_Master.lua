@@ -18,7 +18,7 @@ function event_trade(e)
 		e.other:Faction(304,1); -- soldier of Tunare
 		e.other:Faction(178,1); -- King Tearis Thex
 		e.other:Faction(99,1);  -- Faydark's Champions
-		e.other:QuestReward(e.self,0,0,math.random(9),math.random(9),5047,250);
+		e.other:QuestReward(e.self,math.random(9),math.random(9),0,0,eq.ChooseRandom(5047,6012),250);
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
