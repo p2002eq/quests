@@ -28,7 +28,7 @@ function event_timer(e)
 	end
 	if(counting == 1) then
 		e.self:Emote("sighs heavily and says, 'Looks like it's not comin'. You know, Abe told me of a great treasure a ways away from here, guarded by one o' them girls with fish tails. I always wanted to go but those two jokers, Dillon and the other young one, never had the guts. Why don't ye come with me, shaman? We'll split the treasure fifty-fifty, fair and square.");
-		eq.start(58);
+		eq.start(4);
 	elseif (counting == 2) then
 		eq.spawn2(98050,0,0,4209.4,-1575.5,-289.4,181);
 		eq.depop();

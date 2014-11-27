@@ -30,7 +30,7 @@ function event_signal(e)
 		e.self:Say("Whatever.");
 	elseif(e.signal == 2) then
 		e.self:Say("Hey wait! I'm coming with!");
-		eq.start(58);
+		eq.start(4);
 		eq.set_timer("DillonDepop",20000);
 	end
 end

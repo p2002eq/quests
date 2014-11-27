@@ -31,7 +31,7 @@ function event_timer(e)
 		e.self:Say("Shaman? My time will soon be at hand and I fear I will never see our friends again. But the arrow must be given, our holy broken arrow. Shaman, will you bear our obligation and [give them the arrow]? You will know who to give it to when it is time.");
 	elseif (counting == 2) then
 		e.self:Emote("suddenly gasps and says, 'I have found it! I know the answer! Come with me and I will tell you. Eyes are everywhere and this knowledeg is not for everyone. Finally my centuries of waiting are over hahahaha! Follow me Shaman!");  
-		eq.start(58);
+		eq.start(4);
 	elseif (counting == 3) then
 		eq.spawn2(98052,0,0,4176.4,-1563.6,-291.4,115.3);
 		eq.depop();
