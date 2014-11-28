@@ -16,5 +16,14 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
+	if(item_lib.check_turn_in(e.trade, {item1 = 1270,item2 = 1319,item3 = 1323})) then
+		e.self:Say("Thank you " .. e.other:GetName() .. ", take this coin as your reward. I’m sorry to say we’re currently out of masks.");
+		e.other:Faction(115,2); -- gem chopper
+		e.other:Faction(210,1); -- merchants of akanon
+		e.other:Faction(176,1); -- king akanon
+		e.other:Faction(71,-1); -- dark reflection
+		e.other:Faction(39,-1); -- clan grikbar
+		e.other:QuestReward(e.self,math.random(9),math.random(9),math.random(5),0,0,1500);
+	end	
 	item_lib.return_items(e.self, e.other, e.trade)
 end
