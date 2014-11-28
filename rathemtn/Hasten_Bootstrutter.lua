@@ -1,3 +1,7 @@
+function event_spawn(e)
+	e.self:SetRunning(true);
+end
+
 function event_say(e)
 	if(e.message:findi("hail")) then
 		e.self:Say("Stopped I have done. Greet you I will. What business do we have? Hmm? Speak up!!");

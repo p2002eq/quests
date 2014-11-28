@@ -132,12 +132,6 @@ function Client:HasItem(itemid)
 	--main inventory and cursor
 	for i = 0, 30, 1 do
 		local thisitem = self:GetItemIDAt(i);
-		for a = 0, 5, 1 do
-			local thisaugitem = self:GetAugmentIDAt(i,a);
-			if(thisaugitem == itemid) then
-				return true;
-			end
-		end
 		if(thisitem == itemid) then
 			return true;
 		end
@@ -146,12 +140,6 @@ function Client:HasItem(itemid)
 	--main/cursor containers
 	for i = 250, 339, 1 do
 		local thisitem = self:GetItemIDAt(i);
-		for a = 0, 5, 1 do
-			local thisaugitem = self:GetAugmentIDAt(i,a);
-			if(thisaugitem == itemid) then
-				return true;
-			end
-		end
 		if(thisitem == itemid) then
 			return true;
 		end
@@ -160,12 +148,6 @@ function Client:HasItem(itemid)
 	--bank
 	for i = 2000, 2007, 1 do
 		local thisitem = self:GetItemIDAt(i);
-		for a = 0, 5, 1 do
-			local thisaugitem = self:GetAugmentIDAt(i,a);
-			if(thisaugitem == itemid) then
-				return true;
-			end
-		end
 		if(thisitem == itemid) then
 			return true;
 		end
@@ -174,12 +156,6 @@ function Client:HasItem(itemid)
 	--bank containers
 	for i = 2030, 2109, 1 do
 		local thisitem = self:GetItemIDAt(i);
-		for a = 0, 5, 1 do
-			local thisaugitem = self:GetAugmentIDAt(i,a);
-			if(thisaugitem == itemid) then
-				return true;
-			end
-		end
 		if(thisitem == itemid) then
 			return true;
 		end
@@ -188,12 +164,6 @@ function Client:HasItem(itemid)
 	--shared bank
 	for i = 2531, 2550, 1 do
 		local thisitem = self:GetItemIDAt(i);
-		for a = 0, 5, 1 do
-			local thisaugitem = self:GetAugmentIDAt(i,a);
-			if(thisaugitem == itemid) then
-				return true;
-			end
-		end
 		if(thisitem == itemid) then
 			return true;
 		end
