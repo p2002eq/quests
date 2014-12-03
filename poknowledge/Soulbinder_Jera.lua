@@ -1917,8 +1917,8 @@ function magicianSpells(e)
 		slot = slot + 1;
 		spell = spell + 1;
 	end
-	e.other:ScribeSpell(1944,slot);
-	slot = slot + 1;
+	--e.other:ScribeSpell(1944,slot);
+	--slot = slot + 1;
 	e.other:ScribeSpell(2111,slot);
 	slot = slot + 1;
 	spell = 2230;
