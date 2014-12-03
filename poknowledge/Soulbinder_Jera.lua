@@ -237,12 +237,6 @@ function clericSpells(e)
 	end
 	e.other:ScribeSpell(2946,slot);
 	slot = slot + 1;
-	spell = 3250;
-	while(spell < 3252) do
-		e.other:ScribeSpell(spell,slot);
-		slot = slot + 1;
-		spell = spell + 1;
-	end
 	spell = 3575;
 	while(spell < 3577) do
 		e.other:ScribeSpell(spell,slot);
