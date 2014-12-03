@@ -5,6 +5,7 @@ local spell;
 local status = 0;
 function event_say(e)
 	if(e.message:findi("Hail")) then
+		e.other:SetLanguageSkill(0,100);
 		e.self:Say("Greetings " .. e.other:GetName() .. ". When a hero of our world is slain their soul returns to the place it was last bound and the body is reincarnated. As a member of the Order of Eternity  it is my duty to [bind your soul] to this location if that is your wish.");
 		if(e.other:Admin() >= status) then
 			e.other:Message(14,"If you are attending the raid, I can help you [prepare] or I can send you to [fight] if you are of worthy level.");
@@ -2908,6 +2909,7 @@ end
 function raid(e)
 	if(e.other:GetLevel() < 51) then
 		e.other:SetLevel(50);
+		e.other:SetEXP(170000000,0);
 		e.other:UnscribeSpellAll();
 		if(e.other:GetClass() == 1) then -- warrior
 			warriorSkills(e);
