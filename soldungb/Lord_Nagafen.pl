@@ -50,7 +50,7 @@ sub EVENT_TIMER {
 	    my $h_dmg = $ent->GetDamage();
 	    my $h_hate = $ent->GetHate();
         if ($h_ent->IsClient()) {
-          if ($h_ent->GetLevel() > 52) {
+          if ($h_ent->GetLevel() > 52 && $status < 1) {
             quest::ze(0,"I will not fight you, but I will banish you!");
             $h_ent->CastToClient()->MovePC(27,-64,262,-93.96,0);
           }
