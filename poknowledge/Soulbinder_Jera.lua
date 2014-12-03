@@ -2311,8 +2311,8 @@ function beastlordSpells(e)
 		slot = slot + 1;
 		spell = spell + 1;
 	end
-	e.other:ScribeSpell(3291,slot);
-	slot = slot + 1;
+	--e.other:ScribeSpell(3291,slot);
+	--slot = slot + 1;
 	spell = 3568;
 	while(spell < 3570) do
 		e.other:ScribeSpell(spell,slot);
