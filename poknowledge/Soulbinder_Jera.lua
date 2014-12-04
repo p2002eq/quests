@@ -874,8 +874,8 @@ function druidSpells(e)
 	end
 	e.other:ScribeSpell(1740,slot);
 	slot = slot + 1;
-	e.other:ScribeSpell(1776,slot);
-	slot = slot + 1;
+	--e.other:ScribeSpell(1776,slot);
+	--slot = slot + 1;
 	e.other:ScribeSpell(1800,slot);
 	slot = slot + 1;
 	e.other:ScribeSpell(1888,slot);
