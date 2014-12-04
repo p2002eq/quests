@@ -237,14 +237,20 @@ function clericSpells(e)
 	end
 	e.other:ScribeSpell(2946,slot);
 	slot = slot + 1;
+	--spell = 3250;
+	--while(spell < 3252) do
+	--	e.other:ScribeSpell(spell,slot);
+	--	slot = slot + 1;
+	--	spell = spell + 1;
+	--end
 	spell = 3575;
 	while(spell < 3577) do
 		e.other:ScribeSpell(spell,slot);
 		slot = slot + 1;
 		spell = spell + 1;
 	end
-	e.other:ScribeSpell(3692,slot);
-	slot = slot + 1;
+	--e.other:ScribeSpell(3692,slot);
+	--slot = slot + 1;
 	spell = 3994;
 	while(spell < 3999) do
 		e.other:ScribeSpell(spell,slot);
@@ -926,12 +932,12 @@ function druidSpells(e)
 	slot = slot + 1;
 	e.other:ScribeSpell(3184,slot);
 	slot = slot + 1;
-	spell = 3277;
-	while(spell < 3280) do
-		e.other:ScribeSpell(spell,slot);
-		slot = slot + 1;
-		spell = spell + 1;
-	end
+	--spell = 3277;
+	--while(spell < 3280) do
+	--	e.other:ScribeSpell(spell,slot);
+	--	slot = slot + 1;
+	--	spell = spell + 1;
+	--end
 	spell = 3579;
 	while(spell < 3581) do
 		e.other:ScribeSpell(spell,slot);
