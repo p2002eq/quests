@@ -1715,8 +1715,8 @@ function wizardSpells(e)
 		slot = slot + 1;
 		spell = spell + 1;
 	end
-	e.other:ScribeSpell(2758,slot);
-	slot = slot + 1;
+	--e.other:ScribeSpell(2758,slot);
+	--slot = slot + 1;
 	spell = 2943;
 	while(spell < 2946) do
 		e.other:ScribeSpell(spell,slot);
@@ -1731,8 +1731,8 @@ function wizardSpells(e)
 	end
 	e.other:ScribeSpell(3183,slot);
 	slot = slot + 1;
-	e.other:ScribeSpell(3264,slot);
-	slot = slot + 1;
+	--e.other:ScribeSpell(3264,slot);
+	--slot = slot + 1;
 	e.other:ScribeSpell(3581,slot);
 	slot = slot + 1;
 	e.other:ScribeSpell(3793,slot);
