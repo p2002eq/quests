@@ -229,12 +229,12 @@ function clericSpells(e)
 		slot = slot + 1;
 		spell = spell + 1;
 	end
-	spell = 2740;
-	while(spell < 2743) do
-		e.other:ScribeSpell(spell,slot);
-		slot = slot + 1;
-		spell = spell + 1;
-	end
+	--spell = 2740;
+	--while(spell < 2743) do
+	--	e.other:ScribeSpell(spell,slot);
+	--	slot = slot + 1;
+	--	spell = spell + 1;
+	--end
 	e.other:ScribeSpell(2946,slot);
 	slot = slot + 1;
 	--spell = 3250;
@@ -2320,9 +2320,8 @@ function beastlordSpells(e)
 		spell = spell + 1;
 	end
 	e.other:ScribeSpell(3583,slot);
-	slot = slot + 1;
-	e.other:ScribeSpell(3689,slot);
-	slot = slot + 1;
+	--slot = slot + 1;
+	--e.other:ScribeSpell(3689,slot);
 end
 
 
