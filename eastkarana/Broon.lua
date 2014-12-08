@@ -1,7 +1,8 @@
-function event_spawn(e)
-	eq.disable_spawn2(151562);
-end
-
 function event_death_complete(e)
-	eq.enable_spawn2(151562);
+	if(math.random(100) < 50) then
+		brofath = 15138;
+	else
+		brofath = 15160;
+	end
+	eq.unique_spawn(brofath,7,0,807,2105,135,0);
 end
