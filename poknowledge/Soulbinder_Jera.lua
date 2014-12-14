@@ -854,8 +854,8 @@ function druidSpells(e)
 	slot = slot + 1;
 	e.other:ScribeSpell(1326,slot);
 	slot = slot + 1;
-	e.other:ScribeSpell(1392,slot);
-	slot = slot + 1;
+	--e.other:ScribeSpell(1392,slot);
+	--slot = slot + 1;
 	e.other:ScribeSpell(1398,slot);
 	slot = slot + 1;
 	spell = 1433;
@@ -948,8 +948,8 @@ function druidSpells(e)
 	slot = slot + 1;
 	e.other:ScribeSpell(3601,slot);
 	slot = slot + 1;
-	e.other:ScribeSpell(3695,slot);
-	slot = slot + 1;
+	--e.other:ScribeSpell(3695,slot);
+	--slot = slot + 1;
 	e.other:ScribeSpell(3792,slot);
 	slot = slot + 1;
 	e.other:ScribeSpell(3794,slot);
@@ -1455,10 +1455,10 @@ function necromancerSpells(e)
 		slot = slot + 1;
 		spell = spell + 1;
 	end
-	e.other:ScribeSpell(2757,slot);
-	slot = slot + 1;
-	e.other:ScribeSpell(2759,slot);
-	slot = slot + 1;
+	--e.other:ScribeSpell(2757,slot);
+	--slot = slot + 1;
+	--e.other:ScribeSpell(2759,slot);
+	--slot = slot + 1;
 	e.other:ScribeSpell(2764,slot);
 	slot = slot + 1;
 	e.other:ScribeSpell(2969,slot);
