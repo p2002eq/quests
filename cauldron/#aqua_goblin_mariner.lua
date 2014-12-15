@@ -1,12 +1,13 @@
-local mark_dead;
+function event_spawn(e)
+	e.self:AI_SetRoambox(750,488,-2090,1077,-1695,15000,30000);
+end
 
 function event_death_complete(e)
-	if(mark_dead == "died") then
-		-- e.self:Say("I already died once!");
-	else
-		eq.spawn2(70020,5,0,-296.37,-122.31,-349.32,122);
-		-- e.self:Say("Starting cycle");
-		mark_dead = "died";
+	random_result = math.random(100);
+	
+	if(random_result < 2) then
+		eq.unique_spawn(70059,0,0,-1123.30,-1194.57,-98.32,122);
+		-- e.self:Say("Spawning Bilge Farfathom");
 	end
 end
 
