@@ -1,5 +1,5 @@
 function event_say(e)
-	if((e.other:GetFaction(e.self) < 4) and (e.self:GetClass() == 7)) then
+	if((e.other:GetFaction(e.self) < 5) and (e.self:GetClass() == 7)) then
 		if(e.message:findi("hail")) then
 			e.self:Say("It is good to finally meet one who respects the disciplines of the Ashen Order.  All I have met are rangers.  They have interfered with my [mission in the woods].");
 		elseif(e.message:findi("mission in the wood")) then
