@@ -6,4 +6,5 @@ end
 
 function event_enter(e)
 	e.self:Emote("yowling and gibberish of goblins echos throughout the passageways.");
+	eq.depop_with_timer();
 end

@@ -6,4 +6,5 @@ end
 
 function event_enter(e)
 	e.self:Emote("bards and storytellers will sing a song of your death here one day.");
+	eq.depop_with_timer();
 end

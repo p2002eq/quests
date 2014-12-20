@@ -6,4 +6,5 @@ end
 
 function event_enter(e)
 	e.self:Emote("falls from the low ceiling, banging you on the head!  Why are you here again?");
+	eq.depop_with_timer();
 end
