@@ -1,5 +1,15 @@
 function event_spawn(e)
-	eq.set_timer("talk",60000);
+	eq.set_timer("talk",600000);
+end
+
+function event_say(e)
+	if(e.message:findi("hail")) then
+		e.self:Say("Hello, friend. I am visiting from the plains. I hope to make a FORTUNE here in Qeynos.");
+	elseif(e.message:findi("Flockwalker")) then
+		e.self:Say("Gash Flockwalker is a druid from Surefall Glade. I have a special delivery for him.");
+	elseif(e.message:findi("special delivery")) then
+		eq.attack(e.other:GetName());
+	end
 end
 
 function event_timer(e)
