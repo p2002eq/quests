@@ -6,8 +6,7 @@ function event_say(e)
 	elseif(e.message:findi("ponder")) then
 		if(e.other:GetFaction(e.self) < 5) then
 			e.self:Say("Must you know everyone's business? Hmm.. Maybe you can be of assistance. You see, I have been instructed by Furtog to tend to a matter of extreme urgency, which is keeping me from clearing the mines of rats. Will you assist and [exterminate the rats]?");
-		end
-		if(e.other:GetFaction(e.self) < 6) then
+		elseif(e.other:GetFaction(e.self) == 5) then
 			e.self:Say(prove);
 		else
 			e.self:Say(shifty);
@@ -15,8 +14,7 @@ function event_say(e)
 	elseif(e.message:findi("exterminate")) then
 		if(e.other:GetFaction(e.self) < 5) then
 			e.self:Say("Very good! I shall reward you for every four giant rat pelts returned to me. And be on the lookout for a [metal rat]!");
-		end
-		if(e.other:GetFaction(e.self) < 6) then
+		elseif(e.other:GetFaction(e.self) == 5) then
 			e.self:Say(prove);
 		else
 			e.self:Say(shifty);
@@ -24,8 +22,7 @@ function event_say(e)
 	elseif(e.message:findi("metal")) then
 		if(e.other:GetFaction(e.self) < 5) then
 			e.self:Say("I cannot tell you how many reports I have heard of metal rats in Kaladim. I first thought it was a vision obtained from having too many Tumpy Tonics, but Furtog himself is said to have seen them. If you ever catch sight of the little metal beast, give chase!! Return its metal carcass to me and I shall reward you.");
-		end
-		if(e.other:GetFaction(e.self) < 6) then
+		elseif(e.other:GetFaction(e.self) == 5) then
 			e.self:Say(prove);
 		else
 			e.self:Say(shifty);
@@ -34,8 +31,7 @@ function event_say(e)
 		if(e.other:GetFaction(e.self) < 5) then
 			e.self:Say("I am apprehensive about sending one who is so young out into the world, but I have a good feeling about you, " .. e.other:GetName() .. ". Someone has stolen the [Eye of Stormhammer]. You must journey to Antonica and go to a place called Highpass Hold. The rogue who has it is locked up in the prison. We have arranged for his extradition to Kaladim. Please give the jail clerk this note of release.");
 			e.other:SummonItem(18935); -- Sealed Note
-		end
-		if(e.other:GetFaction(e.self) < 6) then
+		elseif(e.other:GetFaction(e.self) == 5) then
 			e.self:Say(prove);
 		else
 			e.self:Say(shifty);
@@ -69,8 +65,7 @@ function event_trade(e)
 		e.other:AddEXP(500);
 		e.other:GiveCash(0,3,0,0);
 		e.other:Ding();
-	end
-	if((e.other:GetFaction(e.self) < 5) and (item_lib.check_turn_in(e.trade, {item1 = 13282}))) then -- Scrap Metal
+	elseif((e.other:GetFaction(e.self) < 5) and (item_lib.check_turn_in(e.trade, {item1 = 13282}))) then -- Scrap Metal
 		e.self:Say("I thank you, my friend. I was to destroy this metal monster months ago. I could never find him. Please accept this reward for such good service. Oh yes.. And take this card to a man named [Doran Vargnus]. He is a fine blacksmith. I am sure he will reward you with one of his finest suits of armor. Perhaps you may now assist in an [important Stormguard matter].");
 		e.other:SummonItem(13995); -- Knight (Card)
 		e.other:Faction(314, 10); -- Storm Guard
@@ -81,8 +76,7 @@ function event_trade(e)
 		e.other:AddEXP(500);
 		e.other:GiveCash(4, 0, 0, 0);
 		e.other:Ding();
-	end
-	if((e.other:GetFaction(e.self) < 5) and (item_lib.check_turn_in(e.trade, {item1 = 13321}))) then -- Eye of Stormhammer
+	elseif((e.other:GetFaction(e.self) < 5) and (item_lib.check_turn_in(e.trade, {item1 = 13321}))) then -- Eye of Stormhammer
 		--Quest text, exp, cash, factions made up
 		e.self:Say("You've found it! I'm glad you managed to hunt down and return the stolen eye for us, " .. e.other:GetName() .. ". Such effort requires a similar reward so take this and use it well.");
 		e.other:SummonItem(5415); -- Avenger Battle Axe
