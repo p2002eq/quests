@@ -1,7 +1,7 @@
 -- Necromancer Epic NPC -- Drakis_Bloodcaster
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Greetings, " .. e.other:GetRace() .. ". Are you ready to begin?");
+		e.self:Say("Greetings, " .. e.other:Race() .. ". Are you ready to begin?");
 	elseif(e.message:findi("ready to begin")) then
 		e.self:Say("Who would you like to be tested by? Jzil or Dugaas?");
 	elseif(e.message:findi("jzil") and e.other:GetClass() == 11) then
