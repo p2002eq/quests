@@ -43,7 +43,6 @@ function event_trade(e)
 --magnetized platinum
 	if(item_lib.check_turn_in(e.trade, {item1 = 16507})) then
 		e.self:Say("I see that Gavel has sent you to me.  Very well, I have magnetized your platinum bar - take it.");
-		e.other:SummonItem(19049);
 		e.other:QuestReward(e.self,0,0,0,0,19049);
 	end
 end

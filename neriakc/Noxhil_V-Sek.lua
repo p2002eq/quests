@@ -3,7 +3,7 @@ function event_say(e)
 		e.self:Say("Greetings, " .. e.other:GetName() .. "!  We of the Dead are proud to have you among us.  Your lineage is well known.  Still, you must learn to claw your way to the upper echelon.  There are many [menial tasks] to be performed before you can truly be inducted as a member.");
 	elseif(e.message:findi("menial tasks")) then
 		e.self:Say("You cannot avoid the toil of peons. We have all spent our time in the lower ranks. There are duties such as [collecting beetle eyes].");
-	elseif(e.message:findi("collecting beetle eyes")) then
+	elseif(e.message:findi("beetle eye")) then
 		e.self:Say("Take this chest.  It has been fitted with a mold designed to hold ten beetle eyes.  We require them for further experiments.  Do not return until you fill the chest.");
 		e.other:SummonItem(17930);--Empty Box
 	elseif(e.message:findi("other components")) then
