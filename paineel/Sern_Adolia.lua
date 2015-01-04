@@ -31,7 +31,7 @@ function event_trade(e)
 		e.other:Faction(60,-10);
 		e.other:Faction(79,-10);
 		e.other:Faction(112,-10);
-		e.other:QuestReward(e.self,0,0,0,0,0,500);
+		e.other:QuestReward(e.self,0,0,0,0,1437,500);
 	elseif(item_lib.check_turn_in(e.trade, {item1 = 13074, item2 = 16990, item3 = 14102, item4 = 14103})) then
 		e.self:Say("Excellent Job " .. e.other:GetName() .. ". These components will help with our research immeasurably. You will soon be reaping the rewards granted by our Lord Cazic-Thule!! If you want to further assist our research effots, talk to Atdehim Sqonci.");
 		e.other:Faction(143,30);
@@ -39,7 +39,7 @@ function event_trade(e)
 		e.other:Faction(60,-30);
 		e.other:Faction(79,-30);
 		e.other:Faction(112,-30);
-		e.other:QuestReward(e.self,0,0,0,0,1437,1000);
+		e.other:QuestReward(e.self,0,0,0,0,14100,1000);
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
