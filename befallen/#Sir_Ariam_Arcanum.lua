@@ -9,12 +9,12 @@ function event_say(e)
 		e.self:Say("I have this parchment that must be delivered to either the Knights of Truth in Freeport or to the Queen of Neriak. The contents of the note concern them both and I am desperate to have this matter addressed so ask that you take it to which ever of the cities will accept your presence. Will you take the note to the [Knights of Truth] or to [The Dead]?");
 	elseif(e.message:findi("truth")) then
 		e.self:Say("It must be delivered to Sir Artanis in the city of Freeport. It details a terrible plan of the masters of this place to restore life to a foul necromancer named Marnek. The Burning Dead must not be allowed to achieve this goal. So that you may ride swiftly with news of this nefarious scheme, take this as well, the bridle to the noble steed that was entombed alive with me here. He has strength enough for one final ride.");
-		e.other:SummonItem(31492);
+		--e.other:SummonItem(31492);
 		e.other:SummonItem(18474);
 		eq.depop();
 	elseif(e.message:findi("dead")) then
 		e.self:Say("Then take this parchment to the Queens assistant, the necromancer Xon, enemy of my enemy. I have no love for her, but Queen Thex's interests too are at risk. This details a terrible plan of the masters of this place to restore life to a foul necromancer named Marnek. The Burning Dead must not be allowed to achieve this goal. So that you may ride swiftly with news of this nefarious scheme, take this as well, the bridle to the noble steed that was entombed alive with me here.");
-		e.other:SummonItem(31492);
+		--e.other:SummonItem(31492);
 		e.other:SummonItem(18474);
 		eq.depop();
 	elseif(e.message:findi("who are you") or e.message:findi("what are you")) then
