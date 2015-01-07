@@ -26,25 +26,23 @@ function event_trade(e)
 		end
 		e.other:Message(7, "Your specialize skills have all been set to 49.");
 		e.other:QuestReward(e.self,0,0,0,0,0,1000);
-	end
-	if(item_lib.check_turn_in(e.trade, {gold = 50})) then
+	elseif(item_lib.check_turn_in(e.trade, {gold = 50})) then
 		e.self:Say("Thank you.");
 		e.other:Faction(320, 15);
 		e.other:Faction(291, -15);
 		e.other:Ding();
-	end
 --Lambent Fire Opal
-	if(item_lib.check_turn_in(e.trade, {item1 = 10031, item2 = 10031, item3 = 10000})) then
+	elseif(item_lib.check_turn_in(e.trade, {item1 = 10031, item2 = 10031, item3 = 10000})) then
 		e.self:Say("Ahh, Genni must have sent you to me.  Very well, here is your Lambent Fire Opal.");
 		e.other:Faction(320, 15);
 		e.other:Faction(291, -15);
 		e.other:QuestReward(e.self,0,0,0,0,10128);
-	end
 --magnetized platinum
-	if(item_lib.check_turn_in(e.trade, {item1 = 16507})) then
+	elseif(item_lib.check_turn_in(e.trade, {item1 = 16507})) then
 		e.self:Say("I see that Gavel has sent you to me.  Very well, I have magnetized your platinum bar - take it.");
 		e.other:QuestReward(e.self,0,0,0,0,19049);
 	end
+	item_lib.return_items(e.self, e.other, e.trade)
 end
 
 -- Quest by mystic414
