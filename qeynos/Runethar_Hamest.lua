@@ -28,6 +28,13 @@ function event_trade(e)
 		e.other:Faction(257,75,0);
 		e.other:Faction(135,75,0);
 		e.other:AddEXP(100);
+	elseif(item_lib.check_turn_in(e.trade, {item1 = 18809,item2 = 6357})) then
+		e.self:Say("Antonius Bayle will be pleased. The Temple is also pleased. Here is the enchanted staff we call Bonethunder. Should you find the enchantment gone, just ask Kasine to [enchant Bonethunder]. We need more disciples like you! Go forth to tell the world of the Rainkeeper.");
+		e.other:Faction(183,10,0);
+		e.other:Faction(21,-10,0);
+		e.other:Faction(257,7,0);
+		e.other:Faction(135,7,0);
+		e.other:QuestReward(e.self,0,0,0,0,6358,1000);
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end

@@ -20,7 +20,7 @@ function event_trade(e)
 		e.other:Faction(311,10,0);
 		e.other:AddEXP(500);
 		e.other:GiveCash(9,0,0,0);
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 18804})) then
+	elseif(item_lib.check_turn_in(e.trade, {item1 = 18816})) then
 		e.self:Say("Thank you, defender of Karana! We have heard rumors of the followers of Bertoxxulous gaining knowledge of our knight who infiltrated the ranks of the [Militia]. They would have tried to sell the information to the Militia. We will inform our knight immediately. As for you, here is a donation to your journey's expenses. Stay clear of the Freeport Militia. There is no doubt they have learned of your alliance with us.");
 		e.other:SummonItem(eq.ChooseRandom(6016,13296));
 		e.other:Ding();
