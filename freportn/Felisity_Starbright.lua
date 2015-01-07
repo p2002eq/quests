@@ -14,8 +14,8 @@ function event_trade(e)
 		e.other:Faction(135,10,0); -- guards of qeynos
 		e.other:Faction(273,-30,0); -- ring of scale
 		e.other:Faction(207,-30,0); -- mayong mistmoore
-		e.other:AddEXP(80);
-		e.other:GiveCash(0,0,math.random(9),0);
+		e.other:AddEXP(500);
+		e.other:GiveCash(0,0,9,0);
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
