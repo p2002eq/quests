@@ -36,17 +36,15 @@ function event_trade(e)
 			repeat
 				local random_copper = eq.ChooseRandom(0,1,2,3,4,5,6,7,8);
 				local random_silver = eq.ChooseRandom(0,1,2,3,4,5,6);
-				local random_gold = eq.ChooseRandom(0,1,2,3);
-				local random_plat = eq.ChooseRandom(0,1);
 				e.self:Say("Great work! Maybe you can help us out again sometime?");
 				e.other:Ding();
-				e.other:Faction(149,5,0);
-				e.other:Faction(31,2,0);
-				e.other:Faction(214,2,0);
-				e.other:Faction(53,2,0);
-				e.other:Faction(105,2,0);
+				e.other:Faction(149,1,0);
+				e.other:Faction(31,1,0);
+				e.other:Faction(214,1,0);
+				e.other:Faction(53,1,0);
+				e.other:Faction(105,1,0);
 				e.other:AddEXP(1000);
-				e.other:GiveCash(random_copper,random_silver,random_gold,random_plat);
+				e.other:GiveCash(random_copper,random_silver,0,0);
 				scalp = scalp - 1;
 			until scalp == 0
 		else
