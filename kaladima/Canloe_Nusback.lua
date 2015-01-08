@@ -54,7 +54,7 @@ function event_trade(e)
 			e.other:Faction(219,2); -- Miners Guild 249
 			e.other:Faction(215,3); -- Merchants of Kaladim
 			e.other:Faction(57,-3); -- Craknek Warriors
-			e.other:QuestReward(e.self,0,0,4,0,10017,20000);
+			e.other:QuestReward(e.self,0,0,4,0,10017,30000);
 			shoulder = shoulder - 1;
 		until shoulder == 0;
 	end
