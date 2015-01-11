@@ -26,7 +26,7 @@ function event_trade(e)
 		e.other:GiveCash(0,3,0,0);
 	elseif(item_lib.check_turn_in(e.trade, {item1 = 13424, item2 =13424, item3 = 13424,item4 = 13424})) then
 		e.self:Say("Incredible!! Such grand tones. It shall make a fine rug. You have shown me that you cannot always judge a book by its cover. You are quite skilled. Would you like to perform a [dangerous task] for me?");
-		e.other:SummonItem(eq.ChooseRandom(2112, 2106, 2111, 2108, 2104));
+		e.other:SummonItem(eq.ChooseRandom(2140,2147));
 		e.other:Ding();
 		e.other:Faction(135,1,0);
 		e.other:Faction(184,1,0);
