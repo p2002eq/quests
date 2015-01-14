@@ -5,7 +5,7 @@ function event_say(e)
 		if(e.other:GetFaction(e.self) <= 5) then
 			e.self:Say("I have a small task for you then. Go to the city library and ask the librarian for the book 'The Testament of Vanear'. I shall require it for further studies. Do not return empty-handed or you shall know my rage.");
 		else
-			e.self:Say("You have not done much to upset the Peacekeepers of this temple. but we must ask you to prove yourself to us before we may discuss things such as this."); 
+			e.self:Say("You have not done much to upset the Peacekeepers of this temple. but we must ask you to prove yourself to us before we may discuss things such as this.");
 		end
 	end
 end
@@ -15,7 +15,7 @@ function event_trade(e)
 
 	if(item_lib.check_turn_in(e.trade, {item1 = 13991})) then
 		e.self:Say("I sent you after that book ages ago! What took you so long? I have already completed my studies. Luckily I found the original manuscript under my bedroll. I forgot I had kept it there. Take this as a token of my apology. Maybe it will aid you in your next book hunt. I know how cunning those books can be.");
-		e.other:SummonItem(eq.ChooseRandom(15302,6351,89036,16647));
+		e.other:SummonItem(15302);
 		e.other:Ding();
 		e.other:Faction(145,-10,0);
 		e.other:Faction(247,5,0);
