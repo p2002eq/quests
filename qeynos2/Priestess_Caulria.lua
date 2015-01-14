@@ -29,7 +29,7 @@ function event_trade(e)
 		e.other:Faction(135,5,0);  -- Guards of Qeynos
 		e.other:Faction(21,-10,0); -- Bloodsabers
 		e.other:Faction(9,5,0);    -- Antonius Bayle
-		e.other:AddEXP(1000);
+		e.other:AddEXP(15000);
 	elseif(item_lib.check_turn_in(e.trade, {item1 = 13298})) then
 		e.self:Say("Oh dear. The disease has spread to the realm of the Treefolk. It must have been difficult to kill such a large and rabid beast. Here. Take one of my personal scrolls as thanks for such a brave act of devotion. I pray you can use it. If not, then perhaps one of your fellow adventurers can.");
 		e.self:CastSpell(213,e.other:GetID());
@@ -40,7 +40,7 @@ function event_trade(e)
 		e.other:Faction(135,5,0);  -- Guards of Qeynos
 		e.other:Faction(21,-10,0); -- Bloodsabers
 		e.other:Faction(9,5,0);    -- Antonius Bayle
-		e.other:AddEXP(1000);
+		e.other:AddEXP(15000);
 		e.other:GiveCash(0,0,6,0);
 	elseif(item_lib.check_turn_in(e.trade, {item1 = 13950})) then
 		e.self:Say("This is odd. This could explain the increase in the number of beasts within the lands surrounding Qeynos. You must take this to Freeport. Here. You must speak with Lorme Tredore. Show him this pellet. You had best gear up for the trip. Freeport is very far away. Here is some gold. Outfit yourself at our expense.");

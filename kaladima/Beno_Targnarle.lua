@@ -57,22 +57,22 @@ function event_trade(e)
 	if((e.other:GetFaction(e.self) < 5) and (item_lib.check_turn_in(e.trade, {item1 = 13054, item2 = 13054, item3 = 13054, item4 = 13054}))) then -- Giant Rat Pelt
 		e.self:Say("Great work, young one! We shall soon rid our mines of these pests. Keep a lookout for that [metal rat]. Here is a small reward for such fine work. Soon, you shall be know as Kaladim's resident exterminator.");
 		e.other:Ding();
-		e.other:Faction(314, 10); -- Storm Guard
-		e.other:Faction(169, 10); -- Kazon Stormhammer
-		e.other:Faction(219, 10); -- Miner's Guild 249
-		e.other:Faction(215, 10); -- Merchants of Kaladim
-		e.other:Faction(57, -10); -- Craknek Warriors
+		e.other:Faction(314, 5); -- Storm Guard
+		e.other:Faction(169, 1); -- Kazon Stormhammer
+		e.other:Faction(219, 1); -- Miner's Guild 249
+		e.other:Faction(215, 1); -- Merchants of Kaladim
+		e.other:Faction(57, -1); -- Craknek Warriors
 		e.other:AddEXP(500);
 		e.other:GiveCash(0,3,0,0);
 		e.other:Ding();
 	elseif((e.other:GetFaction(e.self) < 5) and (item_lib.check_turn_in(e.trade, {item1 = 13282}))) then -- Scrap Metal
 		e.self:Say("I thank you, my friend. I was to destroy this metal monster months ago. I could never find him. Please accept this reward for such good service. Oh yes.. And take this card to a man named [Doran Vargnus]. He is a fine blacksmith. I am sure he will reward you with one of his finest suits of armor. Perhaps you may now assist in an [important Stormguard matter].");
 		e.other:SummonItem(13995); -- Knight (Card)
-		e.other:Faction(314, 10); -- Storm Guard
-		e.other:Faction(169, 10); -- Kazon Stormhammer
-		e.other:Faction(219, 10); -- Miner's Guild 249
-		e.other:Faction(215, 10); -- Merchants of Kaladim
-		e.other:Faction(57, -10); -- Craknek Warriors
+		e.other:Faction(314, 20); -- Storm Guard
+		e.other:Faction(169, 5); -- Kazon Stormhammer
+		e.other:Faction(219, 3); -- Miner's Guild 249
+		e.other:Faction(215, 5); -- Merchants of Kaladim
+		e.other:Faction(57, -5); -- Craknek Warriors
 		e.other:AddEXP(500);
 		e.other:GiveCash(4, 0, 0, 0);
 		e.other:Ding();
@@ -81,10 +81,10 @@ function event_trade(e)
 		e.self:Say("You've found it! I'm glad you managed to hunt down and return the stolen eye for us, " .. e.other:GetName() .. ". Such effort requires a similar reward so take this and use it well.");
 		e.other:SummonItem(5415); -- Avenger Battle Axe
 		e.other:Faction(314, 20); -- Storm Guard
-		e.other:Faction(169, 20); -- Kazon Stormhammer
-		e.other:Faction(219, 20); -- Miner's Guild 249
-		e.other:Faction(215, 20); -- Merchants of Kaladim
-		e.other:Faction(57, -10); -- Craknek Warriors
+		e.other:Faction(169, 5); -- Kazon Stormhammer
+		e.other:Faction(219, 3); -- Miner's Guild 249
+		e.other:Faction(215, 5); -- Merchants of Kaladim
+		e.other:Faction(57, -5); -- Craknek Warriors
 		e.other:AddEXP(5000);
 		e.other:GiveCash(4, 0, 0, 0);
 		e.other:Ding();
