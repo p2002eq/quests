@@ -1,8 +1,4 @@
 -- Rogue Epic NPC -- --War_Priestess_T`zan
-function event_spawn(e) -- remove when kith is fixed
-	eq.depop();
-end
-
 function event_say(e)
 	e.self:Emote("ignores you.");
 end
