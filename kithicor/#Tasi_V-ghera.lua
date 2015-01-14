@@ -1,4 +1,7 @@
 -- Rogue Epic NPC -- --Tasi_V'ghera
+function event_spawn(e) -- remove when kith is fixed
+	eq.depop();
+end
 
 function event_say(e)
 	e.self:Emote("ignores you.");
@@ -6,7 +9,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	
+
 	if(item_lib.check_turn_in(e.trade, {item1 = 28057})) then
 		e.self:Say("The General will take care of you!");
 		e.other:QuestReward(e.self,0,0,0,0,0,500);
