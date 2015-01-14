@@ -1,4 +1,8 @@
 -- Rogue Epic NPC -- --Coercer_Q'ioul
+function event_spawn(e) -- remove when kith is fixed
+	eq.depop_zone(true);
+end
+
 function event_say(e)
 	e.self:Emote("ignores you.");
 end
