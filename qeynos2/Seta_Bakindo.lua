@@ -5,25 +5,25 @@ function event_say(e)
 		e.self:Say("Ah... Welcome friend. I am Master Seta, of the Silent Fist Clan. We know that true strength lies inside your soul. Once you have found and mastered it, your fists will be deadlier than any blade.  I am also currently in charge of training our new recruits. If you are new monk of the Silent Fist I  have some [tests] for you to complete.");
 	elseif(e.message:findi("tests")) then
 		e.self:Say("I pride myself on passing some of the finest monks in all of the lands through my testing halls. I mainly attribute this fact to my training program that all young monks must undergo. When you are [ready to begin the tests] I will present you with your Silent Fist Assembly Kit and explain to you how the tests work.");
-	elseif(e.message:findi("ready to begin the tests")) then
+	elseif(e.message:findi("ready")) then
 		e.self:Say("Be mindful of your surroundings " .. e.other:GetName() .. ", it is here in Qeynos and in the adventuring areas surround it that you will find all the necessary items for creating Armor of the Silent Fist. You will place a number of items in this kit to create infused armor materials. These magical armor materials can then be combined in a loom with a magical pattern to create different Armor of the Silent Fist pieces. When you are ready to collect the items for a specific armor piece please tell me what armor piece you want to craft. I can present you with the patterns for Silent Fist [Cap], [Bracers], [Sleeves], [Sandals], [Trousers], [Gloves] and [Robes].");
 		e.other:SummonItem(17270); -- Silent Fist Assembly Kit ID-17270
 	elseif(e.message:findi("cap")) then
 		e.self:Say("To create your cap material you will need to combine 2 Woven Spider Silks, 1 Skeleton Tibia, 1 Field Rat Skull and a Cloth Cap in your assembly kit. Once you have created the proper material take it to a loom along with this pattern to fashion your very own Cap of the Silent Fist.");
 		e.other:SummonItem(22583); -- An Enchanted Cap Pattern ID-22583
-	elseif(e.message:findi("bracers")) then
+	elseif(e.message:findi("bracer")) then
 		e.self:Say("To create your bracer material you will need to combine 1 Woven Spider Silk, 2 Rat Whiskers, 1 Gnoll Jawbone and a Cloth Wristband in your assembly kit. Once you have created the proper material take it to a loom along with this pattern to fashion your very own Bracer of the Silent Fist.");
 		e.other:SummonItem(22584); -- An Enchanted Bracer Pattern ID-22584
-	elseif(e.message:findi("sleeves")) then
+	elseif(e.message:findi("sleeve")) then
 		e.self:Say("To create your sleeves material you will need to combine 2 Woven Spider Silks, 2 Rabid Wolf Hides, and Cloth Sleeves in your assembly kit. Once you have created the proper material take it to a loom along with this pattern to fashion your very own Sleeves of the Silent Fist.");
 		e.other:SummonItem(22586); -- An Enchanted Sleeves Pattern ID-22586
-	elseif(e.message:findi("sandals")) then
+	elseif(e.message:findi("sandal")) then
 		e.self:Say("To create your boot material you will need to combine 3 Woven Spider Silks, 1 Severed Gnoll Foot, 1 Gnoll Backbone, 1 Bone Chip and Cloth Sandals in your assembly kit. Once you have created the proper material take it to a loom along with this pattern to fashion your very own Sandals of the Silent Fist.");
 		e.other:SummonItem(22585); -- An Enchanted Sandals Pattern ID-22585
-	elseif(e.message:findi("trousers")) then
+	elseif(e.message:findi("trouser")) then
 		e.self:Say("To create your trouser material you will need to combine 4 Woven Spider Silks, 1 Bandit Sash, 1 Matted Lion Pelt and 1 Giant Spider Egg Sack in your assembly kit. Once you have created the proper material take it to a loom along with this pattern to fashion your very own Trousers of the Silent Fist.");
 		e.other:SummonItem(22587); -- An Enchanted Trousers Pattern ID-22587
-	elseif(e.message:findi("gloves")) then
+	elseif(e.message:findi("glove")) then
 		e.self:Say("To create your glove material you will need to combine 3 Woven Spider Silks, 1 Giant Fire Beetle Eye, 1 Chunk of Meat, 1 Ale and 1 Young Puma Skin in your assembly kit. Once you have created the proper material take it to a loom along with this pattern to fashion your very own Gloves of the Silent Fist.");
 		e.other:SummonItem(22588); -- An Enchanted Gloves Pattern ID-22588
 	elseif(e.message:findi("robe")) then
@@ -38,7 +38,7 @@ function event_say(e)
 	elseif(e.message:findi("find him")) then
 		e.self:Say("One of our clan brothers has not reported back in over three days. He was sent to help defend the Qeynos Gates, and we haven't heard from him since. We need you to find him, if he is still alive. Tell him that Seta has sent you to find him, and escort him back to our guild. Good luck.");
 		eq.target_global("FindTomer","1","M30",2030,e.other:CharacterID(),2); -- Initialize flag to Tomer_Instogle for this player
-	elseif((e.message:findi("I have rescued Tomer Instogle")) or (e.message:findi("I found Tomer"))) then
+	elseif((e.message:findi("Tomer Instogle")) or (e.message:findi("Tomer"))) then
 		if(qglobals.SetaTomer == "1") then
 			e.self:Say("Great work " .. e.other:GetName() .. ", we thought that was the last we'd seen of young Tomer.");
 			eq.target_global("FindTomer","2","M30",2030,e.other:CharacterID(),2); -- Update the flag to Tomer Instogle for this player

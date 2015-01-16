@@ -13,12 +13,10 @@ function event_trade(e)
 
 	if(item_lib.check_turn_in(e.trade, {item1 = 13916,item2 = 13916})) then
 		e.self:Say("Very fine work " .. e.other:GetName() .. ". With your help, we shall soon rid the commonlands of the orcs. Then we can move on to a [bigger problem].");
-		e.other:Ding();
 		e.other:Faction(105,1,0); -- Freeport Militia
 		e.other:Faction(311,-1,0); -- Steel Warriors
 		e.other:Faction(184,-1,0); -- Knights of Truth
-		e.other:AddEXP(100);
-		e.other:GiveCash(0,0,8,0);
+		e.other:QuestReward(e.self,0,0,8,0,0,5000);
 	end
 	item_lib.return_items(e.self, e.other, e.trade);
 end
