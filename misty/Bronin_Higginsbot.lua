@@ -6,9 +6,9 @@ function event_say(e)
 	elseif(e.message:findi("small favor")) then
 		if(e.other:GetFaction(e.self) < 5) then
 			e.self:Say("I have been tracked here by a bounty hunter named Slaythe. I have heard reports of his presence beyond the Great Wall. Please seek him out and bring me some body part of his as proof of his passing. Do this and the emerald shard is yours.");
-			-- if(eq.get_entity_list():IsMobSpawnedByNpcTypeID(33146) == false) then
-			--	 eq.spawn2(33146, 0, 0, 893.00, 664.00, -34.73, 0); -- Spawn Slaythe
-			-- end
+			if(eq.get_entity_list():IsMobSpawnedByNpcTypeID(33146) == false) then
+				 eq.spawn2(33146, 0, 0, 893.00, 664.00, -34.73, 0); -- Spawn Slaythe
+			end
 		elseif(e.other:GetFaction(e.self) < 6) then
 			e.self:Say("When the blood of many Runnyeye goblins has covered your blade, then I shall find you worthy to speak of such matters.");
 		else
