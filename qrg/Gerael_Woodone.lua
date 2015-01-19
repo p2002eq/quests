@@ -15,8 +15,7 @@ function event_trade(e)
 	local item_lib = require("items");
 	local random_copper = math.random(10);
 	local random_silver = math.random(10);
-	local random_gold = math.random(10);
-	local random_planinum = math.random(10);
+	local random_gold = math.random(5);
 
 	if(item_lib.check_turn_in(e.trade, {item1 = 18911})) then
 		e.self:Say("Oh my!! Our Qeynos Ambassador, Gash, is in danger. Please take the note over to Captain Tillin of the Qeynos Guard then find Gash and inform him [they are trying to kill him]. Go!!");
@@ -26,8 +25,8 @@ function event_trade(e)
 		e.other:Faction(267,2,0); -- QRG Protected Animals
 		e.other:Faction(347,-3,0); -- Unkempt Druids
 		e.other:Faction(135,2,0); -- Guards of Qeynos
-		e.other:AddEXP(200);
-		e.other:GiveCash(random_copper,random_silver,random_gold,random_planinum);
+		e.other:AddEXP(1000);
+		e.other:GiveCash(random_copper,random_silver,random_gold,0);
 	elseif(item_lib.check_turn_in(e.trade, {item1 = 12141})) then
 		e.self:Say("So the Unkempt Druids are alive and well.  We shall keep a watchful eye out as should you.  Take this for your bravery and defense of the Jaggedpine.");
 		e.other:Ding();
@@ -36,8 +35,8 @@ function event_trade(e)
 		e.other:Faction(267,10,0);
 		e.other:Faction(347,-30,0);
 		e.other:Faction(135,10,0);
-		e.other:AddEXP(200);
-		e.other:GiveCash(random_copper,random_silver,random_gold,random_planinum);
+		e.other:AddEXP(20000);
+		e.other:GiveCash(random_copper,random_silver,random_gold,0);
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
