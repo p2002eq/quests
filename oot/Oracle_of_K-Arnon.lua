@@ -1,3 +1,8 @@
+
+function event_spawn(e)
+	eq.depop();
+end
+
 function event_say(e)
 	if(e.message:findi("hail")) then
 		e.self:Say("Greetings, " .. e.other:GetName() .. ", I am the Oracle of K'Aron. Do you quest for [knowledge] yourself, or do you offer that which I [seek].");
@@ -30,7 +35,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	
+
 	if(item_lib.check_turn_in(e.trade, {item1 = 18302})) then -- Book of Scale
 		e.other:QuestReward(e.self,0,0,0,0,19072); -- Miragul's Phylactery
 	elseif(item_lib.check_turn_in(e.trade, {item1 = 18202})) then -- Book of Turmoil
