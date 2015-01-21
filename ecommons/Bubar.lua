@@ -1,6 +1,8 @@
 function event_say(e)
 	if(e.message:findi("hail")) then
 		e.self:Say("Greetings, friend! I am Bubar, merchant from the burning sands. You must be thirsty or, perhaps, hungry. Please look over my goods.");
+	elseif(e.message:findi("gem case")) then
+		e.self:Say("Talking of containers? I do not make containers any longer. Provisions are much more profitable. Do you have one of my containers? Most likely you have locked yourself out then. My specialty was the three-lock case. They always lose one of the keys. Hand me the case and at least two of the keys and I can open it for you.");
 	end
 end
 
