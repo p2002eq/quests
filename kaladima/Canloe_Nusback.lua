@@ -41,7 +41,7 @@ function event_trade(e)
 			e.other:Faction(219,1); -- Miners Guild 249
 			e.other:Faction(215,2); -- Merchants of Kaladim
 			e.other:Faction(57,-2); -- Craknek Warriors
-			e.other:QuestReward(e.self,0,eq.ChooseRandom(5,6,7,8,9,10,11,12,13,14,15),0,0,eq.ChooseRandom(9009,2113,2114,2115,2116,2117,2118,2119,2120,2122,2123,2124),15000);
+			e.other:QuestReward(e.self,0,eq.ChooseRandom(5,6,7,8,9,10,11,12,13,14,15),0,0,eq.ChooseRandom(9009,2113,2114,2115,2116,2117,2118,2119,2120,2122,2123,2124),5000);
 			belt = belt - 1;
 		until belt == 0
 	end		
@@ -54,7 +54,7 @@ function event_trade(e)
 			e.other:Faction(219,2); -- Miners Guild 249
 			e.other:Faction(215,3); -- Merchants of Kaladim
 			e.other:Faction(57,-3); -- Craknek Warriors
-			e.other:QuestReward(e.self,0,0,4,0,10017,25000);
+			e.other:QuestReward(e.self,0,0,4,0,10017,15000);
 			shoulder = shoulder - 1;
 		until shoulder == 0;
 	end
