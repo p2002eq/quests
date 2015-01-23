@@ -18,12 +18,12 @@ function event_trade(e)
 	local item_lib = require("items");
 	if(item_lib.check_turn_in(e.trade, {item1 = 13209})) then
 		e.self:Say("Hmmm. Here you go. Take this log to Drekon Vebnebber. He is the in-house merchant at Gemchoppers Hall. It is his duty to file away all these logs.");
-		e.other:Faction(91,1);
+		e.other:Faction(91,5);
 		e.other:Faction(176,1);
 		e.other:Faction(115 ,1);
 		e.other:Faction(209,-1);
 		e.other:Faction(322,-1);
-		e.other:QuestReward(e.self,0,0,0,0,eq.ChooseRandom(18837,18838),1000);
+		e.other:QuestReward(e.self,0,0,0,0,eq.ChooseRandom(18837,18838),100);
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end

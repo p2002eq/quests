@@ -34,7 +34,7 @@ function event_trade(e)
 		e.other:Faction(21,-10,0); -- Blood Sabers
 		e.other:Faction(257,10,0); -- Priests of Life
 		e.other:Faction(135,10,0); -- Guards of Qeynos
-		e.other:AddEXP(50000);
+		e.other:AddEXP(40000);
 		e.other:GiveCash(math.random(10),math.random(10),math.random(10),0);
 	elseif(item_lib.check_turn_in(e.trade, {item1 = 18839})) then
 		e.self:Say("Hmmph!! My son is living in a fantasy world. Still, you have done well. Take this as a token of appreciation. It is not much, but it may come in handy.");

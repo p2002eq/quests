@@ -21,7 +21,7 @@ function event_trade(e)
 	if(item_lib.check_turn_in(e.trade, {item1 = 13198, item2 = 13198, item3 = 13198, item4 = 13198})) then -- Turn in 4 scrap metal
 		e.self:Say("For your efforts I shall reward you"); -- Not official dialog, Dont actually know what he says.
 		e.other:SummonItem(eq.ChooseRandom(5013,5013,5013,5014,5014,5014,5015,5015,5015,5016,5016,5016,5019,5019,5019,5020,5020,5020,12340,12340,17033)); -- Various rusty weapons, Orb o flight and a contraption given when completed. All randomly.
-		e.other:AddEXP(1000); -- Amount of Experience guessed, No actual Experience Info.
+		e.other:AddEXP(100); -- Amount of Experience guessed, No actual Experience Info.
 		e.other:GiveCash(4,5,1,1); -- Amount of coin recieved is guessed, No actual coin Info.
 		e.other:Faction(115,3,0);
 		e.other:Faction(176,3,0);
@@ -42,15 +42,13 @@ function event_trade(e)
 		e.other:SummonItem(12339);
 		e.other:Ding();
 	elseif(item_lib.check_turn_in(e.trade, {item1 = 13216, item2 = 13217})) then
-		e.self:Say("Wow! You took care of those rogue models pretty easily. I bet Drekon told you I'd have a reward, huh? Well it's enough I don't have to worry about those models running around anymore. Here ya go!"); -- text not live-like. Need original
-		e.other:SummonItem(eq.ChooseRandom(17981, 17981, 6027));
-		e.other:Faction(115,3,0);
-		e.other:Faction(176,3,0);
-		e.other:Faction(210,3,0);
-		e.other:Faction(71,-3,0);
-		e.other:Faction(39,-3,0);
-		e.other:Ding();
-		e.other:AddEXP(1000);
+		e.self:Say("Good. The citizens of Ak'Anon are safe from those little critters. They may have injured someone; that is why they are deactivated. Here is something I found in the scrapyard. I hope you can find a purpose for it.");
+		e.other:Faction(115,10,0);
+		e.other:Faction(176,2,0);
+		e.other:Faction(210,2,0);
+		e.other:Faction(71,-2,0);
+		e.other:Faction(39,-2,0);
+		e.other:QuestReward(e.self,math.random(10),math.random(10),math.random(5),0,eq.ChooseRandom(17981, 17981, 6027),250);
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
