@@ -3,7 +3,7 @@ function event_say(e)
 	local qglobals = eq.get_qglobals(e.other);
 	if(e.message:findi("Hail")) then
 		e.self:Say("Ah... Welcome friend. I am Master Seta, of the Silent Fist Clan. We know that true strength lies inside your soul. Once you have found and mastered it, your fists will be deadlier than any blade.  I am also currently in charge of training our new recruits. If you are new monk of the Silent Fist I  have some [tests] for you to complete.");
-	elseif(e.message:findi("tests")) then
+	elseif(e.message:findi("test")) then
 		e.self:Say("I pride myself on passing some of the finest monks in all of the lands through my testing halls. I mainly attribute this fact to my training program that all young monks must undergo. When you are [ready to begin the tests] I will present you with your Silent Fist Assembly Kit and explain to you how the tests work.");
 	elseif(e.message:findi("ready")) then
 		e.self:Say("Be mindful of your surroundings " .. e.other:GetName() .. ", it is here in Qeynos and in the adventuring areas surround it that you will find all the necessary items for creating Armor of the Silent Fist. You will place a number of items in this kit to create infused armor materials. These magical armor materials can then be combined in a loom with a magical pattern to create different Armor of the Silent Fist pieces. When you are ready to collect the items for a specific armor piece please tell me what armor piece you want to craft. I can present you with the patterns for Silent Fist [Cap], [Bracers], [Sleeves], [Sandals], [Trousers], [Gloves] and [Robes].");
