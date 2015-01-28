@@ -38,7 +38,7 @@ function event_trade(e)
 	if(item_lib.check_turn_in(e.trade, {item1 = 20204})) then
 		e.self:Say("Well done. The Bloodsabers have many enemies within the city of Qeynos and its surrounding regions. You must exercise much caution when not within the safety of our temple here in the Qeynos Catacombs. Take this Rough Bloodsaber Staff and when you have gathered a Giant King Snake Skin, two Gnoll Fangs, and a Giant Fire Beetle Eye, return them to me with this staff and I will complete its construction.");
 		e.other:QuestReward(e.self,0,0,0,0,20203);
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 13915, item2 = 13915, item3 = 19946, item4 = 13251, item5 = 20203})) then
+	elseif(item_lib.check_turn_in(e.trade, {item1 = 13915, item2 = 20203, item3 = 19946, item4 = 13251})) then
 		e.self:Say("Excellent work! Here is your reward.");
 		e.other:Faction(21,1);
 		e.other:Faction(135,-1);
