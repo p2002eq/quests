@@ -1,8 +1,3 @@
-
-function event_spawn(e)
-	eq.depop();
-end
-
 function event_say(e)
 	if(e.message:findi("hail")) then
 		e.self:Say("Greetings, " .. e.other:GetName() .. ", I am the Oracle of K'Aron. Do you quest for [knowledge] yourself, or do you offer that which I [seek].");
