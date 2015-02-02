@@ -19,7 +19,7 @@ function event_trade(e)
 		e.other:Faction(434,30,0);
 		e.other:AddEXP(100);
 		e.other:GiveCash(cp,sp,gp,pp);
-	elseif(item_lib.check_turn_in(e.trade, {item1 = (18504 or 18505 or 18506 or 18507)})) then
+	elseif(item_lib.check_turn_in(e.trade, {item1 = 18504}) or item_lib.check_turn_in(e.trade, {item1 = 18505}) or item_lib.check_turn_in(e.trade, {item1 = 18506}) or item_lib.check_turn_in(e.trade, {item1 = 18507})) then
 		local pp = math.random(2);
 		local gp = math.random(6);
 		local sp = math.random(15);
