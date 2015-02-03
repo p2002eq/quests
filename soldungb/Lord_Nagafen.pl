@@ -6,13 +6,13 @@ my $SpawnZ = 0;
 my $SpawnH = 0;
 
 sub EVENT_SPAWN {
-  #$SpawnX = $x;
-  #$SpawnY = $y;
-  #$SpawnZ = $z;
-  #$SpawnH = $h;
-  #my $range = 200;
-  #quest::set_proximity($x - $range, $x + $range, $y - $range, $y + $range);
-  #quest::setnexthpevent(96);
+  $SpawnX = $x;
+  $SpawnY = $y;
+  $SpawnZ = $z;
+  $SpawnH = $h;
+  my $range = 200;
+  quest::set_proximity($x - $range, $x + $range, $y - $range, $y + $range);
+  quest::setnexthpevent(96);
 }
 
 sub EVENT_HP {
