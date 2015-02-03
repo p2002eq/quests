@@ -6,7 +6,6 @@ my $SpawnZ = 0;
 my $SpawnH = 0;
 
 sub EVENT_SPAWN {
-quest::depop(); # Remove when mob is fixed
   #$SpawnX = $x;
   #$SpawnY = $y;
   #$SpawnZ = $z;
