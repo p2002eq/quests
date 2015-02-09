@@ -14,13 +14,12 @@ function event_trade(e)
 	local item_lib = require("items");
 	if(item_lib.check_turn_in(e.trade, {item1 = 13703,platinum = 1})) then
 		e.self:Say("I am not even going to bother asking where you got that. Just take this set I already made and hurry them back to Fabian.");
-		e.other:Ding();
 		e.other:Faction(192,30,0);
 		e.other:Faction(184,30,0);
 		e.other:Faction(135,30,0);
 		e.other:Faction(273,-30,0);
 		e.other:Faction(207,-30,0);
-		e.other:AddEXP(100);
+		e.other:QuestReward(e.self,0,0,0,0,13709,100);
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
