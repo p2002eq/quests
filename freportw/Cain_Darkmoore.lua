@@ -17,22 +17,20 @@ function event_trade(e)
 
 	if(item_lib.check_turn_in(e.trade, {item1 = 13916,item2 = 13916})) then -- Deathfist Slashed Belt x 2
 		e.self:Say("Very fine work " .. e.other:GetName() .. ". With your help, we shall soon rid the commonlands of the orcs. Then we can move on to a [bigger problem].");
-		e.other:Ding();
+		e.other:Faction(311,5,0); -- Steel Warriors
+		e.other:Faction(135,1,0); -- Guards of Qeynos
+		e.other:Faction(53,-1,0); -- Corrupt Qeynos Guards
 		e.other:Faction(105,-1,0); -- Freeport Militia
-		e.other:Faction(311,1,0); -- Steel Warriors
 		e.other:Faction(184,1,0); -- Knights of Truth
-		e.other:AddEXP(100);
-		e.other:GiveCash(0,0,8,0);
+		e.other:QuestReward(e.self,0,0,8,0,0,7500);
 	elseif(item_lib.check_turn_in(e.trade, {item1 = 18748})) then -- A Tattered Note
 		e.self:Say("Welcome to the Steel Warriors, young warrior. It is time to prove your mettle. Look to the outskirts of Freeport and join the fray. Show Clan Deathfist what a warrior of the bunker can do.");
-		e.other:SummonItem(13572); -- Dirty Training Tunic
-		e.other:Ding();
 		e.other:Faction(311,100,0); -- Steel Warriors
 		e.other:Faction(135,20,0); -- Guards of Qeynos
 		e.other:Faction(53,-15,0); -- Corrupt Qeynos Guards
 		e.other:Faction(105,-15,0); -- Freeport Militia
 		e.other:Faction(184,20,0); -- Knights of Truth
-		e.other:AddEXP(100);
+		e.other:QuestReward(e.self,0,0,0,0,13572,100);
 	end
 	item_lib.return_items(e.self, e.other, e.trade);
 end
