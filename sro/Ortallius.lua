@@ -25,16 +25,14 @@ function event_trade(e)
 		e.other:Ding();
 		e.other:SummonItem(7041);	-- Burning Rapier
 		e.other:Faction(442,10,0);	-- faction better: 'Temple Of Sol Ro'
-		e.other:Faction(291,-30,0);	-- faction worse: 'Shadowed Men'
+		e.other:Faction(291,-1,0);	-- faction worse: 'Shadowed Men'
 		e.other:GiveCash(0,0,0,4);
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 1903})) then
+	elseif(item_lib.check_turn_in(e.trade, {item1 = 1903,item2 = 1903, item3 = 1903})) then
 		e.self:Say("You will make a fine addition to the crusade. Continue the cleansing of the desert. Let it be known that the Defenders of Ro are here to challenge the evils of the desert. I call upon the righteousness of all paladins to assist me.");
-		e.other:Ding();
-		e.other:AddEXP(250);
 		e.other:SummonItem(eq.ChooseRandom(5013,5014,5015,5016,5019,5020,5020,5021,5022,5023,5024,5025,5013,5014,5015,5016,5019,5020,5020,5021,5022,5023,5024,5025,5013,5014,5015,5016,5019,5020,5020,5021,5022,5023,5024,5025,3040,3042,3043,3044,3046,3047,3048,3049,3050,3051));
-		e.other:Faction(442,10,0);		-- faction better: 'Temple Of Sol Ro'
-		e.other:Faction(291,-3,0);		-- faction worse: 'Shadowed Men'
-		e.other:GiveCash(8,4,0,0);
+		e.other:Faction(442,5,0);		-- faction better: 'Temple Of Sol Ro'
+		e.other:Faction(291,-1,0);		-- faction worse: 'Shadowed Men'
+		e.other:QuestReward(e.self,8,4,0,0,0,7500);
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
