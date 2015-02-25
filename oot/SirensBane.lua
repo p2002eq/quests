@@ -12,7 +12,7 @@ function event_waypoint_arrive(e)
 	local minute = zone_time["zone_minute"];
 	-- Freeport
 	if(e.self:GetGrid() == 60 and e.wp == 17) then
-		eq.debug("Boat has reached its destination! Name is: " .. e.self:GetName() .. " Time is: " .. hour ..":" .. minute .. "", 1);
+		eq.debug("Boat to Freeport (60) has reached its destination! Name is: " .. e.self:GetName() .. " Time is: " .. hour ..":" .. minute .. "", 1);
 		eq.get_entity_list():ForeachClient(
 			function(ent)
 				ent:MovePC(10,-1853,-748,-80,0);
@@ -26,7 +26,7 @@ function event_waypoint_arrive(e)
 		);
 	-- Butcher
 	elseif(e.self:GetGrid() == 61 and e.wp == 15) then
-		eq.debug("Boat has reached its destination! Name is: " .. e.self:GetName() .. " Time is: " .. hour ..":" .. minute .. "", 1);
+		eq.debug("Boat to Butcher (61) has reached its destination! Name is: " .. e.self:GetName() .. " Time is: " .. hour ..":" .. minute .. "", 1);
 		-- This grid zones a few seconds after the other.
 		-- eq.spawn_condition("oot",0,1,0);
 		-- eq.spawn_condition("oot",0,2,0);
