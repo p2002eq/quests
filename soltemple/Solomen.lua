@@ -7,7 +7,7 @@ function event_say(e)
 		e.self:Say("Unfortunately, I don't have time to speak of such things right now.  But I could use your help since you are here.  I have here an envelope that I need delivered to one Camin.  You can find him near the wizard tower in the city of Erudin.  He is a sage like myself whose knowledge rivals my own.  Do you [agree] to undertake my task?");
 	elseif(e.message:findi("i agree")) then
 		e.self:Say("Here you are, then.  Good luck on your journey.");
-		e.other:SummonItem("18088");
+		e.other:SummonItem(18088);
 	end
 end
 
