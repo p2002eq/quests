@@ -23,7 +23,7 @@ function event_trade(e)
 		eq.depop();
 	elseif(item_lib.check_turn_in(e.trade, {item1 = 20815, item2 = 20816, item3 = 20814, item4 = 20961})) then 	--cleric test of theurgy using djinni aura, efreeti mace, glowing sapphire, saffon spiroc feather
 		e.self:Say("Good on ya!");
-		e.other:QuestReward(e.self,0,0,0,0,27718,100000); --theurgist's star
+		e.other:QuestReward(e.self,0,0,0,0,11692,100000); --theurgist's star
 		eq.depop();
 	elseif(item_lib.check_turn_in(e.trade, {item1 = 20817, item2 = 20968, item3 = 20819, item4 = 20818})) then 	--cleric test of the weak using efreeti standard, manna nectar, mithril bands, shimmering topaz
 		e.self:Say("Good on ya!");
