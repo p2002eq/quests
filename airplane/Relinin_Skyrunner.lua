@@ -18,7 +18,7 @@ function event_trade(e)
 	local item_lib = require("items");
 	if(item_lib.check_turn_in(e.trade, {item1 = 20934, item2 = 20850, item3 = 20849})) then --ranger test of body using auburn tessera, griffon talon, ysgaril root
 		e.self:Say("Good work, ranger.");
-		e.other:QuestReward(e.self,0,0,0,0,2715,100000); --griffon talon
+		e.other:QuestReward(e.self,0,0,0,0,14567,100000); --griffon talon
 		eq.depop();
 	elseif(item_lib.check_turn_in(e.trade, {item1 = 20853, item2 = 20852, item3 = 20851})) then --ranger test of defense using fine velvet cloak, harpy tongue, mithril disc
 		e.self:Say("Good work, ranger.");
