@@ -21,12 +21,12 @@ function event_trade(e)
 		e.other:QuestReward(e.self,0,0,0,0,28049,100000); --Orb of Frozen Water
 		eq.unique_spawn(96080,0,0,-2198,-11601,76); --Natasha Whitewater
 	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 18170})) then --A Singed Scrol (overkind bathezid), Sceptre of Ixiblat Ferl
+	if(item_lib.check_turn_in(e.trade, {item1 = 18170, item2 = 28017})) then --A Singed Scrol (overkind bathezid), Sceptre of Ixiblat Ferl
 		e.self:Say("I commend you on your success over the fire elemental lord, Ixiblat Fer. The fact that the Plasmatic Priesthood has mustered up the power to summon such a being means drastic actions must be taken to stop the fanatic cult of Fennin Ro. I wonder what kind of favor Zordak Ragefire performed for the sarnak summoners to convince them to assist in the ritual that brought forth Ixiblat Fer. The dragon Iksar hybrid abominations are not beings who ally with others easily. All I have seen in my divinations of the High Plasmatic Priest are riddles, and signs that the one who slays him may be awarded an Orb of the Triumvirate. If you are the one whom my visions foretell, then seek Zordak Ragefire and bring me his heart.");
 		e.other:QuestReward(e.self,0,0,0,0,28048,100000); --Orb of Clear Water
 		eq.unique_spawn(96080,0,0,-2198,-11601,76); --Natasha Whitewater
 	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 28019, item2 = 28017})) then--Zordak Ragefire's Heart (combined after the death of zordakalicus in SF)
+	if(item_lib.check_turn_in(e.trade, {item1 = 28019})) then--Zordak Ragefire's Heart (combined after the death of zordakalicus in SF)
 		e.self:Say("I see now that Zordak Ragefire and the exiled elder dragon Zordakalicus were the same being. That explains how he resisted our attempts to divine his affairs and past. Each of these orbs I have granted you represents one of the Triumvirate. Jhassad Oceanson awaits on the shore below to perform the ritual that will merge the orbs into a single Orb of the Triumvirate and summon an avatar from the Plane of Water. Present the Orb of the Triumvirate to the Avatar of Water when it arrives and allow your destiny to be unraveled.");
 		e.other:QuestReward(e.self,0,0,0,0,28050,100000); --Orb of Vapor
 		eq.unique_spawn(96074,0,0,-1781,-11959,14.3,1); --Jhassad Oceanson
