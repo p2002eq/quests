@@ -25,7 +25,7 @@ function event_trade(e)
 		fang = 2;
 	elseif(item_lib.check_turn_in(e.trade, {item1 = 13915})) then
 		fang = 1;
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 18811})) then
+	elseif(item_lib.check_turn_in(e.trade, {item1 = 18815})) then
 		e.self:Say("I heard you were on your way.  I have called for the state [executioner].  She should be on her way now.  She will deal with our friend, McNeal Jocub.  Thank you for your help, citizen.");
 		e.other:Faction(135,40,0); -- Guards of Qeynos
 		e.other:Faction(9,6,0); -- Antonius Bayle

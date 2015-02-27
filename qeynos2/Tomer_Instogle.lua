@@ -33,7 +33,8 @@ function event_trade(e)
 	local item_lib = require("items");
 	if(tonumber(qglobals.FindTomer) == 2 and item_lib.check_turn_in(e.trade, {item1 = 20459})) then --Tomer's Bag of Provisious
 		e.self:Say("Oh, you have the makings of a true hero.. The Silent Fist Clan is proud to have you as ally. May your soul guide and protect you through these chaotic times.");
-		e.other:Faction(300,1); 	-- Silent Fist Clan faction
+		e.other:Faction(300,35); 	-- Silent Fist Clan faction
+		e.other:Faction(135,6);
 		e.other:Faction(12,1); 		-- Ashen Order faction
 		e.other:QuestReward(e.self,0,0,0,0,0,100);
 		eq.delete_global("FindTomer"); 	-- We are finished with this flag set by Seta_Bakindo
