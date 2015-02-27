@@ -31,9 +31,9 @@ function event_trade(e)
 			e.self:Say("So you have helped Nerissa. That is good. Here, then, is a small reward. May you find it useful. Keep fighting the good fight!");
 			e.other:SummonItem(ChooseRandom(26022,26023,26024,26025));
 			e.other:Ding();
-			e.other:Faction(257,1,0);
+			e.other:Faction(257,5,0);
 			e.other:Faction(183,1,0);
-			e.other:Faction(135,1,0);
+			e.other:Faction(135,2,0);
 			e.other:Faction(21,-1,0);
 			e.other:Faction(9,1,0);
 			e.other:AddEXP(4000);

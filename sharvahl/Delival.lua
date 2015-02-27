@@ -24,7 +24,7 @@ function event_trade(e)
 	local item_lib = require("items");
 	if(item_lib.check_turn_in(e.trade, {item1 = 4460})) then
 		e.self:Say("Well I wish there was more I could do to repay you. Take this old compass and what change I can spare with my most sincere thanks. Now off to bed Shainai, you have had a busy day.");
-		e.other:Faction(132,5); --Guardian of Shar Vahl
+		e.other:Faction(132,4); --Guardian of Shar Vahl
 		eq.signal(155339,1,10);
 		e.other:QuestReward(e.self,12,9,0,0,12000,100);
 	end

@@ -16,8 +16,8 @@ function event_trade(e)
 	if(item_lib.check_turn_in(e.trade, {item1 = 13845})) then
 		e.self:Say("Very fine work, my young apprentice. This shall be very useful in understanding their ways. I have heard rumors of a scribe who can decipher these scrolls. He is said to frequent the local taverns. Bah!! If I cannot decipher them, no one can!! Continue with your work. Soon you shall advance enough to [test the might of the orc oracles].");
 		e.other:Ding();
-		e.other:Faction(11,1,0); -- Arcane Scientists
-		e.other:Faction(184,1,0); -- Knights of Truth
+		e.other:Faction(11,10,0); -- Arcane Scientists
+		e.other:Faction(184,2,0); -- Knights of Truth
 		e.other:Faction(235,-1,0); -- Opal Dark Briar
 		e.other:Faction(105,-1,0); -- Freeport Militia
 		e.other:AddEXP(25);

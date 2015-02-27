@@ -38,6 +38,7 @@ function event_trade(e)
 	local item_lib = require("items");
 	if(item_lib.check_turn_in(e.trade, {item1 = 4460})) then
 		e.self:Emote("looks at what you handed him as his face turns to rage, 'What is... this... this is the box I sent Shainai out with!  Where is she?  What have you done?  You stole from my little girl!!  Maybe worst!!!!!'");
+		e.other:Faction(132,-1); --Guardian of Shar Vahl
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end

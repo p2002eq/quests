@@ -28,10 +28,10 @@ function event_trade(e)
 		e.self:Say("You have done well. Let it be known to all that you fight for the Rainkeeper. Go and continue the battle.");
 		e.other:SummonItem(13006);
 		e.other:Ding();
-		e.other:Faction(183,5,0); -- Knights of Thunder
-		e.other:Faction(257,5,0); -- Preists of Life
-		e.other:Faction(135,5,0); -- Guards of Qeynos
-		e.other:Faction(21,-7,0); -- Bloodsabers
+		e.other:Faction(183,10,0); -- Knights of Thunder
+		e.other:Faction(257,7,0); -- Preists of Life
+		e.other:Faction(135,7,0); -- Guards of Qeynos
+		e.other:Faction(21,-10,0); -- Bloodsabers
 		e.other:AddEXP(100);
 		e.other:GiveCash(5,2,0,0);
 	elseif(item_lib.check_turn_in(e.trade, {item1 = 18805})) then
