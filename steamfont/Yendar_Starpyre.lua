@@ -10,6 +10,8 @@ function event_say(e)
 		e.self:Say("In the Plane of Hate, where dwell Innoruuk and his minions, there is a tome. This tome is called the Book of Souls.");
 	elseif(e.message:findi("book of souls")) then
 		e.self:Say("The Book of Souls chronicles all the lives Innoruuk has tainted over the years. It is in the care of the Maestro of Rancor. I can use this tome as a basis for my translation, if you return it and the note to me. An experienced practitioner in the art of non-detection should be able to snatch it from its resting place, don't you think, " .. e.other:Race() .. "?'");
+	elseif(e.message:findi("Eldreth sent me")) then
+		e.self:Say("Eldreth, Eldreth, hmm, was that a rather shabby Erudite? I have dealt with him in the past, I am sure. What does he want of me?");
 	end
 end
 	
