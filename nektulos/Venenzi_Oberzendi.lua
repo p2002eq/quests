@@ -20,7 +20,8 @@ function event_trade(e)
 		e.other:SummonItem(20643);
 		e.other:Ding();
 		e.other:AddEXP(500);
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 20643,item2 = 1320})) then -- flowing black robe turn in
+	end
+	if(item_lib.check_turn_in(e.trade, {item1 = 20643,item2 = 1320})) then -- flowing black robe turn in
 		e.self:Say("Thank you, " .. e.other:GetName() .. ". I did not think you would track down Najena and slay her. I think that I am going to return to my old life in Neriak. I am sick of the way Kazen has been treating me. He never seems to teach me anything worthwhile. Don't forget to give his lapdog that symbol with the reagents. I'm sure he will give you a new one.");
 		e.other:SummonItem(20649);
 		e.other:Ding();
