@@ -10,12 +10,12 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 20643, item2 = 20649})) then
+	if(item_lib.check_turn_in(e.trade, {item1 = 20643, item2 = 20649})) then -- Give the Rolling Stone Moss and the Twisted Symbol of the Apprentice to Emkel Kabae in Lake Rathetear
 		e.self:Emote("says, 'Very good, " .. e.other:GetName() .. ", you have done as the master asked yet again, take this as a reward.' Emkel reaches into his robes and pulls out a small symbol. He holds it out and the tiny symbol floats to your hand.");
 		e.other:AddEXP(500);
 		e.other:SummonItem(20644);
 		e.other:Ding();
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 20650, item2 = 20649})) then
+	elseif(item_lib.check_turn_in(e.trade, {item1 = 20650})) then -- Give the Refined Mainsi Herb to Emkel for the Symbol of Testing
 		e.self:Say("'You are truly worthy of studying with our master. Bear this new symbol and contemplate what you wish from life before you let go of it. Ask the master about the symbol of testing and he will explain all. I too was tested by him.' Emkel pulls up his sleeve to show a grievous scar from his wrist to his shoulder.");
 		e.other:AddEXP(1000);
 		e.other:SummonItem(20647);
