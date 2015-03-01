@@ -2,7 +2,7 @@ function event_spawn(e)
 	eq.depop(102099);
 end
 function event_death_complete(e)
-    eq.set_timer("Remainspop",300000);
+    eq.set_timer("Remainspop",86400000);
 end
 function event_timer(e)
 	if(e.timer == "Remainspop") then
