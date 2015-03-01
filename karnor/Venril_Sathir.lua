@@ -2,7 +2,12 @@ function event_spawn(e)
 	eq.depop(102099);
 end
 function event_death_complete(e)
-	eq.unique_spawn(102099,0,0,-559,-77,19);
+    eq.set_timer("Remainspop",300000);
+end
+function event_timer(e)
+	if(e.timer == "Remainspop") then
+	    eq.unique_spawn(102099,0,0,-559,-77,19);
+    end
 end
 
 function event_trade(e)
