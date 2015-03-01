@@ -2,7 +2,7 @@ function event_spawn(e)
 	eq.depop(102099);
 end
 function event_death_complete(e)
-	eq.unique_spawn(102099,0,0,e.self:GetX(),e.self:GetY(),e.self:GetZ());
+	eq.unique_spawn(102099,0,0,-559,-77,19);
 end
 
 function event_trade(e)
