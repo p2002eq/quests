@@ -11,7 +11,7 @@ function event_say(e)
 			e.self:Say("My mission was to find a pathetic shadowknight and bring him closer to Innoruuk. You volunteered. By exercising my superior powers of persuasion, I have now taken from you a fine suit of armor and enough coin to ensure that I will be sleeping neither soberly nor alone for quite some time! Now I ask you, worthy shadowknight, do you not feel the fires of hatred coursing through your veins like never before? That is the very reward I spoke of! You have been brought closer to my master. My mission is complete! You foolish excuse for a dark knight, I shall take your head and tell all of your generous donation to the mighty Teir'Dal rogues!");
 			eq.attack("" .. e.other:GetName() .. "");
 		end
-	End
+	end
 	if(e.message:findi("seek")) then
 		e.self:Say("I have traveled here in hopes of finding a soul worthy of assisting me in completing my mission.");
 	end	
