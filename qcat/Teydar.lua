@@ -20,7 +20,7 @@ function event_trade(e)
 	if(item_lib.check_turn_in(e.trade, {item1 = 14372, item2 = 14371, item3 = 16507}) and charfaction >= 28) then
 		e.self:Say("I did it! The pieces you got me were perfect! It took a huge effort on my part to craft this, of course. It saddens me that I'm unable to keep one of my best works, but a deal is a deal. There is honor among shadowknights.");
 		e.other:Faction(342, 7);
-		e.other:SummonItem(14366);
+		e.other:QuestReward(e.self,0,0,0,0,14366);
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
