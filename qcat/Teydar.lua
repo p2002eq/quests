@@ -1,7 +1,7 @@
 -- Part of SK Epic 1.0
 
 function event_say(e)
-	local charfaction = e.other:GetCharacterFactionLevel(342);
+	local charfaction = e.other:GetCharacterFactionLevel(130);
 
 	if(e.message:findi("hail")) then
 		if(e.other:GetClass() == 5) then
