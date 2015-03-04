@@ -7,7 +7,7 @@ function event_say(e)
 	if(e.message:findi("hail")) then
 		e.self:Say("Hail and well met " .. e.other:GetName() .. "! I give the second half of the test of songs. If you are ready, choose between the tests of brass, wind, and harmony.");
 	elseif(e.message:findi("brass")) then	--Bard Test of Brass
-		e.self:Say("Then bring back to me an Efreeti War Horn, a Saffron Spiroc Feather, Adamintium Bands, and a Glowing Diamond. Then I will give you the horn of disaster.");
+		e.self:Say("Then bring back to me an Efreeti War Horn, a Saffron Spiroc Feather, Adamantium Bands, and a Glowing Diamond. Then I will give you the horn of disaster.");
 	elseif(e.message:findi("wind")) then	--Bard Test of Wind
 		e.self:Say("Bring me an imp statuette, a dull stone, and an amulet of woven hair. Then I will give you the fae amulet.");
 	elseif(e.message:findi("harmony")) then	--Bard Test of Harmony
@@ -19,7 +19,7 @@ function event_trade(e)
 	local item_lib = require("items");
 	if(item_lib.check_turn_in(e.trade, {item1 = 20830, item2 = 20961, item3 = 20828, item4 = 20829})) then --Bard test of Brass using Adamantium Bands, Effreeti War horn, glowing diamond, and saffron spiroc feather
 		e.self:Say("Well done, " .. e.other:GetName() .. ". Here is your reward.");
-		e.other:QuestReward(e.self,0,0,0,0,27724,100000); --Denon's Horn of Disaster
+		e.other:QuestReward(e.self,0,0,0,0,11693,100000); --Denon's Horn of Disaster
 		eq.depop();
 	elseif(item_lib.check_turn_in(e.trade, {item1 = 20953, item2 = 20826, item3 = 20827})) then	--Bard test of Wind using Amulet of woven hair, dull stone, and imp statuette
 		e.self:Say("Well done, " .. e.other:GetName() .. ". Here is your reward.");
