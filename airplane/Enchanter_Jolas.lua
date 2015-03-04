@@ -1,7 +1,7 @@
 function event_say(e)
 	if(e.message:findi("hail")) then
 		e.self:Say("Greetings, " .. e.other:GetName() .. ".  Have you come here to test your powers of enchantment?");
-	elseif(e.message:findi("enchantment")) then
+	elseif(e.message:findi("enchantment") and e.other:GetClass() == 14) then
 		e.self:Say("I am most honored to be able to help you. Please choose from one of my instructors. Lelulean or Enderbite.");
 	elseif(e.message:findi("Enderbite") and e.other:GetClass() == 14) then
 		e.self:Say("I will summon him for you then");
