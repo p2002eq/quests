@@ -20,15 +20,15 @@ function event_trade(e)
 	local item_lib = require("items");
 	if(item_lib.check_turn_in(e.trade, {item1 = 20739, item2 = 20738, item3 = 20965, item4 = 20740})) then 		--druid test of nature using efreeti scimitar, fire sky ruby, lush nectar, storm sky opal
 		e.self:Say("You have done well, young one.");
-		e.other:QuestReward(e.self,0,0,0,0,2706,11683,100000); 	--espri
+		e.other:QuestReward(e.self,0,0,0,0,11683,100000); 	--espri
 		eq.depop();
 	elseif(item_lib.check_turn_in(e.trade, {item1 = 20735, item2 = 20951, item3 = 20734})) then 	--druid test of the bee using divine honeycomb, efreeti statuette, wilder's girdle
 		e.self:Say("You have done well, young one.");
-		e.other:QuestReward(e.self,0,0,0,0,2706,11684,100000); 	--honeycomb belt
+		e.other:QuestReward(e.self,0,0,0,0,11684,100000); 	--honeycomb belt
 		eq.depop();
 	elseif(item_lib.check_turn_in(e.trade, {item1 = 20736, item2 = 20737, item3 = 20867, item4 = 20958})) then 	--druid test of the eagle using acidic venom, ethereal ruby, spiroc elder's totem, white-tipped spiroc feather
 		e.self:Say("You have done well, young one.");
-		e.other:QuestReward(e.self,0,0,0,0,2706,14555,100000);	--spiroc banisher focus
+		e.other:QuestReward(e.self,0,0,0,0,14555,100000);	--spiroc banisher focus
 		eq.depop();
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
