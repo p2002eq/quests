@@ -1,5 +1,5 @@
 function event_spawn(e)
-	eq.set_timer("depop",300000);
+	eq.set_timer("depop",120000);
 end
 
 function event_timer(e)

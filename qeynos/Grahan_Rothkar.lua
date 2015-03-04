@@ -51,7 +51,7 @@ function event_trade(e)
 		e.self:Say("So you are ready to encounter your final test. I wish you well, young warrior. Take this key to the pen on the left along the wall with three doors. There you shall meet your final challenge. Return with proof of victory. Exit before it is at an end and I shall not help you.");
 		e.other:SummonItem(20029);
 		eq.unique_spawn(1005,0,0,-520,-120,-24.5);
-		eq.set_timer("86",60000);
+		eq.set_timer("86",120000);
 		e.other:Ding();
 		e.other:AddEXP(2000);
 	end
