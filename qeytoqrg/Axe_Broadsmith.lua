@@ -12,24 +12,20 @@ function event_trade(e)
 	if(item_lib.check_turn_in(e.trade, {item1 = 18893})) then -- A Sealed Letter
 		e.self:Say("So you are the new warrior. Let us test your skill. Across the pond is a skeleton. See him? Engage him in combat. He awaits. Return his skull to me and I shall call you a Steel Warrior. Be quick. He will dissipate soon.");
 		eq.unique_spawn(4192,0,0,1055,3858,-19); -- a_strange_skeleton
-		e.other:Ding();
-		e.other:Faction(311,15,0); -- Steel Warriors
-		e.other:Faction(135,15,0); -- Guards of Qeynos
-		e.other:Faction(53,-15,0); -- Corrupt Qeynos Guards
-		e.other:Faction(105,-15,0); -- Freeport Militia
-		e.other:Faction(184,15,0); -- Knights of Truth
-		e.other:AddEXP(2000);
+		e.other:Faction(311,2,0); -- Steel Warriors
+		e.other:Faction(135,1,0); -- Guards of Qeynos
+		e.other:Faction(53,-1,0); -- Corrupt Qeynos Guards
+		e.other:Faction(105,-1,0); -- Freeport Militia
+		e.other:Faction(184,1,0); -- Knights of Truth
+		e.other:QuestReward(e.self,0,0,0,0,0,500);
 	elseif(item_lib.check_turn_in(e.trade, {item1 = 13397})) then -- Skull
-		e.self:Say("So you are the new warrior. Let us test your skill. Across the pond is a skeleton. See him? Engage him in combat. He awaits. Return his skull to me and I shall call you a Steel Warrior. Be quick. He will dissipate soon.");
-		e.other:SummonItem(18895); -- Letter of Recommendation
-		e.other:Ding();
-		e.other:Faction(311,15,0); -- Steel Warriors
-		e.other:Faction(135,15,0); -- Guards of Qeynos
-		e.other:Faction(53,-15,0); -- Corrupt Qeynos Guards
-		e.other:Faction(105,-15,0); -- Freeport Militia
-		e.other:Faction(184,15,0); -- Knights of Truth
-		e.other:AddEXP(6000);
-		e.other:GiveCash(7,0,0,0);
+		e.self:Say("So you have returned. Victory is yours, young Steel Warrior. Take this letter of recommendation to Brin Stolunger at the arena in Qeynos. You have passed.");
+		e.other:Faction(311,5,0); -- Steel Warriors
+		e.other:Faction(135,1,0); -- Guards of Qeynos
+		e.other:Faction(53,-1,0); -- Corrupt Qeynos Guards
+		e.other:Faction(105,-1,0); -- Freeport Militia
+		e.other:Faction(184,1,0); -- Knights of Truth
+		e.other:QuestReward(e.self,math.random(10),0,0,0,18895,750); -- Letter of Recommendation
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
