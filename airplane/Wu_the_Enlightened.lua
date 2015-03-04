@@ -10,7 +10,7 @@ function event_say(e)
 	elseif(e.message:findi("fists")) then --monk test of fists
 		e.self:Say("A monk must know when to use his or her fists, and when to use ones mind. You must decide in this endevour, which you shall use. Return to me, once you have found them, a pair of Brass Knuckles, a White Spiroc Feather, an Ethereal Amethyst, and a Nebulous Sapphire.");
 	elseif(e.message:findi("tranquility")) then --monk test of tranquility
-		e.self:Say("Ah, the test of tranquility. Only the tranquil monk can achieve enlightenment. Are you such an individual? Time shall tell. Retrieve these items for me. Bring an Aged Nectar, a Writ of Quellious, and a Glowing Diamond and we shall asses your ability.");
+		e.self:Say("Ah, the test of tranquility. Only the tranquil monk can achieve enlightenment. Are you such an individual? Time shall tell. Retrieve these items for me. Bring an aged nectar, a Writ/Decree of Quellious, and a Tear of Quellious. Then we shall assess your ability.");
 	end
 end
 
