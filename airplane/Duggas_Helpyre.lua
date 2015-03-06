@@ -26,7 +26,7 @@ function event_trade(e)
 		eq.depop();
 	elseif(item_lib.check_turn_in(e.trade, {item1 = 20960, item2 = 20788, item3 = 20789})) then 	--necromancer test of the finger using white spiroc feather, nebulous ruby, ring of veeshan
 		e.self:Say("Haha! So you lived! Take this and be gone!");
-		e.other:QuestReward(e.self,0,0,0,0,27713,100000); --band of wailing winds
+		e.other:QuestReward(e.self,0,0,0,0,14561,100000); --band of wailing winds
 		eq.depop();
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
