@@ -10,7 +10,7 @@ function event_say(e)
 		eq.depop_with_timer();
 	elseif(e.message:findi("Dugaas") and e.other:Class() == 11) then
 		e.self:Say("I will summon him for you then");
-		eq.spawn2(71084,0,0,661.6,1302.8,-766.9,254.9);
+		eq.spawn2(71084,0,0,661.6,1305,-762.2,22);
 		eq.depop_with_timer();
 	end
 end
