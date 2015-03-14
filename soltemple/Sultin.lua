@@ -13,7 +13,7 @@ function event_say(e)
 		e.self:Say("My personal favorite - Incandescent Gloves. If you bring me the components to make another pair, I will give you my gloves. Incandescent Gloves are made by sewing together four other sets of gloves. Glowing Gloves can be found on our mortal enemies - the Shadowed Men. Radiant Gloves can be found on Radiant in the Feerrott. Enchanted and Gleaming gloves can be purchased for 50 golden coins from Tizina of the Lavastrom Gypsies and a bloodstone from Tarn Vislin of HighKeep. Bring me all four sets of gloves and I will give you a pair of Incadescent ones.");
 	elseif(e.message:findi("rod")) then
 		e.self:Say("I am keeper of the Rod of Insidious Glamour - a device of guile and deceit. The rod will increase the Charisma of whomever holds it. Are you [interested] in obtaining the [rod]?");
-	elseif(e.message:findi("rod")) then
+	elseif(e.message:findi("interested in the rod")) then
 		e.self:Say("If I am to give you this rod, you must bring me the parts to make another. I will need the Golden Rod from the froglok priest in Guk, as well as a Shining Stone from our mortal enemies, the Shadowed Men. Once you have obtained the Shining Stone, you will need to get it enchanted. Cynthia of the Rathe Mountain Gypsy Clan will enchant the Shining Stone for you - give it to her with 50 golden coins. When the Stone is fully enchanted, bring it and the rod to me and I will give you a Rod of Insidious Glamour.");
 	end
 end
@@ -48,6 +48,7 @@ function event_trade(e)
 		e.other:Faction(291,-15);
 		e.other:QuestReward(e.self,0,0,0,0,2350,1000);
 	end
+	item_lib.return_items(e.self, e.other, e.trade)
 end
 
 -- Quest by mystic414
