@@ -1,7 +1,5 @@
 function event_say(e)
-	if(e.message:findi("hail")) then
-		e.self:Say("Welcome, traveler. Have I informed you about the [travel tax]?");
-	elseif(e.message:findi("travel tax")) then
+	if(e.message:findi("travel tax")) then
 		e.self:Say("The travel tax is a fee of one gold for the privilege of using the highways of Karana. Oh! You know what? You must've used the roads to get here! I guess you owe me 1 gold!");
 	end
 end

@@ -2,12 +2,6 @@ function event_spawn(e)
   e.self:SetRunning(true);
 end
 
-function event_say(e)
-	if(e.message:findi("hail")) then
-		e.self:Say("How are you? You'd better have a good reason for bothering me. I am a busy man.");
-	end
-end
-
 function event_signal(e)
 	if(e.signal == 1) then
 		e.self:Say("Time to push our weight around. Ahhh. There is nothing better than being a Qeynos Guard.");
