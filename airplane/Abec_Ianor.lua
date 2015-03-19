@@ -24,7 +24,7 @@ function event_trade(e)
 		e.self:Say("Excellent! Take this.");
 		e.other:QuestReward(e.self,0,0,0,0,14556,100000); --amulet of planar transference
 		eq.depop();
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 20753, item2 = 20965, item3 = 20751, item4 = 20758})) then	--wizard test of preparation using efreeti war staff, lush nectar, copper air band, large sky sapphire
+	elseif(item_lib.check_turn_in(e.trade, {item1 = 20753, item2 = 20965, item3 = 20751, item4 = 20752})) then	--wizard test of preparation using efreeti war staff, lush nectar, copper air band, large sky sapphire
 		e.self:Say("Excellent! Take this.");
 		e.other:QuestReward(e.self,0,0,0,0,11685,100000); --nargon's staff
 		eq.depop();
