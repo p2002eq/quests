@@ -6,7 +6,7 @@ function event_say(e)
 	if(e.message:findi("hail")) then
 		e.self:Say("Greetings, " .. e.other:GetName() .. ". I will test you in the tests of might, health, and sight. Which will it be?");
 	elseif(e.message:findi("might")) then --shaman test of might
-		e.self:Say("The test of might It Is. Go find an Auburn Tessera, a Drake Fang and a Leather Chord. Bring them to me when you have them all and I shall reward you.");
+		e.self:Say("The test of might It Is. Go find an Auburn Tessera, a Drake Fang and a Leather Cord. Bring them to me when you have them all and I shall reward you.");
 	elseif(e.message:findi("health")) then --shaman test of health
 		e.self:Say("The test of health Is difficult. I am sure that you will find It a challenge. Bring to me a Platinum Disc, some Ethereal Amber, a Shimmering Amber and finally a Ceremonial Belt. Return them all to me at once and you shall have your just reward.");
 	elseif(e.message:findi("sight")) then --shaman test of sight
