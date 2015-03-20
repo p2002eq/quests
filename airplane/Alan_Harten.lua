@@ -24,7 +24,7 @@ function event_trade(e)
 		e.self:Say("Wonderful! Take this as your reward!");
 		e.other:QuestReward(e.self,0,0,0,0,27716,100000); --aegis of the wind
 		eq.depop();
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 20946, item2 = 20810, item3 = 20811})) then	--cleric test of protection using adumbrate globe, glowing diamond, shiny pauldrons
+	elseif(item_lib.check_turn_in(e.trade, {item1 = 20946, item2 = 20810, item3 = 20811})) then	--cleric test of protection using adumbrate globe, faintly glowing diamond, shiny pauldrons
 		e.self:Say("Wonderful! Take this as your reward!");
 		e.other:QuestReward(e.self,0,0,0,0,27717,100000); --pauldrons of piety
 		eq.depop();
