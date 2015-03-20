@@ -24,7 +24,7 @@ function event_trade(e)
 		e.self:Say("You have moved closer to enlightenment.");
 		e.other:QuestReward(e.self,0,0,0,0,11690,100000); --wu's tranquil fist
 		eq.depop();
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 20967, item2 = 20804, item3 = 20805})) then --monk test of tranquility using aged nectar, degree of quellious, tear of quellious
+	elseif(item_lib.check_turn_in(e.trade, {item1 = 20967, item2 = 20804, item3 = 20805})) then --monk test of tranquility using aged nectar, writ of quellious, tear of quellious
 		e.self:Say("You have moved closer to enlightenment.");
 		e.other:QuestReward(e.self,0,0,0,0,11698,100000); --golden sash of tranquility
 		eq.depop();

@@ -11,7 +11,7 @@ function event_say(e)
 		e.self:Say("Greetings citizen... you are very brave to approach me in this manner.  That sort of bravery warrants my respect.  How may I help you?");
 	elseif(e.message:findi("note") and tonumber(qglobals.Shar_Vahl_Cit) == 5) then ----Non-canon fixme if you lose note.
 		e.self:Say("I guess I can write you a new note. Try not to lose it this time.");
-		e.other:SummonItem("18304");
+		e.other:SummonItem(18304);
 	end
 end
 function event_trade(e)

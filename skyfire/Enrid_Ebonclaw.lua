@@ -5,7 +5,7 @@ function event_say(e)
 		e.self:Say("You adventurers are all alike. The dragons erected a new ward on the door to only allow the Ring of Scale and its followers entry. They changed it because of greedy adventurers like you! As a servant to the Ring of Scale, I learned how to create a cipher to enter the peak -- one that overcomes the new ward that was erected. This cipher requires the original key or the essence of the original key. The original key was very magical and powerful, for it encompassed the strength of this continent. If you have the original key, you will need to modify it by combining it with this powerless cipher and the blood of a brood dragon. If you do not have the original key, however, you will need to capture the strength of this continent, the essence of the original key. [continue]");
 	elseif(e.message:findi("continue")) then
 		e.self:Say("Combine the three major essences with that same dragon blood inside the powerless cipher to create the Cipher of Veeshan, your means of entering the peak.");
-		e.other:SummonItem("69310");
+		e.other:SummonItem(69310);
 	end
 end
 

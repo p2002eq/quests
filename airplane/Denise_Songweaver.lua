@@ -6,7 +6,7 @@ function event_say(e)
 	if(e.message:findi("hail")) then
 		e.self:Say("Hi there " .. e.other:GetName() .. "! I give three sections of the test of songs, Denise does the rest. Do you wish to take the test of pitch, voice, or tone?");
 	elseif(e.message:findi("pitch")) then 	--Bard test of pitch
-		e.self:Say("The pitch that we sing and play has a great affect on those that listen.  Keep this in mind Gendal, and you shall always be welcome in taverns and inns.  Now if you return to me Phosphoric Globe, a Shimmering Diamond, and crude wooden flute I will give to you Ervaj's Flute of Flight.");
+		e.self:Say("The pitch that we sing and play has a great affect on those that listen.  Keep this in mind " .. e.other:GetName() .. ", and you shall always be welcome in taverns and inns.  Now if you return to me Phosphoric Globe, a Shimmering Diamond, and crude wooden flute I will give to you Ervaj's Flute of Flight.");
 	elseif(e.message:findi("voice")) then 	--bard test of voice
 		e.self:Say("The sweet sound rising forth from our throats are what makes us truly great.  Go forth and give voice to your songs, and return to me a platinum disc, a music box, and a light woolen mantle. If you do this I shall give you the Songweaver's Mantle. Good luck!");
 	elseif(e.message:findi("tone")) then 	--bard test of tone

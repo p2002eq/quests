@@ -12,7 +12,7 @@ function event_say(e)
 			e.self:Say("Oh.. Thank goodness you found me.. I'm lost and weak, those [mutts] are a vicious lot.. an you carry my [backpack] for me?");
 		elseif(e.message:findi("backpack")) then
 			e.self:Say("Thank you, friend.. Now, can you [lead me back to Master Seta] of the Silent Fist Clan? ");
-			e.other:SummonItem("20459"); -- Bag of Provisions ID-20456
+			e.other:SummonItem(20459); -- Bag of Provisions ID-20456
 		elseif(e.message:findi("lead you back")) then
 			e.self:Say("Lead the way, and I shall follow. When we make it back, please inform Seta that you have rescued me.");
 			-- Initialize flag to Seta_Bakindo for this player
