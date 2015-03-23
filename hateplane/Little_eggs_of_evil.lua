@@ -1,29 +1,25 @@
 function event_combat(e)
     e.self:Emote("hatch from inside your brain!");
-    spawn_imps(e);
 end
 
-function spawn_imps(e)
-    local imp_id = 76386;
-    local xloc = e.self:GetX();
-    local yloc = e.self:GetY();
-    local zloc = e.self:GetZ();
-    local roll = math.random(100);
-    if roll < 33 then
-        local imp = eq.spawn2(imp_id,0,0,xloc,yloc,zloc,0);
-        imp:AddToHateList(e.other, 1);
-    elseif roll >= 33 and roll <=66 then
-        local imp = eq.spawn2(imp_id,0,0,xloc,yloc,zloc,0);
-        imp:AddToHateList(e.other, 1);
-        local imp2 = eq.spawn2(imp_id,0,0,xloc,yloc,zloc,0);
-        imp2:AddToHateList(e.other, 1);
-    elseif roll > 66 then
-        local imp = eq.spawn2(imp_id,0,0,xloc,yloc,zloc,0);
-        imp:AddToHateList(e.other, 1);
-        local imp2 = eq.spawn2(imp_id,0,0,xloc,yloc,zloc,0);
-        imp2:AddToHateList(e.other, 1);
-        local imp3 = eq.spawn2(imp_id,0,0,xloc,yloc,zloc,0);
-        imp3:AddToHateList(e.other, 1);
+function event_spawn(event)
+    local xloc = event.self:GetX();
+    local yloc = event.self:GetY();
+    eq.set_proximity(xloc - 45, xloc + 45, yloc - 45, yloc + 45);
+end
+
+function event_enter(event)
+    local numSpawns = math.random(3, 5);
+
+    for i = 1, numSpawns do
+        eq.spawn2(76386,      -- evil little imp
+                0,
+                0,
+                event.self:GetX()+math.random(-5,5),
+                event.self:GetY()+math.random(-5,5),
+                event.self:GetZ(),
+                math.random(0, 250)
+        );
     end
-    e.self:Depop(true);
+    eq.depop_with_timer();
 end
