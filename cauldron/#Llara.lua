@@ -1,9 +1,9 @@
 -- Part of Ghoulbane quest
 
 function event_say(e)
-	local qglobals = eq.get_qglobals(e.self,e.other);
+	
 
-	if(qglobals["Llara"] ~= nil) then
+	
 		if(e.message:findi("kanthuk")) then
 			e.self:Say("I take it you're here to find out more about [Amstaf].");
 		elseif(e.message:findi("amstaf")) then
@@ -19,7 +19,7 @@ function event_say(e)
 			e.other:SummonItem(2417);
 			eq.delete_global("Llara");
 		end
-	end
+	
 end
 
 function event_trade(e)
