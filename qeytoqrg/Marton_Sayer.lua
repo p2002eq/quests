@@ -27,11 +27,11 @@ function event_trade(e)
 		e.self:Say("'The eye and the journal! What a great day! The Gnoll Slayer shall be returned to full strength because of you. Your service to Qeynos will not soon be forgotten.");
 		e.other:SummonItem(5417);
 		e.other:Ding();
-		e.other:Faction(217,10,0);
-		e.other:Faction(33,-10,0);
-		e.other:Faction(9,10,0);
-		e.other:Faction(47,10,0);
-		e.other:Faction(135,10,0);
+		e.other:Faction(217,200,0);
+		e.other:Faction(33,-40,0);
+		e.other:Faction(9,30,0);
+		e.other:Faction(47,20,0);
+		e.other:Faction(135,40,0);
 		e.other:AddEXP(500);
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
