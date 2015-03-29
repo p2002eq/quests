@@ -42,7 +42,7 @@ function event_trade(e)
 			e.other:Faction(9,3,0);
 			e.other:Faction(47,2,0);
 			e.other:Faction(135,5,0);
-			e.other:QuestReward(e.self,0,0,0,0,0,500);
+			e.other:QuestReward(e.self,0,0,0,0,0,100);
 			brandy = brandy - 1;
 		until brandy == 0
 	end		 
