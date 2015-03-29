@@ -21,20 +21,31 @@ function event_say(e)
 end
 
 function event_trade(e)
-
-  local item_lib = require("items");
-  
-  if(item_lib.check_turn_in(e.trade, {item1 = 13034})) then
-    e.self:Say("Yeah, this is just what I've been craving!");
-	e.other:SendSound();
-    e.other:Faction(135,10,0);
-    e.other:Faction(9,10,0);
-    e.other:Faction(369,10,0);
-    e.other:Faction(33,-20,0);
-    e.other:Faction(217,10,0);
-	e.other:AddEXP(8000);
-  end
-  
-  item_lib.return_items(e.self, e.other, e.trade, e.text)
+	local brandy = 0;
+	local item_lib = require("items");
+	
+	if(item_lib.check_turn_in(e.trade, {item1 = 13034, item2 = 13034, item3 = 13034, item4 = 13034})) then
+		brandy = 4;
+	elseif(item_lib.check_turn_in(e.trade, {item1 = 13034, item2 = 13034, item3 = 13034})) then	
+		brandy = 3;
+	elseif(item_lib.check_turn_in(e.trade, {item1 = 13034, item2 = 13034})) then
+		brandy = 2;
+	elseif(item_lib.check_turn_in(e.trade, {item1 = 13034})) then
+		brandy = 1;
+	end
+ 
+	if(brandy > 0) then
+		repeat
+			e.self:Say("Yeah, this is just what I've been craving!");
+			e.other:Faction(217,25,0);
+			e.other:Faction(33,-5,0);
+			e.other:Faction(9,3,0);
+			e.other:Faction(47,2,0);
+			e.other:Faction(135,5,0);
+			e.other:QuestReward(e.self,0,0,0,0,0,3500);
+			brandy = brandy - 1;
+		until brandy == 0
+	end		 
+	item_lib.return_items(e.self, e.other, e.trade, e.text)
   
 end
