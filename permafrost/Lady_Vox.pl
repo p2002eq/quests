@@ -40,6 +40,7 @@ sub EVENT_COMBAT {
 	}
 	if($combat_state == 0) {
 		quest::stoptimer(1);
+		$npc->GMMove($SpawnX,$SpawnY,$SpawnZ,$SpawnH);
 	}	
 }
 
