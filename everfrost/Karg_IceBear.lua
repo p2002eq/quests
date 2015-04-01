@@ -28,7 +28,7 @@ function event_trade(e)
 	if(item_lib.check_turn_in(e.trade, {item1 = 13761,platinum = 5})) then -- Polar Bear Skin and 5 plat
 		e.other:SummonItem(2912); -- Polar Bear Cloak
 		e.other:Ding();
-		eq.depop_with_timer();
+		--eq.depop_with_timer();
 	elseif(item_lib.check_turn_in(e.trade, {item1 = 13714,platinum = 100})) then -- Werewolf Pelt and 100 plat
 		e.other:SummonItem(2401); -- Werewolf Skin Cloak
 		e.other:Ding();
