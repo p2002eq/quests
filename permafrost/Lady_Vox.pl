@@ -13,18 +13,18 @@ sub EVENT_SPAWN {
   my $range = 200;
   my $range2 = 88;
   quest::set_proximity($x - $range, $x + $range, $y - $range2, $y + $range);
-  quest::setnexthpevent(96);
+  #quest::setnexthpevent(96);
 }
 
-sub EVENT_HP {
+#sub EVENT_HP {
   #if my HP are dropping make certain the timer is running
   #this gets around 100% pet tanking, because the owner is
   #on the aggro list but with 0's and EVENT_AGGRO isn't firing.
-  quest::stoptimer(1);
-  EVENT_AGGRO();
+  #quest::stoptimer(1);
+  #EVENT_AGGRO();
   #backup safety check
-  quest::setnexthpevent(int($npc->GetHPRatio())-9);
-}
+  #quest::setnexthpevent(int($npc->GetHPRatio())-9);
+#}
 
 sub EVENT_ENTER {
   if (($ulevel >= 53) && ($status < 80)) {
@@ -33,9 +33,14 @@ sub EVENT_ENTER {
   }
 }
 
-sub EVENT_AGGRO {
-  # a 1 second leash timer.
-  quest::settimer(1,1);
+sub EVENT_COMBAT {
+	if($combat_state == 1) {
+		# a 1 second leash timer.
+		quest::settimer(1,1);
+	}
+	if($combat_state == 0) {
+		quest::stoptimer(1);
+	}	
 }
 
 sub EVENT_TIMER {
