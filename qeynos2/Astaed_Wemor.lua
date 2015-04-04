@@ -29,7 +29,7 @@ function event_trade(e)
 	if(item_lib.check_turn_in(e.trade, {item1 = 18862})) then
 		if (fac <= 4) then
 			e.self:Say("So you have helped Nerissa. That is good. Here, then, is a small reward. May you find it useful. Keep fighting the good fight!");
-			e.other:SummonItem(ChooseRandom(26022,26023,26024,26025));
+			e.other:SummonItem(ChooseRandom(6022,6023,6024,6025));
 			e.other:Ding();
 			e.other:Faction(257,5,0);
 			e.other:Faction(183,1,0);
