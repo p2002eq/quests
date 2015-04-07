@@ -19,3 +19,12 @@ function event_timer(e)
 		message_tox = nil;
 	end
 end
+
+function event_enter_zone(e)
+	local qglobals = eq.get_qglobals();
+	
+	if(qglobals.ilanic ~= nil) then
+		eq.unique_spawn(38150,6,0,497,-2052,-44,0);
+		eq.delete_global("ilanic");
+	end
+end
