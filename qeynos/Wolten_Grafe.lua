@@ -29,9 +29,9 @@ function event_trade(e)
 		e.other:SummonItem(13006);
 		e.other:Ding();
 		e.other:Faction(183,10,0); -- Knights of Thunder
+		e.other:Faction(21,-10,0); -- Bloodsabers
 		e.other:Faction(257,7,0); -- Preists of Life
 		e.other:Faction(135,7,0); -- Guards of Qeynos
-		e.other:Faction(21,-10,0); -- Bloodsabers
 		e.other:AddEXP(100);
 		e.other:GiveCash(5,2,0,0);
 	elseif(item_lib.check_turn_in(e.trade, {item1 = 18805})) then
@@ -45,21 +45,21 @@ function event_trade(e)
 		e.other:AddEXP(500);
 		e.other:GiveCash(0,0,8,0);
 	elseif(item_lib.check_turn_in(e.trade, {item1 = 13396})) then -- Rat Kings Head
-		e.self:Say("So it is true, he does... or did, exist.  Well done " .. e.other:GetName() .. ", take this for your trouble.");
+		e.self:Say("We have finally destroyed the Rat King. You have performed a great service to Qeynos. Here is a small reward. Please continue with the work of the Rainkeeper.");
 		e.other:SummonItem(eq.ChooseRandom(2112, 2106, 2111, 2104, 2108));
 		e.other:Ding();
-		e.other:Faction(183,5,0); -- Knights of Thunder
-		e.other:Faction(257,5,0); -- Preists of Life
-		e.other:Faction(135,5,0); -- Guards of Qeynos
-		e.other:Faction(21,-10,0); -- Bloodsabers
+		e.other:Faction(183,50,0); -- Knights of Thunder
+		e.other:Faction(21,-50,0); -- Bloodsabers
+		e.other:Faction(257,37,0); -- Preists of Life
+		e.other:Faction(135,37,0); -- Guards of Qeynos
 		e.other:AddEXP(500);
 		e.other:GiveCash(7,5,0,0);
 	elseif(item_lib.check_turn_in(e.trade, {item1 = 13288})) then -- Order of Thunder
 		e.self:Say("Ahh. Drosco's Order of Thunder. You are truly an honorable knight. Many vile people would pay greatly for this medal. I thank you for its return. I shall honor you by rewarding you with a thunder staff. Meant for young clerics and paladins of this temple. Never let it leave your side.");
-		e.other:Faction(183,5,0); -- Knights of Thunder
-		e.other:Faction(257,5,0); -- Preists of Life
-		e.other:Faction(135,5,0); -- Guards of Qeynos
+		e.other:Faction(183,10,0); -- Knights of Thunder
 		e.other:Faction(21,-10,0); -- Bloodsabers
+		e.other:Faction(257,7,0); -- Preists of Life
+		e.other:Faction(135,7,0); -- Guards of Qeynos
 		e.other:QuestReward(e.self,0,0,8,0,6357,2000); -- Thunder Staff.
 	end
 	item_lib.return_items(e.self, e.other, e.trade)

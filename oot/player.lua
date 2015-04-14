@@ -8,7 +8,7 @@ function event_enter_zone(e)
 	end
 	
 	if(qglobals.strongbox ~= nil) then
-		eq.create_ground_object(13860, -9200, -430, -293, 0, 3000000);
+		eq.create_ground_object(13860, -9205, -433, -293, 0, 3000000);
 		eq.delete_global("strongbox");
 	end
 end

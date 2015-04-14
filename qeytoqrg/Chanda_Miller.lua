@@ -46,7 +46,7 @@ function event_trade(e)
 		e.self:Say("Oh.. I see.. But um.. I still need the other thing before I can make anything for you.. sorry.");
 		e.self:Say("Oh, good! I can make you a nice new cloak now. Here. Here. Oh, this.. it is a good one. Nice bear fur. Here you go!");
 		e.other:SummonItem(2902);
-		e.other:Faction(167,1,0); -- Karana Residents
+		e.other:Faction(167,2,0); -- Karana Residents
 		e.other:Faction(135,1,0); -- Guards of Qeynos
 		e.other:Faction(257,1,0); -- Priests of Life
 		e.other:Faction(183,1,0); -- Priests of Life
@@ -57,7 +57,7 @@ function event_trade(e)
 		e.self:Say("Oh.. I see.. But um.. I still need the other thing before I can make anything for you.. sorry.");
 		e.self:Say("Ohh good.. good! I.. um.. can make.. Oh great. Here you go. I hope you like it. I always um.. try my best. Tell your um.. friends where you got your bear things!");
 		e.other:SummonItem(2903);
-		e.other:Faction(167,1,0); -- Karana Residents
+		e.other:Faction(167,2,0); -- Karana Residents
 		e.other:Faction(135,1,0); -- Guards of Qeynos
 		e.other:Faction(257,1,0); -- Priests of Life
 		e.other:Faction(183,1,0); -- Priests of Life
@@ -68,7 +68,7 @@ function event_trade(e)
 		e.self:Say("Oh.. I see.. But um.. I still need the other thing before I can make anything for you.. sorry.");
 		e.self:Say("Great. Oh, here, now I can make the.. um.. ok.. here. Yes.. good. I love making bear skin belts. Here you go. I hope you like it.");
 		e.other:SummonItem(2904);
-		e.other:Faction(167,1,0); -- Karana Residents
+		e.other:Faction(167,2,0); -- Karana Residents
 		e.other:Faction(135,1,0); -- Guards of Qeynos
 		e.other:Faction(257,1,0); -- Priests of Life
 		e.other:Faction(183,1,0); -- Priests of Life

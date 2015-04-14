@@ -24,7 +24,7 @@ function event_trade(e)
 		e.other:Faction(265,25,0); -- Protectors of Pine
 		e.other:Faction(159,6,0); -- Jaggedpine Treefolk
 		e.other:Faction(279,-3,0); -- Sabertooths of Blackburrow
-		e.other:Faction(135,6,0); -- Guards of Qeynos
+		e.other:Faction(135,1,0); -- Guards of Qeynos
 		e.other:QuestReward(e.self,math.random(5),math.random(5),math.random(5),0,math.random(2137,2172),1000);
 	elseif(item_lib.check_turn_in(e.trade, {item1 = 17970,item2 = 17970, item3 = 17970})) then
 		e.self:Say("Excellent!  Ridding the area of those foul beasts will certainly slow down whatever it is they are planning.  Here is the Cloak of Jaggedpine.  You should keep this, for you never know when we may decide to alter the enchantments on it.");
