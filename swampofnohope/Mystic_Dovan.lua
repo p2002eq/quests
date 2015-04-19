@@ -21,7 +21,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	--Full C.O.R.N. Chest turn in and Cudgel of the Mystic
-	if(item_lib.check_turn_in(e.trade, {item1 = 12736, item2 = 5143}) and e.other:GetFaction(e.self) < 6 and shmskullquest > 5) then
+	if(item_lib.check_turn_in(e.trade, {item1 = 12736, item2 = 5143}) and e.other:GetFaction(e.self) < 6 and tonumber(qglobals.shmskullquest) > 5) then
 		e.self:Say("I see that you have found your answers. Now I must ask you to to retrieve for the council the skulls of the Di Nozok.  The sarnak in Lake of Ill Omen hold one of the skulls, while [Galdon Vok Nir] holds the other. Once you have retrieved them, give them to Hierphant Zand.");
 		e.other:Faction(282, 10); --Scaled Mystics
 		e.other:Faction(193, 10); --Legion of Cabilis
@@ -31,21 +31,21 @@ function event_trade(e)
 	--Cure disease.
 	if(item_lib.check_turn_in(e.trade, {item1 = 12671})) then--giant blood sac
 		e.self:Say("Day destroys the night, night divides the day. Tried to run, tried to hide, break on through to the other side.");--Obviously borrowed.
-		e.self:CastSpell(userid, 213);
+		e.self:CastSpell(213,e.other:GetID());
 		e.other:Faction(282, 10); --Scaled Mystics
 		e.other:Faction(193, 10); --Legion of Cabilis
 	end
 	--Heal (Light Healing)
 	if(item_lib.check_turn_in(e.trade, {item1 = 12739, item2 = 12739})) then--2x Brittle Iksar Skull
 		e.self:Emote("Destruction leads to a very rough road, but it also breeds creation.");--Obviouslyborrowed.
-		e.self:CastSpell(userid, 17);
+		e.self:CastSpell(17,e.other:GetID());
 		e.other:Faction(282, 10); --Scaled Mystics
 		e.other:Faction(193, 10); --Legion of Cabilis
 	end
 	--Cure Poison
 	if(item_lib.check_turn_in(e.trade, {item1 = 12441})) then--Watcher Signal Torch
 		e.self:Emote("All the money you make will never buy back your soul.");--Obviously borrowed.
-		e.self:CastSpell(userid, 203);
+		e.self:CastSpell(203,e.other:GetID());
 		e.other:Faction(282, 10); --Scaled Mystics
 		e.other:Faction(193, 10); --Legion of Cabilis
 	end
