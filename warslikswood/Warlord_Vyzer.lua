@@ -14,8 +14,7 @@ function event_trade(e)
 	if(item_lib.check_turn_in(e.trade, {item1 = 18210})) then
 		e.self:Say("I am glad to see they have sent a strong new recruit. I have a task for you which will require you to recover a few pages of a certain poem I once wrote. I never should have written of such weak-minded things, but the pages were stolen from me before I could destroy them. Take this poem binder and find the [thieves]. When you combine the pages in the binder, it will magically lock and you may return it to me for your prize, the geozite tool.");
 		e.other:QuestReward(e.self,0,0,0,0,17995);
-	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 12667})) then
+	elseif(item_lib.check_turn_in(e.trade, {item1 = 12667})) then
 		e.self:Say("Great work!! You have saved me from disgrace. I reward you with the geozite tool. You may find its purpose within Cabils' warriors guild. A true Iksar warrior should always have one.");
 		e.other:Faction(30,2);
 		e.other:Faction(193,2);
@@ -23,8 +22,7 @@ function event_trade(e)
 		e.other:Faction(317,2);
 		e.other:Faction(62,2);
 		e.other:QuestReward(e.self,0,0,1,0,12657,1000);
-	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 12912})) then
+	elseif(item_lib.check_turn_in(e.trade, {item1 = 12912})) then
 		e.self:Say("Great job, Trooper " .. e.other:GetName() .. ". Such a warrior would serve the empire better as a legionnaire and not a trooper. I shall recommend you for the rank of legionnaire.");
 		e.other:Faction(30,2);
 		e.other:Faction(193,2);
