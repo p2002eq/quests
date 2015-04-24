@@ -34,7 +34,8 @@ function event_trade(e)
 			e.self:Say("You have proven yourself worthy to hold Soulfire. Do not let her slip into the hands of evil. There are many who wish to free the many trapped souls of shadowknights and necromancers trapped inside the blade. The power of the blade can be called upon to heal you if need be. May Rodcet Nife and the twins of Marr hold you in their glory.");
 			e.other:QuestReward(e.self,0,0,0,0,5504,0);	--  soulfire
 		else
-			item_lib.return_items(e.self, e.other, e.trade)
+			-- faction not hight enough, items get eaten.
+			-- e.self:Say("Faction not high enough, I'm going to eat these"); -- to test this.
 		end
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
