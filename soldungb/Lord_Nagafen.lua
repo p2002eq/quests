@@ -17,7 +17,7 @@ end
 function event_enter(e)
 	if(e.other:GetLevel() > 52 and e.other:Admin() < 80) then
 		e.other:Message(4,"I will not fight you, but I shall banish you!");
-		e.other:MovePC(27,534,913,55,0); 
+		e.other:MovePC(27,534,913,55,0);
 	end
 end
 
