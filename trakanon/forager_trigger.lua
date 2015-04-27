@@ -1,3 +1,7 @@
+function event_spawn(e)
+	eq.spawn2(95004,0,0,3552,725,-392,0);
+end
+
 function event_signal(e)
     eq.zone_emote(12, "Signaled:" .. e.signal);
     if(e.signal == 1) then --mob died
