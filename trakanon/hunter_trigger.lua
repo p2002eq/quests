@@ -1,5 +1,5 @@
 function event_spawn(e)
-	eq.spawn2(95000,0,0,3552,725,-392,0);
+	eq.spawn2(95000,0,0,2832,1667,-375,0);
 end
 
 function event_signal(e)
