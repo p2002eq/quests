@@ -12,11 +12,11 @@ function event_trade(e)
 	if(item_lib.check_turn_in(e.trade, {item1 = 13073, item2 = 13073, item3 = 13073, item4 = 13073})) then --Handin: 4x Bone chips
 		e.self:Emote("gasp's in astonishment.");
 		e.self:Say("Wha...? This!! But... I... Why you... I oughta.. All right!! A bet is a bet. Here you go. A few silver piece's for your achievement. What?!! You thought I would give you ten? Fat chance! Now get lost or I will haul you in for impersonating a froglok.");
-		e.other:Faction(193,15); -- +Legion of Cabilis
-		e.other:Faction(30,15);  -- +Cabilis Residents
-		e.other:Faction(282,15); -- +Scaled Mystics
-		e.other:Faction(62,15);  -- +Crusaders of Greenmist
-		e.other:Faction(317,15); -- +Swifttails
+		e.other:Faction(193,1); -- +Legion of Cabilis
+		e.other:Faction(30,1);  -- +Cabilis Residents
+		e.other:Faction(282,1); -- +Scaled Mystics
+		e.other:Faction(62,1);  -- +Crusaders of Greenmist
+		e.other:Faction(317,1); -- +Swifttails
 		e.other:QuestReward(e.self,0,eq.ChooseRandom(1,2,3,4,5,6,7),0,0,18243,500);
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
