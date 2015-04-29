@@ -1,3 +1,8 @@
+function event_spawn(e)
+	eq.depop(85397);
+end
+
+
 function event_say(e)
 	if(e.message:findi("hail")) then
 		e.self:Emote("ignores you.");
