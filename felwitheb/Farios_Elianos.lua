@@ -10,8 +10,8 @@ function event_trade(e)
 		end
 		if(item_lib.check_turn_in(e.trade, {item1 = 20459})) then
 			e.self:Say("Ah, good. Here's a few copper and a receipt for services rendered. Now be off, I'm sure citizens across the land are in dire need of broken pots at right this moment.");
-			e.other:QuestReward(e.self,0,0,0,0,20474);
-			e.other:GiveCash(3,0,0,0);
+			e.other:QuestReward(e.self,3,0,0,0,20474);
+			-- e.other:GiveCash(3,0,0,0);
 		end
 	end
 	item_lib.return_items(e.self, e.other, e.trade);
