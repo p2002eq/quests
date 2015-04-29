@@ -6,7 +6,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if((item_lib.check_turn_in(e.trade, {item1 = 1687})) and (e.other:GetLevel() > 45) and (" .. e.other:Class() .. "=="Monk")) then
+	if((item_lib.check_turn_in(e.trade, {item1 = 1687})) and (e.other:GetLevel() > 45) and (e.other:Class() == "Monk")) then
 		-- Monk Epic 1.0
 		eq.depop();
 		-- Spawn: Vorash
