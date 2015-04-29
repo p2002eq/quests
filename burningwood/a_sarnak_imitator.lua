@@ -18,7 +18,7 @@ function event_say(e)
 		e.self:Say("Master of the Phantasms - he is the last one you will seek out. Hmm...Polzin is native to Erudin, however, after the incident near Paineel, no one has heard from him. I hope that he is well.");
 	elseif(e.message:findi("I need a sack")) then
 		e.self:Say("Take this sack and combine the items I requested in it. Then return it to me.");
-		e.other:SummonItem(17861);
+		e.other:QuestReward(e.self,0,0,0,0,17861);
 	end
 end
 
