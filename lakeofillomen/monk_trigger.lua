@@ -8,5 +8,6 @@ function event_signal(e)
     end
     if(Deep = 1) and (Vorash = 1) then
          eq.unique_spawn(85396,0,0,-541,-806,80); 
+         eq.depop();
     end
 end
