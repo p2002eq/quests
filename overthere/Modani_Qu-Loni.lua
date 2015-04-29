@@ -19,7 +19,7 @@ function event_trade(e)
 	local item_lib = require("items");
 	if(item_lib.check_turn_in(e.trade, {item1 = 10604})) then
 		e.self:Say("Ah yes, Jeb's seal. The time to craft a Serpent must have come. I will need components collected to craft the first of the pieces. I will also provide you with a sack in which you must combine the items. Are you ready to collect them?");
-		e.other:SummonItem(10604);
+		e.other:QuestReward(e.self,0,0,0,0,10604);
 		e.other:QuestReward(e.self,0,0,0,0,17861);
 	end
 	if(item_lib.check_turn_in(e.trade, {item1 = 10635})) then
