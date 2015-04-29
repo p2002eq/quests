@@ -34,11 +34,11 @@ function event_trade(e)
 	end
 	if(item_lib.check_turn_in(e.trade, {item1 = 20473, item2 = 20460})) then
 		e.self:Emote("smiles slowly as she works the mixture in the bowl and it starts to shine with power. 'This is... a piece of a lost magic item known as Nature's Gem. When restored to completeness I've heard its healing powers will be extraordinary. Take it now. I will take the bowl and hopefully do some good from my end. From here, you can go many ways but I can't guide your path step by step. The only advice I can give you is to look for ones such as yourself.'");
-		e.other:SummonItem(20462);
+		e.other:QuestReward(e.self,3,0,0,0,20462);
 	end
 	if(item_lib.check_turn_in(e.trade, {item1 = 20468})) then
 		e.self:Emote("hands you a scimitar she usually wears at her side. 'Thank you, " .. e.other:GetName() .. ". With this we can hold back the corruption. We have learned something new though. Not only is this work the responsibility of the lord of hatred alone. For some reason we cannot know the lord of disease has decided it worthy of his time to work in conjunction with Innoruuk. The spirits of the three main continents, Faydwer Antonica and Kunark, have been corrupted. Look for the corrupted forces of the land and heal them. When you have found them all then take my scimitar and the spirits to Xanuusus.'");
-		e.other:SummonItem(20440);
+		e.other:QuestReward(e.self,3,0,0,0,20440);
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
