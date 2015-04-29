@@ -24,8 +24,8 @@ function event_trade(e)
 	end
 	if(item_lib.check_turn_in(e.trade, {item1 = 10635})) then
 		e.self:Say("Excellent, you have done well. Here is the first piece of the staff. Now you must go seek out the second master; he will clear the path for you.");
-		e.other:Faction(342,30);
-		e.other:QuestReward(e.self,0,0,0,0,10610,100000);
+		--e.other:Faction(342,30);
+		e.other:QuestReward(e.self,0,0,0,0,10610,100000,342,30);
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
