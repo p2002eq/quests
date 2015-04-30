@@ -1,6 +1,6 @@
 -- Part of SK Epic 1.0
 function event_say(e)
-	if(e.other:GetCharacterFactionLevel(342) > 41) then--True Spirit
+	if(e.other:GetCharacterFactionLevel(342) >= 41) then--True Spirit
 		if(e.message:findi("hail")) then
 			e.self:Say("Ahh, finally! He has sent you. No time to waste now, you must help me lift the curse at once!");
 		elseif(e.message:findi("curse")) then
