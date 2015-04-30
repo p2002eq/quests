@@ -5,7 +5,7 @@ function event_spawn(e)
 end
 
 function event_say(e)
-	if(e.other:GetCharacterFactionLevel(342) > 81) then--True Spirit
+	if(e.message:findi("hail")) then--True Spirit
 		e.self:Say("Alas, I cannot be the one to carry the sword back to my people as proof in fear they will kill me to possess it for their own. I think a simple trade is in order. Perhaps you have a symbol or token of Lhanrc's that I could take back to the others to ease their worries?");
 	else
 		e.self:Emote("seems to ignore you.");
