@@ -17,7 +17,7 @@ function event_trade(e)
 		e.self:Say("Kyrenna! We are free!");
 		eq.spawn2(39155, 0, 0, -195.8, 426.6, -213.9, 115);
 		e.other:Faction(342, 7);
-		eq.attack(" .. e.other:GetName() .. ");
+		eq.attack("" .. e.other:GetName() .. "");
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
