@@ -8,7 +8,7 @@ function event_say(e)
 	elseif(e.message:findi("will of Innoruuk")) then
 		e.self:Say("You speak of a myth, friend. Such an object does not exist in this age and the secret of its creation lies locked in my mind, where it shall stay. It has been passed down through generations in my line, not to be revealed to a soul until the prophecy has come to pass.");
 	elseif(e.message:findi("prophecy")) then
-		if(charfaction >= 42 and charfaction < 44) then
+		if(charfaction >= 42) then
 			e.self:Say("My apologies, " .. e.other:GetName() .. ", I have said too much already. Instead, I have an errand to occupy your thoughts. Take this as proof that you are sent from me and find my brother in Paineel. I haven't spoken with him in some time now and his well being is essential to our family's destiny.");
 			e.other:SummonItem(14375);
 		end
