@@ -27,8 +27,8 @@ function event_trade(e)
 	local item_lib = require("items");
 	if(item_lib.check_turn_in(e.trade, {item1 = 3141, item2 = 3145, item3 = 3140, platinum == 900})) then --Platinum x 900, Darkforge Breastplate, Darkforge Greaves, Darkforge Helm
 		e.self:Say("Well done, " .. e.other:GetName() .. ", I honestly didn't expect to see you again. Yes, yes, this is perfect! My mission is nearly complete!");
-		e.other:Faction(342,7);
-		e.other:QuestReward(e.self,0,0,0,0,18099,1);
+		--e.other:Faction(342,7);
+		e.other:QuestReward(e.self,0,0,0,0,18099,1,342,7);
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
