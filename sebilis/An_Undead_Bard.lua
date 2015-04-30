@@ -28,7 +28,7 @@ function event_trade(e)
 	if(item_lib.check_turn_in(e.trade, {item1 = 20536})) then --Mystical Lute Body
 		e.self:Say("I feel so powerful once again...a strange feeling is overcoming me!");
 		e.other:QuestReward(e.self,0,0,0,0,20536); --Mystical Lute Body
-		eq.attack(" .. e.other:GetName() .. ");
+		eq.attack("" .. e.other:GetName() .. "");
 		spawn = 1;
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
