@@ -17,7 +17,6 @@ function event_trade(e)
 	-- [FLAG: Check target: eq.get_globals()] local qglobals = eq.get_qglobals();
 	local item_lib = require("items");
 	if(item_lib.check_turn_in(e.trade, {item1 = 1686})) then --Trunt's Head
-		--if(qglobals["Trunt"] ~= nil and qglobals["Trunt"]=="1") then --Trunt's Head has been turned in to Deep in Lake Rathetear
 			e.self:Emote("looks up and down.");
 			e.self:Say("Hmmm, I was hoping for something more impressive. This is just a small token of the last person who tried to interfere with my plans. He failed as shall you. But tell me truly, are you the one who has so rudely removed my students?");
 			e.other:QuestReward(e.self,0,0,0,0,1687); --Eye of Kaiaren
