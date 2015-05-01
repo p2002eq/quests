@@ -3,7 +3,7 @@
 --Please note a bare minimum has been done for the shaman quests that Hierophant Oxyn gives, as I was only concerned with the Greenmist quest.
 
 function event_say(e)
-	local qglobals = eq.get_qglobals(e.self,e.other);
+	--local qglobals = eq.get_qglobals(e.self,e.other);
 	--Cursed Wafers Event_Say
 	if(e.message:findi("hail")) then
 		e.self:Say("Greetings, and may the pain of the ancients guide you. You have come to us for guidance, have you not? We are the Hierophants of Cabilis and we guide the young Scale Mystics. All petitioners shall speak with me of [temple tasks].");
@@ -52,7 +52,7 @@ function event_trade(e)
 	end
 	if(item_lib.check_turn_in(e.trade, {item1 = 12403}) and (e.other:Class() == "Shaman")) then --Full Component Mortar
 		e.self:Say("We appreciate your service. Take a few copper for your deed as well as some of our cursed waters. They will provide you with nourishment. As for future tasks, we are searching for a few [lost skulls] and i am sure you are searching for your [iron cudgel of the clairvoyant] And i also hear that the furscales are in need of some broodlings to do some manual labor. Tell them Oxyn sent you.");
-		eq.set_global("shmskullquest","1",5,"F"); --set a global flag so that user can do shm skull quest
+		--eq.set_global("shmskullquest","1",5,"F"); --set a global flag so that user can do shm skull quest
 		e.other:SummonItem(12406, 2); 			--Cursed Wafers
 		e.other:Faction(282, 10); 				--Scaled Mystics
 		e.other:Faction(193, 10); 				--Legion of Cabilis
