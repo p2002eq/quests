@@ -7,10 +7,9 @@ function event_signal(e)
 		e.self:Say("Such is the will of Cazic-Thule!");
 	elseif(e.signal == 2) then
 		local mobtypeID =  entity_list:GetMobByNpcTypeID(72003);
-		local follow_mob = mobtypeID:GetID();
-		eq.follow(follow_mob);
+		e.self:GMMove(mobtypeID:GetX(),mobtypeID:GetY(),mobtypeID:GetZ());
 	elseif(e.signal == 3) then
-		eq.stop_follow();
+		eq.move_to(-357,-635,135.199,196,true);
 	end
 end
 
