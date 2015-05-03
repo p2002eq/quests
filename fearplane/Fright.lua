@@ -6,11 +6,17 @@ function event_signal(e)
 	if(e.signal == 1) then
 		e.self:Say("Such is the will of Cazic-Thule!");
 	elseif(e.signal == 2) then
+		eq.stop_timer("goback");
 		local mobtypeID =  entity_list:GetMobByNpcTypeID(72003);
 		e.self:GMMove(mobtypeID:GetX(),mobtypeID:GetY(),mobtypeID:GetZ());
 	elseif(e.signal == 3) then
-		eq.move_to(-357,-635,135.199,196,true);
+		eq.set_timer("goback",math.random(20000));
 	end
+end
+
+function event_timer(e)
+	eq.move_to(-357,-635,135.199,196,true);
+	eq.stop_timer("goback");
 end
 
 function event_death_complete(e)
