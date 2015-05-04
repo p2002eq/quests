@@ -6,7 +6,7 @@ function event_signal(e)
 	elseif(e.signal == 2) then
 		local mobtypeID =  entity_list:GetMobByNpcTypeID(72003);
 		local follow_mob = mobtypeID:GetID();
-		eq.follow(follow_mob);
+		eq.follow(follow_mob,0);
 	elseif(e.signal == 3) then
 		eq.stop_follow();
 	end
