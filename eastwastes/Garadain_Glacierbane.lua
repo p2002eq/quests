@@ -56,7 +56,7 @@ function event_say(e)
 	   
 	end
 	
-	function event_trade(e)
+function event_trade(e)
 	local item_lib = require("items");
 	
 	-- Ring 1 Reward
