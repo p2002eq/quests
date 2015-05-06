@@ -56,6 +56,83 @@ function event_say(e)
 	   
 	end
 	
+	function event_trade(e)
+	local item_lib = require("items");
 	
+	-- Ring 1 Reward
+	if(item_lib.check_turn_in(e.trade, {item1 = 30135})) then
+		e.self:Say("Ahh, that'll do fine. Take this, it is but a trinket for now, but continue to serve the Coldain and it will grow in power. I must get some rest now, for I have been told my [nephew] has disappeared again and I will need to track him down tomorrow.");
+        e.other:QuestReward(e.self,0,0,0,0,30131,50000);
+		e.other:Faction(49, 30); -- +Coldain
+		e.other:Faction(67, 30); -- +Dain Frostreaver IV
+		e.other:Faction(188, -30); -- -Kromrif
+		e.other:Faction(189, -30); -- -Kromzek
+		
+	-- Ring 2 Reward
+	elseif(item_lib.check_turn_in(e.trade, {item1 = 30267, item2 = 30131})) then
+	    e.self:Say("Well done friend! My nephew is safe at home and his thirst for adventure is quenched for now. The beast will claim no more of our people. I couldn't have handled it better myself. Now I can get back to the business of [hunting].");
+        e.other:QuestReward(e.self,0,0,0,0,30133,60000);
+		e.other:Faction(49, 30); -- +Coldain
+		e.other:Faction(67, 30); -- +Dain Frostreaver IV
+		e.other:Faction(188, -30); -- -Kromrif
+		e.other:Faction(189, -30); -- -Kromzek
+	
+	-- Ring 3 Reward
+	elseif(item_lib.check_turn_in(e.trade, {item1 = 30133, item2 = 30137})) then
+	    e.self:Say("Hrmm, not quite the work of a Coldain. Barely functional, in fact. I'll be needing to touch this up a bit. Fetch me a Coldain [smithing hammer] and I'll be sure to tell my associates in Thurgadin of your deeds.");
+        e.other:QuestReward(e.self,0,0,0,0,30132,70000);
+		e.other:Faction(49, 30); -- +Coldain
+		e.other:Faction(67, 30); -- +Dain Frostreaver IV
+		e.other:Faction(188, -30); -- -Kromrif
+		e.other:Faction(189, -30); -- -Kromzek
+	
+	-- Ring 4 Reward
+	elseif(item_lib.check_turn_in(e.trade, {item1 = 30140, item2 = 30132})) then
+	    e.self:Say("Ahh, there we go now, that's more like it. It would be time to return to the hunt were it not for the [plans] our spies have discovered.");
+        e.other:QuestReward(e.self,0,0,0,0,30134,80000);
+		e.other:Faction(49, 30); -- +Coldain
+		e.other:Faction(67, 30); -- +Dain Frostreaver IV
+		e.other:Faction(188, -30); -- -Kromrif
+		e.other:Faction(189, -30); -- -Kromzek
+		
+	-- Ring 5 Reward
+	elseif(item_lib.check_turn_in(e.trade, {item1 = 30141, item2 = 30134})) then
+	    e.self:Say("Without your assistance, we would have lost our camp and our lives. Again, I thank you. Now that you have proven your loyalty to the throne I have a special [favor] to ask of you.");
+        e.other:QuestReward(e.self,0,0,0,0,30268,90000);
+		e.other:Faction(49, 30); -- +Coldain
+		e.other:Faction(67, 30); -- +Dain Frostreaver IV
+		e.other:Faction(188, -30); -- -Kromrif
+		e.other:Faction(189, -30); -- -Kromzek
+		
+	-- Ring 6 Reward
+	elseif(item_lib.check_turn_in(e.trade, {item1 = 1045, item2 = 18084, item3 = 30268})) then
+	    e.self:Say("lowers his head and mutters, 'At least there will be some closure for their families, thanks to you. The Ry`gorr will pay for this with their lives! I will ask you to help us in the invasion of Ry`gorr keep, but first I have a delicate [mission] I was hoping you'd handle.");
+        e.other:QuestReward(e.self,0,0,0,0,30162,100000);
+		e.other:Faction(49, 30); -- +Coldain
+		e.other:Faction(67, 30); -- +Dain Frostreaver IV
+		e.other:Faction(188, -30); -- -Kromrif
+		e.other:Faction(189, -30); -- -Kromzek
+		
+	-- Ring 7 Reward
+	elseif(item_lib.check_turn_in(e.trade, {item1 = 1047})) then
+	    e.self:Say("Thank you, your service to our people has been most helpful. The time has come for our people to make war with the Ry`gorr. They must pay for their transgressions against our people. We are just waiting on you. Prepare yourself for glorious battle and tell me when you are [ready].");
+        e.other:QuestReward(e.self,0,0,0,0,30163,110000);
+		e.other:Faction(49, 30); -- +Coldain
+		e.other:Faction(67, 30); -- +Dain Frostreaver IV
+		e.other:Faction(188, -30); -- -Kromrif
+		e.other:Faction(189, -30); -- -Kromzek	
+		
+	-- Ring 8 Reward
+	elseif(item_lib.check_turn_in(e.trade, {item1 = 30163})) then
+	    e.self:Say("Give this to Gloradin and return to me immediately, it is time. May Brell be with us!");
+        e.other:QuestReward(e.self,0,0,0,0,1093,120000);
+		e.other:Faction(49, 30); -- +Coldain
+		e.other:Faction(67, 30); -- +Dain Frostreaver IV
+		e.other:Faction(188, -30); -- -Kromrif
+		e.other:Faction(189, -30); -- -Kromzek
+		
+	end
+	item_lib.return_items(e.self, e.other, e.trade)
+end
 	
 end
