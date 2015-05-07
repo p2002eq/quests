@@ -19,7 +19,7 @@ function event_signal(e)
 		        newz = -560;
 	        end
 	        
-	   local getnewmobid = eq.ChooseRandom(92076, 92208, 92209, 92210, 92211, 92212);
+	   local getnewmobid = eq.ChooseRandom(92249, 92208, 92209, 92210, 92211, 92212);
 	        eq.spawn2(getnewmobid,0,0,newx,newy,newz,0);
     end
 end
