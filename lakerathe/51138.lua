@@ -2,6 +2,7 @@
 
 function event_spawn(e)
 	e.self:Shout("The Triumvirate of Water has decreed your fate, Shmendrik Lavawalker!! I am here to deliver said fate!!");
+	e.self:CastSpell(672,51012,0,1);
 	eq.signal(51012,99,2000);
 end
 
