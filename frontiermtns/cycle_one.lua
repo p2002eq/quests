@@ -1,7 +1,7 @@
 function event_spawn(e)
 	local trigger = eq.ChooseRandom(1,2,3);
 	        if(trigger == 1) then  -- goblin trigger
-		        local getnewloc = eq.ChooseRandom(1,2);
+                local getnewloc = eq.ChooseRandom(1,2);
 	                if(getnewloc == 1) then
 		                newx = 1200;
 		                newy = -3332;
