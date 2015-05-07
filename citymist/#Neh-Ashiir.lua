@@ -6,7 +6,7 @@ function event_trade(e)
 		eq.depop()
 		e.other:Ding();
 		e.other:Faction(342,50);
-		eq.spawn2(90181,0,0,e.self:GetX(),e.self:GetY(),e.self:GetZ(),e.self:GetHeading());
+		eq.spawn2(90195,0,0,e.self:GetX(),e.self:GetY(),e.self:GetZ(),e.self:GetHeading());
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
