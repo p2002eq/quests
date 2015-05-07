@@ -1,5 +1,5 @@
 function event_death_complete(e)
-    eq.signal(92251, 1) -- signal cycle controller
+    eq.signal(92253, 1) -- signal cycle controller
 end
 
 function event_trade(e)
