@@ -6,7 +6,7 @@ function event_signal(e)
     if(e.signal == 2) then --Vorash died 
         Vorash = 1;
     end
-    if(Deep = 1) and (Vorash = 1) then
+    if(Deep == 1) and (Vorash == 1) then
          eq.unique_spawn(85396,0,0,-541,-806,80); 
          eq.depop();
     end
