@@ -28,13 +28,13 @@ function event_trade(e)
 	local item_lib = require("items");
 	if(item_lib.check_turn_in(e.trade, {item1 = 16972, item2 = 16972})) then --  Mt. Death Mineral Salts
 		e.self:Say("Ah, most excellent! You are sure to be more highly valued as our servant once I speak to my masters of this! Mountain Death Mineral Salts, they shall grace the Overkings table this very night! Be off, minion! Fetch us some more salts to prove your value!");
-		e.other:Faction(23,10);
+		e.other:Faction(23,1);
 		e.other:Faction(384,-30);
 		e.other:QuestReward(e.self,0,0,0,0,0,8000);
 	end
 	if(item_lib.check_turn_in(e.trade, {item1 = 22135})) then -- Green Goblin Skin
 		e.self:Say("Green Goblin Skin! You have indeed been busy! I shall speak to my masters of this, continue your good work and return to me with more skins.");
-		e.other:Faction(23,10);
+		e.other:Faction(23,1);
 		e.other:Faction(384,-30);
 		e.other:QuestReward(e.self,0,0,0,0,0,8000);
 	end
