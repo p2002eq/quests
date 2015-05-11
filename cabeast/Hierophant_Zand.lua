@@ -23,7 +23,7 @@ function event_trade(e)
 		e.other:SummonItem(5140); 				--Iron Cudgel of the Petitioner
 		e.other:Ding();
 	--Shaman Skull Quest No.3.1 turn in - Check for  A froglok hex doll
-	elseif((item_lib.check_turn_in(e.trade, {item1 = 12734})) and (e.other:GetCharacterFactionLevel(282) > 6)) then
+	elseif((item_lib.check_turn_in(e.trade, {item1 = 12734})) and (e.other:GetFaction(e.self) <= 4)) then
 		e.self:Say("You have proven your prowess to me, now take this note to Crusader Quarg outside the city and he will test you further.");
 		e.other:SummonItem(18054); 				--A note to take to crusader Quarg.
 		--eq.set_global("shmskullquest","4",5,"F"); --set a global flag so that user can do shm skull quest part 3.2
@@ -33,7 +33,7 @@ function event_trade(e)
 		e.other:GiveCash(0,0,0,5);
 		e.other:Ding();
 	--Shaman Skull Quest No.5 turn in - Iksar Skull Helm and Iksar Skull and Cudgel of the Prophet
-	elseif((item_lib.check_turn_in(e.trade, {item1 = 12741, item2 = 5144, item3 = 12740})) and (e.other:GetCharacterFactionLevel(282) > 6)) then
+	elseif((item_lib.check_turn_in(e.trade, {item1 = 12741, item2 = 5144, item3 = 12740})) and (e.other:GetFaction(e.self) <= 4)) then
 		e.self:Say("You have done well in proving yourself to this council, but we have yet more tests for you before you will be a true clairvoyant. Speak with Hierophant Dexl for your next test.");
 		e.other:SummonItem(5145); 				--Give the player The Cudgel of the Channeler
 		--eq.set_global("shmskullquest","8",5,"F"); --set a global flag so that user can do shm skull quest part 6
