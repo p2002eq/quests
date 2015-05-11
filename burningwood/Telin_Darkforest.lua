@@ -1,6 +1,6 @@
 -- Start of the ranger and druid epic quests
 function event_say(e)
-	if(e.other:GetFaction(e.self) < 4) then
+	if(e.other:GetFaction(e.self) <= 4) then
 		if(e.message:findi("hail")) then
 			e.self:Emote("looks at you serenely. 'Hello, wanderer.'");
 		elseif(e.message:findi("what are you doing")) then
@@ -28,7 +28,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(e.other:GetFaction(e.self) < 4) then
+	if(e.other:GetFaction(e.self) <= 4) then
 		if(item_lib.check_turn_in(e.trade, {item1 = 20447})) then
 			e.self:Emote("scratches the coin as he looks at it. 'Faelin sent you to Giz? Surprising. This coin speaks to the outcome of your talk. He would hardly give this bit of metal to a stranger, but that's a story for a different time. So, you say Giz did confirm Innoruuk's involvement, and something about undead minions? Here, take this coin back. Find Arch Druid Althele in the Karanas and show her that. Tell her what we have discussed. She will look kindly on an ally in this matter.'");
 			e.other:QuestReward(e.self,0,0,0,0,20448);
