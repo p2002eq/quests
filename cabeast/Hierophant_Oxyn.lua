@@ -22,7 +22,7 @@ function event_say(e)
 	--Shaman Skull Quest No.2 Event_Say
 	elseif((e.message:findi("other skulls")) and (e.other:GetFaction(e.self) < 3)) then
 		e.self:Say("A couple of rogue mystics have taken two skulls from another one of our temples. They could not have gone far, but i fear that one of the skulls was [damaged] in their escape.");
-	elseif((e.message:findi("damaged")) and (e.other:GetCharacterFactionLevel(282) > 6)) then
+	elseif((e.message:findi("damaged")) and (e.other:GetFaction(e.self) < 3)) then
 		e.self:Say("A guard had managed to attack one of the mystics, but hit the bag carrying the skull.  I fear that the skull has been damaged, but it can be repaired.  Acquire it's pieces and some Mendglow clay to put it back together.");
 	elseif(e.message:findi("liquid")) then 						--Crusaders of Greenmist (Greenmist Quest 8/8)
 		e.self:Say("The bottle contains deklium in a liquid solution. The metal of prophecy has been determined to rest in a mass of living earth. Our scholars have written of a mass of ore that fell from the heavens. This ore was used in the creation of a blade of our father, Rile. We have been filled with visions of this blade. I have seen it in the hands of our Crusaders as they march towards the new age of Greenmist! Seek out the corrupted earth that guards the interlopers. We have an alchemist near there. He will be able to use the deklium to determine which golem contains the metal. Take care to go in force. I sense that there will be a battle.");
