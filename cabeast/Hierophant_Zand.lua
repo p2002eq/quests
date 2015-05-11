@@ -2,7 +2,7 @@
 
 function event_say(e)
 	--local qglobals = eq.get_qglobals(e.other,e.self);
-	if((e.message:findi("chosen savior")) and (e.other:GetCharacterFactionLevel(282) > 6)) then
+	if((e.message:findi("chosen savior")) and (e.other:GetFaction(e.self) <= 4)) then
 		e.self:Say("I am honored to meet the one who shall pledge his life to the return of the Skulls of the Ancients. However, I must see proof of our prowess as of yet. Go to the outlands and retrieve one Froglok Hexdoll, and no, they are not found on Frogloks. They are shaman dolls made by the goblin tribe.");
 	elseif(e.message:findi("hail")) then
 		e.self:Say("Welcome to the Temple of Terror, young one. May the pain of the ancients guide you. Have you lost your Iron Cudgel of the Petitioner?"); --Could not find original text
