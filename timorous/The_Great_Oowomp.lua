@@ -17,7 +17,7 @@ function event_trade(e)
 	if(item_lib.check_turn_in(e.trade, {gold = 5})) then
 		e.self:Emote("flings the coins into the air and they all fall neatly into his oversized coin pouch. <Tink, tink, tink, tink, TINK!!>");
 		e.self:Say("Gaze upon my awsome powers of the arcane!! You, a simple " .. e.other:Race() .. ", shall see my power. Allakabam!!");
-		eq.spawn2(96088,0,0,3122.8,5725.2,7.9,13.0);
+		eq.spawn2(96371,0,0,3122.8,5725.2,7.9,13.0);
 		eq.set_timer(1,3000);
 	end
 	if(item_lib.check_turn_in(e.trade, {item1 = 12942, item2 = 12945, item3 = 12944, item4 = 12943})) then
