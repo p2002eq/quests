@@ -1,5 +1,5 @@
 function event_spawn(e)
-	--eq.depop(89168);
+	eq.depop(89181);
 end
 function event_death_complete(e)
     eq.signal(89185, 1) -- signal UDB controller
