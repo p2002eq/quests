@@ -89,23 +89,23 @@ sub check_hasitem {
         }
     }
 #Check corpses
-  if ($body_count > 0) {
-    for ($i=1; $i<=$body_count; $i++) {
-      $body_id = $client->GetCorpseID($i);
-      for ($slot1=0; $slot1<=30; $slot1++) {
-        $itemid1 = $client->GetCorpseItemAt($body_id, $slot1);
-        if ($itemid1 == $itmchk) {
-          return 1;
-        }
-      }
-      for ($slot1=251; $slot1<=340; $slot1++) {
-        $itemid1 = $client->GetCorpseItemAt($body_id, $slot1);
-        if ($itemid1 == $itmchk) {
-          return 1;
-        }
-      }
-    }
-  }
+#  if ($body_count > 0) {
+#   for ($i=1; $i<=$body_count; $i++) {
+#      $body_id = $client->GetCorpseID($i);
+#      for ($slot1=0; $slot1<=30; $slot1++) {
+#        $itemid1 = $client->GetCorpseItemAt($body_id, $slot1);
+#        if ($itemid1 == $itmchk) {
+#          return 1;
+#        }
+#      }
+#      for ($slot1=251; $slot1<=340; $slot1++) {
+#        $itemid1 = $client->GetCorpseItemAt($body_id, $slot1);
+#        if ($itemid1 == $itmchk) {
+#          return 1;
+#        }
+#      }
+#    }
+#  }
   return 0;
 }
 

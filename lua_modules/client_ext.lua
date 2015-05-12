@@ -170,25 +170,25 @@ function Client:HasItem(itemid)
 	end
 
 	--corpse
-	local bodycount = self:GetCorpseCount();
+	--local bodycount = self:GetCorpseCount();
 	
-	if(bodycount > 0) then
-		for b = 0, bodycount, 1 do
-			local bodyid = self:GetCorpseID(b); 
-			for i = 0, 30, 1 do
-				local thisitem = self:GetCorpseItemAt(bodyid, i);
-				if(thisitem == itemid) then
-					return true;
-				end
-			end
-			for i = 250, 339, 1 do
-				local thisitem = self:GetCorpseItemAt(bodyid, i);
-				if(thisitem == itemid) then
-					return true;
-				end
-			end
-		end
-	end
+	--if(bodycount > 0) then
+	--	for b = 0, bodycount, 1 do
+	--		local bodyid = self:GetCorpseID(b); 
+	--		for i = 0, 30, 1 do
+	--			local thisitem = self:GetCorpseItemAt(bodyid, i);
+	--			if(thisitem == itemid) then
+	--				return true;
+	--			end
+	--		end
+	--		for i = 250, 339, 1 do
+	--			local thisitem = self:GetCorpseItemAt(bodyid, i);
+	--			if(thisitem == itemid) then
+	--				return true;
+	--			end
+	--		end
+	--	end
+	--end
 	return false;
 end
 
