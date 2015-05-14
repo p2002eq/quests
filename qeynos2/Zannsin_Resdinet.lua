@@ -19,8 +19,12 @@ function event_say(e)
 	if(e.message:findi("hail")) then
 		e.self:Say("Hey..  My name's Zannsin. but you can call me [Zan].");
 	elseif(e.message:findi("men to prak in highpass")) then
-		e.self:Say("Hmm, I see. Maybe you can help us out with this, " .. e.other:GetName() .. ", huh? I think it'd be a perfect opportunity for you to prove just how valuable you are to our little organization. Take this letter to Prak at Golden Rooster in Highpass, and see what you can do to help him out.");
-		e.other:SummonItem(18795);
+		if(e.other:GetFaction(e.self) < 3) then
+			e.self:Say("Hmm, I see. Maybe you can help us out with this, " .. e.other:GetName() .. ", huh? I think it'd be a perfect opportunity for you to prove just how valuable you are to our little organization. Take this letter to Prak at Golden Rooster in Highpass, and see what you can do to help him out.");
+			e.other:SummonItem(18795);
+		else
+			e.self:Say("The Circle has recognized your deeds and contributions, but I think you need to prove your worth to us a little more.");
+		end
 	end
 end
 
