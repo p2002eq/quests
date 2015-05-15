@@ -9,7 +9,7 @@ function event_say(e)
 		else
 			e.self:Say("Carson hates you, and I hate you... I'd kill you where you stand, but I just polished my dagger last night.");
 		end
-	elseif(e.message:findi("friend") then
+	elseif(e.message:findi("friend")) then
 		if(e.other:GetFaction(e.self) < 6) then
 			e.self:Say("My memory is a bit fuzzy. If you are a friend, prove it to me.");
 		else
