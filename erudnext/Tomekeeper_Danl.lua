@@ -22,7 +22,6 @@ function event_trade(e)
 		if(item_lib.check_turn_in(e.trade, {item1 = 18195})) then
 			e.self:Emote("gasps at the sight of the rare book. 'This is a great find indeed! I can only imagine who you had to.. persuade to give you the book. Our library would be very interested in acquiring this and I am prepared to give you this referral that marks you as a friend of the library. If only [Lheao] could see this.'");
 			e.other:QuestReward(e.self,3,0,0,0,1682); -- Danl's Reference
-			--e.other:Ding();
 		end
 	end
 	item_lib.return_items(e.self, e.other, e.trade);
