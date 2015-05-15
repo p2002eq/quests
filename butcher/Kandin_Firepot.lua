@@ -8,7 +8,6 @@ function event_say(e)
 end
 
 function event_trade(e)
-
 	local item_lib = require("items");
 	if(item_lib.check_turn_in(e.trade, {item1 = 18169})) then
 		e.self:Say("Brother! I have one of those. He's great, but he's dead. His name was Gabstik and he was a really powerful wizard. I still have one of his greatest possesions! You look like you could use it. I've added another thing to my shopping list. I require a dry brittle skin that I can mold or a rare oil found in the planes that I can soak the fuse in. Get me one of these things and I'll trade it for my bother's stick.");

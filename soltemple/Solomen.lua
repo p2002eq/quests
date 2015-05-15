@@ -1,7 +1,7 @@
 function event_say(e)
 	if(e.message:findi("Hail")) then
 		e.self:Say("Ah, I see you have found my study.  This is where I study and scribe the history of magic in Norrath.");
-	if(e.other:GetClass() == 12 and e.other:HasItem(14341) == false) then -- check for epic, if none then continue if the class is a wizard.
+	elseif(e.other:GetClass() == 12 and e.other:HasItem(14341) == false) then -- check for epic, if none then continue if the class is a wizard.
 		if(e.message:findi("what history")) then
 			e.self:Say("I have worked to chronicle everything from the beginnings of magic to what we consider the modern day of magic.  Solusek Ro has been very generous to those who wield magic in Norrath.  But throughout history there is one thing I have noticed - too much power corrupts the soul.  I have seen and documented that the strongest wizards and those closest to Solusek Ro become corrupted by their power.");
 		elseif(e.message:findi("wizard")) then
