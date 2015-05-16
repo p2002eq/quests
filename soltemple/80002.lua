@@ -9,10 +9,12 @@ function event_combat(e)
 end
 
 function event_signal(e)
-	if(engaged == 1) then
-		eq.signal(80005,1);
-	else
-		eq.depop();
+	if(e.signal == 1) then
+		if(engaged == 0) then
+			eq.depop();
+		else
+			eq.signal(80005,1);
+		end
 	end
 end
 
