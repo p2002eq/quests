@@ -1,23 +1,3 @@
-local engaged =  0;
-
-function event_combat(e)
-	if(e.joined) then
-		engaged = 1;
-	else
-		engaged = 0;
-	end
-end
-
-function event_signal(e)
-	if(e.signal == 1) then
-		if(engaged == 0) then
-			eq.depop();
-		else
-			eq.signal(80005,1);
-		end
-	end
-end
-
 function event_say(e)
 	if(e.message:findi("solusek ro")) then
 		e.self:Say("Solusek Ro is the Master of Fire and the Keeper of Power.");
@@ -35,8 +15,3 @@ local item_lib = require("items");
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------
