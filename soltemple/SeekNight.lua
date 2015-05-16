@@ -8,4 +8,5 @@ end
 
 function event_timer(e)
 	eq.signal(80002,1);
+	eq.stop_timer("check");
 end
