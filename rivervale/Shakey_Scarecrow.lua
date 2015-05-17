@@ -9,6 +9,7 @@ function event_trade(e)
 	local item_lib = require("items");
 
 	if(item_lib.check_turn_in(e.trade, {item1 = 14321})) then
+		e.self:Emote("shakes his head around and beams a smile at you.");
 		e.other:SummonItem(eq.ChooseRandom(13980, 13980, 14031));
 		e.other:Ding();
 		e.other:AddEXP(500);

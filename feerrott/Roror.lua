@@ -10,16 +10,14 @@ end
 
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Do you [know fear]?");
+		e.self:Say("Greeetingsssssssssss. What brings sssssuch asssss you to the heart of the Feerrott? Do you [know fear]?");
 	elseif(e.message:findi("know fear")) then
-		e.self:Say("That's great!");
+		e.self:Say("Yesssss. I can tassssste the fear in your pitiful heart. I am Roror, High Priessst of Cazic-Thule! I sssseek to sssssspread terror acrossssss all of Norrath! I ssssshall let you live thisss day so you can sssshare the fear that liessss within you.");
 	elseif(e.message:findi("know no fear")) then
 		e.self:Say("YOU SSSSSSHALL! For I, Roror, High Prissst of Cazic-Thule, I sssshall teach you!");
 		eq.attack(e.other:GetName());
-	elseif(e.message:findi("bless my hay")) then
-		e.self:Say("I require 66 gold coin and the hay in order to bless it.");
-	elseif(e.message:findi("curse my hay")) then
-		e.self:Say("I require 66 gold coin and the hay in order to curse it.");
+	elseif(e.message:findi("hay")) then
+		e.self:Say("You sssseek the blesssssssing of the Lord of Fear?! Give me what you have and 66 gold pieces as an offering to Cazic-Thule.");
 	end
 end
 
@@ -27,6 +25,7 @@ function event_trade(e)
 	local item_lib = require("items");
 
 	if(item_lib.check_turn_in(e.trade, {item1 = 13990,gold = 66})) then
+		e.self:Say("Whatsssss thisssss? You sssseek my blessssssssing? Heh heh heh... Very well... CAZIC-THULE! Take this fruit of Karana into horror'sss dark embrace. Fear and death made manifesssssst. A harvesssst of terror! Here, take your gift of blood and sssstraw. Use its dark powersssss in the name of the Fear Lord!");
 		e.other:SummonItem(14320);
 		e.other:Ding();
 		e.other:Faction(18,10,0);
