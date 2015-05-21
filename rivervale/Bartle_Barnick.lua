@@ -1,7 +1,7 @@
 function event_say(e)
     if(e.message:findi("Hail")) then
         e.self:Say("Good day! If you are a new Druid of the Storm Reapers I have promised Hibbs that I would assist in getting you outfitted for ventures beyond Rivervale but you must bring me a note from Reebo as proof that he sent you. There are many dangers outside of the shire so often leather clothing and a weapon become necessities for a traveling druid.");
-	if(e.message:findi("moss toe cap")) then
+	elseif(e.message:findi("moss toe cap")) then
 		e.self:Say("To assemble a Moss Toe Cap you will require two [silk thread], a ruined mossy rat pelt, and a giant thicket rat skull. Once you have the necessary components combine them in your Mail Assembly Kit with this Tattered Cap Pattern.");
 		-- Summon: Tattered Cap Pattern
 		e.other:SummonItem(19555);
