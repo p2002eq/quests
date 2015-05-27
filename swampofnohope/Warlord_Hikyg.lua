@@ -20,21 +20,21 @@ function event_trade(e)
 	if(item_lib.check_turn_in(e.trade, {item1 = 12435, item2 = 12436, item3 = 12437, item4 = 5133})) then
 		e.self:Emote("hands you plans for a trooper's pike head.");
 		e.self:Say("Congratulations. You are now a trooper of the Legion of Cabilis. Now you may fight with honor and a mighty weapon.");
-		e.other:QuestReward(e.self,0,0,0,0,12477,1200);
 		e.other:Faction( 30,2);
 		e.other:Faction( 193,2);
 		e.other:Faction( 282,2);
 		e.other:Faction( 317,2);
 		e.other:Faction( 62,2);
+		e.other:QuestReward(e.self,0,0,0,0,12477,1200);
 	end
 	if(item_lib.check_turn_in(e.trade, {item1 = 12913})) then
 		e.self:Say("What?!! You crushed all the shields!! You croak-faced skulking brute!! You don't deserve to be in my garrison!! I am going to recommend you for a promotion in hopes that you will be sent to hunt dragons and meet your end!");
-		e.other:QuestReward(e.self,0,0,0,0,18073,2000);
 		e.other:Faction( 30,2);
 		e.other:Faction( 193,2);
 		e.other:Faction( 282,2);
 		e.other:Faction( 317,2);
 		e.other:Faction( 62,2);
+		e.other:QuestReward(e.self,0,0,0,0,18073,2000);
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
