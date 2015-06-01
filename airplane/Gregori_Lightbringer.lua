@@ -28,7 +28,7 @@ function event_trade(e)
 		eq.depop();
 	elseif(item_lib.check_turn_in(e.trade, {item1 = 20957, item2 = 20723, item3 = 20724})) then 	--paladin test of love using dark spiroc feather, ethereal topaz, sphinx claw
 		e.self:Say("You are indeed worthy of this divine sword, " .. e.other:GetName() .. ". As long as you wield Zephyrwind, you will follow the true path.");
-		e.other:QuestReward(e.self,0,0,0,0,11681,100000); --Zephyrwind
+		e.other:QuestReward(e.self,0,0,0,0,27709,100000); --Thelvorn, Blade of Light
 		eq.depop();
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
