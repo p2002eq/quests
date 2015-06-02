@@ -32,7 +32,7 @@ function event_trade(e)
 		eq.depop();
 	elseif(item_lib.check_turn_in(e.trade, {item1 = 20711, item2 = 20964, item3 = 20713, item4 = 20712})) then 				--shadowknight test of necropotence using efreeti war axe, dulcet nectar, bloodstained hilt, blood sky ruby
 		e.self:Say("You have truly earned this.");
-		e.other:QuestReward(e.self,0,0,0,0,11679,100000); 	--rheumguls
+		e.other:QuestReward(e.self,0,0,0,0,27707,100000); 	--Khyldorn the Blood Drinker
 		eq.depop();
 	end
 	item_lib.return_items(e.self, e.other, e.trade)

@@ -18,7 +18,7 @@ function event_trade(e)
 	local item_lib = require("items");
 	if(item_lib.check_turn_in(e.trade, {item1 = 20963, item2 = 20994, item3 = 20995, item4 = 20996})) then  	--rogue test of deception using honeyed nectar, bixie stinger, lightning rod, bloodsky sapphire
 		e.self:Say("Very good. Here's your reward.");
-		e.other:QuestReward(e.self,0,0,0,0,11677,100000); -- ebonsting
+		e.other:QuestReward(e.self,0,0,0,0,27704,100000); -- Thornstinger
 		eq.depop();
 	elseif(item_lib.check_turn_in(e.trade, {item1 = 20949, item2 = 20990, item3 = 20991})) then 	--rogue test of stealth using pegasus statuette, prismatic sphere, fine wool cloak
 		e.self:Say("Very good. Here's your reward.");
