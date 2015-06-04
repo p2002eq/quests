@@ -7,7 +7,7 @@ function event_signal(e)
 	end
 	if(e.signal==3) then
 		e.self:SetRunning(1);
-		eq.start(280);
+		eq.start(11);
 	end
 end
 

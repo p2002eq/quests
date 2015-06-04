@@ -1,7 +1,7 @@
 --This simple script sets the glowing cliff golem to a path when he spawns
 function event_spawn(e)
 	eq.set_timer(1,640000);
-	eq.start(274);
+	eq.start(5);
 end
 
 function event_timer(e)

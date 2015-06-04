@@ -11,7 +11,7 @@ end
 function event_timer(e)
 	eq.stop_timer("getset");
 	e.self:Say("Dragoons!!  Attention!!  Right face!!");
-	eq.start(277);
+	eq.start(8);
 end
 
 function event_waypoint_arrive(e)
