@@ -17,7 +17,6 @@ function event_trade(e)
 	if(item_lib.check_turn_in(e.trade, {item1 = 7236, item2 = 7256})) then
 		e.self:Say("My thanks to you, " .. e.other:GetName() .. ". Take this key--I know not what door it opens. Now if I can just find that necklace of power that I took from my master's lair!");
 		e.other:QuestReward(e.self,0,0,0,0,20600);
-		e.other:SetZoneFlag(105);
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end

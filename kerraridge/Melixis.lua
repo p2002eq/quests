@@ -25,6 +25,7 @@ function event_trade(e)
 		e.self:Say("Excellent, I will gladly give you the ring for this weed that you have brought me");
 		e.other:QuestReward(e.self,0,0,0,0,13732);
 	end
+	item_lib.return_items(e.self, e.other, e.trade)
 end
 
 --EOF - The text is not accurate, if anyone has the correct text please feel free to update the file accordingly
