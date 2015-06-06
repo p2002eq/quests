@@ -28,7 +28,7 @@ function event_trade(e)
 		e.other:Faction(320,5);
 		e.other:Faction(291,-5);
 		e.other:QuestReward(e.self,0,0,0,0,4925,1000);
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 16507, item2 = 16507, item3 = 19016, item4 = 19015})) then
+	elseif(item_lib.check_turn_in(e.trade, {item1 = 19049, item2 = 19049, item3 = 19016, item4 = 19015})) then
 		e.self:Say("Well done! You are truly a skilled cleric. I have crafted you a weapon - take it.");
 		e.other:Faction(320,5);
 		e.other:Faction(291,-5);
