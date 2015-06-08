@@ -1,15 +1,17 @@
 function event_say(e)
 	if(e.message:findi("Hail")) then
 		e.self:Say("Yes, yes!!  What do I have here?!!  Another [new recruit]?  If so, then speak up!  If not, then leave and do not waste my time nor risk your life.  I also seek a [legion soldier] if you be one.");
-	elseif(e.message:findi("new recruit") or (e.message:findi("soldier")) or (e.message:findi("ready")) and e.other:GetFaction(e.self) > 4) then
+	if(e.other:GetFaction(e.self) < 5) then
+		if(e.message:findi("new recruit")) then
+			e.self:Say("Yes.  You have the look of the Partisan.  I trust you have begun your blacksmith training.  If not, then do so.  Also, you should read all the books available to you in Fortress Talishan.  We are not dimwitted broodlings here.  You shall need the knowledge soon. That, or a coffin.  Ha!!  Here is your task, are you [ready for your task]?");
+		elseif(e.message:findi("soldier")) then
+			e.self:Say("Good news to my ears!!  I seek to prove to the War Baron that the infamous forsaken band of thieves who call themselves Marrtail's Marauders are operating within earshot of our city.  You must bring me proof that you encountered no fewer than four of these thieves.  Do so and I shall offer you an armor item unavailable to most.");
+		elseif(e.message:findi("ready")) then
+			e.self:Say("Yes. yes!!  It does not matter.  You must be ready.  I will hand you the Partisan pack.  Into it you shall combine one giant blood sac of the giant leech;  scout beads from a goblin scout; one sabertooth kitten canine and finally, three bone shards from decaying skeletons.  Hopefully, you will survive your attempt to obtain these items.  Return the full Partisan pack and you shall be rewarded with a curscale shield.");
+			e.other:SummonItem(17997);
+		end
+	else
 		e.self:Say("No Iksar resident will have anything to do with you!!");
-	elseif(e.message:findi("new recruit") and (e.other:GetFaction(e.self) < 5)) then
-		e.self:Say("Yes.  You have the look of the Partisan.  I trust you have begun your blacksmith training.  If not, then do so.  Also, you should read all the books available to you in Fortress Talishan.  We are not dimwitted broodlings here.  You shall need the knowledge soon. That, or a coffin.  Ha!!  Here is your task, are you [ready for your task]?");
-	elseif(e.message:findi("soldier") and (e.other:GetFaction(e.self) < 5)) then
-		e.self:Say("Good news to my ears!!  I seek to prove to the War Baron that the infamous forsaken band of thieves who call themselves Marrtail's Marauders are operating within earshot of our city.  You must bring me proof that you encountered no fewer than four of these thieves.  Do so and I shall offer you an armor item unavailable to most.");
-	elseif(e.message:findi("ready") and (e.other:GetFaction(e.self) < 5)) then
-		e.self:Say("Yes. yes!!  It does not matter.  You must be ready.  I will hand you the Partisan pack.  Into it you shall combine one giant blood sac of the giant leech;  scout beads from a goblin scout; one sabertooth kitten canine and finally, three bone shards from decaying skeletons.  Hopefully, you will survive your attempt to obtain these items.  Return the full Partisan pack and you shall be rewarded with a curscale shield.");
-		e.other:SummonItem(17997);
 	end
 end
 
@@ -26,8 +28,7 @@ function event_trade(e)
 		e.other:AddEXP(1000);
 		e.other:GiveCash(0,14,0,0);
 		e.other:Ding();
-	end
-	if(e.other:GetFaction(e.self) < 5 and item_lib.check_turn_in(e.trade, {item1 = 12673})) then
+	elseif(e.other:GetFaction(e.self) < 5 and item_lib.check_turn_in(e.trade, {item1 = 12673})) then
 		e.self:Say("Well done recruit, I knew we could count on you to do the job.  Here is the reward you were promised");
 		e.other:SummonItem(12674);
 		e.other:Faction( 193,2);
