@@ -1,6 +1,7 @@
 function event_say(e)
 	if(e.message:findi("Hail")) then
 		e.self:Say("Yes, yes!!  What do I have here?!!  Another [new recruit]?  If so, then speak up!  If not, then leave and do not waste my time nor risk your life.  I also seek a [legion soldier] if you be one.");
+	end
 	if(e.other:GetFaction(e.self) < 5) then
 		if(e.message:findi("new recruit")) then
 			e.self:Say("Yes.  You have the look of the Partisan.  I trust you have begun your blacksmith training.  If not, then do so.  Also, you should read all the books available to you in Fortress Talishan.  We are not dimwitted broodlings here.  You shall need the knowledge soon. That, or a coffin.  Ha!!  Here is your task, are you [ready for your task]?");
