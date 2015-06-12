@@ -50,18 +50,18 @@ function event_trade(e)
 	if(item_lib.check_turn_in(e.trade, {item1 = 14376})) then
 		if(charfaction <= 4) then
 			e.self:Emote("reads the note, eyes widening in panic. He raises his eyes to you and says, 'This is grave news, friend. If the prophecy is allowed to be fulfilled, our strength will vanish into obscurity. Goodness and purity will spread like a plague across the land and the servants of Hate will be powerless to stop it!'");
-			e.other:Faction(342, 1);
+			e.other:Faction(342, 100);
 		end
 	elseif(item_lib.check_turn_in(e.trade, {item1 = 14381})) then
 		if(charfaction <= 3) then
 			e.self:Say("Here, you take this shroud. You must now find the spirit of glohnor and place this item on him. This should force him back into his mummified body and then you must destroy this newly raised form and return to me its wrappings.");
-			e.other:Faction(342, 7);
+			e.other:Faction(342, 70);
 			e.other:SummonItem(14377);
 		end
 	elseif(item_lib.check_turn_in(e.trade, {item1 = 14379})) then
 		if(charfaction <= 3) then
 			e.self:Say("You've done it! Your efforts will stand as a tribute to our kind for time eternal, my friend. Although nothing could possibly serve as a just reward for your accomplishments, please accept this as well as my eternal gratitude. It has been fashioned from the wraps of the mummy and shall protect you well.");
-			e.other:Faction(342, 7);
+			e.other:Faction(342, 70);
 			e.other:SummonItem(14370);
 		end
 	end
