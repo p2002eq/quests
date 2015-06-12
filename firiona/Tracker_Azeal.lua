@@ -1,10 +1,6 @@
 --Tracker Azeal is actually Hero Goxnok in disguise. He is part of the fifth quest in the Greenmist line.
 --He will check the zone time every 30 seconds, and if it's 9 PM, he will respawn as a wandering form of himself that will path off and meet whoever is doing the quest.
 
-function event_spawn(e)
-	eq.set_timer("ZoneTime",30000);
-end
-
 function event_say(e)
 	if(e.message:findi("hail")) then
 		e.self:Emote("looks over at you and gives you an awkward smile, then quickly looks away. You notice he isn't like most of the elves you've seen. You can't quite put your finger on it, but for one thing he smells like he hasn't bathed in weeks.");

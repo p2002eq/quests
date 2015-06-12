@@ -2,7 +2,7 @@
 function event_say(e)
 	if(e.message:findi("news of the charasis tome")) then
 		e.self:Say("The Charasis Tome has been scribed and now another copy exists. The traitor obviously wants to keep a copy for himself. I am told you will deliver both copies to Lord Qyzar along with your zealot khukri and you shall be awarded that of a crusader. Let us rest for a minute and then I shall show you the meeting place.");
-		eq.start(215);
+		eq.move_to(-1856,589,146,36,true);
 		e.self:SetAppearance(1);
 		e.self:Say("Come along. If we get separated, look for the humanoid wolf camp and beyond the tunnel, you shall find the meeting place of the spider riders and the traitor.");
 		eq.set_timer("Talk1",180000);
@@ -10,7 +10,7 @@ function event_say(e)
 end
 
 function event_signal(e)
-	if(e.signal == 0) then
+	if(e.signal == 1) then
 		eq.spawn2(84401,0,0,e.self:GetX(),e.self:GetY(),e.self:GetZ(),e.self:GetHeading());
 		eq.depop();
 	end
