@@ -1,8 +1,7 @@
 function event_say(e)
 	if(e.message:findi("Hail")) then
-		e.self:Say("Blast!!  Hundreds of goblins to slay and [great treasure] to be had and I am stuck at my post!");
-	elseif(e.message:findi("great treasure?")) then
-		e.self:Say("A fellow paladin who was a member of an expedition into the jungles of Kunark returned with a jade green broadsword.  He said he came across it while they were fighting their way out of some ancient city filled with golems.  They lost many strong troops on that expedition.");
+		e.self:Emote("smells of rust.  He sets down a chain of linked rings.  'Greetings!  Come looking for some protection from the beasts, eh?  Wise, indeed.  Kunark is a much more dangerous place than one might think.  And once you enter its dense jungle territories, you may not see civilization again for months.'");
+		e.self:DoAnim(48);
 	end
 end
 

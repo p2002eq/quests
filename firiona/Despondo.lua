@@ -1,6 +1,7 @@
 function event_say(e)
 	if(e.message:findi("Hail")) then
 		e.self:Emote("looks a bit troubled. 'Welcome, Welcome adventurer, I am the wizard tutor Despondo, although few need tutorage around here. It would seem that this is no place for a student of any sorts. The lands of Kunark are quite deadly.'");
+		e.self:DoAnim(28);
 	elseif(e.message:findi("wrong")) then
 		e.self:Say("I was bound to this post by General Veredeth. I came to find the lost souls of my friends, but am needed here. I must find a fellow wizard to [rescue their souls].");
 	elseif(e.message:findi("rescue their souls")) then

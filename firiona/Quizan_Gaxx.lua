@@ -1,8 +1,7 @@
 function event_say(e)
 	if(e.message:findi("Hail")) then
-		e.self:Say("Blast!!  Hundreds of goblins to slay and [great treasure] to be had and I am stuck at my post!");
-	elseif(e.message:findi("great treasure?")) then
-		e.self:Say("A fellow paladin who was a member of an expedition into the jungles of Kunark returned with a jade green broadsword.  He said he came across it while they were fighting their way out of some ancient city filled with golems.  They lost many strong troops on that expedition.");
+		e.self:Emote("brandishes his fist at you.  'You'll get this if you even think of attempting to use our forge!!  Find your own!  Go off looking in the dungeons of Kunark.  Maybe you will even find a magical forge.  Bah!!  You adventurers think you can have free run of everything!'");
+		e.self:DoAnim(30);
 	end
 end
 

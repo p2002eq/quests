@@ -1,7 +1,10 @@
-function event_spawn(e)
-	local qglobals = eq.get_qglobals(e.other);
-	hobble = qglobals["hobble"];
-	eq.follow(hobble);
+function event_waypoint_arrive(e)
+	if(e.wp == 9) then
+		local mobtypeID =  eq.get_entity_list():GetMobByNpcTypeID(84005);
+		local follow_hobble = mobtypeID:GetID();
+		eq.follow(follow_hobble);
+		eq.stop(23);
+	end
 end
 
 function event_say(e)
@@ -22,11 +25,11 @@ function event_trade(e)
 	if(item_lib.check_turn_in(e.trade, {item1 = 12950, item2 = 12951, item3 = 12952})) then
 		e.self:DoAnim(20);
 		e.self:Emote("tumbles around and stands on his hands. With his feet he pulls a long polearm from a nearby weapons cache!! 'Woohoo!! I can taste the brew in Freeport already. Here you are my friend. A real Wurmslayer!!'");
-		e.other:Faction(101,15);   -- Firiona Vie better
-		e.other:Faction(92,15);    -- Emerald Warriors better
-		e.other:Faction(314,15);   -- Storm Guard better
-		e.other:Faction(193,-15);  -- Legion of Cabilis worse
-		e.other:Faction(250,-15);  -- Pirates of Gunthak worse
+		e.other:Faction(101,10);   -- Firiona Vie better
+		e.other:Faction(92,7);    -- Emerald Warriors better
+		e.other:Faction(314,7);   -- Storm Guard better
+		e.other:Faction(193,-1);  -- Legion of Cabilis worse
+		e.other:Faction(250,-1);  -- Pirates of Gunthak worse
 		e.other:QuestReward(e.self,0,0,0,0,5057,700000);
 	end
 	item_lib.return_items(e.self, e.other, e.trade)

@@ -1,14 +1,10 @@
 function event_say(e)
 	if(e.message:findi("hail")) then
 		e.self:Say("Greetings hearty adventurer. Searching for the components necessary for fine shaman spells are we? I have come to Kunark in search of [rare alchemy components], but I have found the dangers of Kunark are far too great for me.");
-	elseif(e.message:findi("rare alchemy components")) then
-		e.self:Say("Grand!! I have heard word of [four rare components]. Collect them for me and I will share with you a rare scroll of [McMerin's Feast].");
-	elseif(e.message:findi("McMerins Feast")) then
-		e.self:Say("Clan McMerin are wise shamans from the North. The secret of McMerin's Feast won't be understandable unless you're a shaman, but you can always pass it on to one.");
-	elseif(e.message:findi("McMerin's Feast")) then
-		e.self:Say("Clan McMerin are wise shamans from the North. The secret of McMerin's Feast won't be understandable unless you're a shaman, but you can always pass it on to one.");
-	elseif(e.message:findi("four rare components")) then
-		e.self:Say("From the lands of Kunark we require some clay of Ghiosk, crushed dread diamond and some powder of a Yun shaman. The rarest component is the bones of one who touched the Bath of Obulus. Find these things, return them to me and the secret of [McMerin's Feast] is yours.");
+		e.self:DoAnim(69);
+	elseif(e.message:findi("rare alchemy components") or e.message:findi("four rare components")) then
+		e.self:Say("I have heard word of four rare components -  the clay of Ghiosk, crushed dread diamonds and powder of Yun.  Most rare are chips from the bones of one who has touched the Bath of Obulus.");
+		e.self:DoAnim(27);
 	end
 end
 

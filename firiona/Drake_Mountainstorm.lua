@@ -1,4 +1,11 @@
 -- special gemstone for paladin quest spell divine might
+function event_say(e)
+	if(e.message:findi("hail")) then
+		e.self:Say("Welcome, welcome!  Buy some gems or sell some gems.  I have flawless merchandise.  I have the finest miners scouring Kunark for its precious gems.  Kunark has many rare minerals.  The gnomes even say some of the rocks are from high up in the sky.  From an orb floating so far away we cannot see it.  Bah!!  Those gnomes are insane.");
+		e.self:DoAnim(48);
+	end
+end
+
 function event_trade(e)
 	local item_lib = require("items");
 	if(item_lib.check_turn_in(e.trade, {item1 = 10033})) then --fire emerald

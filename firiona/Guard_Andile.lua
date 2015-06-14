@@ -1,8 +1,6 @@
 function event_say(e)
 	if(e.message:findi("Hail")) then
-		e.self:Say("Blast!!  Hundreds of goblins to slay and [great treasure] to be had and I am stuck at my post!");
-	elseif(e.message:findi("great treasure?")) then
-		e.self:Say("A fellow paladin who was a member of an expedition into the jungles of Kunark returned with a jade green broadsword.  He said he came across it while they were fighting their way out of some ancient city filled with golems.  They lost many strong troops on that expedition.");
+		e.self:Say("Greetings!  Are you a mercenary?  If so, I urge you to go and speak with one of the officers of this outpost.  We can always use help in suppressing the goblins and clearing out a killing zone.");
 	end
 end
 

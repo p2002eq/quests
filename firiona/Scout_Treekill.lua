@@ -1,8 +1,7 @@
 function event_say(e)
-	if(e.message:findi("Hail")) then
-		e.self:Say("Blast!!  Hundreds of goblins to slay and [great treasure] to be had and I am stuck at my post!");
-	elseif(e.message:findi("great treasure?")) then
-		e.self:Say("A fellow paladin who was a member of an expedition into the jungles of Kunark returned with a jade green broadsword.  He said he came across it while they were fighting their way out of some ancient city filled with golems.  They lost many strong troops on that expedition.");
+	if(e.message:findi("hail")) then
+		e.self:Emote("has a massive scar on his face.  'Hail, and welcome to the outpost of Firiona Vie!  If you plan on exploring, I suggest you get well equipped.  There are no cities beyond here.  I would also suggest joining the next group heading out on an expedition.  This is no place to travel alone.'");
+		e.self:DoAnim(67);
 	end
 end
 

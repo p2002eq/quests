@@ -1,6 +1,7 @@
 function event_say(e)
 	if(e.message:findi("Hail")) then
 		e.self:Say("Welcome. friend!  If armor is what you seek. let the house of Gaxx provide you with the finest.  Our metalwork is second to none.  Every now and again we may even create [rare armor] for the general public to purchase.");
+		e.self:DoAnim(29);
 	elseif(e.message:findi("what rare armor?")) then
 		e.self:Say("I have found many exotic materials in Kunark with which I can create rare armor.  I currently am working on the [Guard of Ik] and the [Hate Tail Guard] shields.  I have no armor as of yet. but I am experimenting with new designs.");
 	elseif(e.message:findi("what is the Guard of Ik")) then
