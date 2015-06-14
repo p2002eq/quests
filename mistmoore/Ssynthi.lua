@@ -17,7 +17,7 @@ function event_trade(e)
 		e.self:Say("Thank you. Since you have done me a service with no thought of reward, I offer you this small token of my favor.");
 		e.other:SummonItem(14364); -- Scepter
 		e.other:Ding();
-		e.other:Faction(320,1);  -- Temple of Solusek Ro
+		e.other:Faction(320,10);  -- Temple of Solusek Ro
 		e.other:Faction(291,-1); -- Shadowed Men
 		e.other:AddEXP(1000);
 	end
