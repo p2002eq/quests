@@ -1,5 +1,10 @@
+function event_spawn(e)
+	 e.self:SetRunning(true);
+end
+
 function event_waypoint_arrive(e)
 	if(e.wp == 9) then
+		e.self:SetRunning(false);
 		local mobtypeID =  eq.get_entity_list():GetMobByNpcTypeID(84005);
 		local follow_hobble = mobtypeID:GetID();
 		eq.follow(follow_hobble);
