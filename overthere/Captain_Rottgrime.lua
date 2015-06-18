@@ -11,7 +11,7 @@ function event_trade(e)
 	--Handin: 4x a Sarnak War Braid (12982)
 	if(item_lib.check_turn_in(e.trade, {item1 = 12982, item2 = 12982, item3 = 12982, item4 = 12982})) then
 		e.self:Say("Great job marine!! Word of your heroics shall be passed on to the Admiral. If you don't have a shield then take one, if you do then get back to the frontlines. There is no time for R n R!! Move it marine!! Or you'll be pushing Danak till the cockatrice crow!!");
-		e.other:Faction(353,10); -- +Venril Sathir
+		e.other:Faction(353,8); -- +Venril Sathir
 		e.other:QuestReward(e.self,0,0,1,0,12981,10); --Guard of the Marines
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
