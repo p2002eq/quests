@@ -22,7 +22,7 @@ function event_waypoint_arrive(e)
 		e.self:Say("Forward.. march!!  Your left.. Your.. left, right, march!  Eighty.. second.. dragoon soldier!!  Pick up your weapon and follow me!!");
 		eq.signal(93186,3);
 		eq.signal(93124,3);
-		eq.signal(93088,3);
+		eq.signal(93024,3);
 		eq.signal(93084,3);
 		eq.signal(93125,3);
 		eq.signal(93086,3);
