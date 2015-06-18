@@ -29,8 +29,7 @@ function event_timer(e)
 	if(e.timer == "Depop") then
 		eq.stop_timer("Depop");
 		eq.depop_with_timer();
-	end
-	if(e.timer == "sit") then
+	elseif(e.timer == "sit") then
 		e.self:SetAppearance(1);
 		eq.stop_timer("sit");
 	end

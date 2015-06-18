@@ -1,19 +1,18 @@
 function event_signal(e)
 	if(e.signal==1) then
-		eq.depop_with_timer();
-	end
-	if(e.signal==2) then
-		e.self:MoveTo(2734,2464,-49,195,1);
-	end
-	if(e.signal==3) then
-		e.self:SetRunning(1);
+		eq.stop();
+		e.self:MoveTo(2063,2798,-49,132,true);
+	elseif(e.signal==2) then
+		e.self:MoveTo(2734,2464,-49,195,true);
+	elseif(e.signal==3) then
+		e.self:SetRunning(true);
 		eq.start(12);
 	end
 end
 
 function event_waypoint_arrive(e)
 	if(e.wp==28) then
-		e.self:SetRunning(0);
+		e.self:SetRunning(false);
 	end
 end
 

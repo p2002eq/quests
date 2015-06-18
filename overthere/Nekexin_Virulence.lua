@@ -1,5 +1,5 @@
 function event_spawn(e)
-	eq.set_timer(1,1800000);
+	eq.set_timer("1",1800000);
 end
 
 function event_timer(e)

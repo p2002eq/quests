@@ -1,17 +1,20 @@
 function event_signal(e)
 	if(e.signal==1) then
-		eq.depop_with_timer();
-	end
-	if(e.signal==2) then
-		e.self:MoveTo(2717,2500,-49,65,1);
+		e.self:Say("Fall out and report to your guard posts.");
+		eq.stop();
+		e.self:MoveTo(2139,2675,-49,72,true);
+	elseif(e.signal==2) then
+		e.self:MoveTo(2717,2500,-49,65,true);
 		eq.set_timer("getset",525000);
 	end
 end
 
 function event_timer(e)
-	eq.stop_timer("getset");
-	e.self:Say("Dragoons!!  Attention!!  Right face!!");
-	eq.start(8);
+	if(e.timer == "getset") then
+		eq.stop_timer("getset");
+		e.self:Say("Dragoons!!  Attention!!  Right face!!");
+		eq.start(8);
+	end
 end
 
 function event_waypoint_arrive(e)
