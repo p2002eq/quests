@@ -9,5 +9,5 @@ function event_zone(e)
 end
 
 function event_enter_zone(e)
-	e.self:BuffFadeAll(false);
+	e.self:BuffFadeAll(true);
 end
