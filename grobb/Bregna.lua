@@ -18,12 +18,12 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if (item_lib.check_turn_in(e.trade, {item1 = 13984})) then -- Bregna's Big Mistake
+	if (item_lib.check_turn_in(e.self, e.trade, {item1 = 13984})) then -- Bregna's Big Mistake
 		e.self:Say("Now Kaglari won't be mad at Bregna.");
 		e.other:SummonItem(12212);
 		e.other:Ding();
 		e.other:AddEXP(100);
-	elseif (item_lib.check_turn_in(e.trade, {item1 = 26632, item2 = 26640, item3 = 29921, item4 = 26662})) then -- Aid Garuuk
+	elseif (item_lib.check_turn_in(e.self, e.trade, {item1 = 26632, item2 = 26640, item3 = 29921, item4 = 26662})) then -- Aid Garuuk
 		e.self:Say("Ere. take dis back to Garuuk, K.");
 		e.other:SummonItem(28740);
 		e.other:Ding();

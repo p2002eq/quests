@@ -26,7 +26,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 13870})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 13870})) then
 		e.self:Say("What was I thinking?!! Piranha are coming downstream and eating our supply of fish! We have never had a problem like this!!  Where are these little beasts coming from?  For now we must collect more. Take this bag. Collect enough teeth to fill the bag. Don't worry, if it takes a while I shall reward you with the [Rantho Rapier].  We will need to examine the teeth.");
 		e.other:SummonItem(17968);
 		e.other:Ding();
@@ -37,7 +37,7 @@ function event_trade(e)
 		e.other:Faction(88,-10,0);
 		e.other:AddEXP(200);
 		e.other:GiveCash(0,1,0,0);
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 12155})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 12155})) then
 		e.self:Say("Fine work. We shall continue to study these and shall determine if we need to seek the source.");
 		e.other:SummonItem(5423);
 		e.other:Ding();

@@ -13,13 +13,13 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 13030})) then--Red Wine
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 13030})) then--Red Wine
 		e.self:Say("Ah, yes, let me pray to our god.. Yes, Innoruuk has given me wisdom. A Scribe of Dal still exists, disguised as a barkeep in the Blind Fish. This information will not help you though, for she has sworn a [vow] of silence and will not speak of the Dal.");
 		e.other:Faction(87, 10);--Dreadguard Inner
 		e.other:Faction(88, 10);--Dreadguard Outer
 		e.other:Faction(69, 10);--Dark Bargainers
 		e.other:QuestReward(e.self,0,0,0,0,0,2000);
-	elseif(item_lib.check_turn_in(e.trade, {platinum = 7})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {platinum = 7})) then
 		e.self:Say("Take this note to the Scribe of Dal, and perhaps she will break her vow.");
 		e.other:Faction(87, 10);--Dreadguard Inner
 		e.other:Faction(88, 10);--Dreadguard Outer

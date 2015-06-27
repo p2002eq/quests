@@ -19,20 +19,20 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 14587, item2 = 14587, item3 = 14587, item4 = 14587})) then --Beetle Eyes (4)
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 14587, item2 = 14587, item3 = 14587, item4 = 14587})) then --Beetle Eyes (4)
 		e.self:Emote("tosses the beetle eyes into his mouth & attempts to say something to the effect of 'here is your payment.' The sound of crunching gristle & popping eyeballs prevents him from saying it properly.");
 		e.other:QuestReward(e.self,3,3,0,0,0,1000);
 		--Quest: Beetle Eyes (End)
 		-- takes repair order from master Barkhem
 	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 29803})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 29803})) then
 		e.self:Say("Outstanding! Nothing like a sharp-looking shield to scare off the undesirables. And if you bring it back full of food I wouldn't complain either,");
 		e.self:Emote("laughs, flashing a mischievous grin your way.");
 		e.self:Say("Just kidding! You have much to do and Barkhem would have my hide if I kept you from your studies.");
 		e.other:QuestReward(e.self,0,0,0,0,29813);
 		-- You receive Bokh's Dented Shield. Take the dented shield and place it into a forge with your Vah Shir Apprentice Mallet. This creates Bokh's Immaculate Shield (the mallet will be returned). Give this shield back to Jasir to receive Bokh's Work Order.
 	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 29814})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 29814})) then
 		e.self:Say("Well done, shiny enough to eat off of. My compliments to you " .. e.other:GetName() .. ", Barkhem would be most pleased.");
 		e.other:QuestReward(e.self,0,0,0,0,29815);
 	end

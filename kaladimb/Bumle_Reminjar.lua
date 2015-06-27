@@ -21,7 +21,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if((e.other:GetFaction(e.self) < 5) and (item_lib.check_turn_in(e.trade, {item1 = 12157, item2 = 12157, item3 = 12157, item4 = 12157}))) then
+	if((e.other:GetFaction(e.self) < 5) and (item_lib.check_turn_in(e.self, e.trade, {item1 = 12157, item2 = 12157, item3 = 12157, item4 = 12157}))) then
 		e.self:Say("You have done well. Your deeds shall be recorded within our journals. Here, then, is your reward. May you strive to serve us to the full extent of your powers. The [elders] must also die.");
 		e.other:SummonItem(eq.ChooseRandom(2116,2118,2120,2123,2124));
 		e.other:Faction(44, 20);  --Clerics Of Underfoot
@@ -29,7 +29,7 @@ function event_trade(e)
 		e.other:Faction(219, 20); --Miner's Guild 249
 		e.other:AddEXP(5000);
 		e.other:Ding();
-	elseif((e.other:GetFaction(e.self) < 5) and (item_lib.check_turn_in(e.trade, {item1 = 12158, item2 = 12158, item3 = 12158, item4 = 12158}))) then
+	elseif((e.other:GetFaction(e.self) < 5) and (item_lib.check_turn_in(e.self, e.trade, {item1 = 12158, item2 = 12158, item3 = 12158, item4 = 12158}))) then
 		e.self:Say("Ahh! you are truly brave, " .. e.other:GetName() .. "!");
 		e.other:Faction(44, 40);  --Clerics Of Underfoot
 		e.other:Faction(169, 40); --Kazon Stormhammer

@@ -16,7 +16,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 13768})) then	--White Wolf Skin
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 13768})) then	--White Wolf Skin
 		e.self:Say("Very good! I am sure by now you are learning much about your local surroundings. It is now time for you to learn to [live off the land].");
 		e.other:Ding();
 		e.other:SummonItem(7365);								--Field Priest's Bracer
@@ -26,7 +26,7 @@ function event_trade(e)
 		e.other:Faction(48, -3);       							-- Coalition of Tradefolk Underground
 		e.other:Faction(90, -3);     							-- Ebon Mask
 		e.other:AddEXP(300);
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 16486, item2 = 16486, item3 = 16486, item4 = 2125})) then 					--Silk Thread x 3, Large Tattered Skullcap
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 16486, item2 = 16486, item3 = 16486, item4 = 2125})) then 					--Silk Thread x 3, Large Tattered Skullcap
 		e.self:Say("'I see your wisdom grows, as does your skill. Wear this cap I have made for you. I believe you are now skilled enough to begin to pursue justice and to fight against our enemies. Are you [willing to fight]?");
 		e.other:Ding();
 		e.other:SummonItem(7366); 								--Field Priest's Cap
@@ -36,7 +36,7 @@ function event_trade(e)
 		e.other:Faction(48, -3);       							-- Coalition of Tradefolk Underground
 		e.other:Faction(90, -3);     							-- Ebon Mask
 		e.other:AddEXP(300);
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 13897, item2 = 13897, item3 = 13897, item4 = 13897})) then	--Goblin Ice necklacess x 4
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 13897, item2 = 13897, item3 = 13897, item4 = 13897})) then	--Goblin Ice necklacess x 4
 		e.self:Say("'I see you have brought many of our enemies to justice. You have done an excellent job and should be proud. No doubt your efforts saved lives. It is now time for you to venture out and fight stronger foes. Are you [up to the challenge]?");
 		e.other:Ding();
 		e.other:SummonItem(7367); 								--Field Priest's Kilt
@@ -46,7 +46,7 @@ function event_trade(e)
 		e.other:Faction(48, -3);       							-- Coalition of Tradefolk Underground
 		e.other:Faction(90, -3);     							-- Ebon Mask
 		e.other:AddEXP(300);
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 13915, item2 = 7005, item3 = 8011})) then 									--Gnoll Fang, Giant Snake Fang, Hunting Bow
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 13915, item2 = 7005, item3 = 8011})) then 									--Gnoll Fang, Giant Snake Fang, Hunting Bow
 		e.self:Say("You truly have justice in your heart. The spirits know this too. No doubt you are now beginning to hear their faint whispers. Soon you shall hear them clearly and you shall no longer need my guidance. I have one more [favor] to ask of you if you are [willing].");
 		e.other:Ding();
 		e.other:SummonItem(7368); 								--Field Priest's Claw
@@ -56,7 +56,7 @@ function event_trade(e)
 		e.other:Faction(48, -3);       							-- Coalition of Tradefolk Underground
 		e.other:Faction(90, -3);     							-- Ebon Mask
 		e.other:AddEXP(300);
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 12223})) then 									--Wrath Orc Wristbands
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 12223})) then 									--Wrath Orc Wristbands
 		e.self:Say("Thank you very much, you have our thanks. Perhaps you will find some use for this. I have shown you all that I can young one. Now it is up to you. Listen to the spirits and work with them and they will work with you. Now go forth and continue to spread justice throughout the world.");
 		e.other:Ding();
 		e.other:SummonItem(7369); 								--Field Priest's Leather

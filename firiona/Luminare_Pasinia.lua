@@ -14,7 +14,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	--Handin: Nok Shaman Powder, Heart of Ice, Ton Warrior Totem, Sabertooth Tiger Mane
-	if(item_lib.check_turn_in(e.trade, {item1 = 12948, item2 = 12834, item3 = 12743, item4 = 12824})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 12948, item2 = 12834, item3 = 12743, item4 = 12824})) then
 		e.self:Emote("place's the items into a sack and removes a scroll from her robe.");
 		e.self:Say("This is yours. A spell I discovered and translated for one with less intelligence than the great Luminare of Firiona Vie. You may kiss my feet now.");
 		e.other:Faction(418,10);  -- +Inhabitants of Firiona Vie

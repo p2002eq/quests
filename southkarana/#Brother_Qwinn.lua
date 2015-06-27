@@ -21,16 +21,16 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 12316,item2 = 10114})) then -- Code of Zan Fi, Purple Headband
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 12316,item2 = 10114})) then -- Code of Zan Fi, Purple Headband
 		e.self:Say("We had an agreement. The proof of a skilled monk, the purple headband, and the Code of the Whistling Fist.");
 		e.self:Say("We thank you for the return of the Code of the Whistling Fist. Take this sewing needle. You shall find it useful should you aid [Brother Zephyl] in his quest. His item, the needle, a swatch of shadow silk and a scroll containing Jonathan's Whistling Warsong. Into a sewing kit they will be going. And into the brotherhood will you. I hope you do not wish me to [return the headband]..");
 		e.other:SummonItem(12314); -- Needle of the Void
 		e.other:Ding();
 		e.other:AddEXP(2000);
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 12314})) then -- Needle of the Void
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 12314})) then -- Needle of the Void
 		e.other:SummonItem(10114); -- Purple Headband
 		e.other:Ding();
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 12256})) then -- Robe of the Lost Circle
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 12256})) then -- Robe of the Lost Circle
 		e.other:SummonItem(10114); -- Purple Headband
 		e.other:Ding();
 	end

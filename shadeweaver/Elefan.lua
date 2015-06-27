@@ -17,7 +17,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 4758})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 4758})) then
 		e.self:Say("Ah I see you are sent from master Zimloro eh, " .. e.other:GetName() .. ". This note reads that he needs some specific items at once. Perhaps he could find some use out of all of this research I have recently collected.");
 	end
 	item_lib.return_items(e.self, e.other, e.trade)

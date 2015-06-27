@@ -11,7 +11,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 13878,item2 = 13878,item3 = 13878,item4 = 13878})) then -- Pearl of Odus
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 13878,item2 = 13878,item3 = 13878,item4 = 13878})) then -- Pearl of Odus
 		e.self:Say("Wonderful!! I am sure that was a lot safer than battling a treant.");
 		e.other:SummonItem(13824); -- Wooden Shards
 		e.other:Ding();

@@ -12,11 +12,11 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 12621, item2 = 12619})) then 		--Mammoth Hide Parchment, Vial of Datura Ink
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 12621, item2 = 12619})) then 		--Mammoth Hide Parchment, Vial of Datura Ink
 		e.self:Say("Good, now you must take this wanted poster i made to Guard Eracon Krengon in Southern Qeynos. Bring me back the Most Wanted List...");
 		e.other:SummonItem(12620);													--Wanted Poster
 		e.other:Ding();
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 12622})) then	--List of Qeynos Most Wanted
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 12622})) then	--List of Qeynos Most Wanted
 		e.self:Say("Fantastic, Fantastic... Here you have more than proven your right to wear this. Use it wisely...");
 		e.other:SummonItem(1376); 													--Initiate Symbol of the Tribunal
 		e.other:Faction(15,2);  													--Banker

@@ -14,7 +14,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	
-	if(item_lib.check_turn_in(e.trade, {item1 = 20370})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 20370})) then
 		e.self:Say("Oh! You have the dolly! Thank you! Thank you! Thank you! I can go home now. Please give this to my father, Baenar. He will understand when he gets it.' Serra begins to fade away. 'Bye bye!");
 		e.other:Ding();
 		e.other:SummonItem(20371);

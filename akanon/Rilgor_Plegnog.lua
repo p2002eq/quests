@@ -9,7 +9,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 18703})) then  -- Old Folded Letter
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 18703})) then  -- Old Folded Letter
 		e.other:Ding();
 		e.other:SummonItem(13524);	-- Dark Gold Felt Robe*
 		e.other:Faction(71,100,0); 	-- Dark reflection
@@ -17,7 +17,7 @@ function event_trade(e)
 		e.other:Faction(115,-10,0); -- gem choppers
 		e.other:Faction(76,-10,0); 	-- Deepmuses
 		e.other:AddEXP(100);
-	elseif (item_lib.check_turn_in(e.trade, {item1 = 1360})) then
+	elseif (item_lib.check_turn_in(e.self, e.trade, {item1 = 1360})) then
 		e.self:Say("Very nice!! It is perfect! Here take this pen. Have fun with it.");
 		e.other:Ding();
 		e.other:AddEXP(50000);

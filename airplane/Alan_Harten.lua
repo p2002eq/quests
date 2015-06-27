@@ -16,15 +16,15 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 20933, item2 = 20807, item3 = 20806})) then	--cleric test of courage using ochre tessera, silver hoop, sky emerald
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 20933, item2 = 20807, item3 = 20806})) then	--cleric test of courage using ochre tessera, silver hoop, sky emerald
 		e.self:Say("Wonderful! Take this as your reward!");
 		e.other:QuestReward(e.self,0,0,0,0,14563,100000); --truewind earring
 		eq.depop();
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 20808, item2 = 20939, item3 = 20809})) then --cleric test of skill using dark wood, gold disc, small shield
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 20808, item2 = 20939, item3 = 20809})) then --cleric test of skill using dark wood, gold disc, small shield
 		e.self:Say("Wonderful! Take this as your reward!");
 		e.other:QuestReward(e.self,0,0,0,0,27716,100000); --aegis of the wind
 		eq.depop();
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 20946, item2 = 20810, item3 = 20811})) then	--cleric test of protection using adumbrate globe, faintly glowing diamond, shiny pauldrons
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 20946, item2 = 20810, item3 = 20811})) then	--cleric test of protection using adumbrate globe, faintly glowing diamond, shiny pauldrons
 		e.self:Say("Wonderful! Take this as your reward!");
 		e.other:QuestReward(e.self,0,0,0,0,27717,100000); --pauldrons of piety
 		eq.depop();

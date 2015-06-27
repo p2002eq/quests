@@ -14,7 +14,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 12960, item2 = 12955, item3 = 12958})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 12960, item2 = 12955, item3 = 12958})) then
 		e.self:Emote("tosses the mantrap root out the window.. SPLASH!! 'I made a mistake. I didn't need that one. Here is the shillelagh I told you about. I found it in some burned out woods far from here. I cleaned it up and found it had a spark of mana so I had it enchanted with a few charges of my spell, [Fertile Crop]. Hope you like it.'");
 		e.other:Faction(418,10); --inhabitants of firiona
 		e.other:Faction(92,7); --emerald warriors
@@ -23,7 +23,7 @@ function event_trade(e)
 		e.other:Faction(250,-1); --pirates of gunthak
 		e.other:QuestReward(e.self,0,0,0,0,12953,25000);
 	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 11579, item2 = 12753, item3 = 12957, item4 = 12959})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 11579, item2 = 12753, item3 = 12957, item4 = 12959})) then
 		e.self:Say("Great work! I wish I had the coin to hire you on permanently. Maybe I will, when I find the lost trade city of Torsis. Here is the spell I copied for you. Careful, the ink is still drying.");
 		e.other:Faction(418,10); --inhabitants of firiona
 		e.other:Faction(92,7); --emerald warriors

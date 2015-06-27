@@ -9,7 +9,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	--Handin: 4x Explorer Survival Knife (8004)
-	if(item_lib.check_turn_in(e.trade, {item1 = 8004, item2 = 8004, item3 = 8004, item4 = 8004})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 8004, item2 = 8004, item3 = 8004, item4 = 8004})) then
 		e.self:Say("Great work, the Legion of Cabilis will not soon forget your dedication. The trespassers shall all be dealt with.");
 		e.other:Faction(193,10); -- +Legion of Cabilis
 		e.other:Faction(30,10); -- +Cabilis Residents

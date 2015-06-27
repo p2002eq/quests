@@ -11,7 +11,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 28003, item2 = 28004, item3 = 28031})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 28003, item2 = 28004, item3 = 28031})) then
 		e.self:Say("I see that you have completed the quest I laid before you. That speaks well of your dedication, yet you do not realize your journey has just begun. Study this tome.");
 		e.other:SummonItem(18958);
 		e.other:AddEXP(2000);

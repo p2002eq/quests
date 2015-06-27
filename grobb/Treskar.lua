@@ -23,7 +23,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 12190})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 12190})) then
 		e.self:Say("Ha! Dats one big dead head. You smashed him guud. Take dis mask, Shadowknight uv Nightkeep - I seez great tings for you."); -- Guessed Dialog as quest was revised when removed to Neriak
 		e.other:SummonItem(2308);
 		e.other:Ding();
@@ -32,22 +32,22 @@ function event_trade(e)
 		e.other:Faction(292,50,0); 	-- Shadowknights of Night Keep (Troll SK)
 		e.other:Faction(22,-10,0); 	-- Green Blood Knights (Ogre SK)
 		e.other:AddEXP(10000); 		-- Appropriate for ~level 10?
-	elseif (item_lib.check_turn_in(e.trade, {item1 = 13782,item2 = 13782,item3 = 13782, item4 = 10307})) then
+	elseif (item_lib.check_turn_in(e.self, e.trade, {item1 = 13782,item2 = 13782,item3 = 13782, item4 = 10307})) then
 		e.self:Say("Dats gud, here take dis armor to helps you be stronger. Come sees me when you want [another] job");
 		e.other:SummonItem(2104);
 		e.other:Ding();
 		e.other:AddEXP(1000);
-	elseif (item_lib.check_turn_in(e.trade, {item1 = 13088, item2 = 13088})) then
+	elseif (item_lib.check_turn_in(e.self, e.trade, {item1 = 13088, item2 = 13088})) then
 		e.self:Say("Dis is good.  I go make a pie now. Here is sumting for your help. Come see me agin when you want your [next] job.");
 		e.other:SummonItem(eq.ChooseRandom(2145, 2140, 2144, 2137, 2137, 2138, 2147, 2139, 2146, 2142, 2148, 2143)); -- Random raw-hide armor
 		e.other:Ding();
 		e.other:AddEXP(1000);
-	elseif (item_lib.check_turn_in(e.trade, {item1 = 13916,item2 = 13916,item3 = 13916})) then
+	elseif (item_lib.check_turn_in(e.self, e.trade, {item1 = 13916,item2 = 13916,item3 = 13916})) then
 		e.self:Say("Very good! We turn you into a basher yet. Here you go. Come see me when you want your [final] task.");
 		e.other:SummonItem(eq.ChooseRandom(6031, 5070, 5071, 7024, 5042, 5047, 6033)); -- Random tarnished weapon
 		e.other:Ding();
 		e.other:AddEXP(1000);
-	elseif (item_lib.check_turn_in(e.trade, {item1 = 13403,item2 = 13403,item3 = 13070, item4 = 13070})) then
+	elseif (item_lib.check_turn_in(e.self, e.trade, {item1 = 13403,item2 = 13403,item3 = 13070, item4 = 13070})) then
 		e.self:Say("Dats what I needed. Here you go.");
 		e.other:SummonItem(eq.ChooseRandom(6014, 5023, 6013, 7009, 5013, 5021)); -- Random rusty weapon
 		e.other:Ding();

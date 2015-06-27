@@ -7,10 +7,10 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 12143})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 12143})) then
 		e.self:Say("I am sorry to see you check out. Here is all you had in your box. We hope to serve you again. Have a nice day!! Next!");
 		e.other:SummonItem(18936);
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 12193})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 12193})) then
 		e.self:Say("I am sorry to see you check out. Here is all you had in your box. We hope to serve you again. Have a nice day!! Next!");
 		e.other:SummonItem(13323);
 		e.other:Ding();

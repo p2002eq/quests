@@ -18,9 +18,9 @@ end
 
 function event_trade(e)
 	local item_lib =require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 21971})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 21971})) then
 		e.self:Say("Ah erm. Yes of course. You have been sent by Erudin am I right?");
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 21969})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 21969})) then
 		e.self:Say("Brianna must think I am stupid to trust a complete stranger with the most powerful spells I have ever collaborated on with Elisi. I will not give you the parchments that she asks for, but I will give you a fair warning to stay out of my business. If you do not leave me be and [forget about Elisi], I will grow quite angry.");
 	end
 	item_lib.return_items(e.self, e.other, e.trade)

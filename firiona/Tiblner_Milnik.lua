@@ -9,7 +9,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 11567, item2 = 28042, item3 = 6360, item4 = 6361})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 11567, item2 = 28042, item3 = 6360, item4 = 6361})) then
 		e.self:Say("Take this Element and keep it with you. I wish you the best in your journey, but I must ask you to leave me now. This frantic pace you set makes me nervous.");
 		e.other:QuestReward(e.self,0,0,0,0,28032,5000);
 	end

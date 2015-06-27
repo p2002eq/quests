@@ -48,7 +48,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 9116, item2 = 9117, item3 = 9118, item4 = 9119})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 9116, item2 = 9117, item3 = 9118, item4 = 9119})) then
 		e.self:Say("I knew you could do it! You have proven yourself worthy of your god and of your Guild! All the highest ranking officials of the Collective will surely hear of your good deeds. Upon studying these pages a bit further it seems it forms a book of incantations that will aid you in furthering your studies. Please take this magical book for I have learned all I can from it. Good luck!");
 		e.other:SummonItem(9120);
 		e.other:Faction(91,10,0);

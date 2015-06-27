@@ -9,7 +9,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	
-	if(item_lib.check_turn_in(e.trade, {item1 = 13319,item2 = 13319,item3 = 13318,item4 = 16482})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 13319,item2 = 13319,item3 = 13318,item4 = 16482})) then
 		e.self:Say("Grand doing business with you. Hold your nose. I can never get rid of the orc stench of the vests. That is why the other merchants do not pay me much for them."); 
 		e.other:Faction(174,5); -- Kelethin Merchants
 		e.other:Faction(99,1); -- Faydark champions

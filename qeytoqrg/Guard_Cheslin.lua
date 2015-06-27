@@ -31,22 +31,22 @@ function event_trade(e)
 	local item_lib = require("items");
 	local correcthandin = 0;
 	local wowwie = e.self:Say("Wow!! I thought I lost this for good. All together I lost the [illusion] cards: Ebon Lotus, Library of Erudin, Chrono Cyclone and Diamond Vale. Man!! Those are rare cards!");
-	if(item_lib.check_turn_in(e.trade, {item1 = chrono})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = chrono})) then
 		chronoReturned = 1;
 		correctHandin = 1;
 		thought = wowwie;
 	end	
-	if(item_lib.check_turn_in(e.trade, {item1 = diamond})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = diamond})) then
 		diamondReturned = 1;
 		correctHandin = 1;
 		thought = wowwie;
 	end
-	if(item_lib.check_turn_in(e.trade, {item1 = ebon})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = ebon})) then
 		ebonReturned = 1;
 		correctHandin = 1;
 		thought = wowwie;
 	end
-	if(item_lib.check_turn_in(e.trade, {item1 = library})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = library})) then
 		libraryReturned = 1;
 		correctHandin = 1;
 		thought = wowwie;

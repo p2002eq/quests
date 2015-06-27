@@ -30,10 +30,10 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	
-	if(item_lib.check_turn_in(e.trade, {item1 = 20207})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 20207})) then
 		e.self:Say("Well met young disciple of Bertoxxulous. Perhaps one day you shall serve the Plague Lord in his realm, but for now you will serve the Bloodsabers, his mortal agents on Norrath. The armor you seek must be assembled using this Mail Assembly Kit. The materials necessary to construct the armor vary depending on the piece being crafted. Do you wish to craft [Gauntlets] of the Pestilence Priests, [Boots] of the Pestilence Priests, a [Bracer] of the Pestilence Priests, a [Helm] of the Pestilence Priests, [Greaves] of the Pestilence Priests, [Vambraces] of the Pestilence Priests, or a [Breastplate] of the Pestilence Priests?");
 		e.other:QuestReward(e.self,0,0,0,0,17124);
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 20199, item2 = 19946})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 20199, item2 = 19946})) then
 		e.self:Say("Well done, " .. e.other:GetName() .. ". Now go, spread the gifts of the Plague Lord upon the world.");
 		e.other:QuestReward(e.self,0,0,0,0,20261,5000);
 	end

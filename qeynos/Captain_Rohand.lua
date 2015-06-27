@@ -24,13 +24,13 @@ function event_trade(e)
 	local brandy = 0;
 	local item_lib = require("items");
 	
-	if(item_lib.check_turn_in(e.trade, {item1 = 13034, item2 = 13034, item3 = 13034, item4 = 13034})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 13034, item2 = 13034, item3 = 13034, item4 = 13034})) then
 		brandy = 4;
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 13034, item2 = 13034, item3 = 13034})) then	
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 13034, item2 = 13034, item3 = 13034})) then	
 		brandy = 3;
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 13034, item2 = 13034})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 13034, item2 = 13034})) then
 		brandy = 2;
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 13034})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 13034})) then
 		brandy = 1;
 	end
  

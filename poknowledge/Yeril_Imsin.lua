@@ -9,12 +9,12 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 10953})) then--Large Shipment of High Quality Ore
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 10953})) then--Large Shipment of High Quality Ore
 		e.self:Say("Thank you " .. e.other:GetName() .. "! I will prepare the ore for sale and be open for business again momentarily. Here is your payment for your services.");
 		e.other:Faction(157, 10);--Inhabitants of Tanaan
 		e.other:QuestReward(e.self,0,0,0,44,0,250);
 	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 10952})) then--Small Shipment of High Quality Ore
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 10952})) then--Small Shipment of High Quality Ore
 		e.self:Say("Thank you " .. e.other:GetName() .. "! I will prepare the ore for sale and be open for business again momentarily. Here is your payment for your services.");
 		e.other:Faction(157, 5);--Inhabitants of Tanaan
 		e.other:QuestReward(e.self,0,0,0,14,0,250);

@@ -25,7 +25,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 13953,item2 = 13953,item3 = 13953,gold = 30})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 13953,item2 = 13953,item3 = 13953,gold = 30})) then
 		e.self:Say("You are one lucky bixie buster. I just made a batch of honey jum. Here. No waiting for you.  One jar for your good work. Bye, now!");
 		e.other:SummonItem(13952);
 		e.other:Ding();

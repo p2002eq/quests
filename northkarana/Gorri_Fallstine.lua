@@ -7,10 +7,10 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 10307,item2 = 10307,item3 = 10307,item4 = 10307}) or 
-	item_lib.check_turn_in(e.trade, {item1 = 10307,item2 = 10307,item3 = 10307}) or 
-	item_lib.check_turn_in(e.trade, {item1 = 10307,item2 = 10307}) or
-	item_lib.check_turn_in(e.trade, {item1 = 10307}) ) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 10307,item2 = 10307,item3 = 10307,item4 = 10307}) or 
+	item_lib.check_turn_in(e.self, e.trade, {item1 = 10307,item2 = 10307,item3 = 10307}) or 
+	item_lib.check_turn_in(e.self, e.trade, {item1 = 10307,item2 = 10307}) or
+	item_lib.check_turn_in(e.self, e.trade, {item1 = 10307}) ) then
 		e.self:Say(string.format("Ah, yes. Thank you, %s.",e.other:GetName()));
 		e.other:Ding();
 	end

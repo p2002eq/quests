@@ -31,7 +31,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 19584})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 19584})) then
 		e.self:Say("So you are one of Ulraz's new recruits. You are to assist in the construction of the armor you will don as a new Shadowknight of the Lodge of the Dead. I have assembled a kit that is used in the crafting of Bone Mail. You must travel beyond Neriak into the Nektulos Forest for the [materials] that compose the armor.");
 		e.other:QuestReward(e.self,0,0,0,0,17124);
 	end

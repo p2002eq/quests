@@ -7,13 +7,13 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	
-	if(item_lib.check_turn_in(e.trade, {item1 = 18786})) then -- Tattered Note
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 18786})) then -- Tattered Note
 		e.self:Say("Welcome! We are the Soldiers of Tunare, the sworn protectors of Faydark. I thank you for joining our cause, we can always use the help. Here, put on this tunic, and let's get started.. you have much to learn.");
 		e.other:Faction(304,100); -- soldier of Tunare
 		e.other:Faction(178,15); -- King Tearis Thex
 		e.other:Faction(99,15);  -- Faydark's Champions
 		e.other:QuestReward(e.self,0,0,0,0,13537,200);
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 5013,item2 = 5016,item3 = 5019,item4 = 5022})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 5013,item2 = 5016,item3 = 5019,item4 = 5022})) then
 		e.self:Say("You have done well, child! Take this as a blessing from Tunare for doing her will.");
 		e.other:Faction(304,1); -- soldier of Tunare
 		e.other:Faction(178,1); -- King Tearis Thex

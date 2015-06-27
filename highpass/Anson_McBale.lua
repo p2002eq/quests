@@ -18,7 +18,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 28014}) and e.other:GetClass() == "Rogue" and e.other:GetLevel() >= 50) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 28014}) and e.other:GetClass() == "Rogue" and e.other:GetLevel() >= 50) then
 		e.self:Say("Oh, I see.");
 		eq.spawn2(5088,0,0,336,10,45,225);
 	end

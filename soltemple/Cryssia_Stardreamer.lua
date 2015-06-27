@@ -22,22 +22,22 @@ function event_trade(e)
 	local item_lib = require("items");
 	
 	
-	if(item_lib.check_turn_in(e.trade, {item1 = 10564, item2 = 10563, item3 = 10128})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 10564, item2 = 10563, item3 = 10128})) then
 		e.self:Say("Good show, " .. e.other:GetName() .. ", here are your Lambent Bracers");
 		e.other:Faction(320,5);
 		e.other:Faction(291,-5);
 		e.other:QuestReward(e.self,0,0,0,0,4156,1000); --bracers
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 4100, item2 = 10565, item3 = 10118})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 4100, item2 = 10565, item3 = 10118})) then
 		e.self:Say("Good show, " .. e.other:GetName() .. ", here is your Lambent Breastplate.");
 		e.other:Faction(320,5);
 		e.other:Faction(291,-5);
 		e.other:QuestReward(e.self,0,0,0,0,4154,1000); --breastplate
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 10559, item2 = 4099, item3 = 10117})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 10559, item2 = 4099, item3 = 10117})) then
 		e.self:Say("Good show, " .. e.other:GetName() .. ", here is your Lambent Helm");
 		e.other:Faction(320,5);
 		e.other:Faction(291,-5);
 		e.other:QuestReward(e.self,0,0,0,0,4153,1000); --helm
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 4113, item2 = 10560, item3 = 10119})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 4113, item2 = 10560, item3 = 10119})) then
 		e.self:Say("Good show, " .. e.other:GetName() .. ", here are your Lambent Vambraces.");
 		e.other:Faction(320,5);
 		e.other:Faction(291,-5);

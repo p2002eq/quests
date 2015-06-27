@@ -24,7 +24,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	-- A Taruun Guild Summons
-	if(item_lib.check_turn_in(e.trade, {item1 = 18554})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 18554})) then
 		---- We don't care at this point who gives you the application, cloak, etc.
 		---- Only later, when we get into class specific quests will the person you
 		---- come to, in order to recover lost items, matter.
@@ -35,7 +35,7 @@ function event_trade(e)
 		e.other:QuestReward(e.self,0,0,0,0,2873); -- Application for Citizenship
 	end
 	-- Notorized Application
-	if(item_lib.check_turn_in(e.trade, {item1 = 2897})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 2897})) then
 		e.self:Say("Allow me to be the first to welcome you. Accept this cloak, young initiate. It is a symbol of your loyalty to our noble people. May it serve you as you serve us all. Present your acrylia slate to Harbin Gernawl and he will give you instruction. May the spirits of the beasts guide you and keep you safe.'");
 		eq.set_global("Shar_Vahl_Cit","7",5,"F");
 		e.other:QuestReward(e.self,0,0,0,0,2878);

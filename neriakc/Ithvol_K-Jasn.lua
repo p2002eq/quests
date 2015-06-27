@@ -21,7 +21,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 12497, item2 = 1369})) then --Head of a Halfling Spy, Initiate Symbol of Innoruuk
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 12497, item2 = 1369})) then --Head of a Halfling Spy, Initiate Symbol of Innoruuk
 		e.self:Emote("You have focused the hate within you and discovered that hate and rage are not the same. Hate can be calculating and deceptive. For your service in defending the Kingdom of King Naythox Thex from the halfling invaders, I award you the disciple symbol of Innoruuk. Wear it with pride, " .. e.other:GetName() .. ".");
 		e.other:Faction(256, 15);  --Priests of Innoruuk
 		e.other:Faction(177, 2);  --King Naythox Thex
@@ -30,7 +30,7 @@ function event_trade(e)
 		e.other:Faction(258, -5); --Priests of Marr
 		e.other:Faction(260, -60); --Primordial Malice
 		e.other:QuestReward(e.self,0,0,0,0,1370,4000); --Disciple Symbol of Innoruuk
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 12499, item2 = 12498, item3 = 19029, item4 = 1370})) then --Voucher of Service to Naythox, Swiftmoon's Head, Receipt for Provisions Crate, Disciple Symbol of Innoruuk
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 12499, item2 = 12498, item3 = 19029, item4 = 1370})) then --Voucher of Service to Naythox, Swiftmoon's Head, Receipt for Provisions Crate, Disciple Symbol of Innoruuk
 		e.self:Say("Your devotion to the ideals of hatred and your service to our King Naythox Thex has proven your usefulness within these spires and within our great city. I award you the Regent Symbol of Innoruuk. Congratulations, Regent " .. e.other:GetName() .. "!");
 		e.other:Faction(256, 15);  --Priests of Innoruuk
 		e.other:Faction(177, 2);  --King Naythox Thex

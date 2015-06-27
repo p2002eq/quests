@@ -16,7 +16,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	--Handin: Sharpened Cutting Disk (12450)
-	if(item_lib.check_turn_in(e.trade, {item1 = 12450})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 12450})) then
 		-- Catfish Croak Sandwich [Part 7]
 		e.self:Emote("takes the disk and attaches it to an odd device powered by a foot pedal. He takes a froglok leg and begins to slice it as chunks of gristle flies into your face. When he is done he hands you some thin sliced froglok. 'There you are. Run along.'");
 		e.other:SummonItem(12445,4);

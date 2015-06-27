@@ -18,7 +18,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 3056, item2 = 10032, item3 = 14777, item4 = 14778})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 3056, item2 = 10032, item3 = 14777, item4 = 14778})) then
 		e.self:Say("Ah. Very good. Take this breastplate for your own good.");
 		e.other:SummonItem(4989); --scaled mystic breastplate
 		e.other:Faction(282,10);
@@ -27,7 +27,7 @@ function event_trade(e)
 		e.other:AddEXP(2000);
 		e.other:Ding();
 	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 3062, item2 = 10035, item3 = 14773, item4 = 14774})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 3062, item2 = 10035, item3 = 14773, item4 = 14774})) then
 		e.self:Say("Hmmm? Oh. Your gauntlets. Yes. Here you are. Now be careful.");
 		e.other:SummonItem(4985); --scaled mystic gauntlets
 		e.other:Faction(282,10);
@@ -36,7 +36,7 @@ function event_trade(e)
 		e.other:AddEXP(1000);
 		e.other:Ding();
 	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 3063, item2 = 10033, item3 = 14775, item4 = 14776})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 3063, item2 = 10033, item3 = 14775, item4 = 14776})) then
 		e.self:Say("Ahhh yes. These will protect your legs from the threat of tables.");
 		e.other:SummonItem(4987); --scaled mystic greaves
 		e.other:Faction(282,10);
@@ -45,7 +45,7 @@ function event_trade(e)
 		e.other:AddEXP(1000);
 		e.other:Ding();
 	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 3053, item2 = 10034, item3 = 14771, item4 = 14772})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 3053, item2 = 10034, item3 = 14771, item4 = 14772})) then
 		e.self:Say("Take this helment and keep your head down when you leave. The door is a little low.");
 		e.other:SummonItem(4990); --scaled mystic helm
 		e.other:Faction(282,10);

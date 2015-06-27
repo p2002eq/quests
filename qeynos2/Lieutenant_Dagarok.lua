@@ -7,7 +7,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 18824})) then -- Slip of Parchment
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 18824})) then -- Slip of Parchment
 		local random_copper = math.random(16);
 		local random_silver = math.random(8);
 		e.self:Say("What is this? Hmmm. It seems Weleth has a problem with following orders. I will deal with him. Good work in bringing this to my attention. Our job here would be much more difficult without the help of loyal citizens like yourself. Take this as a token of Commander Kane's appreciation.");

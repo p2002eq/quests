@@ -28,14 +28,11 @@ function event_trade(e)
 	local skin = 0;
 	local salts = 0;
 	local item_lib = require("items");
-	
-	
-	if(item_lib.check_turn_in(e.trade, {item1 = 16972,item2 = 16972,item3 = 16972,item4 = 16972})) then --  Mt. Death Mineral Salts
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 16972,item2 = 16972,item3 = 16972,item4 = 16972})) then --  Mt. Death Mineral Salts
 		salts = 2;
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 16972,item2 = 16972})) then --  Mt. Death Mineral Salts
+	elseif(item_lib.check_turn_in(e.self, e.trade,, {item1 = 16972,item2 = 16972})) then --  Mt. Death Mineral Salts
 		salts = 1;
 	end
-	
 	if(salts > 0) then
 		repeat
 		e.self:Say("Ah, most excellent! You are sure to be more highly valued as our servant once I speak to my masters of this! Mountain Death Mineral Salts, they shall grace the Overkings table this very night! Be off, minion! Fetch us some more salts to prove your value!");
@@ -45,7 +42,7 @@ function event_trade(e)
 		salts = salts - 1;
 		until salts == 0
 	end
-	
+
 	if(item_lib.check_turn_in(e.trade, {item1 = 22135,item2 = 22135,item3 = 22135,item4 = 22135})) then -- Green Goblin Skin
 		skin = 4;
 	elseif(item_lib.check_turn_in(e.trade, {item1 = 22135,item2 = 22135,item3 = 22135})) then -- Green Goblin Skin
@@ -55,7 +52,6 @@ function event_trade(e)
 	elseif(item_lib.check_turn_in(e.trade, {item1 = 22135})) then -- Green Goblin Skin
 		skin = 1;
 	end
-	
 	if(skin > 0) then
 		repeat
 			e.self:Say("Green Goblin Skin! You have indeed been busy! I shall speak to my masters of this, continue your good work and return to me with more skins.");
@@ -65,8 +61,7 @@ function event_trade(e)
 			skin = skin - 1;
 		until skin == 0
 	end
-	
-	if(item_lib.check_turn_in(e.trade, {item1 = 6476, item2 = 5728})) then -- Head of Skargus & Di'Zok Signet of Service
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 6476, item2 = 5728})) then -- Head of Skargus & Di'Zok Signet of Service
 		e.self:Say("Ah hah! You are notworthy indeed amongst the servants of the Sarnak! Perhaps I should have you killed, before your deeds outdo mine.. Hmm..");
 		e.self:Say("Guards! Guards! Haha, do not panic menial being, in fact I am most impressed with your service. Here is the ring I promised you in exchange for your efforts.");
 		e.other:Faction(23,50);
@@ -74,7 +69,7 @@ function event_trade(e)
 		eq.delete_global("RegalBandBathezid");
 		e.other:QuestReward(e.self,0,0,0,0,5727,50000); -- 5727  Regal Band of Bathezid
 	end
-	if((e.other:GetFaction(e.self)==1) and item_lib.check_turn_in(e.trade, {item1 = 5727, item2 = 5728})) then -- Regal band of Bathezid
+	if((e.other:GetFaction(e.self)==1) and item_lib.check_turn_in(e.self, e.trade, {item1 = 5727, item2 = 5728})) then -- Regal band of Bathezid
 		e.other:QuestReward(e.self,0,0,0,0,5727); -- 5727  Regal Band of Bathezid
 	end
 

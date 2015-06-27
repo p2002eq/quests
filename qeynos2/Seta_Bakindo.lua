@@ -51,7 +51,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	-- Silent Fist Clansman Hand Wraps require Sironans Head ID-27425, Yalroens Head ID-27426, and 1 High Quality Gnoll Fur ID-27427
-	if(item_lib.check_turn_in(e.trade, {item1 = 27425, item2 = 27426, item3 = 27427})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 27425, item2 = 27426, item3 = 27427})) then
 		e.other:Faction(300,1); -- Silent Fist Clan faction
 		e.other:Faction(135,1); -- Guards of Qeynos faction
 		e.other:Faction(12,1); -- Ashen Order faction

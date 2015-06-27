@@ -9,7 +9,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 12774})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 12774})) then
 		e.self:Emote("blinks and looks at the flower. 'This is perfect. Thank you! I'm going to go over to her now. Erm, well, maybe I'll wait a week to let the uh.. beauty of the flower.. uhm.. blossom. Yes, that sounds good. Here, you take this painting. I don't need it now. I made it myself, she wouldn't like it anyways.'");
 		e.other:SummonItem(20475);
 		e.other:Ding();

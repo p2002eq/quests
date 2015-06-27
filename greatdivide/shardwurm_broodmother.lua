@@ -1,7 +1,7 @@
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 30272})) then -- Harness of Control
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 30272})) then -- Harness of Control
 		e.self:Emote("reels in pain as the harness snaps around its neck tightly. A strange gleam enters its eyes as it slowly begins to shamble towards the exit and the giants fortress.");
 		e.other:Ding();
 		e.other:AddEXP(20000);

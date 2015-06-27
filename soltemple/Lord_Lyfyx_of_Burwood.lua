@@ -15,7 +15,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	
-	if(item_lib.check_turn_in(e.trade, {item1 = 10028, item2 = 12831})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 10028, item2 = 12831})) then
 		e.self:Emote("places the gems inside an ornate metal box.  He begins to tug at his skin.  Your vision blurs as he performs his magic. 'This is what you seek.  Now leave and bother me no further.' ");
 		e.other:Faction(320,5);        -- Temple of Solusek Ro better
 		e.other:Faction(291,-5);       -- Shadow Men worse

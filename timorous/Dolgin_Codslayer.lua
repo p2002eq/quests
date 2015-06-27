@@ -12,7 +12,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 20696})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 20696})) then
 		e.self:Say("What's this? Egads! It's perfect.  Now all we gotta do is hope he bites.' Dolgin takes a little of the essence and smears it on a piece of bread. He places the bait into the water and watches intently.");
 		e.other:QuestReward(e.self,0,0,0,0,20696);
 		eq.spawn2(96073,0,0,-2178,-11745,-0.63,63);

@@ -50,7 +50,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 18433})) then -- Gnome Paladin Note
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 18433})) then -- Gnome Paladin Note
 		e.self:Say("Welcome to the Abbey of Deep Musing, " .. e.other:GetName() .. "! Here is a tunic that you may wear to announce the beginning of your training as a Paladin of Brell Serilis! Be warned that the only dangers do not lie without Ak'Anon. There is an evil society that lurks in the deepest recesses and shadows of our magnificent city.");
 		e.other:SummonItem(13517); 	-- worn felt tunic
 		e.other:Ding();
@@ -59,7 +59,7 @@ function event_trade(e)
 		e.other:Faction(115,15,0); 	-- Gem Choppers
 		e.other:Faction(71,-15,0); 	-- Dark Reflection
 		e.other:AddEXP(100);
-	elseif (item_lib.check_turn_in(e.trade, {item1 = 9100,item2 =  9101,item3 =  9102,item4 =  9103})) then
+	elseif (item_lib.check_turn_in(e.self, e.trade, {item1 = 9100,item2 =  9101,item3 =  9102,item4 =  9103})) then
 		e.self:Say("Here " .. e.other:GetName() .. " , I have crafted this for you! May it always strike true!");
 		e.other:SummonItem(9104);
 		e.other:Ding();

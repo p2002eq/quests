@@ -6,13 +6,13 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 9031})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 9031})) then
 		e.self:Say("The spirit that you seek is deep within these halls. I tracked it into this lair more than a week ago. The spirit has taken up residence with the other bears in the lower chambers during that time. It should be relatively easy for your and your people to reach. Once you release the spirit, please return the totem to me. I will prepare it for the journey to Shar Vahl. May stealth and good fortune move with you.");
 		e.other:SummonItem(9031);
 		e.self:Emote("A large creature growls from deep within its icy lair.");
 		eq.spawn2(73107,0,0,-275,700,-38,0);
 	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 9036})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 9036})) then
 		e.self:Say("Perfect work, " .. e.other:GetName() .. "! I am glad the Elders made such a wise choice in sending you. I must admit, I was rather scared during the exploration of these halls. This lair is quite foul, quite foul indeed! Take this wrapped totem and place it in the case that you were given. Once you have all of the totems, seal the case and make your way back to Shar Vahl. I work my way back as well. Thank you again. ");
 		e.other:SummonItem(9037);
 		e.other:SummonItem(9031);

@@ -17,28 +17,28 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	
-	if(item_lib.check_turn_in(e.trade, {item1 = 13054,gold = 6})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 13054,gold = 6})) then
 		e.self:Say("Ok! Let me see here.. Hmmm.. Oh, excellent.. Here you go. Some of my finest work, if I must say so myself.");
 		e.other:Faction(182,5); -- kithicor residence
 		e.other:Faction(265,1); -- protectors of the pine
 		e.other:Faction(159,1); -- jaggedpine treefolk
 		e.other:Faction(347,-1); -- unkempt druids
 		e.other:QuestReward(e.self,0,0,0,0,2312,500);
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 13755,gold = 13})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 13755,gold = 13})) then
 		e.self:Say("Ok! Let me see here.. Hmmm.. Oh, excellent.. Here you go. Some of my finest work, if I must say so myself.");
 		e.other:Faction(182,5); -- kithicor residence
 		e.other:Faction(265,1); -- protectors of the pine
 		e.other:Faction(159,1); -- jaggedpine treefolk
 		e.other:Faction(347,-1); -- unkempt druids
 		e.other:QuestReward(e.self,0,0,0,0,2313,1000);
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 13752,gold = 25})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 13752,gold = 25})) then
 		e.self:Say("Ok! Let me see here.. Hmmm.. Oh, excellent.. Here you go. Some of my finest work, if I must say so myself.");
 		e.other:Faction(182,5); -- kithicor residence
 		e.other:Faction(265,1); -- protectors of the pine
 		e.other:Faction(159,1); -- jaggedpine treefolk
 		e.other:Faction(347,-1); -- unkempt druids
 		e.other:QuestReward(e.self,0,0,0,0,2314,1500);
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 13766,gold = 96})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 13766,gold = 96})) then
 		e.self:Say("Ok! Let me see here.. Hmmm.. Oh, excellent.. Here you go. Some of my finest work, if I must say so myself.");
 		e.other:Faction(182,5); -- kithicor residence
 		e.other:Faction(265,1); -- protectors of the pine

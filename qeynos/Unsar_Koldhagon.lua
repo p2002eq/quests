@@ -8,7 +8,7 @@ end
 
 function event_trade(e)
 	local item_lib =require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 13071,item2 = 13070,item3 = 13068,item4 = 13068})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 13071,item2 = 13070,item3 = 13068,item4 = 13068})) then
 		e.self:Say("All right, check this out. . . Maybe one day you'll be good enough to do this, too");
 		e.other:Ding();
 		e.other:Faction(240,5,0);

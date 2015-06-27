@@ -8,7 +8,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if (item_lib.check_turn_in(e.trade, {item1 = 1779,item2 = 14585})) then
+	if (item_lib.check_turn_in(e.self, e.trade, {item1 = 1779,item2 = 14585})) then
 		e.self:Say("I had hoped to see the last of these sorrowful symbols. There is little I can tell you of the details of the kobold religion as I was rescued from death as a pup by the Deep Muses and reunited with Brell Serilis. What I know is this, the deity this symbol represents is named Rolfron Zek. He was a devoted shaman of Brell before the Abandonment, now he is the lord of Despair and Hopelessness. There is a shaman of Rolfron that teaches the local kobolds, he carries with him a doctrine. Recover the doctrine and take it with this translation scroll back to your Temple");
 		e.other:SummonItem(1780);
 		e.other:Ding();

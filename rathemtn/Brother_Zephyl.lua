@@ -19,13 +19,13 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	
-	if(item_lib.check_turn_in(e.trade, {item1 = 12317, item2 = 10133})) then --The Idol, Red Sash of Order
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 12317, item2 = 10133})) then --The Idol, Red Sash of Order
 		e.self:Say("We had an agreement. The proof of a skilled monk, the red sash, and the idol of Zan Fi.");
 		e.self:Say("We thank you for the return of the idol of Zan Fi. Take this rare robe pattern. You shall find it useful should you aid [Brother Qwinn] in his quest. His item, the rare robe pattern, a swatch of shadow silk and a scroll containing Jonathan's Whistling Warsong. Into a sewing kit they will be going. And into the brotherhood will you. I hope you do not wish me to [return the sash].");
 		e.other:QuestReward(e.self,0,0,0,0,12315,2000); --Rare Robe Pattern
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 12315, item2 = 10133})) then --Rare Robe Pattern
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 12315, item2 = 10133})) then --Rare Robe Pattern
 		e.other:SummonItem(10133); --Red Sash of Order
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 12256, item2 = 10133})) then --Robe of the Lost Circle
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 12256, item2 = 10133})) then --Robe of the Lost Circle
 		e.other:SummonItem(10133); --Red Sash of Order
 	end
 	item_lib.return_items(e.self, e.other, e.trade)

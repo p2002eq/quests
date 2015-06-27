@@ -8,7 +8,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 3446, item2 = 3447, item3 = 3448})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 3446, item2 = 3447, item3 = 3448})) then
 		e.self:Say("Wonderful! I have little to offer you for your trouble aside from my gratitude. Here is a pinch of acrylia dust. I know it's not much. If you have no need for it go to Mignah, he can always use all kinds of acrylia.");
 		e.other:SummonItem(3449);
 	end

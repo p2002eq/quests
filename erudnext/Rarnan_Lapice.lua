@@ -13,7 +13,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 13991})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 13991})) then
 		e.self:Say("I sent you after that book ages ago! What took you so long? I have already completed my studies. Luckily I found the original manuscript under my bedroll. I forgot I had kept it there. Take this as a token of my apology. Maybe it will aid you in your next book hunt. I know how cunning those books can be.");
 		e.other:SummonItem(15302);
 		e.other:Ding();

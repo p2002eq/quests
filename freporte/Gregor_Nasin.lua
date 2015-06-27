@@ -24,7 +24,7 @@ function event_trade(e)
 	local item_lib = require("items");
 
 	-- Erud's Tonic - Koalindl Fish - Honey Jum - Kiola Nut
-	if(item_lib.check_turn_in(e.trade, {item1 = 13118,item2 = 13383,item3 = 13952,item4 = 13340})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 13118,item2 = 13383,item3 = 13952,item4 = 13340})) then
 		e.self:Say("Now I have every ingredient mentioned in the Barkeep Compendium. Here. You take it. <..click!.> Whoops!! I just closed it. It's magically sealed, I never closed it before. It's useless to you. I have no need for it any longer. Maybe you can return it to [Clurg] for some type of reward.");
 		e.other:SummonItem(13379); -- Barkeep Compendium
 		e.other:Ding();

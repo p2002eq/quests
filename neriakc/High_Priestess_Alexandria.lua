@@ -45,7 +45,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	
-	if(item_lib.check_turn_in(e.trade, {item1 = 22617, item2 = 22618, item3 = 22619})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 22617, item2 = 22618, item3 = 22619})) then
 		e.self:Say("Your prowess both in the classroom and on the battlefield has certainly amazed me. Please take this relic that is only presented to the most dedicated initiates and carry it with pride. You have made your house very proud on this day.");
 		e.other:QuestReward(e.self,0,0,0,0,22698); --Mace of the Darkpriest
 	end

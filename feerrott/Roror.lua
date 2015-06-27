@@ -24,7 +24,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 13990,gold = 66})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 13990,gold = 66})) then
 		e.self:Say("Whatsssss thisssss? You sssseek my blessssssssing? Heh heh heh... Very well... CAZIC-THULE! Take this fruit of Karana into horror'sss dark embrace. Fear and death made manifesssssst. A harvesssst of terror! Here, take your gift of blood and sssstraw. Use its dark powersssss in the name of the Fear Lord!");
 		e.other:SummonItem(14320);
 		e.other:Ding();

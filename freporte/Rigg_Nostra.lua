@@ -9,9 +9,9 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 19917})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 19917})) then
 		e.self:Say("Excellent I've been waiting for the Coalition to send me some assistance. I have an associate waiting for some supplies that have not yet been collected. I need you to acquire a [crate of pick heads] and a [bundle of hardwood shafts] and bring them to me so that I may prepare them for delivery to my associate.");
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 19931,item2 = 19929})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 19931,item2 = 19929})) then
 		e.self:Say(string.format("Thanks %s.  Now hand this crate to the fellow behind you.",e.other:GetName()));
 		e.other:SummonItem(19930);
 		e.other:Ding();

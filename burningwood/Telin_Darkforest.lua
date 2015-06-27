@@ -29,13 +29,13 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	if(e.other:GetFaction(e.self) <= 4) then
-		if(item_lib.check_turn_in(e.trade, {item1 = 20447})) then
+		if(item_lib.check_turn_in(e.self, e.trade, {item1 = 20447})) then
 			e.self:Emote("scratches the coin as he looks at it. 'Faelin sent you to Giz? Surprising. This coin speaks to the outcome of your talk. He would hardly give this bit of metal to a stranger, but that's a story for a different time. So, you say Giz did confirm Innoruuk's involvement, and something about undead minions? Here, take this coin back. Find Arch Druid Althele in the Karanas and show her that. Tell her what we have discussed. She will look kindly on an ally in this matter.'");
 			e.other:QuestReward(e.self,0,0,0,0,20448);
-		elseif(item_lib.check_turn_in(e.trade, {item1 = 20468})) then
+		elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 20468})) then
 			e.self:Emote("nods as he unbuckles his sword and hands it to you. 'The storm callers are working on containing and fighting against the corruption but they can not hold back the inevitable for long. It is up to us to strike against Innoruuk directly. If we were warriors or paladins we would have a fancy ceremony and plenty of feasting but we're just rangers, without time for pleasantries. The sword you hold in your hands is one of the oldest blades known, even to the eldest. To strike at the darkest heart of evil requires a weapon beyond this, or even ones you may carry at your side. The first task, the first preparation you must make, is the smithing of that blade. Its edge sharpened, its balance made perfect. When you have finished, bring me this sword again.'");
 			e.other:QuestReward(e.self,0,0,0,0,20477,1000000);
-		elseif(item_lib.check_turn_in(e.trade, {item1 = 20481})) then
+		elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 20481})) then
 			e.self:Emote("smiles slowly. 'Now that's fine work, " .. e.other:GetName() .. ". Just a moment, we have a friend here who can enchant one of the blades. Give her the blade that the ancient smithed.'");
 			e.other:QuestReward(e.self,0,0,0,0,20481);
 			eq.spawn2(54237,0,0,2852,3239,-155,109.5);

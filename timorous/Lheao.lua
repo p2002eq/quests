@@ -16,7 +16,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	-- Handin: Robe of the Whistling Fists & Danl's Reference
-	if(item_lib.check_turn_in(e.trade, {item1 = 12970, item2 = 1682})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 12970, item2 = 1682})) then
 		-- Monk Epic 1.0
 		e.self:Say("Astonishing! To think that you are a master of an order thought to be lost in our world. Forgive my earlier doubts. I believe you are indeed worthy to be given the responsibility of watching over this book. Take great care that it does not fall into the wrong hands as it would be truly disatrous.");
 		-- Summon: Celestial Fists (Book)

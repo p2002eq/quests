@@ -28,10 +28,10 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	
-	if(item_lib.check_turn_in(e.trade, {item1 = 20205})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 20205})) then
 		e.self:Say("Ah, so you are in need of a suit of armor fitting a young scourge warrior of the Bloodsabers. I will assist you. You will use this Mail Assembly Kit to construct the pieces of armor. Each piece will require different materials for its proper construction. Do you seek to assemble [Gauntlets of the Scourge Warrior], [Boots of the Scourge Warrior], a [Bracer of the Scourge Warrior], a [Helm of the Scourge Warrior], [Greaves of the Scourge Warrior], [Vambraces of the Scourge Warrior], or a [Breastplate of the Scourge Warrior]?");
 		e.other:QuestReward(e.self,0,0,0,0,17124);
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 20177, item2 = 19946})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 20177, item2 = 19946})) then
 		e.self:Say("Excellent work. Use this sword to further our mission.");
 		e.other:QuestReward(e.self,0,0,0,0,20262,500);
 	end

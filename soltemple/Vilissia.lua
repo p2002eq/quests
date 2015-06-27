@@ -17,22 +17,22 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 2352,item2 = 2367,item3 = 2368,item4 = 10558})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 2352,item2 = 2367,item3 = 2368,item4 = 10558})) then
 		e.self:Say("Mask, patch, skull and mask. All of the items necessary for me to make an acumen mask.  Excellent.  All praise Solusek Ro!");
 		e.other:Faction(320,10,0);
 		e.other:Faction(291,-1,0);
 		e.other:QuestReward(e.self,0,0,0,0,2366,1000); -- Acumen Mask
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 10000, item2 = 10035, item3 = 10035})) then 
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 10000, item2 = 10035, item3 = 10035})) then 
 		e.other:Say("Here is your prize - a lambent ruby.");
 		e.other:Faction(320,1,0);
 		e.other:Faction(291,-1,0);
 		e.other:QuestReward(e.self,0,0,0,0,10118,1000); -- Lambent Ruby
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 2332, item2 = 10553, item3 = 10554, item4 = 10555})) then 
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 2332, item2 = 10553, item3 = 10554, item4 = 10555})) then 
 		e.other:Say("You impress me, adventurer! I had not expected you to return with all of the runes. Very well, I shall keep my half of the bargain. Here is your Runescale Cloak.");
 		e.other:Faction(320,10,0);
 		e.other:Faction(291,-1,0);
 		e.other:QuestReward(e.self,0,0,0,0,2364,1000); -- Runescale Cloak
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 16507})) then 
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 16507})) then 
 		e.other:Say("I see that Gavel has sent you to me.  Very well, I have vulcanized your platinum bar - take it.");
 		e.other:QuestReward(e.self,0,0,0,0,19048,1000); -- Vulcanized Platinum Bar
 	end	

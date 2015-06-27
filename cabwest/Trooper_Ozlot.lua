@@ -8,7 +8,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 18246, item2 = 12670, item3 = 12670})) then --Legion Order (6 signed), Sabertooth Kitten Canine x 2
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 18246, item2 = 12670, item3 = 12670})) then --Legion Order (6 signed), Sabertooth Kitten Canine x 2
 		e.self:Say("I suppose you were sent by the legion. I will sign. Here is the legion order back. Now, leave, so I can finish my watch.");
 		e.other:SummonItem(18247); 	--Legion Order (7 signed)
 		e.other:Faction(193,5); 	--Legion of Cabilis
@@ -19,17 +19,17 @@ function event_trade(e)
 		e.other:AddEXP(800);
 		e.other:Ding();
 	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 12670, item2 = 12670})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 12670, item2 = 12670})) then
 		e.self:Say("I told you that I need two sabertooth kitten canines and the legion order.");
 		e.other:SummonItem(12670);
 		e.other:SummonItem(12670);
 	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 18246, item2 = 12670})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 18246, item2 = 12670})) then
 		e.self:Say("I told you that I need two sabertooth kitten canines and the legion order.");
 		e.other:SummonItem(18246);
 		e.other:SummonItem(12670);
 	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 18246})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 18246})) then
 		e.self:Say("I told you that I need two sabertooth kitten canines and the legion order.");
 		e.other:SummonItem(18246);
 	end

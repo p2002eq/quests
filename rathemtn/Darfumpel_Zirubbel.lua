@@ -13,7 +13,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	
-	if(item_lib.check_turn_in(e.trade, {item1 = 10191, platinum = 1000})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 10191, platinum = 1000})) then
 		e.self:Say("I have not seen a gem such as this in quite some time! It was not since I dabbled in a bit of necro? Wait? What are you going to use this for? Never mind. I do not wish to know. Here, take your gem and leave!");
 		e.other:QuestReward(e.self,0,0,0,0,10192,1000);
 	end

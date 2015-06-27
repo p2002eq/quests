@@ -39,7 +39,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 13755, gold = 21})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 13755, gold = 21})) then
 		e.self:Say("Good work! Now have you the rest of what I require?");
 		e.self:Say("Here ya go! That should keep ya nice and warm! Be sure to tell all the friends you're going to impress where you got this fine cloak. Although I am sure they probably have heard of me already.");
 		e.other:SummonItem(2905);
@@ -50,7 +50,7 @@ function event_trade(e)
 		e.other:AddEXP(500);
 		e.other:Ding();
 	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 13754, gold = 15})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 13754, gold = 15})) then
 		e.self:Say("Good work! Now have you the rest of what I require?");
 		e.self:Say("They are exquisite, if I do say so myself. Hope they fit.");
 		e.other:SummonItem(2906);
@@ -61,7 +61,7 @@ function event_trade(e)
 		e.other:AddEXP(500);
 		e.other:Ding();
 	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 13753, gold = 5})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 13753, gold = 5})) then
 		e.self:Say("Good work! Now have you the rest of what I require?");
 		e.self:Say("I hate working with such low quality hides. They lack the sheen that makes a high quality pelt look so fine! Anyhow, here's your belt.");
 		e.other:SummonItem(2907);

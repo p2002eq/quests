@@ -16,7 +16,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 13885,item2 = 13885,item3 = 13885,item4 = 13885})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 13885,item2 = 13885,item3 = 13885,item4 = 13885})) then
 		e.self:Say("You have done well. Keep up the good work and we may trust you to [hunt dervish cutthroats] which in turn will allow you to join the Reserve Freeport Militia.");
 		e.other:Ding();
 		e.other:Faction(105,5); -- freeport militia
@@ -25,7 +25,7 @@ function event_trade(e)
 		e.other:Faction(258,-10); -- priests of marr
 		e.other:AddEXP(500);
 		e.other:GiveCash(0,0,1,0);
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 12272})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 12272})) then
 		e.self:Say("Excellent work, "..e.other:GetName().."!! You are quite formidable. Maybe soon you shall aid in our efforts to rid the Northern part of Freeport of the paladins!! Until then keep up the good work. Take this Armory Token to the Militia Armorer in the Militia House in Freeport to receive your tunic. He may not be there, but I assure you he will show up at some time. On the second floor. Hail Sir Lucan!!");
 		e.other:SummonItem(12273);
 		e.other:Ding();

@@ -21,7 +21,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 18709})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 18709})) then
 		e.self:Say("Welcome, we are the Protectors of the Pine. Wear this tunic of our guild, and help us defend our great and beautiful woods. Go to Larsk Juton, he will help train you and teach you the power of the woods.");
 		e.other:SummonItem(13509);
 		e.other:Ding();
@@ -30,7 +30,7 @@ function event_trade(e)
 		e.other:Faction(279,-15,0); -- Sabertooths of Blackburrow
 		e.other:Faction(135,25,0); -- Guards of Qeynos
 		e.other:AddEXP(100);
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 13913})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 13913})) then
 		e.self:Say("His days of hunting are over. In the name of the Protectors of the Pine, I offer you this reward. If you are unable to make use of it, you may sell it. I suggest you hold onto it. If you are a ranger it will come in handy.");
 		e.other:SummonItem(17804);
 		e.other:Ding();

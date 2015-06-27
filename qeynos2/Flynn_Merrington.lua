@@ -20,7 +20,7 @@ function event_trade(e)
 
 	local item_lib = require("items");
 	
-	if(item_lib.check_turn_in(e.trade, {item1 = 13122})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 13122})) then
 		e.self:Say("Well, now... That's cutting out the middle man. Thanks, chum! Now, beat it!");
 		e.other:Ding();
 		e.other:Faction(33,-20,0);

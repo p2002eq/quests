@@ -9,7 +9,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 6069})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 6069})) then
 		e.self:Say("Excellent work! Thank you for delivering this to me. I will get it to the High Council as soon as possible. Take this Ring of the Messenger as an insignia of your service to the city.");
 		e.other:QuestReward(e.self,0,0,0,0,1573,85000);
 	end

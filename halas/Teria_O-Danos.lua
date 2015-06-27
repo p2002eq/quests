@@ -15,7 +15,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 13961})) then 	--Lion Meat Shipment
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 13961})) then 	--Lion Meat Shipment
 		e.self:Say("Ye've returned!! How wonderful! The people o' Halas thank ye! It isn't often we get to indulge ourselves in the delicacies o' warmer climates. Here ye go, me friend. Ye've completed the delivery in good time. I hope ye deliver more often. Here, try some of me new creation.. [Lion Delight].");
 		e.other:SummonItem(12221,1); 							--Lion Delight
 		e.other:GiveCash(0,0,3,0); 								--Gold x 3

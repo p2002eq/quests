@@ -11,7 +11,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 28080})) then--Collection of Instruments
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 28080})) then--Collection of Instruments
 		e.self:Emote("inspects each instrument carefully. 'These are in much better condition then I thought I would get them in. Adding these to my exhibit pleases me greatly. As promised, here is something for you.'");--Borrowed text, no final turn in text.
 		e.other:QuestReward(e.self,0,0,0,0,28239);--Fine Antique Amice
 	end

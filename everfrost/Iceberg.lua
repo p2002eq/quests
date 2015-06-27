@@ -25,7 +25,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 12221})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 12221})) then
 		e.self:Emote("growls with happiness and licks your face.  Just enough time to swipe the sweaty shirt from his collar!!  Iceberg then runs off to enjoy his lion delight!!");
 		eq.signal(30061,2);
 		e.other:SummonItem(12226);

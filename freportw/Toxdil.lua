@@ -13,12 +13,12 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 12353})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 12353})) then
 		e.self:Say("The gem!! I would notice it's sparkle anywhere!! I cannot believe you are handing it back to me!! What a fool. Here you are fool. You can have this worthless key now.");
 		e.other:SummonItem(12351); -- A Tiny Key
 		e.other:Ding();
 		e.other:AddEXP(15000);
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 14017,item2 = 14017,gold = 20})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 14017,item2 = 14017,gold = 20})) then
 		e.other:SummonItem(14016); -- Snake Venom
 		e.other:Ding();
 		e.other:AddEXP(100);

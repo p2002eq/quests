@@ -16,7 +16,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if (miner628 and item_lib.check_turn_in(e.trade, {item1 = 12164})) then -- Scrubber Key
+	if (miner628 and item_lib.check_turn_in(e.self, e.trade, {item1 = 12164})) then -- Scrubber Key
 		e.self:Emote(".wizz.click.628.");
 		e.other:Faction(45,-10,0); -- Clockwork Gnome
 		e.other:Ding();

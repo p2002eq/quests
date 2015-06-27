@@ -13,7 +13,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 20527,item2 = 20528,item3 = 20529})) then -- Chromodrac Gut, Red Wurm Gut, Onyx Drake Gut
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 20527,item2 = 20528,item3 = 20529})) then -- Chromodrac Gut, Red Wurm Gut, Onyx Drake Gut
 		e.self:Emote(string.format("snatches the gut strings from your hand and immediately begins to string her lute. 'This is wonderful, I will be able to play my lute again soon! Take this old sheet of music I found - I don't think I will have much use for it. My new desire is to bash gnoll heads in with my lute. Safe travels to you, %s.",e.other:GetName()));
 		e.other:SummonItem(20377); -- Maestro's Symphony Page 25
 		e.other:Ding();

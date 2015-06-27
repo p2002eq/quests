@@ -5,7 +5,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 1797,item2 = 1797,item3 = 1797})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 1797,item2 = 1797,item3 = 1797})) then
 		e.self:Say(string.format("Ahh wonderful work %s Here is the substance....don't spill it HAHAHAaahhahehehe...yes......you don't want to spill that heheh.",e.other:GetName()));
 		e.other:Faction(21,2,0); -- Bloodsabers
 		e.other:Faction(135,-1,0); -- Guards of Qeynos

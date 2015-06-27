@@ -13,7 +13,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(e.other:GetCharacterFactionLevel(342) > 43 and item_lib.check_turn_in(e.trade, {item1 = 14373})) then
+	if(e.other:GetCharacterFactionLevel(342) > 43 and item_lib.check_turn_in(e.self, e.trade, {item1 = 14373})) then
 		e.self:Say("Kyrenna! We are free!");
 		eq.spawn2(39155, 0, 0, -195.8, 426.6, -213.9, 115);
 		e.other:Faction(342, 7);

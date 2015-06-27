@@ -14,7 +14,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 13159})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 13159})) then
 		e.self:Say(string.format("What's this? Oh, ol' Grandpa Frikniller's lucky necklace, huh? I'll bet this broken piece of junk won't even get me a sip of ale up at the bar. And lucky? How lucky could this thing be? Poor gramps was lonely and copperless his whole life. Bah!! Oh, well. Here's some coin for your efforts, thanks, %s.",e.other:GetName()));
 		e.other:Ding();
 		e.other:Faction(48,1,0); -- Coalition of Tradefolk Underground

@@ -6,7 +6,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 13038,item2= 13038,item3 = 13038,item4 = 13038})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 13038,item2= 13038,item3 = 13038,item4 = 13038})) then
 		e.self:Say("Mmmm.. <Burp!!> Thank you. Here is a little dona.. <Hic!!> dona.. <Hic!!> mmmoney for your generosity.");
 		e.other:SendSound();
 		e.other:SummonItem(13291); -- donation 2

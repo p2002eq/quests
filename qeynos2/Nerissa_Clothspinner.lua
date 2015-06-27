@@ -36,7 +36,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	
-	if(item_lib.check_turn_in(e.trade, {item1 = 13302})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 13302})) then
 		e.self:QuestSay(e.other, "Thank you my friend. I understand that Astaed Wemor of the Temple of Life has been concerned for my well being. Take him this note. I am sure he will reward you for easing my troubled mind.. If you are a respected member.");
 		e.other:Ding();
 		e.other:SummonItem(18862);

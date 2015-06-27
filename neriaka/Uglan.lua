@@ -6,7 +6,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 13357})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 13357})) then
 		e.self:Say("You from Oggok. Me waiting for you. Me know dark elves have dark plan for ogres. We must stop plan. You must go to Nektulos Forest. Wait for blue orc. He deliver message for dark elf king. Not good. You kill blue orc runners. If message on them then you take to Lork in Oggok. Ogres must know plan.");
 		e.other:Faction(322,10);
 		e.other:Faction(268,10);

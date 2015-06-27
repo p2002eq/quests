@@ -74,31 +74,31 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 15985})) then --Imbued Breastplate
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 15985})) then --Imbued Breastplate
 		e.self:Say("What a wonderful job! Councilman Taldarius shall wear this on our next adventure, I am sure he will find it more protective than his old one. Take this signet as a token of my gratitude. If you are not too busy I have another task, do you have any brewing skill?");
 		e.other:QuestReward(e.self,0,0,0,0,16249); --Hardened Leather Signet
 	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 15993, item2 = 17179})) then --Portable Drink and Portable Drink Barrel
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 15993, item2 = 17179})) then --Portable Drink and Portable Drink Barrel
 		e.self:Emote("gulps down a Twice Brewed Constitutional and burps loudly! 'Ahhhh that was refreshing! That should hold me over for quite some time. I see you are quite deft of hand, perhaps you would care to put your jewel craft skills to the test?'");
 		e.other:QuestReward(e.self,0,0,0,0,16250); --Clay Signet
 	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 15991})) then --Velium Blue Diamond Ring
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 15991})) then --Velium Blue Diamond Ring
 		e.self:Emote("grins. 'Quite a nice ring you have made for me " .. e.other:GetName() .. ". May it serve me as well as my old ring. Here take this signet. We seem to be finishing the tasks on my list at a nice pace. Tell me when you are ready to use some clay.");
 		e.other:QuestReward(e.self,0,0,0,0,16251); --Wooden Signet
 	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 16246})) then --Filled Sacred Urn
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 16246})) then --Filled Sacred Urn
 		e.self:Say("Outstanding work " .. e.other:GetName() .. "! I can feel the purity of the water radiating through the clay. Are ye skilled with the needle as well as an accomplished potter?");
 		e.other:QuestReward(e.self,0,0,0,0,16252); --Metal Signet
 	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 15986})) then --Fire Undergarment Tunic
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 15986})) then --Fire Undergarment Tunic
 		e.self:Say("Good work " .. e.other:GetName() .. ". This will definitely serve Councilman Taldarius well. Here take this! If you have skills with a fletching knife I may have a job for you to do.");
 		e.other:QuestReward(e.self,0,0,0,0,1079); --Marked Signet
 	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 16247})) then --Signet Featherwood Bow
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 16247})) then --Signet Featherwood Bow
 		e.self:Say("Masterful work " .. e.other:GetName() .. "! I can see your skill in the curves of the bow. Take this as a sign of my respect for your skill. The last item I need before we can be off is some food. I warn you this will truly test your skills. Do you fancy yourself a master chef?");
 		e.other:QuestReward(e.self,0,0,0,0,16254); --Runed Signet
 	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 16248})) then --Food Satchel
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 16248})) then --Food Satchel
 		e.self:Say("Truly amazing! Now the Councilman and I can be off on our expedition to the Elemental Planes!' He takes out a tool and marks his signet before handing it to you, 'Before we depart you may want to ask the Councilman about the signet.");
 		e.other:QuestReward(e.self,0,0,0,0,16256); --Marked Runed Signet
 	end

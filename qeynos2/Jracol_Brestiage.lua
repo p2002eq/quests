@@ -21,7 +21,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 13903})) then -- Bent Card
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 13903})) then -- Bent Card
 		e.self:Say("'Ah, good, it seems we have much in common after all. Take this back to the Circle, before the city guards come nosing around over here.");
 		e.other:Faction(31,5,0); -- Carson McCabe
 		e.other:Faction(48,3,0); -- Coalition of Tradefolk Underground

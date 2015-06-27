@@ -28,17 +28,17 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 12815})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 12815})) then
 		e.self:Emote("bows before you and takes a wrinkled, mummified hand from a pouch at his side. 'Take the hand. Let it rest within Cabilis and be reunited with the left.'");
 		e.other:Faction(317,20);
 		e.other:Faction(193,10);
 		e.other:SummonItem(12797,20000);
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 12829})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 12829})) then
 		e.self:Emote("opens the box to reveal a variety of pebbles. 'How grand!! My pebbles!! Now I can continue with my rock garden!! Hmmm. You look familiar. Hey!! I bet you can help me complete my garden!! Would you please [assist old Rinmark in completing his rock garden]?'");
 		e.other:Faction(317,20);
 		e.other:Faction(193,10);
 		e.other:QuestReward(e.self,0,0,0,0,0,30000);
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 12836})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 12836})) then
 		e.self:Emote("graciously accepts the tin box filled with precious rocks and gems. 'Thank you greatly, young " .. e.other:GetName() .. ". For your deed, I bestow upon you the shackle of bronze!! You have completed the third rung. Alas, there is no time for celebration. I need your help in rescuing a [student] of mine.'");
 		e.other:Faction(317,20);
 		e.other:Faction(193,10);

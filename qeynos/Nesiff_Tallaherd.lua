@@ -18,7 +18,7 @@ function event_trade(e)
 
 	local item_lib =require("items");
 	
-	if(item_lib.check_turn_in(e.trade, {item1 = 13925})) then -- Crate of Defective Arrows
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 13925})) then -- Crate of Defective Arrows
 		e.self:Say("Oh dear. I hope my mistake will not bring too much grief down on poor Weleth. He was told not to order arrows from me after the last time I fouled up their shipment. But Weleth knew I needed the account to stay in business. Could you please rush this new invoice to him right away? Thank you.");
 		e.other:SummonItem(18824); -- Slip of Parchment
 		e.other:Ding();
@@ -28,7 +28,7 @@ function event_trade(e)
 		e.other:Faction(47,1,0); -- Coalition of Tradefolk
 		e.other:Faction(135,1,0); -- Guards of Qeynos
 		e.other:AddEXP(8000);
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 18012})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 18012})) then
 		e.self:Say("Oh.  Vesteri sent you?  Here you go.  I hope Te'Anara likes it.");
 		e.other:SummonItem(13864);
 		e.other:Ding();

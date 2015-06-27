@@ -16,19 +16,19 @@ function event_trade(e)
 	--local qglobals = eq.get_qglobals(e.other,e.self);
 	local item_lib = require("items");
 	--Turn in the a dusty iksar skull
-	if(item_lib.check_turn_in(e.trade, {item1 = 30984}) and (e.other:GetFaction(e.self) <= 4))  then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 30984}) and (e.other:GetFaction(e.self) <= 4))  then
 		e.self:Say("There is strange magic in this skull " .. e.other:GetName() .. ", whatever necromancer animated this skeleton was a powerful warlock indeed. I sense the power of several ancients in this relic. Take this skull to Oracle Qulin in the field of bone, he may be able to perform the ritual which will free this ancient's spirit from the mortal realm.");
 		eq.set_global("shmskullquest", "10",5,"F"); 	--set a global flag so that user can do shm skull quest part 7.2
 		e.other:SummonItem(30984); 					--give back the skull
 	end
 	--Turn in the note Oracle Qulin gave you
-	if(item_lib.check_turn_in(e.trade, {item1 = 30986}) and (e.other:GetFaction(e.self) <= 4)) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 30986}) and (e.other:GetFaction(e.self) <= 4)) then
 		e.self:Say("It is as I feared, the mark of the warlock has surely driven these ancient spirits mad. We can not allow these spirits to roam free in our world " .. e.other:GetName() .. ". Take this case and place the glowing skulls of other ancients inside of it. Return it to me with your Cudgel of the Heirophant so that we may remove these cursed spirits from our world forcefully.");
 		--eq.set_global("shmskullquest", "12",5,"F"); 	--set a global flag so that user can do shm skull quest part 7.2
 		e.other:SummonItem(17134); 					--give ornate skull case for 4 glowing skulls
 	end
 	--Turn in full ornate skull case and cudgle of the heirphant
-	if(item_lib.check_turn_in(e.trade, {item1 = 30988, item2 = 5146}) and (e.other:GetFaction(e.self) <= 4)) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 30988, item2 = 5146}) and (e.other:GetFaction(e.self) <= 4)) then
 		e.self:Say("You have done well " .. e.other:GetName() .. ". Perhaps you can help clear these troubling dreams from my tired aging mind. Commune with the spirits of our Ancestors and learn from them. Never forget that the ultimate power comes from knowledge. The ancients are privy to much knowledge that mortals will never see. Should you be granted enlightenment from our ancestors, share your knowledge with me so that we may use this knowledge for the benefit of our brethren. I will continue to study the [dreams] that [cloud] my mind.");
 		--eq.set_global("shmskullquest", "13",5,"F"); 	--set a global flag so that user can do shm skull quest part 8
 		e.other:SummonItem(5148); 					--SkyIron Cudgel of the Arisen

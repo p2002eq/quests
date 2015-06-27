@@ -18,19 +18,19 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 20950, item2 = 20703, item3 = 20704})) then 					--shadowknight test of disempowerment using griffon statuette, blood sky emerald, rusted pauldrons
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 20950, item2 = 20703, item3 = 20704})) then 					--shadowknight test of disempowerment using griffon statuette, blood sky emerald, rusted pauldrons
 		e.self:Say("You have truly earned this.");
 		e.other:QuestReward(e.self,0,0,0,0,4322,100000); 	--blood sky face plate
 		eq.depop();
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 20705, item2 = 20957, item3 = 20706})) then 				--shadowknight test of envenoming using efreeti war shield, dark spiroc feather, obsidian shard
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 20705, item2 = 20957, item3 = 20706})) then 				--shadowknight test of envenoming using efreeti war shield, dark spiroc feather, obsidian shard
 		e.self:Say("You have truly earned this.");
 		e.other:QuestReward(e.self,0,0,0,0,11678,100000); 	--obtenebrate mithril guard
 		eq.depop();
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 20707, item2 = 20708, item3 = 20709, item4 = 20710})) then 	--shadowknight test of raising of the dead using large sky pearl, jar of honey, sphinxian ring, fae pauldrons
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 20707, item2 = 20708, item3 = 20709, item4 = 20710})) then 	--shadowknight test of raising of the dead using large sky pearl, jar of honey, sphinxian ring, fae pauldrons
 		e.self:Say("You have truly earned this.");
 		e.other:QuestReward(e.self,0,0,0,0,11699,100000); 	--pearlescent pauldrons
 		eq.depop();
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 20711, item2 = 20964, item3 = 20713, item4 = 20712})) then 				--shadowknight test of necropotence using efreeti war axe, dulcet nectar, bloodstained hilt, blood sky ruby
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 20711, item2 = 20964, item3 = 20713, item4 = 20712})) then 				--shadowknight test of necropotence using efreeti war axe, dulcet nectar, bloodstained hilt, blood sky ruby
 		e.self:Say("You have truly earned this.");
 		e.other:QuestReward(e.self,0,0,0,0,27707,100000); 	--Khyldorn the Blood Drinker
 		eq.depop();

@@ -8,7 +8,7 @@ end
 
 function event_trade(e)
 	local item_lib =require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 13712})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 13712})) then
 		e.self:Emote("tries to keep her composure. She hands you a silver locket with great effort, and then bursts into tears.");
 		e.other:SummonItem(1316);
 		e.other:Ding();

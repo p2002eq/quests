@@ -9,7 +9,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 12105})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 12105})) then
 		e.self:Say("May the Rainkeeper keep you safe. I thank you. Here is the empty chalice. By the way, inform your superior that the operations of the [Karana bandits] are getting closer to Qeynos.");
 		e.other:SummonItem(12104);
 		e.other:Ding();

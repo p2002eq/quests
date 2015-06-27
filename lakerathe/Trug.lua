@@ -6,7 +6,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 10073})) then --Dufrenite
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 10073})) then --Dufrenite
 		e.self:Emote("takes the dufrenite and smashes it with her bare hands.");
 		e.self:Say("Here ya go!");
 		e.other:SummonItem(19052); --Powdered Dufrenite

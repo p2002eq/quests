@@ -8,7 +8,7 @@ function event_say(e)
 end
 function event_trade(e)
 	local item_lib = require("items");
-	if((item_lib.check_turn_in(e.trade, {item1 = 1239})) or (item_lib.check_turn_in(e.trade, {item1 = 1240})) or (item_lib.check_turn_in(e.trade, {item1 = 1241})) or (item_lib.check_turn_in(e.trade, {item1 = 1242})) or (item_lib.check_turn_in(e.trade, {item1 = 1243})) or (item_lib.check_turn_in(e.trade, {item1 = 1244})) or (item_lib.check_turn_in(e.trade, {item1 = 1245}))) then --Apothic Armor
+	if((item_lib.check_turn_in(e.self, e.trade, {item1 = 1239})) or (item_lib.check_turn_in(e.self, e.trade, {item1 = 1240})) or (item_lib.check_turn_in(e.self, e.trade, {item1 = 1241})) or (item_lib.check_turn_in(e.self, e.trade, {item1 = 1242})) or (item_lib.check_turn_in(e.self, e.trade, {item1 = 1243})) or (item_lib.check_turn_in(e.self, e.trade, {item1 = 1244})) or (item_lib.check_turn_in(e.self, e.trade, {item1 = 1245}))) then --Apothic Armor
 		e.self:Say("Thank you, " .. e.other:GetName() .. "."); --Text made up
 		e.other:QuestReward(e.self,0,0,0,0,eq.ChooseRandom(10028, 10037, 22503, 15981),698775); --Random gem: Peridot, Diamond, Blue Diamond, Raw Diamond
 	end

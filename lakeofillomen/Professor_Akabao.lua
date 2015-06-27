@@ -13,7 +13,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 19962, item2 = 19963, item3 = 19964})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 19962, item2 = 19963, item3 = 19964})) then
 		e.self:Say("For ages this medallion has been scattered across these inhospitable lands, I had just about given up hope of locating the pieces and rebuilding this piece of Iksar history. You may keep it. It is enough to know that I have done my part to restore such an artifact to the people of Norrath.");
 		e.other:QuestReward(e.self,0,0,0,0,19955,1000);
 	end

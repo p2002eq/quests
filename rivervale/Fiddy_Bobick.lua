@@ -21,7 +21,7 @@ end
 function event_trade(e)
 local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 13870})) then 
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 13870})) then 
 		e.self:Say("Whew!! We are sure on the way to saving this village, pal! They're gonna erect a statue in our names.  Fishslayers is what we are!  Let's keep up the good work!");
 		e.other:Faction(218,5);
 		e.other:Faction(77,5); 

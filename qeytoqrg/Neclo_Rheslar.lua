@@ -1,7 +1,7 @@
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 18823})) then -- Note to Neclo
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 18823})) then -- Note to Neclo
 		e.self:Say("Ah.. Hello friend.. So, I see Daenor sent you.. Uh huh, ok.. Here's something that will be very useful for you. Practice this well, friend.. It will help protect you in this harsh world.");
 		e.other:SummonItem(15288); -- Spell: Minor Shielding
 		e.other:Ding();

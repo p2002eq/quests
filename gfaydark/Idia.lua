@@ -16,7 +16,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 18167})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 18167})) then
 		e.self:Say("More mail - you have done us a noteworthy service!  Please take this gold for your troubles.  If you are interested in more work, just ask me.");
 		e.other:Faction(192,10); -- league of antonican bards
 		e.other:Faction(184,1); -- knights of truth

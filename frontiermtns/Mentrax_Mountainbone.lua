@@ -8,7 +8,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 20678})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 20678})) then
 		e.self:Say("Eh, you actually found one! Thank you, " .. e.other:GetName() .. ". Here is a block of ore for you. Just don't let the other giants know.");
 		e.other:QuestReward(e.self,0,0,0,0,20666,25000);
 	end

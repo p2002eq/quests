@@ -2,7 +2,7 @@
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 18771})) then -- Stained Letter
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 18771})) then -- Stained Letter
 		e.self:Say("Hmmm.. As you wish, we will train you in our dark ways, but, now this, our art carries a high price, and there is no turning back for you now.");
 		e.other:SummonItem(13524); 	-- Dark Gold Felt Robe*
 		e.other:Ding();

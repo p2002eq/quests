@@ -13,7 +13,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 13813})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 13813})) then
 		e.self:Say("Fantastic work!! Hager will be pleased. Not only do we rid ourself of a poacher, but we rid the land of these destructive gnolls. Our fletchers crafted this for me... Please take it as thanks.");
 		e.other:SummonItem(8803); -- Rough Elm Recurve Bow
 		e.other:Ding();
@@ -23,7 +23,7 @@ function event_trade(e)
 		e.other:Faction(135,3,0); -- Guards of Qeynos
 		e.other:AddEXP(6000);
 		e.other:GiveCash(0,2,0,0);
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 13825})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 13825})) then
 		e.self:Say("Your deeds are great indeed. We shall cleanse our land of these poachers once and for all. A report has surfaced of a [master poacher].");
 		e.other:Ding();
 		e.other:Faction(265,15,0); -- Protectors of Pine

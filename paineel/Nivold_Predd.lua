@@ -11,7 +11,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	
-	if(item_lib.check_turn_in(e.trade, {item1 = 16540,item2 = 13739,item3 = 14111,item4 = 14112}) and e.other:GetFaction(e.self) < 5) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 16540,item2 = 13739,item3 = 14111,item4 = 14112}) and e.other:GetFaction(e.self) < 5) then
 		e.self:Say("Commendable work, you have proven yourself a valuable member of our order. Our chanters have summoned the avatar of Dread. Hurry and take him this mundane shield so that he may forge it into a truly valuable symbol of your devotion to the lord of Fear!");
 		e.other:Faction(143,400,0);
 		e.other:Faction(79,-400,0);

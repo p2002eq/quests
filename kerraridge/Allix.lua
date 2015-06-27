@@ -11,7 +11,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	
-	if(item_lib.check_turn_in(e.trade, {item1 = 6349})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 6349})) then
 		e.self:Say("Ajrah! Raaarrr! Ajrah Leaf! Allix destined to be mighty saiar now! Allix unsure how to thank you. Here, take this. Is my most treasured tunic.");
 		e.other:QuestReward(e.self,0,0,0,0,1120,500);
 	end

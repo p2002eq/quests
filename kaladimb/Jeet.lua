@@ -56,7 +56,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 13054, item2 = 13054, item3 = 13054, item4 = 13054})) then -- Giant Rat Pelt
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 13054, item2 = 13054, item3 = 13054, item4 = 13054})) then -- Giant Rat Pelt
 		e.self:Say("It's about time you managed to smash these four!! Here. You do good work. We could use someone like you to [run to the gnome city].");
 		e.other:SummonItem(eq.ChooseRandom(2108,2124,2118,2116,2120,2123));
 		e.other:Faction(220, 10); -- Miners Guild 628
@@ -67,7 +67,7 @@ function event_trade(e)
 		e.other:AddEXP(5000);
 		e.other:Ding();
 	end
-	if((e.other:GetFaction(e.self) < 5) and (item_lib.check_turn_in(e.trade, {item1 = 13282}))) then -- Scrap Metal
+	if((e.other:GetFaction(e.self) < 5) and (item_lib.check_turn_in(e.self, e.trade, {item1 = 13282}))) then -- Scrap Metal
 		e.self:Say("Great work!! We need this junk for something and we sure didn't need this rat sucking up any of our gems. Here. This is a Mining Cap 628. It's not much, but it is the mark of our miners and provides light for mining purposes. Hold onto it. You never know when we may call upon you to produce it.");
 		e.other:SummonItem(12165); -- Miners Cap 628
 		e.other:Faction(220, 10); -- Miners Guild 628
@@ -78,7 +78,7 @@ function event_trade(e)
 		e.other:AddEXP(5000);
 		e.other:Ding();
 	end
-	if((e.other:GetFaction(e.self) < 5) and (item_lib.check_turn_in(e.trade, {item1 = 12167}))) then -- Gnome Take (Bad)
+	if((e.other:GetFaction(e.self) < 5) and (item_lib.check_turn_in(e.self, e.trade, {item1 = 12167}))) then -- Gnome Take (Bad)
 		e.self:Say("What is all this junk!! That blasted tin rat is supposed to be heisting expensive goods from rich gnomes - not all this garbage!! Here. This is your cut of this junk.");
 		e.other:SummonItem(eq.ChooseRandom(10009, 10015, 10500));
 		e.other:Faction(220, 10); -- Miners Guild 628
@@ -90,7 +90,7 @@ function event_trade(e)
 		e.other:GiveCash(0, 2, 0, 0);
 		e.other:Ding();
 	end
-	if((e.other:GetFaction(e.self) < 5) and (item_lib.check_turn_in(e.trade, {item1 = 12162}))) then -- Gnome Take (Good)
+	if((e.other:GetFaction(e.self) < 5) and (item_lib.check_turn_in(e.self, e.trade, {item1 = 12162}))) then -- Gnome Take (Good)
 		e.self:Say("Good work miner. This is a fantastic haul!! Those wrinkly little gnomes don't know what is going on. Here is your cut. Now get back to work.");
 		e.other:SummonItem(10005);
 		e.other:Faction(220, 10); -- Miners Guild 628

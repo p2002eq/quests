@@ -13,7 +13,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 1686})) then --Trunt's Head
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 1686})) then --Trunt's Head
 			e.self:Emote("looks up and down.");
 			e.self:Say("Hmmm, I was hoping for something more impressive. This is just a small token of the last person who tried to interfere with my plans. He failed as shall you. But tell me truly, are you the one who has so rudely removed my students?");
 			e.other:QuestReward(e.self,0,0,0,0,1687); --Eye of Kaiaren

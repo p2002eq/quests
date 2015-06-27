@@ -14,17 +14,17 @@ function event_trade(e)
 	local Tumpy_Tonic = 0;
 	local item_lib =require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 18818})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 18818})) then
 		e.self:Say("This used to be hanging in Zimel's Blades. It is the price list. It is badly faded though. There was a fire in Zimel's Blades and I was on the scene just afterward. I did not see this hanging. I wonder who took it . . . Hmmmm.. oh, yes.. the markings on the list! It is a code! Here. I will fill it in. Read it. You probably do not even know who Ariska is.");
 		e.other:SummonItem(18818);
 		e.other:Ding();
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 12114,item2 = 12114,item3 = 12114,item4 = 12114})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 12114,item2 = 12114,item3 = 12114,item4 = 12114})) then
 		Tumpy_Tonic = 4;
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 12114,item2 = 12114,item3 = 12114})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 12114,item2 = 12114,item3 = 12114})) then
 		Tumpy_Tonic = 3;
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 12114,item2 = 12114})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 12114,item2 = 12114})) then
 		Tumpy_Tonic = 2;
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 12114})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 12114})) then
 		Tumpy_Tonic = 1;
 	end
 	

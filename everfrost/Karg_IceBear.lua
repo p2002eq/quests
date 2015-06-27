@@ -25,15 +25,15 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 13761,platinum = 5})) then -- Polar Bear Skin and 5 plat
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 13761,platinum = 5})) then -- Polar Bear Skin and 5 plat
 		e.other:SummonItem(2912); -- Polar Bear Cloak
 		e.other:Ding();
 		--eq.depop_with_timer();
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 13714,platinum = 100})) then -- Werewolf Pelt and 100 plat
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 13714,platinum = 100})) then -- Werewolf Pelt and 100 plat
 		e.other:SummonItem(2401); -- Werewolf Skin Cloak
 		e.other:Ding();
 		eq.depop_with_timer();
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 13715,platinum = 75})) then -- Werewolf Claws and 75 plat
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 13715,platinum = 75})) then -- Werewolf Claws and 75 plat
 		e.other:SummonItem(2402); -- Lupine Claw Gauntlets
 		e.other:Ding();
 		eq.depop_with_timer();

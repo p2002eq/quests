@@ -12,7 +12,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 5996})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 5996})) then
 		e.self:Say("Ah this was my wife Aisha's locket. She had given it to Kalila. Thanks so much for returning it. Here take this belt as my thanks.");
 		e.other:QuestReward(e.self,0,0,0,0,5995);
 	end

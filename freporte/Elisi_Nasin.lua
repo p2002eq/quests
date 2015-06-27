@@ -10,7 +10,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 18745})) then -- A tattered note
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 18745})) then -- A tattered note
 		e.self:Say("Welcome to the Coalition of Tradesfolk underground. We like to keep a low profile around here and not draw any unneeded attention to our operations. you following me? I hope so. for your sake. Anyways. Nestral T'Gaza is in charge with helping out our newest members. Go see her as soon as you get a chance.");
 		e.other:SummonItem(13568); -- Brown Faded Tunic
 		e.other:Ding();

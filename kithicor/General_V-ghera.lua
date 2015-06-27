@@ -7,7 +7,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	
-	if(item_lib.check_turn_in(e.trade, {item1 = 28058})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 28058})) then
 		e.self:Say("Life is indeed sweet! Thank you, " .. e.other:GetName() .. ", you have done me a great service this day. Take this, Stanos was kind enough to return it to me, and I have no use for it now. Know that you have the blessing of Innoruuk for this deed! But of course, I leave it to you to leave here alive. A leader has to feed his minions, you know.");
 		e.other:Faction(98,10);
 		e.other:QuestReward(e.self,0,0,0,0,2475,500000);

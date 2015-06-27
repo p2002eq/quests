@@ -13,7 +13,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 13990})) then -- Sack of Hay
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 13990})) then -- Sack of Hay
 		e.self:Say("Thank you so much. Tiny gets quite tired doing this by himself. Here you go.");
 		e.other:Ding();
 		e.other:Faction(167,10,0);

@@ -8,7 +8,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 7811, item2 = 30579})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 7811, item2 = 30579})) then
 		e.self:Say("You have killed the Claw Beast!  Well done " .. e.other:GetName() .. ", you have shown a great ability to fight. I have not seen the like since the mightly Yalpeelor and Zunaloo!");
 		e.other:QuestReward(e.self,0,0,0,0,7812);
 	end

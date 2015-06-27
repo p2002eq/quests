@@ -18,7 +18,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 12430, item2 = 5131})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 12430, item2 = 5131})) then
 		e.self:Say("Kyg knew you could do it. You will make a fine legionnaire some day but, for now, you shall be a footman. Take the footman pike head plans. Forge the footman's pike. Do so, and then you may have an audience with the War Baron on the subject of his [Memory of Sebilis].");
 		e.other:SummonItem(12475);
 		e.other:Faction( 30,2);

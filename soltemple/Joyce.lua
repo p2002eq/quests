@@ -25,28 +25,28 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	--circlet
-	if(item_lib.check_turn_in(e.trade, {item1 = 10545, item2 = 10547, item3 = 10034, item4 = 10546})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 10545, item2 = 10547, item3 = 10034, item4 = 10546})) then
 		e.self:Say("You have done well. You are truly a powerful magician. Here is yourCirclet of Mist.");
 		e.other:Faction(320,15);
 		e.other:Faction(291,-15);
 		e.other:QuestReward(e.self,0,0,0,0,2358);
 	end
 	--bracelet
-	if(item_lib.check_turn_in(e.trade, {item1 = 10539, item2 = 10542, item3 = 10540, item4 = 10541})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 10539, item2 = 10542, item3 = 10540, item4 = 10541})) then
 		e.self:Say("One, two, three.. all four runes of clay! I knew you looked competent. I am very impressed! Please take the Clay Bracelet that you have earned.");
 		e.other:Faction(320,15);
 		e.other:Faction(291,-15);
 		e.other:QuestReward(e.self,0,0,0,0,2359);
 	end
 	--boots
-	if(item_lib.check_turn_in(e.trade, {item1 = 10543, item2 = 10026, item3 = 10544, item4 = 2363})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 10543, item2 = 10026, item3 = 10544, item4 = 2363})) then
 		e.self:Say("You have done well. You are truly a powerful magician. Here are your EarthenBoots.");
 		e.other:Faction(320,15);
 		e.other:Faction(291,-15);
 		e.other:QuestReward(e.self,0,0,0,0,2357);
 	end
 	--robe
-	if(item_lib.check_turn_in(e.trade, {item1 = 2361, item2 = 2362, item3 = 15109, item4 = 2360})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 2361, item2 = 2362, item3 = 15109, item4 = 2360})) then
 		e.self:Say("You have done well. You are truly a powerful magician. Here is your Robe of the Elements.");
 		e.other:Faction(320,15);
 		e.other:Faction(291,-15);

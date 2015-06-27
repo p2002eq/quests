@@ -17,7 +17,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 12886, item2 = 4266})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 12886, item2 = 4266})) then
 		e.self:Emote("takes the flail and vanishes with a brilliant flash!! Within your hands appears a skullcap. You hear a voice echo through the cave. Well done. You are a formidable necromancer. We thank you.");
 		eq.depop_with_timer();
 		e.other:SummonItem(4267);

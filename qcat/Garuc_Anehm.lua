@@ -16,7 +16,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 13134})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 13134})) then
 		e.self:Say("Hahaha.. I see you actually killed a respected, well-known citizen of Qeynos. No loss for them, but you are certainly a gain for our shrine. Maybe this shall do you some good. If not now, then surely later. You may need it when the Qeynos Guards hunt you down.");
 		e.other:Faction(21,10);   --Bloodsabers
 		e.other:Faction(135,-1); --Guards of Qeynos

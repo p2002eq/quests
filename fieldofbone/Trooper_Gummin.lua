@@ -8,7 +8,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 18242, item2 = 12463})) then --Legion Order (2 signed), Legion Lager
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 18242, item2 = 12463})) then --Legion Order (2 signed), Legion Lager
 		e.self:Emote("slowly signs the order. '...Love, Innoruuk. There you go. Now run along. Let me enjoy my last brew alone.'");
 		e.other:Faction(193,5); --Legion of Cabilis
 		e.other:Faction(30,5); --Cabilis Residents
@@ -16,18 +16,18 @@ function event_trade(e)
 		e.other:Faction(62,5); --Crusaders of Greenmist
 		e.other:Faction(317,5); --Swift Tails
 		e.other:QuestReward(e.self,0,0,0,0,18243,500); --Legion Order (3 signed)
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 18242, item2 = 18242})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 18242, item2 = 18242})) then
 		e.self:Say("What?! I need the Legion Lager and the legion order.");
 		e.other:SummonItem(18242);
 		e.other:SummonItem(18242);
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 12463, item2 = 12463})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 12463, item2 = 12463})) then
 		e.self:Say("What?! I need the Legion Lager and the legion order.");
 		e.other:SummonItem(12463);
 		e.other:SummonItem(12463);
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 12463})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 12463})) then
 		e.self:Say("What?! I need the Legion Lager and the legion order.");
 		e.other:SummonItem(12463);
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 18242})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 18242})) then
 		e.self:Say("What?! I need the Legion Lager and the legion order.");
 		e.other:SummonItem(18242);
 	end

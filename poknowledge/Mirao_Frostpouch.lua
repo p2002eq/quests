@@ -9,7 +9,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 28090})) then--Black Lava Powder
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 28090})) then--Black Lava Powder
 		e.self:Emote("takes the powder and quickly dashes it into a boiling cauldron. He then stirs it and pours the concoction into a small bottle. 'Here you go, this should make poor Bolcen feel much better. Hurry now, he's waiting.");
 		e.other:QuestReward(e.self,0,0,0,0,28091,250);--Curative Potion
 	end

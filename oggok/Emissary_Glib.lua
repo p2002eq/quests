@@ -12,11 +12,11 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 13369})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 13369})) then
 		e.self:Say("Good work. That is one less troll slayer. My people shall learn of your good deed. Please search for the slayer captain. He must be stopped.");
 		e.other:Faction(233,10);
 		e.other:QuestReward(e.self,0,0,7,5,0,500);
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 13370})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 13370})) then
 		e.self:Say("'Oooh!! .. You have dispatched the slayer captain. It will take them time to reorganize the slayers. During this time the froglok foragers can gather more provisions for Guk. Please take this as a token of my people's appreciation. Your standing with my brethren has grown. As for Marda's information.. within Grobb lies my aide, Groak. He was captured. Tell him Glib sent you.");
 		e.other:Faction(233,10);
 		e.other:QuestReward(e.self,0,0,1,0,eq.ChooseRandom(17928,13371),500);

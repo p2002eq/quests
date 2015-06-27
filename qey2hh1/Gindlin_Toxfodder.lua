@@ -11,7 +11,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 14017,item2 = 13901, gold = 20})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 14017,item2 = 13901, gold = 20})) then
 		e.self:Emote("grins slyly 'Why thank you good sir. One moment please.'");
 		e.other:SummonItem(14015);
 		e.other:Ding();

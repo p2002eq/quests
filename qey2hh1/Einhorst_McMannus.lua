@@ -23,7 +23,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 18831})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 18831})) then
 		e.self:Say("What? Ok well, hmm let me see...... Oh there it is. Here is the shipment as ordered!");
 		e.other:SummonItem(13962); -- Karana Clover Shipment
 		e.other:Ding();

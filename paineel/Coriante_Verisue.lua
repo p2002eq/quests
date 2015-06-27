@@ -8,7 +8,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 18018})) then --Dark Truth Guild Note
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 18018})) then --Dark Truth Guild Note
 		e.self:Say("You are welcomed into the fold.  Now go out, and prove yourself, young one.  You have much to learn about the Dark Truth.");
 		e.other:Faction(143,100); -- Heretics
 		e.other:Faction(79,-100); -- Deepwater Knights
@@ -16,7 +16,7 @@ function event_trade(e)
 		e.other:Faction(56,-100); -- Craftkeepers
 		e.other:Faction(60,-100); -- Crimson Hands
 		e.other:QuestReward(e.self,0,0,0,0,13551,100); --Dirt Soiled Robe*
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 13068, item2 = 13068, item3 = 13067, item4 = 13067})) then --Bat Wing x 2, Snake Fang x 2
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 13068, item2 = 13068, item3 = 13067, item4 = 13067})) then --Bat Wing x 2, Snake Fang x 2
 		e.self:Say("Very good, young acolyte. Maintain your diligence in your duties and you will quickly learn the secrets of the Dark Truth.");
 		e.other:Faction(143,1);  -- Heretics
 		e.other:Faction(56,-1);  -- Craftkeepers

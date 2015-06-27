@@ -15,7 +15,7 @@ function event_trade(e)
 	local item_lib = require("items");
 	local randomloot = math.random(3)
 	
-	if(item_lib.check_turn_in(e.trade, {item1 = 13389})) then--Box of Beetle Eyes
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 13389})) then--Box of Beetle Eyes
 		e.self:Say("Fantastic work, my child! We shall store these for further experiments. Take this as extra payment for a fine job. You have done so well I believe you can assist in obtaining two [other components].");
 		e.other:Faction(322,15); --The Dead
 		e.other:Faction(268,2); --Queen Cristanos Thex
@@ -30,7 +30,7 @@ function event_trade(e)
 			e.other:SummonItem(13021,2);
 			e.other:SummonItem(13022,2);
 		end
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 10124, item2 = 10124})) then--Mammoth Tusks
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 10124, item2 = 10124})) then--Mammoth Tusks
 		e.self:Say("These will do.  Thank you, child.");--text made up
 		e.other:Faction(322,15); --The Dead
 		e.other:Faction(268,2); --Queen Cristanos Thex

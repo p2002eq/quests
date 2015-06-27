@@ -27,7 +27,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 12281})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 12281})) then
 		e.self:Say("I thank you, my friend. You are truly a great paladin and noble addition to our ranks. I now can walk in Kaladim. Take this as a reward. It is the Holy Partisan of Underfoot. It is now yours. I believe it still has a couple of charges. Use it wisely as the only cleric able to recharge it was lost amid the lava filled lands of Antonica.");
 		e.other:Ding();
 		e.other:Faction(246, 25);

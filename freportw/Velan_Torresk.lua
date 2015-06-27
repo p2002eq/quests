@@ -29,7 +29,7 @@ function event_trade(e)
 
 	-- Kindly Faction - Deathfist Pawn Scalp - Snake Fang - Bone Chips
 	if(e.other:GetFaction(e.self) < 4) then
-		if(item_lib.check_turn_in(e.trade, {item1 = 13794,item2 = 13794,item3 = 13067,item4 = 13073})) then
+		if(item_lib.check_turn_in(e.self, e.trade, {item1 = 13794,item2 = 13794,item3 = 13067,item4 = 13073})) then
 			e.self:Say("Good work, " .. e.other:GetName() .. ", you've worked hard and proven yourself a valuable addition to the Ashen Order. Here's your white sash, wear it with pride.");
 			e.other:Faction(12,2,0); -- Ashen Order
 			e.other:Faction(184,2,0); -- Knights of Truth
@@ -39,7 +39,7 @@ function event_trade(e)
 	end
 	-- White Training Sash - Giant Snake Rattle - Deathfist Slashed Belt - Desert Tarantula Chitin
 	-- No need to check faction again since they must have the White Training Sash
-	if(item_lib.check_turn_in(e.trade, {item1 = 10130,item2 = 13058,item3 = 13916,item4 = 20901})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 10130,item2 = 13058,item3 = 13916,item4 = 20901})) then
 		e.self:Say("Ah, well done, " .. e.other:GetName() .. ". You have proven that you are a very skillful fighter and it is an honor to have you as a member of the Ashen Order. On behalf of Master Closk, and under the watchful eyes of Quellious, I present you, " .. e.other:GetName() .. ", with this, the yellow Sash of Order. Go out and make us proud.");
 		e.other:Faction(12,5,0); -- Ashen Order
 		e.other:Faction(184,5,0); -- Knights of Truth

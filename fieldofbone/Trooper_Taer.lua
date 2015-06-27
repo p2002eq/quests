@@ -8,7 +8,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 18249})) then --Legion Order (9 signed)
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 18249})) then --Legion Order (9 signed)
 		e.self:Say("Ha ha! Look at all the names. Ozlot and Frogzin. What lushes. Here you are. I can't imagine there being any others to sign. This is the entire Cabilis brew brigade. Alas... Disbanded forever.");
 		e.other:Faction(193,5); --Legion of Cabilis
 		e.other:Faction(30,5); --Cabilis Residents

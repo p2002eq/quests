@@ -18,7 +18,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 12134})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 12134})) then
 		e.self:Say("I thank you. I cannot do battle at this moment. I am summoned elsewhere. May Marr guide you from this isle.");
 		e.other:SummonItem(12135);
 		e.other:Ding();

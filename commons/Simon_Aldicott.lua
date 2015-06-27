@@ -11,10 +11,10 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 6708})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 6708})) then
 		e.self:Emote("places the coffin in the water and begins to pray. 'Lord of Valor high above, take this knight, your loyal child, into thy kingdom and all that is holy! What is that thing!'");
 		eq.spawn2(21031,0,0,2901,259.7,-51,25); --a tortured revenant
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 6709})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 6709})) then
 		e.self:Say("Thank you, Knight. With this task accomplished, I shall reward you with this scroll. It is an ancient spell that only the holiest of knights may cast. Remember your duty!");
 		e.other:SummonItem(15693);
 		e.other:Faction(258,10,0); -- priests of marr

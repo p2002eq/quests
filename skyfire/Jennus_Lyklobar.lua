@@ -8,7 +8,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 18958, item2 = 28007, item3 = 10376, item4 = 28008})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 18958, item2 = 28007, item3 = 10376, item4 = 28008})) then
 		e.self:Say("I see that you are well versed in the ways of Fire. Indeed, if you are as adept in the other, lesser elements, you may just seize the Orb of Mastery after all, and avoid Magi'kot's fate. Take this element, and guard it well, for more trials are to come, I assure you. Succeed and you shall be remembered always! Oh, and " .. e.other:GetName() .. "? Watch out for the puddles! HAHAHAHAHAHA!");
 		e.other:QuestReward(e.self,0,0,0,0,28009,3000);
 	end

@@ -48,7 +48,7 @@ function event_trade(e)
 	local yloc = e.self:GetY();
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 2344}) and (xloc == -3098 and yloc == -5872)) then -- confession document
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 2344}) and (xloc == -3098 and yloc == -5872)) then -- confession document
 		e.self:Emote("makes a big X at the bottom of the document and hands it back saying, 'A bunch of worthless thugs is all you folks are!'");
 		e.other:SummonItem(2395); -- Theodore's Confession
 		e.other:Ding();

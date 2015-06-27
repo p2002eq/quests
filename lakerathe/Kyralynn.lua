@@ -20,25 +20,25 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 3061, item2 = 10073, item3 = 19031, item4 = 19033})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 3061, item2 = 10073, item3 = 19031, item4 = 19033})) then
 		e.self:Say("I have crafted your bracer, use it well.");
 		e.other:SummonItem(4945);
 		e.other:AddEXP(200);
 		e.other:Ding();
 	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 3053, item2 = 19051, item3 = 19042, item4 = 19040})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 3053, item2 = 19051, item3 = 19042, item4 = 19040})) then
 		e.self:Say("I have crafted your helm, use it well.");
 		e.other:SummonItem(4947);
 		e.other:AddEXP(200);
 		e.other:Ding();
 	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 3058, item2 = 19052, item3 = 19032, item4 = 19035})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 3058, item2 = 19052, item3 = 19032, item4 = 19035})) then
 		e.self:Say("I have crafted your cloak, use it well.");
 		e.other:SummonItem(4948);
 		e.other:AddEXP(200);
 		e.other:Ding();
 	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 3056, item2 = 19050, item3 = 19036, item4 = 19044})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 3056, item2 = 19050, item3 = 19036, item4 = 19044})) then
 		e.self:Say("I have crafted your breastplate, use it well.");
 		e.other:SummonItem(4946);
 		e.other:AddEXP(200);

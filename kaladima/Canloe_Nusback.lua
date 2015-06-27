@@ -17,19 +17,19 @@ function event_trade(e)
 	local shoulder = 0;
 	
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 13318, item2 = 13318, item3 = 13318, item4 = 13318})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 13318, item2 = 13318, item3 = 13318, item4 = 13318})) then
 		belt = 4;
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 13318, item2 = 13318, item3 = 13318})) then	
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 13318, item2 = 13318, item3 = 13318})) then	
 		belt = 3;
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 13318, item2 = 13318})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 13318, item2 = 13318})) then
 		belt = 2;
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 13318})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 13318})) then
 		belt = 1;
 	end
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 13319, item2 = 13319,item3 = 13319,item4 = 13319})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 13319, item2 = 13319,item3 = 13319,item4 = 13319})) then
 		shoulder = 2;
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 13319, item2 = 13319})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 13319, item2 = 13319})) then
 		shoulder = 1;
 	end
 	

@@ -15,11 +15,11 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if (item_lib.check_turn_in(e.trade, {item1 = 10991})) then
+	if (item_lib.check_turn_in(e.self, e.trade, {item1 = 10991})) then
 		e.self:Say("Ah! Donlix's sword! You have done well to bring this to me... but oh! Look at your corruption seep into it. I think now this sword belongs to you. Use it well.");
 		e.other:SummonItem(11078);
 		e.other:Ding();
-	elseif (item_lib.check_turn_in(e.trade, {item1 = 18434})) then -- Gnome Shadowknight Note
+	elseif (item_lib.check_turn_in(e.self, e.trade, {item1 = 18434})) then -- Gnome Shadowknight Note
 		e.self:Say("Welcome to the Dark Reflection, " .. e.other:GetName() .. " ! Take this tunic as a gift for your desire to serve the will of Bertoxxulous, The Plague Lord. Beware of the followers of Brell Serilis, they would see us members of the Dark Reflection exiled from Ak'Anon.");
 		e.other:SummonItem(13518); 	-- Tin Patched Tunic*
 		e.other:Ding();

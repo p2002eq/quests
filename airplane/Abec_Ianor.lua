@@ -16,15 +16,15 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 20951, item2 = 20747, item3 = 20748})) then						--wizard test of conception using efreeti statuette, mithril air ring, box of winds
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 20951, item2 = 20747, item3 = 20748})) then						--wizard test of conception using efreeti statuette, mithril air ring, box of winds
 		e.self:Say("Excellent! Take this.");
 		e.other:QuestReward(e.self,0,0,0,0,11686,100000); --solidate mithril ring
 		eq.depop();
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 20958, item2 = 20749, item3 = 20750})) then					--wizard test of visualization using white-tipped spiroc feather, pulsating sapphire, amethyst amulet
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 20958, item2 = 20749, item3 = 20750})) then					--wizard test of visualization using white-tipped spiroc feather, pulsating sapphire, amethyst amulet
 		e.self:Say("Excellent! Take this.");
 		e.other:QuestReward(e.self,0,0,0,0,14556,100000); --amulet of planar transference
 		eq.depop();
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 20753, item2 = 20965, item3 = 20751, item4 = 20752})) then	--wizard test of preparation using efreeti war staff, lush nectar, copper air band, large sky sapphire
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 20753, item2 = 20965, item3 = 20751, item4 = 20752})) then	--wizard test of preparation using efreeti war staff, lush nectar, copper air band, large sky sapphire
 		e.self:Say("Excellent! Take this.");
 		e.other:QuestReward(e.self,0,0,0,0,11685,100000); --nargon's staff
 		eq.depop();

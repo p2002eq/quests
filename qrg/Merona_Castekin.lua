@@ -9,7 +9,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 18014})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 18014})) then
 		e.self:Say("Oh Tunare why!?!? Those foul Bloodsabers will pay for my brother's death!! Here. You have given us valuable information about a new threat to our homes. Take this a token of our appreciation.");
 		e.other:Ding();
 		e.other:Faction(265,5,0); -- Protectors of Pine

@@ -14,7 +14,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 13337})) then -- Bracers of Erollisi 
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 13337})) then -- Bracers of Erollisi 
 		e.self:Say("Good work. I see you have removed that retchid pirate from here.");
 		e.other:SummonItem(eq.ChooseRandom(13339,13342,7017,13340));
 		e.other:Ding();
@@ -25,7 +25,7 @@ function event_trade(e)
 		e.other:Faction(63,-10,0); -- Crushbone Orcs
 		e.other:AddEXP(250);
 		e.other:GiveCash(0,5,5,0);
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 13336})) then -- Pirate Earrings
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 13336})) then -- Pirate Earrings
 		e.self:Say("Good work. I see you have removed that retchid pirate from here.");
 		e.other:SummonItem(eq.ChooseRandom(13339,13342,7017,13340));
 		e.other:Ding();

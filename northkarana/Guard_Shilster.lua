@@ -27,7 +27,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {gold = 5})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {gold = 5})) then
 		e.self:Say("There you go, sport. If you get caught with that, you didn't get it from me!");
 		e.other:SummonItem(13107);
 		e.other:Ding();

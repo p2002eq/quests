@@ -11,7 +11,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 7005, item2 = 13737, item3 = 13762})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 7005, item2 = 13737, item3 = 13762})) then
 		e.self:Say("Purrrrfect furrless one, you have proved your intentions to help.  Here is the item that was promised for your services.");
 		e.other:QuestReward(e.self,0,0,0,0,10139);
 	end

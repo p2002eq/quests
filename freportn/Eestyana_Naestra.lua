@@ -9,7 +9,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 18822})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 18822})) then
 		e.self:Say("You must be the young member of the Hall of Truth who was sent by Theron. I am glad to see you avoided any interference. Please take this as a reward for your service.");
 		e.other:SummonItem(9985);
 		e.other:Ding();
@@ -20,7 +20,7 @@ function event_trade(e)
 		e.other:Faction(311,10,0);
 		e.other:AddEXP(500);
 		e.other:GiveCash(9,0,0,0);
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 18816})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 18816})) then
 		e.self:Say("Thank you, defender of Karana! We have heard rumors of the followers of Bertoxxulous gaining knowledge of our knight who infiltrated the ranks of the [Militia]. They would have tried to sell the information to the Militia. We will inform our knight immediately. As for you, here is a donation to your journey's expenses. Stay clear of the Freeport Militia. There is no doubt they have learned of your alliance with us.");
 		e.other:SummonItem(eq.ChooseRandom(6016,13296));
 		e.other:Ding();
@@ -31,7 +31,7 @@ function event_trade(e)
 		e.other:Faction(311,10,0);
 		e.other:AddEXP(1000);
 		e.other:GiveCash(0,0,7,1);
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 18735})) then -- Tattered Note
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 18735})) then -- Tattered Note
 		e.self:Say("The Truthbringer welcomes you into his life. Here is the tunic of Marr. Wear it with pride and be sure to conduct yourself with valor.");
 		e.other:Faction(184,100,0); -- knight of truth
 		e.other:Faction(86,-15,0); -- dismal rage

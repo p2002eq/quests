@@ -16,7 +16,7 @@ function event_trade(e)
 	local item_lib = require("items");
 	
 	if (e.other:GetFaction(e.self) <= 6) then -- indifferent or better priests of innoruuk
-		if(item_lib.check_turn_in(e.trade, {item1 = 6323,item2 = 6324,item3 = 6335,item4 = 6336})) then
+		if(item_lib.check_turn_in(e.self, e.trade, {item1 = 6323,item2 = 6324,item3 = 6335,item4 = 6336})) then
 			e.self:Emote("cackles with glee as she slowly assembles the runed rods, and with a muttered incantation and a flash of light, disappears, leaving only a note that slowly drifts to the ground.");
 			e.other:Faction(256, 20); -- Priests of Innoruuk
 			e.other:Faction(177, 1); -- King Naythox Thex

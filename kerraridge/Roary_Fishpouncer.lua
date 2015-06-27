@@ -9,7 +9,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	
-	if(item_lib.check_turn_in(e.trade, {item1 = 12318})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 12318})) then
 		e.self:Say("Rrrrr... you found the rrrraw fish.  I can now make my favorrrrrite dish.  Herrrrre is a special spearrrrr that will help you to catch morrrrrre of these."); --need proper text
 		e.other:QuestReward(e.self,0,0,0,0,7027);
 	end

@@ -11,7 +11,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 2344})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 2344})) then
 		e.self:Say("Here's your confession.  I hope you choke on it!");
 		e.other:SummonItem(2394);
 		eq.set_global("invest_badge","third_suspect",3,"F");

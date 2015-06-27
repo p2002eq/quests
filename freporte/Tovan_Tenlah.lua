@@ -13,7 +13,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 19918})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 19918})) then
 		e.self:Say("Sharpen this dagger and take it with this gem and a rattlesnake skin to Verona Rankin.");
 		e.other:SummonItem(19919);
 		e.other:SummonItem(19920);

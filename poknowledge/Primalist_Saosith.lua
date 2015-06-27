@@ -7,17 +7,17 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 29112})) then --Ethereal Parchment
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 29112})) then --Ethereal Parchment
 		e.self:Say("The magic you have given me is quite potent, it should be a simple task to use primal forces to focus its magic into a spell.");
 		e.self:Emote("closes her eyes and the object glows slightly in her hands.");
 		e.self:Say("Here, I hope this will prove of some use to you.");
 		e.other:QuestReward(e.self,0,0,0,0,eq.ChooseRandom(28544, 28545, 21629, 28547, 28548)); --Level 61 or 62 Beastlord spell, PoP (Spirit of Arag, Infusion of Spirit, Healing of Sorsha, Scorpion Venom, Spiritual Vigor)
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 29131})) then --Spectral Parchment
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 29131})) then --Spectral Parchment
 		e.self:Say("The magic you have given me is quite potent, it should be a simple task to use primal forces to focus its magic into a spell.");
 		e.self:Emote("closes her eyes and the object glows slightly in her hands.");
 		e.self:Say("Here, I hope this will prove of some use to you.");
 		e.other:QuestReward(e.self,0,0,0,0,eq.ChooseRandom(28549, 28550, 21630, 28551, 28552)); --Level 63 or 64 Beastlord spell, PoP (Arag's Celerity, Spirit of Rellic, Frost Spear, Spiritual Dominion, Spirit of Sorsha)
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 29132})) then --Glyphed Rune Word
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 29132})) then --Glyphed Rune Word
 		e.self:Say("The magic you have given me is quite potent, it should be a simple task to use primal forces to focus its magic into a spell.");
 		e.self:Emote("closes her eyes and the object glows slightly in her hands.");
 		e.self:Say("Here, I hope this will prove of some use to you.");

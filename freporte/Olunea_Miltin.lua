@@ -7,7 +7,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 13922})) then -- Snapped Pole
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 13922})) then -- Snapped Pole
 		e.self:Say("Great! Thank you stranger. The rogues must have broken it. At least I could repair it. It would be seasons before I could afford another pole.");
 		e.other:Ding();
 		e.other:Faction(105,1,0); -- Freeport Militia

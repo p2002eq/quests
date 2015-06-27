@@ -13,7 +13,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 18857})) then -- A tattered note
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 18857})) then -- A tattered note
 		e.self:Say("Hahaha.. I sure hope you prove more valuable than you look, little one.");
 		e.other:Ding();
 		e.other:SummonItem(13561); -- Faded Crimson Tunic
@@ -21,12 +21,12 @@ function event_trade(e)
 		e.other:Faction(184,-15,0); -- Knights of Truth
 		e.other:Faction(235,20,0); -- Opal Dark Briar
 		e.other:AddEXP(100);
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 19932})) then -- Tarsa Yovar's Head
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 19932})) then -- Tarsa Yovar's Head
 		e.self:Say("Take this and get it sharpened. Bring it back to me with a Giant Rattlesnake Skin and you will have proven yourself able to wield a Dismal Rage Battle Axe, to help teach the way of Innoruuk!");
 		e.other:Ding();
 		e.other:SummonItem(19921); -- Dull Dismal Battleaxe
 		e.other:AddEXP(100);
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 19926,item2 = 19852})) then -- Sharpened Dismal Battleaxe - Giant Rattlesnake Skin
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 19926,item2 = 19852})) then -- Sharpened Dismal Battleaxe - Giant Rattlesnake Skin
 		e.self:Say("You have proven your faith " .. e.other:GetName() .. ". Take this to vanquish any and all whom question the absolute power of Innoruuk!");
 		e.other:Ding();
 		e.other:SummonItem(19938); -- Dismal Rage BattleAxe

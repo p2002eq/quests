@@ -22,28 +22,28 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	--Dreadscale Bracer for:  Scale=14824  Bracer=3061  Sapphire=10034
-	if(item_lib.check_turn_in(e.trade, {item1 = 14824, item2 = 3061, item3 = 10034})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 14824, item2 = 3061, item3 = 10034})) then
 		e.self:Say("Well done!  Here is the item we agreed upon.  May Cazic's glorious curses flow through you!");
 		e.other:SummonItem(4971);
 		e.other:AddEXP(10000);
 		e.other:Ding();
 	end
 	--Dreadscale Greaves for:  Boots=14829  Head=14820  Greaves=3063  StarRuby=10032
-	if(item_lib.check_turn_in(e.trade, {item1 = 14829, item2 = 14820, item3 = 3063, item4 = 10032})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 14829, item2 = 14820, item3 = 3063, item4 = 10032})) then
 		e.self:Say("Well done!  Here is the item we agreed upon.  May Cazic's glorious curses flow through you!");
 		e.other:SummonItem(4973);
 		e.other:AddEXP(10000);
 		e.other:Ding();
 	end
 	--Dreadscale Mask for:  Wings=14827  Mask=3054  FireEmerald=10033
-	if(item_lib.check_turn_in(e.trade, {item1 = 14827, item2 = 3054, item3 = 10033})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 14827, item2 = 3054, item3 = 10033})) then
 		e.self:Say("Well done!  Here is the item we agreed upon.  May Cazic's glorious curses flow through you!");
 		e.other:SummonItem(4975);
 		e.other:AddEXP(10000);
 		e.other:Ding();
 	end
 	--Dreadscale Breastplate for:  Braid=12982  Chitin=14821  Breastplate=3056  Ruby=10035
-	if(item_lib.check_turn_in(e.trade, {item1 = 12982, item2 = 14821, item3 = 3056, item4 = 10035})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 12982, item2 = 14821, item3 = 3056, item4 = 10035})) then
 		e.self:Say("Well done!  Here is the item we agreed upon.  May Cazic's glorious curses flow through you!");
 		e.other:SummonItem(4969);
 		e.other:AddEXP(10000);

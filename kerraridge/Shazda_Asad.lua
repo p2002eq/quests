@@ -8,10 +8,10 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 12319})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 12319})) then
 		e.self:Say("Excellent work, young ayyar! You have proven your willingness to dispose of the enemies of our tribe, now you must face one of their most murderous sentries! Bring me the head of Sentinel Creot and I shall induct you into our sejah!");
 		e.other:QuestReward(e.self,0,6,0,0,10343,5000);
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 12438})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 12438})) then
 		e.self:Say("You have proven your self yet again! You are now a full member of our sejah because of this brave act! To show your status here is a bracer for you to wear.");
 		e.other:Faction(175,10);
 		e.other:QuestReward(e.self,0,0,0,0,3147,6500);

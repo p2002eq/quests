@@ -27,7 +27,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 13110})) then -- Bloody Shank
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 13110})) then -- Bloody Shank
 		e.self:Say("AHH!! You have been sent by the Highkeep Guards!! You will never take Bronin Higginsbot alive!!");
 		e.other:Faction(77, -25); -- Deeppockets
 		e.other:Faction(33, -25); -- Circle Of Unseen Hands
@@ -36,7 +36,7 @@ function event_trade(e)
 		e.other:Faction(31, -25); -- Carson McCabe
 		eq.attack(" .. e.other:GetName() .. ");
 	end
-	if((e.other:GetFaction(e.self) < 5) and (item_lib.check_turn_in(e.trade, {item1 = 12192}))) then -- Froglok Leg
+	if((e.other:GetFaction(e.self) < 5) and (item_lib.check_turn_in(e.self, e.trade, {item1 = 12192}))) then -- Froglok Leg
 		e.self:Say("So I see you have defeated Slaythe. I shall sleep much better now that he is gone. I placed the emerald shard in one of the Highkeep strongboxes in Highpass. Give the bank clerk's assistant, Kiolna this key. There is a [second piece of the gem] which I hid near Kelethin. You will need it to complete the gem. I hope it brings you better luck than I.");
 		e.other:Faction(77, 10);   -- Deeppockets
 		e.other:Faction(33, 10);   -- Circle Of Unseen Hands

@@ -16,7 +16,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 12241,item2 = 12242,item3 = 12243,item4 = 12244})) then -- Raw Short Sword 1-4
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 12241,item2 = 12242,item3 = 12243,item4 = 12244})) then -- Raw Short Sword 1-4
 		e.self:Say("I heard you were on your way back. Here then. Let us sharpen that blade for you. There you are. That should be much better in a fray now.");
 		e.other:SummonItem(5418); -- Groflar's Stoutbite
 		e.other:Ding();

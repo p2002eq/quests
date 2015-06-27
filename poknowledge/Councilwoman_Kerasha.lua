@@ -19,27 +19,27 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 16266})) then --Power of the Planes
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 16266})) then --Power of the Planes
 		e.self:Emote("takes the Power from you and hands it to Aid Eino. 'Thank you " .. e.other:GetName() .. ". The energy I must expend to perform such a task is days in the gathering. The city of Tanaan is forever in your debt. Take this, it is but a small token of the gratitude of the city. If it does not suit you, return it to me and I shall give you another reward.'");
 		e.other:QuestReward(e.self,0,0,0,0,32106); --Jade Hoop of Speed
 	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 32106})) then --Jade Hoop of Speed
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 32106})) then --Jade Hoop of Speed
 		e.self:Say("I understand. Take this, may it serve you well, " .. e.other:GetName() .. ".");
 		e.other:QuestReward(e.self,0,0,0,0,17209); --Frizznik's Endless Coin Purse
 	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 17209})) then --Frizznik's Endless Coin Purse
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 17209})) then --Frizznik's Endless Coin Purse
 		e.self:Say("I understand. Take this, may it serve you well, " .. e.other:GetName() .. ".");
 		e.other:QuestReward(e.self,0,0,0,0,32107); --Cord of Invigoration
 	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 32107})) then --Cord of Invigoration
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 32107})) then --Cord of Invigoration
 		e.self:Say("I understand. Take this, may it serve you well, " .. e.other:GetName() .. ".");
 		e.other:QuestReward(e.self,0,0,0,0,32108); --Mace of the Ancients
 	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 32108})) then --Mace of the Ancients
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 32108})) then --Mace of the Ancients
 		e.self:Say("I understand. Take this, may it serve you well, " .. e.other:GetName() .. ".");
 		e.other:QuestReward(e.self,0,0,0,0,32109); --Ring of Farsight
 	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 32109})) then --Ring of Farsight
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 32109})) then --Ring of Farsight
 		e.self:Say("I understand. Take this, may it serve you well, " .. e.other:GetName() .. ".");
 		e.other:QuestReward(e.self,0,0,0,0,32106); --Jade Hoop of Speed
 	end

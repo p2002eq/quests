@@ -13,17 +13,17 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	
-	if(item_lib.check_turn_in(e.trade, {platinum =2000})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {platinum =2000})) then
 		e.self:Say("Very well, " .. e.other:GetName() .. ". Take this gem to a master jeweler and return it to me with the other three items.");
 		e.other:QuestReward(e.self,0,0,0,0,10191);
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 10192, item2 = 10147, item3 = 10218, item4 = 10196})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 10192, item2 = 10147, item3 = 10218, item4 = 10196})) then
 		e.self:Say("You are quite cunning. After I fashion this telesm, take it back to Xenyari. She would 'enjoy' another 'gift,' eh?");
 		e.other:QuestReward(e.self,0,0,0,0,10193);
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 10194})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 10194})) then
 		e.self:Emote("laughs heartily and whispers to you, 'Well done, worm, your servitude to my will has now expired...'");
 		e.other:QuestReward(e.self,0,0,0,0,0,25000);
 		eq.unique_spawn(50335,0,0,e.self:GetX()+5,e.self:GetY()+5,e.self:GetZ()); --spawn a_monstrous_zombie
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 10197})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 10197})) then
 		e.self:Say("Oh! Umm... Well, I was just playing with you. Certainly you know I was joking! We had a deal and I will abide by the terms of our agreement. Here is my payment for your services. Bye..");
 		e.other:QuestReward(e.self,0,0,0,0,15692,25000);
 	end

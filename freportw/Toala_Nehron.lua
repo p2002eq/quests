@@ -29,12 +29,12 @@ function event_trade(e)
 	local fac = e.other:GetFaction(e.self);
 
 	if(fac < 5) then
-		if(item_lib.check_turn_in(e.trade, {item1 = 18814})) then -- A Sealed Letter ID-18814 filename "NERtoShintl"
+		if(item_lib.check_turn_in(e.self, e.trade, {item1 = 18814})) then -- A Sealed Letter ID-18814 filename "NERtoShintl"
 			e.self:Say("Why, that little trollop! What is she up to? Cain will never believe this! She must be in league with some faction of the dark elves, but why? Neither the Academy of Arcane Science nor Cain will believe this note. I will see what I can do. As for you, I command you to kill this Shintl and her dark elf courier Hollish!! Put their heads into this box and combine them. We shall cut the link. Bring me thier heads.");
 			e.other:SummonItem(17971); -- Toala's Box for heads
 			e.other:Ding();
 			e.other:AddEXP(500);
-		elseif(item_lib.check_turn_in(e.trade, {item1 = 12246})) then -- Box with Two Heads
+		elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 12246})) then -- Box with Two Heads
 			e.self:Say("Good work!! We will soon catch Opal. I have started to formulate a plan to stop her. When I complete it, I shall notify you. Here. Take this small reward. I am sure killing Shintl was no trouble. She was just a halfling.");
 			e.other:Ding();
 			e.other:Faction(311,5,0); -- Steel Warriors
@@ -44,7 +44,7 @@ function event_trade(e)
 			e.other:Faction(105,-10,0); -- Freeport Militia
 			e.other:AddEXP(2000);
 			e.other:GiveCash(0,10,2,0);
-		elseif(item_lib.check_turn_in(e.trade, {item1 = 13814})) then -- L.S. Pouch
+		elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 13814})) then -- L.S. Pouch
 			e.self:Say("You found my pouch! Thanks kid. Let me buy you A drink and this is for the good work. Hmmmm. It looks as though they took my voucher. Darn it! Hey... It looks like they were using my bag to hold items they were stealing. Here you go. You can have it. It looks like junk.");
 			e.other:SummonItem(eq.ChooseRandom(13922, 13923)); -- Snapped Pole or Moggok's Right Eye
 			e.other:Ding();
@@ -57,11 +57,11 @@ function event_trade(e)
 			e.other:GiveCash(0,2,0,0);
 		end
 	elseif(fac == 5) then
-		if(item_lib.check_turn_in(e.trade, {item1 = 18814})) then -- Sealed Letter ID-18814 filename "NERtoShintl"  Item will be lost if not amiable or better
+		if(item_lib.check_turn_in(e.self, e.trade, {item1 = 18814})) then -- Sealed Letter ID-18814 filename "NERtoShintl"  Item will be lost if not amiable or better
 			e.self:Say("The Steel Warriors have no cause to dislike you, but you have yet to truly prove your worth to this guild.");
 		end
 	elseif(fac > 5) then
-		if(item_lib.check_turn_in(e.trade, {item1 = 18814})) then -- Sealed Letter ID-18814 filename "NERtoShintl"  Item will be lost if not amiable or better
+		if(item_lib.check_turn_in(e.self, e.trade, {item1 = 18814})) then -- Sealed Letter ID-18814 filename "NERtoShintl"  Item will be lost if not amiable or better
 			e.self:Say("Your head shall look grand mounted on the wall of the Steel Warriors Arena!!");
 		end
 	end

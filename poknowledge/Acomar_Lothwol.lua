@@ -15,7 +15,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 29751, item2 = 28745})) then--Hobgoblin Surprise, Planar Traveler's Manual
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 29751, item2 = 28745})) then--Hobgoblin Surprise, Planar Traveler's Manual
 		e.self:Say("How delicious! You have done well here, I can't remember how long it's been since I've tasted a meal so fine. Take this book, it will certainly help you in your use of the magical arts. When you are ready, Cadelid Etord will give you your next lesson, so be sure to speak to him. Do not lose your book or else he may not appreciate you coming to class unprepared.");
 		e.other:QuestReward(e.self,0,0,0,0,28795); --Beginner Magic Manual
 	end

@@ -16,15 +16,15 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 20845, item2 = 20955, item3 = 20842, item4 = 20841})) then 		--shaman test of shrink using efreeti war club, djinni statuette, corrosive venom, wooden bands
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 20845, item2 = 20955, item3 = 20842, item4 = 20841})) then 		--shaman test of shrink using efreeti war club, djinni statuette, corrosive venom, wooden bands
 		e.self:Say("Excellent! Take this as your reward.");
 		e.other:QuestReward(e.self,0,0,0,0,27729,100000); --warhammer of the wind
 		eq.depop();
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 20962, item2 = 20843, item3 = 20844})) then 	--shaman test of the snake using emerald spiroc feather, bixie essence, spiritualist's ring
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 20962, item2 = 20843, item3 = 20844})) then 	--shaman test of the snake using emerald spiroc feather, bixie essence, spiritualist's ring
 		e.self:Say("Excellent! Take this as your reward.");
 		e.other:QuestReward(e.self,0,0,0,0,27730,100000); --vermilion sky ring
 		eq.depop();
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 20846, item2 = 20969, item3 = 20848, item4 = 20847})) then 	--shaman test of the witch doctor using efreeti war maul, thickened nectar, fire sky ruby, symbol of veeshan
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 20846, item2 = 20969, item3 = 20848, item4 = 20847})) then 	--shaman test of the witch doctor using efreeti war maul, thickened nectar, fire sky ruby, symbol of veeshan
 		e.self:Say("Excellent! Take this as your reward.");
 		e.other:QuestReward(e.self,0,0,0,0,11694,100000); --garduk
 		eq.depop();

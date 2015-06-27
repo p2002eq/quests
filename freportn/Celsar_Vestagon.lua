@@ -12,7 +12,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 13872})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 13872})) then
 		e.self:Say("You have done well. The Marr Minnow shall have a greater chance of flourishing. Please take this as a reward.");
 		e.other:Ding();
 		e.other:Faction(184,1,0);

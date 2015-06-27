@@ -9,7 +9,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	
-	if(item_lib.check_turn_in(e.trade, {item1 = 1676,item2 = 1677})) then --Part of Shaman Epic 1.0
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 1676,item2 = 1677})) then --Part of Shaman Epic 1.0
 		e.self:Say("Ahh, thank Mithaniel you have put Glaron and his terrible reign to an end! You have done the world a great service by carrying out my instructions. Take this gem and give it to the one who sent you. He will reward you as befits such an accomplished mercenary such as yourself. Oh, and Marr be with you!");
 		e.other:QuestReward(e.self,0,0,0,0,1670);
 		eq.depop_with_timer();

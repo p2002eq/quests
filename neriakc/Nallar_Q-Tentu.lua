@@ -19,7 +19,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 18401, item2 = 10032})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 18401, item2 = 10032})) then
 		e.self:Emote("takes the scroll and removes an ornate magnifying glass from a pocket. After some examination and many frowns along with interjections of 'Hmmm,' he hands the scroll back to you and says, 'Unlucky for you indeed. The name of the House has been removed. This can only happen when the House itself is wiped out by another House. All record of that House is destroyed if the attacking house is successful. You still have a chance though. Many House refugees find homes in other Houses. The Everliving Mayong is known to take in any Teir'Dal rabble. Try his castle.");
 		e.other:QuestReward(e.self,0,0,0,0,18401,5000); -- Scroll of Flayed Goblin Skin - Gives it back
 	end

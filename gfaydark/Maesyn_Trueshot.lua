@@ -20,7 +20,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	
-	if(item_lib.check_turn_in(e.trade, {item1 = 12112})) then -- Pack of Materials
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 12112})) then -- Pack of Materials
 		e.self:Say("I shall see that my father gets the materials. I hope this can be of use to you. It will serve as your starting point toward fletching a Trueshot longbow. It is unfortunate that we are unable to enchant the bow to its [next incarnation], but it is still a fine weapon. You do know the [correct components] needed for fletching such a bow, do you not?");
 		e.other:Faction(99,5); -- Faydark's Champions
 		e.other:Faction(178,1); -- King Tearis Thex
@@ -28,7 +28,7 @@ function event_trade(e)
 		e.other:Faction(304,1); -- Soldiers of Tunare got better. 
 		e.other:Faction(63,-1); -- Crushbone Orcs got worse. 
 		e.other:QuestReward(e.self,0,math.random(9),0,0,8091,500); -- Treant Bow Staff
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 18785})) then -- A tattered note
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 18785})) then -- A tattered note
 		e.self:Say("Hail, " .. e.other:GetName() .. ", and welcome.. I am Maesyn Trueshot, leader of Faydark's Champions. I will teach and train you, as I have done for many others. Let's get started.. Here, put this on.. it'll help protect you from the elements. You look pretty bright. Train hard, and I'm sure you'll do well.");
 		e.other:Faction(99,100);  --  Faydark's Champions
 		e.other:Faction(178,25); --  King Tearis Thex

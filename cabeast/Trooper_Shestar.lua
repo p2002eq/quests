@@ -9,7 +9,7 @@ function event_say(e)
 end
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 12466, item2 = 12466, item3 = 12466, gold = 4})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 12466, item2 = 12466, item3 = 12466, gold = 4})) then
 		e.self:Emote("quickly inserts the scales into a half finished coif and hands you the coif. 'I am afraid that is not enough and I cannot possibly complete the task while on duty. You must go and find an additional three Scaled Wolf Scales and take them, along with the Unfinished Coif, to the nearest forge and complete the smithing yourself. I hope you are a blacksmith.'");
 		e.other:SummonItem(12468);
 	end

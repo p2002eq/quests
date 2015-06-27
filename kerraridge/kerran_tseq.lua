@@ -9,7 +9,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 6344})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 6344})) then
 		e.self:Say("Rreeee! Great toy. Shiny. We not need this old toy anymore. You take. Now go way, this our toy, we play.");
 		e.other:Faction(175, 10);
 		e.other:QuestReward(e.self,0,0,0,0,13748);

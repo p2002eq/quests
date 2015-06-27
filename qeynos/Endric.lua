@@ -8,7 +8,7 @@ end
 
 function event_trade(e)
 	local item_lib =require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 13713})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 13713})) then
 		e.self:Say("Yes,  I do believe this was the child's dress.  Here, take this as your share of the reward.  Her father will be heartbroken..");
 		e.other:SummonItem(eq.ChooseRandom(10018,10018,10320));
 		e.other:Ding();

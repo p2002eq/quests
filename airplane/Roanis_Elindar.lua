@@ -16,15 +16,15 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 20952, item2 = 20760, item3 = 20761})) then --magician test of summoning using harpy statuette, finely woven cloth amice, large diamond
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 20952, item2 = 20760, item3 = 20761})) then --magician test of summoning using harpy statuette, finely woven cloth amice, large diamond
 		e.self:Say("Take this.");
 		e.other:QuestReward(e.self,0,0,0,0,2708,100000); --Drake-hide amice
 		eq.depop();
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 20959, item2 = 20762, item3 = 20763})) then --magician test of interpretation using carmine spiroc feather, blood sky amethyst, golden efreeti ring
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 20959, item2 = 20762, item3 = 20763})) then --magician test of interpretation using carmine spiroc feather, blood sky amethyst, golden efreeti ring
 		e.self:Say("Take this.");
 		e.other:QuestReward(e.self,0,0,0,0,11687,100000); --duennan shielding ring
 		eq.depop();
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 20966, item2 = 20764, item3 = 20766, item4 = 20765})) then --magician test of displacement using sweet nectar, crown of elemental mastery, large opal, djinni stave
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 20966, item2 = 20764, item3 = 20766, item4 = 20765})) then --magician test of displacement using sweet nectar, crown of elemental mastery, large opal, djinni stave
 		e.self:Say("Take this.");
 		e.other:QuestReward(e.self,0,0,0,0,11568,100000); --staff of elemental mastery
 		eq.depop();

@@ -27,7 +27,7 @@ function event_trade(e)
 	local item_lib = require("items");
 
 	if(fac < 5) then
-		if(item_lib.check_turn_in(e.trade, {item1 = 13860})) then -- A Strongbox
+		if(item_lib.check_turn_in(e.self, e.trade, {item1 = 13860})) then -- A Strongbox
 			e.self:Say("Grand and fantastic!! You have made my day complete. Here is what little I can offer. Most of my money goes into my research. Thank you.");
 			e.other:Ding();
 			e.other:Faction(11,3,0); -- Arcane Scientists

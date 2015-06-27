@@ -13,7 +13,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 13364})) then -- Human flesh
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 13364})) then -- Human flesh
 		e.self:Say("MmmmMmm. Human make good meat pies. Here. A little coins for you.");
 		e.other:Faction(46,1); 	--Clurg
 		e.other:Faction(57,1); 	--Craknek Warriors
@@ -21,7 +21,7 @@ function event_trade(e)
 		e.other:Faction(232,1); 	--Oggok Gaurds
 		e.other:Faction(169,-1);	--Kazon Stormhammer
 		e.other:QuestReward(e.self,0,3,6,9,0,1000);
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 13365})) then -- High Elf flesh
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 13365})) then -- High Elf flesh
 		e.self:Say("High elf!! Now that is a good meat.  Goes good with Ogre Swill.");
 		e.other:Faction(46,1); 	--Clurg
 		e.other:Faction(57,1); 	--Craknek Warriors
@@ -29,7 +29,7 @@ function event_trade(e)
 		e.other:Faction(232,1); 	--Oggok Gaurds
 		e.other:Faction(169,-1);	--Kazon Stormhammer
 		e.other:QuestReward(e.self,0,3,6,9,0,1000);
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 13452, item2 = 13452, item3 = 13452, platinum = 1})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 13452, item2 = 13452, item3 = 13452, platinum = 1})) then
 		e.self:Say("Eww icky frogs. Me promise to give you reward, here yous go."); --Not actual text
 		e.other:Faction(46,10); 	--Clurg
 		e.other:Faction(57,10); 	--Craknek Warriors

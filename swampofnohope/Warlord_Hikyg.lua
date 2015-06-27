@@ -9,15 +9,15 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 18211})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 18211})) then
 		e.self:Say("Ah!! Good to have you on board. We lack strong young recruits such as yourself. Take this bag. Your task is to seek escaped frogloks near this gate. Apparently, the slaves have been breaking loose from their shackles and attempting to head home. Fill and combine within the bag their broken shackles and return the filled box to me for your geozite tool.");  --not live text
 		e.other:QuestReward(e.self,0,0,0,0,17994);
 	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 12661})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 12661})) then
 		e.self:Say("Great work!! You have kept the frogloks from returning home. I reward you with the geozite tool. You may find its purpose within Cabils' warriors guild. A true Iksar warrior should always have one."); --not live text
 		e.other:QuestReward(e.self,0,0,0,0,12657);
 	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 12435, item2 = 12436, item3 = 12437, item4 = 5133})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 12435, item2 = 12436, item3 = 12437, item4 = 5133})) then
 		e.self:Emote("hands you plans for a trooper's pike head.");
 		e.self:Say("Congratulations. You are now a trooper of the Legion of Cabilis. Now you may fight with honor and a mighty weapon.");
 		e.other:Faction( 30,2);
@@ -27,7 +27,7 @@ function event_trade(e)
 		e.other:Faction( 62,2);
 		e.other:QuestReward(e.self,0,0,0,0,12477,1200);
 	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 12913})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 12913})) then
 		e.self:Say("What?!! You crushed all the shields!! You croak-faced skulking brute!! You don't deserve to be in my garrison!! I am going to recommend you for a promotion in hopes that you will be sent to hunt dragons and meet your end!");
 		e.other:Faction( 30,2);
 		e.other:Faction( 193,2);

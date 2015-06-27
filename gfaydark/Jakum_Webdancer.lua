@@ -7,7 +7,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 18161})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 18161})) then
 		e.self:Say("Incoming mail - very good!  Please take this gold for your troubles.");
 		e.other:Faction(192,10); -- league of antonican bards
 		e.other:Faction(184,1); -- knights of truth
@@ -15,7 +15,7 @@ function event_trade(e)
 		e.other:Faction(273,-1); -- ring of scale
 		e.other:Faction(207,-1); -- mayong mistmoore
 		e.other:QuestReward(e.self,0,0,math.random(9),0,0,100);
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 18160}) or item_lib.check_turn_in(e.trade, {item1 = 18162}) or item_lib.check_turn_in(e.trade, {item1 = 18163})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 18160}) or item_lib.check_turn_in(e.self, e.trade, {item1 = 18162}) or item_lib.check_turn_in(e.self, e.trade, {item1 = 18163})) then
 		e.self:Say("Incoming mail - very good!  Please take this gold for your troubles.");
  		e.other:Faction(192,10); -- league of antonican bards
 		e.other:Faction(184,1); -- knights of truth

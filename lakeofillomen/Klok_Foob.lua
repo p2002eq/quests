@@ -17,7 +17,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	--Handin: 2x Catfish Croak Sandwich (12451)
-	if(item_lib.check_turn_in(e.trade, {item1 = 12451, item2 = 12451})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 12451, item2 = 12451})) then
 		-- Catfish Croak Sandwich [Part 8][End]
 		e.self:Say("Me thanks you very much!! Now me stop da tummy grumbles. You have this. And you takes dis. Foob make special, not sold yet, you test it. It is not toughest, but it take a little bashing just like you. It is called Foobscale!!");
 		--Summon: Foobscale Coif(12448) then

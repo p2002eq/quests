@@ -11,7 +11,7 @@ function event_trade(e)
 	local zordak_mob;
 	local mobnpc;
 	local dead_cleric_mob;
-	if(item_lib.check_turn_in(e.trade, {item1 = 24996})) then -- 24996 :  An Assembled Pearlescent Shard
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 24996})) then -- 24996 :  An Assembled Pearlescent Shard
 		e.other:SummonItem(24997); -- 24997  Pearlescent Seal
 		entid = eq.unique_spawn(91096,0,0,e.self:GetX(),e.self:GetY(),e.self:GetZ()); -- Zordak_Ragefire, human form, he attacks the cleric
 		if(entid) then
@@ -28,7 +28,7 @@ function event_trade(e)
 		end
 		eq.depop_with_timer();
 	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 20859})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 20859})) then
 		e.other:SummonItem(20859); -- 20859  Swirling Pearl
 		e.other:SummonItem(17175); -- 17175  Zordak's Box of Bindings
 	end

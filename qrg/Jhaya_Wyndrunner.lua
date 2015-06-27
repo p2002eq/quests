@@ -33,7 +33,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 8763,item2 = 8762})) then -- black rawhide tunic and pouch of polished jade stones
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 8763,item2 = 8762})) then -- black rawhide tunic and pouch of polished jade stones
 		e.self:Say("Excellent, my friend! Well done indeed. These are exactly what I needed to make the tunic Nolan has requested of you. And. . . thank you for avenging my dear, departed friend. She shall be missed, and it is in her memory that I give you the Jade Studded Tunic. Go now, my friend. Nolan awaits and I am sure that he will be most impressed with your success thus far");
 		e.other:SummonItem(8761); -- jade-studden rawhide tunic
 		e.other:Ding();
@@ -42,7 +42,7 @@ function event_trade(e)
 		e.other:Faction(265,20,0);  -- Protectors of Pine
 		e.other:Faction(135,20,0);  -- Guards of Qeynos
 		e.other:AddEXP(2000);
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 8884,item2 = 8885})) then -- blackened mithril chain & shadowjade weave
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 8884,item2 = 8885})) then -- blackened mithril chain & shadowjade weave
 		e.self:Say("Excellent, my friend! Well done indeed. These are exactly what I needed to make the circlet. Go now, my friend. Cheyloh awaits and I am sure that he will be most impressed with your success thus far.");  -- text made up/adapted from the tunic reward
 		e.other:SummonItem(8883); -- shadowjade circlet
 		e.other:Ding();

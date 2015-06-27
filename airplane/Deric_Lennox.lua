@@ -17,15 +17,15 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	
-	if(item_lib.check_turn_in(e.trade, {item1 = 20813, item2 = 20812, item3 = 20954})) then 					--cleric test of resolution using silvered spiroc necklace, spiroc healing totem, spiroc statuette
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 20813, item2 = 20812, item3 = 20954})) then 					--cleric test of resolution using silvered spiroc necklace, spiroc healing totem, spiroc statuette
 		e.self:Say("Good on ya!");
 		e.other:QuestReward(e.self,0,0,0,0,14562,100000); --necklace of resolution
 		eq.depop();
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 20815, item2 = 20816, item3 = 20814, item4 = 20961})) then 	--cleric test of theurgy using djinni aura, efreeti mace, glowing sapphire, saffon spiroc feather
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 20815, item2 = 20816, item3 = 20814, item4 = 20961})) then 	--cleric test of theurgy using djinni aura, efreeti mace, glowing sapphire, saffon spiroc feather
 		e.self:Say("Good on ya!");
 		e.other:QuestReward(e.self,0,0,0,0,11692,100000); --theurgist's star
 		eq.depop();
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 20817, item2 = 20968, item3 = 20819, item4 = 20818})) then 	--cleric test of the weak using efreeti standard, manna nectar, mithril bands, shimmering topaz
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 20817, item2 = 20968, item3 = 20819, item4 = 20818})) then 	--cleric test of the weak using efreeti standard, manna nectar, mithril bands, shimmering topaz
 		e.self:Say("Good on ya!");
 		e.other:QuestReward(e.self,0,0,0,0,11691,100000); --truwian baton
 		eq.depop();

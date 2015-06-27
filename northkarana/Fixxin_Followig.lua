@@ -17,7 +17,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 16500})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 16500})) then
 		e.self:Say(string.format("thanks %s heartily. 'Here is the book as promised. I wish you luck with your enchanted weapons. May they slay many lycanthropes before they go dull.'",e.other:GetName()));
 		e.other:SummonItem(18178);
 		e.other:Ding();

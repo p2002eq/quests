@@ -21,7 +21,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 12496, item2 = 5123})) then --Test of the Zealot (Greenmist Quest 4/8)
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 12496, item2 = 5123})) then --Test of the Zealot (Greenmist Quest 4/8)
 		e.self:Say("At last!! The Chalp diagram. I shall see that the emperor gets this at once. You have proven yourself more than just a mere knight, you are a zealot. Being new to the temple we have need of you in a [matter of betrayal].");
 		e.other:SummonItem(5124);
 		e.other:Faction(62,20);
@@ -30,7 +30,7 @@ function event_trade(e)
 		e.other:GiveCash(0,0,6,1);
 		e.other:Ding();
 	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 1730, item2 = 5124, item3 = 1729})) then --Test of Betrayal (Greenmist Quest 5/8)
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 1730, item2 = 5124, item3 = 1729})) then --Test of Betrayal (Greenmist Quest 5/8)
 		e.self:Say("Congratulations! You are now a true crusader, but there is no time for celebration. We have lost two of our operatives. Crusaders Golin and Fodcod were dispatched to seek out an ancient artifact, the [visceral dagger]. Where they have gone, I do not know. They have been gone far too long. Find them and return the dagger to me with your crusader khukri and you shall be a hero.");
 		e.other:SummonItem(5125);
 		e.other:Faction(62,20);
@@ -39,7 +39,7 @@ function event_trade(e)
 		e.other:GiveCash(0,0,0,2);
 		e.other:Ding();
 	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 7324, item2 = 5125})) then --Test of the Hero (Greenmist Quest 6/8)
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 7324, item2 = 5125})) then --Test of the Hero (Greenmist Quest 6/8)
 		e.self:Emote("gazes in astonishment at the dagger. 'Ahhh!! You have brought the sacred visceral dagger back to the Temple of Terror. Let all be aware that the great " .. e.other:GetName() .. " has returned to Cabilis a hero!! You now wield the weapon of a hero. Hail, " .. e.other:GetName() .. ", hero of the Crusaders of Greenmist.");
 		e.other:SummonItem(5126);
 		e.other:Faction(62,20);

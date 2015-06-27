@@ -9,13 +9,13 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 28741})) then--Locked Tome of Dark Power
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 28741})) then--Locked Tome of Dark Power
 		e.self:Say("Very impressive, this little tome has eluded my aid for quite some time now. How good of you to discover its whereabouts and bring it to me. But from the looks of it, this book has a strong, magically-sealed lock upon its cover. I wonder if Elder Tal Almad would know how to break it? Take this to him in the Plane of Tranquility and let him have a look at it. If he can open it, bring it back to me.");
 		e.other:QuestReward(e.self,0,0,0,0,28741); --Locked Tome of Dark Power...yes, he hands it right back.
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 28742})) then--Unlocked Tome of Dark Power
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 28742})) then--Unlocked Tome of Dark Power
 		e.self:Say("It's good to see my instincts about the Elder were correct.' He opens the book, begins thumbing through the pages, and frowns. 'What's this? Some pages are missing, eight of them to be exact. I'm afraid this book will be of no use to me without those pages. You can have it. I wonder what happened to them, whomever had this book before must have removed them for some reason. If you find the missing pages somewhere, be sure to close them up inside the book and return it to me.");
 		e.other:QuestReward(e.self,0,0,0,0,17182)--Unfinished Tome of Dark Power
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 28746})) then--Tome of Dark Power
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 28746})) then--Tome of Dark Power
 		e.self:Say("You have done excellently. The tome will now serve my purposes. You may take this as a reward.' He pauses for a moment and continues, 'This task you have performed shows your confidence, patience, and the best of all, determination. Perhaps someday you would consider applying yourself to serve as an aid by my side? I can clearly see you have quite a broad spectrum of usefulness. Much more so than some other attendants I know...");
 		e.other:QuestReward(e.self,0,0,0,0,15790)--Cloak of the Wise
 	end

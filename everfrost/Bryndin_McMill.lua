@@ -7,7 +7,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 13242})) then -- Three Quarters of Elixir
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 13242})) then -- Three Quarters of Elixir
 		e.self:Say("Ahhh!! I feel warm all over. Thanks. You should go give Arnis McLish a drink of this elixir. Last time I saw him he was headed toward Blackburrow.");
 		e.other:SummonItem(13243); -- One Half Full Bottle of Elixir
 		e.other:Ding();

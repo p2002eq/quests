@@ -44,7 +44,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 2173})) then -- Cracked Corrupt Guard Helm
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 2173})) then -- Cracked Corrupt Guard Helm
 		e.self:Say("Thank you for bringing this person to justice. Please read this manual very, VERY carefully. Commit it to memory. We do everything strictly by the book. We are a people of law and order and I simply won't tolerate a breach of protocol. Investigators are expected to accurately report findings, are authorized to issue warrants and to notarize official documents for all lands under the jurisdiction of Antonius Bayle and the council. I sincerely hope you can earn your Investigator's Badge.");
 		e.other:SummonItem(18289); -- Investigator's Briefing
 		e.other:Ding();
@@ -54,7 +54,7 @@ function event_trade(e)
 		e.other:Faction(164,-10,0); -- Kane Bayle
 		e.other:Faction(217,10,0); -- Merchants of Qeynos
 		e.other:AddEXP(2000);
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 2386})) then -- Investigator's Badge
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 2386})) then -- Investigator's Badge
 		e.self:Say("Very well, here is the briefing document. Please read it very carefully. I wish you luck friend, this mission could prove to be dangerous.");
 		e.other:SummonItem(18292); -- Interrogator's Briefing
 		e.other:Ding();

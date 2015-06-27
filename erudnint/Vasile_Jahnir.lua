@@ -14,7 +14,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 13078,item2 = 13078,item3 = 7305,item4 = 7305})) then -- The Power of the Gatecallers
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 13078,item2 = 13078,item3 = 7305,item4 = 7305})) then -- The Power of the Gatecallers
 		e.other:SummonItem(12209);
 		e.self:Say("You have mastered these spells quickly. You shall now wear the gloves of the Gatecaller. Cumbersome they may feel, but they protect the hands of a young magician. In your young days of magic they will protect you from harm. They are not valued much by merchants, but they are prized by other circles. Nevertheless, we offer them only to our young Gatecallers. You may now be of assistance with a [slight problem].");
 		e.other:Ding();
@@ -24,7 +24,7 @@ function event_trade(e)
 		e.other:Faction(143,-30,0); --faction with Heretics decreased
 		e.other:AddEXP(175);
 		e.other:GiveCash(0,0,5,0);
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 13895})) then -- Rungupp
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 13895})) then -- Rungupp
 		e.other:SummonItem(15313);
 		e.self:Say("So the rumor shows true. Good work. You are an excellent student and a noble Erudite. Here is your spell as I promised. Go forth and fill your brain with knowledge.");
 		e.other:Ding();

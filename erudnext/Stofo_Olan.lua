@@ -22,7 +22,7 @@ function event_trade(e)
 	local item_lib = require("items");
 
 	--  check for ink of the dark, mechanical pen and white paper
-	if(item_lib.check_turn_in(e.trade, {item1 = 10600,item2 = 10601,item3 = 10602})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 10600,item2 = 10601,item3 = 10602})) then
 		e.self:Say("Yes, that is what I wanted. Here, take these notes. My teacher will be very interested if he is shown what I have found.");
 		e.other:Ding();
 		e.other:Faction(342,10,0);

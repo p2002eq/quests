@@ -23,16 +23,16 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 20378})) then --Note to Forpar Fizfla
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 20378})) then --Note to Forpar Fizfla
 		e.self:Say("So you know Vedico! How is the lass? If Vedico would give you the time of day, you must be something special. What can I do for you? I hope you have not come to have me make another [mystical instrument].");
 		e.other:QuestReward(e.self,0,0,0,0,20380); -- Forpar's Note to Himself
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 20380, item2 = 20524, item3 = 20525, item4 = 5520})) then --Forpar's Note to Himself, Kedge Backbone, Petrified Werewolf Skull, Amygdalan Tendril
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 20380, item2 = 20524, item3 = 20525, item4 = 5520})) then --Forpar's Note to Himself, Kedge Backbone, Petrified Werewolf Skull, Amygdalan Tendril
 		e.self:Say("Wow! I didn't think a " .. e.other:Race() .. " like you would be able to gather all of those things. Forpar rambles around and works with small tools for a good ten minutes before handing you a very fine looking lute head. 'Now, do you want to gather the next pieces for me?");
 		e.other:QuestReward(e.self,0,0,0,0,20535); --Mystical Lute Head
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 11602, item2 = 11622, item3 = 16905})) then --White Dragon Scales, Red Dragon Scales, Metal Bits
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 11602, item2 = 11622, item3 = 16905})) then --White Dragon Scales, Red Dragon Scales, Metal Bits
 		e.self:Say("Wooooooo! You are doing a wonderful job, " .. e.other:GetName() .. ". I wish I could go out and gather these things myself.' Forpar sits back down at his desk and pulls several very strange looking tools out. Eventually he looks up at you and says, 'The body is done! Only one more piece to go!");
 		e.other:QuestReward(e.self,0,0,0,0,20536); --Mystical Lute Body
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 20535, item2 = 20536, item3 = 20526})) then --Mystical Lute Head, Mystical Lute Body, Undead Dragongut Strings
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 20535, item2 = 20536, item3 = 20526})) then --Mystical Lute Head, Mystical Lute Body, Undead Dragongut Strings
 		e.self:Say(" 'Goodness! I can hardly contain myself! This will be my greatest creation ever!' Forpar sits down, slides the lute head into place and screws it together. After a few minutes, he begins to string the lute with the gut strings of the poison dragon. A wonderful sound fills the air as he strums the lute once and hands it to you.'I hope you find a good use for that! I bet you could play it from the mountaintops and the people below would hear you. Thank you, " .. e.other:GetName() .. ", for making my lifelong dream come true!'");
 		e.other:QuestReward(e.self,0,0,0,0,20538); -- Mystical Lute
 	end

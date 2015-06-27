@@ -12,7 +12,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 13158})) then -- Rebby's Rat Whiskers
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 13158})) then -- Rebby's Rat Whiskers
 		e.self:Say("Thank you " .. e.other:GetName() .. ", You have done well.");
 		e.other:Ding();
 		e.other:Faction(48,7,0);

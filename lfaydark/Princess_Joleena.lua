@@ -10,7 +10,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 12339})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 12339})) then
 		e.self:Say("My wing!! I am so happy!! Thank you Milky. You have proved that I can trust giants once again. Please take a Pouch of Fairie Gold Dust. Its magical properties are desired by all.");
 		e.other:QuestReward(e.self,0,0,0,0,12333,1500);
 	end

@@ -24,16 +24,16 @@ function event_trade(e)
 	local item_lib = require("items");
 	local item_check = 0;
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 18023})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 18023})) then
 		e.self:Say("Good job. I hope Behroe wasn't sleeping on the job again when you talked to him. Hmm, the docks seem to be a hotbed of activity after the sun goes down. Thanks for your quick work, " .. e.other:GetName() .. ", here's a little cash for your efforts.");
 		item_check = 1;
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 18024})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 18024})) then
 		e.self:Say("Ah, very good. I'll make sure to note Leanon's report in our journals. Here's a little something for your troubles, " .. e.other:GetName() .. ".");
 		item_check = 1;
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 18022})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 18022})) then
 		e.self:Say("Ok, good work, " .. e.other:GetName() .. ". I'll make sure to note the day's activities in our journal. Here's a little something for your efforts.");  -- not live text
 		item_check = 1;
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 18025})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 18025})) then
 		e.self:Say("Ah, very good. I'll make sure to note Quinon's report in our journals. Here's a little something for your troubles, " .. e.other:GetName() .. "."); -- not live text
 		item_check = 1;
 	end

@@ -17,15 +17,15 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 14783, item2 = 3053})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 14783, item2 = 3053})) then
 		e.self:Say("Well done");
 		e.other:QuestReward(e.self,0,0,0,0,4976,1000);
 	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 14786, item2 = 3060})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 14786, item2 = 3060})) then
 		e.self:Say("Well done");
 		e.other:QuestReward(e.self,0,0,0,0,4979,1000);
 	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 14783, item2 = 3056})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 14783, item2 = 3056})) then
 		e.self:Say("Well done");
 		e.other:QuestReward(e.self,0,0,0,0,4977,1000);
 	end

@@ -15,16 +15,16 @@ function event_trade(e)
 	local item_lib = require("items");
 	local bandage = 0;
 	--Handin: Bandage
-	if(item_lib.check_turn_in(e.trade, {item1 = 13009, item2 = 13009, item3 = 13009, item4 = 13009})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 13009, item2 = 13009, item3 = 13009, item4 = 13009})) then
 		bandage=4;
 	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 13009, item2 = 13009, item3 = 13009})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 13009, item2 = 13009, item3 = 13009})) then
 		bandage=3;
 	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 13009, item2 = 13009})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 13009, item2 = 13009})) then
 		bandage=2;
 	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 13009})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 13009})) then
 		bandage=1;
 	end
 	if(bandage > 0) then

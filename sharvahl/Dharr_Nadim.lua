@@ -45,7 +45,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 3648, item2 = 3648, item3 = 3648, item4 = 3648})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 3648, item2 = 3648, item3 = 3648, item4 = 3648})) then
 		e.self:Say("Excellent, hopefully my fishing business can start to thrive once again! As I said before you can have this old lure. You won't be able to catch anything with it but maybe you can pawn it off to a jewelry merchant.");
 		e.other:QuestReward(e.self,0,0,0,0,30694,1000);
 	end

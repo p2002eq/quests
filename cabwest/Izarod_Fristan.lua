@@ -8,7 +8,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 19423}) or item_lib.check_turn_in(e.trade, {item1 = 19296}) or item_lib.check_turn_in(e.trade, {item1 = 19294}) or item_lib.check_turn_in(e.trade, {item1 = 19299})) then -- convergence defoliation splurt thrall of bones
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 19423}) or item_lib.check_turn_in(e.self, e.trade, {item1 = 19296}) or item_lib.check_turn_in(e.self, e.trade, {item1 = 19294}) or item_lib.check_turn_in(e.self, e.trade, {item1 = 19299})) then -- convergence defoliation splurt thrall of bones
 		e.self:Say("Here is the scroll that I promised. We have both gained much today. I hope to do business with you again soon. Farewell.");
 		e.other:SummonItem(eq.ChooseRandom(19297,19421,19408,19409));
 		e.other:AddEXP(1000);

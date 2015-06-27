@@ -16,7 +16,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 12442})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 12442})) then
 		e.self:Say("You have done well. Here is your reward."); --Text made up
 		e.other:SummonItem(12443);
 		e.other:Ding();

@@ -25,27 +25,27 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	-- Shadow Silk info
-	if(item_lib.check_turn_in(e.trade, {gold = 50})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {gold = 50})) then
 		e.self:Say("You will need to give the following components to a tailor: a Shadow Wolf Pelt, a Silk Swatch and a Scroll of Gather Shadows. Have the tailor weave them together and she will make you Shadow Silk. To make large shadow silk add an extra shadow wolf pelt. To make inky shadow silk, add an extra scroll.");
 		e.other:Faction(320,15);
 		e.other:Faction(291,-15);
 	end
 	-- Robe of Enshroudment
-	if(item_lib.check_turn_in(e.trade, {item1 = 16484, item2 = 13239, item3 = 2309, item4 = 10535})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 16484, item2 = 13239, item3 = 2309, item4 = 10535})) then
 		e.self:Say("Well done, " .. e.other:GetName() .. "!  Here is your robe, as promised."); -- Made this text up
 		e.other:Faction(320,15);
 		e.other:Faction(291,-15);
 		e.other:QuestReward(e.self,0,0,0,0,1355,1000);
 	end
 	-- Shadowbound Gloves
-	if(item_lib.check_turn_in(e.trade, {item1 = 14363, item2 = 13234, item3 = 10534, item4 = 16485})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 14363, item2 = 13234, item3 = 10534, item4 = 16485})) then
 		e.self:Say("Well done, " .. e.other:GetName() .. "!  Here are your gloves, as promised."); -- Made this text up
 		e.other:Faction(320,15);
 		e.other:Faction(291,-15);
 		e.other:QuestReward(e.self,0,0,0,0,3318,1000);
 	end
 	-- Shadowbound Boots
-	if(item_lib.check_turn_in(e.trade, {item1 = 14364, item2 = 13180, item3 = 10533, item4 = 16483})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 14364, item2 = 13180, item3 = 10533, item4 = 16483})) then
 		e.self:Say("Well done, " .. e.other:GetName() .. "!  Here are your boots, as promised."); -- Made this text up
 		e.other:Faction(320,15);
 		e.other:Faction(291,-15);

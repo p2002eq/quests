@@ -9,7 +9,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	--Handin: 3x Watcher Signal Torch (12441)
-	if(item_lib.check_turn_in(e.trade, {item1 = 12441, item2 = 12441, item3 = 12441})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 12441, item2 = 12441, item3 = 12441})) then
 		e.self:Say("Good work, " .. e.other:GetName() .. ". You are on your way to becoming a respected ally of the Iksar Empire. Keep up the good work. Take this reward for a job well done.");
 		e.other:Faction(193,1); -- +Legion of Cabilis
 		e.other:Faction(30,1); -- +Cabilis Residents

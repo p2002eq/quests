@@ -16,7 +16,7 @@ function event_trade(e)
 	local item_lib = require("items");
 
 	if(e.other:GetFaction(e.self) < 5) then  -- amiable or better to get mold
-		if(item_lib.check_turn_in(e.trade, {item1 = 12308, item2 = 12308})) then
+		if(item_lib.check_turn_in(e.self, e.trade, {item1 = 12308, item2 = 12308})) then
 			e.self:Say("You have proven yourself to Karana.  I grant you the mold of the Ro Helm.  May the winds of Karana blow in your favor.  Now you must seek out [Lord Searfire] and  ask him for [ronium] to complete the second and only other component needed to be fashioned by a master blacksmith.");
 			e.other:Faction(183,2); --Knights of Thunder
 			e.other:Faction(21,-3); --Bloodsabers

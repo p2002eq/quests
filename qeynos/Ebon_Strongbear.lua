@@ -39,7 +39,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 18707})) then -- Recruitment Flyer
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 18707})) then -- Recruitment Flyer
 		e.self:Say("Welcome to the Hall of Steel, our swords are strong, and our warriors stronger. Here is our guild tunic. Brin Stolunger is in charge of our new recruits. Go see him, and he'll teach the basics. You look like you'll make a fine addition to our guild.");
 		e.other:SummonItem(13572); -- Dirty Training Tunic*
 		e.other:Ding();
@@ -50,7 +50,7 @@ function event_trade(e)
 		e.other:Faction(184,20,0); -- Knight of Truth
 		e.other:AddEXP(100);
 		e.other:GiveCash(0,0,0,0);
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 27421,item2 = 27421, item3 = 27421,item4 = 27422})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 27421,item2 = 27421, item3 = 27421,item4 = 27422})) then
 		e.self:Say("I salute you young warrior! Take this reward with pride.");
 		e.other:SummonItem(27492);
 		e.other:Ding();

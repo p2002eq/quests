@@ -15,7 +15,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 18769})) then  -- Stained Note
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 18769})) then  -- Stained Note
 		e.self:Say("Join us in fulfilling teh will of Bertoxxulous. You can train with us here, in the shadows of the Abbey. Wear this tunic to help conceal your true identity.");
 		e.other:Ding();
 		e.other:SummonItem(13518);	-- Tin Patched Tunic*
@@ -24,7 +24,7 @@ function event_trade(e)
 		e.other:Faction(115,-10,0); -- gem choppers
 		e.other:Faction(76,-10,0); 	-- Deepmuses
 		e.other:AddEXP(100);
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 10263})) then -- empty infectious vial
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 10263})) then -- empty infectious vial
 		e.self:Say("I hope you enjoyed the thrill of your first lesson and the awakening of your vision. Now you must prove your utility to our society. Take this airtight container and gather the [components] for another dose of the plague rat disease.");
 		e.other:Ding();
 		e.other:SummonItem(17357); 	-- airtight metal box
@@ -34,7 +34,7 @@ function event_trade(e)
 		e.other:Faction(115,-3,0); 	-- gem choppers
 		e.other:Faction(179,-3,0); 	-- king ak'anon
 		e.other:AddEXP(150);
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 10266})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 10266})) then
 		e.self:Say("Ahhh good good. Thse will be put to fine use creating more disease to spread through the rodents. you have done excellent work in helping to spread the work of the Plague Bringer. Take this Symbol of Initiation as your reward.");
 		e.other:SummonItem(1390); 	-- Initiate symbol of Bertoxxulous
 		e.other:Ding();

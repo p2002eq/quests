@@ -14,7 +14,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 20696, item2 = 20686, item3 = 20685, item4 = 20687})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 20696, item2 = 20686, item3 = 20685, item4 = 20687})) then
 		e.self:Emote("stares at the swirling bottle of essence. His eyes open wide as he realizes what it is. As its warm bright waves wash over him his skin dissolves into a green goo that coats the ground. From his remains a floating white ball is retrieved.");
 		e.other:QuestReward(e.self,0,0,0,0,20699);
 		eq.depop_with_timer();

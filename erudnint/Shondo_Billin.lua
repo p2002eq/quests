@@ -13,7 +13,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 13126})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 13126})) then
 		e.self:Say("Gulp.. Gulp.. Aaahhh!!! That hits the spot. All I can tell you is that the heretic's name was E'lial B'rook. He mumbled something about a rendezvous and he would be floating down a river, smooth sailing back to something called Paineel. That's all I know.");
 		e.other:Ding();
 		e.other:Faction(115,10,0);

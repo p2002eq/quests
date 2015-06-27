@@ -5,7 +5,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	
-	if(item_lib.check_turn_in(e.trade, {item1 = 10400})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 10400})) then
 		e.self:Say('At last I may leave this place!! Good luck destroying my abomination, you will surely need it against my most powerful yet uncontrolable creation!');
 		e.other:Ding();
 		e.other:Faction(71,1);

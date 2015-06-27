@@ -9,7 +9,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 28091})) then--Curative Potion
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 28091})) then--Curative Potion
 		e.self:Say("Oh thank you so much.' He drinks from the bottle, then reaches in his pocket and produces a set of needles. 'I believe this is what Willamina is in need of. Please take these to her and give her my best.");
 		e.other:QuestReward(e.self,0,0,0,0,28092,250);--New Sewing Needles
 	end

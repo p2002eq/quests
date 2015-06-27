@@ -37,7 +37,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	
-	if(item_lib.check_turn_in(e.trade, {item1 = 27539,item2 = 13266,item3 = 13266})) then -- Faydark Champions Long Sword, from Cb Cell Key
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 27539,item2 = 13266,item3 = 13266})) then -- Faydark Champions Long Sword, from Cb Cell Key
 		e.self:Say("Well done, " .. e.other:GetName() .. "! Now we will be able to free more of our brothers and sisters from the orcs! Take this, as promised, a fine weapon with which to slay more orcs!!");
 		e.other:QuestReward(e.self,0,0,0,0,27532,7000);
 	end

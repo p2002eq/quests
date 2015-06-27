@@ -7,15 +7,15 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 29112})) then--Ethereal Parchment
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 29112})) then--Ethereal Parchment
 		e.self:Emote("carefully takes the planar arcane item from you. With a careful eye, he inspects every portion of the incorporeal item before nodding to himself in satisfaction. The Paladin then closes his eyes and chants lowly in an unfamiliar language. You feel the coalescing of spirits around you in the area as the Paladin calls them forth to bless the arcane item in his grip. Dark runes of a rusted color begin to carve themselves onto a parchment that grows more real and tangible with each syllable uttered by the Paladin. Eventually, his chant comes to a close and the completed item is handed to you without expectation of further aid on your behalf, 'Do not use this power without caution, " .. e.other:GetName() .. ". It is quite powerful indeed for it is power forged upon the planar worlds but may affect both astral and prime alike.'");
 		e.other:QuestReward(e.self,0,0,0,0,eq.ChooseRandom(26945, 21631, 26941, 21652, 26933, 26937)); --Level 61 or 62 Paladin spell, PoP (Greater Immobilize, Touch of Nife, Crusader's Touch, Force of Akilae, Ward of Nife, Deny Undead)
 	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 29131})) then--Spectral Parchment
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 29131})) then--Spectral Parchment
 		e.self:Emote("carefully takes the planar arcane item from you. With a careful eye, he inspects every portion of the incorporeal item before nodding to himself in satisfaction. The Paladin then closes his eyes and chants lowly in an unfamiliar language. You feel the coalescing of spirits around you in the area as the Paladin calls them forth to bless the arcane item in his grip. Dark runes of a rusted color begin to carve themselves onto a parchment that grows more real and tangible with each syllable uttered by the Paladin. Eventually, his chant comes to a close and the completed item is handed to you without expectation of further aid on your behalf, 'Do not use this power without caution, " .. e.other:GetName() .. ". It is quite powerful indeed for it is power forged upon the planar worlds but may affect both astral and prime alike.'");
 		e.other:QuestReward(e.self,0,0,0,0,eq.ChooseRandom(26934, 26939, 21654, 26935, 21649)); --Level 63 or 64 Paladin spell, PoP (Pious Might, Light of Nife, Aura of the Crusader, Quellious' Word of Serenity, Supernal Cleansing)
 	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 29132})) then--Glyphed Rune Word
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 29132})) then--Glyphed Rune Word
 		e.self:Emote("carefully takes the planar arcane item from you. With a careful eye, he inspects every portion of the incorporeal item before nodding to himself in satisfaction. The Paladin then closes his eyes and chants lowly in an unfamiliar language. You feel the coalescing of spirits around you in the area as the Paladin calls them forth to bless the arcane item in his grip. Dark runes of a rusted color begin to carve themselves onto a parchment that grows more real and tangible with each syllable uttered by the Paladin. Eventually, his chant comes to a close and the completed item is handed to you without expectation of further aid on your behalf, 'Do not use this power without caution, " .. e.other:GetName() .. ". It is quite powerful indeed for it is power forged upon the planar worlds but may affect both astral and prime alike.'");
 		e.other:QuestReward(e.self,0,0,0,0,eq.ChooseRandom(21653, 26936, 26938)); --Level 65 Paladin spell, PoP (Shackles of Tunare, Wave of Marr, Brell's Stalwart Shield)
 	end

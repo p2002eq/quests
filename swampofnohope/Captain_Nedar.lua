@@ -7,7 +7,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	--Handin: 4x Froglok Tad Tongues (12439)
-	if(item_lib.check_turn_in(e.trade, {item1 = 12439, item2 = 12439, item3 = 12439, item4 = 12439})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 12439, item2 = 12439, item3 = 12439, item4 = 12439})) then
 		e.self:Say("Well done. It is good to serve the Warlord. Here is a small reward befitting such a small task.");
 		e.other:Faction(193,3); -- +Legion of Cabilis
 		e.other:Faction(30,1); -- +Cabilis Residents

@@ -10,11 +10,11 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {gold = 3})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {gold = 3})) then
 		e.self:Say("Be healed!");
 		e.self:CastSpell(17,e.other:GetID(),0,1);	--Light Healing
 	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 14030, item2 = 14030, item3 = 14030, item4 = 14030})) then --Skunk Scent Gland
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 14030, item2 = 14030, item3 = 14030, item4 = 14030})) then --Skunk Scent Gland
 		e.self:Say("I thank you for your good deed. I trust it was not a problem. Take this scroll. A cleric of this cathedral will find it useful. May the power of Underfoot be with you.");
 		e.other:SummonItem(eq.ChooseRandom(15203,15229,15560,15036,15216)); --Random Spell: Cure Poison, Fear, Furor, Gate, Stun
 		e.other:Faction(44,5); 			--Clerics of Underfoot

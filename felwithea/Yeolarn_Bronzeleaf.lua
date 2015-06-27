@@ -16,7 +16,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 13073,item2 = 13073,item3 = 13073,item4 = 13073})) then --Bone Chips x 4
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 13073,item2 = 13073,item3 = 13073,item4 = 13073})) then --Bone Chips x 4
 		e.self:Say("Praise Tunare! I knew you would be victorious. I reward you with this spell, and pray that it will help you in your fight against the unholy forces of Innoruk. When you are ready you will make a fine [Initiate of Tunare].");
 		e.other:SummonItem(15014); --Spell: Strike
 		e.other:Ding();
@@ -24,7 +24,7 @@ function event_trade(e)
 		e.other:Faction(178,15,0); --King Tearis Thex
 		e.other:Faction(8,15,0);   --Anti-mage
 		e.other:AddEXP(2500);
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 10199,item2 = 10199,item3 = 10199,item4 = 10199})) then --Putrescent Heart x 4
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 10199,item2 = 10199,item3 = 10199,item4 = 10199})) then --Putrescent Heart x 4
 		e.self:Say("Praise Tunare!! You have done well young Initiate. Here the symbol of your station within our faith. Return to me when you are ready to [slay the necromancer] that has been creating the undead.");
 		e.other:SummonItem(1570); --Initiate Symbol of Tunare
 		e.other:Ding();
@@ -32,7 +32,7 @@ function event_trade(e)
 		e.other:Faction(178,15,0); --King Tearis Thex
 		e.other:Faction(8,15,0);   --Anti-mage
 		e.other:AddEXP(3250);
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 1570,item2 = 12514,item3 = 19065,item4 = 12513})) then --Initiate Symbol of Tunare, Larik Z`Vole's Head, Teir`Dal Couriers Head, Teir`Dal Crate
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 1570,item2 = 12514,item3 = 19065,item4 = 12513})) then --Initiate Symbol of Tunare, Larik Z`Vole's Head, Teir`Dal Couriers Head, Teir`Dal Crate
 		e.self:Say("Praise Tunare! The Mother smiles on you this day Disciple Angelsyn! I present you with the symbol of your new station among the Priests of Tunare. Return to me when you are ready to become a [Warden of Tunare]?");
 		e.other:SummonItem(1571); -- Disciple Symbol of Tunare
 		e.other:Ding();
@@ -40,7 +40,7 @@ function event_trade(e)
 		e.other:Faction(178,15,0); --King Tearis Thex
 		e.other:Faction(8,15,0);   --Anti-mage
 		e.other:AddEXP(4000);
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 1571,item2 = 1599})) then --Disciple Symbol of Tunare, Powder of Unanimation
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 1571,item2 = 1599})) then --Disciple Symbol of Tunare, Powder of Unanimation
 		e.self:Say("Praise Tunare!! I will have our sorcerers examine this power immediately to see if we can reproduce it in quantities enough to eliminate the undead plague. I award you the rank of Warden of Tunare, the All Mother smiles upon you, " .. e.other:GetName() .. "!");
 		e.other:SummonItem(1572); -- Warden Symbol of Tunare
 		e.other:Ding();
@@ -48,7 +48,7 @@ function event_trade(e)
 		e.other:Faction(178,15,0); --King Tearis Thex
 		e.other:Faction(8,15,0);   --Anti-mage
 		e.other:AddEXP(5000);
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 18780})) then --Tattered Note
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 18780})) then --Tattered Note
 		e.self:Say("Welcome, friend, to the Clerics of Tunare. I am Yeolarn Bronzeleaf, head of the guild and devout follower of Tunare. Here is your guild tunic - it will help to protect you against this world's evils.");
 		e.other:SummonItem(13590); --Faded Gold Training Tunic*
 		e.other:Ding();

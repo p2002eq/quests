@@ -41,7 +41,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 9931,item2 = 9932, item3 = 9932})) then -- A Torn Qeynos Newsletter and Pristine Scarab Eyes 2x
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 9931,item2 = 9932, item3 = 9932})) then -- A Torn Qeynos Newsletter and Pristine Scarab Eyes 2x
 		e.self:Say("Yes, finally I can read the messages from Qeynos. Please take this as a reward for your efforts."); --  text made up
 		e.other:SummonItem(9937); -- Mace of the Ordained
 		e.other:Ding();

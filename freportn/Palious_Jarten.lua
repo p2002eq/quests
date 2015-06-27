@@ -9,7 +9,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {gold = 10})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {gold = 10})) then
 		e.self:Say("May the valor of Mithaniel Marr burn brightly in our soul!");
 		e.self:CastSpell(213,e.other:GetID());
 	end

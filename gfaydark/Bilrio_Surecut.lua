@@ -17,7 +17,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	
-	if(item_lib.check_turn_in(e.trade, {item1 = 12206,item2 = 16506,item3 = 16506,item4 = 16506})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 12206,item2 = 16506,item3 = 16506,item4 = 16506})) then
 		e.self:Say("You have succeeded in your quest for the kilij!! Wield it proudly.");
 		e.other:SummonItem(5366);
 		e.other:Ding();

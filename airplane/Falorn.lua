@@ -20,15 +20,15 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 20935, item2 = 20972, item3 = 20973})) then			--warrior test of strength using bronze disc, small pick, stone amulet
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 20935, item2 = 20972, item3 = 20973})) then			--warrior test of strength using bronze disc, small pick, stone amulet
 		e.self:Say("You have proven yourself worthy.");
 		e.other:QuestReward(e.self,0,0,0,0,14569,100000); 	--runed wind amulet
 		eq.depop();
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 20942, item2 = 20974, item3 = 20975})) then		--warrior test of force using pearlescent globe, silver mesh, spiroc air totem
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 20942, item2 = 20974, item3 = 20975})) then		--warrior test of force using pearlescent globe, silver mesh, spiroc air totem
 		e.self:Say("You have proven yourself worthy.");
 		e.other:QuestReward(e.self,0,0,0,0,27701,100000); 	--Pauldrons of the Blue Sky
 		eq.depop();
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 20928, item2 = 20970, item3 = 20971})) then		--warrior test of skill using ivory tessera, tiny ruby, azure ring
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 20928, item2 = 20970, item3 = 20971})) then		--warrior test of skill using ivory tessera, small ruby, azure ring
 		e.self:Say("You have proven yourself worthy.");
 		e.other:QuestReward(e.self,0,0,0,0,14551,100000); 	--azure ruby ring
 		eq.depop();

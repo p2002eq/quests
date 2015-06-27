@@ -16,7 +16,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 12660, item2 = 12660})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 12660, item2 = 12660})) then
 		e.self:Say("A deal is a deal. Here is one pile of granite pebbles. I hope you need more because I know there are more escaped froglok slaves.");
 		e.other:SummonItem(12689);
 		e.other:Faction(193,2);
@@ -28,7 +28,7 @@ function event_trade(e)
 		e.other:GiveCash(12,0,0,0);
 		e.other:Ding();
 	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 18271})) then --The Penance quest
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 18271})) then --The Penance quest
 		e.self:Emote("looks at the tome and speaks to you, scowling, 'Very well Broodling, I have a task for you. I should make you work at the feet of my Froglok Slaves, crushing granite, but the lore of the Brood has a specific rite for this situation. Take this book and learn the will of Cazic-Thule. Read it and ask me any questions that you may have before you start your penance. It would be a shame for you to fail at this task as well... though I wouldn't mind destroying you.");
 		e.other:SummonItem(18272);
 	end

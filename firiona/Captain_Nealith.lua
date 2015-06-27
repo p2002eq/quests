@@ -13,7 +13,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 12977, item2 = 12977, item3 = 12977, item4 = 12977})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 12977, item2 = 12977, item3 = 12977, item4 = 12977})) then
 		e.self:Emote("Captain Nealith tosses the teeth into a very large cask full of similar teeth.");
 		e.self:Say("Fine work, " .. e.other:GetName() .. ". I wish all my own troops showed the same tenacity. I salute you. This will keep you well fed during your long patrols. Use your wages to better equip yourself. Continue the fight!! The General is pleased.");
 		e.other:Faction(418,1);
@@ -22,7 +22,7 @@ function event_trade(e)
 		e.other:Faction(250,-3);
 		e.other:QuestReward(e.self,7,12,3,0,13155);
 	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 18076})) then --blood soaked note Captain Nealith's Brother quest
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 18076})) then --blood soaked note Captain Nealith's Brother quest
 		e.self:Emote("nearly faints after reading the letter. 'Dear Marltek!! I shall miss you. There is more evil in this land!! Madness beyond description. Thank you " .. e.other:GetName() .. ". You put my soul at ease and give me new direction. Please accept my brothers blade. He found it in the wilds. May you use it to slay many Drolvarg!!'");
 		e.other:Faction(419,50); -- +Inhabitants of Firiona Vie
 		e.other:Faction(92,50); -- +Emerald Warriors

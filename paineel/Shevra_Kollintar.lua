@@ -10,7 +10,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 12270})) then --sealed letter
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 12270})) then --sealed letter
 		e.self:Say("Ah, excellent work.  I certainly had my doubts about you, " .. e.other:GetName() .. ".  Wear this well.");
 		e.other:Faction(143,5);  --Heretics
 		e.other:Faction(79,-5);  --Deepwater Knights

@@ -9,7 +9,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	
-	if(item_lib.check_turn_in(e.trade, {item1 = 1675})) then --Part of Shaman Epic 1.0
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 1675})) then --Part of Shaman Epic 1.0
 		e.self:Say("Hahahah! Even you were able to do away with that fool. It is only a matter of time before Bertoxxulous, with the help of devout followers like myself, wipes out all who attempt to stop the spread of filth and decay. You have done well, shaman, and your masters will be pleased with what you have done for me and my treasures. Take this and give it to your master. He will reward you.");
 		e.other:QuestReward(e.self,0,0,0,0,1669);
 		eq.depop_with_timer();

@@ -13,7 +13,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	
-	if(item_lib.check_turn_in(e.trade, {item1 = 10023})) then --Handin: 1x Jade (10023)
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 10023})) then --Handin: 1x Jade (10023)
 		if(e.other:GetFaction(e.self) <= 4) then 
 			e.self:Emote("an undead foreman places the gem deep within his hollow eye socket. He pulls a giant sledgehammer from thin air and hands it to you.");
 			e.self:Say("Here!! You shall be assigned to the lower decks of the Scaled Trident.");

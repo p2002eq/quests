@@ -3,7 +3,7 @@
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 1772,item2 = 14585})) then -- sealed parchment, Odd Cold Iron Necklace
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 1772,item2 = 14585})) then -- sealed parchment, Odd Cold Iron Necklace
 		e.self:Say("Ah..yes, I have seen this symbol before. There is a kobold that lives among the gnomes of Ak'anon. He may be reluctant to speak with you but you have no need to fear him. He is a follower of Brell Serilis and a valuable source of information on kobold society and culture. I will construct a message for him. Deliver the message and necklace and perhaps he can enlighten you to its meaning.");
 		e.other:SummonItem(14585); -- Odd Cold Iron Necklace
 		e.other:SummonItem(1779); -- A Note

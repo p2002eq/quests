@@ -14,14 +14,14 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	
-	if(item_lib.check_turn_in(e.trade, {item1 = 12109})) then -- Pouch of Pixie Dust
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 12109})) then -- Pouch of Pixie Dust
 		e.self:Say("Good work. scout!!  You have earned this reward.  It is all we have at the time.  I am certain you are satisfied.  If not, then do not let me hear of it.");
 		if(math.random(100) < 20) then
 			e.other:SummonItem(eq.ChooseRandom(2104, 2106, 2108, 2111, 2112)); -- Patchwork Tunic, Patchwork Cloak, Patchwork Sleeves, Patchwork Pants, Patchwork Boots
 		end
 		e.other:Faction(283,15); -- Scouts of Tunare
 		e.other:QuestReward(e.self,0,2,0,0,0,800); -- 10% of level 3 experience.  Newbie quest, being a bit generous compared to the guidelines.
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 16390})) then -- Crumpled Piece of Paper
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 16390})) then -- Crumpled Piece of Paper
 		e.self:Say("Ahhh! You found it! Here let me make you a copy and put this in a secure spot so I don't lose it again.");
 		e.other:QuestReward(e.self,0,0,0,0,24098,5061818); -- Remiss Sketch
 	end

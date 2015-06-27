@@ -8,7 +8,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 18248})) then --Legion Order (8 signed)
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 18248})) then --Legion Order (8 signed)
 		e.self:Emote("signs the note and hands back to you. 'Be off now. Before I do choose to slay the messenger.'");
 		e.other:QuestReward(e.self,0,0,0,0,18249,200); --Legion Order (9 signed)
 	end

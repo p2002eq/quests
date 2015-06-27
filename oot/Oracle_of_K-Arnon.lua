@@ -31,9 +31,9 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 18302})) then -- Book of Scale
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 18302})) then -- Book of Scale
 		e.other:QuestReward(e.self,0,0,0,0,19072); -- Miragul's Phylactery
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 18202})) then -- Book of Turmoil
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 18202})) then -- Book of Turmoil
 		e.self:Say("Thank thee for this tome. Be sure to check back with me later, as I might have another task for thee.");
 		e.other:Faction(236, 5);
 		e.other:Faction(237, -10);

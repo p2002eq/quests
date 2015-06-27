@@ -5,7 +5,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 12278})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 12278})) then
 		e.other:Ding();
 		eq.set_anim(70072,0);
 		eq.move_to(-395.87, 807.04, 70.53, 0, 1);

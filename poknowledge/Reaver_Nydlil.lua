@@ -11,17 +11,17 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 29112})) then --Ethereal Parchment
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 29112})) then --Ethereal Parchment
 		e.self:Emote("carefully takes the planar arcane item from you. With a careful eye, he inspects every portion of the incorporeal item before nodding to himself in satisfaction. The Shadowknight then closes his eyes and chants lowly in an unfamiliar language.");
 		e.self:Message(15, "You feel the coalescing of spirits around you in the area as the Shadowknight calls them forth to bless the arcane item in his grip. Dark runes of a rusted color begin to carve themselves onto a parchment that grows more real and tangible with each syllable uttered by the Shadowknight. Eventually, his chant comes to a close and the completed item is handed to you without expectation of further aid on your behalf.");
 		e.self:Say("Do not use this power without caution, " .. e.other:GetName() .. ". It is quite powerful indeed for it is power forged upon the planar worlds but may affect both astral and prime alike.");
 		e.other:QuestReward(e.self,0,0,0,0,eq.ChooseRandom(26920, 26924, 26921, 26925, 26937)); --Level 61 or 62 Class spell, PoP (Festering Darkness, Aura of Darkness, Touch of Volatis, Zevfeer's Bite, Deny Undead)
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 29131})) then --Spectral Parchment
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 29131})) then --Spectral Parchment
 		e.self:Emote("carefully takes the planar arcane item from you. With a careful eye, he inspects every portion of the incorporeal item before nodding to himself in satisfaction. The Shadowknight then closes his eyes and chants lowly in an unfamiliar language.");
 		e.self:Message(15, "You feel the coalescing of spirits around you in the area as the Shadowknight calls them forth to bless the arcane item in his grip. Dark runes of a rusted color begin to carve themselves onto a parchment that grows more real and tangible with each syllable uttered by the Shadowknight. Eventually, his chant comes to a close and the completed item is handed to you without expectation of further aid on your behalf.");
 		e.self:Say("Do not use this power without caution, " .. e.other:GetName() .. ". It is quite powerful indeed for it is power forged upon the planar worlds but may affect both astral and prime alike.");
 		e.other:QuestReward(e.self,0,0,0,0,eq.ChooseRandom(21651, 26922, 26923, 21632, 21634, 21633)); --Level 63 or 64 Class spell, PoP (Shroud of Chaos, Aura of Pain, Terror of Thule, Blood of Hate, Pact of Hate, Spear of Decay)
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 29132})) then --Glyphed Rune Word
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 29132})) then --Glyphed Rune Word
 		e.self:Emote("carefully takes the planar arcane item from you. With a careful eye, he inspects every portion of the incorporeal item before nodding to himself in satisfaction. The Shadowknight then closes his eyes and chants lowly in an unfamiliar language.");
 		e.self:Message(15, "You feel the coalescing of spirits around you in the area as the Shadowknight calls them forth to bless the arcane item in his grip. Dark runes of a rusted color begin to carve themselves onto a parchment that grows more real and tangible with each syllable uttered by the Shadowknight. Eventually, his chant comes to a close and the completed item is handed to you without expectation of further aid on your behalf.");
 		e.self:Say("Do not use this power without caution, " .. e.other:GetName() .. ". It is quite powerful indeed for it is power forged upon the planar worlds but may affect both astral and prime alike.");

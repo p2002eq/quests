@@ -15,7 +15,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	
-	if(item_lib.check_turn_in(e.trade, {item1 = 13889})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 13889})) then
 		e.self:Say("Fine work for a scrub. Maybe one day you will be able to test this new snakescale armor out. For the moment you shall take the [Dark Shield of Ebon] if you do not own one already.");
 		e.other:Faction(361,-1);
 		e.other:Faction(135, -1);

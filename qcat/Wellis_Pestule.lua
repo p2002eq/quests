@@ -28,10 +28,10 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	
-	if(item_lib.check_turn_in(e.trade, {item1 = 20206})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 20206})) then
 		e.self:Say("Welcome to the Bloodsabers young Scourge Knight. I will help prepare you for your spreading of the disease. You must use this Mail Assembly Kit to construct the pieces of your armor. Each piece will require different materials for its construction. Will you craft [Gauntlets of the Scourge Knight], [Boots of the Scourge Knight], a [Bracer of the Scourge Knight], a [Helm of the Scourge Knight], [Greaves of the Scourge Knight], [Vambraces of the Scourge Knight], or a [Breastplate of the Scourge Knight]?");
 		e.other:QuestReward(e.self,0,0,0,0,17124);
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 20188, item2 = 19946})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 20188, item2 = 19946})) then
 		e.self:Emote("Wellis Pestule fashions a grip out of the giant king snake skin, sharpens the edge of the blade to be razor sharp, and polishes the weapon with a strange blood like substance.");
 		e.self:Say("A fine weapon for a Knight of the Bloodsabers. Go now and spread the Disease!");
 		e.other:QuestReward(e.self,0,0,0,0,20260);

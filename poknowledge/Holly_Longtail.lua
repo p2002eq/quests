@@ -11,7 +11,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 28076})) then--Collection of Taxidermy
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 28076})) then--Collection of Taxidermy
 		e.self:Emote("opens the box and carefully inspects its contents. 'These will do. Please accept this as a show of my appreciation. Now if you'll excuse me I have much work left to do.");
 		e.other:QuestReward(e.self,0,0,0,0,28237);--Fine Antique Ring
 	end

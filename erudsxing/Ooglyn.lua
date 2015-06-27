@@ -7,7 +7,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 1666})) then -- Part of Shaman Epic 1.0
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 1666})) then -- Part of Shaman Epic 1.0
 		e.self:Say("Ahhh, tank you, now me can...OH LOOK!! DA SIGN!!!! Oh, sorry you missed it. The sign show you where to wait for da test. Follow me...I like you so I take you there. We goin for a swim, " .. e.other:GetName() .. "!");
 		e.other:Ding();
 		e.other:Faction(342,50,0);

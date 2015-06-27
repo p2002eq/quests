@@ -10,7 +10,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if (item_lib.check_turn_in(e.trade, {item1 = 13945})) then -- Flask of Nitrates
+	if (item_lib.check_turn_in(e.self, e.trade, {item1 = 13945})) then -- Flask of Nitrates
 		e.self:Say("The flask of nitrates I sent for!! As was the deal, here is my [Regurgitonic]. Give it to whoever may need it and they will surely cough up whatever may be inside them with no harm to them whatsoever.");
 		e.other:SummonItem(12140);	-- Regurgitonic
 		e.other:Ding();

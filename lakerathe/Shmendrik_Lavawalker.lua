@@ -15,7 +15,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 28044})) then -- 28044 :  Lord Bergurgle's Crown
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 28044})) then -- 28044 :  Lord Bergurgle's Crown
 		e.self:Emote("shoves the crown into a scorch marked leather satchel and cackles uncontrollably as madness twists his features and flames dance in his eyes. 'You, " .. e.other:GetName() .. ", have reduced the Riptides into chaos! Without a king to keep them in control they will ravage the settlements surrounding this lake! After the slaughter I shall return and easily burn the remainder of the villages and fishing shanties to the ground! None shall escape the fires of the Tyrant!!'");
 		e.other:SummonItem(28045); -- 28045  Oil of Fennin Ro
 		eq.spawn2(51138,0,0,111,3627.3,51,192.4);

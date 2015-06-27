@@ -8,10 +8,10 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 13016, item2 = 13016, item3 = 13016, item4 = 13192})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 13016, item2 = 13016, item3 = 13016, item4 = 13192})) then
 		e.self:Say("Ah thanks, here is what I promised you.");
 		e.other:QuestReward(e.self,0,0,0,0,17014);
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 13016, item2 = 13016, item3 = 13016, item4 = 18103})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 13016, item2 = 13016, item3 = 13016, item4 = 18103})) then
 		e.self:Say("Ah thanks, here is what I promised you.");
 		e.other:QuestReward(e.self,0,0,0,0,17014);
 	end

@@ -12,10 +12,10 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 12998})) then --Rolled up Note
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 12998})) then --Rolled up Note
 		e.self:Say("Davorre, he is still alive! All these years I had thought him dead. He has kept his promise to me, and yet my most recent actions betray him so. I did not know. Here. Please give this to him with my most sincere regrets. I have moved on with my life and it is good to know that he is alive and well. But [Phaeril] is now my life.");
 		e.other:QuestReward(e.self,0,0,0,0,12997,1000); --Veisha's Engagement Ring
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 12995})) then --A Locked Chest
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 12995})) then --A Locked Chest
 		e.self:Say("Vile creature! Child of heresy! My love's death shall be avenged! How dare you bring me his head in a box!");
 		eq.attack(e.other:GetName());
 	end

@@ -25,7 +25,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 20008, item2 = 13108})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 20008, item2 = 13108})) then
 		e.self:Say("You have saved me!!  " .. e.other:GetName() .. ", you are my hero!!  Take my amulet and the royal suite key to Tearon in Highkeep.  Help put his soul at ease and he shall reward you.  Now I must go.. I am sorry I cannot transport you as well, but my powers are weak from much swimming.  Farewell, brave soul!");
 		e.other:SummonItem(13109);
 		e.other:Faction( 8, 10);

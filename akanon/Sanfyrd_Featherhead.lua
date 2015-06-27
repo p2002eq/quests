@@ -18,7 +18,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 13198, item2 = 13198, item3 = 13198, item4 = 13198})) then -- Turn in 4 scrap metal
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 13198, item2 = 13198, item3 = 13198, item4 = 13198})) then -- Turn in 4 scrap metal
 		e.self:Say("For your efforts I shall reward you"); -- Not official dialog, Dont actually know what he says.
 		e.other:SummonItem(eq.ChooseRandom(5013,5013,5013,5014,5014,5014,5015,5015,5015,5016,5016,5016,5019,5019,5019,5020,5020,5020,12340,12340,17033)); -- Various rusty weapons, Orb o flight and a contraption given when completed. All randomly.
 		e.other:AddEXP(100); -- Amount of Experience guessed, No actual Experience Info.
@@ -29,19 +29,19 @@ function event_trade(e)
 		e.other:Faction(71,-3,0);
 		e.other:Faction(39,-3,0);
 		e.other:Ding();
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 9426, item2 = 28618, item3 = 29906, item4 = 28165})) then -- Bundle of Super Conductive Wires, Gold Tipped Boar Horn, Shard of Pure Energy, Silicorrosive Grease
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 9426, item2 = 28618, item3 = 29906, item4 = 28165})) then -- Bundle of Super Conductive Wires, Gold Tipped Boar Horn, Shard of Pure Energy, Silicorrosive Grease
 		e.self:Say("I've been waiting for those.  Thank you, please take this!"); -- Text made up, I have no reference.
 		e.other:SummonItem(15980); -- Note for Fimli
 		e.other:Ding();
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 12336})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 12336})) then
 		e.self:Say("Huzzah!! You are my friend. Now you can take my old toupee and get it repaired. Just go to Freeport and ask Ping to [repair the toupee]. Hey!! You know what? He is the guy who sells the hair tonic!! I remember now. Well,.. Get my toupee repaired and I will give you the fairie wing.");
 		e.other:SummonItem(12337);
 		e.other:Ding();
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 12254})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 12254})) then
 		e.self:Say("Double Huzzah!! You are a good friend " .. e.other:GetName() .. ". Now mayhaps I shall find myself a wife. Here pal, the fairy wing. I hope it can give you a great head of hair. You need it.");
 		e.other:SummonItem(12339);
 		e.other:Ding();
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 13216, item2 = 13217})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 13216, item2 = 13217})) then
 		e.self:Say("Good. The citizens of Ak'Anon are safe from those little critters. They may have injured someone; that is why they are deactivated. Here is something I found in the scrapyard. I hope you can find a purpose for it.");
 		e.other:Faction(115,10,0);
 		e.other:Faction(176,2,0);

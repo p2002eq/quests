@@ -40,7 +40,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if (item_lib.check_turn_in(e.trade, {item1 = 22940, item2 = 22941, item3 = 22942, item4 = 22943})) then
+	if (item_lib.check_turn_in(e.self, e.trade, {item1 = 22940, item2 = 22941, item3 = 22942, item4 = 22943})) then
   		e.self:Say(string.format("Great! Now we can stop this meager attempt at an attack! Here %s, I knew you would come through for us!", e.other:GetCleanName()));
 		e.other:AddEXP(500);
   		e.other:SummonItem(22945);

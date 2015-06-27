@@ -24,7 +24,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 13882})) then -- A box of bones
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 13882})) then -- A box of bones
 		e.self:Say("You have done well. Let it be known to all that you fight for the Rainkeeper. Go and continue the battle.");
 		e.other:SummonItem(13006);
 		e.other:Ding();
@@ -34,7 +34,7 @@ function event_trade(e)
 		e.other:Faction(135,7,0); -- Guards of Qeynos
 		e.other:AddEXP(100);
 		e.other:GiveCash(5,2,0,0);
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 18805})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 18805})) then
 		e.self:Say("This is terrible news. It is good you did not find your grave in the catacombs. You completed your mission regardless of the odds of survival. The temple thanks you. We shall still require your service, Knight of Thunder. Events have transpired which put all agents of righteousness in danger. We cannot explain all as yet. Take this note to Freeport. You will give it to Eestyana Naestra at the Hall of Truth. Beware, now. The Shrine of Bertoxxulous now knows of your allegiance. Give me any other item.");
 		e.other:SummonItem(18816);
 		e.other:Ding();
@@ -44,7 +44,7 @@ function event_trade(e)
 		e.other:Faction(21,-1,0); -- Bloodsabers
 		e.other:AddEXP(500);
 		e.other:GiveCash(0,0,8,0);
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 13396})) then -- Rat Kings Head
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 13396})) then -- Rat Kings Head
 		e.self:Say("We have finally destroyed the Rat King. You have performed a great service to Qeynos. Here is a small reward. Please continue with the work of the Rainkeeper.");
 		e.other:SummonItem(eq.ChooseRandom(2112, 2106, 2111, 2104, 2108));
 		e.other:Ding();
@@ -54,7 +54,7 @@ function event_trade(e)
 		e.other:Faction(135,37,0); -- Guards of Qeynos
 		e.other:AddEXP(500);
 		e.other:GiveCash(7,5,0,0);
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 13288})) then -- Order of Thunder
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 13288})) then -- Order of Thunder
 		e.self:Say("Ahh. Drosco's Order of Thunder. You are truly an honorable knight. Many vile people would pay greatly for this medal. I thank you for its return. I shall honor you by rewarding you with a thunder staff. Meant for young clerics and paladins of this temple. Never let it leave your side.");
 		e.other:Faction(183,10,0); -- Knights of Thunder
 		e.other:Faction(21,-10,0); -- Bloodsabers

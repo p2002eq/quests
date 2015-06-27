@@ -9,12 +9,12 @@ function event_say(e)
 end
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 2789, item2 = 2789, item3 = 2789, item4 = 2789})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 2789, item2 = 2789, item3 = 2789, item4 = 2789})) then
 		e.self:Say("Woohoo! Thank you so much " .. e.other:GetName() .. "! Hey, maybe you would like to try your hand at weaving as well. If you combine the silks in that loom over there, you can make some decent thread to work with. Make four of them and bring them to me. I will judge your craftsmanship.");
 		e.other:Faction(132,5);
 		e.other:QuestReward(e.self,0,0,0,0,0,1000);
 	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 2791, item2 = 2791, item3 = 2791, item4 = 2791})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 2791, item2 = 2791, item3 = 2791, item4 = 2791})) then
 		e.self:Say("Not bad at all! You definitely have some hidden talent there " .. e.other:GetName() .. ". Keep at it and you may just become a master tailor yourself. Here, take this with you. It will help protect you from the nasty bite of the Xakra worms.");
 		e.other:QuestReward(e.self,0,0,0,0,eq.ChooseRandom(1001, 1002, 1003, 1004, 1005, 1006, 1007, 1008, 1009, 1010, 1011, 1012),1000);
 	end

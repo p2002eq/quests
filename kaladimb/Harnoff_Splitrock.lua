@@ -11,7 +11,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 10952})) then 		--Small Shipment of High Quality Ore
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 10952})) then 		--Small Shipment of High Quality Ore
 		e.other:Faction(169,5); 	--Kazon Stormhammer
 		e.other:Faction(215,5); 	--Merchants of Kaladim
 		e.other:Faction(220,-5); 	--Miners Guild 628
@@ -20,7 +20,7 @@ function event_trade(e)
 		e.other:AddEXP(2000);
 		e.other:GiveCash(0,0,0,8); 	--Platinum x 8
 		e.other:Ding();
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 10953})) then 	--Large Shipment of High Quality Ore
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 10953})) then 	--Large Shipment of High Quality Ore
 		e.other:Faction(169,5); 	--Kazon Stormhammer
 		e.other:Faction(215,5); 	--Merchants of Kaladim
 		e.other:Faction(220,-5);	--Miners Guild 628

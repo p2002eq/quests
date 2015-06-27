@@ -6,15 +6,15 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 29112})) then--Ethereal Parchment
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 29112})) then--Ethereal Parchment
 		e.self:Emote(" examines the item. 'Excellent! I can continue my research into planar magic. Take this as a reward.'");
 		e.other:QuestReward(e.self,0,0,0,0,eq.ChooseRandom(26944, 28413, 28643, 28644, 28452, 28453, 26947, 21665, 21667, 28455, 28457, 28469, 21639)); --Level 61 or 62 Enchanter spell, PoP (Greater Fetter, Shield of the Arcane, Arcane Rune, Boggle, Howl of Tashan, Rune of Zebuxoruk, Pacification, Speed of Vallon, Guard of Druzzil, Strangle, Beckon, Word of Morell, Aeldorb's Animation)
 	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 29131})) then--Spectral Parchment
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 29131})) then--Spectral Parchment
 		e.self:Emote(" examines the item. 'Excellent! I can continue my research into planar magic. Take this as a reward.'");
 		e.other:QuestReward(e.self,0,0,0,0,eq.ChooseRandom(21666, 28458, 28460, 28461, 28464, 28415, 28459, 28465, 28468)); --Level 63 or 64 Enchanter spell, PoP (Night's Dark Terror, Torment of Scio, Tranquility, Uproar, Sleep, Shield of Maelin, Insanity, Command of Druzzil, Bliss)
 	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 29132})) then--Glyphed Rune Word
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 29132})) then--Glyphed Rune Word
 		e.self:Emote(" examines the item. 'Excellent! I can continue my research into planar magic. Take this as a reward.'");
 		e.other:QuestReward(e.self,0,0,0,0,eq.ChooseRandom(21648, 21664, 28470)); --Level 65 Enchanter spell, PoP (Illusion Froglok, Vallon's Quickening, Voice of Quellious)
 	end

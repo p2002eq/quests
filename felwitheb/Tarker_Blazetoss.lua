@@ -9,7 +9,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 18779})) then -- Enrollment Letter
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 18779})) then -- Enrollment Letter
 		e.self:Say("Welcome to the wizards' guild of the Keepers of the Art. My name's Tarker, and I run this guild. You've got a lot of training ahead of you, so let's get started. Here, take this - it's our guild tunic. Wear it with honor, friend.");
 		e.other:SummonItem(13594); -- Singed Training Robe*
 		e.other:Ding();
@@ -18,7 +18,7 @@ function event_trade(e)
 		e.other:Faction(99,15,0); -- Faydark's Champions
 		e.other:Faction(322,-25,0); -- The Dead
 		e.other:AddEXP(100);
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 13758})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 13758})) then
 		e.self:Say("This is just what I needed.. and with hardly a mark on it! You have my thanks. Here is a something that you might find useful.");
 		e.other:SummonItem(eq.ChooseRandom(7007,13009,6012,15374,10004));
 		e.other:Ding();

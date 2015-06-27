@@ -32,15 +32,15 @@ function event_trade(e)
 	local item_lib = require("items");
 	local qglobals = eq.get_qglobals(e.self,e.other);
 		
-	if(item_lib.check_turn_in(e.trade, {item1 = 14337, item2 = 14338, item3 = 14339})) then --Staff of Gabstik, Blue Crystal Staff, Gnarled Staff
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 14337, item2 = 14338, item3 = 14339})) then --Staff of Gabstik, Blue Crystal Staff, Gnarled Staff
 		e.self:Say("Here, this pack contains all of our items. You will never be able to open it again, so you must deliver the pack, intact, to Solomen. He will then reward you. Now that I have helped you, leave me in peace.");
 		e.other:Ding();
 		e.other:SummonItem(14340);
 		eq.delete_global("wizepicA");
 		eq.delete_global("wizepicB");
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 14335})) then		--Return Arantir's Ring 2nd version
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 14335})) then		--Return Arantir's Ring 2nd version
 		eq.set_global("wizepicA","1",1,"F");
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 18168})) then	--Return Oil Note handin
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 18168})) then	--Return Oil Note handin
 		eq.delete_global("wizepicA");
 		eq.set_global("wizepicB","1",1,"F");
 	end

@@ -9,7 +9,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 12360, item2 = 14914, item3 = 14915, item4 = 17969})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 12360, item2 = 14914, item3 = 14915, item4 = 17969})) then
 		e.self:Say("Ahhh. This will help. Many Kerrans will like these. Here. Take this old bag. I have too many. Maybe it help you.");
 		e.other:QuestReward(e.self,0,0,0,0,17032,5000);
 	end

@@ -9,7 +9,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	
-	if(item_lib.check_turn_in(e.trade, {item1 = 6347})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 6347})) then
 		e.self:Say("You.. You kill the rats? Errr. Thalith thanks you. Here. Take this. It's good luck charm I've had for years.");
 		e.other:Faction(175,10);
 		e.other:QuestReward(e.self,0,0,0,0,1061);

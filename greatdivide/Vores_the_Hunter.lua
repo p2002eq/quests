@@ -13,7 +13,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 30270,item2 = 30249})) then -- Gem of Persuasion and Blood Wolf Harness
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 30270,item2 = 30249})) then -- Gem of Persuasion and Blood Wolf Harness
 		e.self:Say("Hey! What ya got there? Well now, ain't that pretty! Ya know, this just might do it. You done what I never was able. I gotta give ya that much. I ain't much o' one for travelin' any more. My legs be old and my bones are weak. You take this harness and find a good big mother of a wurm ta test it on. Just focus in yer mind what yer wantin the wurm ta do. Heh, maybe have it clear out some pests, eh?");
 		e.other:SummonItem(30272); -- Harness of Control
 		e.other:Ding();

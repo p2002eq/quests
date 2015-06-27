@@ -20,7 +20,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 13310})) then -- A cracked Flute
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 13310})) then -- A cracked Flute
 		e.self:Say("Why thank you, kind adventurer! Here is a little something to keep food in your belly. Now back to practice. La la la..");
 		e.other:SummonItem(13119); -- Winds of Karana sheet 2
 		e.other:Ding();

@@ -17,7 +17,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 18203})) then --Guild Summons
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 18203})) then --Guild Summons
 		e.self:Say("I see they have begun to draft younger broodlings? Hmmph!! No matter. We Drill Masters shall make a warrior of you. Here is your partisan's pike and some coin as your wages. Be sure that you begin your training in blacksmithing and report to the other Drill Masters for any tasks they may have for you. Let them know you are [a partisan of Cabilis]. Perhaps soon you shall be rewarded the [militia pike].");
 		e.other:SummonItem(5130);	--Partisan's Pike
 		e.other:Faction(193,100); 	--Legion of Cabilis
@@ -29,7 +29,7 @@ function event_trade(e)
 		e.other:GiveCash(10,0,0,0);
 		e.other:Ding();
 	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 12675, item2 = 12677, item3 = 5130})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 12675, item2 = 12677, item3 = 5130})) then
 		e.self:Say("You have perfomed just as expected. I bestow upon you the rank of militiaman. Here is your new pike. Past this, you shall require the [geozite tool] to upgrade your future pikes and mancatchers. We see much promise in you, militiaman. Go forth to serve the realm.");
 		e.other:SummonItem(5131);
 		e.other:Faction( 30,2);
@@ -40,7 +40,7 @@ function event_trade(e)
 		e.other:AddEXP(200);
 		e.other:Ding();
 	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 12658})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 12658})) then
 		e.self:Say("You are a true warrior of Cabilis. You obviously are aware that in order to upgrade your pike you shall need a [geozite tool]. Take this note to the Lord of the outer gates. He desires a young warrior for a small task. Do this and he is instructed to reward you with the tool.");
 		e.other:SummonItem(eq.ChooseRandom(18213,18211,18210));
 		e.other:Faction( 30,2);

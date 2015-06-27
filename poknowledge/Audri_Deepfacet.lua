@@ -12,7 +12,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 22121})) then--Permafrost crystal
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 22121})) then--Permafrost crystal
 		e.self:Say("It is so lovely, just as I saw before! I believe I can fashion something quite nice for you out of it. I need only a chip to study for myself. Thanks so much! ");
 	end
 	item_lib.return_items(e.self, e.other, e.trade)

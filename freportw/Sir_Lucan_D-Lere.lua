@@ -13,7 +13,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 18822})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 18822})) then
 		e.self:Say("So I see you decided to bring me the message. Good. I would hate to have to hunt you down. It could have gotten really messy and I hate reading bloodstained messages. Well it seems Antonius Bayle and the Knights of Truth have begun an alliance. And it sounds as though I may have a traitor among my guards. If you wish to switch your allegiance to Freeport, then find me this traitor. Bring me his militia tunic. Try to keep the blood from staining it.");
 		e.other:Ding();
 		e.other:Faction(105,10,0);
@@ -21,7 +21,7 @@ function event_trade(e)
 		e.other:Faction(184,-20,0);
 		e.other:Faction(258,-20,0);
 		e.other:AddEXP(5000);
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 13926})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 13926})) then
 		e.self:Say("Thank you for your loyalty"); -- need live text and reward
 		e.other:Ding();
 		e.other:Faction(105,10,0);

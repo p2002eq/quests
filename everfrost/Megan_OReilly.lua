@@ -12,7 +12,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 13244})) then -- One Quarter Bottle of Elixir
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 13244})) then -- One Quarter Bottle of Elixir
 		e.self:Say("Oh thank you. Sorry, but the bottle is empty now. I hope you did't need any. Take the empty bottle back to Dargon. He may refill it for you.");
 		e.other:SummonItem(13245); -- Empty Bottle of Elixir
 		e.other:Ding();

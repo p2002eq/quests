@@ -21,19 +21,19 @@ function event_trade(e)
 	local morewine = 0;
 	local item_lib =require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 13031})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 13031})) then
 		e.self:Say("Thank you. Pandos has been telling me to try white wine forever. I mostly only drink red wine. Pardon me for getting off track. Anyway, it is a good thing you showed up. The lady in room 2 has been receiving mail from a Dark Elf. You [need the mail for room two]. The Innkeeper usually holds it for the guests.");
 		e.other:Ding();
 		e.other:Faction(100,2,0);
 		e.other:AddEXP(150);
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 13030,item2 = 13030,item3 = 13030,item4 = 13030})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 13030,item2 = 13030,item3 = 13030,item4 = 13030})) then
 		morewine = 1;
 		wine = 3;
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 13030,item2 = 13030,item3 = 13030})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 13030,item2 = 13030,item3 = 13030})) then
 		wine = 3;
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 13030,item2 = 13030})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 13030,item2 = 13030})) then
 		wine = 2;
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 13030})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 13030})) then
 		wine = 1;
 	end
 	

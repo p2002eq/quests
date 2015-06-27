@@ -9,11 +9,11 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 18169})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 18169})) then
 		e.self:Say("Brother! I have one of those. He's great, but he's dead. His name was Gabstik and he was a really powerful wizard. I still have one of his greatest possesions! You look like you could use it. I've added another thing to my shopping list. I require a dry brittle skin that I can mold or a rare oil found in the planes that I can soak the fuse in. Get me one of these things and I'll trade it for my bother's stick.");
 		e.other:Ding();
 		e.other:Faction(342, 30); --Truespirit
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 14349})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 14349})) then
 			e.self:Say("Oh wow! You found the oil! Where is the golem? You didn't hurt him did you? I am very fond of him. Anyways, here is your reward a note and staff to give to that guy you were asking me about.");
 			e.other:Ding();
 			e.other:SummonItem(14339); --Staff of Gabstik

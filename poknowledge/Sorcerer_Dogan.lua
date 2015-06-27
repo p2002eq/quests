@@ -7,7 +7,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if((item_lib.check_turn_in(e.trade, {item1 = 1225})) or (item_lib.check_turn_in(e.trade, {item1 = 1226})) or (item_lib.check_turn_in(e.trade, {item1 = 1227})) or (item_lib.check_turn_in(e.trade, {item1 = 1228})) or (item_lib.check_turn_in(e.trade, {item1 = 1229})) or (item_lib.check_turn_in(e.trade, {item1 = 1230})) or (item_lib.check_turn_in(e.trade, {item1 = 1231}))) then --Carmine Armor
+	if((item_lib.check_turn_in(e.self, e.trade, {item1 = 1225})) or (item_lib.check_turn_in(e.self, e.trade, {item1 = 1226})) or (item_lib.check_turn_in(e.self, e.trade, {item1 = 1227})) or (item_lib.check_turn_in(e.self, e.trade, {item1 = 1228})) or (item_lib.check_turn_in(e.self, e.trade, {item1 = 1229})) or (item_lib.check_turn_in(e.self, e.trade, {item1 = 1230})) or (item_lib.check_turn_in(e.self, e.trade, {item1 = 1231}))) then --Carmine Armor
 		e.self:Say("Thank you, " .. e.other:GetName() .. "."); --Text made up
 		e.other:QuestReward(e.self,0,0,0,0,eq.ChooseRandom(10028, 10037, 22503, 15981),698775); --Random gem: Peridot, Diamond, Blue Diamond, Raw Diamond
 	end

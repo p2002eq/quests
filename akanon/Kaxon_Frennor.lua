@@ -13,12 +13,12 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if (item_lib.check_turn_in(e.trade, {item1 = 10992})) then
+	if (item_lib.check_turn_in(e.self, e.trade, {item1 = 10992})) then
 		e.self:Say("You have done well " .. e.other:GetName() .. ", here is your reward."); -- unable to locate real reward text.
 		e.other:SummonItem(11079);
 		e.other:Ding();
 		e.other:AddEXP(100);
-	elseif (item_lib.check_turn_in(e.trade, {item1 = 18705})) then -- Old Folded Letter
+	elseif (item_lib.check_turn_in(e.self, e.trade, {item1 = 18705})) then -- Old Folded Letter
 		e.other:SummonItem(13518); 	-- Tin Patched Tunic*
 		e.other:Ding();
 		e.other:Faction(71,100,0); 	-- Dark reflection

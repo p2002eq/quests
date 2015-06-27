@@ -27,7 +27,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 12950, item2 = 12951, item3 = 12952})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 12950, item2 = 12951, item3 = 12952})) then
 		e.self:DoAnim(20);
 		e.self:Emote("tumbles around and stands on his hands. With his feet he pulls a long polearm from a nearby weapons cache!! 'Woohoo!! I can taste the brew in Freeport already. Here you are my friend. A real Wurmslayer!!'");
 		e.other:Faction(101,10);   -- Firiona Vie better

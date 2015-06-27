@@ -15,7 +15,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 13916,item2 = 13916})) then -- Deathfist Slashed Belt x 2
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 13916,item2 = 13916})) then -- Deathfist Slashed Belt x 2
 		e.self:Say("Very fine work " .. e.other:GetName() .. ". With your help, we shall soon rid the commonlands of the orcs. Then we can move on to a [bigger problem].");
 		e.other:Faction(311,5,0); -- Steel Warriors
 		e.other:Faction(135,1,0); -- Guards of Qeynos
@@ -23,7 +23,7 @@ function event_trade(e)
 		e.other:Faction(105,-1,0); -- Freeport Militia
 		e.other:Faction(184,1,0); -- Knights of Truth
 		e.other:QuestReward(e.self,0,0,8,0,0,7500);
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 18748})) then -- A Tattered Note
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 18748})) then -- A Tattered Note
 		e.self:Say("Welcome to the Steel Warriors, young warrior. It is time to prove your mettle. Look to the outskirts of Freeport and join the fray. Show Clan Deathfist what a warrior of the bunker can do.");
 		e.other:Faction(311,100,0); -- Steel Warriors
 		e.other:Faction(135,20,0); -- Guards of Qeynos

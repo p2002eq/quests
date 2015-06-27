@@ -13,7 +13,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	
-	if(item_lib.check_turn_in(e.trade, {item1 = 6348})) then --Razor Tooth
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 6348})) then --Razor Tooth
 		e.self:Say("Rarr, Feren not haunted by Razortooth no more. Feren grateful and give you this possession.");
 		e.other:Faction(175,10); -- Kerra Isle
 		e.other:QuestReward(e.self,0,0,0,2,1062,500); --Kerran Fishingpole

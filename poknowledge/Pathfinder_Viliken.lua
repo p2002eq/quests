@@ -7,15 +7,15 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 29112})) then--Ethereal Parchment
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 29112})) then--Ethereal Parchment
 		e.self:Emote("takes the arcane item from you. Carefully, he inspects it -- nodding to himself in recognition of the item and planning of his next step. The ranger then begins a soft, melodic chant of priestly origin. You recognize the nature of the words to be a hym of the natural world, though you cannot decipher their meaning. The arcane object fades into existence, the runes etching themselves upon the surface become clear in their mat, neutral hues. Eventually, the ranger's chant ends and the object in his hand is complete. He then extends it to you in unconditional offering, 'Use this wisely and with great respect for the power that has originated it. The primordial arcane powers of the divine worlds are not to be disrespected.'");
 		e.other:QuestReward(e.self,0,0,0,0,eq.ChooseRandom(26943, 21628, 21627)); --Level 61 or 62 Ranger spell, PoP (Earthen Roots, Call of the Rathe, Strength of Tunare)
 	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 29131})) then--Spectral Parchment
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 29131})) then--Spectral Parchment
 		e.self:Emote("takes the arcane item from you. Carefully, he inspects it -- nodding to himself in recognition of the item and planning of his next step. The ranger then begins a soft, melodic chant of priestly origin. You recognize the nature of the words to be a hym of the natural world, though you cannot decipher their meaning. The arcane object fades into existence, the runes etching themselves upon the surface become clear in their mat, neutral hues. Eventually, the ranger's chant ends and the object in his hand is complete. He then extends it to you in unconditional offering, 'Use this wisely and with great respect for the power that has originated it. The primordial arcane powers of the divine worlds are not to be disrespected.'");
 		e.other:QuestReward(e.self,0,0,0,0,eq.ChooseRandom(26931, 26929, 26930, 21626)); --Level 63 or 64 Ranger spell, PoP (Frozen Wind, Nature's Rebuke, Spirit of the Predator, Brushfire)
 	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 29132})) then--Glyphed Rune Word
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 29132})) then--Glyphed Rune Word
 		e.self:Emote("takes the arcane item from you. Carefully, he inspects it -- nodding to himself in recognition of the item and planning of his next step. The ranger then begins a soft, melodic chant of priestly origin. You recognize the nature of the words to be a hym of the natural world, though you cannot decipher their meaning. The arcane object fades into existence, the runes etching themselves upon the surface become clear in their mat, neutral hues. Eventually, the ranger's chant ends and the object in his hand is complete. He then extends it to you in unconditional offering, 'Use this wisely and with great respect for the power that has originated it. The primordial arcane powers of the divine worlds are not to be disrespected.'");
 		e.other:QuestReward(e.self,0,0,0,0,eq.ChooseRandom(21655, 26932)); --Level 65 Ranger spell, PoP (Protection of the Wild, Cry of Thunder)
 	end

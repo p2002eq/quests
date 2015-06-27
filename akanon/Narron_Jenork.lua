@@ -48,11 +48,11 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 9111, item2 = 9112, item3 = 9113, item4 = 9114})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 9111, item2 = 9112, item3 = 9113, item4 = 9114})) then
 		e.self:Say("Well done, young " .. e.other:GetName() .. "! Since you have brought me the necessary items, I now present you with this Initiate Watchman's Long Sword. Use it worthily."); -- text made up
 		e.other:SummonItem(9115);
 		e.other:Ding();
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 12378})) then -- Box of Undead Brownies
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 12378})) then -- Box of Undead Brownies
 		e.self:Say("Wonderful!! Watchman Dexlin sent word that you would be returning these specimens. I shall see that the Eldritch Collective gets them.  For you there is a reward. Manik has donated a pair of Watchman Boots!!");
 		e.other:Faction(115,15,0); 	-- Gem Choppers better
 		e.other:Faction(210,15,0); 	-- Merchants of Ak'Anon better

@@ -34,28 +34,28 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 20920})) then 		--A Miniature Sword
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 20920})) then 		--A Miniature Sword
 		e.self:Say("These are the keys! Use them well! Hold them in your hand and touch them to the runed platforms! Guide you thy will! Hah! The last to go, must tell me so, or be in for a [hassle]! If there's a hassle, I will go!");
 		e.other:SummonItem(20911); -- Key of Swords
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 20921})) then 	--Lost Rabbit's Foot
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 20921})) then 	--Lost Rabbit's Foot
 		e.self:Say("These are the keys! Use them well! Hold them in your hand and touch them to the runed platforms! Guide you thy will! Hah! The last to go, must tell me so, or be in for a [hassle]! If there's a hassle, I will go!");
 		e.other:SummonItem(20912); -- Key of the Misplaced
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 20922})) then 	--Broken Mirror
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 20922})) then 	--Broken Mirror
 		e.self:Say("You move fast, you crazy kids! Keep going! Prod you I will! Stuck here I have been! Oh! Let me know when you are [done] or this will be no fun! Haha");
 		e.other:SummonItem(20913); -- Key of Misfortune
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 20923})) then 	--Animal Figurine
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 20923})) then 	--Animal Figurine
 		e.self:Say("Always want something for nothing? Oh yes, you gave me something! Here you go! Take this! Used one you have. [Teleport] away you will! Let me know, or no kill! Haha!");
 		e.other:SummonItem(20914); --Key of Beasts
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 20924})) then 	--Bird Whistle
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 20924})) then 	--Bird Whistle
 		e.self:Say("What is this? Bah! Take that! And this! What was I thinking? I was thinking you had best let me know when you use those teleporters. Just say, [Icky Bicky Barket]. Aye, that is what I was thinking.");
 		e.other:SummonItem(20915); --Avian Key
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 20925})) then 	--Noise Maker
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 20925})) then 	--Noise Maker
 		e.self:Say("Phew! These are heavy. Well, not really. I'm sure I don't have to remind you to remind me when you are [leaving].");
 		e.other:SummonItem(20916); --Key of the Swarm
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 20926})) then 	--Dull Dragon Scale
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 20926})) then 	--Dull Dragon Scale
 		e.self:Say("Dnib a ni era uoy ro esarhp eht yas dna yrruh!! Sruoy era syek eht dna romra em evig. Erom on gnits seixib eht ahahahahah!");
 		e.other:SummonItem(20917); --Key of Scale
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 20927})) then 	--Replica of the Wyrm Queen
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 20927})) then 	--Replica of the Wyrm Queen
 		e.self:Say("Not too much farther. I spit on thee knave! Ehem. Take these. Go on! Make your fortunes. No one cares about Narris. I mean Sirran. Hah! See if I care what you think! Oh, when did you say you were [leaving]?");
 		e.other:SummonItem(20918); --Veeshan's Key (not the one purchased on island --1 which is 20919)
 	end

@@ -11,7 +11,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 9969})) then --Aglthin's Fishing Pole
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 9969})) then --Aglthin's Fishing Pole
 		e.self:Say("Yes, this will do.");
 		e.other:Faction(143,3);  --Heretics
 		e.other:Faction(112,-3); --Gate Callers
@@ -19,7 +19,7 @@ function event_trade(e)
 		e.other:Faction(56,-3);  --Craftkeepers
 		e.other:Faction(60,-3);  --Crimson Hands
 		e.other:QuestReward(e.self,4,8,4,0,13697,500); --Staff of the Abattoir Initiate
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 9967})) then --Karran's Head
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 9967})) then --Karran's Head
 		e.self:Say("I take it he got the message... Excellent work!");
 		e.other:Faction(143,3);  --Heretics
 		e.other:Faction(112,-3); --Gate Callers

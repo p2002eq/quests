@@ -10,7 +10,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	if(e.other:GetCharacterFactionLevel(342) > 81) then--True Spirit
-		if(item_lib.check_turn_in(e.trade, {item1 = 14384})) then --Lhranc's Token
+		if(item_lib.check_turn_in(e.self, e.trade, {item1 = 14384})) then --Lhranc's Token
 			e.self:Say("Very good, I will go deliver this right away.");
 			e.other:QuestReward(e.self,0,0,0,0,14383); --Innoruuk's Curse
 			eq.depop();

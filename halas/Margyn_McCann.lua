@@ -10,7 +10,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 13729})) then 								--Barbarian Head
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 13729})) then 								--Barbarian Head
 		e.self:Say("We can now rest assured that justice has been served. Ye'll be a valuable asset to our court.");
 		e.other:AddEXP(1600);
 		e.other:Ding();
@@ -50,7 +50,7 @@ function event_trade(e)
 			e.other:SummonItem(spellreward);
 		end
 	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 18761})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 18761})) then
 		e.self:Say("Welcome t' the Church o' the Tribunal. Here, we practice the will o' the Six Hammers. This is our guild tunic - wear it with pride and represent us well.");
 		e.other:Ding();
 		e.other:Faction(294, 100);   														-- Shamen of Justice

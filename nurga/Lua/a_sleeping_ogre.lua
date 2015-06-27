@@ -16,7 +16,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if((item_lib.check_turn_in(e.trade, {item1 = 1685})) and (e.other:GetLevel() > 45) and (e.other:Class() == "Monk")) then --Breath of Gwan
+	if((item_lib.check_turn_in(e.self, e.trade, {item1 = 1685})) and (e.other:GetLevel() > 45) and (e.other:Class() == "Monk")) then --Breath of Gwan
 		e.self:SetAppearance(0);
 		e.self:Say("Your path of wanton destruction ends here. Gwan and Eejag were impatient and hot-headed. You will not defeat me, for I have the patience and perseverance of stone, unlike the children you have beaten before me. Are you sure you want to challenge me?");
 		trunt = eq.spawn2(107161,0,0,e.self:GetX(),e.self:GetY(),e.self:GetZ(),e.self:GetHeading()); --Trunt

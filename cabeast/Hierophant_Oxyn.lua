@@ -32,7 +32,7 @@ end
 function event_trade(e)
 	--local qglobals = eq.get_qglobals(e.self,e.other);
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 3895})) then 	--Crusaders of Greenmist (Greenmist Quest 8/8)
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 3895})) then 	--Crusaders of Greenmist (Greenmist Quest 8/8)
 		e.self:Emote("takes the note and begins to howl into the air! 'The visions are true! The new prophecy begins today, Crusader,' the mystic growls with pleasure. He quickly turns and takes a bottle of murky liquid from one of his potion bags and hands it to you. 'Take this and keep it safe. Our visions have told of this day. We have been able to learn of the metal of prophecy. This [liquid] will help us to locate its true resting place!");
 		e.other:SummonItem(3892);				--Bottle of Liquid Deklium
 		e.other:Faction(62,20);
@@ -40,7 +40,7 @@ function event_trade(e)
 		e.other:AddEXP(5000);
 		e.other:Ding();
 	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 3886})) then --Crusaders of Greenmist (Greenmist Quest 8/8)
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 3886})) then --Crusaders of Greenmist (Greenmist Quest 8/8)
 		e.self:Emote("holds the ore in his hands and begins to chant. His eyes go white as he raises the chunk of ore above his head. He lowers his arms and shakes his head for a moment. His eyes return to their normal state as they focus on you. The shaman hands you the ore and says, 'Seek out the creator of Rile's blade. He is still on this plane. I have felt his torment. Take this note to Librarian Zimor. He learned a great deal from the tome and can instruct you further.'");
 		e.other:SummonItem(3886);				--Chunk of Tynnonium
 		e.other:SummonItem(3893);				--Note to Librarian Zimor
@@ -50,7 +50,7 @@ function event_trade(e)
 		e.other:Ding();
 	--Cursed Wafers turn in
 	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 12403}) and (e.other:Class() == "Shaman")) then --Full Component Mortar
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 12403}) and (e.other:Class() == "Shaman")) then --Full Component Mortar
 		e.self:Say("We appreciate your service. Take a few copper for your deed as well as some of our cursed waters. They will provide you with nourishment. As for future tasks, we are searching for a few [lost skulls] and i am sure you are searching for your [iron cudgel of the clairvoyant] And i also hear that the furscales are in need of some broodlings to do some manual labor. Tell them Oxyn sent you.");
 		--eq.set_global("shmskullquest","1",5,"F"); --set a global flag so that user can do shm skull quest
 		e.other:SummonItem(12406, 2); 			--Cursed Wafers
@@ -59,7 +59,7 @@ function event_trade(e)
 		e.other:Ding();
 	--Shaman Skull Quest No.1 turn in - Check for  Logrin Skull, Morgl Skull, and Waz Skull hand in along with Iron Cudgel of the Petitioner
 	end
-	if((item_lib.check_turn_in(e.trade, {item1 = 12721, item2 = 12722, item3 = 12723, item4 = 5140})) and (e.other:GetFaction(e.self) <= 4)) then
+	if((item_lib.check_turn_in(e.self, e.trade, {item1 = 12721, item2 = 12722, item3 = 12723, item4 = 5140})) and (e.other:GetFaction(e.self) <= 4)) then
 		e.self:Say("Excellent, you have retrieved the three skulls of the ancients for us.  There are yet mroe skulls that I must ask you to retrieve before I can assist you in furthering your progress to becoming a clairvoyant. I will tell you with whom you need to speak to to continue the path of clairvoyance upon bringing me the [other skulls].");
 		--eq.set_global("shmskullquest","2",5,"F"); --set a global flag so that user can do shm skull quest part 2
 		e.other:SummonItem(5141); 				--Iron Cudgel of the Clairvoyant
@@ -70,7 +70,7 @@ function event_trade(e)
 		e.other:Ding();
 	--shaman skull quest no.2 turn in - check for Skull with I and Skull with II turn in and cudgel
 	end
-	if((item_lib.check_turn_in(e.trade, {item1 = 12724, item2 = 12725, item3 = 5141})) and (e.other:GetFaction(e.self) <= 4)) then
+	if((item_lib.check_turn_in(e.self, e.trade, {item1 = 12724, item2 = 12725, item3 = 5141})) and (e.other:GetFaction(e.self) <= 4)) then
 		e.self:Say("We are in your debt. You are truly one who shall collect all the lost ancient skulls. Take your weapon. Go to Hierophant Zand and he shall guide you further. Tell him you are [the chosen saviour].");
 		--eq.set_global("shmskullquest","3",5,"F");	--set a global flag so that user can do shm skull quest part 3
 		e.other:SummonItem(5142); 				--Iron Cudgel of the Seer

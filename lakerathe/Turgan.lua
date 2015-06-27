@@ -10,7 +10,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 18145})) then --Turgan's Note
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 18145})) then --Turgan's Note
 		e.self:Say("I am that Turgan, but I am no longer worthy of this title.  Take this in hopes that you become a better steward than I was.");
 		e.other:SummonItem(19002); --Icon of the Reliant
 	else

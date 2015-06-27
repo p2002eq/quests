@@ -10,9 +10,9 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	
-	if(item_lib.check_turn_in(e.trade, {item1 = 14041})) then --A Rolled Up Note
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 14041})) then --A Rolled Up Note
 		e.self:Say("Why are you giving this to me? Oh I see. I forgot that rats don't know how to read. Haha! Well, then. I shall read it for you. You do [understand common] don't you? Haha.");
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 12993})) then --Small Sealed Bag
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 12993})) then --Small Sealed Bag
 		e.self:Say("My revenge has been satisfied. Thank you, my child. You have proven yourself to be a most worthy asset to our cause. Here, I no longer have any use for this, my ties to the old life are now severed.");
 		e.other:Faction(143,5);  --Heretics
 		e.other:Faction(79,-5);  --Deepwater Knights

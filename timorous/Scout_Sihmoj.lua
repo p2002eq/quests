@@ -6,13 +6,13 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 9045})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 9045})) then
 		e.self:Say("Good to see you, now keep your head down friend. He may look out here at any moment, though he's been asleep most of the day. He's been staying in a ruined building on that island over there. I'm sure you can see it from here. You should be able to surprise him with little trouble. Just take care to avoid any traps he may have set. He's proven to be a very capable magic-user.");
 		e.self:Say("When you finish with him, please bring any evidence of his being dispatched back to me in this bag. I'll direct you from there. Good luck... I'll watch from here.");
 		e.other:QuestReward(e.self,0,0,0,0,17360);
 		eq.spawn2(96321,0,0,1988,-9203,10,0)
 	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 9047})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 9047})) then
 		e.self:Say("I knew that this creature had power, but how do you explain this? That fight was well beyond my comprehension. I'm not sure what to do other than have you return the bag to Elder Dumul. I'm sure that he will know what to do next. Take care and be swift.");
 		e.other:QuestReward(e.self,0,0,0,0,9048);
 	end

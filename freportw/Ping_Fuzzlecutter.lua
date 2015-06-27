@@ -21,12 +21,12 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	
-	if(item_lib.check_turn_in(e.trade, {item1 = 6710})) then -- Full Gem Bag
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 6710})) then -- Full Gem Bag
 		e.self:Emote("smiles broadly as he rifles through the bag, then looks up at you and says, 'Bout time! Here is the coffin as promised.'");
 		e.other:SummonItem(17080); -- Gem Encrusted Casket
 		e.other:Ding();
 	-- Clumps of Hair ID- 12335 - Lock of Hair ID- 12338 - Tattered Toupee ID- 12337
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 12335,item2 = 12335,item3 = 12338,item4 = 12337})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 12335,item2 = 12335,item3 = 12338,item4 = 12337})) then
 		e.self:Say("You are a good helper. Here you go. One genuine, charismatic, lady magnet, zero to hero making Mane Attraction!! Guaranteed to lower prices world wide. Guaranteed to last forever.. Err.. Well,.. It has a 1000 year warranty at least.");
 		e.other:SummonItem(12254);
 		e.other:Ding();

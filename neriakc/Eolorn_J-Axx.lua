@@ -11,7 +11,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 18752})) then --tattered note
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 18752})) then --tattered note
 		e.self:Say("You wanna be part of the Ebon Mask, huh? Well, you'll need to impress me. Here's your guild tunic. Go find Hekzin, he'll have some work for you, I'm sure. Don't screw up, kid.  That pretty face of yours would make a fine trophy, got it? Now, quit breathin' my air, and go get some work done.");
 		e.other:Faction(90,100); --Ebon Mask
 		e.other:Faction(135,-5); --Guard of Qeynos

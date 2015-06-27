@@ -7,7 +7,7 @@ function event_say(e)
 end
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 62093, item2 = 62092, item3 = 62092, item4 = 62092})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 62093, item2 = 62092, item3 = 62092, item4 = 62092})) then
 		e.other:QuestReward(e.self,0,0,0,0,62202);
 	end
 	item_lib.return_items(e.self, e.other, e.trade) -- return unused items

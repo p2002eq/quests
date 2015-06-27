@@ -9,11 +9,11 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 28089})) then--Cador's Artifact
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 28089})) then--Cador's Artifact
 		e.self:Say("The spirits are restful now that this piece of legend is in safe hands. You may take this to Mirao for whatever purpose he desires it for. May your vision always be clear!");
 		e.other:QuestReward(e.self,0,0,0,0,28090,250); --Black Lava Powder
 	end
-	if((item_lib.check_turn_in(e.trade, {item1 = 4871})) or (item_lib.check_turn_in(e.trade, {item1 = 4872})) or (item_lib.check_turn_in(e.trade, {item1 = 4873})) or (item_lib.check_turn_in(e.trade, {item1 = 4884})) or (item_lib.check_turn_in(e.trade, {item1 = 4874})) or (item_lib.check_turn_in(e.trade, {item1 = 4875})) or (item_lib.check_turn_in(e.trade, {item1 = 4876})) or (item_lib.check_turn_in(e.trade, {item1 = 4877}))) then --Rune Etched Armor
+	if((item_lib.check_turn_in(e.self, e.trade, {item1 = 4871})) or (item_lib.check_turn_in(e.self, e.trade, {item1 = 4872})) or (item_lib.check_turn_in(e.self, e.trade, {item1 = 4873})) or (item_lib.check_turn_in(e.self, e.trade, {item1 = 4884})) or (item_lib.check_turn_in(e.self, e.trade, {item1 = 4874})) or (item_lib.check_turn_in(e.self, e.trade, {item1 = 4875})) or (item_lib.check_turn_in(e.self, e.trade, {item1 = 4876})) or (item_lib.check_turn_in(e.self, e.trade, {item1 = 4877}))) then --Rune Etched Armor
 		e.self:Say("Thank you, " .. e.other:GetName() .. "."); --Text made up
 		e.other:QuestReward(e.self,0,0,0,0,eq.ChooseRandom(10028, 10037, 22503, 15981),698775); --Random gem: Peridot, Diamond, Blue Diamond, Raw Diamond
 	end

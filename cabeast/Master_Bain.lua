@@ -17,7 +17,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 18468, item2 = 22923})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 18468, item2 = 22923})) then
 		e.self:Emote("smiles at your dedication to Cazic Thule and hands you a small gem.");
 		e.other:SummonItem(7881);
 		e.other:Faction(317,20);
@@ -25,7 +25,7 @@ function event_trade(e)
 		e.other:AddEXP(20000);
 		e.other:Ding();
 	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 18467, item2 = 22922})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 18467, item2 = 22922})) then
 		e.self:Emote("smiles at your dedication to Cazic Thule and hands you a small gem.");
 		e.other:SummonItem(7881);
 		e.other:Faction(317,20);
@@ -33,7 +33,7 @@ function event_trade(e)
 		e.other:AddEXP(20000);
 		e.other:Ding();
 	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 12688})) then 								--Monk Training Bag
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 12688})) then 								--Monk Training Bag
 		e.self:Say("Excellent work young one. Take this armor and wear it with pride!"); 		--Text made up
 		e.other:SummonItem(eq.ChooseRandom(4350,4351,4352,4353,4354,4355,4356,4357,4358,4359)); --Random Sparring Armor Piece
 	end

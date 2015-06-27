@@ -13,13 +13,13 @@ end
 function event_trade(e)
 local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {gold = 10})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {gold = 10})) then
 		e.self:Say("May the swift and silent spirit of Fizzlethorpe Bristlebane smile upon your frail soul.");
 		eq.SelfCast(213);
-	elseif (item_lib.check_turn_in(e.trade,  {item1 = 14029, item2 = 14029, item3 = 14029})) then
+	elseif (item_lib.check_turn_in(e.self, e.trade,  {item1 = 14029, item2 = 14029, item3 = 14029})) then
 		e.self:Say("May the swift and silent spirit of Fizzlethorpe Bristlebane smile upon your frail soul.");
 		eq.SelfCast(203);
-	elseif (item_lib.check_turn_in(e.trade,  {item1 = 13870})) then
+	elseif (item_lib.check_turn_in(e.self, e.trade,  {item1 = 13870})) then
 		e.self:Say("May the swift and silent spirit of Fizzlethorpe Bristlebane smile upon your frail soul.");
 		eq.SelfCast(12);
 	else

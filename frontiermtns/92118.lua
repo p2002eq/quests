@@ -13,7 +13,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 12839, item2 = 4194, item3 = 4195})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 12839, item2 = 4194, item3 = 4195})) then
 		e.self:Emote("hands you a shackle and removes the coppernickel shackle so he may flee. He places your shackles on his wrists and darts into the darkness.");
 		e.other:Faction(317,20);
 		e.other:Faction(193,10);

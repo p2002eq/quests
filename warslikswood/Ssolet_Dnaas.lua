@@ -9,7 +9,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 6353})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 6353})) then
 		e.self:Say("Sssss. Thisss is what I need. You have my thanksss. Please, take thiss. I know not what it iss for but maybe you will find a ussse for it.");
 		e.other:QuestReward(e.self,0,0,0,0,19958,1000);
 	end

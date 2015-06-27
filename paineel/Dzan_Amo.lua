@@ -9,7 +9,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	
-	if(item_lib.check_turn_in(e.trade, {item1 = 13069, item2 = 13069, item3 = 13250, item4 = 13250})) then --Bat Fur x 2, Fire Beetle Leg x 2
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 13069, item2 = 13069, item3 = 13250, item4 = 13250})) then --Bat Fur x 2, Fire Beetle Leg x 2
 		e.self:Say("Very good young one. Here is something to assist in your studies of the principles of terror.");
 		e.other:Faction(143, 5);  --Heretics
 		e.other:Faction(79, -5);  --Deepwater Knights

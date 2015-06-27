@@ -6,7 +6,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 18768})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 18768})) then
 		e.self:Say("Welcome, we are the Paladins of the Underfoot. I am Datur, and I will help teach you the word and will of the Duke of Below, Brell Serilis. Here is our guild tunic. Let's get started, shall we?");
 		e.other:SummonItem(13514);
 		e.other:Faction(44,100); -- Clerics of Underfoot
@@ -15,7 +15,7 @@ function event_trade(e)
 		e.other:AddEXP(100);
 		e.other:Ding();
 	end
-	if((e.other:GetFaction(e.self) < 5) and (item_lib.check_turn_in(e.trade, {item1 = 12279}))) then
+	if((e.other:GetFaction(e.self) < 5) and (item_lib.check_turn_in(e.self, e.trade, {item1 = 12279}))) then
 		e.self:Say("The chalice is returned!! Praise be to Brell!! You have proven yourself to our church and have earned our respect. Let me welcome you into our brotherhood with the Cape of Underfoot. Wear it with pride as all of our finest paladins do.");
 		e.other:SummonItem(12281);
 		e.other:Faction(44, 25);

@@ -12,7 +12,7 @@ function event_say(e)
 end
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 30667})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 30667})) then
 		e.self:Say("Great spirit you've done it! Thank you " .. e.other:GetName() .. ". we are in your debt. You have earned this weapon of the venomous scourge. wield it with honor and pride.");
 		e.other:Faction(132,20);
 		e.other:QuestReward(e.self,0,0,0,0,30783,75000);

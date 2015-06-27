@@ -7,7 +7,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	
-	if(item_lib.check_turn_in(e.trade, {item1 = 1774})) then--Envelope with Dust
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 1774})) then--Envelope with Dust
 		e.self:Emote("takes the note, dumps the dust into her hand and examines it for a moment. She looks up and chuckles 'It's amuzing how one of our Royal Guards cannot identify this substance. Do you feel how it's slightly cooler than other metals? It's called Permafrost Iron, also known as Cold Iron to laymen. Miragul wrote of it's properties in his memoirs. There are much better metals at our disposal now, so it's use is rare except in more primitive cultures. Here is my report.'");
 		e.other:QuestReward(e.self,0,0,0,0,1775,137180);--Heretics Report
 	end

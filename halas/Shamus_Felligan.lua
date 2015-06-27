@@ -12,7 +12,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 13968})) then								--Shattered Caster Beads
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 13968})) then								--Shattered Caster Beads
 		e.self:Say("Yes thankyou. This was exactly what i was after, maybe a little battered, but worth a little something none-the-less.");
 		e.other:AddEXP(1600);
 		e.other:Ding();
@@ -24,7 +24,7 @@ function event_trade(e)
 		if(e.other:Class() == "Shaman" or e.other:Class() == "Beastlord") then
 			e.other:SummonItem(eq.ChooseRandom(15270,15275,15075,15271,15279,15212,15079));	--A Random Spell Listed Above
 		end
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 13969})) then							--Caster Beads
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 13969})) then							--Caster Beads
 		e.self:Say("Yes thankyou. This was exactly what i was after, and in pristine condition ta boot, Take this for your efforts.");
 		e.other:AddEXP(6400);
 		e.other:Ding();

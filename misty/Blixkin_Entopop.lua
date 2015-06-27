@@ -43,7 +43,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 13268, item2 = 18011})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 13268, item2 = 18011})) then
 		e.self:Say("Excellent! Good work! I knew you were the one for this job! Thank you so much! My collection just gets better and better each day. Here is your reward as I promised.");
 		e.other:SummonItem(eq.ChooseRandom(14010,13281,13280,14015,16875));
 		e.other:Faction(218, 12);

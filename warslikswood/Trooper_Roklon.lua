@@ -8,12 +8,12 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 18247, item2 = 12672})) then --Legion Order (7 signed), Goblin Scout Beads
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 18247, item2 = 12672})) then --Legion Order (7 signed), Goblin Scout Beads
 		e.other:QuestReward(e.self,0,0,0,0,18248,500); --Legion Order (8 signed)
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 18247})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 18247})) then
 		e.self:Say("No, NO! I want the goblin scout beads and the legion order.");
 		e.other:QuestReward(e.self,0,0,0,0,18247);
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 12672})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 12672})) then
 		e.self:Say("No, NO! I want the goblin scout beads and the legion order.");
 		e.other:QuestReward(e.self,0,0,0,0,12672);
 	end

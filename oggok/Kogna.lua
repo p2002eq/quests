@@ -10,7 +10,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 13410, item2 = 13410, item3 = 13410, item4 = 13410})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 13410, item2 = 13410, item3 = 13410, item4 = 13410})) then
 		e.self:Say("Yous really did it. Mebbe you tuff Craknek after all.");
 		e.other:Faction(46,15);
 		e.other:Faction(57,15);

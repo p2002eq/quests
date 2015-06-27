@@ -9,7 +9,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	
-	if(item_lib.check_turn_in(e.trade, {item1 = 12203})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 12203})) then
 		e.self:Say("Oooh!! Grub locker! There is a loud click. He opens the locker and unwraps dwarf pickles. What this dumb wrapper? R, E, C, I, P, E.. Ahh!! It say pickles!! Me read good. Here your plat. Me give you little more. Me was very hungry for pickles.");
 		e.other:Faction(66,10); --Da Bashers
 		e.other:Faction(22,-10); --Broken Skull Clan

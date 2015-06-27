@@ -18,14 +18,14 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 8348, item2 = 8348, item3 = 8348, item4 = 8348})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 8348, item2 = 8348, item3 = 8348, item4 = 8348})) then
 		e.self:Say("Ha! How did you know my favorite drink? Master Rinmark told you? That crazy old monk spends his days sitting on that mountain in Timorous Deep doesn't he? And they call me a drunkard! Anyhow, I bet he told you about the Whistling Fists. I have never seen them myself, and have only heard legend passed down by [Master Tynn].");
 		e.other:Ding();
 		eq.set_global("Brew","1",1,"F");
 		eq.set_global("Brew1","1",1,"F");
 		eq.set_global("Brew2","1",1,"F");
 	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 4199})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 4199})) then
 		e.self:Say("Ah, a monk of the final rung. You should seek Gandan Tailfist in Charasis. He, too, was seeking for a way to advance even further."); --Made this up, unable to find actual text
 		e.other:SummonItem(4199);
 		e.other:Ding();

@@ -21,10 +21,10 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 5990})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 5990})) then
 		e.self:Say("Ah my tools, I guess Ragnar sent these over with you.  So are you looking for Hoober?"); --not live text
 	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 5991, item2 = 5992, item3 = 5993})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 5991, item2 = 5992, item3 = 5993})) then
 		e.self:Say("Thanks for gathering the supplies.  Here is your potion!");
 		e.other:QuestReward(e.self,0,0,0,0,5994);
 	end

@@ -11,10 +11,10 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	
-	if(item_lib.check_turn_in(e.trade, {platinum = 75})) then -- 75pp
+	if(item_lib.check_turn_in(e.self, e.trade, {platinum = 75})) then -- 75pp
 		e.self:Emote("quickly pockets the coins and says, 'Go see the Librarian, Nallar. Tell him Denouncer Ixtaz sent you. Do not return here for at least 3 days, now go, " .. e.other:Race() .. ".");
 		e.other:QuestReward(e.self,0,0,0,0,0,5000);
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 1890})) then -- 1890 - Vial of Noble's Blood
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 1890})) then -- 1890 - Vial of Noble's Blood
 		e.self:Emote("accepts the vial and looks you over, eyebrow raised. He says, 'Well, a sacrifice to feed my forge. You have done Neriak a great service, Citizen " .. e.other:GetName() .. ". I shall burn it now.' He then holds the vial up the the flames, the blood seems to glow brightly as he stares into it. Then suddenly, with the shout of an arcane phrase, he throws the vial violently into the flame. The force shatters the vial, spilling the blood about the flames. Almost immediately the flames flare up to the ceiling. When they die down a presence is felt within the flames.");
 		eq.spawn2(41106, 0, 0, -867, 70, -35,0);   -- 41106 -- vengeful_spirit
 	end

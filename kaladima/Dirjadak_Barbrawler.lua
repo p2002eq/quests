@@ -44,7 +44,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 28064, item2 = 28064, item3 = 28063})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 28064, item2 = 28064, item3 = 28063})) then
 		e.self:Say("Here is that blade I promised you " .. e.other:GetName() .. ".");
 		-- Summon: Gem-Etched Battle Axe
 		e.other:SummonItem(26076);

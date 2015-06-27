@@ -15,7 +15,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 16889, item2 = 16889, item3 = 20665, item4 = 20664})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 16889, item2 = 16889, item3 = 20665, item4 = 20664})) then
 		e.self:Say("Excellent! Here is your sword. I feel like I'm at home already!");
 		e.other:QuestReward(e.self,0,0,0,0,20667,50000); -- 20667  Ancient Sword Blade
 	end

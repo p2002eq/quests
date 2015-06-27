@@ -17,7 +17,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 5574, item2 = 5575})) then --Reinforced Khati Sha Claw, Reinforced Khati Sha Claw
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 5574, item2 = 5575})) then --Reinforced Khati Sha Claw, Reinforced Khati Sha Claw
 		e.self:Emote("turns to you and squints at the claws that you've just given him.");
 		e.self:Say("I see that you've been getting some use out of these things. They are crude, but they seem sturdy enough.");
 		e.self:Emote("says as he returns the claws. He hands you a small bag and continues.");
@@ -27,12 +27,12 @@ function event_trade(e)
 		e.other:QuestReward(e.self,0,0,0,0,17113); --Small Burlap Bag
 		e.self:Say("In preparation for your journey down the path of Khati Sha, you will need to seek out the wolves of the moor. You will need to learn the behavior and abilities of this enemy. Once you have tracked and met these beasts, I will teach you how to best dispose of them in the future. Place two molars from the mouth of one of their pups in that bag and return to me. That will guarantee that you've come face to face with your foe.");
 	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 6182})) then --Small Bag of Teeth
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 6182})) then --Small Bag of Teeth
 		e.self:Say("Excellent, the spirits have returned you to me with your tail intact! The foe that you encountered was a young creature. Their elders are much less likely to allow your passage. The packs of wolves that roam the moor have proven to be quite a problem for our scouts. I will assist you in learning a method that will allow you to build and assist others in building a weapon that bites at the very spirit of those beasts. Take these claw mounts and use them in conjunction with the tomes that Qua sells. You'll need stretching dowels to treat the lashings. Jhimis usually keeps them behind the counter of his shop. Get a set from him and read through those tomes. Return to me with your new claws and your apprentice's cloak when you have completed the task.");
 		e.other:Faction(423,3);
 		e.other:QuestReward(e.self,0,0,0,0,6145,10000); --Reinforced Claw Mounts
 	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 5580, item2 = 6185, item3 = 6186})) then --Cloak of the Khati Sha Apprentice, Sonic Wolf Bane Claw, Sonic Wolf Bane Claw
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 5580, item2 = 6185, item3 = 6186})) then --Cloak of the Khati Sha Apprentice, Sonic Wolf Bane Claw, Sonic Wolf Bane Claw
 		e.self:Say("These claws are very well crafted! Your work is very impressive. Please take them to Ahom Guzhin. He is an old friend of mine. The sonic wolf claws were the result of some of his original studies in the moor. He has dedicated his life to studying creatures of the moor and can almost always be found there. Be careful when you go looking for him. You've done well here, but don't get careless. Good journeys.");
 		e.other:Faction(423,5);
 		e.other:SummonItem(6184); --Cloak of the Khati Sha Journeyman

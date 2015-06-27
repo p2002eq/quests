@@ -9,7 +9,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 13068,item2 = 13068,item3 = 13068,item4 = 13068})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 13068,item2 = 13068,item3 = 13068,item4 = 13068})) then
 		e.self:Say("Ah yes.  These are exactly what I need.  Thank you very much.");
 		e.other:SummonItem(eq.ChooseRandom(15310,15332));
 		e.other:Ding();
@@ -18,7 +18,7 @@ function event_trade(e)
 		e.other:Faction(99,5,0);
 		e.other:Faction(322,-10,0);
 		e.other:AddEXP(350);
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 18777})) then -- Enrollment Letter
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 18777})) then -- Enrollment Letter
 		e.self:Say("Welcome. I am Niola Impholder. Master Magician of the Keepers of the Art. Here is our guild tunic. You have much to learn, so let's get started.");
 		e.other:SummonItem(13592); -- Faded Training Robe*
 		e.other:Ding();
@@ -27,7 +27,7 @@ function event_trade(e)
 		e.other:Faction(99,15,0); -- Faydark's Champions
 		e.other:Faction(322,-25,0); -- The Dead
 		e.other:AddEXP(100);
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 18902})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 18902})) then
 		e.self:Say("She is still alive? OH, thank you for this news.");
 		e.other:SummonItem(1307);
 		e.other:Ding();

@@ -18,7 +18,7 @@ function event_trade(e)
 	local item_lib = require("items");
 
 	if(e.other:GetFaction(e.self) < 3 and e.other:GetSkill(56) > 277) then
-		if(item_lib.check_turn_in(e.trade, {item1 = 24072})) then
+		if(item_lib.check_turn_in(e.self, e.trade, {item1 = 24072})) then
 			e.self:Say("Great! Looks like everything is here! Hopefully Master Hanns won't send me to Steamfront now, I have a really bad feeling about that assignment. Here take this Seal, it was dropped by that dark stranger. It glows with a dark power I just don't understand. Be wary of further sightings of that dark assassin.");
 			e.other:Faction(33,5); -- Circle Of Unseen Hands
 			e.other:Faction(217,-1); -- Merchants of Qeynos

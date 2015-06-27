@@ -14,7 +14,7 @@ end
 
 function event_trade(e)
 	local item_lib =require("items");
-	if(item_lib.check_turn_in(e.trade, {gold = 2})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {gold = 2})) then
 		e.self:Say("Yeah, well, these are pretty hard to come by. In fact, these came all the way from Odus. Enjoy, and tell your buddies.");
 		e.other:Ding();
 		e.other:SummonItem(18006);

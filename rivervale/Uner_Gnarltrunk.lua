@@ -10,7 +10,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 13240})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 13240})) then
 		e.self:Say("I knew that Deputy Tagil had simply forgotten. He really is a good young halfling. Here, take this as a small payment for your time.");
 		e.other:SummonItem(eq.ChooseRandom(13977,13100,14014,13083));
 		e.other:Ding();

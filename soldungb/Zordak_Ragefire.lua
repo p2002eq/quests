@@ -7,7 +7,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 28054})) then -- Shimmering Pearl
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 28054})) then -- Shimmering Pearl
 		e.self:Emote("is engulfed by a shimmering blue light! An inhuman expression of rage crosses his face and flames leap in his eyes as he begins to vanish in the shimmering light! 'The Triumvirate may have succeeded in sending me back to my cursed homeland for the time being! I swear to you I shall return from Skyfire and destroy all of the Triumvirate Missionaries in flames!'");
 		e.other:SummonItem(17175); -- Zordak's Box of Bindings
 		e.other:SummonItem(28059); -- Swirling Pearl

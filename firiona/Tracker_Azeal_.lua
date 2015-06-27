@@ -3,7 +3,7 @@
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 12691})) then --Test of Betrayal (Greenmist Quest 5/8)
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 12691})) then --Test of Betrayal (Greenmist Quest 5/8)
 		e.self:Emote("begins to pull his face off.. it is a disguise!! 'Aha!! You have made it!! I cannot see well in this disguise, but I thought I smelled you. I have [news of the Charasis tome].'");
 		e.other:Ding();
 		eq.spawn2(84319,0,0,e.self:GetX(),e.self:GetY(),e.self:GetZ(),e.self:GetHeading());

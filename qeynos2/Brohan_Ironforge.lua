@@ -17,7 +17,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	
-	if(item_lib.check_turn_in(e.trade, {item1 = 18863})) then -- Sealed Letter
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 18863})) then -- Sealed Letter
 		e.self:Say("Oh! thank you! Now I know she is safe. My sweet Tayla. Here is your reward, as promised. A hero such as yourself deserves a weapon with which to uphold your noble values.");
 		e.other:Faction(217,50); -- Merchants of Qeynos
 		e.other:Faction(33,-10); -- Circle of Unseen Hands

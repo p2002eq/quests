@@ -9,7 +9,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 18013})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 18013})) then
 		e.self:Say("What's this?  Oh dear.  I am very sorry.  Please take this to Uner with my apologies.");
 		e.other:SummonItem(13240);
 	end

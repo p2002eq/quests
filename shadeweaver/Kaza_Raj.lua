@@ -24,25 +24,25 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 2476, item2 = 2476, item3 = 2476, item4 = 2476})) then--Broken Brigand Skull  x4
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 2476, item2 = 2476, item3 = 2476, item4 = 2476})) then--Broken Brigand Skull  x4
 		e.self:Say("Excellent! Here are your Bracer! Would you like to get some [Boots]?");
 		e.other:QuestReward(e.self,0,0,0,0,2453); --Ghulam Bracer
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 2460, item2 = 2460, item3 = 2460, item4 = 2460})) then--Sharp Bloodling Mandible  x4
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 2460, item2 = 2460, item3 = 2460, item4 = 2460})) then--Sharp Bloodling Mandible  x4
 		e.self:Say("Excellent! Here are your Gloves! Would you like to get a [Bracer]?");
 		e.other:QuestReward(e.self,0,0,0,0,2452); --Ghulam Gloves
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 2477, item2 = 2477, item3 = 2477, item4 = 2477})) then--Shadowed Claw  x4
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 2477, item2 = 2477, item3 = 2477, item4 = 2477})) then--Shadowed Claw  x4
 		e.self:Say("Excellent! Here are your Boots! Would you like to get some [Sleeves]?");
 		e.other:QuestReward(e.self,0,0,0,0,2454); --Ghulam Boots
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 2478, item2 = 2478, item3 = 2478, item4 = 2478})) then--Loda Kai Earring  x4
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 2478, item2 = 2478, item3 = 2478, item4 = 2478})) then--Loda Kai Earring  x4
 		e.self:Say("Excellent! Here are your Sleeves! Would you like to get a [Cap]?");
 		e.other:QuestReward(e.self,0,0,0,0,2455); --Ghulam Armguards
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 2479, item2 = 2479, item3 = 2479, item4 = 2479})) then--Loda Kai Insignia  x4
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 2479, item2 = 2479, item3 = 2479, item4 = 2479})) then--Loda Kai Insignia  x4
 		e.self:Say("Excellent! Here is your Cap! Would you like to get some [Pants]?");
 		e.other:QuestReward(e.self,0,0,0,0,2456); --Ghulam Cap
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 2480, item2 = 2480, item3 = 2480, item4 = 2480})) then--Saurek Fang  x4
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 2480, item2 = 2480, item3 = 2480, item4 = 2480})) then--Saurek Fang  x4
 		e.self:Say("Excellent! Here are your Pants! Would you like to get a [Tunic]?");
 		e.other:QuestReward(e.self,0,0,0,0,2457); --Ghulam Legplates
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 2481, item2 = 2481, item3 = 2481, item4 = 2481})) then--Bloodbulk Carapace  x4
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 2481, item2 = 2481, item3 = 2481, item4 = 2481})) then--Bloodbulk Carapace  x4
 		e.self:Say("Excellent! Here is your Tunic!");
 		e.other:QuestReward(e.self,0,0,0,0,2459); --Ghulam Tunic
 	end

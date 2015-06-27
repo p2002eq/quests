@@ -32,7 +32,7 @@ function event_trade(e)
 
 	--Words of Possession
 	--Requires: 1 Charred Dagger, 1 Bloodstone, 2 Barbed Bone Chips
-	if(item_lib.check_turn_in(e.trade, {item1 = 7036, item2 = 10019, item3 = 10516, item4 = 10516})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 7036, item2 = 10019, item3 = 10516, item4 = 10516})) then
 		e.self:Say("You have quested well - With spell and sword - Accept our thanks - And this reward.");
 		e.other:SummonItem(11815);
 		e.other:Faction("322","10"); 	-- The Dead
@@ -45,7 +45,7 @@ function event_trade(e)
 		e.other:Ding();
 	--Words of Haunting
 	--Requires: 1 Ebon Dagger, 1 Jasper, 2 Dark Bone Chips
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 7037, item2 = 10020, item3 = 10518, item4 = 10518})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 7037, item2 = 10020, item3 = 10518, item4 = 10518})) then
 		e.self:Say("You have quested well - With spell and sword - Accept our thanks - And this reward.");
 		e.other:SummonItem(11836);
 		e.other:Faction("322","10"); 	-- The Dead
@@ -58,7 +58,7 @@ function event_trade(e)
 		e.other:Ding();
 	--Words of Collection (Beza)
 	--Requires: 1 Sphere of Unrest (orb of darkness?), 1 Eye of Kor, 1 Amber
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 10520, item2 = 10524, item3 = 10022})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 10520, item2 = 10524, item3 = 10022})) then
 		e.self:Say("You have quested well - With spell and sword - Accept our thanks - And this reward.");
 		e.other:SummonItem(11858);
 		e.other:Faction("322","10"); 	-- The Dead
@@ -71,7 +71,7 @@ function event_trade(e)
 		e.other:Ding();
 	--Words of Collection (Caza)
 	--Requires: 1 Globe of Fear, 1 Eye of Guk, 1 Jade
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 10521, item2 = 10526, item3 = 10023})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 10521, item2 = 10526, item3 = 10023})) then
 		e.self:Say("You have quested well - With spell and sword - Accept our thanks - And this reward.");
 		e.other:SummonItem(11864);
 		e.other:Faction("322","10"); 	-- The Dead

@@ -7,7 +7,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 26055})) then--Tattered Newsletter
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 26055})) then--Tattered Newsletter
 		e.self:Say("Ah great, I have been meaning to go and pick one of these up from the Trade Commissioner but I have been very busy with my work. I'm sure Henry has been waiting for my sales report so here it is. Please return it to him for me if you could and thanks again!");
 		e.self:Emote("gives you a Sales Report.");
 		e.other:SummonItem(26056);	--Sales Report/Economy Report..There is some confusion here about which gives which, as the quest specifies a "Sales Report" but the item named after the mob is an "Economy Report" and vice versa.  I picked one and went with it, should be internally consistent at least.

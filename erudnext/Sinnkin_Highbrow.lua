@@ -9,7 +9,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 13121})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 13121})) then
 		e.self:Say("It's about time you figured it out, genius! Maybe you should spend more time in the library. Here, take this tonic and get out of here before they see me giving it to you and turn us both inside out.");
 		e.other:SummonItem(13118);
 		e.other:Ding();

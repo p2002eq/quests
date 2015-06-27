@@ -15,11 +15,11 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 20642})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 20642})) then
 		e.self:Say("I see you serve my master as well now. I assume you are here to take the reagents from me which I have gathered for him? I don't know if I like the idea of you gaining the credit for my hard work here. I might consider giving you these reagents, if only you do a small [task] for me.");
 		e.other:QuestReward(e.self,0,0,0,0,20643,500);
 	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 1320})) then -- flowing black robe turn in
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 1320})) then -- flowing black robe turn in
 		e.self:Say("Thank you, " .. e.other:GetName() .. ". I did not think you would track down Najena and slay her. I think that I am going to return to my old life in Neriak. I am sick of the way Kazen has been treating me. He never seems to teach me anything worthwhile. Don't forget to give his lapdog that symbol with the reagents. I'm sure he will give you a new one.");
 		e.other:QuestReward(e.self,0,0,0,0,20649,500);
 	end

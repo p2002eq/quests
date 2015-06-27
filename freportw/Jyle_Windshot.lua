@@ -15,7 +15,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 13003})) then -- Small Lantern
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 13003})) then -- Small Lantern
 		e.self:Say("Thanks, friend. I have run a long way to get here in time. Mostly at night. I lost my lantern in a card game in Highkeep.");
 		e.other:SummonItem(eq.ChooseRandom(13824, 13824, 13824, 13824, 13824, 13824, 13824, 13824, 13824, 12334)); -- 1/10 chance of wooden heart 9/10 chance of Wooden Shards
 		e.other:Ding();

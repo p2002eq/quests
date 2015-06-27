@@ -7,7 +7,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 18738})) then -- A tattered note
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 18738})) then -- A tattered note
 		e.self:Say("Welcome to the Sentries of Passion. We are the protectors of the Temple of Marr. Wear our tunic with pride, young knight! Find your wisdom within these walls and in the words of our priests. And remember to aid all who follow the twin deities, Mithaniel and Erollisi Marr.");
 		e.other:SummonItem(13556); -- White and Blue Tunic
 		e.other:Ding();

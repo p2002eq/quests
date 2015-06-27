@@ -14,7 +14,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 12376})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 12376})) then
 		e.self:Say("Good Work. Unfortunately, I must investigate other matters in the name of Ak'anon.  Here.  You deliver the tin box to Lord Jenork of the Gem Choppers.  He shall reward you. Be safe my friend.  I must go now. Farewell.");
 		e.other:SummonItem(12378); -- Give Undead Brownie Bones for turnin to Narron Jenork (Ak'Anon)
 		e.other:Ding();

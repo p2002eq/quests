@@ -30,18 +30,18 @@ function event_say(e)
 		e.self:Say("Boots are a wise armor choice because you never know what you will have to walk across and knowing your feet are protected is one less thing to worry about. To create your boot material you will need to combine 3 Bricks of Crude Iron Ore, 1 Lion Mane and 2 Wolf Meats in your assembly kit. Once you have created the proper material take it to a forge along with this mold to fashion your very own Truthbringers Boots.");
 		e.other:SummonItem(22612); -- An Enchanted Boots Mold
 	elseif(e.message:findi("final test")) then
-		e.self:Say("Well for quite sometime the Freeport Militia has become more and more corrupt. They have been known to do any dastardly deed you can imagine which includes harming and sometimes killing followers of Marr. There is a group of Militia Soldiers in the commonlands that have been recently harassing a good friend of mine. His name is Pardor and he is a shopkeeper in the commonlands. As if it wasn’t dangerous enough in the commonlands he know has these Militia soldiers demanding he pay them a tax that does not exist.  Will you travel to the commonlands to kill one of these militia soldiers? I fear for my friend's life.");
+		e.self:Say("Well for quite sometime the Freeport Militia has become more and more corrupt. They have been known to do any dastardly deed you can imagine which includes harming and sometimes killing followers of Marr. There is a group of Militia Soldiers in the commonlands that have been recently harassing a good friend of mine. His name is Pardor and he is a shopkeeper in the commonlands. As if it wasnï¿½t dangerous enough in the commonlands he know has these Militia soldiers demanding he pay them a tax that does not exist.  Will you travel to the commonlands to kill one of these militia soldiers? I fear for my friend's life.");
 	end
 end
 
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 9927,item2 = 9928,item3 = 9929,item4 = 9930})) then  -- Fefslans Bracer, Gnoosals Bracer, Walorinags Bracer, Eridals Bracer
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 9927,item2 = 9928,item3 = 9929,item4 = 9930})) then  -- Fefslans Bracer, Gnoosals Bracer, Walorinags Bracer, Eridals Bracer
 		e.self:Say("Excellent work!"); -- Not actual text
 		e.other:SummonItem(9936); -- Longsword of Marr
 		e.other:Ding();
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 18737})) then  -- A tattered note
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 18737})) then  -- A tattered note
 		e.self:Say("Thanks."); -- Real text still needed
 		e.other:Ding();
 		e.other:SummonItem(13554); -- Faded Purple Tunic

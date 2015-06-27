@@ -7,7 +7,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	
-	if(item_lib.check_turn_in(e.trade, {item1 = 6923})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 6923})) then
 		e.self:Say("I say we round up the Furballs AND the Dog Faces and let them kill each other off! Then we can easily finish off the survivors!");
 		e.other:QuestReward(e.self,0,0,0,0,0,1000);
 		eq.depop_with_timer();

@@ -11,7 +11,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 13881})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 13881})) then
 		e.self:Say("Good work. You have shown these rogues who are the better swimmers. Now we have proof of their involvement. You are a fine addition to the temple. Take this small reward. Go, and serve Prexus.");
 		e.other:Ding();
 		e.other:Faction(79,10,0);

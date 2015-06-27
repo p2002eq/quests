@@ -28,7 +28,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 13910})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 13910})) then
 		e.self:Say("Thank you. Now I may cleanse the bodies of the new converts and help them enter into a new life. I also have this. It was given to me by a dying gnoll of all things. They belong to Brother Hayle. The gnoll's last words were 'Free him.' Make sure High Priestess Jahnda gets this. Be swift!");
 		e.other:SummonItem(13911);
 		e.other:Ding();

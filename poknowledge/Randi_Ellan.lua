@@ -12,7 +12,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 28083})) then--Collection of Plants
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 28083})) then--Collection of Plants
 		e.self:Say("Plants and flowers are a special treasure I keep close to my heart. Did you ever stop to marvel at how beautiful these specimens are? I thank you greatly for them. Here, take this in return.");
 		e.other:QuestReward(e.self,0,0,0,0,28238);--Fine Antique Corset
 	end

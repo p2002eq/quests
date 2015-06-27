@@ -11,7 +11,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 18250})) then	--Legion Order (all signed)
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 18250})) then	--Legion Order (all signed)
 		e.self:Say("Thank you so much. I am so glad I did not have to deal with such a rowdy band of troopers as these. Please take some coin and perhaps a book from my personal library.");
 		e.other:SummonItem(eq.ChooseRandom(12460, 12461)); 		--The Code of Combat, The Book of Knowledge
 		e.other:Faction(30,30); 								--Cabilis Residents

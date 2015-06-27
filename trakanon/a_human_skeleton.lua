@@ -8,7 +8,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	-- Hand in Hampton's Bottle
-	if(item_lib.check_turn_in(e.trade, {item1 = 12962})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 12962})) then
 		e.other:QuestReward(e.self,0,0,0,0,12965); -- Bottle of swirling smoke (Hampton's soul)
 		eq.depop();
 	end

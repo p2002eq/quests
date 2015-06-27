@@ -22,14 +22,14 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	
-	if(item_lib.check_turn_in(e.trade, {item1 = 13886})) then --Goblin Supply Pouch
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 13886})) then --Goblin Supply Pouch
 		e.self:Say("Fine work. I trust the denizens of Lavastorm were not unkind. Please take this featherweight pouch as a reward. May it keep you fleet of foot.");
 		e.other:Faction(155, 2); --Indigo Brotherhood
 		e.other:Faction(92,-5); --Emerald Warriors
 		e.other:Faction(311,-5); --Steel Warriors
 		e.other:Faction(260,-5); --Primordial Malice
 		e.other:QuestReward(e.self,0,0,0,0,17972,17150); --Featherweight Pouch
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 13113, item2 = 13113, item3 = 13113, item4 = 13113})) then --Leatherfoot Raider Skullcap
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 13113, item2 = 13113, item3 = 13113, item4 = 13113})) then --Leatherfoot Raider Skullcap
 		e.self:Say("I had my doubts, but you have proven them false. You are a fine warrior. You must continue to refine you talents. I reward you with the footman's voulge! Welcome into our house of warriors. Let us share skills as we share foes.");
 		e.other:Faction(155, 2); --Indigo Brotherhood
 		e.other:Faction(92,-5); --Emerald Warriors

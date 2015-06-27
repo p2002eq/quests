@@ -11,7 +11,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 28792, item2 = 29133})) then--Beginner Stealth Manual, Rattican's Head
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 28792, item2 = 29133})) then--Beginner Stealth Manual, Rattican's Head
 		e.self:Say("Very impressive, " .. e.other:GetName() .. ". This proves you have clearly graduated to the next phase of training we have to offer. Keep this book by your side and speak to Ethoach Trokith when you are ready for your next lesson.");--Text borrowed from intermediate combat manual, instructor's name changed to match advanced magic manual.
 		e.other:QuestReward(e.self,0,0,0,0,28793);--Intermediate Stealth Manual
 	end

@@ -14,7 +14,7 @@ function event_trade(e)
 	local item_lib = require("items");
 
 	if(e.other:GetFaction(e.self) < 5) then
-		if(item_lib.check_turn_in(e.trade, {item1 = 12313})) then
+		if(item_lib.check_turn_in(e.self, e.trade, {item1 = 12313})) then
 			e.self:Say("You have done well.  These giants shall soon be purged from the Commonlands and the inns will be filled once again.  Here is the mold for the Ro Greaves.  For the final component, go and ask Thomas of [Lord Searfire].");
 			e.other:QuestReward(e.self,0,0,0,0,12303); --Mold of Ro Greaves
 		end

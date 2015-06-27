@@ -19,7 +19,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 18781})) then -- Tattered Note
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 18781})) then -- Tattered Note
 		e.self:Say("Greetings. young paladin!  I am Master Tynkale of the Clerics of Tunare.  Here. we shall teach and train you in the skills needed to defeat our evil and diseased enemies.  Take this, our guild tunic - it will help protect you. Wear it with pride, for you are now one of us.");
 		e.other:SummonItem(13591); -- Used Gold Training Tunic*
 		e.other:Ding();
@@ -28,7 +28,7 @@ function event_trade(e)
 		e.other:Faction(8,75,0);   --Anti-mage
 		e.other:AddEXP(100); 
 	elseif(e.other:GetFaction(e.self) < 5) then
-		if(item_lib.check_turn_in(e.trade, {item1 = 13351})) then
+		if(item_lib.check_turn_in(e.self, e.trade, {item1 = 13351})) then
 			e.self:Say("So you have proven yourself to be a great slayer of beasts.Now it is time to prove yourself to be an asset to the Crown. You are to meet a man named Tolon Nurbyte.He will be at the local inn. Go to him and repeat the phrase, 'The glory of the Mother shines bright.' I can say no more. Oh.. and here. This may help you on your upcoming adventure.");
 			e.other:Ding();
 			e.other:Faction(43,10,0);  --Clerics of Tunare

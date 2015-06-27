@@ -12,7 +12,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 18724})) then -- Tattered Note
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 18724})) then -- Tattered Note
 		e.self:Say("Yes. welcome friend! Here is your guild tunic. You'll make a fine addition to the Deepwater Knights. Go see Dleria, she will get you started in your studies.");
 		e.other:SummonItem(13544); -- Old Blue Tunic*
 		e.other:Ding();
@@ -20,7 +20,7 @@ function event_trade(e)
 		e.other:Faction(145,15,0); -- High Council of Erudin
 		e.other:Faction(143,-15,0); -- Heretics
 		e.other:AddEXP(100);
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 1771})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 1771})) then
 		e.self:Say("Excellent! Thank you for checking on my brother, I am glad to hear that he is well.  Here is something that shall help you on your way.");
 		e.other:SummonItem(1763);
 		e.other:Ding();

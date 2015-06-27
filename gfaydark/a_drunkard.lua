@@ -13,11 +13,11 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	
-	if(item_lib.check_turn_in(e.trade, {item1 = 13035})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 13035})) then
 		e.self:Say("Thank you kind sir <hic>, I am most grateful for your generosity.");
 		e.other:Ding();
 		e.other:AddEXP(150);
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 13347,item2 = 13349,item3 = 13348,item4 = 13350})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 13347,item2 = 13349,item3 = 13348,item4 = 13350})) then
 		e.self:Say("This is a sad day, but it was the just thing to do. The Nybright name will no longer be tarnished. Here you are my friend. This is a bit uncared for, but it is yours. My warrior days are over. Now go. I must be alone.");
 		e.other:SummonItem(eq.ChooseRandom(2314, 2007, 2005, 23359));
 		e.other:Ding();

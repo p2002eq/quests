@@ -30,7 +30,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 13118})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 13118})) then
 		e.self:Say("Oh thank the maker you have returned. Here is a little something in return");
 		e.other:Ding();
 		e.other:Faction(60,20,0);
@@ -39,16 +39,16 @@ function event_trade(e)
 		e.other:Faction(147,20,0);
 		e.other:AddEXP(200);
 		e.other:GiveCash(5,0,0,0);
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 13994})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 13994})) then
 		e.self:Say("Lucky you. We were hoping to really clean you out. Here you go. Take the page. Even together, the book is nothing more than fiction.");
 		e.other:Ding();
 		e.other:SummonItem(13836);
-	elseif(item_lib.check_turn_in(e.trade, {gold = 4})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {gold = 4})) then
 		local random_card = eq.ChooseRandom(13994,13993,13992,13995);
 		e.other:Ding();
 		e.self:Say("Well, what do you have?!!");
 		e.other:SummonItem(random_card);
-	elseif(item_lib.check_turn_in(e.trade, {gold = 2})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {gold = 2})) then
 		e.self:Say("HA!! I hope you enjoy the book. It is missing pages 30 and 34. It is nothing more than garbage without them. A rogue ripped them from their bindings and sold them to [Ran].");
 		e.other:Ding();
 		e.other:SummonItem(17918);

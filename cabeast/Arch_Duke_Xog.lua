@@ -18,7 +18,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 18205})) then 				--Guild Summon  Test of the Newbie (Greenmist Quest 0/8)
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 18205})) then 				--Guild Summon  Test of the Newbie (Greenmist Quest 0/8)
 		e.self:Say("Welcome into our brotherhood. Know you that our way is the way of pain. Do as we say and you shall climb the rungs of knighthood. Listen well to the Lords of Pain within this temple and follow the words of the hierophants, for Cazic-Thule speaks to us through them. Take this khukri. It is the chosen weapon of the Crusaders and can deliver great pain unto our foes. Go now and learn our ways. Seek out Lord Gikzic.");
 		e.other:SummonItem(5120);	--Pawn's Khukri
 		e.other:Faction(62,100); 	--Crusader of Greenmist
@@ -26,7 +26,7 @@ function event_trade(e)
 		e.other:AddEXP(100);
 		e.other:Ding();
 	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 18051, item2 = 5126})) then --Test of the Lord (Greenmist Quest 7/8)
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 18051, item2 = 5126})) then --Test of the Lord (Greenmist Quest 7/8)
 		e.self:Say("A legible tome of the scrolls of Vok Na Zov! What a find this is!! May the unholy curses of Cazic flow through you. Please accept the weapon of a Lord of Pain. To abandon it is to abandon our ways and earn yourself the hatred of our order.");
 		e.other:SummonItem(5128);
 		e.other:AddEXP(4000);
@@ -35,19 +35,19 @@ function event_trade(e)
 		e.other:GiveCash(0,0,0,4);
 		e.other:Ding();
 	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 14791})) then 				--Trooper Scale Bracers quest
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 14791})) then 				--Trooper Scale Bracers quest
 		e.self:Emote(" takes the note and glances at it briefly then lets out a heavy sigh and stares out over the city for several minutes. Finally he says quietly, 'Several months ago we lost contact with one of our crusaders. His name is, or was, Geanik. The last we heard from him he was furthering our cause against the loathsome Goblins that reside in Warsliks Wood. Just recently we were visited by a [strange Iksar].'");
 	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 14807, item2 = 10034, item3 = 10034})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 14807, item2 = 10034, item3 = 10034})) then
 		e.self:Say("Thanks for resolving this issue. Here is your reward");
 		e.other:SummonItem(14808);
 		e.other:AddEXP(10000);
 		e.other:Ding();
 	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 14792})) then --Trooper Scale Gauntlets quest
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 14792})) then --Trooper Scale Gauntlets quest
 		e.self:Emote(" takes the note without even a glance in your direction and begins reading. After a long silence, he lets his arms drop to his sides and says quietly, 'We kill, " .. e.other:GetName() .. ". That is our job, our duty in life. Our targets are chosen for us. We merely listen. Right now I am being told there is a traitor not far from here, near the ocean. Go to him and end his life. Bring me his head, and two star rubies. As you do this, try hard to listen to our Lord's instruction. If you hear even a whisper, you will know more righteousness than most of this city.'");
 	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 14806, item2 = 10032, item3 = 10032})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 14806, item2 = 10032, item3 = 10032})) then
 		e.self:Say("Well done, " .. e.other:GetName() .. ".");
 		e.other:SummonItem(14809);
 		e.other:AddEXP(10000);

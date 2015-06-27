@@ -13,7 +13,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 6957, item2 = 6943, item3 = 6959, item4 = 6948})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 6957, item2 = 6943, item3 = 6959, item4 = 6948})) then
 		e.self:Say("Excellent!! These shall provide valuable information to my research on the spirit realm.");
 		e.other:QuestReward(e.self,0,0,0,0,2568,250);
 	end

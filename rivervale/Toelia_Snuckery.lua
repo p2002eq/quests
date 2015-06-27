@@ -15,7 +15,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 13785})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 13785})) then
 		e.self:Say("What is this?  The pouch is empty!  Where is the Ruby?!  What do you mean you don't have it?  Oh no.  I bet [Chomper] swallowed it!  Get it back and bring it to me.");
 		e.other:Ding();
 		e.other:Faction(77,5,0);
@@ -25,7 +25,7 @@ function event_trade(e)
 		e.other:Faction(31,5,0);
 		e.other:AddEXP(500);
 		e.other:GiveCash(2,0,0,0);
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 13786})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 13786})) then
 		e.self:Say("You found it!  Heh.  Good thing you brought it back bub.  This thing isn't priceless, its worthless but at least you proved you are loyal.  Poor ol' Chomper..");
 		e.other:Ding();
 		e.other:Faction(77,10,0);

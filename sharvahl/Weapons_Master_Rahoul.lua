@@ -16,12 +16,12 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 9050})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 9050})) then
 		e.self:Say("You are just the time. The weapon that Elder Dumul requested has almost been completed. We need you to gather a few items in order to complete the weapon. These items will not require much effort to acquire, but I will need to tell you where to look. Place all of the items that I request in this box and return it to me as quickly as possible.");
 		e.self:Say("Now, seek out a large chunk of perfect acrylia [ore], two Gems of the [Void], and chunk of dense fungal [padding]. Once I have those items, I can finish the weapon that you will need to use to kill the dark animist.");
 		e.other:QuestReward(e.self,0,0,0,0,17363);
 	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 9051})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 9051})) then
 		e.self:Say("These claws should work well for you. The design was research by Historian Qua. They should work to neutralize the magical field that protects the dark animist and allow you to tear his scaly flesh from his frame. Remember that all of this is theoretical. Those claws are an original creation. You will be the first to prove their effectiveness in combat.");
 		e.self:Say("Take the claws back to Animist Dumul and show him their design. Use them well, " .. e.other:GetName() .. ". May the spirits guide you in your attack. ");
 		e.other:SummonItem(9056);

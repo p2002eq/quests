@@ -20,7 +20,7 @@ function event_trade(e)
 
 	local item_lib = require("items");
 	
-	if(item_lib.check_turn_in(e.trade, {item1 = 13717})) then -- rat head
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 13717})) then -- rat head
 		e.self:Say("HA! Good work! I knew you were the person for the job. A regular ratslayer you are. Here is your reward as promised. be sure you keep this between us.");
 		e.other:Ding();
 		e.other:Faction(217,5,0);

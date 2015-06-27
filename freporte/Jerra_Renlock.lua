@@ -28,7 +28,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 19844})) then -- Note to Jerra Renlock
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 19844})) then -- Note to Jerra Renlock
 		e.self:Say("'Ah, so Zhem wants me to assist you with some armor. You will surely need it if you are an associate of the likes of him. This Mail Assembly Kit will be needed for you to construct your armor. The materials required depend on the armor section you plan to construct. Do you plan to construct a [dismal priest helm], a [dismal priest bracer], [dismal priest gauntlets], [dismal priest boots], [dismal priest vambraces], [dismal priest greaves], or a [dismal priest breastplate].");
 		e.other:SummonItem(17124); -- Mail Assembly Kit
 		e.other:Ding();

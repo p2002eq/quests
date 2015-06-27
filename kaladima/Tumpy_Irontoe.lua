@@ -8,7 +8,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 13340, item2 = 13006})) then --Kiola Nut, Water Flask
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 13340, item2 = 13006})) then --Kiola Nut, Water Flask
 		e.self:Say("Here you go. One Tumpy Tonic. Don't drink that too fast now.");
 		e.other:SummonItem(12114); --Tumpy Tonic
 		e.other:AddEXP(1000);

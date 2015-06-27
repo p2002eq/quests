@@ -13,7 +13,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 18272, item2 = 24770})) then	--The Penance quest
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 18272, item2 = 24770})) then	--The Penance quest
 		e.self:Emote("takes the bag and tome from you and in return gives you the item that you have been thinking of all of this time.");
 		e.self:Say("Lucky you. You have earned a second chance. Praise Cazic-Thule!");
 		e.other:SummonItem(12407);

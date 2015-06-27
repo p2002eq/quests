@@ -9,7 +9,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	
-	if(item_lib.check_turn_in(e.trade, {item1 = 10020})) then --Jasper
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 10020})) then --Jasper
 		e.self:Say("Jasper! My one and only love! All right.. That Tayla creature was lost in a game of King's Court with a very important and secret merchant. Belyea will not speak of him but that he was some sort of Baron. He did give me this trinket from his new friend and owner of the half-elf scamp. You keep it. It is worth nothing compared to sweet, beautiful Jasper.");
 		e.other:QuestReward(e.self,0,0,0,0,1096); --Klok's Seal
 	end

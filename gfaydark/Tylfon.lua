@@ -15,23 +15,23 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	
-	if(item_lib.check_turn_in(e.trade, {item1 = 18784})) then -- Tattered Note
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 18784})) then -- Tattered Note
  		e.self:Say("Hmm.. I hope you can prove yourself a lot more valuable than you look. Here, throw this on.. it'll help protect you a little. Let's get started on improving your skills.");
 		e.other:Faction(283,100); -- Tunare's Scouts
 		e.other:QuestReward(e.self,0,0,0,0,13535,100); -- Old Worn Gray Tunic*
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 7007,item2 = 7007,gold = 2})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 7007,item2 = 7007,gold = 2})) then
  		e.self:Say("Well, well. I didn't think you could do it. Here's your cut and don't be surprised that it's not much because it's your first lesson. Remember. the smaller the operation. the bigger the share, and the richest rogues have the tightest lips.");
 		e.other:Faction(283,5);
 		e.other:QuestReward(e.self,0,math.random(5),0,0,7021,500);
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 13346,item2 = 13346,gold = 2})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 13346,item2 = 13346,gold = 2})) then
  		e.self:Say("Well, well. I didn't think you could do it. Here's your cut and don't be surprised that it's not much because it's your first lesson. Remember. the smaller the operation. the bigger the share, and the richest rogues have the tightest lips.");
 		e.other:Faction(283,5);
 		e.other:QuestReward(e.self,0,math.random(5),0,0,7021,500);
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 7007,item2 = 13346,gold = 2})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 7007,item2 = 13346,gold = 2})) then
  		e.self:Say("Well, well. I didn't think you could do it. Here's your cut and don't be surprised that it's not much because it's your first lesson. Remember. the smaller the operation. the bigger the share, and the richest rogues have the tightest lips.");
 		e.other:Faction(283,5);
 		e.other:QuestReward(e.self,0,math.random(5),0,0,7021,500);
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 13322})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 13322})) then
  		e.self:Say("Excellent job, " .. e.other:GetName() .. ", we will turn you into a rogue of Tunare yet.  Here this is for your trouble.");
 		e.other:QuestReward(e.self,0,0,0,0,3315,100);
 	end

@@ -13,7 +13,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 12492, item2 = 12493, item3 = 12494, item4 = 6026})) then --Test of the Zealot (Greenmist Quest 4/8)
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 12492, item2 = 12493, item3 = 12494, item4 = 6026})) then --Test of the Zealot (Greenmist Quest 4/8)
 		e.self:Emote("accidently swallows a mouthful of flarefire seeds. 'ACCCKK!!  I can't believe you did it!! Here is the Chalp diagram.'");
 		e.other:Faction(62,20);
 		e.other:Faction(193,10);

@@ -48,15 +48,15 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 30861, item2 = 30861, item3 = 30861, item4 = 30861})) then --Saurek Hopper Scales
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 30861, item2 = 30861, item3 = 30861, item4 = 30861})) then --Saurek Hopper Scales
 		e.self:Say("Excellent work, " .. e.other:GetName() .. ". Please take this as a reward."); --generic text
 		e.other:Faction(132,10); --Guardians of Shar Vahl
 		e.other:QuestReward(e.self,0,0,0,0,30870,2500); --Hunting Leather Boots
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 30862, item2 = 30862, item3 = 30862, item4 = 30862})) then --Saurek Darkclaw Scales
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 30862, item2 = 30862, item3 = 30862, item4 = 30862})) then --Saurek Darkclaw Scales
 		e.self:Say("Excellent work, " .. e.other:GetName() .. ". Please take this as a reward."); --generic text
 		e.other:Faction(132,10); --Guardians of Shar Vahl
 		e.other:QuestReward(e.self,0,0,0,0,30867,2500); --Hunting Leather Bracer
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 30863, item2 = 30863, item3 = 30863, item4 = 30863})) then --Saurek Shredder Scales
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 30863, item2 = 30863, item3 = 30863, item4 = 30863})) then --Saurek Shredder Scales
 		e.self:Say("Excellent work, " .. e.other:GetName() .. ". Please take this as a reward."); --generic text
 		e.other:Faction(132,10); --Guardians of Shar Vahl
 		e.other:QuestReward(e.self,0,0,0,0,30866,2500); --Hunting Leather Sleeves

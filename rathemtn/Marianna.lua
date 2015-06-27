@@ -13,7 +13,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 12310, item2 = 12310}) and e.other:GetFaction(e.self) < 5) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 12310, item2 = 12310}) and e.other:GetFaction(e.self) < 5) then
 		e.self:Say("You now own a mold for the Vambracers of Ro.  Go and ask Thomas of [Lord Searfire] for the final component.");
 		e.other:Faction(183,1); --Knights of Thunder
 		e.other:Faction(21,-1); -- Bloodsabers

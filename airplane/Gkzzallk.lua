@@ -10,7 +10,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 18087})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 18087})) then
 		e.self:Emote("screams as he touches the book. His body shimmers as he shrinks smaller and smaller until it's no larger than an insect. The book shimmers, shifting into the shape of a small, black box. Gkzzallk holds on to the opening of the box as he is sucked backward into it. The tiny screams are finally silenced as the box top closes.");
 		e.other:SummonItem(20652);
 		eq.depop();

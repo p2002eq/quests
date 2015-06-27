@@ -8,7 +8,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 30601})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 30601})) then
 		e.self:Say("Excellent! You have done well.  I can sense that you are in tune with the spirits around you. Take this, for you will need it in your next task. When you are [ready] for your next lesson let me know.");
 		e.other:QuestReward(e.self,0,0,0,0,15093);
 	end

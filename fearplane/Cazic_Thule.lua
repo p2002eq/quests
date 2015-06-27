@@ -20,7 +20,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 8226, item2 = 18898, item3 = 18899})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 8226, item2 = 18898, item3 = 18899})) then
 		e.self:Emote("seems pleased with the amount of pain that you have been able to inflict. Cazic Thule then grabs your hands and begins to infuse them with his power. Your hands burn like they were placed in lava for a moment, then feel cool as ice. You can feel the sheer power flowing through your new weapons of pain.");
 		e.other:SummonItem(7836);
 		e.other:AddEXP(100000);

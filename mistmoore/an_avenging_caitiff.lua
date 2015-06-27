@@ -13,7 +13,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	
-	if(item_lib.check_turn_in(e.trade, {item1 = 10179,item2 = 10178})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 10179,item2 = 10178})) then
 		e.other:SummonItem(5408);
 		e.other:Ding();
 		e.self:Say("Mother? Father? May you find peace at last. I shall avenge your suffering! I will grow stronger and set free the souls of the others.");

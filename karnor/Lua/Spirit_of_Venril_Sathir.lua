@@ -10,7 +10,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 15392})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 15392})) then
 		e.self:Say("I am alive! My thanks to you, " .. e.other:GetName() .. ". And now I will aid you in your quest for preserving the forests of norrath. Your carcass will help nurture the soils of the wilderness.");
 		h = e.self:GetHeading();
 		entid1 = eq.spawn2(102126,0,0,e.self:GetX(),e.self:GetY(),e.self:GetZ(),e.self:GetHeading());

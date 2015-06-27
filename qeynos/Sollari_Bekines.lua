@@ -35,7 +35,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 27423, item2 = 27423, item3 = 27424,item4 = 27424})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 27423, item2 = 27423, item3 = 27424,item4 = 27424})) then
 		e.self:Say("Great work, " .. e.other:GetName() .. ".  You have rid the world of more gnolls and brought me the components I require.  Take this blade and use it well!");
 		e.other:SummonItem(27493);
 		e.other:Faction(192,1,0);

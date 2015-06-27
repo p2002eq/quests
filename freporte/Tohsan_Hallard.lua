@@ -9,7 +9,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 13885,item2 = 13885,item3 = 13885,item4 = 13885})) then -- Orc Pawn Pick
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 13885,item2 = 13885,item3 = 13885,item4 = 13885})) then -- Orc Pawn Pick
 		e.self:Say("As I promised, some silver and of course, the Highpass lottery ticket. Oh yes, I forgot to mention the ticket was for last season's lottery. Ha Ha!! You now own a losing Highpass lottery ticket, lucky you! Ha!!");
 		e.other:SummonItem(eq.ChooseRandom(12264, 12265, 12261, 12262, 12263,12266));
 		e.other:Ding();

@@ -11,7 +11,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 18735})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 18735})) then
 		e.self:Say("Welcome to the Priests of Marr. Here, you will be taught how powerful passion truly is. The passion of Erollisi Marr, the Queen of Love, shall flow through you and into all those you meet. Wear this tunic in the name of Love.");
 		e.other:SummonItem(13556);
 		e.other:Ding();

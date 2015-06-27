@@ -36,16 +36,16 @@ function event_trade(e)
 	local fac = e.other:GetFaction(e.self);
 
 	if(fac < 5) then
-		if(item_lib.check_turn_in(e.trade, {item1 = 18814})) then -- A Sealed Letter ID-18814 filename "NERtoShintl"
+		if(item_lib.check_turn_in(e.self, e.trade, {item1 = 18814})) then -- A Sealed Letter ID-18814 filename "NERtoShintl"
 			e.self:Say("Oh my! Opal? She is providing these agents of Neriak with information regarding the Acedemy's secrets. I can not tell Cain about this. He will be furious. Show this to Toala. She will know what to do.");
 			e.other:SummonItem(18814); -- A Sealed Letter ID-18814 filename "NERtoShintl"
 		end
 	elseif(fac == 5) then
-		if(item_lib.check_turn_in(e.trade, {item1 = 18814})) then-- A Sealed Letter ID-18814 filename "NERtoShintl"  Item will be lost if not amiable or better
+		if(item_lib.check_turn_in(e.self, e.trade, {item1 = 18814})) then-- A Sealed Letter ID-18814 filename "NERtoShintl"  Item will be lost if not amiable or better
 			e.self:Say("The Steel Warriors have no cause to dislike you, but you have yet to prove your worth to this guild.");
 		end
 	elseif(fac > 5) then
-		if(item_lib.check_turn_in(e.trade, {item1 = 18814})) then-- A Sealed Letter ID-18814 filename "NERtoShintl"  Item will be lost if not amiable or better
+		if(item_lib.check_turn_in(e.self, e.trade, {item1 = 18814})) then-- A Sealed Letter ID-18814 filename "NERtoShintl"  Item will be lost if not amiable or better
 			e.self:Say("Your head shall look grand mounted on the wall of the Steel Warriors Arena!!");
 		end
 	end

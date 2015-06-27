@@ -16,7 +16,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 18805}) and e.other:GetFaction(e.self) < 5) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 18805}) and e.other:GetFaction(e.self) < 5) then
 		e.self:Say("Good work! You shall rise quickly in our ranks of evil. Let no man stand in your way and never betray the shrine or you to will join our collection of undead. You can also assist me with a [new task].");
 		e.other:SummonItem(17002);
 		e.other:Ding();

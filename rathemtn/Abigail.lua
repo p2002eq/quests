@@ -14,13 +14,13 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 12309, item2 = 12309}) and e.other:GetFaction(e.self) < 5) then -- A Dark Cauldron
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 12309, item2 = 12309}) and e.other:GetFaction(e.self) < 5) then -- A Dark Cauldron
 		e.self:Say("You have earned the mold.  You will now need go and speak with Thomas about [Lord Searfire].");
 		e.other:Faction(43,1);  -- Clerics of Tunare
 		e.other:Faction(178,1); -- King Tearis Thex
 		e.other:Faction(8,1); -- Anti-Mage
 		e.other:QuestReward(e.self,0,0,0,0,12299); -- Mold of Ro Breastplate
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 12309}) and e.other:GetFaction(e.self) < 5) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 12309}) and e.other:GetFaction(e.self) < 5) then
 		e.self:Say("I instructed you to return with no less than two dark pots.");
 	end
 	item_lib.return_items(e.self, e.other, e.trade)

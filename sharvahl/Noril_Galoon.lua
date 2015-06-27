@@ -6,19 +6,19 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 5545})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 5545})) then
 		e.self:Emote("examines the hilt for a moment and hands the sword back to you.");
 		e.self:Say("This looks like it will work fine.' He says. 'If you are up to doing me a favor, I can teach you how to modify your shield as well. Take this bag and these files and come back to me when you have some [spare time] and want to learn more about shields.");
 		e.other:SummonItem(5545);
 		e.other:SummonItem(5546);
 		e.other:QuestReward(e.self,0,0,0,0,17605);
 	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 5556, item2 = 3452})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 5556, item2 = 3452})) then
 		e.self:Say("Thanks for the Bag of Bolts " .. e.other:GetName() .. ".");
 		e.self:Say("Thank you for making those for me. I was almost out. I'll modify your buckler immediately after I finish what I am doing here. Meanwhile, take this shopping list to Friaz. Do what you can to assist her. I need the bag of beetle horns she will give you if I am to work on your shield today.");
 		e.other:QuestReward(e.self,0,0,0,0,18321);
 	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 5549, item2 = 3452})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 5549, item2 = 3452})) then
 		e.self:Say("Great work " .. e.other:GetName() .. ".  Thanks for the tools to finish your upgrade.  Here is your new shield.  Take your buckler, cloak and sword back to Armsman Khaigesh and show him the progress you have made.");
 		e.other:Faction( 132,10 );
 		e.other:QuestReward(e.self,0,0,0,0,5550,2000);

@@ -13,7 +13,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 28740})) then --Troll Receipt
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 28740})) then --Troll Receipt
 		if(e.other:Race() == "Ogre") then
 			e.self:Say("Dank yoo " .. e.other:GetName() .. ". Take diz.");--Text made up, I have no reference.
 			e.other:QuestReward(e.self,0,0,0,0,2418); --Hoop of the Traveler

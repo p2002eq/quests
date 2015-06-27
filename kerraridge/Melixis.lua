@@ -15,13 +15,13 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	
-	if(item_lib.check_turn_in(e.trade, {item1 = 14042})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 14042})) then
 		e.self:Say("Thank you for this item, here is the dull ring");
 		e.other:QuestReward(e.self,0,0,0,0,13733);
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 14043})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 14043})) then
 		e.self:Say("You have gotten the spores that I asked for, very well, here is the ring as agreed");
 		e.other:QuestReward(e.self,0,0,0,0,13731);
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 14044})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 14044})) then
 		e.self:Say("Excellent, I will gladly give you the ring for this weed that you have brought me");
 		e.other:QuestReward(e.self,0,0,0,0,13732);
 	end

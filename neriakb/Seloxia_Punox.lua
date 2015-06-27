@@ -14,14 +14,14 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	
-	if(item_lib.check_turn_in(e.trade, {item1 = 18751})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 18751})) then
 		e.self:Say("I shall reserve any official welcoming until you have proven yourself a suitable member for the Indigo Brotherhood. That proof shall be obtained by your progression in your training. See Yegek B'Larin, one of my most trusted trainers in the Brotherhood and obey his command carefully if you wish to succeed as a member of the Brotherhood.");
 		e.other:Faction(155,100); --Indigo Brotherhood
 		e.other:Faction(92,-15); --Emerald Warriors
 		e.other:Faction(311,-5); --Steel Warriors
 		e.other:Faction(260,-200); --Primordial Malice
 		e.other:QuestReward(e.self,0,0,0,0,13580,100); --Old Training Tunic*
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 18843})) then   -- Sealed Letter (Letter To Seloxia)
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 18843})) then   -- Sealed Letter (Letter To Seloxia)
 		e.self:Say("Very fine work my young warrior. You may soon be ready to become a Teir'Dal courier. For now we shall reward you. This will assist you in further service to the Indigo Brotherhood and King Naythox Thex.");
 		e.other:Faction(155, 10); --Indigo Brotherhood
 		e.other:Faction(92,-5); --Emerald Warriors

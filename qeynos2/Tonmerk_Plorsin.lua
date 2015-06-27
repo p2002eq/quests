@@ -20,7 +20,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 12125})) then -- Shark Powder
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 12125})) then -- Shark Powder
 		e.self:Say("I thank you, my good friend. Surely the road to Freeport was not easily trod. Please take this as compensation for your costs and I also grant you the ability to call forth the power of Rodcet Nife to smite the enemy. Go forth to defend life.");
 		e.other:SummonItem(15016); -- spell: smite
 		e.other:Ding();
@@ -31,13 +31,13 @@ function event_trade(e)
 		e.other:Faction(9,10,0); -- Antonius Bayle
 		e.other:AddEXP(0);
 		e.other:GiveCash(0,0,25,0);
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 16581,item2 = 13009})) then -- Bog Juice, Bandages
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 16581,item2 = 13009})) then -- Bog Juice, Bandages
 		e.self:Say("The glory of Rodcet Nife flows through your soul. May your body and soul live in righteous health.");
 		e.self:CastSpell(96,e.other:GetID());
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 13067})) then -- Snake fang
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 13067})) then -- Snake fang
 		e.self:Say("The glory of Rodcet Nife flows through your soul. May your body and soul live in righteous health.");
 		e.self:CastSpell(95,e.other:GetID());
-	elseif(item_lib.check_turn_in(e.trade, {gold = 5})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {gold = 5})) then
 		e.self:Say("The glory of Rodcet Nife flows through your soul. May your body and soul live in righteous health.");
 		e.self:CastSpell(17,e.other:GetID());
 	end

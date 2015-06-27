@@ -38,7 +38,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 
-	if((e.other:GetFaction(e.self) < 5) and (item_lib.check_turn_in(e.trade, {item1 = 12206}))) then -- Kilij Plans
+	if((e.other:GetFaction(e.self) < 5) and (item_lib.check_turn_in(e.self, e.trade, {item1 = 12206}))) then -- Kilij Plans
 		e.self:Say("Ahh!!  The kilij!!  The legend was true.  As for you..  the mold for the Boots of Ro.  Go and speak with Thomas for the final component.  Ask him of [Lord Searfire].  Brell be with you.");
 		e.other:Faction(44,2); -- Clerics of Underfoot
 		e.other:Faction(169,2); --Kazon Stormhammer

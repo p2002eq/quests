@@ -19,7 +19,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	
-	if(item_lib.check_turn_in(e.trade, {item1 = 12341, item2 = 12342, item3 = 12343})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 12341, item2 = 12342, item3 = 12343})) then
 		e.self:Say("Good work.  I hope you had no run ins with the local rangers.  Here is my reward.  An object from the past which I found in my journeys.  Wish that I could reward you also with [treant fists].");
 		e.other:Faction(12,5); -- Ashen Order Faction ID-12
 		e.other:Faction(184,5); -- Knights of Truth Faction ID-184

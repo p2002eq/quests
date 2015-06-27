@@ -13,7 +13,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 12204})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 12204})) then
 		e.self:Say("Baby Joseph!! Look, Momma!! Baby Joseph has been rescued by this good adventurer!! That evil Lord Elgnub made good on his word and snatched my son from under our noses. You saved the day!! For this you shall wield 'Gnoll Slayer'!! Be aware of its [true potential].");
 		e.other:SummonItem(5416);
 		e.other:Ding();
@@ -23,7 +23,7 @@ function event_trade(e)
 		e.other:Faction(47,10,0);
 		e.other:Faction(135,10,0);
 		e.other:AddEXP(500);
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 8357,item2 = 8356,item3 = 5416})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 8357,item2 = 8356,item3 = 5416})) then
 		e.self:Say("'The eye and the journal! What a great day! The Gnoll Slayer shall be returned to full strength because of you. Your service to Qeynos will not soon be forgotten.");
 		e.other:SummonItem(5417);
 		e.other:Ding();

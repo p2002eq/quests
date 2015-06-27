@@ -18,7 +18,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	--Accepts combined curscale pack.
-	if(item_lib.check_turn_in(e.trade, {item1 = 12655})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 12655})) then
 		e.self:Say("You are a good servant and a fine citizen. I have this piece of curscale armor available, but if it is not enough then perhaps I shall have another piece available if you were to [perform the small service] again.");
 		e.other:SummonItem(eq.ChooseRandom(4270,4271,4272,4273,4274,4275,4276,4277,4279,4280,4281));
 		e.other:Faction(30,10);
@@ -27,7 +27,7 @@ function event_trade(e)
 		e.other:GiveCash(math.random(9),math.random(5),math.random(3),0);
 		e.other:Ding();
 	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 12685})) then 	--Full Pouch of Leech Husks
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 12685})) then 	--Full Pouch of Leech Husks
 		e.self:Say("Now you need to get three Piles of Granite Pebbles and then you can tailor a Monk Training Bag for your caste.");
 		e.other:SummonItem(12687); 								--Training Bag Husk
 	end

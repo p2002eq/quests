@@ -26,7 +26,7 @@ function event_trade(e)
 	local item_lib = require("items");
 
 	--  Greater Lightstone ID-10400 - Cutthroat Insignia Ring ID-1903 - Legionnaire's Bracer ID-2299 - Yellow Sash of Order ID-10131
-	if(item_lib.check_turn_in(e.trade, {item1 = 10400,item2 = 1903,item3 = 2299,item4 = 10131})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 10400,item2 = 1903,item3 = 2299,item4 = 10131})) then
 		e.other:Ding();
 		e.self:Say("You have proven yourself a mighty warrior. I am honored to present you, "..e.other:GetName()..", with the orange Sash of Order.");
 		e.other:SummonItem(10132); -- Orange Sash of Order
@@ -35,7 +35,7 @@ function event_trade(e)
 		e.other:Faction(300,3,0); -- Silent Fist Clan
 		e.other:AddEXP(300);
 	--  Blackened Wand ID-13237 - Blackened Sapphire ID-13238 - Orange Sash of Order ID-10132
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 13237,item2 = 13238,item3 = 10132})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 13237,item2 = 13238,item3 = 10132})) then
 		e.other:Ding();
 		e.self:Say("Great job, "..e.other:GetName().." ! Congratulations. With the destruction of these evil items, the wand of the Burning Dead will never bring harm to anyone on Norrath again. It is my honor to present to you, on behalf of Master Closk and the Ashen Order, the red sash. May Quellious be with you always.");
 		e.other:SummonItem(10133); -- Red Sash of Order

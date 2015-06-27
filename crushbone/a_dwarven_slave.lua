@@ -12,9 +12,9 @@ function event_trade(e)
 	local item_lib = require("items");
 
 	if(e.self:GetRace() == 8 and e.self:GetGender() == 0) then -- male dwarven slave
-		if(item_lib.check_turn_in(e.trade, {copper = 1})) then
+		if(item_lib.check_turn_in(e.self, e.trade, {copper = 1})) then
 			e.self:Say("No, no!! I do not need this!! Get me key number 16!!");
-		elseif(item_lib.check_turn_in(e.trade, {item1 = 20016})) then
+		elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 20016})) then
 			e.self:Say("Good work!! I shall be on my way. Farewell my friend!!");
 			e.other:Ding();
 			e.other:Faction(169,1,0);
@@ -24,7 +24,7 @@ function event_trade(e)
 			e.other:AddEXP(1000);
 			e.other:GiveCash(0,7,3,0);
 			eq.depop_with_timer();
-		elseif(item_lib.check_turn_in(e.trade, {item1 = 10351})) then
+		elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 10351})) then
 			e.self:Say("You killed the taskmaster?!  Absolutely amazing! The orcs will be fighting among themselves for power now and I can disappear in the commotion. Thanks, friend! Take this for your deeds!");
 			e.other:Ding();
 			e.other:SummonItem(18905);
@@ -32,9 +32,9 @@ function event_trade(e)
 			eq.depop_with_timer();		
 		end
 	elseif(e.self:GetRace() == 8 and e.self:GetGender() == 1) then -- female dwarven slave
-		if(item_lib.check_turn_in(e.trade, {copper = 1})) then
+		if(item_lib.check_turn_in(e.self, e.trade, {copper = 1})) then
 			e.self:Say("What is this!!? Get me key number 17!!");
-		elseif(item_lib.check_turn_in(e.trade, {item1 = 20017})) then
+		elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 20017})) then
 			e.self:Say("Good work!! I shall be on my way. Farewell my friend!!");
 			e.other:Ding();
 			e.other:Faction(170,1,0);
@@ -42,7 +42,7 @@ function event_trade(e)
 			e.other:AddEXP(1000);
 			e.other:GiveCash(0,7,3,0);
 			eq.depop_with_timer();
-		elseif(item_lib.check_turn_in(e.trade, {item1 = 10351})) then
+		elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 10351})) then
 			e.self:Say("You killed the taskmaster?!  Absolutely amazing! The orcs will be fighting among themselves for power now and I can disappear in the commotion. Thanks, friend! Take this for your deeds!");
 			e.other:Ding();
 			e.other:SummonItem(18906);

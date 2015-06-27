@@ -7,7 +7,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 12128})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 12128})) then
 		e.self:Say("Ahhh!! That has given me back lost energy. Thank you. Please take this to the next sentry.");
 		e.other:SummonItem(12129);
 		e.other:Ding();

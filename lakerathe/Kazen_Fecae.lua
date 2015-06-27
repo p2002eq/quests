@@ -27,23 +27,23 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 20641})) then --Head of Sir Edwin Motte
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 20641})) then --Head of Sir Edwin Motte
 		e.self:Say("'Excellent!' You watch Kazen hold the head by the hair and begin to cast a spell. A flash of darkness centers around the head, and the eyes of the dead knight open, a terrible scream emanating from its lips. 'This poor fool here - I think I will keep him in my bag from now on. You have done well, my new apprentice. Take this symbol and know that you can do other tasks to advance within my apprentice ranks.'");
 		e.other:AddEXP(5000);
 		e.other:SummonItem(20642); --Symbol of the Apprentice
 		e.other:Ding();
 	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 20647})) then --Symbol of Testing
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 20647})) then --Symbol of Testing
 		e.self:Say("As you hand Kazen the symbol, you hear him speak directly into your mind. 'Good luck, my student!' Kazen finishes an incantation and suddenly hands begin to reach up from the ground, as if they were pulling themselves from the grave all around you. A piercing scream fills the air as the creatures advance upon you!");
 		eq.spawn2(51153,0,0,-1498.9,283.8,58.4,57.6); --a bone golem
 	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 20653})) then --Prepared Reagent Box
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 20653})) then --Prepared Reagent Box
 		e.self:Emote("stares through you at the horizon, pausing as he reaches into his robes. Kazen pulls out a scythe with a shimmering black blade that seems too large to have been hidden there. As quickly and gracefully as it was displayed to you, it is returned to the void inside Kazen's robes. 'It is a creation of Miragul which was looted from his lair under the ice. Take this tome, it will be your final task for me as an apprentice.'");
 		e.other:AddEXP(10000);
 		e.other:SummonItem(18087); --Tome of Instruction
 		e.other:Ding();
 	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 20652})) then --Gkzzallk in a Box
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 20652})) then --Gkzzallk in a Box
 		e.self:Emote("grins wildly and his eyes flare a deep red. The scythe he promised you flies through the air and into your hand. 'Enjoy your toy, I have no more need of you as a servant.'");
 		e.other:AddEXP(10000);
 		e.other:SummonItem(20544); --Scythe of the Shadowed Soul

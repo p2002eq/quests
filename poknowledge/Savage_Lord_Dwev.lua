@@ -8,7 +8,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if((item_lib.check_turn_in(e.trade, {item1 = 7817})) or (item_lib.check_turn_in(e.trade, {item1 = 7818})) or (item_lib.check_turn_in(e.trade, {item1 = 7819})) or (item_lib.check_turn_in(e.trade, {item1 = 7832})) or (item_lib.check_turn_in(e.trade, {item1 = 7833})) or (item_lib.check_turn_in(e.trade, {item1 = 7834})) or (item_lib.check_turn_in(e.trade, {item1 = 7835}))) then --Anthemion Armor
+	if((item_lib.check_turn_in(e.self, e.trade, {item1 = 7817})) or (item_lib.check_turn_in(e.self, e.trade, {item1 = 7818})) or (item_lib.check_turn_in(e.self, e.trade, {item1 = 7819})) or (item_lib.check_turn_in(e.self, e.trade, {item1 = 7832})) or (item_lib.check_turn_in(e.self, e.trade, {item1 = 7833})) or (item_lib.check_turn_in(e.self, e.trade, {item1 = 7834})) or (item_lib.check_turn_in(e.self, e.trade, {item1 = 7835}))) then --Anthemion Armor
 		e.self:Say("Thank you, " .. e.other:GetName() .. "."); --Text made up
 		e.other:QuestReward(e.self,0,0,0,0,eq.ChooseRandom(10028, 10037, 22503, 15981),698775); --Random gem: Peridot, Diamond, Blue Diamond, Raw Diamond
 	end

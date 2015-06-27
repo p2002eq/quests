@@ -14,11 +14,11 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 14789})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 14789})) then
 		e.self:Emote("snickers to himself and looks out over the swamp for a moment before saying,");
 		e.self:Say("Perseverance is indeed our greatest virtue. Perhaps if we as warriors looked more to cultivate our virtue rather than to hoard glory our people would be rulers of this entire land. I will send you on a [mission] to learn of perseverance. If you complete it I will give you my reference.");
 	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 10035, item2 = 10035, item3 = 10035, item4 = 14819})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 10035, item2 = 10035, item3 = 10035, item4 = 14819})) then
 		e.other:QuestReward(e.self,0,0,0,0,14783,10000);   --proper item not in db
 		e.self:Say("Well done");
 	end

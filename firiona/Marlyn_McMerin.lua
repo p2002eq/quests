@@ -10,7 +10,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 12942, item2 = 12945, item3 = 12944, item4 = 12943})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 12942, item2 = 12945, item3 = 12944, item4 = 12943})) then
 		e.self:Say("What's this? This is amazing - you collected them all! To think, the power that these items hold if properly used. Never mind that now, here, take the scroll. You've certainly earned it.");
 		e.other:QuestReward(e.self,0,0,0,0,12941,45000);
 	end

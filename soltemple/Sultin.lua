@@ -21,28 +21,28 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	-- Rod of Insidious Glamour
-	if(item_lib.check_turn_in(e.trade, {item1 = 10087, item2 = 6337})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 10087, item2 = 6337})) then
 		e.self:Say("Well done, " .. e.other:GetName() .. ".  Here is your reward."); -- Made this text up
 		e.other:Faction(320,15);
 		e.other:Faction(291,-15);
 		e.other:QuestReward(e.self,0,0,0,0,6329,1000);
 	end
 	-- Incandescent Wand
-	if(item_lib.check_turn_in(e.trade, {item1 = 12240, item2 = 6340})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 12240, item2 = 6340})) then
 		e.self:Say("I see that you are resourceful... you have earned your incandescent wand.");
 		e.other:Faction(320,15);
 		e.other:Faction(291,-15);
 		e.other:QuestReward(e.self,0,0,0,0,6334,1000);
 	end
 	-- Incandescent Gloves
-	if(item_lib.check_turn_in(e.trade, {item1 = 2353, item2 = 2354, item3 = 2355, item4 = 2356})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 2353, item2 = 2354, item3 = 2355, item4 = 2356})) then
 		e.self:Say("Four pairs of gloves you have given me ? I will give you one pair in return. We shall see who had the better deal.");
 		e.other:Faction(320,15);
 		e.other:Faction(291,-15);
 		e.other:QuestReward(e.self,0,0,0,0,2351,1000);
 	end
 	-- Incandescent Mask
-	if(item_lib.check_turn_in(e.trade, {item1 = 2352, item2 = 10530, item3 = 10531, item4 = 10532})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 2352, item2 = 10530, item3 = 10531, item4 = 10532})) then
 		e.self:Say("Fortune favors you .. as will this mask.");
 		e.other:Faction(320,15);
 		e.other:Faction(291,-15);

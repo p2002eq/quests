@@ -25,7 +25,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 12797, item2 = 12798, item3 = 12799})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 12797, item2 = 12798, item3 = 12799})) then
 		e.self:Emote("removes a crudley hewn shackle. 'This is yours. It is one of the keys to the third rung. I see that you are truely a great monk and have studied your disciplines well. I have need of one as you. I have heard of [troubles with an outlander].'");
 		e.other:SummonItem(4193);	--Shackle of Rock
 		e.other:Faction(317,20);
@@ -33,7 +33,7 @@ function event_trade(e)
 		e.other:AddEXP(20000);
 		e.other:Ding();
 	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 12821, item2 = 4192, item3 = 4193})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 12821, item2 = 4192, item3 = 4193})) then
 		e.self:Say("Very good!! Here is your Shackle of Copper. The Emperor shall be pleased that I, Mistress Niska, have slain the outlander. Do you have some time? I need someone to be my [personal courier]. Will you?");
 		e.other:SummonItem(4194); 	--Shackle of Copper
 		e.other:Faction(317,20);
@@ -41,7 +41,7 @@ function event_trade(e)
 		e.other:AddEXP(40000);
 		e.other:Ding();
 	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 18466, item2 = 22921})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 18466, item2 = 22921})) then
 		e.self:Emote("smiles at your dedication to Cazic Thule and hands you a small gem.");
 		e.other:SummonItem(7881);	--Mark of Clarity
 		e.other:Faction(317,20);
@@ -49,7 +49,7 @@ function event_trade(e)
 		e.other:AddEXP(20000);
 		e.other:Ding();
 	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 18465, item2 = 22920})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 18465, item2 = 22920})) then
 		e.self:Emote("smiles at your dedication to Cazic Thule and hands you a small gem.");
 		e.other:SummonItem(7881);	--Mark of Clarity
 		e.other:Faction(317,20);
@@ -57,7 +57,7 @@ function event_trade(e)
 		e.other:AddEXP(20000);
 		e.other:Ding();
 	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 18272, item2 = 24770})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 18272, item2 = 24770})) then
 		e.self:Emote("takes the bag and tome from you and in return gives you the item that you have been thinking of all this time");
 		e.self:Say("Lucky you. You have earned a second chance. Praise Cazic-Thule!");
 		e.other:SummonItem(4190);	--Shackle of Dust

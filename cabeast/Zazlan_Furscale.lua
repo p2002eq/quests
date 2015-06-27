@@ -20,7 +20,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 3064, item2 = 10033, item3 = 14767, item4 = 14768})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 3064, item2 = 10033, item3 = 14767, item4 = 14768})) then
 		e.self:Say("Ah! Excellent! Now just watch... and... here! Now you know how to make your own boots! Take this pair in case you didn't actually learn anything.");
 		e.other:AddEXP(1000);
 		e.other:SummonItem(4984); --scaled mystic boots
@@ -29,7 +29,7 @@ function event_trade(e)
 		e.other:Faction(30,5);
 		e.other:Ding();
 	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 3061, item2 = 10035, item3 = 14769, item4 = 14770})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 3061, item2 = 10035, item3 = 14769, item4 = 14770})) then
 		e.self:Say("What's this? Oh the parts for your bracer. Well just watch me work... and... done! Take these as an example of what a skilled craftsman can do. Strive for this perfection.");
 		e.other:SummonItem(4988); --scaled mystic bracers
 		e.other:AddEXP(1000);
@@ -38,7 +38,7 @@ function event_trade(e)
 		e.other:Faction(30,5);
 		e.other:Ding();
 	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 3058, item2 = 10032, item3 = 14765, item4 = 14766})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 3058, item2 = 10032, item3 = 14765, item4 = 14766})) then
 		e.self:Say("Well you finally brought the parts to learn how to make your cloak. Just watch this... and... all done. It's not the best I've ever made, but it's fitting for a novice.");
 		e.other:SummonItem(4991); --scaled mystic cloak
 		e.other:AddEXP(1000);
@@ -47,7 +47,7 @@ function event_trade(e)
 		e.other:Faction(30,5);
 		e.other:Ding();
 	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 3060, item2 = 10034, item3 = 14763, item4 = 14764})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 3060, item2 = 10034, item3 = 14763, item4 = 14764})) then
 		e.other:AddEXP(1000);
 		e.other:SummonItem(4986); --scaled mystic vambraces
 		e.other:Faction(282,10);

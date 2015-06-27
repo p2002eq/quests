@@ -11,13 +11,13 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 16256, item2 = 16258}) and not e.other:HasItem(16255) and not e.other:HasItem(16257)) then --Marked Runed Signet, Hope Stone
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 16256, item2 = 16258}) and not e.other:HasItem(16255) and not e.other:HasItem(16257)) then --Marked Runed Signet, Hope Stone
 		e.self:Say("Wonderful! You have proven yourself as both a Master of the Trade as well as a valiant spirit. Take this and may it server you well! If this signet does not suffice, bring it back to me and i will exchange it for one more attuned to your needs.");
 		e.other:QuestReward(e.self,0,0,0,0,16255); --Signet of Might
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 16255})) then --Signet of Might
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 16255})) then --Signet of Might
 		e.self:Say("I hope this is more attuned to your needs.");
 		e.other:QuestReward(e.self,0,0,0,0,16257); --Signet of the Arcane
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 16257})) then --Signet of the Arcane
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 16257})) then --Signet of the Arcane
 		e.self:Say("I hope this is more attuned to your needs.");
 		e.other:QuestReward(e.self,0,0,0,0,16255); --Signet of Might
 	end

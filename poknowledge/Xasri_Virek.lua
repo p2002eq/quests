@@ -13,7 +13,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 28788, item2 = 29145})) then--Beginner Combat Manual, Junk Beast Power Source
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 28788, item2 = 29145})) then--Beginner Combat Manual, Junk Beast Power Source
 		e.self:Say("Very impressive, " .. e.other:GetName() .. ". This proves you have clearly graduated to the next phase of training we have to offer. Keep this book by your side and speak to Gwiraba Gelrid when you are ready for your next lesson.");
 		e.other:QuestReward(e.self,0,0,0,0,28790);--Intermediate Combat Manual
 	end

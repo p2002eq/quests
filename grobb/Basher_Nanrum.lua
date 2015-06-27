@@ -12,7 +12,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if (item_lib.check_turn_in(e.trade, {item1 = 10307, item2 = 10307, item3 = 10307})) then
+	if (item_lib.check_turn_in(e.self, e.trade, {item1 = 10307, item2 = 10307, item3 = 10307})) then
 		e.self:Say("Heh heh. All da eyeballses! I didn't think ya could do it but ya did. Here is da shiny. If you gets more I always have more shinies.");
 		e.other:SummonItem(eq.ChooseRandom(10351, 10026, 10060, 10018, 10006, 10017),1);
 		e.other:Faction(66, 10); -- Da Bashers

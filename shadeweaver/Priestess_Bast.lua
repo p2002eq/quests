@@ -7,7 +7,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 30856, item2 = 30853, item3 = 30853, item4 = 30853})) then --The Champion's Cape, 3x Drop of Loda Kai Blood
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 30856, item2 = 30853, item3 = 30853, item4 = 30853})) then --The Champion's Cape, 3x Drop of Loda Kai Blood
 		e.self:Say("You are indeed a friend to us and have earned a place of high honor among our people and our four-legged cousins. Wear this robe with pride and none will ever doubt your conviction for the honor of the felidae.");
 		e.other:Faction(132, 30);--Guardians of Shar Vahl faction
 		e.other:QuestReward(e.self,0,0,0,0,30857); --Blessed Champion's Cape

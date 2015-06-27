@@ -9,7 +9,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 10035})) then -- Handin: Ruby
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 10035})) then -- Handin: Ruby
 		e.self:Say("Mmm. Ruby!! Me thank's you! Here take this, me got it off dead someone who try take my collection. Me think's this valuable thing..");
 		if(math.random(100) < 10) then
 			e.other:SummonItem(10082); --  Ivandyr's Hoop

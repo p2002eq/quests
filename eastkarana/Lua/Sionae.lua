@@ -3,7 +3,7 @@ local move;
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 20450})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 20450})) then
 		e.self:Say("I see that the time has come. Take the amulet and give it to the third of our kin, Nuien. I will meet you at the gathering.");
 		e.other:SummonItem(20451);
 		eq.spawn2(15167,0,0,300,-3657,3,183); --spawn nuien

@@ -9,7 +9,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 28088})) then--Onirelin's Jewel
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 28088})) then--Onirelin's Jewel
 		e.self:Say("How did you get this away from Narik? Oh never mind, I'm just happy to have it back. I shall give you what Cador desires now, keep it secure and deliver it to him.");
 		e.other:QuestReward(e.self,0,0,0,0,28089,250);--Cador's Artifact
 	end

@@ -13,7 +13,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 10170})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 10170})) then
 		e.self:Say("This lens is perfect, " .. e.other:GetName() .. "!  Please, take this staff in return for your services.");  -- Couldn't find real text, so I made this up.
 		e.other:Faction(176, 10);  -- King Ak'Anon
 		e.other:Faction(91, 10);  -- Eldrich COllective... I'm not sure about this, but quest text seems to indicate it should be here

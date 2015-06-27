@@ -9,7 +9,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 12133})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 12133})) then
 		e.self:Say("Thank you. I believe you need to seek out Sentry Xyrin. She is not at the temple. I believe she left to speak with [Sisterhood of Erollisi]. She was to speak with Styria.");
 		e.other:SummonItem(12134);
 		e.other:Ding();

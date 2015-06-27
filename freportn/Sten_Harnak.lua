@@ -39,7 +39,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 9924,item2 = 9925,item3 = 9926})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 9924,item2 = 9925,item3 = 9926})) then
 		e.self:Say("Good work " .. e.other:GetName() .. ".");
 		e.other:Ding();
 		e.other:SummonItem(9935);

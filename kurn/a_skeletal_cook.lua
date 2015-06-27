@@ -6,7 +6,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items"); --Handin: a Glowing Skull
-	if(item_lib.check_turn_in(e.trade, {item1 = 12401})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 12401})) then
 		e.self:emote("The cook's bone's crack as he reaches out to take the skull from your hand's. A voice in your mind say's, Thank you. Now I can leave this dreadful place. Please take this as I no longer have any use for it. The cook places the skull back in your hand's before collapsing into a lifeless pile of bone's.");
 		e.other:QuestReward(e.self,0,0,0,0,1115); --Summon: The Skull of Torture
 	end

@@ -19,7 +19,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 12997})) then --Veisha's Engagement Ring
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 12997})) then --Veisha's Engagement Ring
 		e.self:Say("Only a few years have passed and her heart has already forgotten me. No doubt she has found another to warm her bed. Go, find her new lover, and bring me nothing less than his head.");
 		e.other:Faction(143,5);  --Heretics
 		e.other:Faction(79,-5);  --Deepwater Knights
@@ -27,7 +27,7 @@ function event_trade(e)
 		e.other:Faction(56,-5);  --Craftkeepers
 		e.other:Faction(60,-5);  --Crimson Hands
 		e.other:QuestReward(e.self,0,0,0,0,0,500);
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 12996})) then --Phaeril Nightshire's Head
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 12996})) then --Phaeril Nightshire's Head
 		e.self:Say("Apparently her choice in suitors has drifted to the most pathetic of wretches ever to slither Odus. You have done well, child. I ask of you one last task before my message to Veisha is complete. Here, deliver this to her with my most sincere regards.");
 		e.other:Faction(143,5);  --Heretics
 		e.other:Faction(79,-5);  --Deepwater Knights
@@ -35,7 +35,7 @@ function event_trade(e)
 		e.other:Faction(56,-5);  --Craftkeepers
 		e.other:Faction(60,-5);  --Crimson Hands
 		e.other:QuestReward(e.self,0,0,0,0,12995,500); --A Locked Chest
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 12994})) then --Veisha Fathomwalker's Head
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 12994})) then --Veisha Fathomwalker's Head
 		e.self:Say("My revenge has been satisfied. Thank you, my child. You have proven yourself to be a most worthy asset to our cause. Here, I no longer have any use for this, my ties to the old life are now severed.");
 		e.other:Faction(143,5);  --Heretics
 		e.other:Faction(79,-5);  --Deepwater Knights

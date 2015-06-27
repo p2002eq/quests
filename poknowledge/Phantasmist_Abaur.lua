@@ -7,7 +7,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if((item_lib.check_turn_in(e.trade, {item1 = 1246})) or (item_lib.check_turn_in(e.trade, {item1 = 1247})) or (item_lib.check_turn_in(e.trade, {item1 = 1248})) or (item_lib.check_turn_in(e.trade, {item1 = 1249})) or (item_lib.check_turn_in(e.trade, {item1 = 1250})) or (item_lib.check_turn_in(e.trade, {item1 = 1251})) or (item_lib.check_turn_in(e.trade, {item1 = 1252}))) then --Insidious Armor, the comments on Alla's about this not being taken are in error, I believe.  It's Fine Insidious that's not taken.
+	if((item_lib.check_turn_in(e.self, e.trade, {item1 = 1246})) or (item_lib.check_turn_in(e.self, e.trade, {item1 = 1247})) or (item_lib.check_turn_in(e.self, e.trade, {item1 = 1248})) or (item_lib.check_turn_in(e.self, e.trade, {item1 = 1249})) or (item_lib.check_turn_in(e.self, e.trade, {item1 = 1250})) or (item_lib.check_turn_in(e.self, e.trade, {item1 = 1251})) or (item_lib.check_turn_in(e.self, e.trade, {item1 = 1252}))) then --Insidious Armor, the comments on Alla's about this not being taken are in error, I believe.  It's Fine Insidious that's not taken.
 		e.self:Say("Thank you, " .. e.other:GetName() .. "."); --Text made up
 		e.other:QuestReward(e.self,0,0,0,0,eq.ChooseRandom(10028, 10037, 22503, 15981),698775); --Random gem: Peridot, Diamond, Blue Diamond, Raw Diamond
 	end

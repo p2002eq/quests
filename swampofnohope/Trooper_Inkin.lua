@@ -8,13 +8,13 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 18243, item2 = 12425})) then --Legion Order (3 signed), Skipping Stone
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 18243, item2 = 12425})) then --Legion Order (3 signed), Skipping Stone
 		e.self:Say("So smooth. I shall be the skipping stone champion! Here. You may have my autograph.");
 		e.other:QuestReward(e.self,7,0,0,0,18244,500); --Legion Order (4 signed)
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 18243})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 18243})) then
 		e.self:Say("No deal! You bring me the legion order and the froglok skipping stone.");
 		e.other:QuestReward(e.self,0,0,0,0,18243);
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 12425})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 12425})) then
 		e.self:Say("No deal! You bring me the legion order and the froglok skipping stone.");
 		e.other:QuestReward(e.self,0,0,0,0,12425);
 	end

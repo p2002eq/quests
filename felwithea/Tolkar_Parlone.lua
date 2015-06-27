@@ -11,7 +11,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 5573})) then -- folded note
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 5573})) then -- folded note
 		e.self:Say("Oh, my, she did get herself into some trouble! I thank you for rescuing her, my friend. Here, take this old cloak. I am afraid its power has faded, but if you bring it to my wife, she might be able to do something for you. She is currently studying in Erudin.");
 		e.other:SummonItem(1056); -- Faded Cloak
 		e.other:Ding();

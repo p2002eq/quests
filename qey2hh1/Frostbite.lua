@@ -1,10 +1,10 @@
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 12140})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 12140})) then
 		e.other:SummonItem(13383);
 		e.other:Ding();
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 12226})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 12226})) then
 		e.self:Emote("takes a whiff of the sweaty shirt and barks.");
 		e.other:Ding();
 		eq.set_timer("go",15000);

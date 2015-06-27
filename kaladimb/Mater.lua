@@ -28,7 +28,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if((e.other:GetFaction(e.self) < 6) and (item_lib.check_turn_in(e.trade, {item1 = 13316, gold = 300}))) then -- Ogre Head
+	if((e.other:GetFaction(e.self) < 6) and (item_lib.check_turn_in(e.self, e.trade, {item1 = 13316, gold = 300}))) then -- Ogre Head
 		e.self:Say("Very good!! You found him. His head shall bring us a great reward from the Stormguard. And as for you, here is your Mining Pick 628. Only a member of 628 can wield this fine weapon. We are the only ones who can wield it in such a way as to pierce our foes.");
 		e.other:SummonItem(12161);	-- Mining Pick 628
 		e.other:Faction(220, 10); 	-- Miners Guild 628
@@ -39,13 +39,13 @@ function event_trade(e)
 		e.other:AddEXP(5000);
 		e.other:Ding();
 	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 13316, gold ~= 300})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 13316, gold ~= 300})) then
 		e.other:SummonItem(13316); 	-- Ogre Head
 	end
-	if(item_lib.check_turn_in(e.trade, {item1 ~= 13316, gold = 300})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 ~= 13316, gold = 300})) then
 		e.other:GiveCash(0, 0, 300, 0);
 	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 18767})) then --Small, Folded Note
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 18767})) then --Small, Folded Note
 		e.self:Say("Ah, welcome! We could use some fresh blood around here. The name's Mater, and I run this little outfit. Work hard for me, and I will reward you well. Cross me, and you'll find yourself buried under the mine cap. Now, let's get to work.");
 		e.other:SummonItem(13516); 		--Ruined Miner's Tunic
 		e.other:Faction(220, 100); 		-- Miners Guild 628

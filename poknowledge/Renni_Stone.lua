@@ -11,7 +11,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 28077})) then--Collection of Gems correct item does not exist in db
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 28077})) then--Collection of Gems correct item does not exist in db
 		e.self:Emote("opens the box carefully and inspects the contents.  'These will do.  Thank ye.  Take this as a reward.'");--Text made up, no reference
 		e.other:QuestReward(e.self,0,0,0,0,28235);--Fine Antique Pelisse
 	end

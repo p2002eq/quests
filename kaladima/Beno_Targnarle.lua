@@ -54,7 +54,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	local temphandins = 0;
-	if((e.other:GetFaction(e.self) < 5) and (item_lib.check_turn_in(e.trade, {item1 = 13054, item2 = 13054, item3 = 13054, item4 = 13054}))) then -- Giant Rat Pelt
+	if((e.other:GetFaction(e.self) < 5) and (item_lib.check_turn_in(e.self, e.trade, {item1 = 13054, item2 = 13054, item3 = 13054, item4 = 13054}))) then -- Giant Rat Pelt
 		e.self:Say("Great work, young one! We shall soon rid our mines of these pests. Keep a lookout for that [metal rat]. Here is a small reward for such fine work. Soon, you shall be know as Kaladim's resident exterminator.");
 		e.other:Ding();
 		e.other:Faction(314, 5); -- Storm Guard
@@ -65,7 +65,7 @@ function event_trade(e)
 		e.other:AddEXP(500);
 		e.other:GiveCash(0,3,0,0);
 		e.other:Ding();
-	elseif((e.other:GetFaction(e.self) < 5) and (item_lib.check_turn_in(e.trade, {item1 = 13282}))) then -- Scrap Metal
+	elseif((e.other:GetFaction(e.self) < 5) and (item_lib.check_turn_in(e.self, e.trade, {item1 = 13282}))) then -- Scrap Metal
 		e.self:Say("I thank you, my friend. I was to destroy this metal monster months ago. I could never find him. Please accept this reward for such good service. Oh yes.. And take this card to a man named [Doran Vargnus]. He is a fine blacksmith. I am sure he will reward you with one of his finest suits of armor. Perhaps you may now assist in an [important Stormguard matter].");
 		e.other:SummonItem(13995); -- Knight (Card)
 		e.other:Faction(314, 20); -- Storm Guard
@@ -76,7 +76,7 @@ function event_trade(e)
 		e.other:AddEXP(500);
 		e.other:GiveCash(4, 0, 0, 0);
 		e.other:Ding();
-	elseif((e.other:GetFaction(e.self) < 5) and (item_lib.check_turn_in(e.trade, {item1 = 13321}))) then -- Eye of Stormhammer
+	elseif((e.other:GetFaction(e.self) < 5) and (item_lib.check_turn_in(e.self, e.trade, {item1 = 13321}))) then -- Eye of Stormhammer
 		--Quest text, exp, cash, factions made up
 		e.self:Say("You've found it! I'm glad you managed to hunt down and return the stolen eye for us, " .. e.other:GetName() .. ". Such effort requires a similar reward so take this and use it well.");
 		e.other:SummonItem(5415); -- Avenger Battle Axe

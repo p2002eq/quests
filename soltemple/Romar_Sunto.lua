@@ -18,18 +18,18 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 10000})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 10000})) then
 		e.self:Say("A stone for a staff - very well.");
 		e.other:Faction(320,1,0);
 		e.other:Faction(291,-1,0);
 		e.other:QuestReward(e.self,0,0,0,0,6048,1000); -- Darkwood Staff
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 10793})) then -- Radiant Coin of Tash
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 10793})) then -- Radiant Coin of Tash
 		e.self:Say("The Coin of Tash - fully enchanted! I am in your debt. Here is the scroll of Tashania that was promised to you.");
 		e.other:QuestReward(e.self,0,0,0,0,15678,20000); -- Spell: Tashania
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 10790})) then -- Coin of Tash
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 10790})) then -- Coin of Tash
 		e.self:Say("The Coin of Tash. It is of no use to me like this. You must take the coin to Tarn Visilin in High Keep to get it enchanted.");
 		e.other:SummonItem(10790); -- Coin of Tash
-	elseif(item_lib.check_turn_in(e.trade, {gold = 50})) then -- 50 gold
+	elseif(item_lib.check_turn_in(e.self, e.trade, {gold = 50})) then -- 50 gold
 		e.other:Say("Once you combine the coins within the pouch, you must take the Coin of Tash to Tarn Vislin in the HighKeep library to get it enchanted.  Give him the coin and he will enchant it for you.");
 		e.other:Faction(442,1,0);
 		e.other:Faction(291,-1,0);

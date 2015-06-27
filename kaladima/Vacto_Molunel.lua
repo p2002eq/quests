@@ -14,17 +14,17 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 13849, item2 = 13849, gold = 4})) then -- helm
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 13849, item2 = 13849, gold = 4})) then -- helm
 		e.other:SummonItem(2175);
 		e.self:Say("Here is your Scarab Helm!");
 		e.other:Ding();
 	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 13133, gold = 22})) then -- breastplate
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 13133, gold = 22})) then -- breastplate
 		e.other:SummonItem(2176);
 		e.self:Say("Here is your Scarab breastplate!");
 		e.other:Ding();
 	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 13132, item2 = 13848, item3 = 13848, gold = 16})) then -- boots
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 13132, item2 = 13848, item3 = 13848, gold = 16})) then -- boots
 		e.other:SummonItem(2177);
 		e.self:Say("Here is your Scarab boots!");
 		e.other:Ding();

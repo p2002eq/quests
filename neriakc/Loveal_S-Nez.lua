@@ -21,7 +21,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	
-	if(item_lib.check_turn_in(e.trade, {item1 = 18828})) then--Testimony
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 18828})) then--Testimony
 		e.self:Say("So you have succeeded where others have failed. You show promise. Take this then. You shall be a valuable asset to the Dead and soon this shall be of value to one so great. This will help you on your way. Are you still interested in my [appointed tasks]?");
 		e.other:Faction(322,15); --The Dead
 		e.other:Faction(268,2); --Queen Cristanos Thex
@@ -30,7 +30,7 @@ function event_trade(e)
 		e.other:Faction(91,-2); --Eldritch Collective
 		e.other:Faction(260,-30); --Primordial Malice
 		e.other:QuestReward(e.self,0,14,0,0,2317,33750); --Cloak of the Undead Eye
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 13390})) then--Thex Mallet
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 13390})) then--Thex Mallet
 		e.self:Say("Oh how grand it is!! Look at it!! I feel the power trembling within. Who would have thought such an item would be abandoned? You have performed supremely. Queen Cristanos shall reward me greatly and I shall reward you greatly. Here is my weapon from years past.. the Reaper of the Dead. I believe it has one soul still trapped within.");
 		e.other:Faction(322,15); --The Dead
 		e.other:Faction(268,2); --Queen Cristanos Thex

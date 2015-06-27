@@ -18,7 +18,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	if(e.other:GetFaction(e.self) < 5) then -- requires amiably
-		if(item_lib.check_turn_in(e.trade, {item1 = 13383})) then
+		if(item_lib.check_turn_in(e.self, e.trade, {item1 = 13383})) then
 			e.self:Say("Thank you my friend! Every Koalindl must be accounted for, even the dead. Rodcet Nife shall be pleased and I shall reward you. Nothing much. Just a token of gratitude.");
 			e.other:Faction(257,100); -- Priest of Life
 			e.other:Faction(183,30); -- Knight of Thunder

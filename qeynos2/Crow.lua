@@ -10,7 +10,7 @@ function event_trade(e)
 
 	local item_lib = require("items");
 	
-	if(item_lib.check_turn_in(e.trade, {item1 = 17600})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 17600})) then
 		e.self:Say("What are you? The Rat's new bag man? Peh, he is useless. That bum drinks any gold he gets. Here ya go, kid!");
 		e.other:Ding();
 		e.other:SummonItem(13901);

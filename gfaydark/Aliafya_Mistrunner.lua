@@ -39,7 +39,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	
-	if(item_lib.check_turn_in(e.trade, {item1 = 27537,item2 = 27537,item3 = 27538})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 27537,item2 = 27537,item3 = 27538})) then
 		e.other:SummonItem(27531);
 		e.other:Ding();
 		e.self:Say("There was no doubt in my mind that you could be counted on for this important mission. I will see that our tacticians get these battle plans so that they can be studied at once. Please take this Scimitar as a symbol of your dedication to your house and your god. You have done well, young Kiliak, may Tunare guide you always.");

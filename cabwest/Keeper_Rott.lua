@@ -16,7 +16,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 12854, item2 = 12855, item3 = 12856, item4 = 12857})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 12854, item2 = 12855, item3 = 12856, item4 = 12857})) then
 		e.self:Say("Oh, great necromancer, how can I repay you?!! I know. Here is a spell I recently researched. It should help you increase the strength of a summoned pet. Learn it well.");
 		e.other:SummonItem(16426);
 		e.other:Faction(24, 3);

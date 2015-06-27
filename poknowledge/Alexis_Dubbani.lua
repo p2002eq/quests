@@ -20,7 +20,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 28078})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 28078})) then
 		e.self:Say("These will do. Please accept this as a show of my appreciation. Now if you'll excuse me I have much work left to do.");
 		e.other:QuestReward(e.self,0,0,0,0,28240);
 	end

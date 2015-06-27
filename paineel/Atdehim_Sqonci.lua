@@ -9,7 +9,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	
-	if(item_lib.check_turn_in(e.trade, {item1 = 13716, item2 = 16989, item3 = 1437, item4 = 7005})) then --Kerran Doll, Ichor, Initiate Symbol of Cazic Thule, Giant Snake Fang
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 13716, item2 = 16989, item3 = 1437, item4 = 7005})) then --Kerran Doll, Ichor, Initiate Symbol of Cazic Thule, Giant Snake Fang
 		e.self:Say("Excellent work, " .. e.other:GetName() .. ". You are well on your way to proving yourself worthy to serve Cazic Thule.");
 		e.other:QuestReward(e.self,0,0,0,0,1438,2000); --Disciple Symbol of Cazic Thule
 	end

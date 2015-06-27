@@ -7,7 +7,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 18742})) then -- A tattered note
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 18742})) then -- A tattered note
 		e.self:Say("Welcome to the Guild, here's your guild robe. Now, let's get to work.");
 		e.other:SummonItem(13562); -- Dark Stained Robe
 		e.other:Ding();

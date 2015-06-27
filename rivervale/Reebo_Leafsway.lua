@@ -34,21 +34,21 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 13971})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 13971})) then
 		e.self:Say("Very good. Very good indeed. Karana does not need the blind obedience that so many deities require. Trust your instincts, they are more often right than not. Here, take this to Blinza. Hurry, she is expecting them. You may keep the donation she gives you in return.");
 		e.other:SummonItem(13957);
 		e.other:Ding();
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 13972})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 13972})) then
 		e.self:Say("These carrots are rotten. They were rotten when I gave them to you. Why would you waste time and energy on such a fool's errand? Because I asked you to? Many, even those you trust will ask you to do things which you should not. Use the common sense that Karana has blessed you with to know which tasks can benefit our people and which could harm them. Learn this lesson well. You will need it if you plan to adventure beyond the vale. Now take these fresh carrots to Blinza and apologize for your error. You may keep the donation she gives you as payment.");
 		e.other:SummonItem(13958);
 		e.other:Ding();
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 13974,item2 = 13974,item3 = 13974,item4 = 13974})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 13974,item2 = 13974,item3 = 13974,item4 = 13974})) then
 		e.self:Say("Excellent!!  You must have taught ol' Nillipuss a great deal!  But he never seems to learn..  Oh well.  The Stormreapers and all of Rivervale owe you a debt of gratitude.  Please accept this token of our appreciation.");
 		e.other:SummonItem(eq.ChooseRandom(10308,8303,8304,10302,10303,10304,10305,10306,10309,17302,12001,10301,17301,17300,12002));
 		e.other:Ding();
 		e.other:AddEXP(27440);
 		e.other:GiveCash(0,4,6,0);
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 13974,item2 = 13974,item3 = 13974}) or item_lib.check_turn_in(e.trade, {item1 = 13974,item2 = 13974}) or item_lib.check_turn_in(e.trade, {item1 = 13974})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 13974,item2 = 13974,item3 = 13974}) or item_lib.check_turn_in(e.self, e.trade, {item1 = 13974,item2 = 13974}) or item_lib.check_turn_in(e.self, e.trade, {item1 = 13974})) then
 		e.self:Say("Oh good! I see you have taugh that nasty Nillipuss a thing or two! Good. But it seems to me that he has stolen more jumjum than this. Perhaps he needs another lesson?");
 	end
 	item_lib.return_items(e.self, e.other, e.trade)

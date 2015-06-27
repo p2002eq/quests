@@ -8,7 +8,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 6338, gold = 50})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 6338, gold = 50})) then
 		e.self:Say("I have blessed your silver wand.  To complete the enchantment, you must take the wand to Raine Beteria in the Erudin Library.  Tip her 50 golden coins, and she will help you.");
 		e.other:SummonItem(6339);
 		e.other:Ding();

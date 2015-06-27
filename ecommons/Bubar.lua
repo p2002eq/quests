@@ -9,7 +9,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 12351,item2 = 12352,item3 = 12350})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 12351,item2 = 12352,item3 = 12350})) then
 		e.self:Say("Mmmph!!.. *Pop!!* Ouch, my thumb!! Here you are. You had a gem inside.");
 		e.other:SummonItem(12349);
 		e.other:Ding();

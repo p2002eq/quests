@@ -19,7 +19,7 @@ function event_trade(e)
 	local item_lib = require("items");
 	local qglobals = eq.get_qglobals(e.self,e.other);
 	if(qglobals["shmskullquest"] ~= nil) then
-		if(item_lib.check_turn_in(e.trade, {item1 = 12764}) and tonumber(qglobals["shmskullquest"]) > 7) then
+		if(item_lib.check_turn_in(e.self, e.trade, {item1 = 12764}) and tonumber(qglobals["shmskullquest"]) > 7) then
 			e.other:QuestReward(0,0,0,0,12750);
 			e.self:Shout("Excellent. You show signs of a true Iksar slayer. Too, bad I have already given the skull of the Sister of Scale to another. Perhaps you would like to meet him before he departs. Say hello, Doval.");
 			eq.unique_spawn(87154,0,0,e.self:GetX() + 5,e.self:GetY(),e.self:GetZ());

@@ -6,16 +6,16 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 21805})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 21805})) then
 		e.other:SummonItem(21820);
 
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 21806})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 21806})) then
 		e.other:SummonItem(21821);
 
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 21807})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 21807})) then
 		e.other:SummonItem(21822);
 
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 21808})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 21808})) then
 		e.other:SummonItem(21823);
 	end
 	item_lib.return_items(e.self, e.other, e.trade)

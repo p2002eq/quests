@@ -10,7 +10,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	
-	if(item_lib.check_turn_in(e.trade, {item1 = 12121})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 12121})) then
 		e.self:Say("Very good. This meat will supply our warriors with much strength. We have found the meat from sharks to be quite nourishing. Here, then, are your wages and your weapon. All of Kelethin appreciates your great deed.");
 		e.other:Faction(92,40); -- Emerald Warriors
 		e.other:Faction(155,-4); -- Indigo Brotherhood

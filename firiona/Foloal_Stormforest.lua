@@ -11,7 +11,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 20462, item2 = 20461})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 20462, item2 = 20461})) then
 		e.self:Emote("blinks and carefully takes the stones from you, cautiously scratching the jagged green stone against the other. Its skin seems to shiver and flake at the contact and eventually begins to shine brightly. 'With the gem nature's balance is complete. Take the stone and walk your path. Blade or lightning caller, burning sword or the mother's walk.'");
 		e.other:QuestReward(e.self,0,0,0,0,20468);
 	end

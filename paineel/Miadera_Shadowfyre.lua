@@ -9,7 +9,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	
-	if(item_lib.check_turn_in(e.trade, {item1 = 10523, item2 = 19032, item3 = 14110, item4 = 14109}) and e.other:GetFaction(e.self) < 5) then --Eye of Urd, Basalt Drake Scales, Lens of Lord Soptyvr, Widowmistress Hair
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 10523, item2 = 19032, item3 = 14110, item4 = 14109}) and e.other:GetFaction(e.self) < 5) then --Eye of Urd, Basalt Drake Scales, Lens of Lord Soptyvr, Widowmistress Hair
 		e.self:Emote("begins speaking an incantation. 'Take this mask as your reward for helping me.'");
 		e.other:Faction(143,400,0);
 		e.other:Faction(79,-400,0);

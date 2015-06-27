@@ -19,7 +19,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 12223, item2 = 12223, item3 = 12223, item4 = 12223})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 12223, item2 = 12223, item3 = 12223, item4 = 12223})) then
 		e.self:Say("Well done! You've proved yerself worthy o' this!");
 		e.other:SummonItem(7322);
 		e.other:AddEXP(300);
@@ -28,7 +28,7 @@ function event_trade(e)
 		e.other:Faction(294,5);			-- Shamen of Justice
 		e.other:Faction(213,5);			-- Merchants of Halas
 		e.other:Faction(311,5);			-- Steel Warriors
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 13898})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 13898})) then
 		e.self:Say("Ye've done well, me young " .. e.other:Class() .. " .  We've gathered these to add to yer provisions.  While in the Everfrost Peaks, be on the watch fer any gnolls ye may find.  I declare there to be a [gnoll bounty].");
 		e.other:AddEXP(3800);
 		e.other:GiveCash(0,0,4,0);
@@ -38,7 +38,7 @@ function event_trade(e)
 		e.other:Faction(294,5);			-- Shamen of Justice
 		e.other:Faction(213,5);			-- Merchants of Halas
 		e.other:Faction(311,5);			-- Steel Warriors
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 13915, item2 = 13915, item3 = 13915})) then	-- Gnoll Bounty - Return 3 Gnoll Fangs
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 13915, item2 = 13915, item3 = 13915})) then	-- Gnoll Bounty - Return 3 Gnoll Fangs
 		e.self:Say("Fine work, fine work!  The gnoll threat must be extinguished before it can ever fully grow.  Ye've done yer part to aid our cause.  Please allow me to repay ye with a few provisions and a wee bit o' coin.  Then, continue with yer good deeds.");
 		e.other:AddEXP(3800);
 		e.other:GiveCash(0,0,5,0);

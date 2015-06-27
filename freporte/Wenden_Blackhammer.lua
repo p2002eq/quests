@@ -21,17 +21,17 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 20668,item2 = 10037,item3 = 10036,item4 = 10053})) then -- Unjeweled Dragon Head Hilt - Diamond - Black Sapphire - Jacinth
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 20668,item2 = 10037,item3 = 10036,item4 = 10053})) then -- Unjeweled Dragon Head Hilt - Diamond - Black Sapphire - Jacinth
 		e.self:Emote("begins to fiddle with the hilt, gently pressing the gems into place. It seems to take forever as you watch in silence. Wenden slowly places the last gem in place and gently bends the settings to hold the gems before he hands it back to you. 'That's a very impressive looking hilt there. The material it is made out of seems strangely familiar,' Wenden says as he turns back to his forge and his other work.");
 		e.other:SummonItem(20671); -- Jeweled Dragon Head Hilt
 		e.other:Ding();
 		e.other:AddEXP(1000);
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 20669,item2 = 20666,item3 = 20677})) then -- Severely Damaged Dragon Head Hilt ID - Rejesiam Ore - Ball of Everliving Golem
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 20669,item2 = 20666,item3 = 20677})) then -- Severely Damaged Dragon Head Hilt ID - Rejesiam Ore - Ball of Everliving Golem
 		e.self:Emote("works his magic with his forge as you have never seen done quite like this. The bending and shaping to repair the hilt is only something a master of his art could even fathom to try. Once the hilt has been cooled in a near by bucket of ice cold water, he checks it for balance and resonance before handing it to you.");
 		e.other:SummonItem(20672); -- Finely Crafted Dragon Head Hilt
 		e.other:Ding();
 		e.other:AddEXP(1000);
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 20669})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 20669})) then
 		e.self:Say("Where in the world did you drag that up?!' He peers closely at the severely damaged dragon head hilt. 'This metal is the same material that some mages use to make powerful golems and this other metal looks like rejesiam ore. If you can find some of those materials, I can fix this hilt up easily.");
 		e.other:SummonItem(20669);
 	end

@@ -18,7 +18,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	
-	if(item_lib.check_turn_in(e.trade, {item1 = 19578, item2 = 19577, item3 = 13060})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 19578, item2 = 19577, item3 = 13060})) then
 		e.self:Say("You have slain enemies of our order. Carry your weapon with pride.");
 		e.other:QuestReward(e.self,0,0,0,0,19608,150);
 	end

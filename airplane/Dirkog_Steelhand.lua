@@ -23,11 +23,11 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	
-	if(item_lib.check_turn_in(e.trade, {item1 = 20943, item2 = 20869, item3 = 20868})) then --paladin test of spirit using silvery girdle, diaphanous globe, ivory sky diamond  
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 20943, item2 = 20869, item3 = 20868})) then --paladin test of spirit using silvery girdle, diaphanous globe, ivory sky diamond  
 		e.other:QuestReward(e.self,0,0,0,0,2716,100000);  --girdle of faith
 		e.self:Say("Ye surprised me, " .. e.other:GetName() .. ". Wear me girdle with pride!");
 		eq.depop();
-	elseif(item_lib.check_turn_in(e.trade, {platinum == 500})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {platinum == 500})) then
 		e.self:Say("Thank ye, laddie! He's awaitin' ya up top!");
 		eq.spawn2(71091,0,0,-586,767,176,64);
 		eq.depop();

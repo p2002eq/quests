@@ -11,7 +11,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	
-	if(item_lib.check_turn_in(e.trade, {item1 = 1528})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 1528})) then
 		e.self:Emote("gasps in astonishment 'You...you..found my hat!! This is the most I can repay you but perhaps I can reward you further for some [other tasks]?'");
 		e.other:Faction(143,1);
 		e.other:Faction(56,-1);
@@ -19,7 +19,7 @@ function event_trade(e)
 		e.other:Faction(79,-1);
 		e.other:Faction(112,-1);
 		e.other:QuestReward(e.self,0,0,0,0,1530,500); --black lace sash
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 19076, item2 = 12096, item3 = 22502})) then --Mighty Bear Paw's Belt Gold Thread and Imbued Amber
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 19076, item2 = 12096, item3 = 22502})) then --Mighty Bear Paw's Belt Gold Thread and Imbued Amber
 		e.self:Say("Well done " .. e.other:GetName() .. ", here is your new hat wear it with pride"); --couldnt find the text
 		e.other:Faction(143,3);
 		e.other:Faction(56,-3);

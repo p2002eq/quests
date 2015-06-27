@@ -16,15 +16,15 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 20934, item2 = 20834, item3 = 20835})) then	--shaman test of might using auburn tessera, drake fang, leather cord
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 20934, item2 = 20834, item3 = 20835})) then	--shaman test of might using auburn tessera, drake fang, leather cord
 		e.self:Say("Excellent! Take this as your reward.");
 		e.other:QuestReward(e.self,0,0,0,0,14566,100000); --drake fang amulet
 		eq.depop();
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 20940, item2 = 20836, item3 = 20837, item4 = 20838})) then --shaman test of health using platinum disc, ethereal amber, shimmering amber, ceremonial belt
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 20940, item2 = 20836, item3 = 20837, item4 = 20838})) then --shaman test of health using platinum disc, ethereal amber, shimmering amber, ceremonial belt
 		e.self:Say("Excellent! Take this as your reward.");
 		e.other:QuestReward(e.self,0,0,0,0,27727,100000); --bracelet of the spirits
 		eq.depop();
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 20947, item2 = 20839, item3 = 20840})) then --shaman test of sight using phosphoric globe, sphinx hide, light damask mantle
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 20947, item2 = 20839, item3 = 20840})) then --shaman test of sight using phosphoric globe, sphinx hide, light damask mantle
 		e.self:Say("Excellent! Take this as your reward.");
 		e.other:QuestReward(e.self,0,0,0,0,27728,100000); --fairy-hide mantle
 		eq.depop();

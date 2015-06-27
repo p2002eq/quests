@@ -9,7 +9,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 13713})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 13713})) then
 		e.self:Say("Oh dear.. no.. no.. I warned her about the aqueducts.. I warned her.. I coudn't watch her every minute of the day, could I? Oh Lucie.. Why didn't you listen to me? Here, take this. It belonged to her mother. She always said that in times of need, it gave her courage to go on.. Thank you so much for your efforts.");
 		e.other:SummonItem(13188);
 		e.other:Ding();

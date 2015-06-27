@@ -9,7 +9,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 20695})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 20695})) then
 		e.self:Emote("grabs the heart as you toss it to him before realizing what it is. As soon as it touches his hands, his body convulses, a sickly light emanating from his eyes and oozing cracks appear in his skin. As he melts into the ground, a small glowing ball floats where he once stood.");
 		e.other:SummonItem(20698);
 		e.other:Ding();

@@ -12,7 +12,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 18204})) then -- Guild Summons
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 18204})) then -- Guild Summons
 		e.self:Emote('breaks his meditation and quickly grabs your forearms. You feel the raw power in his heavily callused hands. Out of nowhere, his tail sweeps forward and places a shackle upon your wrist. He then points south towards Master Bain and returns to his meditation.');
 		e.other:SummonItem(4190); 	-- Shackle of Dust
 		e.other:Faction(317,200); 	--Swift Tails
@@ -20,12 +20,12 @@ function event_trade(e)
 		e.other:AddEXP(100);
 		e.other:Ding();
 	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 14788})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 14788})) then
 		e.self:Emote("sits whispering incoherently for a long moment before even regarding the note you dropped in front of him. The Grand Master suddenly snatches up the note from Xlixinar, removes a small charcoal marker from a belt pouch, and scrawls some intructions upon it. He drops the note immediately after finishing and resumes his meditation without a word.");
 		e.other:SummonItem(18980);
 		e.other:Ding();
 	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 14782, item2 = 10032})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 14782, item2 = 10032})) then
 		e.self:Emote("nods slightly");
 		e.other:SummonItem(14783);
 		e.other:AddEXP(10000);

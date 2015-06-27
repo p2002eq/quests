@@ -1,7 +1,7 @@
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 13861})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 13861})) then
 		e.self:Emote("darts into the jar, or just darted past it!! The Knights of Truth do not tolerate people attempting to catch these fish!!");
 		e.other:SummonItem(eq.ChooseRandom(13861,13862));
 		e.other:Ding();

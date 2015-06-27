@@ -15,13 +15,13 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	
-	if(item_lib.check_turn_in(e.trade, {item1 = 16548})) then --Handin: 1x a Strategic Map of Kithicor (16548)
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 16548})) then --Handin: 1x a Strategic Map of Kithicor (16548)
 		e.self:Say("Excellent work, " .. e.other:GetName() .. "!! It is obvious that you are a highly skilled tracker and warrior. Accept this reward, my personal sword which has served me well in countless battles. Perhaps you are willing to perform [another service] on our behalf?");
 		e.other:QuestReward(e.self,0,0,0,0,5422,5000); --Short Sword of Morin (5422)
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 5405})) then --Handin: 1x Ebony Bladed Sword (5405)
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 5405})) then --Handin: 1x Ebony Bladed Sword (5405)
 		e.self:Say("Excellent work, " .. e.other:GetName() .. "!! It is obvious that you are a highly skilled tracker and warrior. Accept this reward, my personal sword which has served me well in countless battles. Perhaps you are willing to perform [another service] on our behalf?");
 		e.other:QuestReward(e.self,0,0,0,0,5422,5000); --Short Sword of Morin (5422)
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 20638})) then --Handin: 1x Sealed Ghoul Boss' Log Book (20638)
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 20638})) then --Handin: 1x Sealed Ghoul Boss' Log Book (20638)
 		e.self:Say("We meet again, " .. e.other:GetName() .. ".  The ghoul boss' log reveals much of the machinations of our dark oppressors, but not enough.  Deliver these orders to Bryn in Lesser Faydark, and he will provide you with another weapon to aid in our defense of Kithicor.");
 		e.other:QuestReward(e.self,0,0,0,0,20639,1000); --Orders for Bryn
 	end

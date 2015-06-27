@@ -18,15 +18,15 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 20983, item2 = 20963, item3 = 20981,item4 = 20982})) then -- warrior test of bash using efreeti battle axe, honeyed nectar, bottled djinni, ethereal emerald
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 20983, item2 = 20963, item3 = 20981,item4 = 20982})) then -- warrior test of bash using efreeti battle axe, honeyed nectar, bottled djinni, ethereal emerald
 		e.self:Say("Yuz do good! Take dis!");
 		e.other:QuestReward(e.self,0,0,0,0,11675,100000); --fangol
 		eq.depop();
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 20980,item2 = 20979, item3 = 20956})) then -- warrior test of smash using djinni war blade, virulent poison, mottled spiroc feather
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 20980,item2 = 20979, item3 = 20956})) then -- warrior test of smash using djinni war blade, virulent poison, mottled spiroc feather
 		e.self:Say("Yuz do good! Take dis!");
 		e.other:QuestReward(e.self,0,0,0,0,11674,100000); -- dagas
 		eq.depop();
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 20976, item2 = 20977, item3 = 20978})) then -- warrior test of think using efreeti belt, pegasus statuette, spiroc wind totem, wind tablet
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 20976, item2 = 20977, item3 = 20978})) then -- warrior test of think using efreeti belt, pegasus statuette, spiroc wind totem, wind tablet
 		e.self:Say("Yuz do good! Take dis!");
 		e.other:QuestReward(e.self,0,0,0,0,11673,100000); -- belt of the four winds
 		eq.depop();

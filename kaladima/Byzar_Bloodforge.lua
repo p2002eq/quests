@@ -15,7 +15,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 13931, item2 = 13931, item3 = 13931, item4 = 13931})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 13931, item2 = 13931, item3 = 13931, item4 = 13931})) then
 		e.self:Say("You finally have proven yourself a warrior, a slow one!!  Take this reward and ask for nothing else.  You should be proud to defend Kaladim and expect no reward.");
 		e.other:SummonItem(eq.ChooseRandom(2113,2114,2115,2117,2119,2121,2122));
 		e.other:Faction(314,15);   -- StormGuard better
@@ -27,7 +27,7 @@ function event_trade(e)
 		e.other:GiveCash(7,1,2,0);
 		e.other:Ding();
 	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 13741, item2 = 13740})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 13741, item2 = 13740})) then
 		e.self:Say("I underestimated you.  You are truly a great warrior.  I reward you with a piece of my own Bloodforge armor.  You would be fine Bloodforge Brigade material!  How would you like to [take a little trip] in the name of the Bloodforge Brigade?");
 		e.other:SummonItem(eq.ChooseRandom(3090,3090,3090,3090,3090,3090,3091,3092,3093,3094,3095,3096));
 		e.other:Faction(314,15);   -- StormGuard better
@@ -38,7 +38,7 @@ function event_trade(e)
 		e.other:AddEXP(10000);
 		e.other:Ding();
 	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 12136})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 12136})) then
 		e.self:Say("Ha!! His death brings me great happiness.  I owe you much.  Take this hammer.  It is the hammer of the Bloodforge Brigade.  May it serve you well.  Now go, so I can enjoy this moment of happiness alone.");
 		e.other:SummonItem(13314);
 		e.other:Faction(314,15);   -- StormGuard better

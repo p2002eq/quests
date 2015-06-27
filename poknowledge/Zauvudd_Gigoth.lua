@@ -15,7 +15,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 28787, item2 = 28745})) then --Planar Blood Brew, Planar Traveler's Manual
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 28787, item2 = 28745})) then --Planar Blood Brew, Planar Traveler's Manual
 		e.self:Say("Wow, this is great! Wow! This is may be the best Planar Blood Brew I have ever tasted! You have passed the first test with flying colors. Here, you take this book and learn well from it. When you are ready for your next lesson, speak to Xasri Virek.");
 		e.other:QuestReward(e.self,0,0,0,0,28788); --Beginner Combat Manual
 	end

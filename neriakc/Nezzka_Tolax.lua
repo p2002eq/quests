@@ -1,7 +1,7 @@
 function event_trade(e)
 	local item_lib = require("items");
 	
-	if(item_lib.check_turn_in(e.trade, {item1 = 18757})) then --tattered note
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 18757})) then --tattered note
 		e.self:Say("Hmmm, I hope you're tougher than you look. Here, put this on. Go find Ulraz, he'll beat you into shape. There's no turning back now, punk. So, you'd better do well, got it?");
 		e.other:Faction(322,100); --The Dead
 		e.other:Faction(268,15); --Queen Cristanos Thex

@@ -1,6 +1,6 @@
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 18847})) then	-- Tattered note
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 18847})) then	-- Tattered note
 		e.self:Say("Welcome " .. e.other:GetName() .. "! The blood of our brothers the wolves run strong through your veins. You must learn to control your spiritual link with our canine brothers. Wear this tunic so that others may recognize you as a Field Priest of the Tribunal, the claws and fangs of justice! Talk to my friend Hoyce and he can get you started.");
 		e.other:Ding();
 		e.other:Faction(294, 15);   							-- Shamen of Justice

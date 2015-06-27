@@ -12,10 +12,10 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 12979, item2 = 12980, item3 = 12256})) then -- A Metal Pipe & A Metal Pipe & Robe of the Lost Circle
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 12979, item2 = 12980, item3 = 12256})) then -- A Metal Pipe & A Metal Pipe & Robe of the Lost Circle
 		e.self:Emote("holds his arms out and a fine robe materializes before your eyes. You grab it just in time to see the skeleton fade from existence.");
 		e.other:QuestReward(e.self,0,0,0,0,12970);	-- Robe of the Whistling Fist
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 12429})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 12429})) then
 		e.self:Emote("quickly stashes the flute inside of his ribcage, where it joins another. 'If you want the true Flute of Zan-Fi, you'll have to take it from me!'"); --Made this up, no text available
 		eq.spawn2(86155,0,0,e.self:GetX(),e.self:GetY(),e.self:GetZ(),e.self:GetHeading());
 		eq.depop_with_timer();

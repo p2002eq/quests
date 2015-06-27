@@ -13,7 +13,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 13845})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 13845})) then
 		e.self:Say("Very fine work, my young apprentice. This shall be very useful in understanding their ways. I have heard rumors of a scribe who can decipher these scrolls. He is said to frequent the local taverns. Bah!! If I cannot decipher them, no one can!! Continue with your work. Soon you shall advance enough to [test the might of the orc oracles].");
 		e.other:Ding();
 		e.other:Faction(11,10,0); -- Arcane Scientists

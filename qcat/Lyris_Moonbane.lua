@@ -15,7 +15,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	
-	if(item_lib.check_turn_in(e.trade, {item1 = 18721})) then -- Blood Stained Note
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 18721})) then -- Blood Stained Note
 		e.self:Say("So, you wish to to walk with the dead, eh? The army of the Plaguebringer is quietly amassing its diseased soldiers in the shadows and sewers of Norrath. Go to Brother Bruax. He will turn you into something useful, I hope.");
 		e.other:Faction(21,100); -- Bloodsabers
 		e.other:Faction(135,-15); -- Guards of Qeynos
@@ -23,10 +23,10 @@ function event_trade(e)
 		e.other:Faction(257,-25); -- Priest of Life
 		e.other:Faction(53,5); -- Corrupt Qeynos Guards
 		e.other:QuestReward(e.self,0,0,0,0,13552,100); -- Dark Stained Purple Robe*
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 1792})) then -- Heavy Locked Chest
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 1792})) then -- Heavy Locked Chest
 		e.self:Emote("examines the lock on the chest and pulls a black key from a pouch at her hip. The lock clicks open. Her eyes widen as she carefully opens the chest, revealing a pile of platinum coins and a small note. After admiring the coins she takes the note and reads it. The necromancer glances up, then at her spectral pet who then hands you a glass jar. She says, 'Are you ready for your first [assignment], " .. e.other:Race() .. "?");
 		e.other:QuestReward(e.self,0,0,0,0,17060); -- Thick Glass Jar
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 1795})) then -- Sealed Jar
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 1795})) then -- Sealed Jar
 		e.self:Emote("'s light up with childish glee as she takes the jar containing the disgusting and deadly substance. From her pouch she removes a gob of putty and a gem carved into the likeness of a flying insect. After sticking the putty to the lid of the jar, she mashes the carved gem into the putty and hands the jar back to you. She then says, 'This is enchant the substance. You must then [deliver] the substance.");
 		e.other:QuestReward(e.self,0,0,0,0,1799); -- Harbinger of Bertoxxulous
 	end

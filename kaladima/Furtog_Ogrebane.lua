@@ -12,7 +12,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 18766})) then -- Recruitment Letter
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 18766})) then -- Recruitment Letter
 		e.self:Say("Greetings, friend, and welcome to Stormguard Hall! I am Furtog Ogrebane, Captain of the Guard. We shall train you to be a fearless warrior, who will serve and protect King Kazon well. Here is your tunic.  Now, let's begin your training.");
 		e.other:SummonItem(13515); -- Dirt Stained Tunic*
 		e.other:Faction(314,100); -- Storm Guard
@@ -22,7 +22,7 @@ function event_trade(e)
 		e.other:Faction(57,-25); -- Craknek Warriors
 		e.other:AddEXP(100);
 		e.other:Ding();
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 13316, item2 = 13317})) then -- Ogre Heads
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 13316, item2 = 13317})) then -- Ogre Heads
 		e.self:Say("Finally my great father's work has been completed. All the Mudtoe ogres have been exterminated. Thank you. Take this weapon which my father pried from the cold, dead hands of the Mudtoe ogre captain. It is called an ogre war maul. May you wield it with honor in the name of Kaladim.");
 		e.other:SummonItem(6302); -- Ogre War Maul
 		e.other:Faction(314, 25); -- Storm Guard

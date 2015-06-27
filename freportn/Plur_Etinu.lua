@@ -13,15 +13,15 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 13074, item2 = 13074})) then -- 2x zombie skin
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 13074, item2 = 13074})) then -- 2x zombie skin
 		e.self:Say("May the Power of Passion purge you of disease!"); -- text made up
 		e.other:Ding();
 		e.self:CastSpell(213,e.other:GetID());
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 14029, item2 = 14029, item3 = 14029})) then -- 3x bixie stingers.
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 14029, item2 = 14029, item3 = 14029})) then -- 3x bixie stingers.
 		e.self:Say("May the Power of Passion forced you free of poison!"); -- text made up
 		e.other:Ding();
 		e.self:CastSpell(203,e.other:GetID());
-	elseif(item_lib.check_turn_in(e.trade, {gold = 10})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {gold = 10})) then
 		e.self:Say("May the unbridled passion of Erollisi Marr flow through your body.");
 		e.other:Ding();
 		e.self:CastSpell(17,e.other:GetID());

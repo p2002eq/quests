@@ -12,13 +12,13 @@ function event_trade(e)
 	local ear = 0;
 	local item_lib =require("items");
 	
-	if(item_lib.check_turn_in(e.trade, {item1 = 13790,item2 = 13790,item3 = 13790,item4 = 13790})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 13790,item2 = 13790,item3 = 13790,item4 = 13790})) then
 			ear = 4;
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 13790,item2 = 13790,item3 = 13790})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 13790,item2 = 13790,item3 = 13790})) then
 			ear = 3;
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 13790,item2 = 13790})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 13790,item2 = 13790})) then
 			ear = 2;
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 13790})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 13790})) then
 			ear = 1;
 	end
 	

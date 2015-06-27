@@ -18,21 +18,21 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 12321,item2 = 12320})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 12321,item2 = 12320})) then
 		e.self:Say("You have performed well, brave ranger. Put these upon your hands. Protection from the strongest of bowstring and magic are their greatest power. I do believe we have another mission which may yield you the [ivy etched leggings].");
 		e.other:Faction(182,10); -- kithicor residence
 		e.other:Faction(265,1); -- protectors of the pine
 		e.other:Faction(159,1); -- jaggedpine treefolk
 		e.other:Faction(347,-1); -- unkempt druids
 		e.other:QuestReward(e.self,0,0,0,0,3190,10000);
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 10059,item2 = 12328})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 10059,item2 = 12328})) then
 		e.self:Say("Wonderful!! I see he did find it. How lucky we are that he did all the hard work. My thanks to you are embodied in these ivy etched leggings. Now you may [earn the ivy etched boots] to go along with them.");
 		e.other:Faction(182,10); -- kithicor residence
 		e.other:Faction(265,1); -- protectors of the pine
 		e.other:Faction(159,1); -- jaggedpine treefolk
 		e.other:Faction(347,-1); -- unkempt druids
 		e.other:QuestReward(e.self,0,0,0,0,3191,10000);
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 12305,item2 = 12306,gold = 1000})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 12305,item2 = 12306,gold = 1000})) then
 		e.self:Say("You have succeeded!! I believe I owe you the ivy etched boots.");
 		e.other:Faction(182,10); -- kithicor residence
 		e.other:Faction(265,1); -- protectors of the pine

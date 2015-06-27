@@ -13,7 +13,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	
-	if(item_lib.check_turn_in(e.trade, {item1 = 12269})) then -- tarnished bronze key
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 12269})) then -- tarnished bronze key
 		e.self:Say("Oh my! Thank you so very much! here, take this note to my father. I am sure he will reward you well for my safety.");
 		e.other:SummonItem(5573);
 		e.other:Ding();

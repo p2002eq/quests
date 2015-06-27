@@ -25,10 +25,10 @@ function event_trade(e)
 	local item_lib = require("items");
 	
 	if(e.other:GetClass() == 1 and e.other:GetRace() == 6) then
-		if(item_lib.check_turn_in(e.trade, {item1 = 16173, item2 = 19565, item3 = 19564})) then--Deathfist Orc Scalp, Orc Clavicle, Orc Fibula
+		if(item_lib.check_turn_in(e.self, e.trade, {item1 = 16173, item2 = 19565, item3 = 19564})) then--Deathfist Orc Scalp, Orc Clavicle, Orc Fibula
 			e.self:Say("Excellent.  Here is your weapon, " .. e.other:GetName() .. ".  Use it to slay more!");--text made up
 			e.other:QuestReward(e.self,0,0,0,0,19606);--Jagged Orc Slayer Sword
-		elseif(item_lib.check_turn_in(e.trade, {item1 = 19562, item2 = 19562, item3 = 19562, item4 = 19562})) then--Young Kodiak Femurs
+		elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 19562, item2 = 19562, item3 = 19562, item4 = 19562})) then--Young Kodiak Femurs
 			e.self:Say("So you have more strength than you seem to.  Hmm...here is your shield, " .. e.other:GetName() .. ".");--text made up
 			e.other:QuestReward(e.self,0,0,0,0,19609);--Black Femur Shield
 		end

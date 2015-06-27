@@ -24,7 +24,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 17860})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 17860})) then
 		e.self:Emote("howls in anger, his body seeming to suck energy from the walls around him as he sees his reflection. He pulls a hammer from the bundle in his arms and swings fiercely at your head.");
 		entid1 = eq.spawn2(39154,0,0,e.self:GetX(),e.self:GetY(),e.self:GetZ(),e.self:GetHeading());
 		mob1 = eq.get_entity_list():GetMobID(entid1);

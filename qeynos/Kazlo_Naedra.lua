@@ -15,7 +15,7 @@ end
 
 function event_trade(e)
 	local item_lib =require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 18006})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 18006})) then
 		e.self:Say(string.format("Good work, %s! Here's a little something for your troubles. Your quick work and loyalty will be noted by the Order of Three.",e.other:GetName()));
 		e.other:Ding();
 		e.other:Faction(240,5,0);

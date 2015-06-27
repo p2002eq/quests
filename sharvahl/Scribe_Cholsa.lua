@@ -12,7 +12,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 31849})) then  -- Rolekos Report of Occurrences
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 31849})) then  -- Rolekos Report of Occurrences
 		e.self:Say("So it seems there is more truth to the legends of the Rakshasa than is commonly believed. I recall much of the tales of the wicked shaman who sold their souls and bodies to the dark spirits.  There is a ritual that must be performed to force the Rakshasa to fully materialize in our realm so that it may be slain. I will write down the instructions for the ritual but the [components] I'm afraid may be difficult to obtain.");
 		eq.set_global("Rakshasa","1",5,"F"); -- global to keep from starting at this point
 		e.other:Faction(68,10); -- Dar Khura

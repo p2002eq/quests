@@ -38,7 +38,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 10994})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 10994})) then
 		e.self:Say("You have done well to bring Winex's staff to me, " .. e.other:GetName() .. ". Here is your reward for dealing with that meddlesome fool.");
 		e.other:SummonItem(11081);
 		e.other:Ding();

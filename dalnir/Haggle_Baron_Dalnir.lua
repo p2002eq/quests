@@ -8,7 +8,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 13051, item2 = 13063, item3 = 3888})) then --Crusaders of Greenmist (Greenmist Quest 8/8)
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 13051, item2 = 13063, item3 = 3888})) then --Crusaders of Greenmist (Greenmist Quest 8/8)
 		e.self:Emote("stares at the broken blade for some time. After a few moments of studying, the apparition begins to draw and scribble on the parchment. He works with amazing speed as the memories from his past flood from his quill. The diagrams and runes that etch the surface of the parchment begin to glow. The legendary Haggle Baron rolls the parchment and hands it to you. Smiling, he bows deeply and quickly fades away.");
 		e.other:QuestReward(e.self,0,0,0,0,3890);
 		eq.depop();

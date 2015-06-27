@@ -8,7 +8,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 18244, item2 = 12465, item3 = 12465})) then --Legion Order (4 signed), Barracuda Tooth x 2
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 18244, item2 = 12465, item3 = 12465})) then --Legion Order (4 signed), Barracuda Tooth x 2
 		e.self:Emote("grabs the barracuda teeth and attaches them to a necklace. 'Good. Now this barracuda charm shall keep me safe from slipping into the waters and becoming a feast for the barracuda. And you, take this legion order and be gone.'");
 		e.other:SummonItem(18245);	--Legion Order (5 signed)
 		e.other:Faction(193,5); 	--Legion of Cabilis
@@ -17,17 +17,17 @@ function event_trade(e)
 		e.other:Faction(62,5); 		--Crusaders of Greenmist
 		e.other:Faction(317,5); 	--Swift Tails
 		e.other:AddEXP(800);
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 12465, item2 = 12465})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 12465, item2 = 12465})) then
 		e.self:Say("You shall get my signature when I have the legion order and two barracuda teeth.");
 		e.other:SummonItem(12465,2);
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 12465, item2 = 18244})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 12465, item2 = 18244})) then
 		e.self:Say("You shall get my signature when I have the legion order and two barracuda teeth.");
 		e.other:SummonItem(12465,1);
 		e.other:SummonItem(18244);
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 12465})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 12465})) then
 		e.self:Say("You shall get my signature when I have the legion order and two barracuda teeth.");
 		e.other:SummonItem(12465);
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 18244})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 18244})) then
 		e.self:Say("You shall get my signature when I have the legion order and two barracuda teeth.");
 		e.other:SummonItem(18244);
 	end

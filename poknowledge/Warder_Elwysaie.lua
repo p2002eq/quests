@@ -8,7 +8,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if((item_lib.check_turn_in(e.trade, {item1 = 4891})) or (item_lib.check_turn_in(e.trade, {item1 = 4892})) or (item_lib.check_turn_in(e.trade, {item1 = 4893})) or (item_lib.check_turn_in(e.trade, {item1 = 4894})) or (item_lib.check_turn_in(e.trade, {item1 = 4895})) or (item_lib.check_turn_in(e.trade, {item1 = 4896})) or (item_lib.check_turn_in(e.trade, {item1 = 4897}))) then --Thorny Vine Armor
+	if((item_lib.check_turn_in(e.self, e.trade, {item1 = 4891})) or (item_lib.check_turn_in(e.self, e.trade, {item1 = 4892})) or (item_lib.check_turn_in(e.self, e.trade, {item1 = 4893})) or (item_lib.check_turn_in(e.self, e.trade, {item1 = 4894})) or (item_lib.check_turn_in(e.self, e.trade, {item1 = 4895})) or (item_lib.check_turn_in(e.self, e.trade, {item1 = 4896})) or (item_lib.check_turn_in(e.self, e.trade, {item1 = 4897}))) then --Thorny Vine Armor
 		e.self:Say("Thank you, " .. e.other:GetName() .. "."); --Text made up
 		e.other:QuestReward(e.self,0,0,0,0,eq.ChooseRandom(10028, 10037, 22503, 15981),698775); --Random gem: Peridot, Diamond, Blue Diamond, Raw Diamond
 	end

@@ -12,7 +12,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 19934})) then -- Raenna Griff's Head
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 19934})) then -- Raenna Griff's Head
 		e.self:Say("It took you long enough. I wonder if the Militia will be able to identify the body minus its head. Take this Dull Dismal Long Sword and sharpen it in a forge with a sharpening stone. It may take you several attempts if you are unfamiliar with the process. Once that is accomplished deliver the Sharpened Dismal Long Sword and a Giant Rattlesnake Skin to Quan Nektogo. He will make the final preparations on your weapon.");
 		e.other:SummonItem(19923); --Dull Dismal Longsword
 		e.other:Ding();

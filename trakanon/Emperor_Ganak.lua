@@ -18,12 +18,12 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 19951, item2 = 19952})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 19951, item2 = 19952})) then
 		e.self:Say("You have returned to me two medallions of my people. In return, I give you this key to enter the ruins of Sebilis. Be wary though, for Trakanon, Scourge of the Sibilisian empire resides within. ");
 		e.other:QuestReward(e.self,0,0,0,0,20883,10000);
 		e.other:SetZoneFlag(89);
 	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 7276, item2 = 19953, item3 = 19954, item4 = 19955})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 7276, item2 = 19953, item3 = 19954, item4 = 19955})) then
 		e.self:Say("I must say, I thought your flesh would be rotting from your bones alongside the remains of the ancient Sebilisians. I commend you on your victory over the poison dragon and thank you for returning the ancient medallions of my people. I reward you with the key you seek. A place shall be prepared for your souls among the most honored of the dead. Soon you will be seeing the world through the shroud of death.");
 		e.other:QuestReward(e.self,0,0,0,0,20884);
 		e.other:SetZoneFlag(108);

@@ -1,7 +1,7 @@
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 12140})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 12140})) then
 		e.other:SummonItem(18809);
 		e.other:Ding();
 		e.other:Faction(267, 10,0);

@@ -24,16 +24,16 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	
-	if(item_lib.check_turn_in(e.trade, {item1 = 10032, item2 = 10032, item3 = 10000})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 10032, item2 = 10032, item3 = 10000})) then
 		e.self:Say("Here is your prize - a lambent star ruby.");
 		e.other:Faction(320,5);
 		e.other:Faction(291,-5);
 		e.other:QuestReward(e.self,0,0,0,0,10117);
-	elseif(item_lib.check_turn_in(e.trade, {gold = 550})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {gold = 550})) then
 		e.other:Faction(320,5);
 		e.other:Faction(291,-5);
 		e.other:QuestReward(e.self,0,0,0,0,10031);
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 16507})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 16507})) then
 		e.self:Say("I see that Gavel has sent you to me. Very well, I have galvanized your platinum bar - take it.");
 		e.other:QuestReward(e.self,0,0,0,0,19047); --Galvanized Platinum
 	end

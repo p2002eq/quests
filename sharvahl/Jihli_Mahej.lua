@@ -6,7 +6,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 5954})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 5954})) then
 		e.self:Say("Ah so Gawfed wants his vase.  Unfortunately that vase has been broken.  Maybe you could go and speak with Chogar so that he can repair the vase.  Then Gawfed and I can finish our transaction.");  --ad lib text
 		e.other:QuestReward(e.self,0,0,0,0,5955);  --need confirmation of item from live
 	end

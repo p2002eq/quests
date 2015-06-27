@@ -13,7 +13,7 @@ function event_say(e)
 		e.self:Say("Thalger had been the first to pass our tests and the timing was lucky indeed. We supplied him with materials needed to construct a weapon that could pierce the very fabric of the [cosmos]. First, was the sharpened shoulder blade of an ancient lion matriarch. Then Thalger found a young sapling for the shaft and shaped it over the course of 45 days using nothing but his fingernails. He then split the top of the flexible shaft, lodged the blade into place and bound them together with the tanned entrails of an ox. Finally, he adorned the spear with the magical feathers of a an aviak elder.");
 	elseif(e.message:findi("cosmos")) then --Part of Shaman Epic 1.0
 		e.self:Say("Miragul's casting was strong but it was a force brought into existence. This force was positive in nature, the opposite of nothingness. Even though it worked like a void, it was still created by an imposition of will. We figured that if we could rupture the planar boundary and create enough anti-existence or non-matter, the mantle might destroy itself. Thalger volunteered immediately to pierce the mantle as no spirits could even get close to it. In one act of devotion and singular purpose, Thalger rode the wind far above the land and with one colossal arch ripped a [breach] across the planes.");
-	elseif((e.message:findi("breach")) then --Part of Shaman Epic 1.0
+	elseif(e.message:findi("breach")) then --Part of Shaman Epic 1.0
 		e.self:Say("The tear in the fabric of existence created enough negative material to cancel out Miragul's abomination. Thalger's strike was so perfect that he cut just enough planar material to destroy the mantle and nothing else. Unfortunately, Thalger himself was lost in the process. All that was left was the spear that fell from the heavens to the ground where we recovered it. We have kept it since then and now we wish you to have it. When you strike with it, you must have the same singularity of purpose as did Thalger when he defeated Miragul's mantle.");
 		--e.other:SummonItem(10651);
 		eq.delete_global("ShmEpic1");
@@ -23,16 +23,16 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	if(e.other:GetFaction(e.self) <= 2) then
-		elseif(item_lib.check_turn_in(e.trade, {item1 = 18456, item2 = 18457, item3 = 18458})) then --Part of Shaman Epic 1.0
+		elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 18456, item2 = 18457, item3 = 18458})) then --Part of Shaman Epic 1.0
 			e.self:Emote("Hmmm, it appears the queen's disappearance wasn't as random as we thought. It also looks as if this High Scale were having some sort of affair with Neh. We have little but speculation at this point, so making it known to Nak'Ashiir would do nothing. Perhaps finding the resting place of the High Scale will show us more of what really happened. We suspect the icon mentioned in this log could now be located in the city's old temple. Find the icon and bring it to Kirn, wherever he is. Tell us what you learn afterwards.");
 			e.other:Faction(342,50);
 			e.other:QuestReward(e.self,0,0,0,0,0,100000);
-		elseif(item_lib.check_turn_in(e.trade, {item1 = 18459})) then --Part of Shaman Epic 1.0
+		elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 18459})) then --Part of Shaman Epic 1.0
 			e.self:Emote("So, the truth is found! Nak mourned over the loss of his child instead of relishing the blessing of his god, Cazic-Thule. His wife and the High Scale then abandoned him in disgust, but even that was an aftereffect of what caused the king to turn his back on his faith. The child is the key! If we put the child to rest, Nak may repent of what he has done and the mantle may be lifted. The most difficult task is now at hand. Find the child, then take proof of her passing to Nak. I can feel the mantle's foundation crumbling! Now, go!");
 			e.other:Faction(342,50);
 			e.other:QuestReward(e.self,0,0,0,0,0,100000);
 			end
-	if((e.other:GetFaction(e.self)>=1) and item_lib.check_turn_in(e.trade, {item1 = 1674})) then --Part of Shaman Epic 1.0
+	if((e.other:GetFaction(e.self)>=1) and item_lib.check_turn_in(e.self, e.trade, {item1 = 1674})) then --Part of Shaman Epic 1.0
 			e.self:Emote("What is this? The scale of Rak'Ashiir's father? Then Rak has repented his mistake? But why is the mantle still in place? If Rak has repented, then the mantle should have dissolved since he was the one who initiated its construction. But is its initiation the key? How could we have been so blind? Kirn said Rak'Ashiir had the blood of his people on his hands but that is false. Rak merely pointed to a path that would lead them to destruction. It was the people who chose to follow. Now all [is lost].");
 			e.other:Faction(342,100);
 			e.other:QuestReward(e.self,0,0,0,0,10651,350000);

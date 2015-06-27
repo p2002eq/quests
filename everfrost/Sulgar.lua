@@ -15,7 +15,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 14360,item2 = 14361})) then -- Staff of the Wheel / Star of Eyes
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 14360,item2 = 14361})) then -- Staff of the Wheel / Star of Eyes
 		e.self:Say("Wonderful, you have brought me the Wheel. Here is the reward I promised you.");
 		e.other:SummonItem(11880); -- Rune of Frost
 		e.other:SummonItem(11881); -- Rune of the Astral

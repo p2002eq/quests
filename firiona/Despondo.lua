@@ -18,22 +18,22 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	-- Onyx Hand in
-	if(item_lib.check_turn_in(e.trade, {item1 = 10027})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 10027})) then
 		e.other:QuestReward(e.self,7,12,3,0,12962); -- Hampton's bottle
 		e.self:Say("This bottle is for the one called Hampton. If you look well, you can see his name. ");
 	-- Star Rose Quartz Hand in
 	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 10021})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 10021})) then
 		e.other:QuestReward(e.self,7,12,3,0,12964); -- Ryla's bottle
 		e.self:Say("Identify this when the time comes. It is Ryla's prison.");
 	-- Peridot Hand in
 	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 10028})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 10028})) then
 		e.self:Say("This bottle is for Mardon. You may be able to identify his name upon it. ");
 		e.other:QuestReward(e.self,7,12,3,0,12963); -- Mardon's bottle
 	-- Souls hand in
 	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 12967, item2 = 12966, item3 = 12965})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 12967, item2 = 12966, item3 = 12965})) then
 		e.self:Emote("embraces the bottles as if they were babes. 'Rejoice my friends!! Your souls are safe. " .. e.other:GetName() .. ", you are a good wizard. You deserve to know the secret of concussion.'");
 		e.other:Faction(101,20);  -- Firiona Vie
 		e.other:Faction(92,20);   -- Emarald Warriors

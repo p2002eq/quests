@@ -125,7 +125,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 
-	if (item_lib.check_turn_in(e.trade, {item1 = 31846})) then
+	if (item_lib.check_turn_in(e.self, e.trade, {item1 = 31846})) then
 		eq.set_global("pop_poj_tribunal", "1", 5, "F");
 		eq.set_global("pop_poj_hanging", "1", 5, "F");
 		e.other:Message(4, "You receive a character flag!");

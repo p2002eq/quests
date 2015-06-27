@@ -8,7 +8,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 10033})) then --fire emerald
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 10033})) then --fire emerald
 		e.self:Emote("examines the fire emerald, reaches into his pouch and hands you another. 'There you go, it doesn't look special but it is. If you don't believe me I'll take another look at it. Just remember this special fire emerald only has one purpose!'");
 		e.other:QuestReward(e.self,0,0,0,0,10013); --A Special Fire Emerald
 	end

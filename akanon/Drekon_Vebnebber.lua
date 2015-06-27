@@ -11,7 +11,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if (item_lib.check_turn_in(e.trade, {item1 = 18837})) then
+	if (item_lib.check_turn_in(e.self, e.trade, {item1 = 18837})) then
 		e.self:Say("Why, thank you. Hey!! This log indicates some messy business is going on at the scrapyard. Something happened to a group of gnomes. They never came out!! Go check out the scrapyard! I believe the rumors of [Red 5] are true.");
 		e.other:Faction(115,5);
 		e.other:Faction(210,1);
@@ -20,7 +20,7 @@ function event_trade(e)
 		e.other:Faction(39,-1);
 		e.other:AddEXP(100);
 		e.other:Ding();
-	elseif (item_lib.check_turn_in(e.trade, {item1 = 18838})) then
+	elseif (item_lib.check_turn_in(e.self, e.trade, {item1 = 18838})) then
 		e.self:Say("Oh my! It seems two of the obsolete duster models were not fully shut down. You must find them. They could be anywhere in Ak'Anon! After you destroy them, take their scraps to Sanfyrd Montop. He is the operator of the scrapyard.");
 		eq.unique_spawn(55001,39,0,-300,1504,-120,0);
 		e.other:Faction(115,5);

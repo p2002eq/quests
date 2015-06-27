@@ -13,14 +13,14 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 18853})) then --Blood Stained Note
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 18853})) then --Blood Stained Note
 		e.other:Faction(21,100); --Bloodsabers
 		e.other:Faction(135,-15); --Guards of Qeynos
 		e.other:Faction(235,10); --Opal Dark Briar
 		e.other:Faction(257,-25); --Priest of Life
 		e.other:Faction(53,5); --Corrupt Qeynos Guards
 		e.other:QuestReward(e.self,0,0,0,0,13598,100); --Ruined Training Tunic*
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 20175})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 20175})) then
 		e.self:Say("Well done " .. e.other:GetName() .. ". Now take this Rusty Scourge Warrior Broadsword to a forge and sharpen it with a sharpening stone. It may take you several attempts if you are unfamiliar with the process. Once that is done take the Tarnished Scourge Warrior Sword and a Giant King Snake Skin to Illie Roln and he will put the finishing touches on the weapon.");
 		e.other:Faction(21,1);
 		e.other:Faction(135,-1);

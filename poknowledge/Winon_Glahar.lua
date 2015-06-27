@@ -15,7 +15,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 29168, item2 = 28745})) then--Planar Peridot Encrusted Stein, Planar Traveler's Manual
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 29168, item2 = 28745})) then--Planar Peridot Encrusted Stein, Planar Traveler's Manual
 		e.self:Say("How wonderful! You have done well here, I can't remember how long it's been since I've seen a work so fine. Take this book, it will certainly help you in your use of the arts of stealth. When you are ready, Ethoach Trokith will give you your next lesson, so be sure to speak to him. Do not lose your book or else he may not appreciate you coming to class unprepared.");--Adapted text from Beginner Magic Manual quest, I have no other reference
 		e.other:QuestReward(e.self,0,0,0,0,28792); --Beginner Stealth Manual
 	end

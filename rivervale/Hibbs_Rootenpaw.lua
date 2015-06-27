@@ -14,7 +14,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 18734})) then -- Tattered Note
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 18734})) then -- Tattered Note
 		e.self:Say("Hello, friend! I am Hibbs Rootenpaw, leader of the Storm Reapers. Our guild works together with Will Tagglefoot and his family on their farm, to produce the food supply for all of Rivervale. With Karana's help, we have a bountiful harvest every season. We're glad you could help us out. Here's your guild tunic, it'll help keep you dry during the wet months. Go find Reebo out in the fields. He'll help get you started. Welcome aboard! May you serve Karana well.");
 		e.other:SummonItem(13541); -- Jumjum Sack Tunic*
 		e.other:Ding();
@@ -23,7 +23,7 @@ function event_trade(e)
 		e.other:Faction(218,15,0); -- +Merchants of Rivervale
 		e.other:Faction(347,-15,0); -- -Unkempt Druids
 		e.other:AddEXP(100);
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 19689})) then -- Rusbek's Head
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 19689})) then -- Rusbek's Head
 		e.self:Say("Excellent work young Storm Reaper. It is sad that one of our own would resort to such vile acts; his mind must have been twisted by evil desires. Such behavior is practically unheard of among the kind people of Rivervale. Take this dull scimitar and sharpen it in the forge here at the Tagglefoots Farm with a sharpening stone. It may take several attempts if you are unfamiliar with the process. Once that is done give the sharpened scimitar and a large fruit bat wing to Bodbin Gimple and he will put the finishing touches on what will be a fitting scimitar for a Druid of the Storm Reapers.");
 		e.other:SummonItem(19626); -- Dull Storm Reaper Scimitar
 		e.other:Ding();

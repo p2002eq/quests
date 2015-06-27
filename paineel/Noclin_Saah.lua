@@ -11,7 +11,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	--Handin: 1x Rotting Femur (7107)
-	if(item_lib.check_turn_in(e.trade, {item1 = 7107})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 7107})) then
 		e.self:Say("Ah! You found him and obviously removed his presence from the yard. You have my thanks, small as it is for such a menial task. Here. Keep this worthless bit of bone for your labors.");
 		e.other:Faction(143,1);  -- +Heretics
 		e.other:Faction(79,-1);  -- -Deepwater Knights

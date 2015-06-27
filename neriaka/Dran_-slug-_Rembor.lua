@@ -9,11 +9,11 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 12073, item2 = 12073})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 12073, item2 = 12073})) then
 		e.self:Say("Here's the crate of provisions. Take this to Dragoon Szorn in the Lesser Faydark immediately!");
 		e.other:SummonItem(19030); --Crate of Teir`Dal Provisions
 	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 12073})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 12073})) then
 		e.self:Say("Gee, thanks, but I can't do a whole lot without the rest! Get your act straight or we're both dead!");
 		e.other:SummonItem(12073);
 	end

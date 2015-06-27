@@ -17,15 +17,15 @@ function event_trade(e)
 	local number_of_bone_chip = 0;
 	local two_gold = 0;
 	
-	if(item_lib.check_turn_in(e.trade, {item1 = 13073,item2 = 13073,item3 = 13073,item4 = 13073})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 13073,item2 = 13073,item3 = 13073,item4 = 13073})) then
 		number_of_bone_chip = 4;
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 13073,item2 = 13073,item3 = 13073})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 13073,item2 = 13073,item3 = 13073})) then
 		number_of_bone_chip = 3;	
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 13073,item2 = 13073})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 13073,item2 = 13073})) then
 		number_of_bone_chip = 2;	
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 13073})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 13073})) then
 		number_of_bone_chip = 1;
-	elseif(item_lib.check_turn_in(e.trade, {gold = 2})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {gold = 2})) then
 		number_of_bone_chip = 1;
 		two_gold = 1;
 	end

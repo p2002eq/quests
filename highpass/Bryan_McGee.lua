@@ -11,7 +11,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 12366})) then -- Never Stop Chopping
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 12366})) then -- Never Stop Chopping
 		e.self:Say("On second thought.. You can do a little favor for me first. An associate of mine has asked me to acquire a case of spirits for him. Take this box and seek out what is needed to fill it. Inside you will combine the spirits of Lendel's Grand Lager, Gator Gulp Ale, Blackburrow Swig, Tunare's Finest, Underfoot Triple Bock, Frozen Toe Rum, Blood Spirit, Vasty Deep Ale, Clockwork Oil Stout and the legendary..[Oblong Bottle].");
 		e.other:SummonItem(17984); -- Bottle Crate
 		e.other:Ding();
@@ -22,7 +22,7 @@ function event_trade(e)
 		e.other:Faction(105,10,0); -- The Freeport Militia
 		e.other:AddEXP(15000);
 		e.other:GiveCash(0,0,0,0);
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 12365})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 12365})) then
 		e.self:Say("I cannot believe you actually acquired all those drinks!! You do good work, kid. Here is the gem as I promised. And a few plat for good measure. Don't let it be said that the Axe doesn't treat his friends right.");
 		e.other:SummonItem(12348);
 		e.other:Ding();

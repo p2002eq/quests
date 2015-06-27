@@ -9,7 +9,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 17931})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 17931})) then
 		e.self:Say("Oh!!! Thank you. You are my hero. I have been held captive by that horrid dark elf for weeks. Please take this. It was the key to a gem case which was stolen from me by an unseen rogue. If you find the gem case you can take it and the key to the original craftsman. He can open it with only two keys.");
 		e.other:Ding();
 		e.other:AddEXP(15000);

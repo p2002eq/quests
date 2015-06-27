@@ -1,7 +1,7 @@
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 21987})) then -- need correct text
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 21987})) then -- need correct text
 		e.self:Say("It has been a long time since someone has come for my herbs.  I do still have them however.  I knew that the elves would remember I was out here.  Here is the antidote you require.");
 		e.other:SummonItem(21988);
 		e.other:Ding();

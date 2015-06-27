@@ -16,7 +16,7 @@ end
 function event_trade(e)
 local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 13182})) then --Kevlin's Debt
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 13182})) then --Kevlin's Debt
 		e.self:Say("Heh heh! You got a career ahead of ya kid! Good work. Here is your cut.");
 		e.other:AddEXP(300);
 		e.other:Ding();

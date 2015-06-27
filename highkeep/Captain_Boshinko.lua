@@ -24,7 +24,7 @@ function event_trade(e)
 	local item_lib = require("items");
 	
 	if(fac < 5) then
-		if(item_lib.check_turn_in(e.trade, {item1 = 13111})) then
+		if(item_lib.check_turn_in(e.self, e.trade, {item1 = 13111})) then
 			e.self:Say("Good work, bounty hunter! You have served your legend well. I hope a few plat is good enough and, please, take this item we confiscated from one of our guests now serving time in our dungeon.");
 			e.other:SummonItem(eq.ChooseRandom(2314,2314,2314,7321));
 			e.other:Ding();

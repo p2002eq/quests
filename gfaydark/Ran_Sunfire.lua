@@ -16,7 +16,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	
-	if(item_lib.check_turn_in(e.trade, {item1 = 12109 })) then -- Pouch of Pixie Dust
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 12109 })) then -- Pouch of Pixie Dust
 		e.self:Say("Good work. scout!!  You have earned this reward.  It is all we have at the time.  I am certain you are satisfied.  If not, then do not let me hear of it.");
 		e.other:Faction(283, 1); -- Scouts of Tunare
 		e.other:QuestReward(e.self,0,math.random(9),0,0,0,800);

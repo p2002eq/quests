@@ -13,7 +13,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 12312}) and e.other:GetFaction(e.self) < 5) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 12312}) and e.other:GetFaction(e.self) < 5) then
 		e.self:Say("Thank you my friend.  It is good to see him free at last.  I shall miss him.  Here now is the mold of gauntlets as promised. Go and speak with Thomas for information about [Lord Searfire].");
 		e.other:Faction(184,1); --Knights of Truth
 		e.other:Faction(105,-1); --Freeport Militia

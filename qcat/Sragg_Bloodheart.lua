@@ -1,7 +1,7 @@
 function event_trade(e)
 	local item_lib = require("items");
 	
-	if(item_lib.check_turn_in(e.trade, {item1 = 18706})) then --Stained Cloth Note
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 18706})) then --Stained Cloth Note
 		e.self:Say("Ah, another would-be soldier for the army of the Plaguebringer. Unmuz has just lost a few of his men, he'll have plenty of work for you. I'm sure. Begone!");
 		e.other:Faction(21,100); --Bloodsabers
 		e.other:Faction(135,-15); --Guards of Qeynos

@@ -9,7 +9,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 18206})) then --guild summon
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 18206})) then --guild summon
 		e.self:Say("Welcome, young petitioner. You have been summoned to this temple to join with the Scaled Mystics. Ours is the way of pain and suffering. Here is the weapon of a petitioner. Through you the power of our ancestors shall flow. As your wisdom grows, so shall your power. Someday you may be a vessel for the supreme might of the ancients. Seek knowldege within this temple. The hierophants are here to guide you.");
 		e.other:SummonItem(5140); 	--Iron Cudgel of the Petitioner
 		e.other:Faction(282,100); 	--Scaled Mystics
@@ -17,7 +17,7 @@ function event_trade(e)
 		e.other:AddEXP(100);
 		e.other:Ding();
 	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 18462, item2 = 22917})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 18462, item2 = 22917})) then
 		e.self:Emote("smiles at your dedication to Cazic Thule and hands you a small gem.");
 		e.other:SummonItem(7881);
 		e.other:Faction(317,20);
@@ -25,7 +25,7 @@ function event_trade(e)
 		e.other:AddEXP(20000);
 		e.other:Ding();
 	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 18359, item2 = 22916})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 18359, item2 = 22916})) then
 		e.self:Emote("smiles at your dedication to Cazic Thule and hands you a small gem.");
 		e.other:SummonItem(7881);
 		e.other:Faction(317,20);
@@ -33,12 +33,12 @@ function event_trade(e)
 		e.other:AddEXP(20000);
 		e.other:Ding();
 	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 14790})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 14790})) then
 		e.self:Emote("stares down at the note, confused, until he recognizes the writing and gasps in shock!");
 		e.self:Say("You spoke to the Brothers? You, a simple Legionnaire? Well, no matter, you are here to test your virtue of sacrifice and we will take pleasure in it as we have for generations even before the Fallen Brothers. One of our greatest allies in pain is disease. In the woods outside our fair city is a small tribe of goblins. There is a certain goblin famed for his [unique weapon]. Take this knife and use it to cut this from the goblin. Then return his weapon, the knife, a sapphire, and an opal to me.");
 		e.other:SummonItem(14784);
 	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 14784, item2 = 14785, item3 = 10034, item4 = 10030})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 14784, item2 = 14785, item3 = 10034, item4 = 10030})) then
 		e.self:Say("Well done");
 		e.other:SummonItem(14786);
 		e.other:AddEXP(10000);

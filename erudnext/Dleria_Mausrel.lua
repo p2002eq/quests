@@ -14,7 +14,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 13922})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 13922})) then
 		e.self:Say("Good work, young priest. Soon you shall carry the word of the Ocean Lord to distant lands. For now, continue your training. As for your reward, I have this which has been sitting in our vault. I hope it can be of use to a young priest such as yourself.");
 		e.other:SummonItem(eq.ChooseRandom(2144,2146,2147,17005));
 		e.other:Ding();
@@ -23,7 +23,7 @@ function event_trade(e)
 		e.other:Faction(143,-15,0);
 		e.other:AddEXP(100);
 		e.other:GiveCash(0,14,5,0);
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 13880})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 13880})) then
 		e.self:Say("Peeuww!! That most certainly is zombie flesh!! Here is your reward. You have done a fine service in the name of Prexus. Soon you shall advance and we may tell you of greater dangers lurking in the depths.");
 		e.other:Ding();
 		e.other:Faction(79,10,0);

@@ -13,14 +13,14 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 18787})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 18787})) then
 		e.self:Say("Ahh..  good..  good..  here. take..  Now you Craknek! You bash good. Bash lizards. Bash froggies. Bash mushrooms. Remember. you no help Greenbloods. Crakneks stronger than Greenbloods.");
 		e.other:Ding();
 		e.other:Faction(57,100);  	-- Craknek Warrior
 		e.other:Faction(46,15);  	-- Clurg
 		e.other:Faction(128,-15); 	-- Green Blood Knight
 		e.other:QuestReward(e.self,0,0,0,0,13525,100);
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 13361})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 13361})) then
 		e.self:Say("One less trouble. Hunhuh!! You do good work. Keep up. Remember to bring any special things to Guntrik. Here junk for good work. Go away now.");
 		e.other:Faction(57,10);  	-- Craknek Warrior
 		e.other:Faction(46,1);  	-- Clurg

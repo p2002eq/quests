@@ -10,7 +10,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	
-	if(item_lib.check_turn_in(e.trade, {item1 = 18956})) then --Tattered Book
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 18956})) then --Tattered Book
 		e.self:Say("For your sake, I wish you a quick and painless death. For mine, I wish you a slow and painful one, as a warning to any fool who wishes to follow in your path.");
 		e.other:QuestReward(e.self,0,0,0,0,17803); --Soul Trap
 	end

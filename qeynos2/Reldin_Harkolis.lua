@@ -35,11 +35,11 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 19942})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 19942})) then
 		e.self:Say("Excellent! It is fortunate you recovered this message in time. Take this Rusty Unseen Hands Dagger to a forge and sharpen it with a sharpening stone. It may take you several attempts if you are unfamiliar with the process. Once that is accomplished bring me the sharpened dagger, a gnoll fang, and a large king snake skin and I will put the finishing touches on the weapon for you.");
 		e.other:SummonItem(19943); -- rusty unseen hands dagger
 		e.other:Ding();
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 19944,item2 = 13915,item3 = 19945})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 19944,item2 = 13915,item3 = 19945})) then
 		e.other:SummonItem(20266); -- Dagger of Unseen Hands
 		e.other:Ding();
 	end

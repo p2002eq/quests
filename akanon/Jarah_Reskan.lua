@@ -16,7 +16,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 1270,item2 = 1319,item3 = 1323})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 1270,item2 = 1319,item3 = 1323})) then
 		e.self:Say("Thank you " .. e.other:GetName() .. ", take this coin as your reward. I’m sorry to say we’re currently out of masks.");
 		e.other:Faction(115,2); -- gem chopper
 		e.other:Faction(210,1); -- merchants of akanon

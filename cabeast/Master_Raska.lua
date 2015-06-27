@@ -17,7 +17,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 12427})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 12427})) then
 		e.self:Say("You have succeeded, young " .. e.other:GetName() .. "! You have proven yourself a skilled monk. You will now wear the shackle of clay. You will now be required to increase your intensity of training in hopes that you may soon be able to earn your [shackle of stone].");
 		e.other:SummonItem(4191);
 		e.other:Faction(317,20);
@@ -25,7 +25,7 @@ function event_trade(e)
 		e.other:AddEXP(5000);
 		e.other:Ding();
 	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 4190, item2 = 4191, item3 = 12428, item4 = 12428})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 4190, item2 = 4191, item3 = 12428, item4 = 12428})) then
 		e.self:Say("You have done supremely, " .. e.other:GetName() .. ". You have earned your shackle of stone. Mistress Niska will now help you on your way to earning the shackle of rock. May the elements guide you to the next rung.");
 		e.other:SummonItem(4192);
 		e.other:Faction(317,20);
@@ -33,7 +33,7 @@ function event_trade(e)
 		e.other:AddEXP(10000);
 		e.other:Ding();
 	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 18469, item2 = 12822})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 18469, item2 = 12822})) then
 		e.self:Emote("smiles at your dedication to Cazic Thule and hands you a small gem.");
 		e.other:SummonItem(7881);
 		e.other:Faction(317,20);
@@ -41,7 +41,7 @@ function event_trade(e)
 		e.other:AddEXP(20000);
 		e.other:Ding();
 	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 18470, item2 = 22924})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 18470, item2 = 22924})) then
 		e.self:Emote("smiles at your dedication to Cazic Thule and hands you a small gem.");
 		e.other:SummonItem(7881);
 		e.other:Faction(317,20);
@@ -49,7 +49,7 @@ function event_trade(e)
 		e.other:AddEXP(20000);
 		e.other:Ding();
 	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 18232, item2 = 18233})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 18232, item2 = 18233})) then
 		e.self:Say("This is all that was ever found of Gandan Tailfist. I wish you luck in your quest. May you fare better than he did."); --Unable to find the true text; made this up
 		e.other:SummonItem(12429);
 		e.other:Faction(317,20);

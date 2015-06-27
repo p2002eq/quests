@@ -19,7 +19,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 13898})) then -- bag of ice necklaces
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 13898})) then -- bag of ice necklaces
 		e.self:Say("Well done, my young apprentice. I call you apprentice for you are nothing but a spark to my fire. This is the final component for my greatest creation. AHA!! I call it - iced tea!! Never again shall I boil under the hot sun. As for you, take this. It should serve you well. Now go away. There is no iced tea for you");
 		e.other:Ding();
 		e.other:SummonItem(12208);
@@ -30,7 +30,7 @@ function event_trade(e)
 		e.other:AddEXP(1000);
 		e.other:GiveCash(0,7,0,0);
 	elseif(e.other:GetClass() == 12) then
-		if(item_lib.check_turn_in(e.trade, {item1 = 12207})) then -- Half of a Spell
+		if(item_lib.check_turn_in(e.self, e.trade, {item1 = 12207})) then -- Half of a Spell
 			e.self:Say("'I see you found Ilanic. How is he doing? I hope he is well. As for you, you may have the spell Ice Capa... err, I mean Column of Frost. Don't go and lose it now.");
 			e.other:Faction(60,1,0); --faction with Crimson hands increased
 			e.other:Faction(145,1,0); --faction with High Council of Erudin increased

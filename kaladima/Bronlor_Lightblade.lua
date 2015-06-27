@@ -28,7 +28,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	-- Handin: Enraged Goblin Beads
-	if(item_lib.check_turn_in(e.trade, {item1 = 2396, item2 = 2396, item3 = 2396, item4 = 2396})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 2396, item2 = 2396, item3 = 2396, item4 = 2396})) then
 		-- Initiate Symbol of Brell Serilis (End)
 		e.self:Say("I knew I was able to trust ye to help me rid the land of these nasty goblins! The Bloodforge Brigade salutes ye " .. e.other:GetName() .. ". Ye will be well known in our city for being the young one that helped rid our mountains of these goblins. Please take this as a symbol of your devotion to your faith and your God and return to me when ye are ready for yer next [task].");
 		-- Summon: Initiate Symbol of Brell Serilis

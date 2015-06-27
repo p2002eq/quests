@@ -39,7 +39,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 27414, item2 =27415, item3 = 27415})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 27414, item2 =27415, item3 = 27415})) then
 		e.self:Say("Good! Now the Bloodsabers know that Karana will not allow them to live forever! Here, take this to aid you.");
 		e.other:SummonItem(27488);
 		e.other:Ding();

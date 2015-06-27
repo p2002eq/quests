@@ -9,11 +9,11 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	
-	if(item_lib.check_turn_in(e.trade, {item1 = 18783})) then -- Tattered Note
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 18783})) then -- Tattered Note
 		e.self:Say("Greetings. friend. I am Sylia.  I see that you wish to join our humble guild.  Good.  Here is a gift for you - your guild tunic.  Let's get started with your training, shall we?");
 		e.other:Faction(306,100); -- Song Weavers
 		e.other:QuestReward(e.self,0,0,0,0,13534,100); -- Faded Brown Tunic
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 13099,item2 = 13099,item3 = 13099,item4 = 13099})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 13099,item2 = 13099,item3 = 13099,item4 = 13099})) then
 		e.self:Say("Splendid job! Now if you can just keep a tune, you'll be a fine bard.");
 		e.other:Faction(306,5); -- Song Weavers
 		e.other:QuestReward(e.self,0,0,math.random(5),0,13000,100);

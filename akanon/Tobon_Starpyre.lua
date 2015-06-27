@@ -18,7 +18,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 18774})) then -- Registration Letter
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 18774})) then -- Registration Letter
 		e.self:Say("Ah.. Welcome, friend! I am Tobon Starpyre, Master Wizard of Library Mechanimagica. This is our tunic - wear it with pride. Study hard, master your skills, and make us proud.");
 		e.other:SummonItem(13523);	-- Soot Stained Gold Robe*
 		e.other:Faction(91,100,0); 	-- eldritch collective
@@ -28,7 +28,7 @@ function event_trade(e)
 		e.other:Faction(176,15,0); 	-- king ak'anon
 		e.other:Ding();
 		e.other:AddEXP(100);
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 13275, item2 = 13276, item3 = 13277, item4 = 13279})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 13275, item2 = 13276, item3 = 13277, item4 = 13279})) then
 		e.self:Say("Thank you for your work. I heard news of the troubles you encountered. Besides these troubles you still completed your mission. We are grateful. And as I once stated, your reward awaits.");
 		e.other:SummonItem(eq.ChooseRandom(15380,15477,15656));
 		e.other:Ding();

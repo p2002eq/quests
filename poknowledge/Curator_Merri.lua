@@ -14,7 +14,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 28082})) then--Collection of Idols
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 28082})) then--Collection of Idols
 		e.self:Say("Thank you very much " .. e.other:GetName() .. "!  Here, please accept this as a reward for the fine work you've done.");--Text made up, can't find a reference
 		e.other:QuestReward(e.self,0,0,0,0,28241);--Fine Antique Velvet Rose
 	end

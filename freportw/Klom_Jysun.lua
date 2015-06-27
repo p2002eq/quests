@@ -40,7 +40,7 @@ function event_trade(e)
 	local item_lib = require("items");
 
 	if(e.other:Class() == "Monk") then
-		if(item_lib.check_turn_in(e.trade, {item1 = 9934,item2 = 9920,item3 = 9920})) then
+		if(item_lib.check_turn_in(e.self, e.trade, {item1 = 9934,item2 = 9920,item3 = 9920})) then
 			e.self:Say("Good work, "..e.other:GetName()..", try these knuckles.");
 			e.other:SummonItem(9939); -- Kloms Brass Knuckles
 			e.other:Ding();

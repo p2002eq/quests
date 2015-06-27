@@ -13,7 +13,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	
-	if(item_lib.check_turn_in(e.trade, {item1 = 18401})) then -- 18401 - Scroll of Flayed Goblin Skin
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 18401})) then -- 18401 - Scroll of Flayed Goblin Skin
 		eq.stop_timer("despawn");
 		e.self:Emote("flares brightly as you place the scroll into the blue flames of the forge. The scroll quickly catches fire and burns out in a flash of white fire. In it's place is left a hammer. As you snatch the hammer from the flames you hear the spirit begin to cackle wildly and fade away.");
 		e.other:QuestReward(e.self,0,0,0,0,6403,132775);  -- Blued Two-Handed Hammer

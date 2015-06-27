@@ -19,24 +19,24 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 1667})) then -- Part of Shaman Epic 1.0
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 1667})) then -- Part of Shaman Epic 1.0
 		e.self:Say("Oh, it is you, shaman! Good! You must hurry before it's too late. Go now to the Mountains they call Rathe and find them! They need your help quickly! They will know you when they see you and instruct you on how you can help, but you must hurry!");
 		e.other:Ding();
 		e.other:Faction(342,250,0);
 		e.other:AddEXP(1000);
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 1675,item2 = 1676,item3 = 1677})) then -- Part of Shaman Epic 1.0
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 1675,item2 = 1676,item3 = 1677})) then -- Part of Shaman Epic 1.0
 		e.self:Emote("nods somberly and takes the items. After a moment, he says, 'It is unfortunate that it came to this, but nothing else was to be done. Both paragons had lost sight of their virtures to protect the items given to them. The mere protection of these material belongings was not as important to Mithaniel Marr or Bertoxulous as it was that they act with righteousness in their minds and purpose in their hearts.");
 		e.self:Say("You saw this and acted accordingly. For that, we will reward you with the three treasures made into one to ward off the falsehood of possession, the [Shield of Falsehood]. You have walked the path and now, as your final test, we must set you along one [last path].");
 		e.other:Ding();
 		e.other:Faction(342,200,0);
 		e.other:AddEXP(1000);
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 1669,item2 = 1670})) then -- Part of Shaman Epic 1.0
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 1669,item2 = 1670})) then -- Part of Shaman Epic 1.0
 		e.self:Say("This is a sad day. You have failed and strayed from the path set before you. Please try to live as close to the spirits as you are able, though this is the closest you will ever get.");
 		eq.depop_with_timer();
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 1669})) then -- Part of Shaman Epic 1.0
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 1669})) then -- Part of Shaman Epic 1.0
 		e.self:Say("This is a sad day. You have failed and strayed from the path set before you. Please try to live as close to the spirits as you are able, though this is the closest you will ever get.");
 		eq.depop_with_timer();
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 1670})) then -- Part of Shaman Epic 1.0
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 1670})) then -- Part of Shaman Epic 1.0
 		e.self:Say("This is a sad day. You have failed and strayed from the path set before you. Please try to live as close to the spirits as you are able, though this is the closest you will ever get.");
 	end
 	item_lib.return_items(e.self, e.other, e.trade)

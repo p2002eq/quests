@@ -16,7 +16,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 18016})) then -- Note to Harkin
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 18016})) then -- Note to Harkin
 		e.self:Say("Ah, good work, " .. e.other:GetName() .. ". And quick too, I'll makes sure that Elisi hears of your loyal work. Here... take this for your efforts.. it's not much, but it's all I have on me right now.");
 		e.other:SummonItem(1054); -- Used Merchants Gloves
 		e.other:Ding();

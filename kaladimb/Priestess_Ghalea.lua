@@ -14,7 +14,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 18765})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 18765})) then
 		e.self:Say("Welcome to the Underfoot Cathedral. I am High Priestess Ghalea. Here is your guild tunic. Now. let's get you started helping us spread the will of Brell.");
 		e.other:SummonItem(13514);
 		e.other:Faction(44,100); -- Clerics of Underfoot
@@ -22,7 +22,7 @@ function event_trade(e)
 		e.other:Faction(219,75); -- Miners Guild 249
 		e.other:AddEXP(100);
 		e.other:Ding();
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 12106, item2 = 12106, item3 = 12106, item4 = 12106}) and (e.other:GetFaction(e.self) < 5)) then  -- Fairy Dust -- NOT Fairy Princess Dust
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 12106, item2 = 12106, item3 = 12106, item4 = 12106}) and (e.other:GetFaction(e.self) < 5)) then  -- Fairy Dust -- NOT Fairy Princess Dust
 		e.self:Say("May the mighty power of Brell saturate this soil with his divinity.  Here you are, my noble friend.  You may have a pouch of the soil of Underfoot.");
 		e.other:SummonItem(12282);  -- Soil of Underfoot
 		e.other:Faction(44,2); -- Clerics of Underfoot

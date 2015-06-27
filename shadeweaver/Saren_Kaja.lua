@@ -9,7 +9,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 30619, item2 = 30619, item3 = 30619, item4 = 30619})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 30619, item2 = 30619, item3 = 30619, item4 = 30619})) then
 		e.self:Say("Oh thank you ever so much! You are truly as sweet as the gift you bring.");
 		e.other:Faction(132,10);
 		e.other:QuestReward(e.self,0,0,0,0,30625,2500);

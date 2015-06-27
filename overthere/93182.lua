@@ -8,12 +8,12 @@
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 12848})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 12848})) then
 		e.self:Emote('a skeleton worker stops working and begins to open his creaking jaw.');
 		e.self:Say('I live to study and quench my thirst. I live to Bash the Faces of Pariah and entangle myself in the ivy of evergreen. I live. I want to remember.');
 		e.other:QuestReward(e.self,0,0,0,0,12848);
 	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 12848, item2 = 12850, item3 = 12851, item4 = 12610})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 12848, item2 = 12850, item3 = 12851, item4 = 12610})) then
 		if(e.other:GetLevel() > 20) then
 			e.other:QuestReward(e.self,0,0,0,0,12849);
 		else

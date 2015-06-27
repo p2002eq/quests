@@ -37,7 +37,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 20280})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 20280})) then
 		e.self:Say("You have done well young " .. e.other:GetName() .. ". If you continue to show such devotion to your people and your faith then perhaps one day you will serve in the chambers of King Tearis Thex himself. Take this Rusty Sylvan Morning Star and scrape the rust from it in a forge with a sharpening stone. It may take several attempts if you are unfamiliar with the process. Once that is done bring me the Refined Sylvan Morning Star, a Pristine Drakeling Scales, and an Arborean Amber.");
 		e.other:SummonItem(20297);
 		e.other:Ding();
@@ -45,7 +45,7 @@ function event_trade(e)
 		e.other:Faction(178,10,0);
 		e.other:Faction(8,10,0);
 		e.other:AddEXP(36450);
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 20300,item2 = 20271,item3 = 20274})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 20300,item2 = 20271,item3 = 20274})) then
 		e.self:Say("Terren Starwatcher fashions a grip out of the pristine forest drakeling scales, fastens the arborean amber to the pommel, and polishes the head of the morning star with a luminescent substance. 'I grant you a Sylvan Initiate Morning Star. May it serve you well in your service to The All Mother.");
 		e.other:SummonItem(20330);
 		e.other:Ding();

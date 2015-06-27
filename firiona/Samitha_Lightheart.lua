@@ -10,7 +10,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 19238}) or item_lib.check_turn_in(e.trade, {item1 = 19244}) or item_lib.check_turn_in(e.trade, {item1 = 19232}) or item_lib.check_turn_in(e.trade, {item1 = 19234})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 19238}) or item_lib.check_turn_in(e.self, e.trade, {item1 = 19244}) or item_lib.check_turn_in(e.self, e.trade, {item1 = 19232}) or item_lib.check_turn_in(e.self, e.trade, {item1 = 19234})) then
 		e.self:Say("Here is the scroll that I promised. We have both gained much knowledge today. I hope to do business with you again soon. Farewell!");
 		e.other:QuestReward(e.self,0,0,0,0,eq.ChooseRandom(19235,19233,19236,19240),1000);
 	end

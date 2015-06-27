@@ -20,17 +20,17 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	
-	if(item_lib.check_turn_in(e.trade, {item1 = 13887})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 13887})) then
 		e.self:Say("Very nice work. Here are some provisions. Now are you [ready for the second test]?");
 		e.other:Faction(155, 5); --Indigo Brotherhood
 		e.other:Faction(92,-1); --Emerald Warriors
 		e.other:Faction(311,-1); --Steel Warriors
 		e.other:Faction(260,-10); --Primordial Malice
 		e.other:QuestReward(e.self,5,0,0,0,13002,500);
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 9998})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 9998})) then
 		e.self:Say("Those young warriors who dared to run from battle are now our fodder. They shall help us teach you that sometimes you must kill your own kind. In the center of the arena we have set a coward. Show me you can kill your own when required and bring me his head. Do not grant him mercy nor allow him to flee.");
 		eq.spawn2(41119,0,0,-1218,-25,-25,128);
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 13888})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 13888})) then
 		e.self:Say("You have performed greatly. A coward deserves no pity or mercy. You will be fine addition to our house. Let us replace your weapon with this. a sullied two handed sword! The weapon of a young brother of this hall. It is a finer weapon than your first. Go and spread the hate of Innoruuk.");
 		e.other:Faction(155, 15); --Indigo Brotherhood
 		e.other:Faction(92,-2); --Emerald Warriors

@@ -22,7 +22,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 13945})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 13945})) then
 		e.self:Say("Oh thank Tunare you showed up when you did. I was at a nearby merchant house when a fellow dropped a [note] and I picked it up and read it. It talked of the [Unkempt Druids] and before I could read on, the man swiped it from my hands. I ran for dear life, for surely he would kill me for reading the note. I think I lost him in the woods but I am not sure. Please stay with me a while to be sure.");
 		e.other:Faction(159,10,0); -- Jaggedpine Treefolk
 		e.other:Faction(265,2,0); -- Protector of the Pine

@@ -21,13 +21,13 @@ function event_trade(e)
 	local scalp = 0;
 	local item_lib =require("items");
 	
-	if(item_lib.check_turn_in(e.trade, {item1 = 13791,item2 = 13791,item3 = 13791,item4 = 13791})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 13791,item2 = 13791,item3 = 13791,item4 = 13791})) then
 			scalp = 4;
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 13791,item2 = 13791,item3 = 13791})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 13791,item2 = 13791,item3 = 13791})) then
 			scalp = 3;
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 13791,item2 = 13791})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 13791,item2 = 13791})) then
 			scalp = 2;
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 13791})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 13791})) then
 			scalp = 1;
 	end
 	

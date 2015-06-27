@@ -7,7 +7,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 18855})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 18855})) then
 		e.self:Say("Welcome, friend. I see more than a slight glimmer of hate in your eyes. Good... for we have much work to do.");
 		e.other:SummonItem(13565);
 		e.other:Ding();

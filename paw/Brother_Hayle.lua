@@ -11,7 +11,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 18927})) then -- Temple Summons
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 18927})) then -- Temple Summons
 		e.self:Say("I am needed!! What am I doing here? I must return to the Temple of Life to commune with the Prime Healer. Rodcet Nife will give me more strength to finish this job. Thank you, young one! Take this key as a reward. Turn it into Tyokan in the temple shop. Safe journey to you!");
 		e.other:Faction(257,5,0); 		-- Priest of Life
 		e.other:Faction(183,5,0); 		-- Knights of Thunder
@@ -20,7 +20,7 @@ function event_trade(e)
 		e.other:Faction(9,5,0); 		-- Antonious Bayle
 		e.other:QuestReward(e.self,0,0,0,0,13306,200);
 	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 18936})) then -- A Sealed Note
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 18936})) then -- A Sealed Note
 		e.self:Say("Finally!! I see that Ariska has found a noble knight to retrieve Soulfire. Per Ariska's orders I am not to give Soulfire to you until you can show me [proof of nobility]. You must honor both the Temple of Life as well as the Hall of Truth and to a high degree. Only then shall you hold Soulfire.");
 		e.other:Faction(257,5,0); 		-- Priest of Life
 		e.other:Faction(183,5,0); 		-- Knights of Thunder
@@ -29,7 +29,7 @@ function event_trade(e)
 		e.other:Faction(9,5,0); 		-- Antonious Bayle
 		e.other:QuestReward(e.self,0,0,0,0,18937,200);
 	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 18937,item2 = 13947,item3 = 18828,item4 = 12197})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 18937,item2 = 13947,item3 = 18828,item4 = 12197})) then
 		if(e.other:GetFaction(e.self) < 3) then -- items will get eaten if faction not high enough.
 			e.self:Say("You have proven yourself worthy to hold Soulfire. Do not let her slip into the hands of evil. There are many who wish to free the many trapped souls of shadowknights and necromancers trapped inside the blade. The power of the blade can be called upon to heal you if need be. May Rodcet Nife and the twins of Marr hold you in their glory.");
 			e.other:QuestReward(e.self,0,0,0,0,5504,0);	--  soulfire

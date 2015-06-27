@@ -9,7 +9,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 12914})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 12914})) then
 		e.self:Say("Very good. I cannot see any reason a warrior like you should waste their time on the patrols of a trooper. I shall recommend you for a promotion. I hope the War Baron agrees.");
 		e.other:Faction(193,1);
 		e.other:Faction(30,1);
@@ -18,7 +18,7 @@ function event_trade(e)
 		e.other:Faction(317,1);
 		e.other:QuestReward(e.self,0,0,0,0,18074,2000);
 	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 12408, item2 = 12408, item3 = 12408, item4 = 12408})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 12408, item2 = 12408, item3 = 12408, item4 = 12408})) then
 		e.self:Say("Bravo!! You have done well. Here is a small reward. The greater reward is service to the empire.");
 		e.other:Faction(193,1);
 		e.other:Faction(30,1);

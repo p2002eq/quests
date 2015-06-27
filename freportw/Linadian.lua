@@ -15,7 +15,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 13917,item2 = 13917,item3 = 13916,item4 = 13916,gold = 10})) then -- 2x Deathfist Shoulderpads, 2x Deathfist Slashed Belt, 10 gold
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 13917,item2 = 13917,item3 = 13916,item4 = 13916,gold = 10})) then -- 2x Deathfist Shoulderpads, 2x Deathfist Slashed Belt, 10 gold
 		e.self:Say("Grand doing business with you. Hold your nose. I can never get rid of the Orc stench of the vests. That is why the other merchants do not pay me much for them.");
 		e.other:SummonItem(12187); -- Banded Orc Vest
 		e.other:Ding();
@@ -24,7 +24,7 @@ function event_trade(e)
 		e.other:Faction(92,1,0); -- Emerald Warriors
 		e.other:Faction(8,1,0); -- Anti-mage Faction
 		e.other:AddEXP(150);
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 13319,item2 = 13319,item3 = 13318,item4 = 13318,gold = 10})) then -- 2x Crushbone Shoulderpads, 2x Crushbone Belt, 10 gold
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 13319,item2 = 13319,item3 = 13318,item4 = 13318,gold = 10})) then -- 2x Crushbone Shoulderpads, 2x Crushbone Belt, 10 gold
 		e.self:Say("Grand doing business with you. Hold your nose. I can never get rid of the Orc stench of the vests. That is why the other merchants do not pay me much for them.");
 		e.other:SummonItem(12187); -- Banded Orc Vest
 		e.other:Ding();

@@ -15,7 +15,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 10990})) then -- Yulcabis's axe
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 10990})) then -- Yulcabis's axe
 		e.self:Say("Excellent work. Now that we no longer have to bother with Yulcabis, I suppose we can discuss your progression as a member of the Dark Reflection. You'll need some [armor], though.");
 		e.other:SummonItem(11077);	-- plague warrior battle axe
 		e.other:AddEXP(100);
@@ -25,7 +25,7 @@ function event_trade(e)
 		e.other:Faction(91,-10,0); 	-- eldritch collective
 		e.other:Faction(176,-10,0); 	-- King ak'anon
 		e.other:Faction(209,3,0); 	-- meldrath
-	elseif (item_lib.check_turn_in(e.trade, {item1 = 18759})) then -- Stained Parchment
+	elseif (item_lib.check_turn_in(e.self, e.trade, {item1 = 18759})) then -- Stained Parchment
 		e.self:Say("This is fabulous news!! You have done well, young one. Here, then, is your reward for a job well done.");
 		e.other:SummonItem(13518); 	-- Tin Patched Tunic*
 		e.other:Ding();

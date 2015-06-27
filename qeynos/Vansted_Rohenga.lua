@@ -42,7 +42,7 @@ function event_trade(e)
 
 	local item_lib = require("items");
 	
-	if(item_lib.check_turn_in(e.trade, {item1 = 27416,item2 = 27405,item3 = 27405})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 27416,item2 = 27405,item3 = 27405})) then
 		e.self:Say(string.format("Congratulations, %s!  Your dedication and hard work will allow me to position my troops accordingly.  Take this mace as a reward!",e.other:GetName())); -- ad lib text
 		e.other:SummonItem(27489);
 		e.other:Ding();

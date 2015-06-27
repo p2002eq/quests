@@ -13,7 +13,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 12311, item2 = 12311}) and e.other:GetFaction(e.self) < 5) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 12311, item2 = 12311}) and e.other:GetFaction(e.self) < 5) then
 		e.self:Say("You have done well. Take the mold for the bracer.  Go forth to speak with Thomas of [Lord Searfire].  Then all components shall be known.");
 		e.other:SummonItem(12301);
 		e.other:Faction(45,1);

@@ -15,7 +15,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 30601, item2 = 30601, item3 = 30601, item4 = 30601})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 30601, item2 = 30601, item3 = 30601, item4 = 30601})) then
 		e.self:Say("Well done! You have brought me plenty of claws. I have enough now to make a needle for you. May it serve you well.");
 		e.other:QuestReward(e.self,0,0,0,0,30617,750);
 	end

@@ -18,7 +18,7 @@ function event_say(e)
 end
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 12420, item2 = 4262})) then 				--full component sack, apprentice skullcap - 3rd rank
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 12420, item2 = 4262})) then 				--full component sack, apprentice skullcap - 3rd rank
 		e.self:Say("Well done, here's your fourth rank skull cap. You can now start your [true mission].");
 		e.other:SummonItem(4263); --dark binder skullcap
 		e.other:Faction(193,20);
@@ -26,7 +26,7 @@ function event_trade(e)
 		e.other:AddEXP(200);
 		e.other:Ding();
 	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 18065, item2 = 4263})) then 				--a journal and dark binder skullcap
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 18065, item2 = 4263})) then 				--a journal and dark binder skullcap
 		e.self:Say("Well done, here's your fifth rank skull cap. You can now track down the [Kor Sha Candlestick].");
 		e.other:SummonItem(4264); --occultist skullcap
 		e.other:Faction(193,20);
@@ -34,7 +34,7 @@ function event_trade(e)
 		e.other:AddEXP(200);
 		e.other:Ding();
 	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 12853, item2 = 12852, item3 = 4264})) then	--Stem of Candlestick, Foot of Candlestick, occultist skullcap
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 12853, item2 = 12852, item3 = 4264})) then	--Stem of Candlestick, Foot of Candlestick, occultist skullcap
 		e.self:Emote("grabs the candle parts and puts them in an odd pouch, then takes your cap which disintegrates in his palm. He hands you another cap.");
 		e.self:Say("Welcome, Revenant " .. e.other:GetName() .. ". You have done well. The Harbinger awaits you. He seeks a [new revenant].");
 		e.other:SummonItem(4265); --Revenant Skullcap

@@ -6,7 +6,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 16165})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 16165})) then
 		e.self:Say("Daleen sent you? She is so sweet. If she wasn't married.. ehem.. Thanks.");
 		e.other:Faction(133, 5);
 		e.other:Faction(208, 1);

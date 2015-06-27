@@ -9,7 +9,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 18733})) then -- Hand in Warrior Recuitment Letter
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 18733})) then -- Hand in Warrior Recuitment Letter
 		e.self:Say("Welcome to the Guardians of the Vale. I'm Roglio Bruth, and I run this proud little outfit. You seem to be of hearty stock, let's put you to work. Here's your guild tunic - hope it fits. Start your training right away.  Speak with the marshals of this guild.");
 		e.other:SummonItem(13540); -- Old Tan Tunic
 		e.other:Ding();
@@ -19,7 +19,7 @@ function event_trade(e)
 		e.other:Faction(218, 15,0); -- Merchants of Rivervale
 		e.other:Faction(88,-15,0); -- Dreadguard Outer
 		e.other:AddEXP(100);
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 13931,item2 = 13931,item3 = 13931,item4 = 13931})) then -- Hand in Runnyeye Warbeads
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 13931,item2 = 13931,item3 = 13931,item4 = 13931})) then -- Hand in Runnyeye Warbeads
 		e.self:Say("Good work, Deputy " .. e.other:GetName() .. "! We shall soon rid our countryside of the goblin threat. Here are your wages. Eat well tonight!");
 		e.other:SummonItem(13023); -- Bixie Berry Buns
 		e.other:SummonItem(13024); -- Tanglefoot Tingle Drink

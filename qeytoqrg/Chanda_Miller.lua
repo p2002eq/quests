@@ -42,7 +42,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 13752, gold = 21})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 13752, gold = 21})) then
 		e.self:Say("Oh.. I see.. But um.. I still need the other thing before I can make anything for you.. sorry.");
 		e.self:Say("Oh, good! I can make you a nice new cloak now. Here. Here. Oh, this.. it is a good one. Nice bear fur. Here you go!");
 		e.other:SummonItem(2902);
@@ -53,7 +53,7 @@ function event_trade(e)
 		e.other:AddEXP(500);
 		e.other:Ding();
 	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 13751, gold = 15})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 13751, gold = 15})) then
 		e.self:Say("Oh.. I see.. But um.. I still need the other thing before I can make anything for you.. sorry.");
 		e.self:Say("Ohh good.. good! I.. um.. can make.. Oh great. Here you go. I hope you like it. I always um.. try my best. Tell your um.. friends where you got your bear things!");
 		e.other:SummonItem(2903);
@@ -64,7 +64,7 @@ function event_trade(e)
 		e.other:AddEXP(500);
 		e.other:Ding();
 	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 13750, gold = 5})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 13750, gold = 5})) then
 		e.self:Say("Oh.. I see.. But um.. I still need the other thing before I can make anything for you.. sorry.");
 		e.self:Say("Great. Oh, here, now I can make the.. um.. ok.. here. Yes.. good. I love making bear skin belts. Here you go. I hope you like it.");
 		e.other:SummonItem(2904);

@@ -16,15 +16,15 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 20800, item2 = 20954, item3 = 20799})) then --monk test of tears using silken wrap, spiroc statuette, spiroc talon
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 20800, item2 = 20954, item3 = 20799})) then --monk test of tears using silken wrap, spiroc statuette, spiroc talon
 		e.self:Say("You have moved closer to enlightenment.");
 		e.other:QuestReward(e.self,0,0,0,0,1283,100000); --ton po's shoulder wraps
 		eq.depop();
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 20803, item2 = 20801, item3 = 20802, item4 = 20960})) then --monk test of fists using brass knuckles, ethereal amethyst, nebulous sapphire, white spiroc feather
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 20803, item2 = 20801, item3 = 20802, item4 = 20960})) then --monk test of fists using brass knuckles, ethereal amethyst, nebulous sapphire, white spiroc feather
 		e.self:Say("You have moved closer to enlightenment.");
 		e.other:QuestReward(e.self,0,0,0,0,11690,100000); --wu's tranquil fist
 		eq.depop();
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 20967, item2 = 20804, item3 = 20805})) then --monk test of tranquility using aged nectar, writ of quellious, tear of quellious
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 20967, item2 = 20804, item3 = 20805})) then --monk test of tranquility using aged nectar, writ of quellious, tear of quellious
 		e.self:Say("You have moved closer to enlightenment.");
 		e.other:QuestReward(e.self,0,0,0,0,11698,100000); --golden sash of tranquility
 		eq.depop();

@@ -9,7 +9,7 @@ end
 
 function event_trade(e)
   local item_lib = require("items");
-  if(item_lib.check_turn_in(e.trade, {item1 = 8919, item2 = 8951})) then
+  if(item_lib.check_turn_in(e.self, e.trade, {item1 = 8919, item2 = 8951})) then
     e.self:Say("Aaaah, yet another warrior brave enough to face their own faults and honorable enough to strive for a proof of their worth and devotion to The Rainkeeper. Your kind is too few and far too rare, but do not think that your trials are at their end. I have forged the necessary Hollowed Tempest Stone -- yes, young warrior, I am indeed one well versed in the ways of the Tempest Guard for at one time I myself held such a rank in a time before the closing of the Jaggedpine. Aaaah, but enough reminiscing for one day -- your trial is the matter at hand. Within the Hollowed Tempest Stone you must combine the Essence of the Tempest Guard, which you will find only through great peril. The Tempest Reaver, who resides in the realm of Cazic-Thule himself, holds the essence. The [tale] regarding its presence there is indeed one to be heard if you wish to fully understand your task.");
 	e.other:SendSound();
 	e.other:SummonItem(8955);

@@ -16,7 +16,7 @@ function event_say(e)
 end
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 18299})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 18299})) then
 		e.self:Say("Your humility and willingness to serve shall not be wasted. There is much to be done. " .. e.other:GetName() .. ". and our people thank you in advance for your selfless service.");
 		eq.set_global("Shar_Vahl_Cit","5",5,"F");
 		e.other:QuestReward(e.self,0,0,0,0,18304,500);

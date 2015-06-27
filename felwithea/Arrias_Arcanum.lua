@@ -9,7 +9,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 31493})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 31493})) then
 		e.self:Say("This! This is the gift my daughter gave Ariam to aid his cause. This too is the piece of my soul that was missing. Your news of his fate is troubling, yet his heroism even beyond this life is cause for celebration. Here, keep this token. My heart is mended and I have no need of it. Once such as yourself who will continue to fight for the things in which my son believes ought to bear this. I am sure my daughter would agree.");
 		e.other:SummonItem(31495);
 		e.other:Ding();

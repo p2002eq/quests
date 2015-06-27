@@ -20,7 +20,7 @@ function event_trade(e)
 
 	local item_lib = require("items");
 	
-	if(item_lib.check_turn_in(e.trade, {item1 = 13129})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 13129})) then
 		local random_silver = math.random(8);
 		e.self:Say("Ha! This is great. Here's your money, murderer! Hope the guards don't find you. Now get lost! Take the tunic. Maybe Garuc will reward you for such a vile deed. I sure don't want to keep it around here.");
 		e.other:SummonItem(13134);

@@ -21,28 +21,28 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	--Dreadscale Helm for:  Head=14822  Sword=14826  Helm=3053  Ruby=10035
-	if(item_lib.check_turn_in(e.trade, {item1 = 14822, item2 = 14826, item3 = 3053, item4 = 10035})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 14822, item2 = 14826, item3 = 3053, item4 = 10035})) then
 		e.self:Say("Well done! Here is the item we agreed upon. May Cazic's glorious curses flow through you!");
 		e.other:SummonItem(4968);
 		e.other:AddEXP(10000);
 		e.other:Ding();
 	end
 	--Dreadscale Boots for:  Quills=14828  Boots=3064  Feet=14823  FireEmerald=10033
-	if(item_lib.check_turn_in(e.trade, {item1 = 14828, item2 = 14823, item3 = 3064, item4 = 10033})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 14828, item2 = 14823, item3 = 3064, item4 = 10033})) then
 		e.self:Say("Well done! Here is the item we agreed upon. May Cazic's glorious curses flow through you!");
 		e.other:SummonItem(4974);
 		e.other:AddEXP(10000);
 		e.other:Ding();
 	end
 	--Dreadscale Gauntlets for:  Hand=14825  Gauntlets=3062  StarRuby=10032
-	if(item_lib.check_turn_in(e.trade, {item1 = 14825, item2 = 3062, item3 = 10032, item4 = 10032})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 14825, item2 = 3062, item3 = 10032, item4 = 10032})) then
 		e.self:Say("Well done! Here is the item we agreed upon. May Cazic's glorious curses flow through you!");
 		e.other:SummonItem(4972);
 		e.other:AddEXP(10000);
 		e.other:Ding();
 	end
 	--Dreadscale Vambraces for:  Hide=14830  Vambraces=3060  Sapphire=10034
-	if(item_lib.check_turn_in(e.trade, {item1 = 14830, item2 = 3060, item3 = 10034, item4 = 10034})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 14830, item2 = 3060, item3 = 10034, item4 = 10034})) then
 		e.self:Say("Well done! Here is the item we agreed upon. May Cazic's glorious curses flow through you!");
 		e.other:SummonItem(4970);
 		e.other:AddEXP(10000);

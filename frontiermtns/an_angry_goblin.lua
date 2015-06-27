@@ -16,7 +16,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	if(qglobals["RegalBandBathezid"] == "1") then -- we handed the Signet of Service yet
-		if(item_lib.check_turn_in(e.trade, {item1 = 6474})) then -- receive Report to Skargus from Shady Goblin
+		if(item_lib.check_turn_in(e.self, e.trade, {item1 = 6474})) then -- receive Report to Skargus from Shady Goblin
 			e.self:Emote("howls in triumph! 'This is just what I needed! Skargus is mine now, wait until he finds out, just wait! His death is close at hand. Follow me and I'll take you to Skargus's chamber, you can wait there while I take this report to the chief!'");
 			e.self:Shout("I have you now Skargus, you traitor! Even now I'm taking this report of slave-trading to the chief! Your days here are at an end!");
 			eq.depop_with_timer();

@@ -7,7 +7,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 14334})) then -- Arantir's Ring 1st version
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 14334})) then -- Arantir's Ring 1st version
 		e.self:Say("Oh yes? Arantir? What a fool he was! the man gave me everything, but for all his intelligence, he could never understand why I was truly with him. It was for his power; he could do anything. But when he mysteriously lost it, he became just another toy. I never loved him. Return this ring to him. He will understand that I have no desire to see him again.");
 		e.other:Faction(342, 10,0); -- Truespirit
 		e.other:QuestReward(e.self,0,0,0,0,14335,100000); -- Arantir's Ring 2nd version

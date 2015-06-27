@@ -13,7 +13,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 13301})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 13301})) then
 		e.self:Say("You have cleansed Norrath of another follower of the Plaguebringer. You have done well. Take this reward and continue your search for others who wear this ring.");
 		e.other:Ding();
 		e.other:Faction(257,5,0); -- Priests of Life
@@ -23,7 +23,7 @@ function event_trade(e)
 		e.other:Faction(9,1,0); -- Antonius Bayle
 		e.other:AddEXP(1000);
 		e.other:GiveCash(math.random(20),math.random(20),0,0); -- Random from 20cp20sp
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 13908})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 13908})) then
 		e.self:Say("This is not good. Hmph. It appears they are shattered. For the first time one of our members has been swayed. I reward you for your deed. Also, if you have found anything upon Trintle, let me know.");
 		e.other:Ding();
 		e.other:Faction(257,5,0); -- Priests of Life

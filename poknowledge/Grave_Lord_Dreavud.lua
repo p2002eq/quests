@@ -7,7 +7,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if((item_lib.check_turn_in(e.trade, {item1 = 4841})) or (item_lib.check_turn_in(e.trade, {item1 = 4842})) or (item_lib.check_turn_in(e.trade, {item1 = 4843})) or (item_lib.check_turn_in(e.trade, {item1 = 4844})) or (item_lib.check_turn_in(e.trade, {item1 = 4845})) or (item_lib.check_turn_in(e.trade, {item1 = 4846})) or (item_lib.check_turn_in(e.trade, {item1 = 4847}))) then --Umbral Armor
+	if((item_lib.check_turn_in(e.self, e.trade, {item1 = 4841})) or (item_lib.check_turn_in(e.self, e.trade, {item1 = 4842})) or (item_lib.check_turn_in(e.self, e.trade, {item1 = 4843})) or (item_lib.check_turn_in(e.self, e.trade, {item1 = 4844})) or (item_lib.check_turn_in(e.self, e.trade, {item1 = 4845})) or (item_lib.check_turn_in(e.self, e.trade, {item1 = 4846})) or (item_lib.check_turn_in(e.self, e.trade, {item1 = 4847}))) then --Umbral Armor
 		e.self:Say("Thank you, " .. e.other:GetName() .. "."); --Text made up
 		e.other:QuestReward(e.self,0,0,0,0,eq.ChooseRandom(10028, 10037, 22503, 15981),698775); --Random gem: Peridot, Diamond, Blue Diamond, Raw Diamond
 	end

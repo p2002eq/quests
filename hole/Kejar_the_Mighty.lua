@@ -8,7 +8,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 1360})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 1360})) then
 		e.self:Say("You found it, I am so pleased! Here is your reward");
 		e.other:QuestReward(e.self,0,0,0,0,eq.ChooseRandom(8960, 8961),5000);
 	end

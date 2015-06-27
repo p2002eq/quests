@@ -18,7 +18,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	--Certificate of Taxability OR Application for Citizenship
-	if(item_lib.check_turn_in(e.trade, {item1 = 2874})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 2874})) then
 		e.self:Emote("places his seal on the certificate before returning it to you.");
 		e.self:Say("Ahh, a new taxpayer, wonderful! You must always remember that it is a distinct privilege to contribute to the upkeep of our noble society and not merely a duty or a burden. I look forward to collecting your honorable taxes in the future. May the spirits prosper you, " .. e.other:GetName() .. ".'");
 		eq.set_global("Shar_Vahl_Cit","3",5,"F");

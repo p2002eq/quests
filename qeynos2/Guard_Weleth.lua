@@ -14,7 +14,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 18824})) then -- Slip of Parchment
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 18824})) then -- Slip of Parchment
 		e.self:Say("Thank you so much for the favor. Please be careful here in Qeynos. I have come to suspect that even some of my fellow guards are not to be trusted - Lieutenant Dagarok, for one.");
 		local random_cp = math.random(8);
 		e.other:Ding();

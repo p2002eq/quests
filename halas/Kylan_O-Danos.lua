@@ -1,6 +1,6 @@
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 18760})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 18760})) then
 		e.self:Say("Greetin's! We are the mighty Wolves o' the North, protectors o' Halas, and we must work hard t' keep it safe fer our citizens. Here is our tunic, it identifies ye as a proud warrior o' this great city. Let's get started with yer training, then, shall we?");
 		e.other:Ding();
 		e.other:SummonItem(13511);

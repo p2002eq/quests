@@ -12,17 +12,17 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	
-	if(item_lib.check_turn_in(e.trade, {item1 = 18884}) or item_lib.check_turn_in(e.trade, {item1 = 18886})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 18884}) or item_lib.check_turn_in(e.self, e.trade, {item1 = 18886})) then
 		e.self:Say("I see you finally decided to return. Hmmm. What is this? Those little hoppers have done well. What!! So the troll scum have been aiding our foes, the lizards!! The lizard mystics are trained by this troll shaman called Zimbittle. Find him!! Kill him. Bring me his shaman pouch!! Now!!");
 		e.other:Faction(295,10);
 		e.other:SummonItem(eq.ChooseRandom(15270,15226,15279,15211));
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 18886})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 18886})) then
 		e.self:Say("I see you finally decided to return. Hmmm. What is this? this troll shaman called Zimbittle. Find him!! Kill him. Bring me his shaman pouch!! Now!! "); -- text made up.
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 18885})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 18885})) then
 		e.self:Say("What is this? More information? There seems to be a larger plan in the making. B'Dynn sounds like a Dark Elf name. I do no like the sound of this.  You must go quickly to North Ro.  Find this Dark Elf.  Find out what he knows.  any way you can.");
 		e.other:Faction(295,10);
 		e.other:SummonItem(eq.ChooseRandom(15270,15226,15279,15211));
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 17929})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 17929})) then
 		e.self:Say("Ahhh!! Good work. You are a bright one. Now let us see if you can master this spell. Learn it well and may it bring you much glory.");
 		e.other:Faction(295,10);
 		e.other:SummonItem(eq.ChooseRandom(15270,15226,15279,15211));

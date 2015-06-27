@@ -19,7 +19,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	
-	if(item_lib.check_turn_in(e.trade, {item1 = 12108,item2 = 12108})) then -- Orc Hatchet x 2
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 12108,item2 = 12108})) then -- Orc Hatchet x 2
 		e.self:Say("Fantastic work!! Your actions shall earn you the respect of all Fier'Dal!  Take this as a small bounty for your deed.  We have heard of [Crushbone allies] who wish our demise.");
 		e.other:SummonItem(eq.ChooseRandom(5047,5048,7032)); -- Tarnished Scimitar, Tarnished Bastard Sword, Cast-Iron Rapier
 		e.other:Ding();
@@ -30,10 +30,10 @@ function event_trade(e)
 		e.other:Faction(63,-2); -- Crushbone Orcs
 		e.other:AddEXP(500);
 		e.other:GiveCash(math.random(10),math.random(20),0,0);
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 12108})) then -- Orc Hatchet
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 12108})) then -- Orc Hatchet
 		e.self:Say("I expect to receive TWO orc hatchets.");
 		e.other:SummonItem(12108); -- Orc Hatchet
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 18840})) then -- Sealed Letter (Letter To King Naythox Thex)
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 18840})) then -- Sealed Letter (Letter To King Naythox Thex)
 		e.self:Say("Yes. A recent report has proven this to be true. An evil alliance has been made. We shall soon need many more experienced adventurers such as yourself. For now, take this reward and strengthen your skills.");
 		e.other:SummonItem(8003); -- Longbow
 		e.other:Ding();
@@ -44,7 +44,7 @@ function event_trade(e)
 		e.other:Faction(63,-5); -- Crushbone Orcs
 		e.other:AddEXP(1500);
 		e.other:GiveCash(math.random(10),math.random(10),math.random(10),math.random(2));
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 13226})) then -- Runner Pouch
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 13226})) then -- Runner Pouch
 		e.self:Say("Good work. We shall cut off correspondence between these two. It is for the best. Remember, if you find any notes to Neriak from the ambassador in Crushbone, give them to me.");
 		e.other:SummonItem(2140); -- Raw-hide Tunic
 		e.other:Ding();

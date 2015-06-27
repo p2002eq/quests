@@ -6,7 +6,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 30625, item2 = 30625, item3 = 30625, item4 = 30625})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 30625, item2 = 30625, item3 = 30625, item4 = 30625})) then
 		e.self:Say("Oh wow! This is just what I was hoping for. Thank you so much! You must be a real good friend to Saren to have her make you these, she never makes freshly squeezed nectar unless she really likes someone. You have a kind heart Khatzhana. Please take this with you as a token of my friendship.");
 		e.other:Faction(132,20);
 		e.other:QuestReward(e.self,0,0,0,0,30609,10000);

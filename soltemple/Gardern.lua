@@ -18,17 +18,17 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	
-	if(item_lib.check_turn_in(e.trade, {item1 = 10548,item2 = 10549,item3 = 10550,item4 = 6048})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 10548,item2 = 10549,item3 = 10550,item4 = 6048})) then
 		e.self:Say("Well done, " .. e.other:GetName() .. ". Now I will craft your Staff of Temperate Flux, as promised.");
 		e.other:Faction(320,5);
 		e.other:Faction(291,-5);
 		e.other:QuestReward(e.self,0,0,0,0,6342,1000); -- Staff
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 10551,item2 = 6338, item3 = 10557, item4 = 14364})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 10551,item2 = 6338, item3 = 10557, item4 = 14364})) then
 		e.self:Say("Well done, " .. e.other:GetName() .. ". Now I will craft your Weeping Wand, as promised.");
 		e.other:Faction(320,5);
 		e.other:Faction(291,-5);
 		e.other:QuestReward(e.self,0,0,0,0,6341,1000); -- Wand
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 10034,item2 = 10034,item3 = 10000})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 10034,item2 = 10034,item3 = 10000})) then
 		e.self:Say("Ahh, Genni must have sent you to me.  Very well, here is your Lambent Sapphire.");
 		e.other:Faction(320,5);
 		e.other:Faction(291,-5);

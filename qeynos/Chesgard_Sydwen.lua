@@ -25,7 +25,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	
-	if(item_lib.check_turn_in(e.trade, {item1 = 12100})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 12100})) then
 		e.self:Say("Good work " .. e.other:Class() .. ". The Karana Bandits have been plaguing the Rainkeepers flock for some time.  Take this as a small reward for your devotion.  Continue the fight against the Karana Bandits.  Ahh... I wish [Cheslin] was equally as skilled.");
 		-- random bronze item reward
 		e.other:SummonItem(eq.ChooseRandom(7012,7013,7014,7015,7016,5026,5027,5028,5029,5030,5031,5032,5033,5034,5035,5036,5037,6019,6021,6022,6023,6024));
@@ -36,7 +36,7 @@ function event_trade(e)
 		e.other:Faction(135,10,0); -- Guards of Qeynos
 		e.other:AddEXP(40000);
 		e.other:GiveCash(math.random(10),math.random(10),math.random(10),0);
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 18839})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 18839})) then
 		e.self:Say("Hmmph!! My son is living in a fantasy world. Still, you have done well. Take this as a token of appreciation. It is not much, but it may come in handy.");
 		-- Backpack, Cast-Iron Warhammer, Raw-hide Gorget, Small Raw-hide Mask
 		e.other:SummonItem(eq.ChooseRandom(17005,6041,2139,2150));

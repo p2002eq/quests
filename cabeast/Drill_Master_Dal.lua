@@ -18,7 +18,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(e.other:GetFaction(e.self) < 5 and item_lib.check_turn_in(e.trade, {item1 = 12915, item2 = 12915, item3 = 12915, item4 = 12915})) then
+	if(e.other:GetFaction(e.self) < 5 and item_lib.check_turn_in(e.self, e.trade, {item1 = 12915, item2 = 12915, item3 = 12915, item4 = 12915})) then
 		e.self:Emote("hands you a shimmering black piece of armor which smells quite horrid. You find it hard to keep it from slithering out of your hand. 'Here is the armor the tailors have been working on for the legion. You may test it for us. Keep up your fine work and I may have other pieces available for you to test.'");
 		e.other:SummonItem(eq.ChooseRandom(12917,12918,12919,12920,12921));
 		e.other:Faction( 193,10);
@@ -29,7 +29,7 @@ function event_trade(e)
 		e.other:AddEXP(1000);
 		e.other:GiveCash(0,14,0,0);
 		e.other:Ding();
-	elseif(e.other:GetFaction(e.self) < 5 and item_lib.check_turn_in(e.trade, {item1 = 12673})) then
+	elseif(e.other:GetFaction(e.self) < 5 and item_lib.check_turn_in(e.self, e.trade, {item1 = 12673})) then
 		e.self:Say("Well done recruit, I knew we could count on you to do the job.  Here is the reward you were promised");
 		e.other:SummonItem(12674);
 		e.other:Faction( 193,2);

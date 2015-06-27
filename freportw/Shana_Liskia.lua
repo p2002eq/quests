@@ -42,7 +42,7 @@ function event_trade(e)
 	local item_lib = require("items");
 
 	if(e.other:Class() == "Enchanter" or e.other:Class() == "Magician" or e.other:Class() == "Wizard") then
-		if(item_lib.check_turn_in(e.trade, {item1 = 9917,item2 = 9917,item3 = 9933})) then -- Lion Tooth x 2, Shana's Necklace
+		if(item_lib.check_turn_in(e.self, e.trade, {item1 = 9917,item2 = 9917,item3 = 9933})) then -- Lion Tooth x 2, Shana's Necklace
 			e.self:Say("Thank you for bringing back one of my most valued possesion. You have proven yourself to be worthy to wield the Dagger of the Academy.");
 			e.other:SummonItem(9938); -- Dagger of the Academy
 			e.other:Ding();

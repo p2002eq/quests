@@ -20,16 +20,16 @@ function event_trade(e)
 	item_check = 0;
 
 	if(fac < 6) then
-		if(item_lib.check_turn_in(e.trade, {item1 = 4177})) then
+		if(item_lib.check_turn_in(e.self, e.trade, {item1 = 4177})) then
 			e.other:SummonItem(4185);
 			item_check = 1;
-		elseif(item_lib.check_turn_in(e.trade, {item1 = 4179})) then
+		elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 4179})) then
 			e.other:SummonItem(4187);
 			item_check = 1;
-		elseif(item_lib.check_turn_in(e.trade, {item1 = 4175})) then
+		elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 4175})) then
 			e.other:SummonItem(4183);
 			item_check = 1;
-		elseif(item_lib.check_turn_in(e.trade, {item1 = 4174})) then
+		elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 4174})) then
 			e.other:SummonItem(4182);
 			item_check = 1;
 		end

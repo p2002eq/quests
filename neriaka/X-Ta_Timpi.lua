@@ -34,7 +34,7 @@ function event_trade(e)
 
 	--Words of Detachment
 	--Requires: 1 Charred Dagger, 1 Bloodstone, 2 Dull Bone Chips
-	if(item_lib.check_turn_in(e.trade, {item1 = 7036, item2 = 10019, item3 = 10517, item4 = 10517})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 7036, item2 = 10019, item3 = 10517, item4 = 10517})) then
 		e.self:Say("You have quested well - With spell and sword - Accept our thanks - And this reward.");
 		e.other:SummonItem(11835);
 		e.other:Faction("322","10"); 	-- The Dead
@@ -47,7 +47,7 @@ function event_trade(e)
 		e.other:Ding();
 	--Words of Rupturing
 	--Requires: 1 Festering Cloak, 1 Jasper, 2 Ebon Wands
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 1343, item2 = 10020, item3 = 10515, item4 = 10515})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 1343, item2 = 10020, item3 = 10515, item4 = 10515})) then
 		e.self:Say("You have quested well - With spell and sword - Accept our thanks - And this reward.");
 		e.other:SummonItem(11837);
 		e.other:Faction("322","10"); 	-- The Dead
@@ -60,7 +60,7 @@ function event_trade(e)
 		e.other:Ding();
 	--Words of Requisition
 	--Requires: 1 Eye of Fright, 1 Stone of the Wraith, 1 Pearl
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 13151, item2 = 10298, item3 = 10024})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 13151, item2 = 10298, item3 = 10024})) then
 		e.self:Say("You have quested well - With spell and sword - Accept our thanks - And this reward.");
 		e.other:SummonItem(11865);
 		e.other:Faction("322","10"); 	-- The Dead
@@ -73,7 +73,7 @@ function event_trade(e)
 		e.other:Ding();
 	--Words of the Suffering
 	--Requires: 1 Globe of Fear, 1 Star Rose Quartz, 2 Iced Boned Chips
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 10521, item2 = 10021, item3 = 10519, item4 = 10519})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 10521, item2 = 10021, item3 = 10519, item4 = 10519})) then
 		e.self:Say("You have quested well - With spell and sword - Accept our thanks - And this reward.");
 		e.other:SummonItem(11851);
 		e.other:Faction("322","10"); 	-- The Dead

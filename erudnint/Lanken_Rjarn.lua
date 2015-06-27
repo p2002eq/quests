@@ -9,7 +9,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 18729})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 18729})) then
 		e.self:Say("Welcome to the Craft Keepers! You have much to learn. and I'm sure you are anxious to get started. Here's your training robe. Go see Nolusia. she'll give you your first lesson.");
 		e.other:SummonItem(13549);
 		e.other:Ding();

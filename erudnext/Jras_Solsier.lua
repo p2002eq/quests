@@ -11,7 +11,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 13825})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 13825})) then
 		e.self:Say("You have served us well. The harmony of the forest shall be preserved. I have word that theses infidels were all working for one man. Find me evidence pertaining to this man. Surely one of these poachers has something which could aid in finding this man. We must stop him to stop the poachers. Go in peace.");
 		e.other:SummonItem(10004);
 		e.other:Ding();
@@ -19,7 +19,7 @@ function event_trade(e)
 		e.other:Faction(145,20,0);
 		e.other:Faction(143,-20,0);
 		e.other:AddEXP(500);
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 13913})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 13913})) then
 		e.self:Say("You found the man?  That is excellent work, young Paladin, here take this for your trouble and we thank you once again.");
 		e.other:SummonItem(15011);
 		e.other:Ding();

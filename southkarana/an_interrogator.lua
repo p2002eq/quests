@@ -5,14 +5,14 @@ local name;
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 18292 })) then -- Interrogator's Briefing
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 18292 })) then -- Interrogator's Briefing
 		e.self:Say("I see you wish to become an interrogator. This is not a duty for the weak of heart you know. This job sometimes requires...");
 		e.other:AddEXP(1000);
 		eq.set_timer("brief",10000);
 		e.other:SummonItem(2344); -- confession document
 		name = e.other:GetName();
 		brief = 0;
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 2390,item2 = 2391,item3 = 2395})) then -- Head of Markus Cachexia, Head of Morley Murrain, Theodore's Confession
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 2390,item2 = 2391,item3 = 2395})) then -- Head of Markus Cachexia, Head of Morley Murrain, Theodore's Confession
 		e.self:Say("Excellent work, you did just fine today. You'll make a fine interrogator. Talk to Vegalys about advancing further.");
 		e.other:SummonItem(2387); -- Interrogator's Badge
 		e.other:Ding();

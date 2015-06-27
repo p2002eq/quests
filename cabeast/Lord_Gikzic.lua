@@ -18,12 +18,12 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 12381, item2 = 5120})) then --Test of the Pawn (Greenmist Quest 1/8)
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 12381, item2 = 5120})) then --Test of the Pawn (Greenmist Quest 1/8)
 		e.self:Say("You have learned to behead your opponents with great precision. Take the khukri of the knave. It shall prove most formidable in combat when wielded by a young crusader. You may now assist us with a [greater concern] than your training.");
 		e.other:Faction(62,10);
 		e.other:Faction(193,2);
 		e.other:QuestReward(e.self,0,0,1,0,5121,100);
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 12382, item2 = 5121})) then --Test of Pain (Greenmist Quest 2/8)
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 12382, item2 = 5121})) then --Test of Pain (Greenmist Quest 2/8)
 		e.self:Say("You have done as instructed. You are wise to hand this tome to me. It could bring you nothing more than insanity. As your reward, you shall have the squire's khukri. Soon you shall wield the knight's khukri, but that is for another Lord of Pain to decide.");
 		e.other:Faction(62,10);
 		e.other:Faction(193,2);

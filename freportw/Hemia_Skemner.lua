@@ -13,7 +13,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 13863})) then -- A Locked Book
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 13863})) then -- A Locked Book
 		e.self:Say(string.format("You have done the world of magic a great justice, %s.",e.other:GetName()));
 		e.other:Ding();
 		e.other:Faction(11,1,0); -- Arcane Scientists

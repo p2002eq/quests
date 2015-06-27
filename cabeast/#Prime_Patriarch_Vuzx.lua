@@ -12,7 +12,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 12686, item2 = 12686, item3 = 12686, item4 = 12686})) then	--Armor of the Patriarch Quest (part 2 - Patriarch's Cap)
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 12686, item2 = 12686, item3 = 12686, item4 = 12686})) then	--Armor of the Patriarch Quest (part 2 - Patriarch's Cap)
 		e.self:Say("You have done well in your first test young patriarch! Wear these bracers to help protect you from the dangers you may find in your journey. Now for your next test you shall bring me three spiderling silks and one scarab carapace as continued proof our your growing powers. ");
 		e.other:SummonItem(7827);
 		e.other:Faction(282,20);
@@ -20,7 +20,7 @@ function event_trade(e)
 		e.other:AddEXP(20000);
 		e.other:Ding();
 	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 13099, item2 = 13099, item3 = 13099, item4 = 13849})) then	--Armor of the Patriarch Quest (part 3 - Patriarch's Leggings)
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 13099, item2 = 13099, item3 = 13099, item4 = 13849})) then	--Armor of the Patriarch Quest (part 3 - Patriarch's Leggings)
 		e.self:Say("You have done well again young patriarch. Wear this cap proudly. Now for your next test, you shall bring me four watcher signal torches as proof of your growing powers. ");
 		e.other:SummonItem(7828);
 		e.other:Faction(282,20);
@@ -28,7 +28,7 @@ function event_trade(e)
 		e.other:AddEXP(20000);
 		e.other:Ding();
 	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 12441, item2 = 12441, item3 = 12441, item4 = 12441})) then	--Armor of the Patriarch Quest (part 4 - Patriarch's Claw)
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 12441, item2 = 12441, item3 = 12441, item4 = 12441})) then	--Armor of the Patriarch Quest (part 4 - Patriarch's Claw)
 		e.self:Say("You are doing very well in your training young patriarch! Wear these leggings proudly. For your next text, you will need to bring me two Sarnak Broodling fangs and two Goblin Hunter javelins. When you have completed this test, I will reward you with the Patriarch's claw. ");
 		e.other:SummonItem(7829);
 		e.other:Faction(282,20);
@@ -36,7 +36,7 @@ function event_trade(e)
 		e.other:AddEXP(20000);
 		e.other:Ding();
 	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 14599, item2 = 14599, item3 = 12432, item4 = 12432})) then	--Armor of the Patriarch Quest (part 5 - Patriarch's Leather)
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 14599, item2 = 14599, item3 = 12432, item4 = 12432})) then	--Armor of the Patriarch Quest (part 5 - Patriarch's Leather)
 		e.self:Say("You have made me proud young patriarch! Here is your Patriarch's claw, which will help you against the dangers you will find in your journeys. Now there is one final task that you will need to complete. For this task, you will need to bring me four froglok tuk bucklers. When you have completed this final task, you will indeed be a true Patriarch of Cabilis. ");
 		e.other:SummonItem(7830);
 		e.other:Faction(282,20);
@@ -44,7 +44,7 @@ function event_trade(e)
 		e.other:AddEXP(20000);
 		e.other:Ding();
 	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 8999, item2 = 8999, item3 = 8999, item4 = 8999})) then		--Armor of the Patriarch Quest
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 8999, item2 = 8999, item3 = 8999, item4 = 8999})) then		--Armor of the Patriarch Quest
 		e.self:Say("Congratulations young Patriarch, you have proven yourself to be worthy of our cause. Wear your armor proudly, as it is the symbol of a true Patriarch of Cabilis. ");
 		e.other:SummonItem(7831);
 		e.other:Faction(282,20);
@@ -52,7 +52,7 @@ function event_trade(e)
 		e.other:AddEXP(20000);
 		e.other:Ding();
 	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 18848})) then											--A tattered note
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 18848})) then											--A tattered note
 		e.self:Say("The Hierophants have sensed that your spirit is strong with obedience inspiring fear! You must learn to harness your [powers] over the scaled wolves! Wear this tunic so that the Legion of Cabilis will recognize you as a Scaled Spiritist.");
 		e.other:SummonItem(13577); 																		--Dusty Green Tunic
 		e.other:Faction(282,15); 																		--Scaled Mystics

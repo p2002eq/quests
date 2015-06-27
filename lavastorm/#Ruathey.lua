@@ -18,7 +18,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 2417})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 2417})) then
 		e.self:Say("I see that you've spoken to Llara. She too came to me looking for Amstaf. Though she wasn't able to find her friend, she was able to recover his [sword].");
 		e.other:Ding();
 		eq.set_global("Ruathey","ghoul",0,"D30");

@@ -14,7 +14,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 30852})) then --Sealed Cask
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 30852})) then --Sealed Cask
 		e.self:Say("You are truly a friend to the Felidae. Take this shroud as a small token of the honor you have done to our people - it is just a small step towards becoming a champion among our people.");
 		e.other:QuestReward(e.self,0,0,0,0,30854); --Hero's Shroud
 	end

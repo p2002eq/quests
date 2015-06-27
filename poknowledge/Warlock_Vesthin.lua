@@ -7,7 +7,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if((item_lib.check_turn_in(e.trade, {item1 = 1232})) or (item_lib.check_turn_in(e.trade, {item1 = 1233})) or (item_lib.check_turn_in(e.trade, {item1 = 1234})) or (item_lib.check_turn_in(e.trade, {item1 = 1235})) or (item_lib.check_turn_in(e.trade, {item1 = 1236})) or (item_lib.check_turn_in(e.trade, {item1 = 1237})) or (item_lib.check_turn_in(e.trade, {item1 = 1238}))) then --Blighted Armor
+	if((item_lib.check_turn_in(e.self, e.trade, {item1 = 1232})) or (item_lib.check_turn_in(e.self, e.trade, {item1 = 1233})) or (item_lib.check_turn_in(e.self, e.trade, {item1 = 1234})) or (item_lib.check_turn_in(e.self, e.trade, {item1 = 1235})) or (item_lib.check_turn_in(e.self, e.trade, {item1 = 1236})) or (item_lib.check_turn_in(e.self, e.trade, {item1 = 1237})) or (item_lib.check_turn_in(e.self, e.trade, {item1 = 1238}))) then --Blighted Armor
 		e.self:Say("Thank you, " .. e.other:GetName() .. "."); --Text made up
 		e.other:QuestReward(e.self,0,0,0,0,eq.ChooseRandom(10028, 10037, 22503, 15981),698775); --Random gem: Peridot, Diamond, Blue Diamond, Raw Diamond
 	end

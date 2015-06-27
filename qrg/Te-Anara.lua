@@ -16,7 +16,7 @@ end
 function event_trade(e)
 	local item_lib =require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 18713})) then -- Tattered Note
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 18713})) then -- Tattered Note
 		e.self:Say("Well met, friend of the forest. You will find power and enlightenment amidst these woods. Here, wear this tunic and represent the Jaggedpine with pride. Gerael Woodone will help train you and teach you the duties of Jaggedpine Treefolk. The forests, being the soul and heart of Norrath, depend on you and your actions from this day forth.");
 		e.other:SummonItem(13510);
 		e.other:Ding();
@@ -26,7 +26,7 @@ function event_trade(e)
 		e.other:Faction(347, -25,0); --Unkempt Druids
 		e.other:Faction(135, 15,0);   --Guards of Qeynos
 		e.other:AddEXP(100);
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 18809})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 18809})) then
 		e.self:Say("Oh my, this must belong to Antonius Bayle! I shall see that he receives it. You have done a great service to Qeynos and Surefall Glade. I rewards you with this. May it be of good use in your future deeds.");
 		e.other:SummonItem(15222);
 		e.other:Ding();
@@ -36,7 +36,7 @@ function event_trade(e)
 		e.other:Faction(347, -15,0); --Unkempt Druids
 		e.other:Faction(135, 10,0);   --Guards of Qeynos
 		e.other:AddEXP(100);
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 18807})) then -- Sealed Letter [Note To Jaggedpine - real]
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 18807})) then -- Sealed Letter [Note To Jaggedpine - real]
 		e.self:Say("Aye! This is good news. We shall try to supply Qeynos with a limited number of acres to begin their lumberyard. Here, my good messenger. A token to share in the good news.");
 		e.other:Ding();
 		e.other:Faction(159, 10,0); --Jaggedpine Treefolk

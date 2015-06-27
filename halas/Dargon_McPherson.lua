@@ -19,7 +19,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 13245})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 13245})) then
 		e.self:Say("Ye've proven yerself to be a cut above the rest and aided yer fellow warriors, no matter how worthless they were. Ye may take this. It was found in the snow by one of our foraging parties. I hope it can be of use to a warrior like yerself.");
 		e.other:Ding();
 		e.other:AddEXP(125);

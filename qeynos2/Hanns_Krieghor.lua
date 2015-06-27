@@ -25,7 +25,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 18708})) then -- Napkin From Crow's
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 18708})) then -- Napkin From Crow's
 		e.self:Say("Lucky thing you weren't followed. or you'd be breathing through holes in your back right now. Go find Knargon, maybe you can help run the next [shipment]. Remember, we keep our business quiet, so watch yourself, sewer crawler.");
 		e.other:SummonItem(13501); -- Second Hand Tunic*
 		e.other:Ding();
@@ -35,7 +35,7 @@ function event_trade(e)
 		e.other:Faction(135,-15,0); -- Guards of Qeynos
 		e.other:Faction(164,10,0); -- Kane Bayle
 		e.other:AddEXP(100);
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 28058})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 28058})) then
 		e.self:Say("Well done, " .. e.other:GetName() .. "."); -- Text made up
 		e.other:SummonItem(7501);
 		e.other:Ding();

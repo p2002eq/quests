@@ -12,7 +12,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 12114, item2 = 12114})) then --Tumpy Tonic (Only 2)
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 12114, item2 = 12114})) then --Tumpy Tonic (Only 2)
 		e.self:Say("Thank you, that hit the spot!! Here is the spool, as promised."); --Real text still needed
 		e.other:SummonItem(12111); --Dwarven Wire
 		e.other:Faction(314,5); --Storm Guard
@@ -23,7 +23,7 @@ function event_trade(e)
 		e.other:AddEXP(1000);
 		e.other:Ding();
 	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 12114})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 12114})) then
 	    e.self:Say('Hey!! Only one?!!');
 	    e.other:SummonItem(12114);
 	end

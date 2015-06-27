@@ -8,7 +8,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 16860})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 16860})) then
 		e.self:Say("Here is your moonlight");
 		e.other:QuestReward(e.self,0,0,0,0,5992);
 	end

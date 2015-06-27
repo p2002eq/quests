@@ -21,7 +21,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	--I changed this statement to use the plugin now.  Maybe I shouldn't have, but I wanted things to be uniform. -Kilelen
-	if(item_lib.check_turn_in(e.trade, {item1 = 1330}) and e.other:GetFaction(e.self) < 6) then	-- Patched Gnoll Fur Bundle
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 1330}) and e.other:GetFaction(e.self) < 6) then	-- Patched Gnoll Fur Bundle
 		e.self:Say("You have done well. Here is a small reward for your effort.");
 		e.other:AddEXP(125);
 		e.other:Ding();
@@ -29,7 +29,7 @@ function event_trade(e)
 		e.other:Faction(275,10);						-- 275 : Faction Rogue's of the White Rose
 		e.other:SummonItem(1349);						--Fang of the Wolf
 	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 7507}) and e.other:GetFaction(e.self) < 6) then	--Shrieking Ahlspiess
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 7507}) and e.other:GetFaction(e.self) < 6) then	--Shrieking Ahlspiess
 		e.self:Emote("beams 'Thank you, take this.'"); 	--text made up
 		e.other:SummonItem(24097);						--Sluggish Sketch
 		e.other:Ding();

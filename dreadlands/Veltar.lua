@@ -18,7 +18,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 7879, item2 = 7880, item3 = 7881})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 7879, item2 = 7880, item3 = 7881})) then
 		e.self:Say("So you are finally ready for the final rung. Here it is, you shall receive mine for I quest for the fists of Cazic Thule no longer.");
 		e.other:QuestReward(e.self,0,0,0,0,4199,60000);
 		e.other:Faction(317,20);

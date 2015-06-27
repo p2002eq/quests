@@ -17,11 +17,11 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 10604})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 10604})) then
 		e.self:Say("Ah yes, Jeb's seal. The time to craft a Serpent must have come. I will need components collected to craft the first of the pieces. I will also provide you with a sack in which you must combine the items. Are you ready to collect them?");
 		e.other:QuestReward(e.self,0,0,0,0,10604);
 		e.other:QuestReward(e.self,0,0,0,0,17861);
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 10635})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 10635})) then
 		e.self:Say("Excellent, you have done well. Here is the first piece of the staff. Now you must go seek out the second master; he will clear the path for you.");
 		--e.other:Faction(342,30);
 		e.other:QuestReward(e.self,0,0,0,0,10610,100000,342,30);

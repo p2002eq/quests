@@ -9,7 +9,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 18795})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 18795})) then
 		e.self:Say("Hmm, I see. We think we've found out who the mole is in Carson's guards, some guy named Stald. We need to get rid of this guy as quickly, and as quietly, as possible. Carson doesn't want to cause a stink by eliminating one of his own men, so he asked us to do it. What about you? Do you think [you could get rid of Stald] for us?");
 		e.other:Ding();
 		e.other:Faction(31,10,0); -- Carson Mccabe
@@ -19,7 +19,7 @@ function event_trade(e)
 		e.other:Faction(214,10,0); -- Merchants of Highpass
 		eq.unique_spawn(5119,0,0,464,127,31.75,47);
 		e.other:AddEXP(500);
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 13793})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 13793})) then
 		e.self:Say("Great! Thanks for taking care of this 'problem' for us " .. e.other:GetName() .. ". Please return to Zannsin with this note and he should reward you for your assistance."); -- Made up text
 		e.other:SummonItem(18028);
 		e.other:Ding();

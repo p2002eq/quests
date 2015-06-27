@@ -11,7 +11,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 55523})) then -- Note to Rellix
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 55523})) then -- Note to Rellix
 		e.self:Say("A note from Chef Chowderly, eh? I haven't heard from him in some time. Hope he is doing well.' Rellix reads the note. 'I do happen to have some spare dishes. Here, take them.");
 		e.other:SummonItem(55524); -- Case of Dishes
 		e.other:Ding();

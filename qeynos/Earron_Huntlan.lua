@@ -9,7 +9,7 @@ end
 
 function event_trade(e)
 	local item_lib =require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 18821})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 18821})) then
 		e.self:Say("What the..? This voucher was for Kwint, not you! I will find someone more trustworthy to take it to him.");
 		e.other:Ding();
 		e.other:Faction(217,-10,0);

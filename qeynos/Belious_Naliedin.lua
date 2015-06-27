@@ -23,7 +23,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 18717})) then -- Tattered Note
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 18717})) then -- Tattered Note
 		e.self:Say("Good day friend, and welcome to the Wind Spirit's Song. Thank you for joining our cause. Go speak with Jusean Evanesque; I'm sure you'll fit in well.");
 		e.other:SummonItem(13502); -- #Brown Tunic*
 		e.other:Ding();
@@ -33,16 +33,16 @@ function event_trade(e)
 		e.other:Faction(273,-5,0); -- Ring of Scale
 		e.other:Faction(207,-5,0); -- Mayong Mistmoore
 		e.other:AddEXP(100);
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 20374})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 20374})) then
 		e.self:Say("A famous bard, you say? Why you must be seeking none other than the great Baenar Swiftsong! He is not here as you can see. Mayhap you seek an audience with him? He is a busy man and has not the time to speak with everyone who wishes to preoccupy his time with useless prattle! You are many and he is but one! Leave him be, I beg of you, to continue his songwriting in peace.");
 		e.other:Ding();
 		e.other:AddEXP(100);
-	elseif(item_lib.check_turn_in(e.trade, {platinum = 50})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {platinum = 50})) then
 		e.self:Say("Ah! Here is that letter of introduction I was looking for! Baenar likes to frequent a serene fountain in the southern Karanas. He finds the peace there accommodating to his work. He may even sing a tale for you if the mood strikes him.");
 		e.other:Ding();
 		e.other:SummonItem(20373);
 		e.other:AddEXP(100);
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 13775, item2 = 13776, item3 = 13777, item4 = 13778})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 13775, item2 = 13776, item3 = 13777, item4 = 13778})) then
 		e.self:Say("Here is your custom lute, use it well " .. e.other:GetName() .. ".");
 		e.other:Ding();
 		e.other:SummonItem(13105);

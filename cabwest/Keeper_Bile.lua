@@ -9,7 +9,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	spellnum = eq.ChooseRandom(15338,15344,15339,15340,15225,15229,15346,15491,15502,15341,15342,15347,15348,15331,15221,15343); --I am not 100 percent sure on this spells list. It is simply everything he sells I gathered from the information available that this is correct.
-	if(item_lib.check_turn_in(e.trade, {item1 = 12739, item2 = 12659, item3 = 12426})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 12739, item2 = 12659, item3 = 12426})) then
 		e.self:Say("Good Work " .. e.other:GetName() .. ". This will surely hold back those vile creatures for some time. Here is your spell.");
 		e.other:SummonItem(spellnum);
 		e.other:AddEXP(10);

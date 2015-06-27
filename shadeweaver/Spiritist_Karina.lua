@@ -51,11 +51,11 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 30872, item2 = 30872, item3 = 30872, item4 = 30872})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 30872, item2 = 30872, item3 = 30872, item4 = 30872})) then
 		e.self:Say("I can see that you have a brave heart. You have rescued many of the fallen spirits with little regard to your own welfare. Such selfless acts should not go unrewarded. Please take these gloves and wear them with pride. It is a symbol of [rebirth].");
 		e.other:Faction(132,10); -- +Guardians of Shar Vahl
 		e.other:QuestReward(e.self,0,0,0,0,30879,1000); --Rebirth Leather Gloves
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 30873, item2 = 30873, item3 = 30873, item4 = 30873})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 30873, item2 = 30873, item3 = 30873, item4 = 30873})) then
 		e.self:Say("Thank you for bringing these to me " .. e.other:GetName() .. ".");
 		e.self:Emote("Karina closes her eyes and meditates over the jawbones for a moment.");
 		e.self:Say("I can sense the mark of the [Loda Kai] within these jawbones. This is a horror, for Loda Kai was once a member of my people. I do not know how he came about these strange magical forces but it can not be good news. Please wear these sleeves for protection. This new discovery worries me deeply.");

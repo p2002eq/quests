@@ -17,7 +17,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	
-	if(item_lib.check_turn_in(e.trade, {item1 = 13892})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 13892})) then
 		e.self:Say("Good work! I knew you could prove your worth. Most waste time training. I do not reward those who waste my time. Please take this. It is from our horde, from countless robberies. I hope you can use it to advance yourself. Remember to always stay faithful to Neriak.");
 		e.other:Faction(90,5);
 		e.other:Faction(135,-5);

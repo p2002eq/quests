@@ -39,7 +39,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 27399,item2 = 27399,item3 = 27417,item4 = 27417})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 27399,item2 = 27399,item3 = 27417,item4 = 27417})) then
 		e.self:Say("These are exactly what I needed! Its for sure that I have a lot to learn about Smithing but low and behold I was able to create this fine blade out of my remaining materials. Please carry it with you as a symbol of my gratitude. Rodcet smiles down upon you young " .. e.other:GetName() .. ", you have done well.");
 		e.other:SummonItem(27490);
 		e.other:Ding();

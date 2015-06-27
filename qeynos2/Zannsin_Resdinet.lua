@@ -31,7 +31,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 18028})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 18028})) then
 		e.self:Say("You have proven yourself to be very valuable " .. e.other:GetName() .. ". For helping us out please accept this Cloak of the Unseen Hands!");
 		e.other:SummonItem(1048);
 		e.other:Ding();

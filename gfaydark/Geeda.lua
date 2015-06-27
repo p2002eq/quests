@@ -18,7 +18,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	
-	if(item_lib.check_turn_in(e.trade, {item1 = 12183})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 12183})) then
 		e.self:Say("Fine work. We are very grateful. Take this Scout Cape. May you use it to serve Kelethin.");
 		e.other:Faction(283,10);
 		e.other:QuestReward(e.self,0,0,0,0,2914,5000);

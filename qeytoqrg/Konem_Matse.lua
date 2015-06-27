@@ -9,7 +9,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 18921})) then -- Message to Konem
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 18921})) then -- Message to Konem
 		e.self:Say("Oh I see.. Phin's always after me about something.  I mean, it's not my fault the order hasn't come in yet.  Hey, since I'm so busy right now, why don't you be a friend and take this back to Phin for me, huh?");
 		e.other:SummonItem(18922); -- Grathin's Invoice
 		e.other:Ding();

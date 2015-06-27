@@ -8,7 +8,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 18240})) then --Legion Order (0 signed)
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 18240})) then --Legion Order (0 signed)
 		e.self:Emote("grabs the order from your hand and mumbles something unpleasant and vaguely threatening. He then hands the signed order back to you.");
 		e.other:QuestReward(e.self,0,0,0,0,18241,200); --Legion Order (1 signed)
 	end

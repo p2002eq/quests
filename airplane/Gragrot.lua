@@ -18,15 +18,15 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 20929, item2 = 20997, item3 = 20998})) then 	--shadowknight test of bash using ebon tessera, sphinx eye opal, finely crafted amulet
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 20929, item2 = 20997, item3 = 20998})) then 	--shadowknight test of bash using ebon tessera, sphinx eye opal, finely crafted amulet
 		e.self:Say("You is powerful! Take this!");
 		e.other:QuestReward(e.self,0,0,0,0,14554,100000); --sphinx eye amulet
 		eq.depop();
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 20936, item2 = 20999, item3 = 20700})) then --shadowknight test of smash using copper disc, small sapphire, silvery ring
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 20936, item2 = 20999, item3 = 20700})) then --shadowknight test of smash using copper disc, small sapphire, silvery ring
 		e.self:Say("You is powerful! Take this!");
 		e.other:QuestReward(e.self,0,0,0,0,14553,100000); --Djinni finger ring
 		eq.depop();
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 20943, item2 = 20701, item3 = 20702})) then --shadowknight test of slash using diaphanous globe, dried leather, finely woven cloth belt
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 20943, item2 = 20701, item3 = 20702})) then --shadowknight test of slash using diaphanous globe, dried leather, finely woven cloth belt
 		e.self:Say("You is powerful! Take this!");
 		e.other:QuestReward(e.self,0,0,0,0,2704,100000); --pegasus-hide belt
 		eq.depop();

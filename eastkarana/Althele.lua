@@ -10,12 +10,12 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 20448})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 20448})) then
 		e.self:Emote("looks at the coin and nods gravely at you as she slips it into a fold of her clothing. 'I see. The story of this coin speaks much to me as do the words you have given me. Telin sent word that you would arrive. The tidings you bring are ill indeed. Here, take this amulet and find Sionae. She is nearby. We will speak more on this matter when all are present.'");
 		e.other:SummonItem(20450);								-- Braided Grass Amulet
 		eq.spawn2(15178,0,0,-1595,-2595,4,127);					-- spawn sionae at #loc -1595, -2595, 4				-- north of Althele 1063 units away
 
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 20452})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 20452})) then
 		e.self:Emote("hands the book to Tholris who reads through it with lines of concern etched on his face, then whispers into her ear. 'Dire news, indeed. This cannot be allowed. I must keep this book but you, " .. e.other:GetName() .. ", must not allow Innoruuk to seed the land with his hatred and filth. You have only just begun your quest. The path you are guided upon will be difficult, if not impossible, but someone must finish it. Please, take this, read of it, follow its instructions. Tunare bless your path and Karana watch over you.");
 		e.other:QuestReward(e.self,0,0,0,0,18959,100000); 		-- Earth Stained Note
 		eq.get_entity_list():GetMobByNpcTypeID(15178):Depop();	-- despawn Sionae		at #loc -1595, -2595, 4		-- north of Althele 1063 units away

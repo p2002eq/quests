@@ -16,7 +16,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-		if(item_lib.check_turn_in(e.trade, {item1 = 13087, item2 = 13087, item3 = 28012, platinum = 100})) then
+		if(item_lib.check_turn_in(e.self, e.trade, {item1 = 13087, item2 = 13087, item3 = 28012, platinum = 100})) then
 		e.self:Say("Hmm, interesting. This document is not only encoded, but written in a very obscure language. From what I can gather, it's a variant of elder Teir'Dal, but not one I've encountered. I can not fully translate this, but I know one who can. Find Yendar and give him this.");
 		e.other:SummonItem(28053);
 		e.other:Faction(240,20);--Order of Three

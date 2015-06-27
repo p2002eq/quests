@@ -8,7 +8,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 12869})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 12869})) then
 		e.self:Emote("begins jumping for joy. 'Yoohoo!! My wand!! Thank you. You must be some powerful adventurer. You can help me collect a few components. Fill this chest with a frost crystal, a cockatrice egg, a giant hornet egg and a plains pebble. Return the full chest to me and I shall offer you a spell I recently researched.");
 		e.other:SummonItem(17041);
 		e.other:Faction(24,2); 		--Brood of Kotiz
@@ -17,7 +17,7 @@ function event_trade(e)
 		e.other:GiveCash(0,0,4,0);
 		e.other:Ding();
 	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 12885})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 12885})) then
 		e.self:Say("Yes this is exactly what i wanted. Here is your spell.");
 		e.other:SummonItem(15444); 	--Spell Renew Bones
 		e.other:Faction(24,2); 		--Brood of Kotiz

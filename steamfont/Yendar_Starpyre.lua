@@ -18,10 +18,10 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	
-	if(item_lib.check_turn_in(e.trade, {item1 = 28053})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 28053})) then
 		e.self:Say("I say, this is indeed a challenge. This is written in what I'm sure is the language of the High Priesthood of Innoruuk. I've often wished I could read this, but I have never had the key to unlock the language. Take this for now.");
 		e.other:QuestReward(e.self,0,0,0,0,28055,500);
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 28055, item2 = 28016})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 28055, item2 = 28016})) then
 		e.self:Say("My, this is quite a large list! Yes, I can use the names and dates recorded here to help me understand the script. It should be a simple matter now. A moment, please. Aha, yes, there we go. Translated as best I can! I do hope you're not involved in what is described here, as it is quite fiendish. Oi! You, woman! Give that back! " .. e.other:GetName() .. ", that woman there took your letter! I think I should leave you to discuss it with her. Best of luck!.");
 		eq.spawn2(56172,0,0,e.self:GetX()-10,e.self:GetY()+10,e.self:GetZ(),e.self:GetHeading());
 		eq.depop_with_timer();

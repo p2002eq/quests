@@ -19,16 +19,16 @@ function event_say(e)
 end
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 14813, item2 = 3064})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 14813, item2 = 3064})) then
 		e.other:QuestReward(e.self,0,0,0,0,4983,10000);
 	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 14808, item2 = 3061})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 14808, item2 = 3061})) then
 		e.other:QuestReward(e.self,0,0,0,0,4980,10000);
 	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 14831, item2 = 3063})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 14831, item2 = 3063})) then
 		e.other:QuestReward(e.self,0,0,0,0,4982,10000);
 	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 14809, item2 = 3062})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 14809, item2 = 3062})) then
 		e.other:QuestReward(e.self,0,0,0,0,4981,10000);
 	end
 	item_lib.return_items(e.self, e.other, e.trade)

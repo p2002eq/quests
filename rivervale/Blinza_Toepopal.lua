@@ -22,7 +22,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 
-	if (item_lib.check_turn_in(e.trade,  {item1 = 13958})) then
+	if (item_lib.check_turn_in(e.self, e.trade,  {item1 = 13958})) then
 		e.self:Say("Well it is about time!  The mayor gets very upset if he does not have the freshest of carrots in his stew.  Here is the money for the carrots.  Be off with you.  Now. where the heck did [Jillin] go?");
 		e.other:Faction(77, 1);
 		e.other:Faction(218, 1);
@@ -30,7 +30,7 @@ function event_trade(e)
 		e.other:Faction(33, -2);
 		e.other:Faction(48, -2);
 		e.other:QuestReward(e.self,1,0,0,0,0,100);
-	elseif (item_lib.check_turn_in(e.trade,  {item1 = 13957})) then
+	elseif (item_lib.check_turn_in(e.self, e.trade,  {item1 = 13957})) then
 		e.self:Say("Oh excellent! These carrots are perfect! The finest Reebo has ever sent us. The mayor will be so pleased. Here is the payment for the carrots. Excuse me, but I must finish preparing the stew. Hmm. Where the heck did [Jillin] go?");
 		e.other:Faction(77, 5);
 		e.other:Faction(218, 5);
@@ -38,7 +38,7 @@ function event_trade(e)
 		e.other:Faction(33, -10);
 		e.other:Faction(48, -10);
 		e.other:QuestReward(e.self,10,0,0,0,0,200);
-	elseif (item_lib.check_turn_in(e.trade,  {item1 = 13971})) then
+	elseif (item_lib.check_turn_in(e.self, e.trade,  {item1 = 13971})) then
 		e.self:Say("What are these?!  I am trying to make stew for the mayor and you bring me ROTTEN CARROTS?!  Have you no sense??  Take these back to Reebo.");
 		e.other:Faction(77, -4);
 		e.other:Faction(218, -4);

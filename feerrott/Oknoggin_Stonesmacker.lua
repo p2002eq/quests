@@ -7,7 +7,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 20673})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 20673})) then
 		e.self:Emote("snatches the note from your hand and rips it open with his large hands. 'You take dis to Kargek. He want!'");
 		e.other:SummonItem(20674); -- Tiny Lute
 		e.other:Ding();

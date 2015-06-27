@@ -32,10 +32,10 @@ end
 function event_trade(e)
 	local fac = e.other:GetFaction(e.self);
 	local item_lib =require("items");
-	if(item_lib.check_turn_in(e.trade, {gold = 20}) and (fac < 5)) then
+	if(item_lib.check_turn_in(e.self, e.trade, {gold = 20}) and (fac < 5)) then
 		e.self:Say("This should help you remain safe.");
 		e.other:SelfCast(11);
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 13395})) then -- Beetle Eye Chest (closed)
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 13395})) then -- Beetle Eye Chest (closed)
 		e.self:Say("You have done well. Karana is pleased. I cannot say the same for the cat people. I now bestow upon you the knowledge of Holy Armor. Study the words and soon the power shall be bestowed upon you by the greatness that is the Rainkeeper.");
 		e.other:Ding();
 		e.other:SummonItem(15011); -- spell:holy armor
@@ -44,7 +44,7 @@ function event_trade(e)
 		e.other:Faction(257,5,0); -- Priest of Life
 		e.other:Faction(135,5,0); -- Guards of Qeynos
 		e.other:AddEXP(200);		
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 13289})) then -- Chest of Faith (closed)
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 13289})) then -- Chest of Faith (closed)
 		e.self:Say("You have done supremely well, my young acolyte of Thunder. For your great service to the Temple of Thunder. Now go and cast the storm into the populace of Antonica.");
 		e.other:Ding();
 		e.other:SummonItem(15218); -- spell:ward undead

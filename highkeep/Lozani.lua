@@ -14,10 +14,10 @@ function event_trade(e)
 	local item_lib = require("items");
 	local scroll = 0;
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 13225,gold = 4})) then -- Illegible Scroll and 4 gold#
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 13225,gold = 4})) then -- Illegible Scroll and 4 gold#
 		e.self:Say("I managed to decipher this one.");
 		scroll = 1;
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 13845,item2 = 13845})) then -- Illegible Cantrip
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 13845,item2 = 13845})) then -- Illegible Cantrip
 		e.self:Say("I managed to decipher these.");
 		scroll = 1;
 	end

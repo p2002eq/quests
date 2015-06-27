@@ -8,7 +8,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 7808, item2 = 7808, item3 = 7808, item4 = 30579})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 7808, item2 = 7808, item3 = 7808, item4 = 30579})) then
 		e.self:Emote("takes the flail and starts placing the claws into it forming a formidable looking weapon. 'This seems a good weapon indeed. Here, you can take it for helping to test my theory of weapon crafting. Safe travels to you friend.'");
 		e.other:QuestReward(e.self,0,0,0,0,7815);
 	end

@@ -1,6 +1,6 @@
 function event_trade(e)
 	local item_lib =require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 18719})) then -- Tattered Note
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 18719})) then -- Tattered Note
 		e.self:Say("Welcome to the Order of Three. I am Kinloc, Guild Master of the Magicians. This tunic of the Order is for you, wear it with honour. Study hard and master your skills, and you will become an important part of our Order. Yestura shall help introduce you to the ways of magic.");
 		e.other:SummonItem(13543); -- Used Blue Robe*
 		e.other:Ding();

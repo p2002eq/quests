@@ -16,15 +16,15 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 20774, item2 = 20952, item3 = 20802})) then --enchanter test of disillusion using adamantium earring, harpy statuette, nebulous sapphire
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 20774, item2 = 20952, item3 = 20802})) then --enchanter test of disillusion using adamantium earring, harpy statuette, nebulous sapphire
 		e.self:Say("Good. Take this as your reward.");
 		e.other:QuestReward(e.self,0,0,0,0,14559,100000); --earring of displacement
 		eq.depop();
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 20959, item2 = 20775, item3 = 20776})) then --enchanter test of memorization using carmine spiroc feather, ganoric poison, glowing necklace
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 20959, item2 = 20775, item3 = 20776})) then --enchanter test of memorization using carmine spiroc feather, ganoric poison, glowing necklace
 		e.self:Say("Good. Take this as your reward.");
 		e.other:QuestReward(e.self,0,0,0,0,14558,100000); --necklace of whispering winds
 		eq.depop();
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 20777, item2 = 20779, item3 = 20778, item4 = 20966})) then --enchanter test of incapacitation using black sky diamond, efreeti wind staff, large sky sapphire, sweet nectar
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 20777, item2 = 20779, item3 = 20778, item4 = 20966})) then --enchanter test of incapacitation using black sky diamond, efreeti wind staff, large sky sapphire, sweet nectar
 		e.self:Say("Good. Take this as your reward.");
 		e.other:QuestReward(e.self,0,0,0,0,27711,100000); --rod of protecting winds
 		eq.depop();

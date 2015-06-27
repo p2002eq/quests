@@ -39,7 +39,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	
-	if(item_lib.check_turn_in(e.trade, {item1 = 22694,item2 = 22694,item3 = 27540})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 22694,item2 = 22694,item3 = 27540})) then
 		e.self:Say("I never though I would see my lute again. I owe you my sincere thanks " .. e.other:GetName() .. ". Please take this weapon that I carried for most of my days as a symbol of my gratitude. May it guide you to victory in all of your battles.");
 		e.other:QuestReward(e.self,0,0,0,0,27533,500);
 	end

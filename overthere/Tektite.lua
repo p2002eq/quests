@@ -7,7 +7,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 10011, item2 = 10011})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 10011, item2 = 10011})) then
 		e.self:Emote("takes one hand and pries out one of his eyes, which he casts far into the plains. He then places the carnelian into his eye socket. He turns towards you and holds open his palm. ");
 		e.self:Emote("pries out his other eye and places the second carnelian gem in its place. His eyes burn brightly with scarlet fire. He then hands you a fragment of tektite. ");
 		e.other:QuestReward(e.self,0,0,0,0,12831);

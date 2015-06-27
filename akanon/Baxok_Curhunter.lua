@@ -18,7 +18,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 18770})) then -- Recruitment Summons
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 18770})) then -- Recruitment Summons
 		e.self:Say("I, Baxok, guildmaster, welcome you to Gemchopper Hall, young warrior! You are expected to serve his majesty, King Ak'Anon, with pride. You have much to learn. You may report to any of the trainers for further guidance. Go forth and serve!");
 		e.other:SummonItem(13520); -- Torn and Ripped Tunic*
 		e.other:Ding();
@@ -28,7 +28,7 @@ function event_trade(e)
 		e.other:Faction(71,-25,0); -- -Dark Reflection
 		e.other:Faction(39,-5,0); -- -Clan Grikbar
 		e.other:AddEXP(100);
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 13344})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 13344})) then
 		e.other:SummonItem(eq.ChooseRandom(9002,1001,1002,1003,1004,1005,1006,1007,1008,1009,1010,1010,1011)); -- cloth armor or round shield
 		e.other:Ding();
 		e.other:Faction(115,10,0); -- +Gem Cutters

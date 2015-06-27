@@ -9,7 +9,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {gold = 1000})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {gold = 1000})) then
 		e.self:Say("Here it is. I am sure you will be quite happy with your purchase, it is quite an interesting old bag it is.");
 		e.other:QuestReward(e.self,0,0,0,0,10681,1000); -- Old Sealed Medicine Pouch
 	end

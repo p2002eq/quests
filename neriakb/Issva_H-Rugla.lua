@@ -33,7 +33,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	
-	if(item_lib.check_turn_in(e.trade, {item1 = 31753})) then --Request Form
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 31753})) then --Request Form
 		e.self:Say("So you are one of Jarrex's new recruits. You are to assist in the construction of the armor you will don as a new Warrior of the Indigo Brotherhood. I have assembled a kit that is used in the crafting of Orc Slayer Mail. You must travel beyond Neriak into the Nektulos Forest for the [materials] that compose the armor.");
 		e.other:QuestReward(e.self,0,0,0,0,17124); --Mail Assembly Kit
 	end

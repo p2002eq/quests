@@ -17,7 +17,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 18728})) then -- Tattered Note
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 18728})) then -- Tattered Note
 		e.self:Say("Welcome. young one! I see you show interest in the circle of magic. Nowhere upon Norrath will you find a greater school than this - the Gatecallers. You shall wear this tunic as a sign that you have begun the training of this circle. Remember. the power of the Gatecaller is the power of summoning. Go find Vasile. he will help teach you the basics of summoning. Good luck, friend!");
 		e.other:SummonItem(13548); -- Old Torn Robe*
 		e.other:Ding();
@@ -26,7 +26,7 @@ function event_trade(e)
 		e.other:Faction(145,10,0); -- high council of erudin
 		e.other:Faction(143,-15,0); -- heretics
 		e.other:AddEXP(100);
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 13128})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 13128})) then
 		e.self:Say("This is fine work, young one. You keep this up and you shall be knighted before long.");
 		e.other:Ding();
 		e.other:Faction(112,10,0); -- gate callers

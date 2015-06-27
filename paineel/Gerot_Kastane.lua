@@ -12,11 +12,11 @@ function event_trade(e)
 	local item_lib = require("items");
 	local charfaction = e.other:GetCharacterFactionLevel(342);
 	
-	if(item_lib.check_turn_in(e.trade, {item1 = 14375}) and charfaction <= 4) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 14375}) and charfaction <= 4) then
 		e.self:Say("At last! I have been waiting for my brother for weeks! We are doomed! Innoruuk will taint our seed into some perverse, twisted, maddened breed. The prophecy has begun to unfold and there are none capable of stopping it. Quickly, return this note to Marl, we must hide! We have failed the master! We must escape the hateful one's wrath!");
 		e.other:Faction(342, 100);
 		e.other:SummonItem(14376);
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 14378}) and charfaction <= 3) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 14378}) and charfaction <= 3) then
 		e.self:Say("Good travels, dark one! May Innoruuk curse your enemies!");
 		e.other:Faction(342, 70);
 		e.other:SummonItem(14369);

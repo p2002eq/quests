@@ -7,13 +7,13 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 3889})) then --Crusaders of Greenmist (Greenmist Quest 8/8)
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 3889})) then --Crusaders of Greenmist (Greenmist Quest 8/8)
 		eq.signal(104072,1);
 		e.other:QuestReward(e.self,0,0,0,0,3896);
 		eq.spawn2(104165,0,0,e.self:GetX(),e.self:GetY(),e.self:GetZ(),e.self:GetHeading());
 		eq.depop_with_timer();
 	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 3896})) then --Crusaders of Greenmist (Greenmist Quest 8/8)
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 3896})) then --Crusaders of Greenmist (Greenmist Quest 8/8)
 		eq.signal(104072,1);
 		e.other:Ding();
 		eq.spawn2(104165,0,0,e.self:GetX(),e.self:GetY(),e.self:GetZ(),e.self:GetHeading());

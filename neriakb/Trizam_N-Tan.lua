@@ -20,7 +20,7 @@ function event_trade(e)
 	local item_lib = require("items");
 	
 	if(e.other:GetFaction(e.self) < 5) then
-		if(item_lib.check_turn_in(e.trade, {item1 = 13885, item2 = 13885, item3 = 13885, item4 = 13885})) then
+		if(item_lib.check_turn_in(e.self, e.trade, {item1 = 13885, item2 = 13885, item3 = 13885, item4 = 13885})) then
 			e.self:Say("As instructed, I shaw reward your good deed. But I choose to reward you with provisions from the pantries of Neriak. They shall keep you strong.");
 			e.other:Faction(155,10); -- +Indigo Brotherhood
 			e.other:Faction(92,-1); -- -Emerald Warriors

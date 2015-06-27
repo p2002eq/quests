@@ -12,27 +12,27 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 7170})) then -- Claw of the Grunt
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 7170})) then -- Claw of the Grunt
 		e.other:Faction(132,2); -- Guardians of Shar Vahl
 		e.other:QuestReward(e.self,0,0,0,0,7171,300); -- Grimling Bane Claw
 	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 7180})) then -- Dirk of the Grunt
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 7180})) then -- Dirk of the Grunt
 		e.other:Faction(132,2); -- Guardians of Shar Vahl
 		e.other:QuestReward(e.self,0,0,0,0,7181,300); -- Grimling Bane Dirk
 	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 7174})) then -- Great Sword of the Grunt
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 7174})) then -- Great Sword of the Grunt
 		e.other:Faction(132,2); -- Guardians of Shar Vahl
 		e.other:QuestReward(e.self,0,0,0,0,7175,300); -- Grimling Bane Great Sword
 	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 7176})) then -- Hammer of the Grunt
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 7176})) then -- Hammer of the Grunt
 		e.other:Faction(132,2); -- Guardians of Shar Vahl
 		e.other:QuestReward(e.self,0,0,0,0,7177,300); -- Grimling Bane Hammer
 	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 7172})) then -- Short Sword of the Grunt
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 7172})) then -- Short Sword of the Grunt
 		e.other:Faction(132,2); -- Guardians of Shar Vahl
 		e.other:QuestReward(e.self,0,0,0,0,7173,300); -- Grimling Bane Short Sword
 	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 7178})) then -- Staff of the Grunt
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 7178})) then -- Staff of the Grunt
 		e.other:Faction(132,2); -- Guardians of Shar Vahl
 		e.other:QuestReward(e.self,0,0,0,0,7179,300); -- Grimling Bane Staff
 	end

@@ -16,15 +16,15 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 20934, item2 = 20850, item3 = 20849})) then --ranger test of body using auburn tessera, griffon talon, ysgaril root
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 20934, item2 = 20850, item3 = 20849})) then --ranger test of body using auburn tessera, griffon talon, ysgaril root
 		e.self:Say("Good work, ranger.");
 		e.other:QuestReward(e.self,0,0,0,0,14567,100000); --griffon talon necklace
 		eq.depop();
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 20853, item2 = 20852, item3 = 20851})) then --ranger test of defense using fine velvet cloak, harpy tongue, mithril disc
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 20853, item2 = 20852, item3 = 20851})) then --ranger test of defense using fine velvet cloak, harpy tongue, mithril disc
 		e.self:Say("Good work, ranger.");
 		e.other:QuestReward(e.self,0,0,0,0,27731,100000); --dark cloak of the sky
 		eq.depop();
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 20854, item2 = 20948, item3 = 20855})) then --ranger test of the element of earth using dragon-hide mantle, gridelin globe, spiroc earth totem
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 20854, item2 = 20948, item3 = 20855})) then --ranger test of the element of earth using dragon-hide mantle, gridelin globe, spiroc earth totem
 		e.self:Say("Good work, ranger.");
 		e.other:QuestReward(e.self,0,0,0,0,2714,100000); --earthshaker's mantle
 		eq.depop();

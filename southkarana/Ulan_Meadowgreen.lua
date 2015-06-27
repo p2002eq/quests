@@ -37,22 +37,22 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 14019,item2 = 10034})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 14019,item2 = 10034})) then
 		e.self:Say("Very good. I am always in need of more optic nerves. Take this crafted bracer with my thanks.");
 		e.other:SummonItem(4177);
 		e.other:Ding();
 		e.other:AddEXP(25000);
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 13742,item2 = 10032,item3 = 10032})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 13742,item2 = 10032,item3 = 10032})) then
 		e.self:Say("Excellent! Here is your reward, you have earned it!");
 		e.other:SummonItem(4179);
 		e.other:Ding();
 		e.other:AddEXP(25000);
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 13698,item2 = 13699,item3 = 13738,item4 = 10033})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 13698,item2 = 13699,item3 = 13738,item4 = 10033})) then
 		e.self:Say("Excellent! Here is your reward, you have earned it!");
 		e.other:SummonItem(4175);
 		e.other:Ding();
 		e.other:AddEXP(25000);
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 13746,item2 = 10035,item3 = 10035,item4 = 10035})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 13746,item2 = 10035,item3 = 10035,item4 = 10035})) then
 		e.self:Say("Excellent! Here is your reward, you have earned it!");
 		e.other:SummonItem(4174);
 		e.other:Ding();

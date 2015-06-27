@@ -18,7 +18,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	-- Rathmana's Scroll Offer
-	if(item_lib.check_turn_in(e.trade, {gold = 30})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {gold = 30})) then
 		e.self:Say("Good luck, my friend. May Solusek Ro guide your hand.");
 		e.other:Ding();
 		e.other:Faction(320,1,0);  -- Temple of Solusek Ro
@@ -27,7 +27,7 @@ function event_trade(e)
 		-- Force Snap, Bind Affinity, Lightning Bolt, Quickness, Whirl Til You Hurl, Column of Fire, Engulfing Darkness, Banshee Aura, Lifedraw, Charm, Rotted Illegible Scroll (Multiple copies added to increase percentage)
 		e.other:SummonItem(eq.ChooseRandom(15022, 15035, 15038, 15039, 15303, 15328, 15355, 15364, 15445, 16425, 13360, 13360, 13360, 13360, 13360, 13360, 13360, 13360, 13360, 13360, 13360, 13360, 13360, 13360, 13360, 13360, 13360, 13360, 13360, 13360));
 	-- The Bayle List quest
-	elseif (item_lib.check_turn_in(e.trade, {item1 = 18808, item2 = 18809, item3 = 18810, gold = 20})) then -- Bayle List I, Bayle List II, Bayle List III
+	elseif (item_lib.check_turn_in(e.self, e.trade, {item1 = 18808, item2 = 18809, item3 = 18810, gold = 20})) then -- Bayle List I, Bayle List II, Bayle List III
 		e.other:Ding();
 		e.self:Say("hmm.  I'm not sure how you knew I could translate these, but I can always use the gold.");
 		e.self:Say("Here is your translation.");

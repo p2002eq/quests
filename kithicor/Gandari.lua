@@ -17,28 +17,28 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	
-	if(item_lib.check_turn_in(e.trade, {item1 = 10569, item2 = 10546, item3 = 10033})) then -- bracers
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 10569, item2 = 10546, item3 = 10033})) then -- bracers
 		e.self:Say("Well done. May Karana bless your soul.");
 		e.other:Faction(182,5); -- kithicor residence
 		e.other:Faction(265,1); -- protectors of the pine
 		e.other:Faction(159,1); -- jaggedpine treefolk
 		e.other:Faction(347,-1); -- unkempt druids
 		e.other:QuestReward(e.self,0,0,0,0,3189,10000);
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 10566, item2 = 10570, item3 = 10034})) then -- helm
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 10566, item2 = 10570, item3 = 10034})) then -- helm
 		e.self:Say("Well done. May Karana bless your soul.");
 		e.other:Faction(182,5); -- kithicor residence
 		e.other:Faction(265,1); -- protectors of the pine
 		e.other:Faction(159,1); -- jaggedpine treefolk
 		e.other:Faction(347,-1); -- unkempt druids
 		e.other:QuestReward(e.self,0,0,0,0,3181,10000);
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 10548, item2 = 10568, item3 = 10032, item4 = 10032})) then -- sleeves
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 10548, item2 = 10568, item3 = 10032, item4 = 10032})) then -- sleeves
 		e.self:Say("Well done. May Karana bless your soul.");
 		e.other:Faction(182,5); -- kithicor residence
 		e.other:Faction(265,1); -- protectors of the pine
 		e.other:Faction(159,1); -- jaggedpine treefolk
 		e.other:Faction(347,-1); -- unkempt druids
 		e.other:QuestReward(e.self,0,0,0,0,3188,10000);
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 10571, item2 = 10567, item3 = 10035, item4 = 10035})) then -- tunic
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 10571, item2 = 10567, item3 = 10035, item4 = 10035})) then -- tunic
 		e.self:Say("Well done. May Karana bless your soul.");
 		e.other:Faction(182,5); -- kithicor residence
 		e.other:Faction(265,1); -- protectors of the pine
