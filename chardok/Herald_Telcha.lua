@@ -25,31 +25,45 @@ function event_say(e)
 end
 
 function event_trade(e)
+	local skin = 0;
+	local salts = 0;
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 16972, item2 = 16972})) then --  Mt. Death Mineral Salts
-		e.self:Say("Ah, most excellent! You are sure to be more highly valued as our servant once I speak to my masters of this! Mountain Death Mineral Salts, they shall grace the Overkings table this very night! Be off, minion! Fetch us some more salts to prove your value!");
-		e.other:Faction(23,1);
-		e.other:Faction(384,-30);
-		e.other:QuestReward(e.self,0,0,0,0,0,8000);
-	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 16972, item2 = 16972, item3 = 16972, item4 = 16972})) then --  Mt. Death Mineral Salts
-		e.self:Say("Ah, most excellent! You are sure to be more highly valued as our servant once I speak to my masters of this! Mountain Death Mineral Salts, they shall grace the Overkings table this very night! Be off, minion! Fetch us some more salts to prove your value!");
-		e.other:Faction(23,2);
-		e.other:Faction(384,-60);
-		e.other:QuestReward(e.self,0,0,0,0,0,16000);
+	
+	
+	if(item_lib.check_turn_in(e.trade, {item1 = 22135,item2 = 22135,item3 = 22135,item4 = 22135})) then --  Mt. Death Mineral Salts
+		salts = 2;
+	elseif(item_lib.check_turn_in(e.trade, {item1 = 22135,item2 = 22135,item3 = 22135})) then --  Mt. Death Mineral Salts
+		salts = 1;
 	end
 	
-	if(item_lib.check_turn_in(e.trade, {item1 = 22135})) then -- Green Goblin Skin
-		e.self:Say("Green Goblin Skin! You have indeed been busy! I shall speak to my masters of this, continue your good work and return to me with more skins.");
+	if(salts > 0) then
+		repeat
+		e.self:Say("Ah, most excellent! You are sure to be more highly valued as our servant once I speak to my masters of this! Mountain Death Mineral Salts, they shall grace the Overkings table this very night! Be off, minion! Fetch us some more salts to prove your value!");
 		e.other:Faction(23,1);
 		e.other:Faction(384,-30);
 		e.other:QuestReward(e.self,0,0,0,0,0,8000);
+		salts = salts - 1;
+		until salts == 0
 	end
-	if(item_lib.check_turn_in(e.trade, {item1 = 22135, item2 = 22135, item3 = 22135, item4 = 22135})) then -- Green Goblin Skin
-		e.self:Say("Green Goblin Skin! You have indeed been busy! I shall speak to my masters of this, continue your good work and return to me with more skins.");
-		e.other:Faction(23,4);
-		e.other:Faction(384,-120);
-		e.other:QuestReward(e.self,0,0,0,0,0,32000);
+	
+	if(item_lib.check_turn_in(e.trade, {item1 = 22135,item2 = 22135,item3 = 22135,item4 = 22135})) then -- Green Goblin Skin
+		skin = 4;
+	elseif(item_lib.check_turn_in(e.trade, {item1 = 22135,item2 = 22135,item3 = 22135})) then -- Green Goblin Skin
+		skin = 3;
+	elseif(item_lib.check_turn_in(e.trade, {item1 = 22135,item2 = 22135})) then -- Green Goblin Skin
+		skin = 2;
+	elseif(item_lib.check_turn_in(e.trade, {item1 = 22135})) then -- Green Goblin Skin
+		skin = 1;
+	end
+	
+	if(skin > 0) then
+		repeat
+			e.self:Say("Green Goblin Skin! You have indeed been busy! I shall speak to my masters of this, continue your good work and return to me with more skins.");
+		e.other:Faction(23,1);
+		e.other:Faction(384,-30);
+		e.other:QuestReward(e.self,0,0,0,0,0,8000);
+			skin = skin - 1;
+		until skin == 0
 	end
 	
 	if(item_lib.check_turn_in(e.trade, {item1 = 6476, item2 = 5728})) then -- Head of Skargus & Di'Zok Signet of Service
