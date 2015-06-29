@@ -5,7 +5,7 @@ function event_trade(e)
 		eq.depop()
 		e.other:Ding();
 		e.other:Faction(342,100); -- true spirit
-		eq.spawn2(90194,0,0,e.self:GetX(),e.self:GetY(),e.self:GetZ(),e.self:GetHeading());
+		eq.spawn2(90196,0,0,e.self:GetX(),e.self:GetY(),e.self:GetZ(),e.self:GetHeading());
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
