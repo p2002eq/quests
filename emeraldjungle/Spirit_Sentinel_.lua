@@ -23,7 +23,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	if(e.other:GetFaction(e.self) <= 2) then
-		if(item_lib.check_turn_in(e.trade, {item1 = 18456, item2 = 18457, item3 = 18458})) then --Part of Shaman Epic 1.0
+		elseif(item_lib.check_turn_in(e.trade, {item1 = 18456, item2 = 18457, item3 = 18458})) then --Part of Shaman Epic 1.0
 			e.self:Emote("Hmmm, it appears the queen's disappearance wasn't as random as we thought. It also looks as if this High Scale were having some sort of affair with Neh. We have little but speculation at this point, so making it known to Nak'Ashiir would do nothing. Perhaps finding the resting place of the High Scale will show us more of what really happened. We suspect the icon mentioned in this log could now be located in the city's old temple. Find the icon and bring it to Kirn, wherever he is. Tell us what you learn afterwards.");
 			e.other:Faction(342,50);
 			e.other:QuestReward(e.self,0,0,0,0,0,100000);
@@ -31,13 +31,13 @@ function event_trade(e)
 			e.self:Emote("So, the truth is found! Nak mourned over the loss of his child instead of relishing the blessing of his god, Cazic-Thule. His wife and the High Scale then abandoned him in disgust, but even that was an aftereffect of what caused the king to turn his back on his faith. The child is the key! If we put the child to rest, Nak may repent of what he has done and the mantle may be lifted. The most difficult task is now at hand. Find the child, then take proof of her passing to Nak. I can feel the mantle's foundation crumbling! Now, go!");
 			e.other:Faction(342,50);
 			e.other:QuestReward(e.self,0,0,0,0,0,100000);
-		elseif((e.other:GetFaction(e.self)==1) and item_lib.check_turn_in(e.trade, {item1 = 1674})) then --Part of Shaman Epic 1.0
+			end
+	if((e.other:GetFaction(e.self)==1) and item_lib.check_turn_in(e.trade, {item1 = 1674})) then --Part of Shaman Epic 1.0
 			e.self:Emote("What is this? The scale of Rak'Ashiir's father? Then Rak has repented his mistake? But why is the mantle still in place? If Rak has repented, then the mantle should have dissolved since he was the one who initiated its construction. But is its initiation the key? How could we have been so blind? Kirn said Rak'Ashiir had the blood of his people on his hands but that is false. Rak merely pointed to a path that would lead them to destruction. It was the people who chose to follow. Now all [is lost].");
 			--eq.set_global("ShmEpic1","1",5,"Y1");
 			e.other:Faction(342,100);
 			e.other:QuestReward(e.self,0,0,0,0,0,350000);
 		end
-	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
 
