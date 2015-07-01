@@ -3,7 +3,7 @@
 function event_spawn(e)
 	eq.set_timer("Shout",600000);
 	-- use a timer for the zone repop so that the entire zone is not popping twice immediately on zone bootup.
-	eq.set_timer("RepopZone",5000);
+	-- eq.set_timer("RepopZone",5000); -- Uncomment this to Enabled zone repop on CT spawn.
 end
 
 function event_say(e)
