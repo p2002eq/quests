@@ -22,7 +22,7 @@ function event_trade(e)
 	if((item_lib.check_turn_in(e.trade, {item1 = 1688, item2 = 1689}))) then --Demon Fangs and Book of Celestial Fists
 		e.self:Emote("bows his head and breathes a long sigh as if relived of a great weight. He then looks up at you and says, 'I honestly did not believe you could have defeated Vorash. Even though he sought nothing but war and bloodshed, it is a life nonetheless and we must mourn him. I will sew these fangs into magical fist wraps and they shall be yours. Remember Xenevorash. A purpose can be found for every situation and individual. To achieve perfection is to perceive this truth.'");
 		e.other:QuestReward(e.self,0,0,0,0,10652); --Celestial Fists (Epic)
-		eq.target_global("MnkEpic1",1,"Y1",0000,charid,000); --Flag for Monk Epic 1.0 completed
+		--eq.target_global("MnkEpic1",1,"Y1",0000,charid,000); --Flag for Monk Epic 1.0 completed
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
