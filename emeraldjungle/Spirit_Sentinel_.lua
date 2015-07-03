@@ -32,7 +32,7 @@ function event_trade(e)
 			e.other:Faction(342,50);
 			e.other:QuestReward(e.self,0,0,0,0,0,100000);
 			end
-	if((e.other:GetFaction(e.self)==1) and item_lib.check_turn_in(e.trade, {item1 = 1674})) then --Part of Shaman Epic 1.0
+	if((e.other:GetFaction(e.self)>=1) and item_lib.check_turn_in(e.trade, {item1 = 1674})) then --Part of Shaman Epic 1.0
 			e.self:Emote("What is this? The scale of Rak'Ashiir's father? Then Rak has repented his mistake? But why is the mantle still in place? If Rak has repented, then the mantle should have dissolved since he was the one who initiated its construction. But is its initiation the key? How could we have been so blind? Kirn said Rak'Ashiir had the blood of his people on his hands but that is false. Rak merely pointed to a path that would lead them to destruction. It was the people who chose to follow. Now all [is lost].");
 			--eq.set_global("ShmEpic1","1",5,"Y1");
 			e.other:Faction(342,100);
