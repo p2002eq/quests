@@ -8,9 +8,9 @@ end
 
 function event_trade(e)
     local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 20694})) then						--wizard test of conception using efreeti statuette, mithril air ring, box of winds
+	if(item_lib.check_turn_in(e.trade, {item1 = 20694})) then
 		e.self:Say("'Something for me then, eh?'  'NOOOO!' The pure cleansing light burns away the gnome without a trace of his existence except for a tiny ball of light which you pick up.");
-		e.other:QuestReward(e.self,0,0,0,0,20697,100000); --solidate mithril ring
+		e.other:QuestReward(e.self,0,0,0,0,20697,100000); 
 		eq.depop();
 	
 	end
