@@ -4,7 +4,7 @@ function event_trade(e)
 	if(item_lib.check_turn_in(e.trade, {item1 = 20475})) then
 		e.self:Emote("begins to crack and disintegrate, its body collapsing into a pile of dust that scatters into the winds. On the ground you notice a locket on a fine, thin chain which you pick up.");
 		e.other:QuestReward(e.self,0,0,0,0,20476);
-		eq.depop();
+		--eq.depop();
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
