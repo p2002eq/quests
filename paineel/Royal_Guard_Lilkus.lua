@@ -9,8 +9,23 @@ function event_say(e)
 end
 
 function event_trade(e)
+    local molar = 0;
+    
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 1761})) then
+	
+	
+	if(item_lib.check_turn_in(e.trade, {item1 = 1761,item2 = 1761,item3 = 1761,item4 = 1761})) then -- Kobold Molar x4
+		molar = 4;
+	elseif(item_lib.check_turn_in(e.trade, {item1 = 1761,item2 = 1761,item3 = 1761})) then -- Kobold Molar x3
+		molar = 3;
+	elseif(item_lib.check_turn_in(e.trade, {item1 = 1761,item2 = 1761})) then -- Kobold Molar x2 
+		molar = 2;
+	elseif(item_lib.check_turn_in(e.trade, {item1 = 1761})) then -- Kobold Molar x1
+		molar = 1;
+	end
+	
+	if(molar > 0) then
+		repeat
 		e.self:Say("Not bad, " .. e.other:GetName() .. ". Here is your reward. If you slay enough of these dogs, Sheltuin may have a more important task for you to perform.");
 		local random_result = math.random(10);
 		if(random_result == 1) then
@@ -22,7 +37,10 @@ function event_trade(e)
 		e.other:Faction(56,-1);  -- -Craftkeepers
 		e.other:Faction(60,-1);  -- -Crimson Hands
 		e.other:QuestReward(e.self,8,2,0,0,0,2000);
+		molar = molar - 1;
+		until molar == 0
 	end
+	
 	item_lib.return_items(e.self, e.other, e.trade)
 end
 
