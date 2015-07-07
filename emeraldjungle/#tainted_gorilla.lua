@@ -1,5 +1,5 @@
 function event_death_complete(e)
-	eq.spawn2(94140,0,0,e.self:GetX(),e.self:GetY(),e.self:GetZ(),e.self:GetHeading());
+	eq.spawn2(94242,0,0,e.self:GetX(),e.self:GetY(),e.self:GetZ(),e.self:GetHeading());
 end
 
 function event_trade(e)
