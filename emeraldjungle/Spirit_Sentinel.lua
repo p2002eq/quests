@@ -31,13 +31,11 @@ function event_trade(e)
 		if(item_lib.check_turn_in(e.self, e.trade, {item1 = 1668})) then --Part of Shaman Epic 1.0
 			e.self:Say("Ahh, you live, shaman! I am glad the beasts of this jungle haven't torn your body asunder. Tell me, do you still walk the path? Are you willing to [continue what you have started]?");
 			e.other:Faction(342,150);
-		end
-		if(item_lib.check_turn_in(e.self, e.trade, {item1 = 1672})) then --Part of Shaman Epic 1.0
+		elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 1672})) then --Part of Shaman Epic 1.0
 			e.self:Emote("begins to weep softly as he sees the pelt, battered and bloody. After a few moments, he says, 'We can only hope his passing was quick and painless. The Dire was powerful and yet you overcame him. Always remember that when you became [Heyokah], it was the passing of a noble, yet misguided being that allowed you to do so. You should hold a special place in your heart for him and what he was in life. To help you remember him, we will fashion this pelt into a pair of boots and give them to you. With every step you take, you must think on the Dire, else his death be in vain forever.");
 			e.other:QuestReward(e.self,0,0,0,0,1678,50000);
 			e.other:Faction(342,50);
-		end
-		if(item_lib.check_turn_in(e.self, e.trade, {item1 = 3599})) then --Part of Shaman Epic 1.0
+		elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 3599})) then --Part of Shaman Epic 1.0
 			e.self:Emote("Ahhh good, let us hope what you have found will point us in the right direction. Hmmm...this is interesting. It appears the disappearance of the first queen may have caused Rak'Ashiir's faith to decline. From there, the first King Rak laid down the groundwork for the city's eventual demise. We need to learn what happened to the queen. Perhaps bringing this knowledge to the King's now cursed form will lift the mantle. We've learned that the last lord of Torsis, Ghiosk, was a bit of a historian. Find him and see what you can learn about the queen. Take what you find to my brother here in the jungle beneath the murky waters of a pond.");
 			e.other:Faction(342,100);
 			e.other:QuestReward(e.self,0,0,0,0,0,75000);

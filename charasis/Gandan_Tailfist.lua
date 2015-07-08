@@ -1,7 +1,4 @@
 --Gandan Tailfist is part of the quest line for the Whistling Fists
-function event_spawn(e)
-	eq.set_timer("Feign",5000);
-end
 
 function event_say(e)
 	if(e.message:findi("hail")) then
@@ -19,13 +16,6 @@ function event_trade(e)
 		eq.depop_with_timer();
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
-end
-
-function event_timer(e)
-	if(e.timer == "Feign") then
-		e.self:SetAppearance(3);
-		eq.stop_timer("Feign");
-	end
 end
 
 --Submitted by: Jim Mills
