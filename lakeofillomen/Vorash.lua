@@ -28,7 +28,7 @@ function event_trade(e)
 end
 
 function event_death_complete(e)
-    eq.signal(85397, 2) -- signal monk controller
+    eq.signal(85397, 1) -- signal monk controller
 end
 
 -------------------------------------------------------------------------------------------------
