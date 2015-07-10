@@ -13,7 +13,7 @@ function event_say(e)
 		e.self:Say("I have made many mystical instruments in the past. Each one seemed to be better then the last. I have always had a dream of building the world's best lute, but I have yet to find someone brave enough to gather the components needed to make the instrument.");
 	elseif(e.message:findi("components")) then
 		e.self:Say("To make a mystical lute I will first need to make several pieces. If you bring me the backbone of an ancient fishman, a strong tentacle from one of the long lost amalgyms, and a petrified skull of a lycanthrope I may be able to create the head and neck of the instrument. If you go out and gather these things, make sure to bring me the note I gave you or I might forget who you are. I am getting quite old, you know.");
-		e.other:QuestReward(e.self,0,0,0,0,20535);
+		e.other:QuestReward(e.self,0,0,0,0,20378);
 	elseif(e.message:findi("next pieces")) then
 		e.self:Say("The next pieces are a little harder to come by than the last set. To make the body of an instrument that will last for ages to come, I need something very special. The scales of a big red dragon and the scales of a big white dragon will make it unbreakable, as well as giving it a unique look. Some metal bits will allow me to hold the body together. Please, if you gather up these things, bring them to me as soon as possible. I have not felt this good in years!");
 	elseif(e.message:findi("one more to go")) then
