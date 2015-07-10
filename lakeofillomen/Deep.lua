@@ -24,7 +24,7 @@ function event_trade(e)
 end
 
 function event_death_complete(e)
-   -- eq.signal(85397, 1) -- signal vs controller
+   eq.signal(85397, 1) -- signal vs controller
 end
 
 -------------------------------------------------------------------------------------------------
