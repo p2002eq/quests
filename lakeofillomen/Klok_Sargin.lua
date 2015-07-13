@@ -12,7 +12,7 @@ function event_trade(e)
 	--Turn in the Sarnak Dragoon Helm  dropped off of Sarnak Dragoons in lake of ill omen
 	if(item_lib.check_turn_in(e.trade, {item1 = 12761}) and tonumber(qglobals.shmskullquest) > 7 and e.other:GetFaction(e.self) < 6) then
 		e.self:Say("Uhh. Thanks. I sort of told the lizard who bought the skull that you were asking for him, and, well, he was kinda mad, and... Cradossk, meet Bruiser.");
-		eq.unique_spawn(85226,0,0,x + 5,y,z); -- Bruiser Noz
+		eq.unique_spawn(85401,0,0,x + 5,y,z); -- Bruiser Noz
 	end
 	item_lib.return_items(e.self, e.other, e.trade) --return items if not the ones required
 end
