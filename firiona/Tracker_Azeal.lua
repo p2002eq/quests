@@ -13,7 +13,7 @@ end
 
 function event_timer(e)
 	if((e.timer == "ZoneTime") and (zonehour == 21)) then
-		eq.spawn2(84028,0,0,e.self:GetX(),e.self:GetY(),e.self:GetZ(),e.self:GetHeading());
+		eq.spawn2(84404,0,0,e.self:GetX(),e.self:GetY(),e.self:GetZ(),e.self:GetHeading());
 		eq.stop_timer("ZoneTime");
 		eq.depop_with_timer();
 	end
