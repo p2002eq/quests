@@ -19,7 +19,7 @@ function event_trade(e)
 		eq.spawn2(93308,0,0,1955,2825,-49,190); --Spawn the golem and three guards
 		eq.spawn2(93309,0,0,1955,2794,-49,190);
 		eq.spawn2(93309,0,0,1954,2855,-49,190);
-		eq.spawn2(93309,0,0,1915,2825,-49,190);
+		eq.spawn2(93311,0,0,1915,2825,-49,190);
 		eq.signal(93077,0,0);
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
