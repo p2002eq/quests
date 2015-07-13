@@ -16,10 +16,10 @@ function event_trade(e)
 		eq.stop_timer("sit");
 		eq.start(273);
 		eq.set_timer("Depop",8000);
-		eq.spawn2(93190,0,0,1955,2825,-49,190); --Spawn the golem and three guards
-		eq.spawn2(93303,0,0,1955,2794,-49,190);
-		eq.spawn2(93303,0,0,1954,2855,-49,190);
-		eq.spawn2(93303,0,0,1915,2825,-49,190);
+		eq.spawn2(93308,0,0,1955,2825,-49,190); --Spawn the golem and three guards
+		eq.spawn2(93309,0,0,1955,2794,-49,190);
+		eq.spawn2(93309,0,0,1954,2855,-49,190);
+		eq.spawn2(93309,0,0,1915,2825,-49,190);
 		eq.signal(93077,0,0);
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
