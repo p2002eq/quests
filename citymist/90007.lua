@@ -1,10 +1,10 @@
 -- chance for random mob respawn on a black reaver death
 function event_death_complete(e)
 	local chance_spawn = math.random(100);
-	if(chance_spawn <= 80) then
+	if(chance_spawn <= 70) then
 		eq.spawn2(90007,0,0,e.self:GetX(),e.self:GetY(),e.self:GetZ(),e.self:GetHeading());
 	else
-		eq.spawn2(90010,0,0,e.self:GetX(),e.self:GetY(),e.self:GetZ(),e.self:GetHeading());
+		eq.unique_spawn(90010,0,0,e.self:GetX(),e.self:GetY(),e.self:GetZ(),e.self:GetHeading());
 	end
 end
 

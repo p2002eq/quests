@@ -17,8 +17,6 @@ function event_timer(e)
 	eq.stop_timer("depop");
 	eq.depop();
 end
-
-
 -- Quest by mystic414
 -------------------------------------------------------------------------------------------------
 -- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
