@@ -8,7 +8,7 @@ function event_say(e)
 		e.self:DoAnim(57);
 	elseif(e.message:findi("cabby pale ale")) then
 		eq.signal(84129,2);
-		eq.unique_spawn(84005,22,0,-3148, -1305 256,0);
+		eq.unique_spawn(84005,22,0,-3148,-1305,256,0);
 	elseif(e.message:findi("lizardtown")) then
 		e.self:Say("The trackers of Firiona Vie have come back with reports that the Iksar are back in force and have a city somewhere in the heart of Kunark. There goes the neighborhood...again.");
 	end
