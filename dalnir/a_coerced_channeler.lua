@@ -6,7 +6,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	--Turn in the a potion of swirling liquid
-	if(item_lib.check_turn_in(e.trade, {item1 = 12752}) and tonumber(qglobals.shmskullquest) > 7) then
+	if(item_lib.check_turn_in(e.trade, {item1 = 12752}) then
 		e.other:QuestReward(e.self,0,0,0,0,12750);--give the player on of the Iksar skulls of the sisters...
 		e.self:Shout("Go to where the pines have been smashed. Must reach great heights!");
 		eq.depop_with_timer();
