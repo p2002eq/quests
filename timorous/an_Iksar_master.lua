@@ -19,7 +19,7 @@ function event_say(e)
 		e.other:SummonItem(17040);
 	elseif(e.message:findi("test of patience")) then
 		e.self:Say("So your time has finally come to be tested for the final rung. To show your patience you shall spar with me. When you have gained the insight and strategy to strike you will know when. Strike me too soon and you will perish, too late and I will be gone. Come at me when the time is right. Let us begin.");
-		eq.spawn2(96318,0,0,e.self:GetX(),e.self:GetY(),e.self:GetZ(),e.self:GetHeading());
+		eq.spawn2(96380,0,0,e.self:GetX(),e.self:GetY(),e.self:GetZ(),e.self:GetHeading());
 		eq.depop_with_timer();
 	elseif(e.message:findi("whistling fists")) then
 		e.self:Say("The Whistling Fists are rumored to be magical instruments of destruction which can only be wielded by monks. The founder, Supreme Master Tynn, was the only lizard to ever gaze upon the weapon. He only spoke of it to his student Marthor. Marthor rarely spoke of it and when he did it was usually after a few flagons of Trog Brew. That is why many consider it to be babble.");
