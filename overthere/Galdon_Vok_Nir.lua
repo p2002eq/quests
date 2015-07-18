@@ -9,7 +9,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	--Turn in the 2 totems and the canopie of Di Nozok and 400 gold pieces
-	if(item_lib.check_turn_in(e.trade, {item1 = 12743, item2 = 12744, item3 = 12742, gold == 400}) then
+	if(item_lib.check_turn_in(e.trade, {item1 = 12743, item2 = 12744, item3 = 12742, gold = 400}) then
 		e.self:Say("A deal is a deal I suppose, many have attempt to do what I have asked, but fallen to the Overseer.");
 		e.other:QuestReward(e.self,0,0,0,0,12740); --Give the player the Iksar Skull
 	end
