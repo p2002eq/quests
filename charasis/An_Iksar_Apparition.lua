@@ -1,6 +1,5 @@
 --Shaman Skull Quest 8
 function event_trade(e)
-	--local qglobals = eq.get_qglobals(e.other);
 	local item_lib = require("items");
 	if(item_lib.check_turn_in(e.trade, {item1 = 30994})) then --Iksar Relics
 		eq.unique_spawn(105182,0,0,e.self:GetX(),e.self:GetY(),e.self:GetZ()); --Venril Sathir
