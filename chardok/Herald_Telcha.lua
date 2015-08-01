@@ -30,7 +30,7 @@ function event_trade(e)
 	local item_lib = require("items");
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 16972,item2 = 16972,item3 = 16972,item4 = 16972})) then --  Mt. Death Mineral Salts
 		salts = 2;
-	elseif(item_lib.check_turn_in(e.self, e.trade,, {item1 = 16972,item2 = 16972})) then --  Mt. Death Mineral Salts
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 16972,item2 = 16972})) then --  Mt. Death Mineral Salts
 		salts = 1;
 	end
 	if(salts > 0) then
