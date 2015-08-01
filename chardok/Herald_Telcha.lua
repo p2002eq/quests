@@ -43,13 +43,13 @@ function event_trade(e)
 		until salts == 0
 	end
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 22135,item2 = 22135,item3 = 22135,item4 = 22135})) then -- Green Goblin Skin
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 22135,item2 = 22135,item3 = 22135,item4 = 22135})) then -- Green Goblin Skin
 		skin = 4;
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 22135,item2 = 22135,item3 = 22135})) then -- Green Goblin Skin
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 22135,item2 = 22135,item3 = 22135})) then -- Green Goblin Skin
 		skin = 3;
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 22135,item2 = 22135})) then -- Green Goblin Skin
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 22135,item2 = 22135})) then -- Green Goblin Skin
 		skin = 2;
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 22135})) then -- Green Goblin Skin
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 22135})) then -- Green Goblin Skin
 		skin = 1;
 	end
 	if(skin > 0) then
