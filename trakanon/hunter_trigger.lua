@@ -4,7 +4,7 @@ function event_spawn(e)
 end
 
 function event_signal(e)
-    eq.zone_emote(12, "Signaled:" .. e.signal);
+    --eq.zone_emote(12, "Signaled:" .. e.signal);
     if(e.signal == 1) then --mob died
         local getnewloc = eq.ChooseRandom(1,2,3);
 	        if(getnewloc == 1) then
