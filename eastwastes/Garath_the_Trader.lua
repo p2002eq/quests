@@ -15,25 +15,25 @@ function event_trade(e)
 	local item_lib = require("items");
 	
 	-- Ring 1 Reward
-	if(item_lib.check_turn_in(e.trade, {item1 = 27301})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 27301})) then
 		e.self:Say("Ah, excellent! Guess standin out here in the cold proved worthwhile for me after all. You take that weapon and enjoy it, I know I`ll be getting some use of this one. Safe travel to ya, friend!");
 		e.other:QuestReward(e.self,0,0,0,0,5833,1000);
 		
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 27321})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 27321})) then
 		e.self:Say("Ah, excellent! Guess standin out here in the cold proved worthwhile for me after all. You take that weapon and enjoy it, I know I`ll be getting some use of this one. Safe travel to ya, friend!");
 		e.other:QuestReward(e.self,0,0,0,0,27320,1000);
 	
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 27300})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 27300})) then
 		e.self:Say("Ah, excellent! Guess standin out here in the cold proved worthwhile for me after all. You take that weapon and enjoy it, I know I`ll be getting some use of this one. Safe travel to ya, friend!");
 		e.other:QuestReward(e.self,0,0,0,0,5834,1000);
 		
 	
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 27328})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 27328})) then
 		e.self:Say("Ah, excellent! Guess standin out here in the cold proved worthwhile for me after all. You take that weapon and enjoy it, I know I`ll be getting some use of this one. Safe travel to ya, friend!");
 		e.other:QuestReward(e.self,0,0,0,0,5835,1000);	
 		
 	end
-	item_lib.return_items(e.self, e.other, e.trade)
+	item_lib.return_items(e.self, e.other, e.self, e.trade)
 end
 		
 		

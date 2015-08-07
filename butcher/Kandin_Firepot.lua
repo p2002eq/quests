@@ -19,13 +19,13 @@ function event_trade(e)
 			e.other:SummonItem(14339); --Staff of Gabstik
 			e.other:SummonItem(18168); --note
 			e.other:Faction(342, 30); --Truespirit
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 14333, item2 = 14332})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 14333, item2 = 14332})) then
 			e.other:SummonItem(14339); --Staff of Gabstik
 			e.other:SummonItem(14336); --note
 			e.other:Ding();
 			e.self:Say("Great! Give this to Arantir so he knows you've helped me! Hey! Have you seen my lantern anywhere?");
 			e.other:Faction(342, 30); --Truespirit
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 14332, item2 = 14332})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 14332, item2 = 14332})) then
 			e.self:Say("Great! This is? What is this for again? Oh yeah, the casing for my firework. Here, you can have this then, oh no, wait. You can't yet. I forgot I needed another part to my firework, and you are exactly the person to get it for me! I need some mistletoe powder. Now, go find some for me! Go, go, go, go! Shoo! Oh, wait! Hold on to my bag for me, please. You can give it back after you've given me what I want.");
 			--hack because we do not have this bag in the DB
 			e.other:Ding();

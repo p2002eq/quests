@@ -2,7 +2,7 @@ function event_trade(e)
 	local item_lib = require("items");
 	
 	-- 
-	if(item_lib.check_turn_in(e.trade, {item1 = 1093})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 1093})) then
 	    eq.set_timer("spawn1", 5);
 	    eq.depop();
     end
