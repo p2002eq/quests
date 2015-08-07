@@ -7,7 +7,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.trade, {item1 = 24996})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 24996})) then
 	e.self:Say("The Triumvirate thinks that destroying my spirit of flame will stop me?!! I will kill you all now, the goblins will continue to war, and when my spirit is restored I will ensure that Ixiblat Fer consumes all of Norrath in his flames!!");
 		eq.unique_spawn(91096,0,0,-3225,3011,-149);
 		e.other:QuestReward(e.self,0,0,0,0,24997,100000);
