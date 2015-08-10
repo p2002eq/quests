@@ -17,7 +17,7 @@ function event_say(e)
 	elseif(e.message:findi("student")) then
 		e.self:Emote("hands you what appears to be the base of a key. 'This was delivered to me by a dying student. He collapsed just after handing it to me. He was accompanying a student of mine named Veltar. They were questing for the legendary Whistling Fists. The key is made of a metal I have never felt or heard of. Find him.'");
 		e.other:SummonItem(17040);
-	elseif(e.message:findi("test of patience")) then
+	elseif(e.message:findi("I am ready for the Trial of Patience")) then
 		e.self:Say("So your time has finally come to be tested for the final rung. To show your patience you shall spar with me. When you have gained the insight and strategy to strike you will know when. Strike me too soon and you will perish, too late and I will be gone. Come at me when the time is right. Let us begin.");
 		eq.spawn2(96380,0,0,e.self:GetX(),e.self:GetY(),e.self:GetZ(),e.self:GetHeading());
 		eq.depop_with_timer();
