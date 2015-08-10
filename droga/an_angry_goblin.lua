@@ -20,7 +20,7 @@ function event_trade(e)
 			e.self:Emote("howls in triumph! 'This is just what I needed! Skargus is mine now, wait until he finds out, just wait! His death is close at hand. Follow me and I'll take you to Skargus's chamber, you can wait there while I take this report to the chief!'");
 			e.self:Shout("I have you now Skargus, you traitor! Even now I'm taking this report of slave-trading to the chief! Your days here are at an end!");
 			eq.depop_with_timer();
-			eq.unique_spawn(92185,0,0,e.self:GetX(),e.self:GetY(),e.self:GetZ());
+			eq.unique_spawn(81476,0,0,e.self:GetX(),e.self:GetY(),e.self:GetZ());
 		end
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
