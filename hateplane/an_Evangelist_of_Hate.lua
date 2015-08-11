@@ -1,5 +1,5 @@
 function event_spawn(e)
-    eq.set_timer("Shout",60000);
+    eq.set_timer("Shout", 300000);
     anoy_the_zone(e);
 end
 
