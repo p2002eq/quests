@@ -118,6 +118,18 @@ helper.THURG_CHAIN_TEXT = {
     leggings="A set of corroded chain leggings might be salvageable if you were to find three flawed sea sapphires.  With the right techniques and ingredients almost anything is possible.",
     boots="We use our feet so often, should not they be protected as well as any other portion of our bodies?  If you seek fine protection for your feet, return to me with three pieces of crushed black marble and a set of corroded chain boots."
 }
+helper.THURG_SILK_TEXT = {
+    cap="For an enchanted head guard bring me a torn enchanted silk turban as well as three pieces of crushed flame opal.",
+    robe="With three pristine emeralds and a torn enchanted silk robe I will fashion a wonderous robe for you.",
+    sleeves="Bring unto me a set of torn enchanted silk sleeves as well as three flawed topaz.  With these in my possession I can create a set of enchanted sleeves the likes of which spellcasters like you dream of.",
+    wristband="An enchanted silk wristguard and three crushed onyx sapphires is all that I require to create an imbued wrist wrap of great power.  Seek out these items and return to me when you have acquired them.",
+    legging="Three nephrite and a pair of torn enchanted silk leggings will net you a fine set of pantaloons.",
+    boots="Three crushed jaundice gems combined with torn enchanted silk boots would make a most interesting set of footwear.  The latent powers of the gems can be harnessed to create magical effects.",
+    gloves="If you seek gloves of great power, bring to me three crushed topaz and a pair of torn enchanted silk gloves.  I will use the power of the gems to imbue the gloves."
+}
+
+helper.THURG_LEATHER_TEXT = helper.THURG_CHAIN_TEXT;
+
 
 function helper.merge_tables(orig, other)
     for k,v in pairs(other) do orig[k] = v end
