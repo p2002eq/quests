@@ -29,10 +29,45 @@ helper.THURG_ARMOR = {
     Torn_Enchanted_Silk_Robe=24949,
     Torn_Enchanted_Silk_Sleeves=24951,
     Torn_Enchanted_Silk_Turban=24954,
-    Torn_Enchanted_Silk_Wristband=24953
+    Torn_Enchanted_Silk_Wristband=24953,
+    Eroded_Leather_Boots=24945,
+    Eroded_Leather_Bracelet=24946,
+    Eroded_Leather_Cap=24947,
+    Eroded_Leather_Gloves=24948,
+    Eroded_Leather_Leggings=24943,
+    Eroded_Leather_Sleeves=24944,
+    Eroded_Leather_Tunic=24942
 }
 helper.SKYSHRINE_ARMOR = {
-    
+    Unadorned_Breastplate=24956,
+    Unadorned_Chain_Boots=24966,
+    Unadorned_Chain_Bracer=24967,
+    Unadorned_Chain_Coif=24968,
+    Unadorned_Chain_Gauntlets=24969,
+    Unadorned_Chain_Leggings=24964,
+    Unadorned_Chain_Sleeves=24965,
+    Unadorned_Chain_Tunic=24963,
+    Unadorned_Cloak_of_Battle=15843,
+    Unadorned_Leather_Boots=24973,
+    Unadorned_Leather_Bracelet=24974,
+    Unadorned_Leather_Cap=24975,
+    Unadorned_Leather_Gloves=24976,
+    Unadorned_Leather_Leggings=24971,
+    Unadorned_Leather_Sleeves=24972,
+    Unadorned_Leather_Tunic=24970,
+    Unadorned_Plate_Boots=24959,
+    Unadorned_Plate_Bracer=24960,
+    Unadorned_Plate_Gauntlets=24962,
+    Unadorned_Plate_Greaves=24957,
+    Unadorned_Plate_Helmet=24961,
+    Unadorned_Plate_Vambraces=24958,
+    Tattered_Silk_Boots=24980,
+    Tattered_Silk_Gloves=24983,
+    Tattered_Silk_Pantaloons=24978,
+    Tattered_Silk_Robe=24977,
+    Tattered_Silk_Sleeves=24979,
+    Tattered_Silk_Turban=24982,
+    Tattered_Silk_Wristband=24981
 }
 helper.KAEL_ARMOR{
     Ancient_Tarnished_Breastplate=24900,
@@ -56,6 +91,13 @@ helper.KAEL_ARMOR{
     Ancient_Silk_Sleeves=24923,
     Ancient_Silk_Turban=24926,
     Ancient_Silk_Wristband=24925,
+    Ancient_Leather_Boots=24917,
+    Ancient_Leather_Bracelet=24918,
+    Ancient_Leather_Cap=24919,
+    Ancient_Leather_Gloves=24920,
+    Ancient_Leather_Leggings=24915,
+    Ancient_Leather_Sleeves=24916,
+    Ancient_Leather_Tunic=24914
 }
 
 function helper.quest_text(e, table)
