@@ -14,19 +14,19 @@ local QUEST_TEXT = {
 
 local QUEST_ITEMS = {
     -- boots
-    quest_helper:melee_boots(THURG_ARMOR.Corroded_Chain_Boots, 31020),
+    quest_helper:melee_boots(THURG_ARMOR.Chain_Boots, 31020),
     -- legs
-    quest_helper:melee_legs(THURG_ARMOR.Corroded_Chain_Leggings, 31019),
+    quest_helper:melee_legs(THURG_ARMOR.Chain_Leggings, 31019),
     -- gloves
-    quest_helper:melee_gloves(THURG_ARMOR.Corroded_Chain_Gauntlets, 31018),
+    quest_helper:melee_gloves(THURG_ARMOR.Chain_Gauntlets, 31018),
     -- wrist
-    quest_helper:melee_gloves(THURG_ARMOR.Corroded_Chain_Bracer, 31017),
+    quest_helper:melee_gloves(THURG_ARMOR.Chain_Bracer, 31017),
     -- arms
-    quest_helper:melee_gloves(THURG_ARMOR.Corroded_Chain_Sleeves, 31016),
+    quest_helper:melee_gloves(THURG_ARMOR.Chain_Sleeves, 31016),
     -- chest
-    quest_helper:melee_gloves(THURG_ARMOR.Corroded_Chain_Tunic, 31015),
+    quest_helper:melee_gloves(THURG_ARMOR.Chain_Tunic, 31015),
     -- helm
-    quest_helper:melee_gloves(THURG_ARMOR.Corroded_Chain_Coif, 31014),
+    quest_helper:melee_gloves(THURG_ARMOR.Chain_Coif, 31014),
 }
 
 function event_say(e)
@@ -42,5 +42,3 @@ end
 function event_trade(e)
     quest_helper:quest_turn_in(e, 3, QUEST_ITEMS, quest_helper.thurg_armor_success)
 end
-
-
