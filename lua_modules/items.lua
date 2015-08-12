@@ -1,7 +1,6 @@
 local items = {}
 
 function items.check_turn_in(npc, trade, trade_check, keepitems)
-
     --create trade_return table == trade
     --shallow copy
     local trade_return = {};
