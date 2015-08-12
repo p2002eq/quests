@@ -124,22 +124,27 @@ function helper.merge_tables(orig, other)
     return orig;
 end
 
-function helper.quest_text(e, table)
-    for trigger, text in pairs(table) do
-        if (e.message:findi(trigger)) then
-            text = text:gsub("(-name)", e.other:GetCleanName());
-            text = text:gsub("(-race)", e.other:Race());
-            text = text:gsub("(-class)", e.other:Class());
-            e.self:Say(text);
-            return;
+function helper.quest_text(e, table, faction)
+    local _faction = e.other:GetFaction(e.self);
+    if (_faction <= faction) then
+        for trigger, text in pairs(table) do
+            if (e.message:findi(trigger)) then
+                text = text:gsub("(-name)", e.other:GetCleanName());
+                text = text:gsub("(-race)", e.other:Race());
+                text = text:gsub("(-class)", e.other:Class());
+                e.self:Say(text);
+                return;
+            end
         end
+    else
+        e.self:Say("I do not know you well enough to entrust you with such a quest, yet.");
     end
 end
 
 function helper:quest_turn_in(event, faction_req, items, callback)
     local item_lib = require("items");
     local faction = event.other:GetFaction(event.self);
-    if (faction >= faction_req) then
+    if (faction <= faction_req) then
         for i, quest in ipairs(items) do
             if(item_lib.check_turn_in(event.self, event.trade, quest.turn_in, true)) then
                 event.other:SummonItem(quest.reward);

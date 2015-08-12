@@ -26,12 +26,7 @@ local QUEST_ITEMS = {
 }
 
 function event_say(e)
-    local faction = e.other:GetFaction(e.self);
-    if (faction >=3) then
-        quest_helper.quest_text(e, QUEST_TEXT);
-    else
-        e.self:Say("I do not know you well enough to entrust you with such a quest, yet.");
-    end
+    quest_helper.quest_text(e, QUEST_TEXT, 3);
 end
 
 
