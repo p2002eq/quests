@@ -69,7 +69,7 @@ helper.SKYSHRINE_ARMOR = {
     Tattered_Silk_Turban=24982,
     Tattered_Silk_Wristband=24981
 }
-helper.KAEL_ARMOR{
+helper.KAEL_ARMOR = {
     Ancient_Tarnished_Breastplate=24900,
     Ancient_Tarnished_Chain_Boots=24910,
     Ancient_Tarnished_Chain_Bracer=24911,
@@ -112,20 +112,20 @@ function helper.quest_text(e, table)
     end
 end
 
-function helper.quest_turn_in(e, faction_req, items, callback)
+function helper:quest_turn_in(event, faction_req, items, callback)
     local item_lib = require("items");
-    local faction = e.other:GetFaction(e.self);
+    local faction = event.other:GetFaction(event.self);
+    event.self:Say("hi");
     if (faction >= faction_req) then
         for i, quest in ipairs(items) do
-            if(item_lib.check_turn_in(e.self, e.trade, quest.turn_in, true)) then
-                e.other:SummonItem(quest.reward);
-                callback(e);
+            if(item_lib.check_turn_in(event.self, event.trade, quest.turn_in, true)) then
+                event.other:SummonItem(quest.reward);
+                callback(self, event);
                 return;
             end
         end
     else
-        item_lib.return_items(e.self, e.other, e.trade)
-        e.self:Say("I do not know you well enough to entrust you with such a quest, yet.");
+        item_lib.return_items(event.self, event.other, event.trade)
     end
 end
 
@@ -140,12 +140,28 @@ function helper.thurg_armor_faction(e)
     e.other:Faction(KROMZEK, -60);
 end
 
-function helper.thurg_armor_success(e)
+function helper:thurg_armor_success(e)
     e.other:AddEXP(100000);
-    helper.thurg_armor_faction(e);
+    self.thurg_armor_faction(e);
     e.other:Ding();
     e.self:Emote("smiles warmly as he hands you your reward.");
     e.self:Say("You have done well.");
+end
+
+function helper:quest_turn_in_item(gem, armor, reward)
+    return {turn_in={item1=gem, item2=gem, item3=gem, item4=armor}, reward=reward}
+end
+
+function helper:melee_boots(armor, reward)
+   return self:quest_turn_in_item(self.ARMOR_GEMS.Crushed_Black_Marble, armor, reward)
+end
+
+function helper:melee_legs(armor, reward)
+   return self:quest_turn_in_item(self.ARMOR_GEMS.Flawed_Sea_Sapphire, armor, reward)
+end
+
+function helper:melee_gloves(armor, reward)
+   return self:quest_turn_in_item(self.ARMOR_GEMS.Crushed_Topaz, armor, reward)
 end
 
 return helper;

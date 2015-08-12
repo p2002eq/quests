@@ -14,11 +14,11 @@ local QUEST_TEXT = {
 
 local QUEST_ITEMS = {
     -- boots
-    {turn_in={item1=ARMOR_GEMS.Crushed_Black_Marble, item2=ARMOR_GEMS.Crushed_Black_Marble, item3=ARMOR_GEMS.Crushed_Black_Marble, item4=THURG_ARMOR.Corroded_Chain_Boots}, reward=31020},
+    quest_helper:melee_boots(THURG_ARMOR.Corroded_Chain_Boots, 31020),
     -- legs
-    {turn_in={item1=ARMOR_GEMS.Flawed_Sea_Sapphire, item2=ARMOR_GEMS.Flawed_Sea_Sapphire, item3=ARMOR_GEMS.Flawed_Sea_Sapphire, item4=THURG_ARMOR.Corroded_Chain_Leggings}, reward=31019},
+    quest_helper:melee_legs(THURG_ARMOR.Corroded_Chain_Leggings, 31019),
     -- gloves
-    {turn_in={item1=ARMOR_GEMS.Crushed_Topaz, item2=ARMOR_GEMS.Crushed_Topaz, item3=ARMOR_GEMS.Crushed_Topaz, item4=THURG_ARMOR.Corroded_Chain_Gauntlets}, reward=31018},
+    quest_helper:melee_gloves(THURG_ARMOR.Corroded_Chain_Gauntlets, 31018),
 }
 
 function event_say(e)
@@ -32,7 +32,7 @@ end
 
 
 function event_trade(e)
-    quest_helper.quest_turn_in(e, 3, QUEST_ITEMS, helper.thurg_armor_success)
+    quest_helper:quest_turn_in(e, 3, QUEST_ITEMS, quest_helper.thurg_armor_success)
 end
 
 
