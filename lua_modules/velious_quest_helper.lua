@@ -48,7 +48,6 @@ helper.SKYSHRINE_ARMOR = {
     Unadorned_Chain_Leggings=24964,
     Unadorned_Chain_Sleeves=24965,
     Unadorned_Chain_Tunic=24963,
-    Unadorned_Cloak_of_Battle=15843,
     Unadorned_Leather_Boots=24973,
     Unadorned_Leather_Bracelet=24974,
     Unadorned_Leather_Cap=24975,
