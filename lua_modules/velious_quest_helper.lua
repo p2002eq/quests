@@ -18,6 +18,7 @@ helper.THURG_ARMOR = {
     Corroded_Chain_Sleeves=24937,
     Corroded_Chain_Tunic=24935,
     Corroded_Plate_Boots=24931,
+    Corroded_Breastplate=24928,
     Corroded_Plate_Bracer=24932,
     Corroded_Plate_Gauntlets=24934,
     Corroded_Plate_Greaves=24929,
