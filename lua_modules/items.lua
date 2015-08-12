@@ -1,6 +1,7 @@
 local items = {}
 
 function items.check_turn_in(npc, trade, trade_check, keepitems)
+
     --create trade_return table == trade
     --shallow copy
     local trade_return = {};
@@ -15,12 +16,24 @@ function items.check_turn_in(npc, trade, trade_check, keepitems)
             --failure
 
     if(keepitems) then
-        -- Add all the items handed to us to the NPC's loottable
+        -- Add all the items handed to us that the NPC needs to the its loottable
+        local founditem = false;
         for a = 1, 4 do
             local add = trade_return["item" .. a];
-            if(not add == nil and add.valid) then
-                npc:AddQuestLoot(add:GetID());
+            for b = 1, 4 do
+                local curkey = "item" .. b;
+                if(trade_check[curkey] ~= nil and trade_check[curkey] ~= 0 and add.valid) then
+                    if(trade_check[curkey] == add:GetID()) then
+                        npc:AddQuestLoot(add:GetID());
+                        founditem = true;
+                        break;
+                    end
+                end
             end
+        end
+        -- The npc was handed an item it doesn't need.
+        if(not founditem) then
+            return false;
         end
     end
 
@@ -33,7 +46,7 @@ function items.check_turn_in(npc, trade, trade_check, keepitems)
             for j = 1, 4 do
                 -- This compares the items handed to the NPC with what is specified in the quest.
                 local inst = trade_return["item" .. j];
-                if(not inst == nil and inst.valid and trade_check[key] == inst:GetID()) then
+                if(inst.valid and trade_check[key] == inst:GetID()) then
                     if(not keepitems) then
                         trade_return["item" .. j] = ItemInst();
                     end
@@ -43,16 +56,12 @@ function items.check_turn_in(npc, trade, trade_check, keepitems)
             end
 
             if(not found) then
-                if(keepitems) then 
+                if(keepitems) then
                     -- This compares the items in the NPC's loottable with what is specified in the quest.
                     local hasitem = npc:GetQuestLoot(trade_check[key]);
                     if(hasitem) then
-                        found = true;                                           
+                        found = true;
                     else
-                        trade.item1 = 0;
-                        trade.item2 = 0;
-                        trade.item3 = 0;
-                        trade.item4 = 0;
                         return false;
                     end
                 else
@@ -154,13 +163,16 @@ function items.return_items(npc, client, trade, text)
     for i = 1, 4 do
         local inst = trade["item" .. i];
         if(inst.valid) then
-            local itemid = inst:GetID();
-            local charges = inst:GetCharges();
-            client:SummonItem(itemid,charges);
-            if(text == true) then
-                npc:Say(string.format("I have no need for this item %s, you can have it back.", client:GetCleanName()));
+            -- If the npc does not have this item in their quest loot, then it needs to be returned.
+            if(not npc:GetQuestLoot(inst:GetID())) then
+                local itemid = inst:GetID();
+                local charges = inst:GetCharges();
+                client:SummonItem(itemid,charges);
+                if(text == true) then
+                    npc:Say(string.format("I have no need for this item %s, you can have it back.", client:GetCleanName()));
+                end
+                returned = true;
             end
-            returned = true;
         end
     end
 
