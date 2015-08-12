@@ -109,6 +109,16 @@ helper.THURG_PLATE_TEXT = {
     boots="Boots made for battle are not always the most comfortable available. However, if you seek a fine set for battle bring me a set of corroded plate boots and three pieces of crushed black marble."
 }
 
+helper.THURG_CHAIN_TEXT = {
+    coif="To create a piece of armor to protect your sensitive skull. I will require three pieces of crushed coral as well as a corroded chain coif.",
+    tunic="To forge a spectacular chain tunic I will require three flawless diamonds and a corroded chain tunic.  With the gems and my skills I may be able to draw out some of its magical powers.",
+    sleeves="Protection for your arms will come at the price of three flawed emeralds and a set of corroded chain sleeves.",
+    bracer="For the bracers, I will require a corroded chain bracer as well as three crushed flame emeralds. Return to me when you find such things -race",
+    gauntlets="Protecting your hands is very important.  I can forge protection for your hands if you bring me a pair of corroded chain gauntlets and three crushed topaz.",
+    leggings="A set of corroded chain leggings might be salvageable if you were to find three flawed sea sapphires.  With the right techniques and ingredients almost anything is possible.",
+    boots="We use our feet so often, should not they be protected as well as any other portion of our bodies?  If you seek fine protection for your feet, return to me with three pieces of crushed black marble and a set of corroded chain boots."
+}
+
 function helper.merge_tables(orig, other)
     for k,v in pairs(other) do orig[k] = v end
     return orig;

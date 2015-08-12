@@ -1,3 +1,4 @@
+-- warrior
 local quest_helper = require('velious_quest_helper');
 local ARMOR_GEMS = quest_helper.ARMOR_GEMS;
 local THURG_ARMOR = quest_helper.THURG_ARMOR;
