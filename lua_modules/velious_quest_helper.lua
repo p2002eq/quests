@@ -31,6 +31,32 @@ helper.THURG_ARMOR = {
     Torn_Enchanted_Silk_Turban=24954,
     Torn_Enchanted_Silk_Wristband=24953
 }
+helper.SKYSHRINE_ARMOR = {
+    
+}
+helper.KAEL_ARMOR{
+    Ancient_Tarnished_Breastplate=24900,
+    Ancient_Tarnished_Chain_Boots=24910,
+    Ancient_Tarnished_Chain_Bracer=24911,
+    Ancient_Tarnished_Chain_Coif=24912,
+    Ancient_Tarnished_Chain_Gauntlets=24913,
+    Ancient_Tarnished_Chain_Leggings=24908,
+    Ancient_Tarnished_Chain_Sleeves=24909,
+    Ancient_Tarnished_Chain_Tunic=24907,
+    Ancient_Tarnished_Greaves=24901,
+    Ancient_Tarnished_Plate_Boots=24903,
+    Ancient_Tarnished_Plate_Bracelet=24904,
+    Ancient_Tarnished_Plate_Gauntlets=24906,
+    Ancient_Tarnished_Plate_Helmet=24905,
+    Ancient_Tarnished_Vambraces=24902,
+    Ancient_Silk_Boots=24924,
+    Ancient_Silk_Gloves=24927,
+    Ancient_Silk_Pantaloons=24922,
+    Ancient_Silk_Robe=24921,
+    Ancient_Silk_Sleeves=24923,
+    Ancient_Silk_Turban=24926,
+    Ancient_Silk_Wristband=24925,
+}
 
 function helper.quest_text(e, table)
     for trigger, text in pairs(table) do
