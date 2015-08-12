@@ -1,6 +1,5 @@
 -- ranger
 local quest_helper = require('velious_quest_helper');
-local ARMOR_GEMS = quest_helper.ARMOR_GEMS;
 local THURG_ARMOR = quest_helper.THURG_ARMOR;
 local QUEST_TEXT = {
     hail="Greetin's, -name, you look like a -race who knows the value of a good bow when ye see one. I'll let ye in on a li'l secret, the bow is the greatest of all weapons as it allows you to inflict maximum punishment on yer foes with minimum risk. How can ye possibly go wrong? Or better yet, if'n ye be a ranger, I can see my way clear to making you a coif, tunic, sleeves, bracer, gauntlets, leggings, or boots that I'm sure ye would enjoy.",

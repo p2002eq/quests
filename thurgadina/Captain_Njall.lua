@@ -1,6 +1,5 @@
 -- warrior
 local quest_helper = require('velious_quest_helper');
-local ARMOR_GEMS = quest_helper.ARMOR_GEMS;
 local THURG_ARMOR = quest_helper.THURG_ARMOR;
 local QUEST_TEXT = {
     hail="Well met, -race! I am Captain Njall, commander of the city gaurds here in Thurgadin. If ye seek ta join our ranks, I welcome ye with open arms and have an offer to make if you are interested. If ye seek to be our enemy, I hope ye can run swifter than my archers arrows.",

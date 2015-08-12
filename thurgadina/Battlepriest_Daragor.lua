@@ -1,6 +1,5 @@
 -- paladin
 local quest_helper = require('velious_quest_helper');
-local ARMOR_GEMS = quest_helper.ARMOR_GEMS;
 local THURG_ARMOR = quest_helper.THURG_ARMOR;
 local QUEST_TEXT = {
     hail="Greetings to you. I seek the service of devout knights who have distinguished themselves. Are you a paladin, -name?",
