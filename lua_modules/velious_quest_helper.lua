@@ -99,6 +99,20 @@ helper.KAEL_ARMOR = {
     Leather_Sleeves=24916,
     Leather_Tunic=24914
 }
+helper.THURG_PLATE_TEXT = {
+    helm="To create a piece of armor to protect your skull I will require three pieces of crushed coral as well as a corroded plate helmet.",
+    breastplate="For the breastplate, I will need a corroded breastplate and three flawless diamonds. Once I have them in my possession it will not take long to craft a sturdy breastplate.",
+    armplate="Protection for your arms will come at the price of a set of corroded plate vambraces and three flawed emeralds.",
+    bracer="For the bracers, I will require a corroded plate bracer and a set of three crushed flame emeralds. Return to me if you happen to find these things in your travels.",
+    gauntlet="Protecting your hands is very important. I can forge protection for your hands if you bring me a pair of corroded plate gauntlets and three crushed topaz.",
+    greaves="A set of corroded greaves might be salvageable if you were to find three flawed sea sapphires. With the right techniques almost anything is possible.",
+    boots="Boots made for battle are not always the most comfortable available. However, if you seek a fine set for battle bring me a set of corroded plate boots and three pieces of crushed black marble."
+}
+
+function helper.merge_tables(orig, other)
+    for k,v in pairs(other) do orig[k] = v end
+    return orig;
+end
 
 function helper.quest_text(e, table)
     for trigger, text in pairs(table) do
@@ -115,7 +129,6 @@ end
 function helper:quest_turn_in(event, faction_req, items, callback)
     local item_lib = require("items");
     local faction = event.other:GetFaction(event.self);
-    event.self:Say("hi");
     if (faction >= faction_req) then
         for i, quest in ipairs(items) do
             if(item_lib.check_turn_in(event.self, event.trade, quest.turn_in, true)) then
@@ -124,9 +137,8 @@ function helper:quest_turn_in(event, faction_req, items, callback)
                 return;
             end
         end
-    else
-        item_lib.return_items(event.self, event.other, event.trade)
     end
+    item_lib.return_items(event.self, event.other, event.trade)
 end
 
 function helper.thurg_armor_faction(e)
