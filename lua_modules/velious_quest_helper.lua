@@ -164,4 +164,20 @@ function helper:melee_gloves(armor, reward)
    return self:quest_turn_in_item(self.ARMOR_GEMS.Crushed_Topaz, armor, reward)
 end
 
+function helper:melee_bracer(armor, reward)
+   return self:quest_turn_in_item(self.ARMOR_GEMS.Crushed_Flame_Emerald, armor, reward)
+end
+
+function helper:melee_helmet(armor, reward)
+   return self:quest_turn_in_item(self.ARMOR_GEMS.Crushed_Coral, armor, reward)
+end
+
+function helper:melee_arms(armor, reward)
+   return self:quest_turn_in_item(self.ARMOR_GEMS.Flawed_Emerald, armor, reward)
+end
+
+function helper:melee_achest(armor, reward)
+   return self:quest_turn_in_item(self.ARMOR_GEMS.Flawless_Diamond, armor, reward)
+end
+
 return helper;

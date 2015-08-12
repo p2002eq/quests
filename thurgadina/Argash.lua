@@ -19,6 +19,14 @@ local QUEST_ITEMS = {
     quest_helper:melee_legs(THURG_ARMOR.Corroded_Chain_Leggings, 31019),
     -- gloves
     quest_helper:melee_gloves(THURG_ARMOR.Corroded_Chain_Gauntlets, 31018),
+    -- wrist
+    quest_helper:melee_gloves(THURG_ARMOR.Corroded_Chain_Bracer, 31017),
+    -- arms
+    quest_helper:melee_gloves(THURG_ARMOR.Corroded_Chain_Sleeves, 31016),
+    -- chest
+    quest_helper:melee_gloves(THURG_ARMOR.Corroded_Chain_Tunic, 31015),
+    -- helm
+    quest_helper:melee_gloves(THURG_ARMOR.Corroded_Chain_Coif, 31014),
 }
 
 function event_say(e)
