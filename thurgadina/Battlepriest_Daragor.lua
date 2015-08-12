@@ -22,13 +22,13 @@ local QUEST_ITEMS = {
     -- gloves
     quest_helper:melee_gloves(THURG_ARMOR.Plate_Gauntlets, 31025),
     -- wrist
-    quest_helper:melee_gloves(THURG_ARMOR.Plate_Bracer, 31024),
+    quest_helper:melee_bracer(THURG_ARMOR.Plate_Bracer, 31024),
     -- arms
-    quest_helper:melee_gloves(THURG_ARMOR.Plate_Vambraces, 310123,
+    quest_helper:melee_arms(THURG_ARMOR.Plate_Vambraces, 310123),
     -- chest
-    quest_helper:melee_gloves(THURG_ARMOR.Plate_Breastplate, 31022),
+    quest_helper:melee_chest(THURG_ARMOR.Plate_Breastplate, 31022),
     -- helm
-    quest_helper:melee_gloves(THURG_ARMOR.Plate_Helmet, 31021),
+    quest_helper:melee_helmet(THURG_ARMOR.Plate_Helmet, 31021)
 }
 
 function event_say(e)

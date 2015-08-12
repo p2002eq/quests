@@ -176,7 +176,7 @@ function helper:melee_arms(armor, reward)
    return self:quest_turn_in_item(self.ARMOR_GEMS.Flawed_Emerald, armor, reward)
 end
 
-function helper:melee_achest(armor, reward)
+function helper:melee_chest(armor, reward)
    return self:quest_turn_in_item(self.ARMOR_GEMS.Flawless_Diamond, armor, reward)
 end
 

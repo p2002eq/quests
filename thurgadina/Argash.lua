@@ -26,7 +26,7 @@ local QUEST_ITEMS = {
     -- chest
     quest_helper:melee_gloves(THURG_ARMOR.Chain_Tunic, 31015),
     -- helm
-    quest_helper:melee_gloves(THURG_ARMOR.Chain_Coif, 31014),
+    quest_helper:melee_gloves(THURG_ARMOR.Chain_Coif, 31014)
 }
 
 function event_say(e)
