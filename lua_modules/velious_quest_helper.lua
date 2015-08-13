@@ -4,10 +4,15 @@ helper.ARMOR_GEMS = {
     Crushed_Coral=25831,
     Flawless_Diamond=25814,
     Flawed_Emerald=25821,
+    Flawed_Topaz=25818,
     Crushed_Flame_Emerald=25838,
     Crushed_Topaz=25832,
     Flawed_Sea_Sapphire=25825,
-    Crushed_Black_Marble=25833
+    Crushed_Black_Marble=25833,
+    Nephrite=25816,
+    Crushed_Onyx_Sapphire=25841,
+    Crushed_Flame_Opal=25837,
+    Pristine_Emerald=25807
 }
 helper.THURG_ARMOR = {
     Chain_Boots=24938,
@@ -227,6 +232,36 @@ end
 
 function helper:melee_chest(armor, reward)
    return self:quest_turn_in_item(self.ARMOR_GEMS.Flawless_Diamond, armor, reward)
+end
+
+--
+
+function helper:silk_boots(armor, reward)
+   return self:quest_turn_in_item(self.ARMOR_GEMS.Crushed_Jaundice, armor, reward)
+end
+
+function helper:silk_legs(armor, reward)
+   return self:quest_turn_in_item(self.ARMOR_GEMS.Nephrite, armor, reward)
+end
+
+function helper:silk_gloves(armor, reward)
+   return self:quest_turn_in_item(self.ARMOR_GEMS.Crushed_Topaz, armor, reward)
+end
+
+function helper:silk_bracer(armor, reward)
+   return self:quest_turn_in_item(self.ARMOR_GEMS.Crushed_Onyx_Sapphire, armor, reward)
+end
+
+function helper:silk_helmet(armor, reward)
+   return self:quest_turn_in_item(self.ARMOR_GEMS.Crushed_Flame_Opal, armor, reward)
+end
+
+function helper:silk_arms(armor, reward)
+   return self:quest_turn_in_item(self.ARMOR_GEMS.Flawed_Topaz, armor, reward)
+end
+
+function helper:silk_chest(armor, reward)
+   return self:quest_turn_in_item(self.ARMOR_GEMS.Pristine_Emerald, armor, reward)
 end
 
 return helper;
