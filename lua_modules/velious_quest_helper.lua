@@ -130,6 +130,16 @@ helper.THURG_SILK_TEXT = {
 
 helper.THURG_LEATHER_TEXT = helper.THURG_CHAIN_TEXT;
 
+helper.THURG_PRIEST_TEXT = {
+    helm="To create a piece of armor to protect your skull I will require three crushed onyx sapphires as well as a corroded plate helmet.",
+    breastplate="For the breastplate, I will need a corroded breastplate and three black marbles. Once I have them in my possession it will not take long to craft a sturdy breastplate.",
+    armplate="Protection for your arms will come at the price of a set of corroded plate vambraces and three jaundiced gems.",
+    bracer="For the bracers, I will require a corroded plate bracer and a set of three crushed opals. Return to me if you happen to find these things in your travels.",
+    gauntlet="Protecting your hands is very important. I can forge protection for your hands if you bring me a pair of corroded plate gauntlets and three crushed lava rubys.",
+    greaves="A set of corroded greaves might be salvageable if you were to find three chipped onyx sapphires. With the right techniques almost anything is possible.",
+    boots="Boots made for battle are not always the most comfortable available. However, if you seek a fine set for battle bring me a set of corroded plate boots and three pieces of crushed flame emerald."
+}
+
 
 function helper.merge_tables(orig, other)
     for k,v in pairs(other) do orig[k] = v end
