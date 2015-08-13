@@ -30,7 +30,7 @@ function event_say(e)
     quest_helper.quest_text(e, QUEST_TEXT, 3);
 end
 
-
+--
 function event_trade(e)
     quest_helper:quest_turn_in(e, 3, QUEST_ITEMS, quest_helper.thurg_armor_success)
 end
