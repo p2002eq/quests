@@ -4,7 +4,8 @@
 -- global RegalBandBathezid, needed to be sure players won't jump to the last part of the quest
 --   at 1 : you gave the Signet of Service to the goblin traitor
 
-function event_say(e)
+function event_say(e) 
+    local qglobals = eq.get_qglobals(e.self,e.other);
 	if(qglobals["RegalBandBathezid"] == "1") then -- we handed the Signet of Service yet
 		-- the goblin won't talk to the player unless we did the beginning of the quest
 		if(e.message:findi("hail")) then
@@ -14,6 +15,7 @@ function event_say(e)
 end
 
 function event_trade(e)
+    local qglobals = eq.get_qglobals(e.self,e.other);
 	local item_lib = require("items");
 	if(qglobals["RegalBandBathezid"] == "1") then -- we handed the Signet of Service yet
 		if(item_lib.check_turn_in(e.self, e.trade, {item1 = 6474})) then -- receive Report to Skargus from Shady Goblin
