@@ -30,7 +30,7 @@ function event_trade(e)
 			e.other:Faction(214,4,0);
 			e.other:Faction(53,4,0);
 			e.other:Faction(105,4,0);
-			e.other:QuestReward(e.self,3,3,4,0,0,1000);
+			e.other:QuestReward(e.self,3,3,4,0,0,10000);
 			ear = ear - 1;
 		until ear == 0
 	end
