@@ -22,7 +22,7 @@ function event_trade(e)
 		e.other:Faction(314,10);  -- +Storm Guard
 		e.other:Faction(193,-10); -- -Legion of Cabilis
 		e.other:Faction(250,-10); -- -Pirates of Gunthak
-		e.other:QuestReward(e.self,0,0,0,0,12949,250); --Summon: Vision of Sebilite
+		e.other:QuestReward(e.self,0,0,0,0,15243,250); --Summon: Vision of Sebilite
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
