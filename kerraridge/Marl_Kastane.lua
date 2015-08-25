@@ -13,7 +13,7 @@ function event_say(e)
 			e.other:SummonItem(14375);
 		end
 	elseif(e.message:findi("prophecy")) then
-		if(charfaction <= 4) then
+		if(charfaction >= 4) then
 			e.self:Say("I suppose it is time for the secret to be shared. Ages ago, two brothers were born. Glohnor was highly favored by the pompous Lightbringer, whose name we do not utter. Lhranc was chosen by the Prince of Hate to bring destruction and turmoil to the sons of men. The one thing they shared in common was their love of the fair priestess, Kyrenna. Kyrenna fell deeply in love with Glohnor. When Lhranc discovered this, he was overcome with rage and unwisely attacked his brother, who happened to be far more adept in combat. The fight cost Lhranc dearly. He lost his dignity as well as an eye in the struggle. He was ordered to leave Freeport and live his life in exile from the only home he had ever known.");
 		end
 	elseif(e.message:findi("Lhranc")) then
