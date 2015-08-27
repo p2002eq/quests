@@ -13,22 +13,22 @@ function event_say(e)
 	elseif(e.message:findi("I want to make a helm")) then
 		e.self:Say(string.format("Ok %s, for your helm material you will need to collect 2 Bricks of Crude Iron Ore, 1 Large Yellowjacket Tarsus, 1 Ruined Wolf Pelt and 1 Jumjum Juice then combine them in your assembly kit. Once you have crafted your Proudfoot Helm Material combine it with this mold in the forge to create your Proudfoot Platemail Helm.", e.other:GetCleanName()));
 		e.other:SummonItem(22610);
-	elseif(e.message:findi("I want to make a bracer")) then
+	elseif(e.message:findi("bracer")) then
 		e.self:Say(string.format("Alrighty then %s! To create your bracer material you will need to gather 2 Bricks of Crude Iron Ore, 1 Thorn Drakeling Scale, 2 Fire Beetle Eyes and 1 Lettuce then combine them in your assembly kit. After creating your Proudfoot Bracer Material combine it in a forge with this mold to fashion your Proudfoot Platemail Bracer.", e.other:GetCleanName()));
 		e.other:SummonItem(22611);
-	elseif(e.message:findi("I want to make armguards")) then
+	elseif(e.message:findi("armguards")) then
 		e.self:Say(string.format("Been taking a few too many blows on the arms there %s? Well I can certainly understand any Halflings need for some armguards. Round up 3 Bricks of Crude Iron Ore, 2 Rat Whiskers, 2 Mossy Rat Pelts and 1 Wolf Meat then combine them in your kit. Once you have made the Proudfoot Armguards Material take it to a forge and combine it together with this mold to fashion your Proudfoot Platemail Armguards.", e.other:GetCleanName()));
 		e.other:SummonItem(22613);
-	elseif(e.message:findi("I want to make boots")) then
+	elseif(e.message:findi("boots")) then
 		e.self:Say("Fantastic! To create the Proudfoot Boot Material necessary for crafting your Proudfoot Platemail Boots you will need to collect 2 Bricks of Crude Iron Ore, 2 Bat Wings, 2 Water Flasks and 1 Large Wood Spider Tibia. After you have your Proudfoot Boot Material combine it in the forge with this mold to create your Proudfoot Platemail Boots.");
 		e.other:SummonItem(22612);
-	elseif(e.message:findi("I want to make greaves")) then
+	elseif(e.message:findi("greaves")) then
 		e.self:Say("I would have to agree that some Greaves are the most important armor piece in any Halfling Warriors arsenal. If you wish to make the material necessary for these Greaves then gather 4 Bricks of Crude Iron Ore, 2 Ruined Mossy Rat Pelts, 2 Thick Grizzly Bear Skins and 1 Bixie Parts then combine them in your kit. After you have your Proudfoot Greaves Material combine it in the forge with this mold to create your Proudfoot Platemail Greaves.");
 		e.other:SummonItem(22614);
-	elseif(e.message:findi("I want to make gauntlets")) then
+	elseif(e.message:findi("gauntlets")) then
 		e.self:Say("If you wish to gather the items necessary for your gauntlet pattern you will need to collect 3 Bricks of Crude Iron Ore, 1 Thorn Drakeling Scale, 1 Large Fruit Bat Fur, 1 Rat Tooth and 1 Spider Silk then combine them in your kit. Once you have done this take your Proudfoot Gauntlets Material to the nearest forge along with this mold to fashion together your Proudfoot Platemail Gauntlets.");
 		e.other:SummonItem(22615);
-	elseif(e.message:findi("I want to make a breastplate")) then
+	elseif(e.message:findi("breastplate")) then
 		e.self:Say("So you feel the time has come and that you have the skills necessary to collect and fashion together all the items necessary for the Proudfoot Breastplate Material? Well I don't think you would ask if you were not ready, so please collect 5 Bricks of Crude Iron Ore, 1 Giant Fruit Bat Wing, 1 Giant Fruit Bat Rib Cage, 1 Giant Yellowjacket Thorax, 1 Large Yellowjacket Tarsus and 1 Deathfist Slashed Belt then combine them in your kit. Once you are finished, take this mold along with your material to a forge to create your Proudfoot Platemail Breastplate. Also return to me after you are finished with your Breastplate for I might have some [small assignments] for you.");
 		e.other:SummonItem(22616);
 	elseif(e.message:findi("small assignments")) then
