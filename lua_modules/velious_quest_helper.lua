@@ -145,6 +145,16 @@ helper.THURG_PRIEST_TEXT = {
     boots="Boots made for battle are not always the most comfortable available. However, if you seek a fine set for battle bring me a set of corroded plate boots and three pieces of crushed flame emerald."
 }
 
+help.SKYSHRINE_SILK_TEXT ={
+	cap="For you to receive my gift, I shall require three crushed flame opals and a tattered silk turban."
+	robe="This exquisite robe shall be yours in exchange for a tattered silk robe and three pristine emeralds."
+	sleeves="For these durable sleeves, you must fetch me a pair of tattered silk sleeves and three flawed topaz."
+	wristband="The crafting of this wristband requires that you bring me a tattered silk wristband and three crushed onyx sapphires."
+	glove="For this fine pair of gloves you must seek out and return to me a pair of tattered silk gloves and three crushed topaz."
+	leggings="This pair of leggings will be yours provided you supply me with a pair of tattered silk pantaloons and three nephrite."
+	boots="These supple boots shall be yours upon receipt of a pair of tattered silk boots and three crushed jaundice gems."
+}
+
 
 function helper.merge_tables(orig, other)
     for k,v in pairs(other) do orig[k] = v end
@@ -166,6 +176,23 @@ function helper.quest_text(e, table, faction)
     else
         e.self:Say("I do not know you well enough to entrust you with such a quest, yet.");
     end
+end
+
+function helper.quest_text_skyshrine(e, table, faction)
+	local _faction = e.other:GetFaction(e.self);
+	if (_faction <= faction) then
+		for trigger, text in pairs(table) do
+			if (e.message:findi(trigger)) then
+				text =  text = text:gsub("(-name)", e.other:GetCleanName());
+                text = text:gsub("(-race)", e.other:Race());
+                text = text:gsub("(-class)", e.other:Class());
+                e.self:Say(text);
+                return;
+            end
+        end
+    else
+		e.self:Say("You must prove your dedication to the Claws of Veeshan before I will speak to you.")
+	end
 end
 
 function helper:quest_turn_in(event, faction_req, items, callback)
@@ -201,6 +228,20 @@ function helper:thurg_armor_success(e)
     e.self:Emote("smiles warmly as he hands you your reward.");
     e.self:Say("You have done well.");
 end
+
+function helper.skyshrine_armor_faction(e)
+    local CoV = 42;
+    local YELINAK = 362;
+    local KROMZEK = 189;
+	e.other:Faction(CoV, 20);
+    e.other:Faction(YELINAK, 20);
+    e.other:Faction(KROMZEK, -60);
+	
+function helper:skyshrine_armor_success(e)
+	e.other:AddEXP(100000);
+	self.skyshrine_armor_faction(e);
+	e.other:Ding();
+	e.self:Say("Excellent! I had not thought that one such as you would be able to complete such a task. Now I will hold up my end of the bargain. Here is the armor that I promised I would fashion for you upon returning these items to me. Wear it with pride! ")
 
 function helper:quest_turn_in_item(gem, armor, reward)
     return {turn_in={item1=gem, item2=gem, item3=gem, item4=armor}, reward=reward}
