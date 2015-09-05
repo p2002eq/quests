@@ -236,6 +236,7 @@ function helper.skyshrine_armor_faction(e)
 	e.other:Faction(CoV, 20);
     e.other:Faction(YELINAK, 20);
     e.other:Faction(KROMZEK, -60);
+end
 	
 function helper:skyshrine_armor_success(e)
 	e.other:AddEXP(100000);

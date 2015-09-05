@@ -34,4 +34,5 @@ sub EVENT_ITEM {
  quest::summonitem(30388);  
   }
 }
+end
 
