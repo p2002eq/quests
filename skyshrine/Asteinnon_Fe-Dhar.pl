@@ -1,10 +1,7 @@
-#Zone: Skyshrine
-#Short Name: skyshrine
-#Zone ID: 114
-#
-#NPC Name: Asteinnon Fe`Dhar
-#NPC ID: 114263
+--shaman  
 
+function event_say(e)
+end
 sub EVENT_SAY {
   if ($faction == 1) { #req ally CoV
     if($text=~/hail/i) {

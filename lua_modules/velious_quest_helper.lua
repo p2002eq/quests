@@ -243,6 +243,7 @@ function helper:skyshrine_armor_success(e)
 	self.skyshrine_armor_faction(e);
 	e.other:Ding();
 	e.self:Say("Excellent! I had not thought that one such as you would be able to complete such a task. Now I will hold up my end of the bargain. Here is the armor that I promised I would fashion for you upon returning these items to me. Wear it with pride! ")
+end
 
 function helper:quest_turn_in_item(gem, armor, reward)
     return {turn_in={item1=gem, item2=gem, item3=gem, item4=armor}, reward=reward}
