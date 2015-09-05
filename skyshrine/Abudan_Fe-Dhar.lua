@@ -21,12 +21,10 @@ local QUEST_ITEMS = {
 }
 
 function event_say(e)
-	quest_helper.quest_text(e, QUEST_TEXT, 1); 
+	quest_helper.quest_text_skyshrine(e, QUEST_TEXT, 1); --Need to check quest_text_skyshrine to make it works
 end
 
 function event_trade(e)
-	quest_helper:quest_turn_in(e, 1, QUEST_ITEMS, quest_helper.SKYSHRINE_ARMOR_success) 
+	quest_helper:quest_turn_in(e, 1, QUEST_ITEMS, quest_helper.SKYSHRINE_ARMOR_success) --Need to check SKYSHRINE_ARMOR_success to make sure it works
 end
 
-
-#END of FILE Zone: skyshrine ID:114268 -- Abudan_Fe`Dhar
