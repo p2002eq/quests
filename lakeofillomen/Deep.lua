@@ -23,9 +23,7 @@ function event_trade(e)
 	item_lib.return_items(e.self, e.other, e.trade)
 end
 
-function event_death_complete(e)
-   eq.signal(85397, 1) -- signal vs controller
-end
+
 
 -------------------------------------------------------------------------------------------------
 -- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
