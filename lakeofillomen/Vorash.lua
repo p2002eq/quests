@@ -15,21 +15,19 @@ function event_enter(e)
 	end
 end
 
---function event_death_complete(e)
+function event_death_complete(e)
 	-- MonkEpic 1.0
-	--e.self:Say("Foolish mortal! you think you have defeated me? Now, witness the true power of Rallos Zek!");
+	e.self:Say("Foolish mortal! you think you have defeated me? Now, witness the true power of Rallos Zek!");
 	-- Spawn: Xenevorash
-	--eq.spawn2(85208,0,0,-542,-807,79.12,0);
- --end
+	eq.spawn2(85208,0,0,-542,-807,79.12,0);
+end
 
 function event_trade(e)
 	local item_lib = require("items");
 	item_lib.return_items(e.self, e.other, e.trade)
 end
 
-function event_death_complete(e)
-    eq.signal(85397, 1) -- signal monk controller
-end
+
 
 -------------------------------------------------------------------------------------------------
 -- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
