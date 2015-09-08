@@ -56,6 +56,7 @@ function event_trade(e)
 		repeat
 			e.self:Say("Green Goblin Skin! You have indeed been busy! I shall speak to my masters of this, continue your good work and return to me with more skins.");
 		e.other:Faction(23,1);
+		e.other:Faction(281, 3);
 		e.other:Faction(384,-30);
 		e.other:QuestReward(e.self,0,0,0,0,0,8000);
 			skin = skin - 1;

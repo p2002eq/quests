@@ -1,22 +1,12 @@
--- spawn 3 A Freed Soul on death
--- enchanter epic - Test of Charm
-
 function event_spawn(e)
 	eq.set_timer("depop",300000);
 end
 
 function event_death_complete(e)
-	eq.spawn2(88093,0,0,e.self:GetX(),e.self:GetY(),e.self:GetZ(),e.self:GetHeading()):AddToHateList(e.other,1);
-	eq.spawn2(88093,0,0,e.self:GetX()+5,e.self:GetY()+5,e.self:GetZ(),e.self:GetHeading()):AddToHateList(e.other,1);
-	eq.spawn2(88093,0,0,e.self:GetX()-5,e.self:GetY()-5,e.self:GetZ(),e.self:GetHeading()):AddToHateList(e.other,1);
-end
-
-function event_combat(e)
-	if(e.joined) then
-		eq.stop_timer("depop");
-	else
-		eq.set_timer("depop",300000);
-	end
+	eq.spawn2(88093,0,0,e.self:GetX(),e.self:GetY(),e.self:GetZ(),e.self:GetHeading());
+	eq.spawn2(88093,0,0,e.self:GetX()+5,e.self:GetY()+5,e.self:GetZ(),e.self:GetHeading());
+    eq.spawn2(88093,0,0,e.self:GetX()-5,e.self:GetY()-5,e.self:GetZ(),e.self:GetHeading());
+	
 end
 
 function event_trade(e)
@@ -29,7 +19,4 @@ function event_timer(e)
 	eq.depop();
 end
 
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------
+--Fiddlemetimbers
