@@ -36,7 +36,7 @@ function event_say(e)
     end
   else
     e.self:Say("You must prove your dedication to the Claws of Veeshan before I will speak to you.");
-  end    
+  end
 end
 
 function event_trade(e)

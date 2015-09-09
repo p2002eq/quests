@@ -38,7 +38,7 @@ function event_say(e)
 		e.self:Say("You must prove your dedication to the Claws of Veeshan before I will speak to you.");
 	end
 
-end	
+end
 
 function event_trade(e)
 	quest_helper:quest_turn_in(e, 1, QUEST_ITEMS, quest_helper.skyshrine_armor_success) --Need to check SKYSHRINE_ARMOR_success to make sure it works

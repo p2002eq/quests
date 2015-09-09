@@ -2,7 +2,7 @@ function event_say(e)
 	if (e.message.findi("hail")) then
 		e.self:Say("Ah, welcome stranger. Perhaps I could interest you in one of my famous Boysenberry pies, the delight of Sky Shrine.");
 		eq.signal(114496, 1, 1); --Ruru
-	elseif (e.message.findi("boysenberry pie") then
+	elseif (e.message.findi("boysenberry pie")) then
 		e.self:Say("chuckles, 'I thought you might, what say you now Ruru? Who is the better cook between us now?'");
 		eq.signal(114496, 4, 1); --Ruru	
 end
