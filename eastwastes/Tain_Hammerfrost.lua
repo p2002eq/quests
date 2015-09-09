@@ -12,7 +12,7 @@ local mob5;
 
 
 function event_spawn(e)
-    flag == 0
+    flag = 0
     eq.set_timer("1", 60);
 end
 
@@ -25,28 +25,26 @@ function event_say(e)
         eq.set_timer("3", 600);
         e.self:Say("Thank Brell! I hear them approaching from just over that hill! Slay the leader, Ghrek, and give me his elixir.");
         entid1 = eq.spawn2(116560, 0, 0, -2991, -4837, 229, 65);
-		entid2 = eq.spawn2(116030, 0, 0, -2991, -4815, 229, 65);
-		entid3 = eq.spawn2(116030, 0, 0, -2991, -4793, 229, 65);
-		entid4 = eq.spawn2(116030, 0, 0, -2991, -4859, 229, 65);
-		entid5 = eq.spawn2(116030, 0, 0, -2991, -4881, 229, 65);
-		mob1 = eq.get_entity_list():GetMobID(entid1);
-		mob2 = eq.get_entity_list():GetMobID(entid2);
-		mob3 = eq.get_entity_list():GetMobID(entid3);
+        entid2 = eq.spawn2(116030, 0, 0, -2991, -4815, 229, 65);
+        entid3 = eq.spawn2(116030, 0, 0, -2991, -4793, 229, 65);
+        entid4 = eq.spawn2(116030, 0, 0, -2991, -4859, 229, 65);
+        entid5 = eq.spawn2(116030, 0, 0, -2991, -4881, 229, 65);
+        mob1 = eq.get_entity_list():GetMobID(entid1);
+        mob2 = eq.get_entity_list():GetMobID(entid2);
+        mob3 = eq.get_entity_list():GetMobID(entid3);
         mob4 = eq.get_entity_list():GetMobID(entid4);
         mob5 = eq.get_entity_list():GetMobID(entid5);
         local mob1attack = mob1:CastToNPC();
-		local mob2attack = mob2:CastToNPC();
-		local mob3attack = mob3:CastToNPC();
-		local mob4attack = mob4:CastToNPC();
-		local mob5attack = mob5:CastToNPC();
-		mob1attack:AddToHateList(npc, 1);
-		mob2attack:AddToHateList(npc, 1);
-		mob3attack:AddToHateList(npc, 1);
-		mob4attack:AddToHateList(npc, 1);
-		mob5attack:AddToHateList(npc, 1);
-
-
-
+        local mob2attack = mob2:CastToNPC();
+        local mob3attack = mob3:CastToNPC();
+        local mob4attack = mob4:CastToNPC();
+        local mob5attack = mob5:CastToNPC();
+        mob1attack:AddToHateList(npc, 1);
+        mob2attack:AddToHateList(npc, 1);
+        mob3attack:AddToHateList(npc, 1);
+        mob4attack:AddToHateList(npc, 1);
+        mob5attack:AddToHateList(npc, 1);
+    end
 end
 
 

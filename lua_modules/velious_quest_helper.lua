@@ -173,11 +173,11 @@ function helper.quest_text(e, table, faction)
 end
 
 function helper.quest_text_skyshrine(e, table, faction)
-	local _faction = e.other:GetFaction(e.self);
-	if (_faction <= faction) then
-		for trigger, text in pairs(table) do
-			if (e.message:findi(trigger)) then
-				text =  text = text:gsub("(-name)", e.other:GetCleanName());
+    local _faction = e.other:GetFaction(e.self);
+    if (_faction <= faction) then
+        for trigger, text in pairs(table) do
+            if (e.message:findi(trigger)) then
+                text = text:gsub("(-name)", e.other:GetCleanName());
                 text = text:gsub("(-race)", e.other:Race());
                 text = text:gsub("(-class)", e.other:Class());
                 e.self:Say(text);
@@ -185,8 +185,8 @@ function helper.quest_text_skyshrine(e, table, faction)
             end
         end
     else
-		e.self:Say("You must prove your dedication to the Claws of Veeshan before I will speak to you.")
-	end
+        e.self:Say("You must prove your dedication to the Claws of Veeshan before I will speak to you.")
+    end
 end
 
 function helper:quest_turn_in(event, faction_req, items, callback)
@@ -227,16 +227,16 @@ function helper.skyshrine_armor_faction(e)
     local CoV = 42;
     local YELINAK = 362;
     local KROMZEK = 189;
-	e.other:Faction(CoV, 30);
+    e.other:Faction(CoV, 30);
     e.other:Faction(YELINAK, 30);
     e.other:Faction(KROMZEK, -60);
 end
-	
+
 function helper:skyshrine_armor_success(e)
-	e.other:AddEXP(175000);
-	self.skyshrine_armor_faction(e);
-	e.other:Ding();
-	e.self:Say("Excellent! I had not thought that one such as you would be able to complete such a task. Now I will hold up my end of the bargain. Here is the armor that I promised I would fashion for you upon returning these items to me. Wear it with pride! ")
+    e.other:AddEXP(175000);
+    self.skyshrine_armor_faction(e);
+    e.other:Ding();
+    e.self:Say("Excellent! I had not thought that one such as you would be able to complete such a task. Now I will hold up my end of the bargain. Here is the armor that I promised I would fashion for you upon returning these items to me. Wear it with pride! ");
 end
 
 function helper:quest_turn_in_item(gem, armor, reward)
@@ -331,6 +331,6 @@ end
 
 function helper:priest_boots(armor,reward)
     return self:quest_turn_in_item(self.ARMOR_GEMS.Crushed_Flame_Emerald, armor, reward)
-end    
+end
 
 return helper;

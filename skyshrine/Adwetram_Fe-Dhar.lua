@@ -8,8 +8,8 @@ local QUEST_ITEMS={
 	quest_helper:melee_breastplate(SKYSHRINE_ARMOR.Breastplate, 24956), --breastplate
 	quest_helper:melee_armplate(SKYSHRINE_ARMOR.Plate_Vambraces, 24958), --arms
 	quest_helper:melee_bracer(SKYSHRINE_ARMOR.Plate_Bracer, 24960), --bracer
-	quest_helper:melee_gauntlets(SKYSHRINE_ARMOR.Plate_Gauntlets, 24962) --glove
-	quest_helper:melee_legs(SKYSHRINE_ARMOR.Plate_Greaves, 24957) --leg
+	quest_helper:melee_gauntlets(SKYSHRINE_ARMOR.Plate_Gauntlets, 24962), --glove
+	quest_helper:melee_legs(SKYSHRINE_ARMOR.Plate_Greaves, 24957), --leg
 	quest_helper:melee_boots(SKYSHRINE_ARMOR.Plate_Boots, 24959) -- boots
 }
 

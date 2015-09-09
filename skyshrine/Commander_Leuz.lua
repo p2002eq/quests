@@ -15,7 +15,7 @@ end
 function event_trade(e)
   local item_lib = require("items");
 
-  if(item_lib.check_turn_in(e.self, e.trade, {item1 29688})) then
+  if(item_lib.check_turn_in(e.self, e.trade, {item1= 29688})) then
     e.self:Say("Well this artifact will definitely need study. Thank you for this report. Perhaps after we have researched this object more we will have more for you to search for.");
     e.other:Faction(42, 10); --CoV
     e.other:Faction(362, 10); --Yelinak

@@ -4,12 +4,12 @@ local quest_helper = require('velious_quest_helper');
 local SKYSHRINE_ARMOR = quest_helper.SKYSHRINE_ARMOR;
 
 local QUEST_ITEMS = {
-  quest_helper:priest_helmet(SKYSHRINE_ARMOR.Chain_Coif, 31105) --helm
-  quest_helper:priest_chest(SKYSHRINE_ARMOR.Chain_Tunic, 31106) --bp
-  quest_helper:priest_arms(SKYSHRINE_ARMOR.Chain_Sleeves, 31107) -- arms
-  quest_helper:priest_bracer(SKYSHRINE_ARMOR.Chain_Bracer, 31108) --bracer
-  quest_helper:priest_gloves(SKYSHRINE_ARMOR.Chain_Gauntlets, 31109) -- gloves
-  quest_helper:priest_legs(SKYSHRINE_ARMOR.Chain_Leggings, 31110) -- legs
+  quest_helper:priest_helmet(SKYSHRINE_ARMOR.Chain_Coif, 31105), --helm
+  quest_helper:priest_chest(SKYSHRINE_ARMOR.Chain_Tunic, 31106), --bp
+  quest_helper:priest_arms(SKYSHRINE_ARMOR.Chain_Sleeves, 31107), -- arms
+  quest_helper:priest_bracer(SKYSHRINE_ARMOR.Chain_Bracer, 31108), --bracer
+  quest_helper:priest_gloves(SKYSHRINE_ARMOR.Chain_Gauntlets, 31109), -- gloves
+  quest_helper:priest_legs(SKYSHRINE_ARMOR.Chain_Leggings, 31110), -- legs
   quest_helper:priest_boots(SKYSHRINE_ARMOR.Chain_Boots, 31111) -- boots
 }
 
@@ -37,6 +37,7 @@ function event_say(e)
     end
   else
     e.self:Say("You must prove your dedication to the Claws of Veeshan before I will speak to you."); --Not ally
+  end
 end
 
 function event_trade(e)

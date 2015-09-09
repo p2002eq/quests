@@ -4,13 +4,13 @@ local quest_helper = require('velious_quest_helper');
 local SKYSHRINE_ARMOR = quest_helper.SKYSHRINE_ARMOR;
 
 local QUEST_ITEMS = {
-  quest_helper:priest_helmet(SKYSHRINE_ARMOR.Plate_Helmet, 31140) --helm
-  quest_helper:priest_chest(SKYSHRINE_ARMOR.Breastplate, 31141) --bp
-  quest_helper:priest_arms(SKYSHRINE_ARMOR.Plate_Vambraces, 31142) -- arms
-  quest_helper:priest_bracer(SKYSHRINE_ARMOR.Plate_Bracer, 31143) --bracer
-  quest_helper:priest_gloves(SKYSHRINE_ARMOR.Plate_Gauntlets, 31144) -- gloves
-  quest_helper:priest_legs(SKYSHRINE_ARMOR.Plate_Greaves, 31145) -- legs
-  quest_helper:priest_boots(SKYSHRINE_ARMOR.Plate_Boots, 31146) -- boots
+  quest_helper:priest_helmet(SKYSHRINE_ARMOR.Plate_Helmet, 31140), --helm
+  quest_helper:priest_chest(SKYSHRINE_ARMOR.Breastplate, 31141), --bp
+  quest_helper:priest_arms(SKYSHRINE_ARMOR.Plate_Vambraces, 31142), -- arms
+  quest_helper:priest_bracer(SKYSHRINE_ARMOR.Plate_Bracer, 31143), --bracer
+  quest_helper:priest_gloves(SKYSHRINE_ARMOR.Plate_Gauntlets, 31144), -- gloves
+  quest_helper:priest_legs(SKYSHRINE_ARMOR.Plate_Greaves, 31145), -- legs
+  quest_helper:priest_boots(SKYSHRINE_ARMOR.Plate_Boots, 31146), -- boots
 }
 
 function event_say(e)

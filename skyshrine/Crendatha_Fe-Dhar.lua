@@ -4,12 +4,12 @@ local quest_helper = require('velious_quest_helper');
 local SKYSHRINE_ARMOR = quest_helper.SKYSHRINE_ARMOR;
 
 local QUEST_ITEMS = {
-  quest_helper:melee_helmet(SKYSHRINE_ARMOR.Chain_Coif, 31126) --helm
-  quest_helper:melee_chest(SKYSHRINE_ARMOR.Chain_Tunic, 31127) --bp
-  quest_helper:melee_arms(SKYSHRINE_ARMOR.Chain_Sleeves, 31128) -- arms
-  quest_helper:melee_bracer(SKYSHRINE_ARMOR.Chain_Bracer, 31129) --bracer
-  quest_helper:melee_gloves(SKYSHRINE_ARMOR.Chain_Gauntlets, 31130) -- gloves
-  quest_helper:melee_legs(SKYSHRINE_ARMOR.Chain_Leggings, 31131) -- legs
+  quest_helper:melee_helmet(SKYSHRINE_ARMOR.Chain_Coif, 31126), --helm
+  quest_helper:melee_chest(SKYSHRINE_ARMOR.Chain_Tunic, 31127), --bp
+  quest_helper:melee_arms(SKYSHRINE_ARMOR.Chain_Sleeves, 31128), -- arms
+  quest_helper:melee_bracer(SKYSHRINE_ARMOR.Chain_Bracer, 31129), --bracer
+  quest_helper:melee_gloves(SKYSHRINE_ARMOR.Chain_Gauntlets, 31130), -- gloves
+  quest_helper:melee_legs(SKYSHRINE_ARMOR.Chain_Leggings, 31131), -- legs
   quest_helper:melee_boots(SKYSHRINE_ARMOR.Chain_Boots, 31132) -- boots
 }
 
@@ -40,5 +40,5 @@ function event_say(e)
 end
 
 function event_trade(e)
-  quest_helper:quest_turn_in(e, 1, QUEST_ITEMS, quest_helper.skyshrine_armor_success)
+  quest_helper:quest_turn_in(e, 1, QUEST_ITEMS, quest_helper.skyshrine_armor_success);
 end

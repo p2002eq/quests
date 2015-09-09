@@ -46,7 +46,7 @@ end
 
 function event_trade(e)
 	local item_lib = require('items');
-	if (item_lib.check_turn_in(e.self, e.trade, {item1 = 9335. item2 = 9337, item3 = 9336, item4 = 9338})) then
+	if (item_lib.check_turn_in(e.self, e.trade, {item1 = 9335, item2 = 9337, item3 = 9336, item4 = 9338})) then
 		e.self:Say("What you have accomplished cannot be claimed without deception by many. Know that all sacrifices that you and those who have undoubtedly aided you have made in fulfilling this awesome feat shall not go without notice. The Crusaders of Veeshan can express neither the prominent magnitude nor the honor that you have upheld in maintaining your convictions to the Claws of Veeshan. This earring is not one forged of primal metals, but it is ever changing chromatic essence -- the very essence of the first chromatic nobles deposited by Veeshan's great claw. Take it not as a gift nor as restitution for your deeds, but take it as a token of acknowledgement and a symbol of the significance your actions have gained within the boundless realm of our crusade.");
 		e.other:QuestReward(e.self, 0, 0, 0, 0, 30391, 150000); --Sarthis's Chromatic Hoop
 		--Need faction adjustment
