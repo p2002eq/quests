@@ -1,5 +1,5 @@
 function event_signal(e)
-    eq.zone_emote(12, "Signaled:" .. e.signal);
+    --eq.zone_emote(12, "Signaled:" .. e.signal);
     if(e.signal == 1) then --vs died
         eq.set_timer("UDB", 86400000); -- set timer for 24 hours
     end
