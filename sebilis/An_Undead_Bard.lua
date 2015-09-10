@@ -36,7 +36,7 @@ end
 
 function event_death_complete(e)
 	if(spawn == 1) then
-		eq.spawn2(89039,0,0,-693,-2103,-140.62,0):AddToHateList(e.other,1);
+		eq.spawn2(89181,0,0,-693,-2103,-140.62,0):AddToHateList(e.other,1);
 		spawn = 0;
 	end
 end
