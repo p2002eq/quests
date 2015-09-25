@@ -128,8 +128,7 @@ helper.THURG_CHAIN_TEXT = {
     leggings="A set of corroded chain leggings might be salvageable if you were to find three flawed sea sapphires.  With the right techniques and ingredients almost anything is possible.",
     boots="We use our feet so often, should not they be protected as well as any other portion of our bodies?  If you seek fine protection for your feet, return to me with three pieces of crushed black marble and a set of corroded chain boots."
 }
-helper.THURG_SILK_TEXT QUEST_TEXT = quest_helper.merge_tables(QUEST_TEXT, quest_helper.THURG_SILK_TEXT);
-= {
+helper.THURG_SILK_TEXT = {
     cap="For an enchanted head guard bring me a torn enchanted silk turban as well as three pieces of crushed flame opal.",
     robe="With three pristine emeralds and a torn enchanted silk robe I will fashion a wonderous robe for you.",
     sleeves="Bring unto me a set of torn enchanted silk sleeves as well as three flawed topaz.  With these in my possession I can create a set of enchanted sleeves the likes of which spellcasters like you dream of.",
