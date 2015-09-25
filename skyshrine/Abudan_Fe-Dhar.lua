@@ -18,23 +18,23 @@ function event_say(e)
 		if(e.message:findi("hail")) then
 		 	e.self:Emote(" eyes you malevolently.");
 			e.self:Say("I seek those who practice the dark magicks. I seek those who call themselves necromancers. Are you what I seek?");
-		elseif(e.message.findi("necromancer")) then
+		elseif(e.message:findi("necromancer")) then
 			e.self:Say("Excellent. Are you sure enough of your skills to undertake my tasks? If not, get out of my sight weakling!");
-		elseif(e.message.findi("undertake your tasks")) then
+		elseif(e.message:findi("undertake your tasks")) then
 			e.self:Say("I thought so. I have several tasks for you accomplish. Once you have completed them I will have a cap, a robe, sleeves, wristbands, gloves, leggings and boots to reward you with.");
-		elseif(e.message.findi("cap")) then
+		elseif(e.message:findi("cap")) then
 			e.self:Say("For you to receive my gift, I shall require three crushed flame opals and a tattered silk turban.");
-		elseif(e.message.findi("robe")) then
+		elseif(e.message:findi("robe")) then
 			e.self:Say("This exquisite robe shall be yours in exchange for a tattered silk robe and three pristine emeralds.");
-		elseif(e.message.findi("sleeves")) then
+		elseif(e.message:findi("sleeves")) then
 			e.self:Say("For these durable sleeves, you must fetch me a pair of tattered silk sleeves and three flawed topaz.");
-		elseif(e.message.findi("wristbands")) then
+		elseif(e.message:findi("wristbands")) then
 			e.self:Say("The crafting of this wristband requires that you bring me a tattered silk wristband and three crushed onyx sapphires.");
-		elseif(e.message.findi("gloves")) then
+		elseif(e.message:findi("gloves")) then
 			e.self:Say("For this fine pair of gloves you must seek out and return to me a pair of tattered silk gloves and three crushed topaz.");
-		elseif(e.message.findi("leggings")) then
+		elseif(e.message:findi("leggings")) then
 			e.self:Say("This pair of leggings will be yours provided you supply me with a pair of tattered silk pantaloons and three nephrite.");
-		elseif(e.message.findi("boots")) then
+		elseif(e.message:findi("boots")) then
 			e.self:say("These supple boots shall be yours upon receipt of a pair of tattered silk boots and three crushed jaundice gems.");
 		end
 	else

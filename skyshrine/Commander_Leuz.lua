@@ -1,5 +1,5 @@
 function event_say(e)
-  if (e.other:GetFaction(e.self) >= 2) then --warmly or lower
+  if (e.other:GetFaction(e.self) <= 2) then --warmly or lower
     if (e.message:findi("hail")) then
       e.self:Say("Welcome to Skyshrine. I have noticed a great deal more of your people joining the ranks of the shrine, hoping to assist in pushing back the giants for good. I am here as the commander of the militia set forth by Lord Yelinak himself. With that in mind, it is my duty to assign certain tasks to those who are willing to show their support to the kin, and to the shrine.");  
     elseif(e.message:findi("what task")) then

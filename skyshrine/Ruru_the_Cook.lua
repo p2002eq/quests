@@ -1,5 +1,5 @@
 function event_say(e)
-    if (e.message.findi("hail")) then
+    if (e.message:findi("hail")) then
         e.self:Say("Hey there stranger, pleased to meet you. I'm Ruru, I do the cooking around here. I'm the best cook around these parts. So, if you get hungry, you'd best be making sure you're coming to see me.");
         eq.signal(114467, 3, 1); --Grudash
     end
