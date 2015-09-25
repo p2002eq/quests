@@ -17,11 +17,11 @@ function event_trade(e)
 	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 12829})) then
 		e.self:Say("Excellent! Take this.");
 		e.other:QuestReward(e.self,0,0,0,0,14556,100000); --amulet of planar transference
-		eq.depop();
+		
 	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 20753, item2 = 20965, item3 = 20751, item4 = 20752})) then	
 		e.self:Say("Excellent! Take this.");
 		e.other:QuestReward(e.self,0,0,0,0,12940,100); 
-		eq.depop();
+		
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
