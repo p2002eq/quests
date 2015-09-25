@@ -1,5 +1,5 @@
 function event_say(e)
-    if (e.message.findi("hail")) then
+    if (e.message:findi("hail")) then
         e.self:Say("Ah, welcome stranger. Perhaps I could interest you in one of my famous Boysenberry pies, the delight of Sky Shrine.");
         eq.signal(114496, 1, 1); --Ruru
     elseif (e.message.findi("boysenberry pie")) then
