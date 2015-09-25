@@ -128,7 +128,8 @@ helper.THURG_CHAIN_TEXT = {
     leggings="A set of corroded chain leggings might be salvageable if you were to find three flawed sea sapphires.  With the right techniques and ingredients almost anything is possible.",
     boots="We use our feet so often, should not they be protected as well as any other portion of our bodies?  If you seek fine protection for your feet, return to me with three pieces of crushed black marble and a set of corroded chain boots."
 }
-helper.THURG_SILK_TEXT = {
+helper.THURG_SILK_TEXT QUEST_TEXT = quest_helper.merge_tables(QUEST_TEXT, quest_helper.THURG_SILK_TEXT);
+= {
     cap="For an enchanted head guard bring me a torn enchanted silk turban as well as three pieces of crushed flame opal.",
     robe="With three pristine emeralds and a torn enchanted silk robe I will fashion a wonderous robe for you.",
     sleeves="Bring unto me a set of torn enchanted silk sleeves as well as three flawed topaz.  With these in my possession I can create a set of enchanted sleeves the likes of which spellcasters like you dream of.",
@@ -148,6 +149,17 @@ helper.THURG_PRIEST_TEXT = {
     gauntlet="Protecting your hands is very important. I can forge protection for your hands if you bring me a pair of corroded plate gauntlets and three crushed lava rubys.",
     greaves="A set of corroded greaves might be salvageable if you were to find three chipped onyx sapphires. With the right techniques almost anything is possible.",
     boots="Boots made for battle are not always the most comfortable available. However, if you seek a fine set for battle bring me a set of corroded plate boots and three pieces of crushed flame emerald."
+}
+
+help.SKYSHRINE_SILK_TEXT = {
+    cap="For you to receive my gift, I shall require three crushed flame opals and a tattered silk turban.",
+    robe="This exquisite robe shall be yours in exchange for a tattered silk robe and three pristine emeralds.",
+    sleeves="For these durable sleeves, you must fetch me a pair of tattered silk sleeves and three flawed topaz.",
+    wristbands="The crafting of this wristband requires that you bring me a tattered silk wristband and three crushed onyx sapphires.",
+    gloves="For this fine pair of gloves you must seek out and return to me a pair of tattered silk gloves and three crushed topaz.",
+    leggings="This pair of leggings will be yours provided you supply me with a pair of tattered silk pantaloons and three nephrite.",
+    boots="These supple boots shall be yours upon receipt of a pair of tattered silk boots and three crushed jaundice gems.",
+
 }
 
 function helper.merge_tables(orig, other)

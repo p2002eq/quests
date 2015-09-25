@@ -9,6 +9,9 @@ local QUEST_TEXT = {
 
 }
 
+QUEST_TEXT = quest_helper.merge_tables(QUEST_TEXT, quest_helper.SKYSHRINE_SILK_TEXT);
+
+
 local QUEST_ITEMS = {
 	quest_helper:caster_helmet(SKYSHRINE_ARMOR.Silk_Turban, 31168), -- helm
 	quest_helper:caster_chest(SKYSHRINE_ARMOR.Silk_Robe, 31169), -- chest
