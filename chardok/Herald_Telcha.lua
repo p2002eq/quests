@@ -36,7 +36,7 @@ function event_trade(e)
 	if(salts > 0) then
 		repeat
 		e.self:Say("Ah, most excellent! You are sure to be more highly valued as our servant once I speak to my masters of this! Mountain Death Mineral Salts, they shall grace the Overkings table this very night! Be off, minion! Fetch us some more salts to prove your value!");
-		e.other:Faction(23,1)
+		e.other:Faction(23,1);
 		e.other:Faction(281, 3);
 		e.other:Faction(384,-30);
 		e.other:QuestReward(e.self,0,0,0,0,0,8000);
@@ -67,6 +67,7 @@ function event_trade(e)
 		e.self:Say("Ah hah! You are notworthy indeed amongst the servants of the Sarnak! Perhaps I should have you killed, before your deeds outdo mine.. Hmm..");
 		e.self:Say("Guards! Guards! Haha, do not panic menial being, in fact I am most impressed with your service. Here is the ring I promised you in exchange for your efforts.");
 		e.other:Faction(23,50);
+		e.other:Faction(281, 150);
 		e.other:Faction(384,-30);
 		eq.delete_global("RegalBandBathezid");
 		e.other:QuestReward(e.self,0,0,0,0,5727,50000); -- 5727  Regal Band of Bathezid
