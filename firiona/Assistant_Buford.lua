@@ -10,18 +10,15 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
+	-- You can purchase a Star of Odus for about 115pp in the jewel shop under the Erudin palace.
+	-- Giving it to Wellford Fargin results in a "Tin Box" with 6 slots.
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 10059})) then
 		e.self:Say("Thank you!! I never could have gone to Odus to replace this. Perhaps now you can collect some rare coins.");
-		e.other:QuestReward(e.self,0,0,0,0,17045); 
-		
-	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 12829})) then
-		e.self:Say("Excellent! Take this.");
-		e.other:QuestReward(e.self,0,0,0,0,14556,100000); --amulet of planar transference
-		
-	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 20753, item2 = 20965, item3 = 20751, item4 = 20752})) then	
-		e.self:Say("Excellent! Take this.");
-		e.other:QuestReward(e.self,0,0,0,0,12940,100); 
-		
+		e.other:QuestReward(e.self,0,0,0,0,17045);
+	end
+	-- put the 6 coins into the tin box, combine, and return it to Assistant_Buford, get Nostrolo Tambourine
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 12829})) then
+		e.other:QuestReward(e.self,0,0,0,0,12940);
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
