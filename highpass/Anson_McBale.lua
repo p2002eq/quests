@@ -2,7 +2,7 @@ function event_say(e)
 	if(e.other:GetFaction(e.self) <= 5) then
 		if(e.message:findi("hail")) then
 			e.self:Emote("looks at you suspiciously. 'Yeah? Whacha want?'");
-		elseif(e.message:findi("see stanos")  and  e.other:GetLevel() >= 50) then
+		elseif(e.message:findi("see stanos")  and  e.other:GetLevel() >= 46) then
 			e.self:Say("This better be important.");
 			eq.spawn2(5088,0,0,336,10,45,225);
 		end
