@@ -9,7 +9,7 @@ function event_trade(e)
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 28057})) then
 		e.self:Say("The General will take care of you!");
 		e.other:QuestReward(e.self,0,0,0,0,0,500);
-		eq.spawn2(20205,0,0,2316,797,275,193.5);
+		eq.unique_spawn(20205,0,0,2297,827,275,128);
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
