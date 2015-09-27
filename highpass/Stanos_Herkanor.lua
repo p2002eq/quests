@@ -1,15 +1,13 @@
 function event_say(e)
-	local rogue_epic = eq.get_qglobals(e.other);
-	
 	if(e.message:findi("hail")) then
-		if(e.other:HasItem(11057) == true and rogue_epic.Fatestealer == nil) then
-			e.self:Say(string.format("Ha, the prodigy returns. So good to see you, %s. I always consider it an honor to have your company, and we have much to talk about!",e.other:GetName()));
-			eq.set_global("Fatestealer","0",5,"F");
-		elseif(rogue_epic.Fatestealer ~= nil) then
-			e.self:Say(string.format("But not here and not now. We are in grave danger, you and I, and should not be seen speaking to one another. Seek out my associates. They will apprise you of what needs to be done. When you have found them... Tell them that the sun is setting on the horizon.' He clasps your palm and gives you a strange handshake, 'Before you go, know that you have proved yourself as one of us, %s. You are a member of this circle and nothing will ever break that.",e.other:GetName()));
-		else
-			e.self:Say("Ah, the pouch. This is the first step. The Circle has to be upset having this taken right out from under them. That speaks well of the person who did the taking. Hanns must be even more furious now. I think I might be able to trust you. We could make a deal. I have a blade I won't use anymore, and you have those fine looking daggers Vilnius gave you. Of course, you would have to do something for me first. Let me tell you my story, then you decide.");
-		end
+		e.self:Say("Ah, the pouch. This is the first step. The Circle has to be upset having this taken right out from under them. That speaks well of the person who did the taking. Hanns must be even more furious now. I think I might be able to trust you. We could make a deal. I have a blade I won't use anymore, and you have those fine looking daggers Vilnius gave you. Of course, you would have to do something for me first. Let me tell you my story, then you decide.");
+		eq.signal(5037,2);
+	elseif(e.message:findi("who are you")) then
+		e.self:Say("'(chuckle) You are young, aren't you? I ran [the Circle] out of Qeynos for well over 30 years, and did a right fine job of it. It's a long story, and isn't over yet. I have much to answer for.");
+	elseif(e.message:findi("circle")) then
+		e.self:Say("The Circle of Unseen Hands, you oaf! The largest collection of thieves, murderers, con artists, and rogues in the world. No finer men can be found anywhere.");
+	elseif(e.message:findi("deal")) then
+		e.self:Say("Aye, " .. e.other:GetName() .. ", we could make a deal. I have a blade I won't use anymore, and you have those fine looking daggers Vilnius gave you. Of course, you would have to do something for me first. Let me tell you my [story], then you decide.");
 	elseif(e.message:findi("story")) then
 		e.self:Say("Johann Krieghor was the leader of the Circle and I was his second-in-command. He made a dark bargain with a Teir'Dal General. The Circle was to assassinate Joren, the high elf ambassador to Qeynos. Had the plot worked, it would have weakened the alliance between high elves and humans, and possibly caused a war between the two powers. In either case, the Teir'Dal would have profited greatly by this event, and all others would have suffered. I could not stand by and let this happen, but Johann would not be deterred, for the Teir'Dal had promised him much. I had no choice but to kill Johann and the Teir'Dal agent. I made it look like they offed each other, and then I hid the tools.");
 	elseif(e.message:findi("tools")) then
@@ -17,6 +15,22 @@ function event_say(e)
 	elseif(e.message:findi("clear your name")) then
 		e.self:Say("I need proof that what I say about Johann is truth, so that Hanns may forgive me. YOU can gather that proof for me. First, travel to Kaladim and Neriak, and there, upon the persons of the rogue guildmasters, you should find that which I seek, two parts of a document I recovered from the dead agent. I entrusted one to Founy, but that trust is gone, and Founy would betray me to Hanns were I to attempt to reclaim it. Tani N'mar has the other, which he should not possess, and keeps it only to spite me, not knowing its real importance. Steal them both, and bring them back to me. And don't let anyone follow you! If I am not around, tell Anson you want to see me.");
 		eq.depop();
+	end
+end
+
+function event_combat(e)
+	local StanosFriends ={5019,5038,5107,5056,5055,5050,5051,5037};
+	if(e.joined) then
+		e.self:Shout("I will kill you and your lickspittle friends for this!");
+		for i = 1, 8 do
+			eq.signal(StanosFriends[i],1);
+		end
+	end
+end
+
+function event_signal(e)
+	if(e.signal == 1) then
+		e.self:Say("I tend to agree Anson. We could make a [deal]. I have a blade I won't use anymore, and you have those fine looking daggers Vilnius gave you. Of course, you would have to do something for me first. Let me tell you my [story], then you decide.");
 	end
 end
 

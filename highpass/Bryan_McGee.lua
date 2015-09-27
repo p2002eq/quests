@@ -8,6 +8,12 @@ function event_say(e)
 	end
 end
 
+function event_signal(e)
+	if(e.signal == 1) then
+		eq.move_to(336,10,45);
+	end
+end
+
 function event_trade(e)
 	local item_lib = require("items");
 
