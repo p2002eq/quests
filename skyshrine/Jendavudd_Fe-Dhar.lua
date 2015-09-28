@@ -21,7 +21,7 @@ function event_say(e)
    e.self:Say("Excellent. I admire strength and ferocity. Life is but a series of battles, is it not?");
   elseif(e.message:findi("life is a series of battles")) then
    e.self:Say("We share the same view then. I wish to test your skills in battle. Not with me of course, for I will destroy you where you stand. Instead I wish for you to retrieve some trinkets for me and once I have them I will reward you handsomely with a helm, a breastplate, armplates, bracers, gauntlets, greaves, or boots.");
-  elseif(e.message:findi("helm") then
+  elseif(e.message:findi("helm")) then
    e.self:Say("All I require are an unadorned plate helmet and three pieces of crushed coral. This should be a small task for one such as you. Go now and I shall await your return.");
   elseif(e.message:findi("breastplate")) then
    e.self:Say("As the resolve of your discipline and strength shall endure through a battle, so shall this breastplate. All I required are an unadorned breastplate, and three flawless diamonds. Do this quickly so that you may return to the field of battle.");

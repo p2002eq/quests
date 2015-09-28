@@ -17,21 +17,21 @@ function event_say(e)
 	if (e.other:GetFaction(e.self) == 1) then --Must be ally
 		if(e.message:findi("hail")) then
 			e.self:Say("Greetings, I am looking for one who is one with the wild beasts of the world. Do you call yourself a Beastlord?");
-		if(e.message:findi("i am a Beastlord")) then
+		elseif(e.message:findi("i am a Beastlord")) then
 			e.self:Say("I have been waiting for one such as you to arrive. I have some equipment that is worthy of a great Beastlord. I have a cap, leggings, tunic, bracer, boots, sleeves, and gloves if you think you are worthy.");
-		if(e.message:findi("cap")) then
+		elseif(e.message:findi("cap")) then
 			e.self:Say("I shall weave one of exceptional quality for you but you must gather the items first. I require an unadorned leather cap and three pieces of crushed coral.");
-		if(e.message:findi("tunic")) then
+		elseif(e.message:findi("tunic")) then
 			e.self:Say("You shall be an imposing force with this tunic. Solid as the unmoving mountains, it shall protect you. Once I have gained a set of three flawless diamonds and an unadorned leather tunic.");
-		if(e.message:findi("sleeves")) then
+		elseif(e.message:findi("sleeves")) then
 			e.self:Say("As the mighty stone that parts the flow of water, so shall these sleeves divert harm against you. Bring me a pair of unadorned leather sleeves and three flawed emeralds.");
-		if(e.message:findi("bracer")) then
+		elseif(e.message:findi("bracer")) then
 			e.self:Say("For a bracer I shall require three crushed flame emeralds and an unadorned leather bracelet. Bring me these items and the reward shall be yours to keep.");
-		if(e.message:findi("gloves")) then
+		elseif(e.message:findi("gloves")) then
 			e.self:Say("Your hands are like the wind, everflowing and moving. Subtle one moment, then a howling wind raining blow upon blow to your foes. These gloves shall aid you. In order for me to complete them, I require a pair of unadorned leather gloves and three crushed topaz.");
-		if(e.message:findi.("leggings")) then
+		elseif(e.message:findi("leggings")) then
 			e.self:Say("The leggings shall protect you, as the valley shelters the still pool within it from the howling winds. Furnish a pair of unadorned leather leggings and three flawed sea sapphires.");
-		if(e.message:findi("boots")) then
+		elseif(e.message:findi("boots")) then
 			e.self:Say("Your feet are as hard as any stone and as swift as a coiled serpent but even the swiftest feet require protection so I shall provide you with these. They should help. Acquire a pair of unadorned leather boots and three crushed pieces of black marble.");
 		end
 	else --Not Ally

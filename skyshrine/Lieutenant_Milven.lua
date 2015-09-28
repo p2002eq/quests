@@ -27,7 +27,7 @@ function event_trade(e)
 	
 	if (heads > 0) then
 		repeat
-			e.self:Say("Well done, "..e.other:GetName..". You are proving to be worth the risk of sending a new recruit out on a mission such as this. If you feel this is the type of mission you're best suited for, feel free to slay more of these beasts and return their helmets to me. The fewer giants there are out there, the less chance they continue their random attacks against us. I also may have another [assignment] for you if you're interested.");
+			e.self:Say("Well done, "..e.other:GetName()..". You are proving to be worth the risk of sending a new recruit out on a mission such as this. If you feel this is the type of mission you're best suited for, feel free to slay more of these beasts and return their helmets to me. The fewer giants there are out there, the less chance they continue their random attacks against us. I also may have another [assignment] for you if you're interested.");
 			e.other:Faction(42, 15); --CoV
 			e.other:Faction(362, 3); --Yelinak
 			e.other:Faction(189, -7); --Kromzek
@@ -36,7 +36,7 @@ function event_trade(e)
 		until heads == 0	
 	end
 	--Storm Giant Toes 29124 and Frost Giant Toes 29125 can be turned in together.
-	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 29124, item2 = 29124, item3, = 29124, item4= 29124})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 29124, item2 = 29124, item3 = 29124, item4 = 29124})) then
 		toes = 4;
 	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 29125, item2 = 29125, item3 = 29125, item4 = 29125})) then
 		toes = 4;

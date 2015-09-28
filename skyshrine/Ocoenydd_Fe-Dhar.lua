@@ -5,7 +5,7 @@ local SKYSHRINE_ARMOR = quest_helper.SKYSHRINE_ARMOR;
 
 local QUEST_TEXT = {
   hail="Greetings to you. I seek those who call themselves magicians. Are you a magician, little one?",
-  magician=("I thought so. I have several tasks for you accomplish. Once you have completed them I will have a cap, a robe, sleeves, wristbands, gloves, leggings and boots to reward you with.",
+  magician="I thought so. I have several tasks for you accomplish. Once you have completed them I will have a cap, a robe, sleeves, wristbands, gloves, leggings and boots to reward you with.",
 
 }
 

@@ -26,12 +26,12 @@ function event_trade(e)
 	local item_lib = require('items')
 
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 9343, item2 = 9344, item3 = 9345, item4 = 9346})) then
-		e.self:Say("You have done well ".. e.other:GetName.. ", and Susarrak of the Crusaders is pleased by your success and honorable actions in binding yourself to this duty. The Crusaders of Veeshan recognize your efforts and we shall honor our word of just recognition to be delivered in effect of your deeds.");
-		e.other:QuestReward(0,0,0,0, 30393, 0); 
+		e.self:Say("You have done well ".. e.other:GetName().. ", and Susarrak of the Crusaders is pleased by your success and honorable actions in binding yourself to this duty. The Crusaders of Veeshan recognize your efforts and we shall honor our word of just recognition to be delivered in effect of your deeds.");
+		e.other:QuestReward(0,0,0,0, 30387, 0);  --Fitz's Chromatic Earring
 	end
 	
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 9327, item2 = 9328})) then
-		e.self:Say("You have done well " ..e.other:GetName.. ", and Susarrak of the Crusaders is pleased by your success and honorable actions in binding yourself to this duty. The Crusaders of Veeshan recognize your efforts and we shall honor our word of just recognition to be delivered in effect of your deeds.");	
+		e.self:Say("You have done well " ..e.other:GetName().. ", and Susarrak of the Crusaders is pleased by your success and honorable actions in binding yourself to this duty. The Crusaders of Veeshan recognize your efforts and we shall honor our word of just recognition to be delivered in effect of your deeds.");	
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end

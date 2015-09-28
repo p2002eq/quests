@@ -1,6 +1,6 @@
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Hail and well met, " ..e.other:GetName..". I can see by your appearance that you are well traveled. I congratulate you on your thirst for adventure as you are obviously far from where you call home. Would you happen to [study the art of sorcery]?");
+		e.self:Say("Hail and well met, " .. e.other:GetName() ..". I can see by your appearance that you are well traveled. I congratulate you on your thirst for adventure as you are obviously far from where you call home. Would you happen to [study the art of sorcery]?");
 	--Hsagra's Wrath Start	
 	elseif(e.message:findi("I want to study the art of sorcery")) then
 		e.self:Say("Then I believe you would be interested in hearing of the sad tale of our beloved Hsagra. Many years ago, Hsagra was slain by the wicked Kromzek Porlos. Unfortunately, Porlos found out that Hsagra had discovered a new magic that was extremely powerful against the Giants. Hsagra was the mate of Yelinak. You might have heard the tale of Yelinak, for he still lives with the terrible memory of the horrid day that he lost his wingmate. The Giants even have the gall to have made the throne of King Tormax out of the skull of Hsagra. Do you [wish to avenge Hsagra] after what I have told you?");
@@ -19,7 +19,7 @@ function event_trade(e)
 	local item_lib = require("items")
 
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 1897, item2 = 1898, item3 = 1899})) then
-		e.self:Say(..e.other:GetName.. ", you are to be commended for your valor and determination in assisting my Kin. Here is the spell that Hsagra died so long ago over. I only ask that each time that you use the sorcery here, that you remember Hsagra in a silent prayer of thanks. For I hope that will help ease Yelinak's still tormented soul from his loss. I bid you farewell. You are welcome amongst our ranks.");
+		e.self:Say(e.other:GetName().. ", you are to be commended for your valor and determination in assisting my Kin. Here is the spell that Hsagra died so long ago over. I only ask that each time that you use the sorcery here, that you remember Hsagra in a silent prayer of thanks. For I hope that will help ease Yelinak's still tormented soul from his loss. I bid you farewell. You are welcome amongst our ranks.");
 		e.other:Faction(42, 100); --CoV
 		e.other:Faction(362, 100); --Yelinak
 		e.other:Faction(189, -100); --Kromzek

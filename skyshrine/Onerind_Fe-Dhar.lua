@@ -21,7 +21,7 @@ function event_say(e)
   elseif(e.message:findi("armor")) then
   	e.self:Emote(" laughs deeply.");
   	e.self:Say("You manlings are so transparent. Well, if armor is what you wish, then only the best shall you have for I will not waste my time on less than the best. This is what I will make for you, granted that you can acquire the components for me - a helm, breastplate, armplates, bracers, gauntlets, leggings, and boots.");
-  elseif(e.message:findi("helm") then
+  elseif(e.message:findi("helm")) then
    e.self:Say("For the helm I shall require an unadorned plate helmet and three pieces of crushed coral for my trouble. Does your tiny mind comprehend the task set before you? If so, then get them immediately! I am beginning to get hungry and you are looking all the better as a snack.");
   elseif(e.message:findi("breastplate")) then
    e.self:Say("For the breastplate, I require an unadorned breastplate and three flawless diamonds. Nothing more, nothing less. For perfection, there is a price, insignificant one.");

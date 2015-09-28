@@ -22,7 +22,7 @@ function event_say(e)
 		e.self:Say("The shellac used for the instruments must be created by a brewer from a Flask of Water, an [Oily Goo Secretion], and one [Kromrif Spit Vodka]. Once you have the shellac fire the old dragon horn or brontotherium femur in a kiln with the shellac.");
 	elseif(e.message:findi("kromrif spit vodka")) then
 		e.self:Say("Kromrif Spit Vodka is a strong alcohol that can be purchased from the Coldain brewers of Thurgadin.");				
-
+	end
 end
 
 function event_trade(e)
@@ -39,7 +39,7 @@ function event_trade(e)
 	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 10036, item2 = 11658})) then
 		e.self:Say("This will do nicely. Here take the horn I have already prepared and I will craft myself another horn from the materials you have collected.");
 		e.other:Faction(42, 10); --CoV
-		e.other:QuestReward(e.self, 0, 0, 0, 0, 12554. 50000);
+		e.other:QuestReward(e.self, 0, 0, 0, 0, 12554, 50000);
 	end
 
 	item_lib.return_items(event.self, event.other, event.trade);
