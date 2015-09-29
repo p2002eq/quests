@@ -7,7 +7,7 @@ function event_trade(e)
 		e.self:Emote("begins to pull his face off.. it is a disguise!! 'Aha!! You have made it!! I cannot see well in this disguise, but I thought I smelled you. I have [news of the Charasis tome].'");
 		e.other:Ding();
 		eq.spawn2(84404,0,0,e.self:GetX(),e.self:GetY(),e.self:GetZ(),e.self:GetHeading());
-		eq.spawn2(84311,0,0,-1822,617,142.5,103);
+		eq.spawn2(84392,0,0,-1822,617,142.5,103);
 		eq.depop();
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
