@@ -1,10 +1,10 @@
 function event_say(e)
     if (e.message:findi("hail")) then
         e.self:Say("Ah, welcome stranger. Perhaps I could interest you in one of my famous Boysenberry pies, the delight of Sky Shrine.");
-        eq.signal(114496, 1, 1); --Ruru
-    elseif (e.message.findi("boysenberry pie")) then
+        eq.signal(114496, 1, 4); --Ruru
+    elseif (e.message:findi("boysenberry pie")) then
         e.self:Say("chuckles, 'I thought you might, what say you now Ruru? Who is the better cook between us now?'");
-        eq.signal(114496, 4, 1); --Ruru
+        eq.signal(114496, 4, 4); --Ruru
     end
 end
 
@@ -15,7 +15,7 @@ function event_signal(e)
         e.self:Say("Please ignore my friend Ruru here. He is a bit delusional.");
     elseif (e.signal == 3) then
         e.self:Emote( "laughs, 'I'm sure they'd prefer my Boysenberry pie to your Roasted Walrus with Plum Sauce any day.'");
-        eq.signal(114496, 5, 1); -- Ruru
+        eq.signal(114496, 5, 4); -- Ruru
     end
 end
 

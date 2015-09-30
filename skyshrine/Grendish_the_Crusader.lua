@@ -1,5 +1,5 @@
 function event_say(e)
-	if (e.other:GetFaction(e.self) == 1) then --Must be ally
+	if (e.other:GetFaction(e.self) < 2) then --Must be ally
 		if(e.message:findi("hail")) then
 			e.self:Say("Greetings. You address Crusader Grendish, keeper of mindful discipline and the spiritual ties of our manifestations upon this world. I can sense as clear as the warmth of Ro's touch upon our scales that honor washes through the fabric of your being -- honor that has been displayed and proven countless times over in your loyalty to the Claws of Veeshan. But something obstructs purity in you -- your motives are clearer still. All of your kind that have come before us believe we to be as our brethren -- at ease with our stations and at a loss of judgment toward those whom have proven worthy of our recognition and knowledge. Know that the Crusaders do not regard you or your kind to be paralleled in existence unto us -- a regard that the recent, ignorant and disregarding [actions] of your kind has justly and firmly instated within us.");
 		elseif(e.message:findi("actions")) then

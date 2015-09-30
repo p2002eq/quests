@@ -14,7 +14,7 @@ local QUEST_ITEMS = {
 }
 
 function event_say(e)
-  if(e.other:GetFaction(e.self) == 1) then -- Must be Ally
+  if(e.other:GetFaction(e.self) < 2) then -- Must be Ally
     if(e.message:findi("hail")) then
       e.self:Say("What do we have here? A cutthroat, perhaps? If you are a rogue, I may have use for you. I am in need of certain components and will reward you well if they are brought to me. Do I have your services?");
     elseif(e.message:findi("you have my services")) then

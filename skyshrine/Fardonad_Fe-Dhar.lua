@@ -14,7 +14,7 @@ local QUEST_ITEMS = {
 }
 
 function event_say(e)
-	if (e.other:GetFaction(e.self) == 1) then --Must be ally
+	if (e.other:GetFaction(e.self) < 2) then --Must be ally
 		if(e.message:findi("hail")) then
 			e.self:Say("Hail, most pious one. I sense the aura of your devotion and conviction and it is strong about you. A shame you are so short lived, mortal. But I see potential in you and for that I shall aid you in your calling if you are a cleric. Do you wish my aid?");
 		elseif(e.message:findi("i wish your aid")) then

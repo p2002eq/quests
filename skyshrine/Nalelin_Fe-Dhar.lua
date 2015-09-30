@@ -14,7 +14,7 @@ local QUEST_ITEMS={
 }
 
 function event_say(e)
-	if (e.other:GetFaction(e.self) == 1) then --Must be ally
+	if (e.other:GetFaction(e.self) < 2) then --Must be ally
 		if (e.message:findi("hail")) then
 			e.self:Say("Greetings, I seek the ones who stalk through the forests protecting it. If you are one known as a ranger, submit to my will and become stronger. The tasks I set forth will not be easy. Are you ready to submit to my will?");
 		elseif(e.message:findi("submit to your will")) then

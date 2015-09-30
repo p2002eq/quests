@@ -14,7 +14,7 @@ local QUEST_ITEMS = {
 }
 
 function event_say(e)
-	if (e.other:GetFaction(e.self) == 1) then -- Must be ally
+	if (e.other:GetFaction(e.self) < 2) then -- Must be ally
 		if(e.message:findi("hail")) then
 			e.self:Say("Greetings to you. I seek one who calls himself a druid. What do you call yourself, manling?");
 		elseif(e.message:findi("i am a druid")) then

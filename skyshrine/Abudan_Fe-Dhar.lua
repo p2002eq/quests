@@ -14,7 +14,7 @@ local QUEST_ITEMS = {
 }
 
 function event_say(e)
-	if(e.other:GetFaction(e.self) == 1) then -- must be ally
+	if(e.other:GetFaction(e.self) < 2) then -- must be ally
 		if(e.message:findi("hail")) then
 		 	e.self:Emote(" eyes you malevolently.");
 			e.self:Say("I seek those who practice the dark magicks. I seek those who call themselves necromancers. Are you what I seek?");

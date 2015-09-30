@@ -14,7 +14,7 @@ local QUEST_ITEMS = {
 }
 
 function event_say(e)
-  if (e.other:GetFaction(e.self) == 1) then --must be ally
+  if (e.other:GetFaction(e.self) < 2) then --must be ally
     if (e.message:findi("hail")) then
       e.self:Emote("speaks in a deep tone.");
       e.self:Say("Greetings. I wish to speak only to a shaman, so I might aid them with protection from the world in the form of armor.");
