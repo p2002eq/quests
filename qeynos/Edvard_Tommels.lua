@@ -17,7 +17,7 @@ function event_trade(e)
 		e.other:SummonItem(12076);
 		e.other:Ding();
 		e.other:Faction(434,30,0);
-		e.other:AddEXP(100);
+		e.other:AddEXP(10000);
 		e.other:GiveCash(cp,sp,gp,pp);
 	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 18504}) or item_lib.check_turn_in(e.self, e.trade, {item1 = 18505}) or item_lib.check_turn_in(e.self, e.trade, {item1 = 18506}) or item_lib.check_turn_in(e.self, e.trade, {item1 = 18507})) then
 		local pp = math.random(2);
@@ -27,7 +27,7 @@ function event_trade(e)
 		e.self:Say(string.format("Why thank you, %s. If you do happen to come across any more of these, please bring them to me.",e.other:GetName()));
 		e.other:Ding();
 		e.other:Faction(434,5,0);
-		e.other:AddEXP(100);
+		e.other:AddEXP(10000);
 		e.other:GiveCash(cp,sp,gp,pp);
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
