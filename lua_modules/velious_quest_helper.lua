@@ -150,7 +150,7 @@ helper.THURG_PRIEST_TEXT = {
     boots="Boots made for battle are not always the most comfortable available. However, if you seek a fine set for battle bring me a set of corroded plate boots and three pieces of crushed flame emerald."
 }
 
-help.SKYSHRINE_SILK_TEXT = {
+helper.SKYSHRINE_SILK_TEXT = {
     cap="For you to receive my gift, I shall require three crushed flame opals and a tattered silk turban.",
     robe="This exquisite robe shall be yours in exchange for a tattered silk robe and three pristine emeralds.",
     sleeves="For these durable sleeves, you must fetch me a pair of tattered silk sleeves and three flawed topaz.",
