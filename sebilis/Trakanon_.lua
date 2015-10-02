@@ -1,6 +1,5 @@
 function event_spawn(e)
 	eq.set_timer("depop", 86400000); -- set timer for 24 hours
-    
 end
 
 function event_timer(e)
