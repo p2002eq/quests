@@ -7,7 +7,7 @@ local QUEST_ITEMS={
 	quest_helper:melee_helmet(SKYSHRINE_ARMOR.Chain_Coif, 31112), --helm
 	quest_helper:melee_chest(SKYSHRINE_ARMOR.Chain_Tunic, 31113), --breastChain
 	quest_helper:melee_arms(SKYSHRINE_ARMOR.Chain_Sleeves, 31114), --arms
-	quest_helper:melee_bracers(SKYSHRINE_ARMOR.Chain_Bracer, 31115), --bracer
+	quest_helper:melee_bracer(SKYSHRINE_ARMOR.Chain_Bracer, 31115), --bracer
 	quest_helper:melee_gloves(SKYSHRINE_ARMOR.Chain_Gauntlets, 31116), --glove
 	quest_helper:melee_legs(SKYSHRINE_ARMOR.Chain_Leggings, 31117), --leg
 	quest_helper:melee_boots(SKYSHRINE_ARMOR.Chain_Boots, 31118), -- boots
