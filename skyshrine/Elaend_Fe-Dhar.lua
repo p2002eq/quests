@@ -4,13 +4,13 @@ local quest_helper = require('velious_quest_helper');
 local SKYSHRINE_ARMOR = quest_helper.SKYSHRINE_ARMOR;
 
 local QUEST_ITEMS = {
-    quest_helper:caster_helmet(SKYSHRINE_ARMOR.Silk_Turban, 31154), -- helm
-    quest_helper:caster_chest(SKYSHRINE_ARMOR.Silk_Robe, 31155), -- chest
-    quest_helper:caster_arms(SKYSHRINE_ARMOR.Silk_Sleeves, 31156), -- arms
-    quest_helper:caster_bracer(SKYSHRINE_ARMOR.Silk_Wristband, 31157), -- wrist
-    quest_helper:caster_gloves(SKYSHRINE_ARMOR.Silk_Gloves, 31158), -- gloves
-    quest_helper:caster_legs(SKYSHRINE_ARMOR.Silk_Pantaloons, 31159), -- legs
-    quest_helper:caster_boots(SKYSHRINE_ARMOR.Silk_Boots, 31160) -- boots
+    quest_helper:silk_helmet(SKYSHRINE_ARMOR.Silk_Turban, 31154), -- helm
+    quest_helper:silk_chest(SKYSHRINE_ARMOR.Silk_Robe, 31155), -- chest
+    quest_helper:silk_arms(SKYSHRINE_ARMOR.Silk_Sleeves, 31156), -- arms
+    quest_helper:silk_bracer(SKYSHRINE_ARMOR.Silk_Wristband, 31157), -- wrist
+    quest_helper:silk_gloves(SKYSHRINE_ARMOR.Silk_Gloves, 31158), -- gloves
+    quest_helper:silk_legs(SKYSHRINE_ARMOR.Silk_Pantaloons, 31159), -- legs
+    quest_helper:silk_boots(SKYSHRINE_ARMOR.Silk_Boots, 31160) -- boots
 }
 
 function event_say(e)
