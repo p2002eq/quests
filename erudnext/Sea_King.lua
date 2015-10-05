@@ -36,7 +36,7 @@ function event_waypoint_arrive(e)
 				ent:MovePC(98,2337,418,-22,-1);
 			end,
 			function(ent)
-				if(ent:GetBoatID() == 772) then
+				if(ent:GetBoatID() == 772 and ent:GetY() > 500) then
 					return true;
 				end
 				return false;
