@@ -14,7 +14,7 @@ function event_trade(e)
 		e.other:QuestReward(e.self,0,0,0,0,12848);
 	end
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 12848, item2 = 12850, item3 = 12851, item4 = 12610})) then
-		if(e.other:GetLevel() > 20) then
+		if(e.other:GetLevel()> 20) then
 			e.other:QuestReward(e.self,0,0,0,0,12849);
 		else
 			e.self:Say('You will have to be more skilled to complete that quest.');
