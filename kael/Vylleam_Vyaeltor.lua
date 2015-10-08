@@ -4,12 +4,13 @@ local quest_helper = require('velious_quest_helper');
 local SKYSHRINE_ARMOR = quest_helper.SKYSHRINE_ARMOR;
 
 local QUEST_ITEMS = {
-	quest_helper:priest_chest(KAEL_ARMOR.Breastplate, 25391), -- Breastplate
-	quest_helper:priest_arms(KAEL_ARMOR.Plate_Vambraces, 25392), -- Arms
-	quest_helper:priest_bracer(KAEL_ARMOR.Plate_Bracer, 25393), --Bracer
-	quest_helper:priest_gloves(KAEL_ARMOR.Plate_Gauntlets, 25394), --gloves
-	quest_helper:priest_legs(KAEL_ARMOR.Plate_Greaves, 25395), --legs
-	quest_helper:priest_boots(KAEL_ARMOR.Plate_Boots, 25396), --boots
+	quest_helper:priest_helmet(KAEL_ARMOR.Plate_Helmet, 25391), --helm
+	quest_helper:priest_chest(KAEL_ARMOR.Breastplate, 25392), -- Breastplate
+	quest_helper:priest_arms(KAEL_ARMOR.Plate_Vambraces, 25393), -- Arms
+	quest_helper:priest_bracer(KAEL_ARMOR.Plate_Bracer, 25394), --Bracer
+	quest_helper:priest_gloves(KAEL_ARMOR.Plate_Gauntlets, 25395), --gloves
+	quest_helper:priest_legs(KAEL_ARMOR.Plate_Greaves, 25396), --legs
+	quest_helper:priest_boots(KAEL_ARMOR.Plate_Boots, 25397), --boots
 	
 }
 
