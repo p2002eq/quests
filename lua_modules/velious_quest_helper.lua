@@ -250,6 +250,26 @@ function helper:skyshrine_armor_success(e)
     e.self:Say("Excellent! I had not thought that one such as you would be able to complete such a task. Now I will hold up my end of the bargain. Here is the armor that I promised I would fashion for you upon returning these items to me. Wear it with pride! ");
 end
 
+function helper.kael_armor_faction(e)
+    local KINGTORMAX = 179;
+    local KROMZEK = 189;
+    local CoV = 42;
+    local COLDAIN = 49;
+    e.other:Faction(KINGTORMAX, 20);
+    e.other:Faction(KROMZEK, 20);
+    e.other:Faction(CoV, -30);
+    e.other:Faction(COLDAIN, -60);
+end
+
+function helper:kael_armor_success(e)
+    e.other:AddEXP(175000);
+    self.kael_armor_faction(e);
+    e.other:Ding();
+    e.self:Emote("smiles warmly as he hands you your reward.");
+    e.self:Say("You have done well.");
+end
+
+function helper.kael_armor_faction(e)
 function helper:quest_turn_in_item(gem, armor, reward)
     return {turn_in={item1=gem, item2=gem, item3=gem, item4=armor}, reward=reward}
 end
