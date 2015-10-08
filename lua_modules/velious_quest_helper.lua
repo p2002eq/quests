@@ -269,7 +269,6 @@ function helper:kael_armor_success(e)
     e.self:Say("You have done well.");
 end
 
-function helper.kael_armor_faction(e)
 function helper:quest_turn_in_item(gem, armor, reward)
     return {turn_in={item1=gem, item2=gem, item3=gem, item4=armor}, reward=reward}
 end
