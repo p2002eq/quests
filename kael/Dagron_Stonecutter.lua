@@ -38,6 +38,7 @@ function event_say(e)
 		end
 	else
 		e.self:Say("You must prove your dedication to Kael Drakkal and the Kromzek clan before I will speak to you.");
+	end
 end
 
 function event_trade(e)
