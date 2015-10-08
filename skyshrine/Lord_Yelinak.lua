@@ -8,7 +8,7 @@ function event_say(e)
 			e.self:Say("This sword is a symbol of our evolution and ancient heritage. Back when our feathered relatives were not so distant, a sword was forged and enchanted with the spirit of an elder griffin. This noble griffin bound his soul to the sword, the essence of his being honing the blade to an edge imperceptible to mortal eyes. Although our races have evolved away from each other, we still hold them in high regard. But if you think you are not worthy to wield this honor, return the sword to me and I have other tokens you may find of more use.");
 		end
 	else
-		e.self:Say("You have yet to prove your loyalty to me, "..e.other:GetRace()..".  Return to me when you have done so.");
+		e.self:Say("You have yet to prove your loyalty to me, "..e.other:Race()..".  Return to me when you have done so.");
 	end			
 			
 end

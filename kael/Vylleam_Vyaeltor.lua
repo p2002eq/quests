@@ -1,7 +1,7 @@
 --cleric
 
 local quest_helper = require('velious_quest_helper');
-local SKYSHRINE_ARMOR = quest_helper.SKYSHRINE_ARMOR;
+local KAEL_ARMOR = quest_helper.KAEL_ARMOR;
 
 local QUEST_ITEMS = {
 	quest_helper:priest_helmet(KAEL_ARMOR.Plate_Helmet, 25391), --helm

@@ -161,6 +161,15 @@ helper.SKYSHRINE_SILK_TEXT = {
 
 }
 
+helper.KAEL_SILK_TEXT = {
+	cap="For you to receive my gift, I shall require an ancient silk turban and three crushed flame opals.",
+	robe="This exquisite robe shall be yours in exchange for an ancient silk robe and three pristine emeralds.",
+	sleeves="For these durable sleeves, you must fetch me a pair of ancient silk sleeves and three flawed topazes.",
+	wristbands="The crafting of this wristband requires that you bring me an ancient silk wristband and three crushed pieces of onyx sapphire.",
+	gloves="For this fine pair of gloves you must seek out and return to me three crushed topazes and a pair of ancient silk gloves.",
+	leggings="This pair of leggings will be yours provided you supply me with a pair of ancient silk pantaloons as well as three nephrites.",
+	boots="These supple boots shall be yours upon receipt of a pair of ancient silk boots and a trilogy of crushed jaundice gems.",
+}
 function helper.merge_tables(orig, other)
     for k,v in pairs(other) do orig[k] = v end
     return orig;
