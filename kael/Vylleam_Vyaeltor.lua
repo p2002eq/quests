@@ -15,7 +15,7 @@ local QUEST_ITEMS = {
 }
 
 function event_say(e)
-	if(e.other:GetFaction(e.self) > 2) then -- Must be Ally
+	if(e.other:GetFaction(e.self) < 2) then -- Must be Ally
 		if(e.message:findi("hail")) then
 			e.self:Emote(" bows.");
 			e.self:Say("Greetings to you. You are far away from your homelands, stranger. I am looking for someone. Someone that the outlanders call a cleric. Are you a cleric?");
