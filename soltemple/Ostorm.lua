@@ -18,14 +18,19 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 10035})) then
-		e.self:Say("..hear me? Ah, you seem to be coming out of your stupor. I think you have been exposed to the crystal long enough. By the time you leave the temple, your memories should have faded. Do you have the [fifty gold] coins that you owe me?");
-		e.other:Faction(320,15);
-		e.other:Faction(291,-15);
-		for skill=43,47,1 do
-			e.other:SetSkill(skill,49);
+		if(e.other:GetClass() == 2 or e.other:GetClass() == 6 or e.other:GetClass() == 10 or e.other:GetClass() == 11 or e.other:GetClass() == 12 or e.other:GetClass() == 13 or e.other:GetClass() == 14) then
+			e.self:Say("..hear me? Ah, you seem to be coming out of your stupor. I think you have been exposed to the crystal long enough. By the time you leave the temple, your memories should have faded. Do you have the [fifty gold] coins that you owe me?");
+			e.other:Faction(320,15);
+			e.other:Faction(291,-15);
+			for skill=43,47,1 do
+				e.other:SetSkill(skill,49);
+			end
+			e.other:Message(7, "Your specialize skills have all been set to 49.");
+			e.other:QuestReward(e.self,0,0,0,0,0,1000);
+		else
+			e.self:Say("I only do caster and priest type, Sorry I can't help you there."); -- text made up
+			e.other:SummonItem(10035);
 		end
-		e.other:Message(7, "Your specialize skills have all been set to 49.");
-		e.other:QuestReward(e.self,0,0,0,0,0,1000);
 	elseif(item_lib.check_turn_in(e.self, e.trade, {gold = 50})) then
 		e.self:Say("Thank you.");
 		e.other:Faction(320, 15);
