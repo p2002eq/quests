@@ -1,7 +1,7 @@
 
 function event_say(e)
     if (e.message:findi("hail")) then
-        e.self:Say("Salutations dragon friend "..GetName()..". I am Iago Sabuela archeologist, enchanter, and proud member of the [Draconic Loyalist Fellowship]. Please make yourself comfortable and enjoy your visit to Skyshrine.");
+        e.self:Say("Salutations dragon friend "..e.GetName()..". I am Iago Sabuela archeologist, enchanter, and proud member of the [Draconic Loyalist Fellowship]. Please make yourself comfortable and enjoy your visit to Skyshrine.");
     elseif (e.message:findi("Draconic Loyalist Fellowship")) then
         e.self:Say("The Draconic Loyalist Fellowship is people like myself of a non-draconic heritage that have pledged obedience to the dragons and dragon-kin of Skyshrine. We have proven that we can provide valuable services and resources to the dragons and dragon-kin that would otherwise be difficult or impossible for them to obtain. Among the occupations I pursue here in the Skyshrine is the acquisition of lost [draconic artifacts].");
     elseif (e.message:findi("What draconic artifacts?")) then
