@@ -1,6 +1,0 @@
-9/8/15
-	Iksar BP need Comm Streaven
-	Added Skyshrine Priests turn ins and armor gems
-	Converted Skyshrine NPC's to lua
-	Added Sarnak Collection adj to Herald Telcha
-
