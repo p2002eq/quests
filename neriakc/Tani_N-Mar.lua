@@ -3,14 +3,16 @@
 function event_say(e)
 	if(e.message:findi("hail")) then
 		e.self:Say("Greetings!  You must be a stranger or [new to the Hall].  If you are a stranger. be warned that these halls are intended for the Ebon Mask only. If you are found to be a member of another house. you just may feel the sting of a blade in your back.");
-	elseif(e.message:findi("i am new to the hall")) then
+	elseif(e.message:findi("new to the hall")) then
 		e.self:Say("Then I am glad to make your acquaintance. Have you ever been to Freeport?  If not. how would you like to go?  It is a test of your cunning we wish.  Are you prepared to risk your young life?  Are you [ready to venture to Freeport]?");
-	elseif(e.message:findi("i am ready to venture to freeport")) then
+	elseif(e.message:findi("venture to freeport")) then
 		e.self:Say("Find a way to the port of Freeport.  Seek out Giz Dinree.  She is usually near the shores at night.  She is your contact. Tell her you were [sent by TanI].  She will fill you in on your mission.  Good luck.  Do not waste time practicing your skills. Go as you are.");
 	elseif(e.message:findi("book of souls")) then
 		e.self:Say("The Book of Souls chronicles all the lives Innoruuk has tainted over the years. It is in the care of the Maestro of Rancor. I can use this tome as a basis for my translation, if you return it and the note to me. An experienced practitioner in the art of non-detection should be able to snatch it from its resting place, don't you think, " .. e.other:Race() .. "?'");
 	elseif(e.message:findi("note")) then
 		e.self:Say("Oh, you want that piece of paper Stanos was so hot after? Well it's mine now, though it looks like ogre scratch to me. You're not getting it, Stanos is not getting it, and Hanns is not getting it. It is MINE! Now, " .. e.other:Race() .. ", scamper off like the dog you are, before I decide I need more practice with these short swords!");
+	elseif(e.message:findi("stanos")) then
+		e.self:Say("Stanos? Hahahaha! That old fool crossed my path a few times in the past, but he is not able to trouble me now. If you see him, tell him Tani sends his..love. Hahahaha!");
 	end
 end
 
