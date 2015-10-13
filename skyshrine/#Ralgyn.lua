@@ -1,7 +1,7 @@
 function event_say(e)
 	if(e.other:GetFaction(e.self) == 1) then
 		if(e.message:findi("hail")) then
-			e.self:Say("Hello, "..e.GetName()..", what brings you to these sacred quarters on this day? If it is treasure that you seek please ask someone else for I do not have time to think of such petty things. My worries are much greater at this time I am afraid.");
+			e.self:Say("Hello, "..e.other:GetName()..", what brings you to these sacred quarters on this day? If it is treasure that you seek please ask someone else for I do not have time to think of such petty things. My worries are much greater at this time I am afraid.");
 		elseif(e.message:findi("what worries")) then
 			e.self:Say("Well I suppose I can tell you of my promise if you are willing to listen as I do not feel you have intentions of using anything I tell you against my dragonkin. Not many can walk these quarters unless they are very trusted amongst us.");
 		elseif(e.message:findi("what promise")) then
