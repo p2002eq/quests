@@ -2,7 +2,7 @@
 function event_say(e)
 	
 	if(e.message:findi("hail")) then
-		e.self:Say("Greetings, "..e.GetName()..", I am the Herald of Lord Yelinak, the great ice dragon. I'm charged with taking care of all mundane tasks that are too trivial for the great dragon.");
+		e.self:Say("Greetings, "..e.other:GetName()..", I am the Herald of Lord Yelinak, the great ice dragon. I'm charged with taking care of all mundane tasks that are too trivial for the great dragon.");
 	elseif(e.message:findi("i am worthy")) then
 		e.self:Say("You must first prove this to me before I allow you through our home. Wenglawks of Kael is an acquaintance of ours who has been feeding us information on the storm giants' movements through Velious. Lately our couriers to him have disappeared. What you must do is take this request to him along with 200 platinum as payment for the storm giants' locations and return the information to me. After you complete this task for me, we will discuss passage through the Skyshrine");
 		e.other:SummonItem(28600); --Message to Wenglawks
