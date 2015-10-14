@@ -10,11 +10,11 @@ function event_trade(e)
 	local item_lib = require('items');
 
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 22812, item2=19113, item3 = 16498, item4 = 16498})) then
-		e.self:Say("It has been many moons since my people have feasted on this rarest of meat. Take this totem crafted in the form of our oceanlord Prexus and inscribed with the runes of our people. May the oceans watch over you, $name.");
+		e.self:Say("It has been many moons since my people have feasted on this rarest of meat. Take this totem crafted in the form of our oceanlord Prexus and inscribed with the runes of our people. May the oceans watch over you, "..e.other:GetName()..".");
 		e.other:Faction(241, 30); --Othmir
 		e.other:Faction(345, -60); --Ulthork
 	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 22813, item2=19113, item3 = 16498, item4 = 16498})) then
-		e.self:Say("It has been many moons since my people have feasted on this rarest of meat. Take this totem crafted in the form of our oceanlord Prexus and inscribed with the runes of our people. May the oceans watch over you, $name.");
+		e.self:Say("It has been many moons since my people have feasted on this rarest of meat. Take this totem crafted in the form of our oceanlord Prexus and inscribed with the runes of our people. May the oceans watch over you, "..e.other:GetName()..".");
 		e.other:Faction(241, 30); --Othmir
 		e.other:Faction(345, -60); --Ulthork
 	end

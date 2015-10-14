@@ -20,12 +20,12 @@ function event_trade(e)
 	local item_lib = require('items');
 
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 22823, item2= 24874, item3 = 21004})) then
-		e.self:Emote("skillfully crafts the Emerald Dragon Scales into a tunic, hands it to $name, and claps enthusiastically.");
+		e.self:Emote("skillfully crafts the Emerald Dragon Scales into a tunic, hands it to "..e.other:GetName()..", and claps enthusiastically.");
 		e.other:Faction(241, 30); --Othmir		
 		e.other:Faction(345, -60); --Ulthork
 		e.other:QuestReward(e.self, 0, 0, 0, 0, 11635, 10000) --Emerald Dragonscale Tunic
 	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 22814, item2 = 28515, item3 = 3509})) then	
-		e.self:Emote("skillfully crafts the Sea Dragon Scales into a bracer, hands it to $name, and claps enthusiastically.");
+		e.self:Emote("skillfully crafts the Sea Dragon Scales into a bracer, hands it to "..e.other:GetName()..", and claps enthusiastically.");
 		e.other:Faction(241, 30); --Othmir		
 		e.other:Faction(345, -60); --Ulthork
 		e.other:QuestReward(e.self, 0, 0, 0, 0, 11589, 10000); --Sea Dragonscale Bracer
