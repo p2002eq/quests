@@ -8,9 +8,12 @@ function event_say(e)
 end
 
 function event_timer(e)
-	if((e.timer == "ZoneTime") and (zonehour == 21)) then
+	local zone_time = eq.get_zone_time();  --Time is off by 1 so 6AM = 5
+	local hour = zone_time['zone_hour'] + 1;
+--	if((e.timer == "ZoneTime") and (zonehour == 21)) then
+	if(hour == 21) then
 		eq.spawn2(84411,0,0,e.self:GetX(),e.self:GetY(),e.self:GetZ(),e.self:GetHeading());
-		eq.stop_timer("ZoneTime");
+--		eq.stop_timer("ZoneTime");
 		eq.depop_with_timer();
 	end
 end
