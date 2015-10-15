@@ -16,7 +16,7 @@ function event_say(e)
 		elseif (e.other:GetFaction(e.self < 5)) and (e.other:GetFaction(e.self) >= 3) then --Kindly or Amiable
 			e.self:Emote("smiles at you and nods his head indicating he has been pleased with your progress.");
 		else --Ally or Warmly
-			e.self:Say("Greetin's and good fortune to yerself, $race. Chamberlain Krystorf speaks highly of the deeds you have performed for our people and so I welcome you to my Keep. I ask you now to take up a most dangerous duty for our people. Would you accept such a challenge from the King of a people not your own?");
+			e.self:Say("Greetin's and good fortune to yerself, "..e.other:Race()..". Chamberlain Krystorf speaks highly of the deeds you have performed for our people and so I welcome you to my Keep. I ask you now to take up a most dangerous duty for our people. Would you accept such a challenge from the King of a people not your own?");
 		end
 	elseif (e.message:findi("accept")) and (e.other:GetFaction(e.self) < 3) then --Must be Warmly or ally
 			e.self:Emote("smiles at you with pride");
