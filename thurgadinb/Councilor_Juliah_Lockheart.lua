@@ -9,7 +9,7 @@ function event_trade(e)
 
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 1464})) then
 		eq.depop();
-		eq.spawn2(NeedID, 0, 0, e.self:GetX(), e.self:GetY(), e.self:GetHeading()); --This line will give an error until have a valid NPCID
+		eq.spawn2(129102, 0, 0, e.self:GetX(), e.self:GetY(), e.self:GetHeading());
 	end
 
 	item_lib.return_items(e.self, e.other, e.trade)		

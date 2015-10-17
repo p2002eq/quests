@@ -10,6 +10,8 @@ local QUEST_TEXT = {
 }
 
 
+QUEST_TEXT = quest_helper.merge_tables(QUEST_TEXT, quest_helper.KAEL_SILK_TEXT);
+
 local QUEST_ITEMS = {
 
 	quest_helper:silk_helmet(KAEL_ARMOR.Silk_Turban, 25405),
