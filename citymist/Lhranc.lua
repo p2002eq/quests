@@ -1,6 +1,6 @@
 -- Part of SK Epic 1.0
 function event_say(e)
-	if(e.other:GetFaction(e.self) <= 4) then--True Spirit
+	if(e.other:GetFaction(e.self) < 7) then--True Spirit
 		if(e.message:findi("hail")) then
 			e.self:Say("Ahh, finally! He has sent you. No time to waste now, you must help me lift the curse at once!");
 		elseif(e.message:findi("curse")) then
@@ -15,12 +15,12 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(e.other:GetFaction(e.self) <= 4) then --True Spirit
+	if(e.other:GetCharacterFactionLevel(342) >= 42) then --True Spirit
 		if(item_lib.check_turn_in(e.self, e.trade, {item1 = 14367, item2 = 14368, item3 = 14369, item4 = 14370})) then --Corrupted Ghoulbane, Heart of the Innocent, Head of the Valiant, Will of Innoruuk
 			e.self:Say("Ahh, at last I can free myself of this prison! Centuries have passed since I enjoyed the fruits of mortality.' He hurls the components above his head where they remain suspended in midair. They hover in place while he chants the words of an ancient spell. As he speaks, the items begin to rotate around his head, slowly at first, then faster as the chanting grows louder, until it spins in a blur. Soon, the room is filled with a deafening shriek that pierces you to the core.");
 			e.other:Faction(342, 10); --True Spirit
 			e.other:QuestReward(e.self,0,0,0,0,14384); --Lhranc's Token
-			eq.spawn2(90190, 0, 0,e.self:GetX(),e.self:GetY(),e.self:GetZ(),e.self:GetHeading()); ----Lhranc
+			eq.spawn2(90190, 0, 0, 85.1, 0.9, 7.8, 192); ----Lhranc
 			eq.depop_with_timer();
 		end
 	end
@@ -32,3 +32,5 @@ end
 -- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
 -- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
 -------------------------------------------------------------------------------------------------
+
+
