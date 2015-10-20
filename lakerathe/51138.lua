@@ -2,8 +2,6 @@
 
 function event_spawn(e)
 	e.self:Shout("The Triumvirate of Water has decreed your fate, Shmendrik Lavawalker!! I am here to deliver said fate!!");
-	e.self:CastSpell(672,51012,0,1);
-	eq.signal(51012,99,2000);
 end
 
 function event_say(e)
@@ -16,26 +14,25 @@ function event_trade(e)
 	local item_lib = require("items");
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 28046})) then -- damage goblin crown
 		e.self:Say("I will have this crown returned to the Riptide Goblins immediately! Should you ever come across an Erudite named Omat Vastsea, give him this sea shell. The waters of Norrath shimmer with awareness of your deeds here today!");
-		e.other:SummonItem(28047); -- Ornate Sea Shell (I)
+		e.other:QuestReward(e.self,0,0,0,0,28047); -- Ornate Sea Shell
 		eq.depop();
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
 
 function event_signal(e)
-	if(e.signal == 199) then
+	if(e.signal == 1) then
 		e.self:Say("Enough!! Your existence has come to an end!");
-		eq.signal(51012,299,2000);
-	end
-	if(e.signal == 399) then
+		eq.signal(51012,2,2000);
+	elseif(e.signal == 2) then
 		e.self:Say("This conflict has been destined by the waters of the Triumvirate!");
-		eq.signal(51012,499,2000);
 	end
-	if(e.signal == 599) then
-		eq.spawn2(51145,0,0,33,3619,51,0);
-		-- mob = eq.get_entity_list():GetMobID(entid);
-		-- mobnpc = mob:CastToNPC();
-		-- mobnpc:AddToHateList(npc, 1);
+end
+
+function event_waypoint_arrive(e)
+	if(e.wp == 4 and eq.get_entity_list():IsMobSpawnedByNpcTypeID(51012)) then
+		eq.signal(51012,1,2000);
+		eq.attack_npc_type(51012);
 	end
 end
 
