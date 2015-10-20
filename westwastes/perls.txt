@@ -1,0 +1,678 @@
+#Scout_Charisa.pl 2.12 KB editrawblamehistory remove
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+# Items of Benevolence, starts in Skyshrine with Commander Leuz 
+
+sub EVENT_ITEM { 
+  if ($faction <= 2) {
+    if (plugin::check_handin(\%itemcount, 29683 => 1)) { #Scout Tools
+      quest::say("Great! I was wondering when they would send someone out to give me these. In my haste and excitement of this new assignment I forgot these. This scout business is great I must say. It sure beats setting in Southern Ro studying the ruins. I've been following these Storm Giants for days. They've been wandering up and down the coast looking for something."); 
+      quest::faction(42,30);   #Claws of Veeshan
+      quest::faction(362,30);  #Yelinak
+      quest::faction(189,-20); #Kromzek
+      quest::exp(100000);
+      quest::unique_spawn(120115,0,0,-3501,-4868,-108); # a Kromzek Captain
+      quest::spawn(120121,0,0,-3507,-4897,-106); # Kromzek Warrior
+      quest::spawn(120121,0,0,-3496,-4874,-109); # Kromzek Warrior
+      quest::spawn(120121,0,0,-3474,-4863,-114); # Kromzek Warrior
+      quest::spawn(120121,0,0,-3463,-4852,-117); # Kromzek Warrior
+      quest::spawn(120121,0,0,-3452,-4841,-119); # Kromzek Warrior
+      quest::spawn(120121,0,0,-3441,-4830,-122); # Kromzek Warrior
+      quest::spawn(120121,0,0,-3430,-4819,-124); # Kromzek Warrior
+    }
+    elsif (plugin::check_handin(\%itemcount, 29684 => 1)) { #Broken Disk
+      quest::faction(42,30);   #Claws of Veeshan
+      quest::faction(362,30);  #Yelinak
+      quest::faction(189,-20); #Kromzek
+      quest::summonitem(29688); #Scout Report
+      quest::summonitem(29685); #Robe of Benevolence
+      quest::exp(100000);
+    }
+    elsif (plugin::check_handin(\%itemcount, 29685 => 1)) { #Robe of Benevolence
+      quest::summonitem(29686); #Bracer of Benevolence
+    }
+    elsif (plugin::check_handin(\%itemcount, 29686 => 1)) { #Bracer of Benevolence
+      quest::summonitem(29687); #Talisman of Benevolence
+    }
+    elsif (plugin::check_handin(\%itemcount, 29687 => 1)) { #Talisman of Benevolence
+      quest::summonitem(29685); #Robe of Benevolence
+    }
+	}
+    plugin::return_items(\%itemcount);
+}
+
+#End of File, Zone:westwastes  NPC:120000 -- #Scout_Charisa
+
+
+Breezeboot_Swordrattler.pl 2 KB editrawblamehistory remove
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+sub EVENT_SAY {
+  if($text=~/hail/i) {
+    quest::say("Arr! Well. blow me down and hoist me mizzenmast! Swab the fo'c'sle and kick the bosun! Arrgh. To the four winds with this! I am cold, wet, hungry, shipwrecked, and bloody tired of playing at being a pirate. Breezeboot is not really my name, but it will do for now. I do not know how you got here, but you give me hope of escaping this frozen hell. We have been shipwrecked here for weeks now, though that is a long story.");
+  }
+  if ($text=~/long story/i) {
+    quest::say("We were trying to make a good coastal map of Velious, you understand, and to do that, we needed to circumnavigate the continent. Figured we might find some treasure too. It was not an easy trip, but the boys I brought along are pretty good sailors, and they all know their business, unlike that group of pretend pirates back at the Iceclad landing. We were doing fine until a storm blew up, and ran us right into these rocks. Our port screw, or was that starboard, anyway, the one on the left, broke on the bottom, and we started shipping water, floodiing the boiler. There is no way we can repair the damage. So here we are - stuck!");
+  }
+  if ($text=~/help/i) {
+    quest::say("Well, we will need lumber - a good bit of it. I saw some likely wrecks when we sailed up the Cobalt Scar, you might want to look there. We also need rope, a lot of it, to lash the logs together, at least one hundred feet. Finally, we need something we can use as a sail - I do not like the idea of trying to paddle all the way back. I am not sure what you can find for that, but it needs to be strong, light, and not pass much air. Gather all that up, and come see me. I think I might have a bit of plunder and booty I can part with, in payment.");
+  }
+}
+
+sub EVENT_ITEM {
+  if (plugin::check_handin(\%itemcount, 27264 => 1, 27263 => 1, 27262 => 1)) {
+    quest::summonitem(27310);
+    quest::exp(60000);
+  }
+  plugin::return_items(\%itemcount);
+}
+#END of FILE Zone:westwastes  ID:120051 -- Breezeboot_Swordrattler
+
+Derasinal.pl 1.12 KB editrawblamehistory remove
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+sub EVENT_SAY {
+  if($text=~/hail/i) {
+   quest::say("It is not often that I see strangers in these dangerous lands. Perhaps you are the chosen that Jualicn speaks of that will aid us in our battle against the foul giants. I do not believe you would be here if you were not in need of my sacred rune.");
+  }
+}
+
+sub EVENT_ITEM {
+  if(plugin::check_handin(\%itemcount, 1908 => 1)){ #Jualicn's Token
+    quest::say("I have given you the Rune of Bleve, to assist you in your research for the once lost magic against the Kromzek. I hope that you can make good use of it, for it is very sacred to me. May Veeshan guide your path!");
+    quest::faction(42,10);   #Claws of Veeshan
+    quest::faction(362,10);  #Yelinak
+    quest::faction(189,-30); #Kromzek
+    quest::exp(1000);
+    quest::summonitem(1895); #Rune of Bleve
+    if(!plugin::check_hasitem($client,1893) || !plugin::check_hasitem($client,1894) || !plugin::check_hasitem($client,1896)) {
+      quest::summonitem(1908); #Jualicn's Token
+    }
+    quest::depop_withtimer();
+  }
+  plugin::return_items(\%itemcount);
+}
+
+#NpcID: 120014 - NpcName: Derasinal - Zone: westwastes
+
+
+Draazak.pl 1.18 KB editrawblamehistory remove
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+sub EVENT_SAY {
+  if($text=~/hail/i) {
+    quest::say("Greetings, $name. It cannot be that you would present yourself before me without reason. What brings you to these lands on this day? Please be quick for I have many ancient runes I must study.");
+  }
+}
+
+sub EVENT_ITEM {
+  if(plugin::check_handin(\%itemcount, 1908 => 1)) { #Jualicn's Token
+    quest::say("$name, whom Relinar found to be necessary for the success of the magic against those foul giants. I present this Rune of Concentration to you with faith that you are trusted amongst us or you would not have been sent to me. Make haste so that no time is wasted in extracting revenge for their past transgressions.");
+    quest::faction(42,10);   #Claws of Veeshan
+    quest::faction(362,10);  #Yelinak
+    quest::faction(189,-30); #Kromzek
+    quest::exp(1000);
+    quest::summonitem(1896); #Rune of Concentration
+    if(!plugin::check_hasitem($client,1893) || !plugin::check_hasitem($client,1894) || !plugin::check_hasitem($client,1895)) {
+      quest::summonitem(1908); #Jualicn's Token
+    }
+    quest::depop_withtimer();
+  }
+  plugin::return_items(\%itemcount);
+}
+
+#NpcID: 120019 - NpcName: Draazak - Zone: westwastes
+
+
+Entariz.pl 1.27 KB editrawblamehistory remove
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+sub EVENT_SAY {
+  if($text=~/hail/i){
+   quest::say("Greetings, $name. I have heard that one is amongst us in the lands which will aid us in our cause. If you are the one that seeks my ancient rune for your studies please make sure it is not used in vain. I do not talk to many that pass through here and I feel in my heart that it is you that shall help us.");
+ }
+}
+
+sub EVENT_ITEM {
+  if(plugin::check_handin(\%itemcount, 1908 => 1)){ #Jualicn's Token
+    quest::say("Ah of course, $name. You will need a Rune of Eradication for your lexicon. We are counting on your loyalty. Remember that you will need to bring the teachings of Relinar to Lawyla for further instructions, as she requires them to pass on the magic to those worthy of it. I bid you farewell, $name.");
+    quest::faction(42,10);   #Claws of Veeshan
+    quest::faction(362,10);  #Yelinak
+    quest::faction(189,-30); #Kromzek
+    quest::exp(1000);
+    quest::summonitem(1893); #Rune of Eradication
+    if(!plugin::check_hasitem($client,1894) || !plugin::check_hasitem($client,1895) || !plugin::check_hasitem($client,1896)) {
+      quest::summonitem(1908); #Jualicn's Token
+    }
+    quest::depop_withtimer();
+  } 
+  plugin::return_items(\%itemcount);
+}
+
+#NpcID: 120018 - NpcName: Entariz - Zone: westwastes
+
+Harla_Dar.pl 1.13 KB editrawblamehistory remove
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+# Shroud of the Dar Brood
+
+sub EVENT_SAY {
+  if ($faction <= 4) {
+    if ($text=~/hail/i) {
+      quest::say("I do not have time for you now, $name. My son is lost, and you can not help me.");
+    }
+    if ($text=~/son/i) {
+      quest::say("Have you seen him? I must find him, he has been gone far to long! If you have harmed him, I will slay you and all of your race! Tell me where he is!");
+    }
+  }
+}
+
+sub EVENT_ITEM {
+  if ($faction <= 4) {
+    if (plugin::check_handin(\%itemcount, 27260 => 1)) {
+      quest::say("This...this is not what I had hoped for. My whelp is lost, but I take some comfort in knowing that you helped destroy his killer. Zlandicar has been a blight upon our race since the beginning. Here is your reward, as I promised. It will protect you in more ways than are obvious. Leave me now, it is time to mourn.");
+      quest::summonitem(27261);
+      quest::exp(150000);
+      quest::faction(42,10);   #Claws of Veeshan
+      quest::faction(362,10);  #Yelinak
+      quest::faction(189,-30); #Kromzek
+    }
+  }
+  plugin::return_items(\%itemcount);
+}
+
+# EOF zone: westwastes ID: 120057 NPC: Harla_Dar
+
+Ionat.pl 1.1 KB editrawblamehistory remove
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+sub EVENT_SAY {
+  if($text=~/hail/i) {
+   quest::say("Hello $name. It is good to see that you have traveled so far to be in my presence. I do believe that you are the one chosen to aid us in our fight against the giants. If you are then I am sure that you will need my rune for your research.");
+  }
+}
+
+sub EVENT_ITEM {
+  if(plugin::check_handin(\%itemcount, 1908 => 1)){ #Jualicn's Token
+    quest::say("Take this Rune of Revenge, $name. You will need it to extract retribution in remembrance of our dear Hsagra. I thank you for your contributions to our cause. It is good to have you amongst our ranks.");
+    quest::faction(42,10);   #Claws of Veeshan
+    quest::faction(362,10);  #Yelinak
+    quest::faction(189,-30); #Kromzek
+    quest::exp(1000);
+    quest::summonitem(1894); #Rune of Revenge
+    if(!plugin::check_hasitem($client,1893) || !plugin::check_hasitem($client,1895) || !plugin::check_hasitem($client,1896)) {
+      quest::summonitem(1908); #Jualicn's Token
+    }
+    quest::depop_withtimer();
+  } 
+  plugin::return_items(\%itemcount);
+}
+
+#NpcID: 120017 - NpcName: Ionat - Zone: westwastes
+
+Julius_Oresko.pl 121 Bytes editrawblamehistory remove
+1
+2
+3
+sub EVENT_AGGRO {
+  quest::say("My blades have slain dragons! A $race like you does not have a chance of survival!");
+}
+
+Makil_Rargon.pl 2.15 KB editrawblamehistory remove
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+# Fusibility Research
+
+sub EVENT_SAY {
+  if ($text=~/hail/i) {
+    quest::say("Greetings. I am Makil Rargon, an esteemed assistant to the great wizard [Al'Kabor]. What can I help you with?");
+  }
+  if ($text=~/al'kabor/i) {
+    quest::say("Al'Kabor is the most powerful wizard on all of Norrath. He is currently back to his Combine Empire research. Being his most trusted assistant, he assigned me to follow up on his fusibility [research] findings. Do you have any information to offer?");
+  }
+  if ($text=~/research/i) {
+    quest::say("Ah. Yes, his fusibility research. Al'Kabor has been studying the melting point of minerals. Here, take this journal. It explains what fusibility is. Over the last few years, he has conducted several tests on [fusible ores].");
+    quest::summonitem(18290);
+  }
+  if ($text=~/fusible ores/i) {
+    quest::say("An ore is considered fusible if it can be melted. Now, this book explains the most unique forms of fusible ore that the master has conducted [experiments] on.");
+    quest::summonitem(18293);
+  }
+  if ($text=~/experiments/i) {
+    quest::say("So far his research has been quite successful. This journal explains what he has been able to accomplish. He has managed to create several magical items including an artifactual scepter of great power. While only he can grant permission to a worthy wizard to possess the artifact, if you are willing to help me complete a [fusibility test], I can offer you another item of great strength against the elements.");
+    quest::summonitem(18294);
+  }
+  if ($text=~/fusibility test/i) {
+    quest::say("Very well then . . . Fill this Empty Fusible Ore Crate up with four different fusible ores then seal it. Bring me back the Full Crate of Fusible Ore and I will use the compound to create a magical item that was developed by Master Al'Kabor.");
+    quest::summonitem(17408);
+  }
+}
+
+sub EVENT_ITEM {
+  if (plugin::check_handin(\%itemcount, 24069 => 1)) {
+    quest::say("Well done, $name. Here is your reward."); #generic text
+    quest::exp(500000);
+    quest::summonitem(24070);
+  }
+  plugin::return_items(\%itemcount);
+}
+
+# EOF zone: westwastes ID: 120079 NPC: Makil_Rargon
+
+Melalafen.pl 3.49 KB editrawblamehistory remove
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+# Essence items
+
+sub EVENT_SAY {
+  if ($faction <= 5) {
+    if ($text=~/hail/i) {
+      quest::say("We are aware of your presence, fleshling.");
+    }
+    if ($text=~/who/i) {
+      quest::say("We are those who have been in hiding. We are those who have been in waiting. We are those who await the return of our Master.");
+    }
+    if ($text=~/master/i) {
+      quest::say("Our Master? Surely all know of our Master now. It was he who was sleeping. It is he who is now freed. We give him honor, loyalty, and our lives. Jaled'Dar, first of our order, set in motion the events that freed our Master. But the Master has departed quickly, perhaps to challenge the Mother herself, such is his power. We wish to aid our Master, but we fear he is not aware that we exist, for his last memory of Wyrmkind was one of treachery and defeat. We believe we know where he has gone, but we do not know how to reach him.");
+    }
+    if ($text=~/where/i) {
+      quest::say("We believe that he is in a far distant plane, beyond the powers of even the mightiest dragon to reach. He goes places only Veeshan herself was able to visit. We believe he searches for our long departed Mother, to challenge her for rule of the very heavens. If only we had some means of reaching him, we would give him all our aid! We doubt your pitiful mammal brain is capable of devising a plan where we have failed, but we will listen to your chatter, such is our desperation.");
+    }
+    if ($text=~/prismatic dragon scale/i) {
+      quest::say("You have a scale? A scale from Kerafyrm himself? His long slumber, or the battles after he was freed, must have weakened him a great deal! One such as our master does not shed. If this is true, and you possess what you say, there is hope for us. With his scale, we can create a focus which gives us a chance to locate him in the far ether. But wait! If you have his scale, you must have been in his tomb! You are the ones who were responsible for freeing him, yes? If this is so, we owe you a debt, for carrying out Jaled'Dar's Plan. Give us the scale and we shall reward you well. We also require the key Jaled'Dar crafted for you to enter the tomb. His tomb is a holy place, and the likes of you should not be allowed to further defile it. We shall not compromise, the key and the scale.");
+    }
+  }
+}
+
+sub EVENT_ITEM {
+  if ($faction <= 5) {
+    if (plugin::check_handin(\%itemcount, 27329 => 1, 27265 => 1)) {
+      quest::say("Thank you for returning this to us. Here is your reward, imbued with the essence of a fool who held one of the keys to our Masters prison. If you are unhappy with your reward, return it to us and perhaps we can give you something more appropriate.");
+      quest::exp(5000000);
+      quest::faction(84,10);   #Disciples of Kerafyrm
+      quest::faction(42,10);   #Claws of Veeshan
+      quest::faction(273,10);  #Ring of Scale
+      quest::faction(189,-30); #Kromzek
+      quest::summonitem(2698);
+    }
+    elsif (plugin::check_handin(\%itemcount, 2698 => 1)) {
+      quest::summonitem(2699);
+    }
+    elsif (plugin::check_handin(\%itemcount, 2699 => 1)) {
+      quest::summonitem(2700);
+    }
+    elsif (plugin::check_handin(\%itemcount, 2700 => 1)) {
+      quest::summonitem(2748);
+    }
+    elsif (plugin::check_handin(\%itemcount, 2748 => 1)) {
+      quest::summonitem(2842);
+    }
+    elsif (plugin::check_handin(\%itemcount, 2842 => 1)) {
+      quest::summonitem(2698);
+    }
+  }
+  plugin::return_items(\%itemcount);
+}
+
+# EOF zone: westwastes ID: 120126 NPC: Melalafen
+
+The_Dragon_Sage.pl 4.81 KB editrawblamehistory remove
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+sub EVENT_SAY {
+  if($text=~/hail/i) {
+   quest::emote("appears to fade in and out. The ghostly figure seems to stare through you, as though he is not aware of your presence.");
+   quest::say("Do you know who I am?");
+   quest::emote("asks, as if he is inquiring for his own benefit.");
+  }
+  if($text=~/who are you/i) { 
+   quest::emote("begins to smile.");
+   quest::say("It has come back to me, just now. I am the Dragon Sage. I lived in the once great elven city of Takish Hiz, where I studied the dragons of Norrath.");
+   $client->Message(0,"The figure appears to be concentrating on something in the distance. His image begins to fade as he says,");
+   quest::say("If I am among the world of the living again, then Norrath must be in great [danger].");
+  }
+  if($text=~/danger/i) {
+   quest::say("Thousands of years ago, Veeshan, the mother of all wurms, made her mark upon the face of a young world called Norrath. She struck the planet with her godly might, laying her claim to the world, and created the beings known as dragons. This began the [Age of Scale].");
+  }
+  if($text=~/age of scale/i) {
+   quest::say("The Age of Scale was the time when dragons ruled supreme. They controlled the lands, the sea, and the sky for some 3000 years. That was when [other gods] took notice.");
+  }
+  if($text=~/other gods/i) {
+   quest::say("Tunare, the Mother of All, Prexus, the Oceanlord, and Brell Serilis, the Duke of Below formed a pact in response to Veeshans claim to Norrath. The elves, the dwarves, and the aquatic kedge were all created to help keep the dragons in check. Rallos Zek, the Warlord, learned of this pact and created the giants. This began the [Elder Age].");
+  }
+  if($text=~/elder age/i) {
+   quest::say("The Elder Age was the time of the first humanoid races, the oldest on Norath, next to the dragons. The elves prospered, while the giants struggled to survive. The giants on the frozen continent of Velious were in constant skirmishes with the dragons. It was at this point that the [observations] began.");
+  }
+  if($text=~/observations/i) {
+   quest::say("The giants, smarter than expected, began watching and observing the habits of the dragons. They paid close attention to the things the dragons avoided... certain plants and watering holes. It was determined that a particular type of [plant], when mixed with other reagents, was deadly to the dragons. The giants adapted their technique to specifically harm Yelinaks brood in order to give them an advantage. The ancient Kromzek king, Porlos, used this to aid in his battle with Hsagra, Yelinaks mate. Porlos killed Hsagra, forever bringing Yelinaks vengeance upon his family. Thus began the eternal war between the giants and the dragons.");
+  }
+  if($text=~/plant/i) {
+   quest::say("The name of the plant eludes me at this time, for my thoughts have grown cold through the ages. The findings of the giants were written in a book of lore by some of our sages. You should seek out one of the giants Tomekeepers. If you find a Tomekeeper, ask him about the herb that harms dragons. Perhaps if you give him this trinket he will assist you. Maybe they will remember my tired soul.");
+   quest::summonitem(1782); #Giant Loyalist Token
+  }
+}
+
+sub EVENT_ITEM {
+  if(plugin::check_handin(\%itemcount, 1783 => 1)) { #Giant Scalebound Tome
+    quest::emote("takes the guide and immediately begins to scan through it. He then says,");
+    quest::say("Ah... Ah yes... According to this book, the dragonbane herb grows only in one place, deep inside the lair of the sirens. If my memory serves me properly one of the creatures there is very fond of its flavor. I will also need the blood of a dragon, but not just any dragon. The blood must come from a beast of Lord Yelinaks bloodline. Please go now and see if you can find this herb and the dragon blood. No time to waste, child. You will need to take this box to contain and combine the herb and blood in. Once you have accomplished this, please return the box to me.");
+    quest::summonitem(17059); #Ornate Reagent Box
+  }
+  elsif(plugin::check_handin(\%itemcount, 1786 => 1)) { #Sealed Reagent Box
+    quest::say("Ahhh! With the knowledge that I have gained from the Giant Scalebound Tome and these reagents, I can finish my research and create a most powerful spell for you! If successful, I will call it the Porlos Fury spell. It will cause near fatal wounds to any dragon or dragon kin in Lord Yelinaks bloodline. Take this and study it. The magiks contained within will aid you in your fight.");
+    quest::emote("hands you the scroll and says,");
+    quest::say("You will need a reagent to channel the magical energies through to enhance the power of the spell. Two peridots will be required to cast this spell. I wish you good fortune in your fight.");
+    quest::summonitem(19469); #Porlos' Fury
+  } 
+  plugin::return_items(\%itemcount);
+}
+
+#EOF
+
+
+
+
+
+
+
+
