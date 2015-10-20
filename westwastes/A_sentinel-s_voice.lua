@@ -2,7 +2,7 @@ function event_spawn(event)
     xloc = e.self:GetX();
     yloc = e.self:GetY();
     zloc = e.self:GetZ();
-    eq.enable_proximity_say();
+    
     eq.set_proximity(xloc - 30, xloc + 30, yloc - 30, yloc + 30);
 end
 
