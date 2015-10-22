@@ -1,5 +1,5 @@
 function event_say(e)
-    if(e.other:GetFaction(e.self) < 2) then -- indiff?
+    if(e.other:GetFaction(e.self) < 5) then -- indiff?
         if(e.message:findi("hail")) then
 		    e.self:emote("blinks at you a few times then speaks in a strangely musical, draconic voice. 'You vish to azzizt ze count of ze Tunarean Faerie Dragons?");
 	    elseif(e.message:findi("assist")) then
@@ -10,7 +10,7 @@ function event_say(e)
 end
 
 function event_trade(e)
-    if(e.other:GetFaction(e.self) < 2) then -- indiff?
+    if(e.other:GetFaction(e.self) < 5) then -- indiff?
         if(item_lib.check_turn_in(e.self, e.trade, {item1 = 24873})) then
             e.self:say("Good, ze Foreman iz dead and now we will be left in peazz.  Take diz az a zign of my friendship.");
             e.other:Faction(344, 30);
