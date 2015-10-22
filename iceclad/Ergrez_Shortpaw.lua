@@ -8,7 +8,7 @@ function event_say(e)
 	elseif(e.message:findi("medium quality dire wolf fur")) then
 	    e.self:say("Good wolf fur I make you cloak.  All it take for cloak is fur and skinning rock.  I need two skinning rock though.  I very low on rocks.");
 	elseif(e.message:findi("low quality dire wolf fur")) then
-	    e.self:Say("Bad fur I make into cap for head.  Keep your small furless skull warm.  You bring me two bark bindings for that.  Bindings for sewing.");");	
+	    e.self:Say("Bad fur I make into cap for head.  Keep your small furless skull warm.  You bring me two bark bindings for that.  Bindings for sewing.");	
 	elseif(e.message:findi("low quality cougarskin")) then
 		e.self:Say("More cat skin. You bring more meat but this time bring fatty walrus meat.  Many gnolls need for winter fat.  Keeps gnolls healthy.");
 	elseif(e.message:findi("medium quality cougarskin")) then
