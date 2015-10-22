@@ -35,6 +35,7 @@ function event_say(e)
 		end
 	else
 		e.self:Say("I do not know you well enough to entrust you with such a quest, yet.");
+	end
 end
 
 function event_trade(e)
