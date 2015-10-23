@@ -4,7 +4,7 @@ function event_say(e)
 end
 
 function event_trade(e)
-    if((e.other:GetFaction(e.self)<6) and item_lib.check_turn_in(e.self, e.trade, {item1 = 25266})) then -- Regal band of Bathezid
+    if((e.other:GetFaction(e.self)<6) and item_lib.check_turn_in(e.self, e.trade, {item1 = 25266})) then -- Giant Sack of Supplies
 		e.other:Faction(189,10); --# Kromzek
 		e.other:Faction(188,10); --# Kromrif
 		e.other:Faction(49,-30); --# Coldain
