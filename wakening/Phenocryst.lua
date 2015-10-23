@@ -1,17 +1,21 @@
 function event_say(e)
+	local qglobals = eq.get_qglobals();
+	
 	if(e.message:findi("hail")) then
 		e.self:emote("speaks with a soundless voice, as if you are hearing your own thoughts. 'We sense you are attempting communication with us but do not understand what it is you are trying to convey. We are eager to know more. Perhaps there is one who knows the language of the stone and will speak with us");
 	elseif(e.message:findi("help you")) then
 		e.self:emote("speaks from within your mind as well as conveys a sense of joy empathically. It is said that the harbringer will find all of our people and unite them. When we join we will know all of our experiences and perhaps then be aware of how to proceed with the next step in our asscention. We implore you to find others like us and make them aware of us. You know the language of the stone and can tell them. We await your return with proof that you have spoken to them.");
-	elseif(eq.get_qglobals(e.self).veliumfocus == "1" and e.message:findi("find what")) then
+	elseif(qglobals["veliumfocus"] == "1" and e.message:findi("find what")) then
 		e.self:emote("says in the form of thoughts, We must call to it. We must make ourselves heard past these rocks though. A menhir must be constructed to amplify our voice. The stones we will need are not found in this area though. We hear whispers of stones far away that have the ability to channel and amplify our thoughts. We ask you to gather these stones for us harbinger.");
-	elseif(eq.get_qglobals(e.self).veliumfocus == "1" and e.message:findi("gather these stones for you")) then
+	elseif(qglobals["veliumfocus"] == "1" and e.message:findi("gather these stones for you")) then
 		e.self:emote("thoughts flood your mind, 'Thank you Harbinger. We need 3 crystals. One of Beryl, one of Stibnite, and one of the purest Iron. These minerals will only be found deep within the earth where the geology is relatively stable. This Focus will aid you in finding the right crystals. Return it to me with the 3 crystals and we will construct our Menhir. Please hurry Harbinger, our prophecy awaits.");
 	    e.other:SummonItem(1694);
 	end
 end
 
 function event_trade(e)
+    local qglobals = eq.get_qglobals();
+    
     if(item_lib.check_turn_in(e.self, e.trade, {item1 = 1692})) then
             e.self:emote("sends it's thoughts to you, a feeling of disappointment washes over you, It seems the others are not aware of themselves yet. We are alone..So many questions yet we can find no answers. We have been given a very special gift but without direction we are lost. We must find who has made us aware of ourselves and why it has done so.");
             e.other:Faction(116,15);
