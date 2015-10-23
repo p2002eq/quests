@@ -4,11 +4,11 @@ function event_spawn(e)
 end
 
 function event_timer(e)
-	if(e.timer == "onset") then --vs died
+	if(e.timer == "onset") then --
         e.self:MoveTo(--4341,-748,-183,-1,1);
         eq.stop_timer("onset");
     end
-    if(e.timer == "readygo") then --vs died
+    if(e.timer == "readygo") then --v
         eq.stop_timer("readygo");
         e.self:Say("Onward men, the eyes of Zek are upon us.");
         eq.signal(119167,1,300);
@@ -26,7 +26,7 @@ function event_waypoint_arrive(e)
 end
 
 function event_signal(e)
-    if(e.signal == 1) then --vs died
+    if(e.signal == 1) then --
         -- quest::start(23);
     end
     if(e.signal == 2) then --vs died
