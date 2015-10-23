@@ -9,6 +9,6 @@ end
 
 function event_signal(e)
     if(e.signal == 1) then --
-        -- quest::start(25);
+        eq.start(25);
     end
 end
