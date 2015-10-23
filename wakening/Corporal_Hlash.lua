@@ -27,7 +27,7 @@ end
 
 function event_signal(e)
     if(e.signal == 1) then --
-        -- quest::start(23);
+        eq.start(23);
     end
     if(e.signal == 2) then --vs died
         e.self:Say("Grraaaggh! AMBUSH!! Die well!");
