@@ -5,7 +5,7 @@ end
 
 function event_timer(e)
 	if(e.timer == "onset") then --
-        e.self:MoveTo(--4341,-748,-183,-1,1);
+        e.self:MoveTo(-4341,-748,-183,-1,1);
         eq.stop_timer("onset");
     end
     if(e.timer == "readygo") then --v
