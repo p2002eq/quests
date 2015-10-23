@@ -8,7 +8,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	e.other:QuestReward(e.self,0,0,0,0,19436);
+	
 
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 30220,item2 = 30220,item3 = 30220,item4 = 30220})) then -- 
 		e.self:Say("grips your hand in his own and recites an oath in an ancient tongue. 'Should you ever seek membership in this court you are required to receive the support of its counts, countesses, barons, and baronesses. Should they deem you worthy you may present their crests to me and with my approval become a citizen of our kingdom. The Kromrif and Kromzek are persistent in their efforts to expand Kael into the forest of Tunare, they are a threat to all houses of the Tunarean Court. A Kromzek architect occasionally visits the building sites. I desire to acquire his blueprints for the expansion of Kael.'");
