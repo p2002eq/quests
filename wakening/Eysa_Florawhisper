@@ -11,13 +11,13 @@ end
 
 function event_trade(e)
     if(item_lib.check_turn_in(e.self, e.trade, {item1 = 29067})) then 
-		e.other:Faction(344,10); --#tunarean court
+		e.other:Faction(344,10); --tunarean court
     	e.other:QuestReward(e.self,0,0,0,0,29623,250); -- 
     	eq.depop_with_timer();
     	
 	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 24863})) then 
 		e.self:Say("Ohhhh! You're the sweetest, " .. e.other:GetName() .. ". The nymphs of the Tunarean Court recognize you as a friend of our kind and our botanical brethren.");
-		e.other:Faction(344,30); --#tunarean court
+		e.other:Faction(344,30); --tunarean court
     	e.other:QuestReward(e.self,0,0,0,0,24864,5000); -- 
     	
 	end
