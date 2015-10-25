@@ -23,7 +23,7 @@ function event_trade(e)
 	end
 	if(drink > 100) then
 		e.self:Say("Cheers, keep em coming");
-		
+		eq.unique_spawn(4211,0,0,e.self:GetX() + 5,e.self:GetY(),e.self:GetZ());
 		e.other:QuestReward(e.self,0,0,0,0,0,17800);
 		drink = 0;
 		eq.depop();
