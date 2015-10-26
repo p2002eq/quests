@@ -13,6 +13,6 @@ end
 
 function event_timer(e)
     if(e.timer == "talk") then
-        eq.signal(4210, 1) -- signal Stumpy shuntymace
+        eq.signal(4210, eq.ChooseRandom(1,1,1,2)) -- signal Stumpy shuntymace
     end
 end
