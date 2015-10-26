@@ -17,7 +17,7 @@ function event_trade(e)
 	local item_lib = require("items");
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 15960})) then--The Reflecting Pools of Tanaan
 		e.self:Emote("leafs quickly through the book. 'Thank you, it will take quite some time to go through all the information here. Here is a little something for your troubles.'");
-		e.other:QuestReward(e.self,0,0,0,0,9321,1485000); --Fine Cut, Diamond Inlaid Mask
+		e.other:QuestReward(e.self,0,0,0,0,9321,14850); --Fine Cut, Diamond Inlaid Mask
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
