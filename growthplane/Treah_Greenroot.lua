@@ -63,6 +63,6 @@ function event_hp(e)
 		eq.set_next_hp_event(20);
 	elseif (e.hp_event == 20) then
 		call_zone_to_assist20(e.other);
-		eq.set_next_hp_event(51);
+		
 	end
 end
