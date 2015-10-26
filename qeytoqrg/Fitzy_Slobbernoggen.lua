@@ -8,6 +8,6 @@ end
 
 function event_timer(e)
     if(e.timer == "talk") then
-        eq.signal(XXXXX, 1) -- signal Stumpy shuntymace
+        eq.signal(4210, 1) -- signal Stumpy shuntymace
     end
 end
