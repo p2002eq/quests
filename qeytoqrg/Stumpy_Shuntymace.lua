@@ -6,7 +6,7 @@ function event_signal(e)
     elseif(e.signal == 2) then
         eq.attack_npc_type(4209);
         eq.set_timer("talk", 600000); -- 10 min
-        e.self:Say("BUUURRRPPPP....What did you say about my mom?! Die Fool!");
+        e.self:Shout("BUUURRRPPPP....What did you say about my mom?! Die Fool!");
     end
 end
 
