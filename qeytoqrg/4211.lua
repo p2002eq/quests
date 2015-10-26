@@ -14,12 +14,16 @@ function event_trade(e)
 	
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 12114,item2 = 12114,item3 = 12114,item4 = 12114})) then -- Green Goblin Skin
 		drink = drink + 4;
+		e.self:Emote("chugs the entire bottle");
 	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 12114,item2 = 12114,item3 = 12114})) then -- Green Goblin Skin
 		drink = drink + 3;
+		e.self:Emote("chugs the entire bottle");
 	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 12114,item2 = 12114})) then -- Green Goblin Skin
 		drink = drink + 2;
+		e.self:Emote("chugs the entire bottle");
 	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 12114})) then -- Green Goblin Skin
 		drink = drink + 1;
+		e.self:Emote("chugs the entire bottle");
 	end
 	if(drink > 250) then
 		e.self:Say("Cheers, keep em coming");
