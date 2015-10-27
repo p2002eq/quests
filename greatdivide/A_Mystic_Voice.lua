@@ -22,8 +22,8 @@ function event_timer(e)
 	elseif(e.timer == "gdivide1min") then
 		eq.stop_timer("gdivide1min");
 		e.self:Say("The portal to Luclin is about to become active. Please stand inside the circle of Spires and have a shard upon your person.");
-		eq.set_global("nexus_gf","1",3,"S60"); -- when the portal is open, global is set true for 1 min.
+		eq.set_global("nexus_gd","1",3,"S60"); -- when the portal is open, global is set true for 1 min.
 		eq.set_timer("gdivide15min",600000);
-		eq.signal(54053,101); -- triggers the flavor
+		eq.signal(118314,101); -- triggers the flavor
 	end
 end
