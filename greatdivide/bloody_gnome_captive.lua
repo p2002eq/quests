@@ -1,4 +1,4 @@
-function event_spawn(event)
+function event_spawn(e)
 	eq.set_timer("despawn", 60000);
 end
 
