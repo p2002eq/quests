@@ -5,7 +5,7 @@ function event_spawn(event)
 	eq.set_proximity(xloc - 25, xloc + 25, yloc - 25, yloc + 25, zloc - 25, zloc + 25);
 end
 
-function event_enter(event)
+function event_enter(e)
 	e.self:Say("Please, somebody help me. This bear won't let me leave.");
 	e.self:Emote("tries to hide from Bloodmaw deeper in the cave.");
 	eq.depop_with_timer();
