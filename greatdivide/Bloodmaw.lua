@@ -5,6 +5,7 @@ function event_trade(e)
 			e.self:Say("You have chosen wisely, my friend. Take this note as a token of my blessing upon you.");
 			e.other:QuestReward(e.self,0,0,0,0,0,100); 
 			eq.spawn2(118026,0,0,3172,-5931,-107.2,80.5); -- #spawn the bloody gnome captive
+			eq.depop_with_timer();
 		end
 	
 	item_lib.return_items(e.self, e.other, e.trade)
