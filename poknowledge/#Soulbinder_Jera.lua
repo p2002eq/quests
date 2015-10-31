@@ -13,12 +13,8 @@ function event_say(e)
 	elseif(e.message:findi("bind my soul")) then
 		e.self:Say("Binding your soul. You will return here when you die.");
 		e.self:CastSpell(2049,e.other:GetID(),0,1);
-	elseif(e.message:findi("prepare") and e.other:Admin() >= status) then
-		raid(e);
-	elseif(e.message:findi("fight") and e.other:Admin() >= status and e.other:GetLevel() >= 50) then
-		e.other:MovePC(27,1389,1014,134,301);
 	elseif(e.message:findi("illusion")) then -- Halloween Event	
-		e.self:SetRace(eq.ChooseRandom(58,216,123,230,85,108,151,154,161,131,181,243,252),e.other:GetID());
+		e.other:SetRace(eq.ChooseRandom(58,216,123,230,85,108,151,154,161,131,181,243,252));
 	end
 end
 
