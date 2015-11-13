@@ -6,7 +6,7 @@ function event_spawn(event)
 end
 
 function event_enter(event)
-    local numSpawns = 6;
+    local numSpawns = math.random(2, 6);
     
     for i = 1, numSpawns do
         eq.spawn2(  123244,
