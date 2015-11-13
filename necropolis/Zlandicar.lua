@@ -10,7 +10,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in((e.self, e.trade, {item1 = 26010}) or (e.self, e.trade, {item1 = 27255}) or (e.self, e.trade, {item1 = 27256}) or (e.self, e.trade, {item1 = 27258}) or (e.self, e.trade, {item1 = 27259}) or (e.self, e.trade, {item1 = 27266}))) then 
+	if(item_lib.check_turn_in((e.self, e.trade, {item1 = 26010}))) then 
 		e.self:Say("Thank you for your assistance.  Now I may get back to higher matters at hand.  Leave me.");
 		e.other:Faction(32, 3);
 		e.other:Faction(365, 3);
