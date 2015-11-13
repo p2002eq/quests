@@ -6,6 +6,6 @@ function event_spawn(event)
 end
 
 function event_enter(event)
-    eq.spawn2(123243, 0, 0, event.self:GetX(), event.self:GetY(), event.self:GetZ(), event.self:GetHeading());
+    eq.spawn2(123243,0,0,e.self:GetX(),e.self:GetY(),e.self:GetZ(),e.self:GetHeading());
     eq.depop_with_timer();
 end
