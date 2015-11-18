@@ -1,4 +1,4 @@
-# On death, spawns the Idol of Rallos Zek
+-- On death, spawns the Idol of Rallos Zek
 
 
 function event_death_complete(e)
