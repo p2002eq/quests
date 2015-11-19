@@ -21,13 +21,15 @@ function event_trade(e)
 		e.other:QuestReward(e.self,0,0,0,0,13306,200);
 	end
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 18936})) then -- A Sealed Note
-		e.self:Say("Finally!! I see that Ariska has found a noble knight to retrieve Soulfire. Per Ariska's orders I am not to give Soulfire to you until you can show me [proof of nobility]. You must honor both the Temple of Life as well as the Hall of Truth and to a high degree. Only then shall you hold Soulfire.");
-		e.other:Faction(257,5,0); 		-- Priest of Life
-		e.other:Faction(183,5,0); 		-- Knights of Thunder
-		e.other:Faction(135,5,0); 		-- Guards of Qeynos
-		e.other:Faction(21,-5,0); 		-- BloodSabers
-		e.other:Faction(9,5,0); 		-- Antonious Bayle
-		e.other:QuestReward(e.self,0,0,0,0,18937,200);
+		if(e.other:GetFaction(e.self) < 3) then -- items will get eaten if faction not high enough.
+        	e.self:Say("Finally!! I see that Ariska has found a noble knight to retrieve Soulfire. Per Ariska's orders I am not to give Soulfire to you until you can show me [proof of nobility]. You must honor both the Temple of Life as well as the Hall of Truth and to a high degree. Only then shall you hold Soulfire.");
+        	e.other:Faction(257,5,0); 		-- Priest of Life
+        	e.other:Faction(183,5,0); 		-- Knights of Thunder
+        	e.other:Faction(135,5,0); 		-- Guards of Qeynos
+        	e.other:Faction(21,-5,0); 		-- BloodSabers
+        	e.other:Faction(9,5,0); 		-- Antonious Bayle
+        	e.other:QuestReward(e.self,0,0,0,0,18937,200);
+        end
 	end
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 18937,item2 = 13947,item3 = 18828,item4 = 12197})) then
 		if(e.other:GetFaction(e.self) < 3) then -- items will get eaten if faction not high enough.
