@@ -13,7 +13,22 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in((e.self, e.trade, {item1 = 9296}) or (e.self, e.trade, {item1 = 27255}) or (e.self, e.trade, {item1 = 27256}) or (e.self, e.trade, {item1 = 27258}) or (e.self, e.trade, {item1 = 27259}) or (e.self, e.trade, {item1 = 27266}))) then 
+	if(item_lib.check_turn_in((e.self, e.trade, {item1 = 9296}))) then 
+		e.self:Say("Thank you so much. Tiny gets quite tired doing this by himself. Here you go.");
+		e.other:QuestReward(e.self,0,0,0,0,27265,500000);
+	elseif(item_lib.check_turn_in((e.self, e.trade, {item1 = 27255}))) then 
+	    e.self:Say("Thank you so much. Tiny gets quite tired doing this by himself. Here you go.");
+		e.other:QuestReward(e.self,0,0,0,0,27265,500000);
+	elseif(item_lib.check_turn_in((e.self, e.trade, {item1 = 27256}))) then 
+		e.self:Say("Thank you so much. Tiny gets quite tired doing this by himself. Here you go.");
+		e.other:QuestReward(e.self,0,0,0,0,27265,500000);
+	elseif(item_lib.check_turn_in((e.self, e.trade, {item1 = 27258}))) then 
+		e.self:Say("Thank you so much. Tiny gets quite tired doing this by himself. Here you go.");
+		e.other:QuestReward(e.self,0,0,0,0,27265,500000);
+	elseif(item_lib.check_turn_in((e.self, e.trade, {item1 = 27259}))) then
+		e.self:Say("Thank you so much. Tiny gets quite tired doing this by himself. Here you go.");
+		e.other:QuestReward(e.self,0,0,0,0,27265,500000);
+	elseif(item_lib.check_turn_in((e.self, e.trade, {item1 = 27266}))) then 
 		e.self:Say("Thank you so much. Tiny gets quite tired doing this by himself. Here you go.");
 		e.other:QuestReward(e.self,0,0,0,0,27265,500000);
 	end
