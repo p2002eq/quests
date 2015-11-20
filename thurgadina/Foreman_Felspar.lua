@@ -1,13 +1,11 @@
 --rogue
 
-function event_say(e)
-
 local quest_helper = require('velious_quest_helper');
 local THURG_ARMOR = quest_helper.THURG_ARMOR;
 local QUEST_TEXT = {
 
-    hail="Welcome to the Thurgadin Minin' Company, $race. As foreman it's my job to see that me lads are well trained and well cared fer. Unfortunately, we're not in too good shape right now. Ye see, it seems a new vein was struck recently and a bunch of unwelcome critters have come crawlin outta the works attackin' me lads. In order ta help combat this menace I've engineered a new set of armor for the miners, but need some raw materials to get them started.",
-	"new set of armor"="Excellent, $name! I knew ye were the right $race for the job. The pieces I can make are a coif, a tunic, sleeves, bracers, gauntlets, leggings, and boots. This stuff might not be fitting ya if ye're not stealthy like us miners though.",
+    hail="Welcome to the Thurgadin Minin' Company, "..e.other:Race()..". As foreman it's my job to see that me lads are well trained and well cared fer. Unfortunately, we're not in too good shape right now. Ye see, it seems a new vein was struck recently and a bunch of unwelcome critters have come crawlin outta the works attackin' me lads. In order ta help combat this menace I've engineered a new set of armor for the miners, but need some raw materials to get them started.",
+	armor="Excellent, "..e.other:GetName().."! I knew ye were the right "..e.other:Race().." for the job. The pieces I can make are a coif, a tunic, sleeves, bracers, gauntlets, leggings, and boots. This stuff might not be fitting ya if ye're not stealthy like us miners though.",
 	--need to check if this works	
 }
 
@@ -32,7 +30,12 @@ local QUEST_ITEMS = {
 
 }
 
-QUEST_TEXT = quest_helper.merge_tables(QUEST_TEXT, quest_helper.THURG_PLATE_TEXT);
+function event_say(e)
+    quest_helper.quest_text(e, QUEST_TEXT, 3);
+end
 
-local QUEST_ITEMS = {
-end 
+
+function event_trade(e)
+    quest_helper:quest_turn_in(e, 3, QUEST_ITEMS, quest_helper.thurg_armor_success)
+end
+
