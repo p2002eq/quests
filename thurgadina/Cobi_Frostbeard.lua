@@ -1,14 +1,16 @@
+--druid
+
 local quest_helper = require('velious_quest_helper');
 local THURG_ARMOR = quest_helper.THURG_ARMOR;
 
 local QUEST_ITEMS = {
-	quest_helper:priest_helmet(THURG_ARMOR.Leather_Cap),
-	quest_helper:priest_boots(THURG_ARMOR.Leather_Boots),
-	quest_helper:priest_chest(THURG_ARMOR.Leather_Tunic),
-	quest_helper:priest_arms(THURG_ARMOR.Leather_Sleeves),
-	quest_helper:priest_gloves(THURG_ARMOR.Leather_Gloves),
-	quest_helper:priest_bracer(THURG_ARMOR.Leather_Bracelet),
-	quest_helper:priest_legs(THURG_ARMOR.Leather_Leggings),
+	quest_helper:priest_helmet(THURG_ARMOR.Leather_Cap, 31049),
+	quest_helper:priest_boots(THURG_ARMOR.Leather_Boots, 31055),
+	quest_helper:priest_chest(THURG_ARMOR.Leather_Tunic, 31050),
+	quest_helper:priest_arms(THURG_ARMOR.Leather_Sleeves, 31051),
+	quest_helper:priest_gloves(THURG_ARMOR.Leather_Gloves, 31053),
+	quest_helper:priest_bracer(THURG_ARMOR.Leather_Bracelet, 31052),
+	quest_helper:priest_legs(THURG_ARMOR.Leather_Leggings, 31054),
 
 }
 
