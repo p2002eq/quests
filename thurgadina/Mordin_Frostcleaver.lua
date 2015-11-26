@@ -1,8 +1,8 @@
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Ah, allo there, and welcome to me shop, $name. Ye'll have to excuse the mess but I've been havin a bloody good time here lately. . . HAR HAR, ye get it? Anyways, thanks to you offlanders I now have a selection of some exotic meats never afore seen here on Velious.  I've been amazed at the demand for some of 'em.  I can't seem to keep shark meat in stock any more.  I wonder if eatin' raw fish is catching on?  In addition to supplyin' the freshest meat in Thurgadin I also offer tasks to would-be hunters in the wastes.");
+		e.self:Say("Ah, allo there, and welcome to me shop, "..e.other:GetName()..". Ye'll have to excuse the mess but I've been havin a bloody good time here lately. . . HAR HAR, ye get it? Anyways, thanks to you offlanders I now have a selection of some exotic meats never afore seen here on Velious.  I've been amazed at the demand for some of 'em.  I can't seem to keep shark meat in stock any more.  I wonder if eatin' raw fish is catching on?  In addition to supplyin' the freshest meat in Thurgadin I also offer tasks to would-be hunters in the wastes.");
 	elseif(e.message:findi("tasks")) then	
-		e.self:Say("Sorry, $name, but I've got no tasks to offer ye this week.  If ye be seriously lookin fer sumthin ta do ask ole Borannin 'bout duties fer the crown..");
+		e.self:Say("Sorry, "..e.other:GetName()..", but I've got no tasks to offer ye this week.  If ye be seriously lookin fer sumthin ta do ask ole Borannin 'bout duties fer the crown..");
 	elseif(e.message:findi("tundrabear sandwich")) then	
 		e.self:Say("Dat's easy, ye just take a slab o' dat Tundra Kodiak meat and a jug o' sauce, put it in da oven, den combine the product with a loaf o' bread in a mixin' bowl an' there ye be.");
 	elseif(e.message:findi("snowbunny stew")) then	
@@ -19,7 +19,7 @@ function event_trade(e)
 	local item_lib = require('items');
 
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 1420})) then
-		e.self:Say("Hullo, $name, I see you've signed on for a bit of food service eh? Well, we can always use an extra pair o' hands here dat's fer sure. First things first, warsh yer grubby mitts an' cook up dinner fer good ol' Leif. Should'n be too tough fer ye, he has simple enough taste. Make him a Tundrabear sandwich an' lemme know when he's been fed. Don'tcha ferget ta give him this with his meal.");
+		e.self:Say("Hullo, "..e.other:GetName()..", I see you've signed on for a bit of food service eh? Well, we can always use an extra pair o' hands here dat's fer sure. First things first, warsh yer grubby mitts an' cook up dinner fer good ol' Leif. Should'n be too tough fer ye, he has simple enough taste. Make him a Tundrabear sandwich an' lemme know when he's been fed. Don'tcha ferget ta give him this with his meal.");
 		e.other:SummonItem(1415);
 	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 1419 })) then	
 		e.self:Say("Well don, outlander! We'll make a chef of you before we're through. Next you'll need to whip up some Snow Bunny stew fer Missus Coldheart. Again, give her this napkin with her meal an' lemme know when she's been served.");

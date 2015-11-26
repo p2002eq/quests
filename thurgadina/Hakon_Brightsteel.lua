@@ -10,7 +10,7 @@ function event_trade(e)
 	local item_lib = require('items');
 
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 1690, item2 = 22569})) then
-		e.self:Say("Excellent! I'll get ta work now. Hakon whistles an unfamiliar tune as he repairs and sharpens the pick axe. Here ye are, $name. Watch that old Stonetooth, he's a few steins short of a keg, if ye know what I mean.");
+		e.self:Say("Excellent! I'll get ta work now. Hakon whistles an unfamiliar tune as he repairs and sharpens the pick axe. Here ye are, "..e.other:GetName()..". Watch that old Stonetooth, he's a few steins short of a keg, if ye know what I mean.");
 		e.other:Faction(49, 5); --Coldain
 		e.other:Faction(67, 5); --Dain
 		e.other:Faction(189, -10); --Kromzek

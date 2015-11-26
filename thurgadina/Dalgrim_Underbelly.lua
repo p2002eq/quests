@@ -18,7 +18,7 @@ function event_say(e)
 		if(e.message:findi("hail")) then	
 			e.self:Say("I wasn't always just a merchant, ye know, I used to work at the temple and spent most of my time in the study of ancient texts and arts. I actually learned a lot about the dark arts in those days. Ye know... necromancy. Oh, I'd never touch the stuff, mind ye, but I'll bet I could make a fine set of plate fer shadowknights if'n I had the right materials.");
 		elseif(e.message:findi("right materials")) then	
-			e.self:Say("Glad to see ye're interested, $name. The materials would vary by the piece of armor o' course. I could probably forge a fine set of bracers, gauntlets, greaves, boots, armplates, a helm, or a breastplate.");
+			e.self:Say("Glad to see ye're interested, "..e.other:GetName()..". The materials would vary by the piece of armor o' course. I could probably forge a fine set of bracers, gauntlets, greaves, boots, armplates, a helm, or a breastplate.");
 		elseif(e.message:findi("helm")) then	
 			e.self:Say("To create a piece of armor to protect your skull I will require three pieces of crushed coral as well as a corroded plate helmet.");
 		elseif(e.message:findi("breastplate")) then	

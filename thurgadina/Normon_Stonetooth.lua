@@ -18,7 +18,7 @@ function event_trade(e)
 	local item_lib = require('items');
 
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 1691})) then
-		e.self:Say("Ahhhh, good work, $name. Now ta speak with the stone ye need somethin' ta focus on. Use this piece o' velium as yer focus. Ta speak the language o' the stone ye need ta slow down like the stone. Rock looks like it don't move but it does, just real slow. So place yer focus on the stones ye wish ta speak with and get yerself real slow, both yer body an' yer noggin. Then if yer quiet enough ye might hear 'em. An' that's what's to it.");
+		e.self:Say("Ahhhh, good work, "..e.other:GetName()..". Now ta speak with the stone ye need somethin' ta focus on. Use this piece o' velium as yer focus. Ta speak the language o' the stone ye need ta slow down like the stone. Rock looks like it don't move but it does, just real slow. So place yer focus on the stones ye wish ta speak with and get yerself real slow, both yer body an' yer noggin. Then if yer quiet enough ye might hear 'em. An' that's what's to it.");
 		e.other:SummonItem(1692);
 		e.other:Faction(116,20); --Geonid Collective
 		e.other:AddEXP(500);
