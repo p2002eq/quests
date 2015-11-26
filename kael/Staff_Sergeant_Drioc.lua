@@ -1,16 +1,14 @@
 function event_say(e)
 
-	function getrandomtext()
-		local rand = math.random(3);
-		return rand	
-	end
 
+	local rand = math.random(3);
+	
 	if (e.message:findi("hail")) or (e.message:findi("seeking work")) and (e.other:GetFaction(e.self) > 5) then	
-		if (getrandomtext() == 0) then
+		if (rand == 1) then
 			e.self:Say("I didn't know Slime could speak common.  Go back to the sewer before I lose my temper.");
-		elseif (getrandomtext() == 1) then
+		elseif (rand == 2) then
 			e.self:Say("Is that your BREATH, or did something die in here?  Now go away!");
-		elseif (getrandomtext() == 2) then
+		elseif (rand == 3) then
 			e.self:Say("I wonder how much I could get for the tongue of a blithering fool?  Leave before I decide to find out for myself.");
 		end
 
