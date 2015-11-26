@@ -18,8 +18,7 @@ function event_say(e)
 		end
  
 	else
-		e.self:Say("You need to prove your dedication to our cause before
-I can discuss such matters with you.")		
+		e.self:Say("You need to prove your dedication to our cause before I can discuss such matters with you.");
 	end
 
 end
