@@ -24,7 +24,7 @@ local QUEST_ITEMS = {
 function event_say(e)
 	if (e.other:GetFaction(e.self) <= 3) then --Warmly or lower
 		if(e.message:findi("hail")) then	
-			e.self:Say("Greetings to you. You are far away from your homelands, stranger. I am looking for someone. We here at the Temple of Lore are always seeking fellow priests of various faiths. Tell me, $race, are you a cleric?");
+			e.self:Say("Greetings to you. You are far away from your homelands, stranger. I am looking for someone. We here at the Temple of Lore are always seeking fellow priests of various faiths. Tell me, "..e.other:Race()..", are you a cleric?");
 		elseif(e.message:findi("i am a cleric")) then	
 			e.self:Say("Ah, a most pious one indeed. I sense the aura of your devotion and conviction and they are strong about you. A shame you are so short-lived. But I see potential in you and for that I shall aid you in your calling, cleric. Do you wish my aid?");
 		elseif(e.message:findi("i wish your aid")) then	

@@ -14,7 +14,7 @@ function event_trade(e)
 	local item_lib = require('items');
 
 	if (item_lib.check_turn_in(e.self, e.trade, {item1 = 11990, item2 = 11990, item3 = 11990})) then
-		e.self:Say("Well done $name! The Draconic Loyalist Fellowship and the residents of Skyshrine are grateful for your assistance in eliminating the threat the Kromzeks mercenaries pose to the dragons and dragon-kin of Velious. Here is the bounty that has been promised.");
+		e.self:Say("Well done "..e.other:GetName().."! The Draconic Loyalist Fellowship and the residents of Skyshrine are grateful for your assistance in eliminating the threat the Kromzeks mercenaries pose to the dragons and dragon-kin of Velious. Here is the bounty that has been promised.");
 		e.other:Faction(362, 25); --Yelinak
 		e.other:Faction(42, 25); --Cov
 		e.other:Faction(189, -25); --Kromzek

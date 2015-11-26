@@ -15,7 +15,7 @@ function event_trade(e)
 	local item_lib = require('items');
 
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 12550})) then
-		e.self:Say("By Veeshans claws, you've found it! You have done a great service for the residents of Skyshrine, $name! I will make sure that news of your accomplishment reaches the nobles of Skyshrine. Here is the reward that has been promised for your assistance.");
+		e.self:Say("By Veeshans claws, you've found it! You have done a great service for the residents of Skyshrine, "..e.other:GetName().."! I will make sure that news of your accomplishment reaches the nobles of Skyshrine. Here is the reward that has been promised for your assistance.");
 		e.other:QuestReward(e.self, 0, 0, 0, 0, 12558, 1250 ); -- Orb of Draconic Energy
 		e.other:Faction(42, 30); --CoV
 		e.other:Faction(362, 30); --Yelinak

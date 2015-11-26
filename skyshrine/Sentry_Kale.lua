@@ -27,7 +27,7 @@ function event_trade(e)
 	local qglobals = eq.get_qglobals();
 	
 	if(itemlib.check_turn_in(e.self, e.trade, {item1 = 29064})) then
-		e.self:Say("You've returned, and with the shipment of ore intact! It was wise to send you out on that mission, $name, and I'm glad you did not fail. If you're looking for more assignments to do, I may have something that is just right for you. If you're interested in it, just let me know and we'll talk.");
+		e.self:Say("You've returned, and with the shipment of ore intact! It was wise to send you out on that mission, "..e.other:GetName()..", and I'm glad you did not fail. If you're looking for more assignments to do, I may have something that is just right for you. If you're interested in it, just let me know and we'll talk.");
 		e.other:QuestReward(e.self, 0, 0, 10, 10, 1727, 12500); --Bracer of Hammerfal
 		e.other:Faction(362, 10); --Yelinak
 		e.other:Faction(42, 10); --CoV
