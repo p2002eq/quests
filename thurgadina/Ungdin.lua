@@ -1,6 +1,6 @@
 function event_say(e)
 	if (e.message:findi("hail"))	then
-		e.self:Say("Uuuuhhh, how goes it, $race? Oh, I'm doin' jest fine down here, just hanging around... Mining! Yes mining for our fearless leader, the Dain. Yessiree... sssoooooo...");
+		e.self:Say("Uuuuhhh, how goes it, ..eq.Race()..? Oh, I'm doin' jest fine down here, just hanging around... Mining! Yes mining for our fearless leader, the Dain. Yessiree... sssoooooo...");
 	end
 end
 
