@@ -1,6 +1,6 @@
 function event_say(e)
 	if (e.message:findi("hail")) then
-		e.self:Say("Hmm, the guards at the gate sent a $race to assist with the [rampant problems]? They shall have to be replaced with functional sentries so this does not occur again, but that is another matter for later.");
+		e.self:Say("Hmm, the guards at the gate sent a "..e.other:Race().." to assist with the [rampant problems]? They shall have to be replaced with functional sentries so this does not occur again, but that is another matter for later.");
 	elseif(e.message:findi("rampant problems")) then
 		e.self:Say("I trust that what is said here will not be repeated to outsiders, yes? Good. For some time now, we've been fortifying our position in the shrine to fend off giant attacks as they come. Though there hasn't been a major engagement between the shrine and the giants for quite some time, there have been strafing runs done by them in an attempt to test us. If you're up for it, I have a [mission] I need someone new to the shrine to complete.");
 	elseif(e.message:findi("mission")) then

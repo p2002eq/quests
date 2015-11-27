@@ -1,3 +1,5 @@
+
+
 --Tracker Azeal is actually Hero Goxnok in disguise. He is part of the fifth quest in the Greenmist line.
 --He will check the zone time every 30 seconds, and if it's 9 PM, he will respawn as a wandering form of himself that will path off and meet whoever is doing the quest.
 -- Issue with the timer, so to get this working just moved the quest turn in to this NPC, since the other NPC (Tracker_Azeal_) wasn't spawning correctly.
@@ -35,3 +37,4 @@ end
 -- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
 -- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
 -------------------------------------------------------------------------------------------------
+
