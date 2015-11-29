@@ -20,11 +20,10 @@ function event_say(e)
 end
 
 function event_trade(e)
-function event_trade(e)
 
 	local item_lib = require('items');
 	if (e.other:GetFaction(e.self) <= 5) then --indifferent or lower
-		if (item_lib.check_turn_in(e.self, e.trade, {item1 = })) then
+		if (item_lib.check_turn_in(e.self, e.trade, {item1 = 30081})) then
 			local randomScaleItem = eq.ChooseRandom(25011, 25016, 25013, 25010, 25017, 25014, 25007, 25005, 25015, 25009, 25006, 25012, 25018); --random Giant Scalemail piece
 			e.other:SummonItem(randomScaleItem);
 		elseif (item_lib.check_turn_in(e.self, e.trade, {item1 =  25100, item2 = 25100, item3 = 25100, item4 = 25100})) then	
