@@ -2,7 +2,7 @@ function event_say(e)
 
 	if (e.other:GetFaction(e.self) == 1) then --must be ally
 		if (e.message:findi("hail")) then	
-			e.self:Say("Greetings, $name. You tread in the halls of Iceshard manor. Are you here with a purpose or are you lost?");
+			e.self:Say("Greetings, "..e.other:GetName()..". You tread in the halls of Iceshard manor. Are you here with a purpose or are you lost?");
 		elseif (e.message:findi("purpose")) then	
 			e.self:Say("I do not know what purpose you would serve to the Kromrif. If you seek to amass a fortune you have come to the wrong man. I am but a simple battlerager, wielding my blade for the Iceshard brothers when needed.");
 		elseif (e.message:findi("battlerager")) then	

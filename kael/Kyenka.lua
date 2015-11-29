@@ -3,7 +3,7 @@
 function event_say(e)
 	if (e.other:GetFaction(e.self) <= 3) then --kindly or better
 		if (e.message:findi("hail")) then	
-			e.self:Say("My, it is the great $name who stands before me! Rumors of your greatness have spread even to the court of King Tormax. I am Kyenka, Duke of Kael Drakkel. I advise King Tormax on matters concerning the nefarious dragons.");
+			e.self:Say("My, it is the great "..e.other:GetName().." who stands before me! Rumors of your greatness have spread even to the court of King Tormax. I am Kyenka, Duke of Kael Drakkel. I advise King Tormax on matters concerning the nefarious dragons.");
 		elseif (e.message:findi("dragons")) then	
 			e.self:Say("The living dragons of this realm are the bane of Kael Drakkel and its people. Eventually they will be gone and only we Kromzek will remain. We will purge this land of their menace.");
 		elseif (e.message:findi("purge")) then	
@@ -31,7 +31,7 @@ function event_trade(e)
 			e.other:Faction(42, -60); --CoV
 			e.other:AddEXP(100);
 		elseif (item_lib.check_turn_in(e.self, e.trade, {item1 =  25118})) then		
-			e.self:Say("You serve the crown well, $name. This is one less beast to ruin our lands. Take these pauldrons which I have fashioned from the first dragon scales brought to King Tormax's court.");
+			e.self:Say("You serve the crown well, "..e.other:GetName()..". This is one less beast to ruin our lands. Take these pauldrons which I have fashioned from the first dragon scales brought to King Tormax's court.");
 			e.other:SummonItem(25028);
 			e.other:Faction(189, 20); --kromzek
 			e.other:Faction(188, 20); --kromrif

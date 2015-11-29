@@ -2,7 +2,7 @@ function event_say(e)
 	if (e.message:findi("hail")) then
 		e.self:Say("You obviously have no idea where you have trespassed so I will generously allow you to live. I suggest you leave immediately before my generosity runs out however......Unless, you're looking for work.");
 	elseif (e.message:findi("looking for work")) then	
-		e.self:Say("Well, you might do. Out in the deepest scar, known as the Wakening Land we have deployed several mercenaries to harass the local annoying population. They are in need of constant supplies so we hire those we can trust to deliver those supplies to the mercenaries wandering out in the field. Are you interested, $race?");
+		e.self:Say("Well, you might do. Out in the deepest scar, known as the Wakening Land we have deployed several mercenaries to harass the local annoying population. They are in need of constant supplies so we hire those we can trust to deliver those supplies to the mercenaries wandering out in the field. Are you interested, "..e.other:Race().."?");
 	elseif (e.message:findi("i am interested")) then	
 		e.self:Say("Very well. Take this pack of supplies to any of the Mercenaries you come across in the field. They will pay you upon delivery. Return here for more supplies to deliver when you are ready.");
 		e.other:SummonItem(1724);
@@ -20,7 +20,7 @@ function event_trade(e)
 	local item_lib = require('items');
 
 	if (item_lib.check_turn_in(e.self, e.trade, {item1 = 1709})) then
-		e.self:Emote("takes the report from you and places it in a pocket without even glancing at it. He says, 'Do not worry, $name. I know of the planar creatures who eliminated my troops. The fault is not yours but of that fool Drioc's. The Savage land is not just a simple forest as those idiots in the field believe. It is a cradle of life and the forces that drive it. Within that forest is a nexus, a gateway to another plane of existence, the Plane of Growth.'");
+		e.self:Emote("takes the report from you and places it in a pocket without even glancing at it. He says, 'Do not worry, "..e.other:GetName()..". I know of the planar creatures who eliminated my troops. The fault is not yours but of that fool Drioc's. The Savage land is not just a simple forest as those idiots in the field believe. It is a cradle of life and the forces that drive it. Within that forest is a nexus, a gateway to another plane of existence, the Plane of Growth.'");
 		e.other:QuestReward(e.self, 0,0,0,0, 1710, 1000);
 		e.other:Faction(189, 10); --kromrif
 		e.other:Faction(188, 10); --kromzek

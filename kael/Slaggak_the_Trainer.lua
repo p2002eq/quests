@@ -2,7 +2,7 @@ function event_say(e)
 
 	if (e.other:GetFaction(e.self) <= 5) then --Indifferent or lower
 		if (e.message:findi("hail")) then
-			e.self:Say("Hello there, $race. I am Slaggak, the trainer. The Kromrif here will soon be ready to serve the great and honorable King Tormax.");
+			e.self:Say("Hello there, "..e.other:Race()..". I am Slaggak, the trainer. The Kromrif here will soon be ready to serve the great and honorable King Tormax.");
 		elseif (e.message:findi("serve")) then	
 			e.self:Say("So you say, little one. Why are you here, then? You should be out slaying those pestering little Coldain or maybe those damnable shard wurms and wyverns.");
 		elseif (e.message:findi("coldain")) then	
