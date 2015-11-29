@@ -7,8 +7,7 @@ function event_say(e)
 	elseif(e.message:findi("magic")) then
 	    e.self:Say("To cast away is not something we can do. Snowfang believe bad magic thrown away just make worse magic. Only way to get rid of badness is for friend to bring gift offering. Offering that means much to snowfang. If that is done magic is broken by the giving.");
 	elseif(e.message:findi("offering")) then
-	    e.self:Say("Offering must be true and strong. To trade for anything else would be an insult to the spirits. If you want you can bring me true strong wooden pole and fine string for new pole. That would be true strong gift and maybe enough to break bad evil on this thing we find."):
-	    
+	    e.self:Say("Offering must be true and strong. To trade for anything else would be an insult to the spirits. If you want you can bring me true strong wooden pole and fine string for new pole. That would be true strong gift and maybe enough to break bad evil on this thing we find.");
 	end
 end
 

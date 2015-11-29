@@ -71,7 +71,7 @@ function event_timer(e)
         eq.set_timer("wave2", 600000); -- starts wave 3
         eq.spawn2("flurry drake",0,0,xloc1,yloc1,zloc1,hloc1);
         
-        local wave2Spawns == 4;
+        local wave2Spawns = 4;
     
         for i = 1, wave2Spawns do
             eq.spawn2("rampaging hatchlings",0,0,
@@ -114,7 +114,7 @@ function event_timer(e)
 		eq.spawn2("drake",0,0,xloc2,yloc2,zloc2,hloc2);
         eq.spawn2("drake",0,0,xloc3,yloc3,zloc3,hloc3);
 		
-		local wave5Spawns == 4;
+		local wave5Spawns = 4;
     
         for i = 1, wave5Spawns do
             eq.spawn2("rampaging hatchlings",0,0,

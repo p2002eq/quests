@@ -22,7 +22,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 30042})) then
-		e.self:Say("Oh! I've been needing this!' She reads over the pages intently. 'Uh. Pirate - A sea robber.' She scratches her head. 'I totally forgot we were supposed to be robbing people. Put down yer weapons and hand over yer platinum and gold ya port side bilge suckers! Heh. This is great. Thank you.".. e.other:GetName() ..);
+		e.self:Say("Oh! I've been needing this!' She reads over the pages intently. 'Uh. Pirate - A sea robber.' She scratches her head. 'I totally forgot we were supposed to be robbing people. Put down yer weapons and hand over yer platinum and gold ya port side bilge suckers! Heh. This is great. Thank you.".. e.other:GetName() ..".");
 		e.self:Emote("grins and goes back to reading.");
 		e.other:QuestReward(e.self,0,0,0,0,18962);
 		

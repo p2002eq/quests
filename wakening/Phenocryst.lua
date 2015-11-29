@@ -31,7 +31,7 @@ function event_trade(e)
             e.other:SummonItem(1698);
             eq.spawn2(119158,0,0,408.10, -690.21, -201.55,187); --# accolyte of Zek  A
             eq.spawn2(119158,0,0,-564.04, -985.80, -191.31,187); --# accolyte of Zek  B
-            eq.spawn2((119164,0,0,303.02, 254.44, -201.54,187); --# Bloodpriest Ioukond  C
+            eq.spawn2(119164,0,0,303.02, 254.44, -201.54,187); --# Bloodpriest Ioukond  C
             eq.set_timer("5", 360000);
     end
     

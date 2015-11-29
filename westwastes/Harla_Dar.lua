@@ -21,6 +21,8 @@ function event_trade(e)
 		    e.other:Faction(189,-30); --Kromzek
 	        e.other:QuestReward(e.self,0,0,0,0,27261,150000);
 	        
+		end
 	end
-	item_lib.return_items(e.self, e.other, e.trade)
+
+	item_lib.return_items(e.self, e.other, e.trade);
 end
