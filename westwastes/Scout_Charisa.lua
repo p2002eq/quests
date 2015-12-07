@@ -1,7 +1,3 @@
-function event_spawn(e)
-	eq.set_timer("depop",180000); --this triggered mob is only available for three minutes then depops
-end
-
 function event_say(e)
 	if(e.message:findi("hail")) then
 		e.self:Say("I... am... the... Master... of... Elements.. Elements... Forgive... me. I am... unaccustomed.. to.. speaking.. this.. mortal... tongue. Might.. you... be... the... One?");
