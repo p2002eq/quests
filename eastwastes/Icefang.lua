@@ -8,7 +8,7 @@ function event_signal(e)
 		icefang = 10;
 	elseif (e.signal == 1161102) then
 		eq.move_to(1803, -7757, 193);
-		icefang = 20;
+		icefang = 25;
 	end
 
 end
