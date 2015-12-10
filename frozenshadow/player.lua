@@ -15,10 +15,17 @@ function event_click_door(e)
 	player_list = nil;
 	player_list_count = nil; --clear the lists
 	
+	local group = e.self:GetGroup();
+	
+	if (group.valid) then
+		player_list = group
+	    player_list_count = group:GroupCount();
+	end
+	    
 	if (door_id == 2) or (door_id == 166) then --First floor Door
 		if (e.self:HasItem(20033)) then
 			PortCharacters(e.self:GetX(), e.self:GetY(), e.self:GetZ(), 50, 660, 100, 40);
-			eq.debug("Porting up!");
+			eq.debug(player_list + player_list_count, 1);
 		end
 	elseif (door_id == 4) or (door_id == 167) then --Second Floor Door
 		if (e.self:HasItem(20034)) then

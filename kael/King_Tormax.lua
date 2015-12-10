@@ -23,7 +23,7 @@ function event_trade(e)
 			e.other:Faction(189, 75); --kromzek
 			e.other:Faction(179, 75); --KT
 			e.other:AddEXP(200000);	
-		elseif (item_lib.check_turn_in(e.self, e.trade, {item1 =  24987})) then	
+		elseif (item_lib.check_turn_in(e.self, e.trade, {item1 =  24984})) then	
 			e.other:SummonItem(25857);
 			e.other:Faction(49, -100); --coldain
 			e.other:Faction(67, -100); --dain
