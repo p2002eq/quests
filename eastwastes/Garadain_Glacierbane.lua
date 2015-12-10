@@ -55,6 +55,8 @@ function event_say(e)
 		e.self:Say("Very well, $name, give me the Adamantite ring and I will give you the marching orders. Once the orders are given to Gloradin in the next hut, we will be underway. You then must follow me to what will be our battleground. I must warn you, I will hold your ring until the head of Chief Ry`gorr is given to me. If we fail, all will be lost... for both of us.");
 	   
 	end
+
+end
 	
 function event_trade(e)
 	local item_lib = require("items");
@@ -133,6 +135,4 @@ function event_trade(e)
 		
 	end
 	item_lib.return_items(e.self, e.other, e.self, e.trade)
-end
-	
 end
