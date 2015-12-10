@@ -20,7 +20,7 @@ end
 
 function event_trade(e)
 
-if(item_lib.check_turn_in(e.self, e.trade, {item1 = 30064,item2 = 30065,item3 = 30065})) then --  Medium Quality Cougarskin,  Cutting Shells
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 30064,item2 = 30065,item3 = 30065})) then --  Medium Quality Cougarskin,  Cutting Shells
 		e.self:emote("works with the fur for awhile by skinning it and sewing it");
 		e.other:QuestReward(e.self,0,0,0,0,0,30020);
 	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 30030,item2 = 13407,item3 = 13407})) then --  High Quality CougarSkin, Mammoth Meat
@@ -38,4 +38,5 @@ if(item_lib.check_turn_in(e.self, e.trade, {item1 = 30064,item2 = 30065,item3 = 
 		
 	end
 	
+end
 	--fiddle

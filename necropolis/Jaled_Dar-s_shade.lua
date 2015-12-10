@@ -1,6 +1,6 @@
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say(string.format("Mortal! You MUST aid me! I will have my revenge, and my rest!");
+		e.self:Say(string.format("Mortal! You MUST aid me! I will have my revenge, and my rest!"));
 	elseif(e.message:findi("aid you")) then
 		e.self:Say("You must wake The Sleeper. He is our salvation, he will restore a new golden age to Norrath. It was a terrible mistake to subdue him, jealousy and envy led us to do it. I see all of this clearly now.");
     elseif(e.message:findi("the sleeper")) then
@@ -13,22 +13,22 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in((e.self, e.trade, {item1 = 9296}))) then 
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 9296})) then 
 		e.self:Say("Thank you so much. Tiny gets quite tired doing this by himself. Here you go.");
 		e.other:QuestReward(e.self,0,0,0,0,27265,500000);
-	elseif(item_lib.check_turn_in((e.self, e.trade, {item1 = 27255}))) then 
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 27255})) then 
 	    e.self:Say("Thank you so much. Tiny gets quite tired doing this by himself. Here you go.");
 		e.other:QuestReward(e.self,0,0,0,0,27265,500000);
-	elseif(item_lib.check_turn_in((e.self, e.trade, {item1 = 27256}))) then 
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 27256})) then 
 		e.self:Say("Thank you so much. Tiny gets quite tired doing this by himself. Here you go.");
 		e.other:QuestReward(e.self,0,0,0,0,27265,500000);
-	elseif(item_lib.check_turn_in((e.self, e.trade, {item1 = 27258}))) then 
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 27258})) then 
 		e.self:Say("Thank you so much. Tiny gets quite tired doing this by himself. Here you go.");
 		e.other:QuestReward(e.self,0,0,0,0,27265,500000);
-	elseif(item_lib.check_turn_in((e.self, e.trade, {item1 = 27259}))) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 27259})) then
 		e.self:Say("Thank you so much. Tiny gets quite tired doing this by himself. Here you go.");
 		e.other:QuestReward(e.self,0,0,0,0,27265,500000);
-	elseif(item_lib.check_turn_in((e.self, e.trade, {item1 = 27266}))) then 
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 27266})) then 
 		e.self:Say("Thank you so much. Tiny gets quite tired doing this by himself. Here you go.");
 		e.other:QuestReward(e.self,0,0,0,0,27265,500000);
 	end

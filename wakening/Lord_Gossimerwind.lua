@@ -1,12 +1,13 @@
 function event_say(e)
     if(e.other:GetFaction(e.self) < 5) then -- indiff?
-        if(e.message:findi("hail")) then
+		if(e.message:findi("hail")) then
 		    e.self:emote("blinks at you a few times then speaks in a strangely musical, draconic voice. 'You vish to azzizt ze count of ze Tunarean Faerie Dragons?");
 	    elseif(e.message:findi("assist")) then
 	        e.self:say("I vish to ztop ze Kromzek Foreman from continuing ta deztroy thiz land. Iv you vish to azzizt you can zlay ze Foreman and bring me hiz helm az proof.");
-    elseif(e.message:findi("hail")) then
+		elseif(e.message:findi("hail")) then
         e.self:say("You are no friend of the Tunarean Court.  Leave me.");
-    end
+		end
+	end
 end
 
 function event_trade(e)

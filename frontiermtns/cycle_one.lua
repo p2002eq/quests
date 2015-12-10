@@ -30,13 +30,13 @@ function event_spawn(e)
 	        elseif(trigger == 3) then -- burynai trigger
 		        local getnewloc = eq.ChooseRandom(1,2);
 	                if(getnewloc == 1) then
-		                newx = -3134;
-		                newy = -2100;
-		                newz = -465;
+		                newx = 2889;
+		                newy = -1784;
+		                newz = -143;
 	                elseif(getnewloc == 2) then
-		                newx = -2100;
-		                newy = -2500;
-		                newz = -400;
+		                newx = -2111;
+		                newy = -2645;
+		                newz = -389;
 	                end
 	        
 	            local getnewmobid = eq.ChooseRandom(92197, 92198, 92199, 92200, 92201, 92202, 92203, 92204, 92205, 92206, 92207);
