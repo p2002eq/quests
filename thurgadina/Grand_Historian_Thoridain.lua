@@ -2,7 +2,7 @@
 -- I will change this on P2002 to where if the player is on that part of the quest
 -- to be as accurate as possible to live
 
-function event spawn(e)
+function event_spawn(e)
 	eq.set_timer("lecture1", 110000);	
 end
 
