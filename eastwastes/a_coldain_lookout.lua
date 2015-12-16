@@ -1,6 +1,6 @@
 -- Part of Coldain Ring 5
 function event_say(e)
-	e.self:Say("testing");
+	e.self:Say("testing timers");
 end
 
 function event_trade(e)
