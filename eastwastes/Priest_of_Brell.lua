@@ -26,7 +26,7 @@ function event_waypoint_depart(e)
 end
 
 function event_timer(e)
-	if (e.timer == "7") then
+	if (e.timer == "8") then
 		eq.depop_all(116541);
 	end
 
