@@ -1,11 +1,12 @@
 function event_say(e)
+	e.self:Say("Hello");
 end
 
 function event_trade(e)
 	local item_lib = require("items");
 
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 29683})) then -- Scout Tools
-		eq.set_timer("Scout", 1200000); -- 20 minutes
+		eq.set_timer("depop", 1200000); -- 20 minutes
 		eq.spawn2(120115,0,0,-3501,-4868,-108, 0); -- a Kromzek Captain
 		eq.spawn2(120121,0,0,-3507,-4897,-106, 0); -- Kromzek Warrior
 		eq.spawn2(120121,0,0,-3496,-4874,-109, 0); -- Kromzek Warrior
@@ -36,16 +37,19 @@ function event_trade(e)
         
         
 	end
+
 	item_lib.return_items(e.self, e.other, e.trade)
+
 end
 
 function event_timer(e)
-	if (e.timer == "Scout") then
-	eq.stop_timer("Scout");
-	eq.get_entity_list():GetNPCTypeID(120121):Depop();
-	eq.get_entity_list():GetNPCTypeID(120115):Depop();
-	eq.depop();
+	if (e.timer == "depop") then
+	eq.stop_timer("depop");
+	eq.depop(120115); --Captain
+	eq.depop_all(120121); --warriors
+	eq.depop(); --Scout Charisa
 	end
+
 end
 
 
