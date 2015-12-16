@@ -82,10 +82,7 @@ function event_waypoint_depart(e)
 		eq.move_to(-3730, -3305, 197);
 		eq.set_timer("icefang", 6000000); --10 min
 		icefang = 180;
-
-		eq.spawn2(116571, 0, 0, -4319, -3500, 150, 0); --mystic of rygorr
-		--According to quest text a few NPC's should spawn need to check the locs of them		
-		eq.get_entity_list():GetMobByNpcTypeID(15178):CastToNPC():SignalNPC(1);
+		eq.event_load("RingSix");
 	elseif (icefang == 180) then
 		eq.move_to(-4404, -3354, 146);
 		icefang = 0; --clear the var
@@ -96,6 +93,8 @@ end
 function event_timer(e)
 	if (e.timer == "icefang") then
 		eq.stop_timer("icefang");
+		eq.depop_all(116584);
+		eq.depop(116596);
 		--text made up
 		e.self:Say("blends into the snowy landscape and disappears from sight.");
 		eq.depop_with_timer();
