@@ -26,16 +26,4 @@ function event_encounter_load(e)
 	end
 	
 	--spawned 
-	eq.set_timer("move", 10); --10 seconds
-end
-
-function event_timer(e)
-	if (e.timer == "move") then
-		scarid1:CastToNPC():SafeGuardSpot(0);	
-		scarid1:MoveTo(-369, -2628, 180);
-		if (spawnOracles == 3) then
-			
-		end
-	end
-
 end
