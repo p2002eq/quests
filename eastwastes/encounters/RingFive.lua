@@ -30,9 +30,7 @@ function event_encounter_load(e)
 end
 
 function event_timer(e)
-	eq.depop_all(116586); --invaders
-	eq.depop_all(116587); --oracles
-	eq.depop(116600); --Scarbrow
+	eq.depop_all(); 
 	eq.stop_timer("depop");
 	eq.unload_encounter("RingFive");
 end
