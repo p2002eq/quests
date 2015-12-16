@@ -7,14 +7,15 @@ function event_trade(e)
 
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 29683})) then -- Scout Tools
 		eq.set_timer("depop", 1200000); -- 20 minutes
-		eq.spawn2(120115,0,0,-3501,-4868,-108, 0); -- a Kromzek Captain
-		eq.spawn2(120121,0,0,-3507,-4897,-106, 0); -- Kromzek Warrior
-		eq.spawn2(120121,0,0,-3496,-4874,-109, 0); -- Kromzek Warrior
-        eq.spawn2(120121,0,0,-3474,-4863,-114, 0); -- Kromzek Warrior
-        eq.spawn2(120121,0,0,-3463,-4852,-117, 0); -- Kromzek Warrior
-        eq.spawn2(120121,0,0,-3452,-4841,-119, 0); -- Kromzek Warrior
-        eq.spawn2(120121,0,0,-3441,-4830,-122, 0); -- Kromzek Warrior
-        eq.spawn2(120121,0,0,-3430,-4819,-124, 0); -- Kromzek Warrior
+		eq.load_encounter("Scout_Charisa");
+--		eq.spawn2(120115,0,0,-3501,-4868,-108, 0); -- a Kromzek Captain
+--		eq.spawn2(120121,0,0,-3507,-4897,-106, 0); -- Kromzek Warrior
+--		eq.spawn2(120121,0,0,-3496,-4874,-109, 0); -- Kromzek Warrior
+--      eq.spawn2(120121,0,0,-3474,-4863,-114, 0); -- Kromzek Warrior
+--      eq.spawn2(120121,0,0,-3463,-4852,-117, 0); -- Kromzek Warrior
+--      eq.spawn2(120121,0,0,-3452,-4841,-119, 0); -- Kromzek Warrior
+--      eq.spawn2(120121,0,0,-3441,-4830,-122, 0); -- Kromzek Warrior
+--      eq.spawn2(120121,0,0,-3430,-4819,-124, 0); -- Kromzek Warrior
         e.other:Faction(42,30);   --Claws of Veeshan
 		e.other:Faction(362,30);  --Yelinak
 		e.other:Faction(189,-20); --Kromzek
@@ -45,8 +46,9 @@ end
 function event_timer(e)
 	if (e.timer == "depop") then
 	eq.stop_timer("depop");
-	eq.depop(120115); --Captain
-	eq.depop_all(120121); --warriors
+	eq.unload_encounter("Scout_Charisa");
+--	eq.depop(120115); --Captain
+--	eq.depop_all(120121); --warriors
 	eq.depop(); --Scout Charisa
 	end
 
