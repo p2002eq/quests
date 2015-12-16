@@ -21,6 +21,7 @@ end
 function event_timer(e)
 	if (e.timer == "depop") then
 		eq.stop_timer("depop");
+		eq.unload_encounter("RingFive");
 		eq.depop_all(116586); --invaders
 		eq.depop_all(116587); --oracles
 		eq.depop(116600); --Scarbrow
