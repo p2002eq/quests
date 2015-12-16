@@ -30,10 +30,10 @@ function event_encounter_load(e)
 end
 
 function event_timer(e)
-	entity_list = eq.get_entity_list;
-	local scarAlive = eq.entity_list:()IsMobSpawnedByNpcTypeID(116600) 
-	local invaderAlive = eq.entity_list:():IsMobSpawnedByNpcTypeID(116586)
-	local oracleAlive = eq.entity_list:():IsMobSpawnedByNpcTypeID(116586);
+	entity_list = eq.get_entity_list();
+	local scarAlive = entity_list:()IsMobSpawnedByNpcTypeID(116600) 
+	local invaderAlive = entity_list:():IsMobSpawnedByNpcTypeID(116586)
+	local oracleAlive = entity_list:():IsMobSpawnedByNpcTypeID(116586);
 		
 	if (scarAlive == true) then
 		eq.entity_list:GetMobID(116000):CastToMob():Depop();
