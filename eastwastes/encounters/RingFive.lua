@@ -26,7 +26,7 @@ function event_encounter_load(e)
 	end
 	
 	--spawned 
-	eq.set_timer("move", 10000); --10 seconds
+	eq.set_timer("move", 10); --10 seconds
 end
 
 function event_timer(e)
