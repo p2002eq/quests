@@ -25,7 +25,7 @@ function event_click_door(e)
 	
 	if (door_id == 2) or (door_id == 166) then --First Floor
 		if (e.self:HasItem(20033) == 1) then --Crystal Key
-			PortChars(e.self:GetX(), e.self:GetY(), e.self:GetZ(), 75, 600, 100, 40, 0);	
+			PortChars(e.self:GetX(), e.self:GetY(), e.self:GetZ(), 75, 660, 100, 40, 0);
 		end
 	elseif (door_id == 4) or (door_id == 167) then --Second Floor
 		if (e.self:HasItem(20034) == 1) then --Three Toothed Key
