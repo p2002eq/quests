@@ -4,6 +4,7 @@ local spawnOracles = math.random(1, 3);
 local spawnInvaders = math.random(1, 3);
 
 function event_encounter_load(e)
+	eq.start_timer("depop", 120000);
 	--locs made up
 	scarid1 = eq.spawn2(116600, 0, 0, -650, -2744, 180, 45); --Scarbrow
 
@@ -26,4 +27,12 @@ function event_encounter_load(e)
 	end
 	
 	--spawned 
+end
+
+function event_timer(e)
+	eq.depop_all(116586); --invaders
+	eq.depop_all(116587); --oracles
+	eq.depop(116600); --Scarbrow
+	eq.stop_timer("depop");
+	eq.unload_encounter("RingFive");
 end
