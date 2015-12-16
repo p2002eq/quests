@@ -11,6 +11,6 @@ end
 
 
 function event_encounter_unload(e)
-	eq.depop_all(120121); --Captain
-	eq.depop(120115); --Warriors
+	eq.depop_all(120121); --Warriors
+	eq.depop(120115); --Captain
 end

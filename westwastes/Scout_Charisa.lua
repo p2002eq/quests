@@ -49,7 +49,7 @@ function event_timer(e)
 	eq.unload_encounter("Scout_Charisa");
 --	eq.depop(120115); --Captain
 --	eq.depop_all(120121); --warriors
-	eq.depop(); --Scout Charisa
+	eq.depop_with_timer(); --Scout Charisa
 	end
 
 end
