@@ -6,7 +6,7 @@ function event_trade(e)
 	local item_lib = require("items");
 
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 29683})) then -- Scout Tools
-		eq.set_timer("depop", 120); -- 20 minutes
+		eq.set_timer("depop", 120000); -- 20 minutes
 		eq.load_encounter("Scout_Charisa");
 --		eq.spawn2(120115,0,0,-3501,-4868,-108, 0); -- a Kromzek Captain
 --		eq.spawn2(120121,0,0,-3507,-4897,-106, 0); -- Kromzek Warrior
