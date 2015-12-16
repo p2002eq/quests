@@ -8,7 +8,8 @@ function event_trade(e)
 
 		e.self:Shout("Aahhh.. You're too late! They're upon us! To arms, men! Death to Scarbrow!");
 		eq.spawn2(116570, 0, 0, -642, -2591, 190, 0);
-		eq.get_entity_list():GetMobByNpcTypeID(116570):CastToNPC():SignalNPC(1);	
+--		eq.get_entity_list():GetMobByNpcTypeID(116570):CastToNPC():SignalNPC(1);	
+		eq.load_encounter("RingFive");
 		e.other:Faction(49, 30);
 		e.other:Faction(67, 30);
 		e.other:Faction(188, -30);
