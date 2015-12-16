@@ -5,7 +5,7 @@ function event_trade(e)
 	local item_lib = require("items");
 
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 29683})) then -- Scout Tools
-		eq.set_timer("depop", 120000); -- 20 minutes
+		eq.set_timer("depop", 1200000); -- 20 minutes
 		eq.load_encounter("Scout_Charisa");
         e.other:Faction(42,30);   --Claws of Veeshan
 		e.other:Faction(362,30);  --Yelinak
