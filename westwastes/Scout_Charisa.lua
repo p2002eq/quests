@@ -1,5 +1,5 @@
 function event_say(e)
-	e.self:Say("Hello Test again");
+	e.self:Say("Hello last Test again");
 end
 
 function event_trade(e)
