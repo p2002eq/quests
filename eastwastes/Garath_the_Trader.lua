@@ -1,4 +1,5 @@
 function event_say(e)
+
     if(e.message:findi("hail")) then
             e.self:Say("Hail to ya, Traveller, and well met! My Name's Garath, a warrior by trade, though I do dabble in some merchanting on the side. My exploring brought me here, and I saw some wonderous things. I ventured inside this ancient tomb with some friends, and oh! The horrors we encountered! I barely made it out alive, but I did manage to pick up some [weapons to trade].");
         elseif(e.message:findi("weapons")) then
@@ -8,6 +9,7 @@ function event_say(e)
         elseif(e.message:findi("knight")) then
             e.self:Say("Knight? Yeah, I don't make much distinction, paladin or shadow knight, they're all knights to me. Well, look here, I got two swords from inside the tomb, but I'll be damned if either of em was suited for a warrior. Clearly a knight's blade, what bad luck for me. I was hopin for a good warsword. That's why I'm standin out here ya know? I was hopin I could find someone who might swap me either a primal or priceless warsword, and take one of these knightly swords in trade.");
     end
+
 end
 
 function event_trade(e)
@@ -27,4 +29,5 @@ function event_trade(e)
         e.other:QuestReward(e.self,0,0,0,0,5835,1000);
     end
     item_lib.return_items(e.self, e.other, e.self, e.trade);
+k
 end
