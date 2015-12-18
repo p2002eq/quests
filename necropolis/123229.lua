@@ -17,7 +17,7 @@ function event_spawn(e)
 			eq.depop_with_timer();
 		end
 	elseif (randomNamed > 4) and (randomNamed < 8) then -- 4 < x < 8 
-		if (entity_list:IsMobSpawnedByNpcTypeID(123251) == false)) then --Is Warmaster Utvara up?
+		if (entity_list:IsMobSpawnedByNpcTypeID(123251) == false) then --Is Warmaster Utvara up?
 			eq.unique_spawn(123251, 0, 0, e.self:GetX(), e.self:GetY(), e.self:GetZ(), e.self:GetHeading());
 			eq.depop_with_timer();
 		end	

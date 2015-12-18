@@ -29,5 +29,5 @@ function event_trade(e)
         e.other:QuestReward(e.self,0,0,0,0,5835,1000);
     end
     item_lib.return_items(e.self, e.other, e.self, e.trade);
-k
+
 end

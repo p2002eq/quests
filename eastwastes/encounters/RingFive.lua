@@ -1,9 +1,10 @@
 --ring five encounter
 
-local spawnOracles = math.random(1, 3);
-local spawnInvaders = math.random(1, 3);
 
 function event_encounter_load(e)
+	local spawnOracles = math.random(1, 3);
+	local spawnInvaders = math.random(1, 3);
+	
 	--locs made up
 	eq.spawn2(116600, 0, 0, -650, -2744, 180, 45); --Scarbrow
 
