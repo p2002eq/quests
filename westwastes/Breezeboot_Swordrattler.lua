@@ -13,11 +13,3 @@ function event_say(e)
 	end
 end
 
-function event_trade(e)
-	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 27264,item2 = 27263,item3 = 27262})) then
-		e.other:QuestReward(e.self,0,0,0,0,27310,60000);
-	
-	end
-	item_lib.return_items(e.self, e.other, e.trade)
-end
