@@ -1,4 +1,4 @@
-function event_aggro(e)
+function event_combat(e)
 	e.self:Say("You have stuck yer nose where it don't belong fool, I'll show ya the error of yer ways!");
 end
 

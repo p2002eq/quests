@@ -11,5 +11,6 @@ end
 function event_proximity_say(e)
     if(e.message:findi('The dain shall be slain for the peace we must obtain')) then
         e.self:Say('worked');
+        eq.spawn2(113636, 0, 0, 1393, -840.0, -116.8, 195.0);
     end
 end

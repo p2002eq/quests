@@ -1,4 +1,4 @@
-function event_aggro(e)
+function event_combat(e)
 	e.self:Say("Your bones will be crushed by the Kromrif of Kael Drakkel!");
 end
 
