@@ -18,7 +18,7 @@ function event_trade(e)
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 =1198 })) then
 		e.self:Say("Spectacular artistry! I doubt I could have done better myself. You'll have to forgive me, I know time is short and I tend to carry on. This is the pattern for the making of a rune sacred to our people. It will be our final test of your craftsmanship and will put many of your skills to the test, but I trust you'll find the finished product to be more than worth the effort. Show Gilthan the embroidered shawl, he will set you on the path. May Brell always be with you outlander.");
 		e.other:SummonItem(1198);
-		e.other:SummonItem(1894);
+		e.other:SummonItem(1849);
 	end
 	item_lib.return_items(e.self, e.other, e.trade)	
 end
