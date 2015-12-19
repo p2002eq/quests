@@ -22,9 +22,9 @@ function event_trade(e)
     if (helms > 0) then
         repeat
         e.self:Say("Very good, you are on your way to proving yourself.");
-        e.self:Faction(42, 5); --CoV
-        e.self:Faction(362,5); --Yelinak
-        e.self:Faction(189, -5); --Kromzek
+        e.other:Faction(42, 5); --CoV
+        e.other:Faction(362,5); --Yelinak
+        e.other:Faction(189, -5); --Kromzek
         helms = helms - 1;
         until helms == 0
     end
@@ -43,9 +43,9 @@ function event_trade(e)
         repeat
         e.self:Say("Ahhh yes! Well done " .. e.other:GetClass() .. ". Here is your reward. Your status with our people grows with each interloper you eradicate.");
         e.other:GiveCash(13,6,6,0); -- 13 Copper, 6 Silver, 6 Gold
-        e.self:Faction(42, 5); --CoV
-        e.self:Faction(362,5); --Yelinak
-        e.self:Faction(189, -5); --Kromzek
+        e.other:Faction(42, 5); --CoV
+        e.other:Faction(362,5); --Yelinak
+        e.other:Faction(189, -5); --Kromzek
         mercAssigments = mercAssigments - 1;
         until mercAssigments == 0
     end
