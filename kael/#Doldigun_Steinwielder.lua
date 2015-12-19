@@ -5,12 +5,7 @@ end
 
 function event_waypoint_depart(e)
 	if (e.self:GetX() == 1366) and (e.self:GetY() == -529) and (e.self:GetZ() == -118) then
+        rq.signal(113632, 1);
 		eq.depop_with_timer();
 	end
-end
-
-function event_timer(e)
-	if (e.self:GetX() == 1370) and (e.self:GetY() == -710.2) and (e.self:GetZ() == -115.6) then
-		eq.depop_with_timer();
-	end	
 end
