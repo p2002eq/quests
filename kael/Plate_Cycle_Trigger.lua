@@ -9,13 +9,6 @@ end
 function event_proximity_say(e)
     if(e.message:findi('The dain shall be slain for the peace we must obtain')) then
         eq.spawn2(113636, 0, 0, 1393, -840.0, -116.8, 195.0);
-    end
-end
-
-
-function event_signal(e)
-    if (e.signal == 1) then
-        e.self:Say('depoping');
         eq.depop_with_timer();
     end
 end
