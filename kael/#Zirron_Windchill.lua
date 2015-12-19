@@ -1,7 +1,7 @@
-function event_aggro(e)
+function event_combat(e)
 	e.self:Say("Your bones will be crushed by the Kromrif of Kael Drakkel!");
 end
 
 function event_death_complete(e)
-	e.self:Say(113559,29,0,1130.3,-749.6,-125.6,126.6);
+	eq.spawn2(113624,0,0,1180,-839,-125.50, 60);
 end
