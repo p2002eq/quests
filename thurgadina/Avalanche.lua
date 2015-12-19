@@ -4,7 +4,7 @@ end
 
 function event_timer(e)
 	if (e.timer == "follow") then
-		if (eq.get_entity_list():IsMobSpawnedByNPCTypeID(115102)) then
+		if (eq.get_entity_list():IsMobSpawnedByNpcTypeID(115102)) then
 			--Check if Wolfmaster is up and follow him
 			e.self:follow(115102);
 			eq.stop_timer("follow");
