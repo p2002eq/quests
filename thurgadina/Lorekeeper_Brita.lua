@@ -33,5 +33,19 @@ end
 
 --
 function event_trade(e)
+
+	local item_lib = require('items');
+
+	if (item_lib.check_turn_in(e.self, e.trade, {item1 = 1427, item2 = 1417})) then
+		e.self:Say("Ohh, that's better. I get so touchy when I'm hungry. I should probably go apologize to Derrin for being snappy. Please return this to Mordin for me.");
+		e.other:QuestReward(e.self, 0, 0, 0, 0, 1424, 150000);
+		e.other:Faction(49, 20); --coldain
+		e.other:Faction(67, 20); --Dain
+		e.other:Faction(188, -60); --kromrif
+		e.other:Faction(189, -60); --kromzek
+	elseif (item_lib.check_turn_in(e.self, e.trade, {item1 =  1427})) then
+		e.self:Say("Ohh, that's better. I get so touchy when I'm hungry. I should probably go apologize to Derrin for being snappy.");
+		e.other:AddEXP(5000);
+	end
     quest_helper:quest_turn_in(e, 3, QUEST_ITEMS, quest_helper.thurg_armor_success)
 end
