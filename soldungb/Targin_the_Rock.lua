@@ -4,7 +4,7 @@ function event_say(e)
 	end
 end
 
-function event_attack(e)
+function event_combat(e)
 	e.self:Say("You have much to learn.' and 'Your actions and history are a personal affront to all I stand for.");
 end
 
