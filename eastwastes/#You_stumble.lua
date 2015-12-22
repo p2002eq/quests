@@ -19,7 +19,7 @@ function event_enter(e)
 	myZ = e.self:GetZ();
 	exists = eq.get_entity_list():GetMobByNpcTypeID(116601);
 
-	if (exists) then
+	if (exists == false) then
 		e.self:Emote("in the snow.");
 	else 
 		e.self:Emote("and uncover the body of an injured coldain.");
