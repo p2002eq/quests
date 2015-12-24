@@ -6,7 +6,7 @@ end
 
 function event_timer(e)
 
-	local check_npc = eq.get_entity_list():GetMobByNPCType(116577);
+	local check_npc = eq.get_entity_list():GetMobByNpcTypeID(116577);
 
 	if (e.timer == "99") and (check_npc == true) then
 		eq.stop_timer("99");
