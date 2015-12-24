@@ -1,3 +1,4 @@
+-- Oracle of Rygorr cycle
 function event_spawn(e)
 
 	eq.set_timer("99",2);
@@ -5,8 +6,8 @@ function event_spawn(e)
 end
 
 function event_timer(e)
-
-	local check_npc = eq.get_entity_list():GetMobByNpcTypeID(116577);
+    -- Check to see if cheif is up
+	local check_npc = eq.get_entity_list():GetMobByNpcTypeID(116165);
 
 	if (e.timer == "99") and (check_npc == true) then
 		eq.stop_timer("99");
