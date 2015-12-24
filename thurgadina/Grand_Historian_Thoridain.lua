@@ -37,8 +37,8 @@ function event_timer(e)
 		eq.set_timer("lecture5", 110000);
 	elseif (e.timer == "lecture5") then
 		e.self:Say("Young Doriggan, perhaps you will find it easier to focus on my words from a standing position. That corner will do fine.");
-		e.signal(115022,3);
-		e.signal(115191,3);
+		eq.signal(115022,3);
+		eq.signal(115191,3);
 		eq.stop_timer("lecture5");
 		eq.set_timer("lecture6", 110000);
 	elseif (e.timer == "lecture6") then
