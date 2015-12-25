@@ -5,14 +5,14 @@ function event_waypoint_arrive(e)
 		eq.signal(115187,1);
 	elseif (e.wp == 2) then
 		e.self:Say("Uh oh");
-		e.self:IsRunning(true);	
+		e.self:SetRunning(true);	
 		eq.signal(115011,2);
 		eq.signal(115187,2);
 		eq.signal(115010,3);
 		eq.signal(115012,2);
 		eq.signal(115188,2);
 	elseif (e.wp == 19) then
-		e.self:IsRunning(false);
+		e.self:SetRunning(false);
 		e.self:Say("Whew, that was a close one!");
 		eq.signal(115142,1);
 	elseif (e.wp == 40) then

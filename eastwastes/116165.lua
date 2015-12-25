@@ -1,3 +1,4 @@
+-- Cheif Rygorr for cycle
 function event_spawn(e)
 
 	eq.set_timer("93", 1000000); --16.67 min
