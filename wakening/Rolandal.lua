@@ -1,3 +1,4 @@
+local item_lib = require("items");
 function event_say(e)
 	local qglobals = eq.get_qglobals();
 
@@ -30,5 +31,4 @@ function event_trade(e)
 	end
 
     item_lib.return_items(e.self, e.other, e.trade);
-		
 end
