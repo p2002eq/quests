@@ -4,7 +4,8 @@ end
 
 function event_timer(e)
 	eq.depop_with_timer();
-	e.self:Reset();
+--	e.self:Reset();
+-- Editing out why would you reset if you depop with timer?
 end
 
 function event_death_complete(e)
