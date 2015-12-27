@@ -11,19 +11,19 @@ QUEST_TEXT = quest_helper.merge_tables(QUEST_TEXT, quest_helper.THURG_SILK_TEXT)
 
 local QUEST_ITEMS = {
     -- boots
-    quest_helper:caster_boots(THURG_ARMOR.Silk_Boots, 31076),
+    quest_helper:silk_boots(THURG_ARMOR.Silk_Boots, 31076),
     -- legs
-    quest_helper:caster_legs(THURG_ARMOR.Silk_Pantaloons, 31075),
+    quest_helper:silk_legs(THURG_ARMOR.Silk_Pantaloons, 31075),
     -- gloves
-    quest_helper:caster_gloves(THURG_ARMOR.Silk_Gloves, 31074),
+    quest_helper:silk_gloves(THURG_ARMOR.Silk_Gloves, 31074),
     -- wrist
-    quest_helper:caster_bracer(THURG_ARMOR.Silk_Wristband, 31073),
+    quest_helper:silk_bracer(THURG_ARMOR.Silk_Wristband, 31073),
     -- arms
-    quest_helper:caster_arms(THURG_ARMOR.Silk_Sleeves, 31072),
+    quest_helper:silk_arms(THURG_ARMOR.Silk_Sleeves, 31072),
     -- chest
-    quest_helper:caster_chest(THURG_ARMOR.Silk_Robe, 31071),
+    quest_helper:silk_chest(THURG_ARMOR.Silk_Robe, 31071),
     -- helm
-    quest_helper:caster_helmet(THURG_ARMOR.Silk_Turban, 31070)
+    quest_helper:silk_helmet(THURG_ARMOR.Silk_Turban, 31070)
 }
 
 function event_say(e)
