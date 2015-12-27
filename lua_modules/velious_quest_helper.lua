@@ -367,7 +367,7 @@ function helper:priest_gloves(armor, reward)
 end
 
 function helper:priest_legs(armor, reward)
-    return self:quest_turn_in_item(self.ARMOR_GEMS.Chipped_Onyx_Sapphire)
+    return self:quest_turn_in_item(self.ARMOR_GEMS.Chipped_Onyx_Sapphire, armor, reward)
 end
 
 function helper:priest_boots(armor,reward)
