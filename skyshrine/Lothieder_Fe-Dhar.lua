@@ -13,13 +13,13 @@ QUEST_TEXT = quest_helper.merge_tables(QUEST_TEXT, quest_helper.SKYSHRINE_SILK_T
 
 
 local QUEST_ITEMS = {
-	quest_helper:silk_helmet(SKYSHRINE_ARMOR.Silk_Turban, 31161), -- helm
-	quest_helper:silk_chest(SKYSHRINE_ARMOR.Silk_Robe, 31162), -- chest
-	quest_helper:silk_arms(SKYSHRINE_ARMOR.Silk_Sleeves, 31163), -- arms
-	quest_helper:silk_bracer(SKYSHRINE_ARMOR.Silk_Wristband, 31164), -- wrist
-	quest_helper:silk_gloves(SKYSHRINE_ARMOR.Silk_Gloves, 31165), -- gloves
-	quest_helper:silk_legs(SKYSHRINE_ARMOR.Silk_Pantaloons, 31166), -- legs
-	quest_helper:silk_boots(SKYSHRINE_ARMOR.Silk_Boots, 31167) -- boots
+	quest_helper:silk_helmet(SKYSHRINE_ARMOR.Silk_Turban, 31175), -- helm
+	quest_helper:silk_chest(SKYSHRINE_ARMOR.Silk_Robe, 31176), -- chest
+	quest_helper:silk_arms(SKYSHRINE_ARMOR.Silk_Sleeves, 31177), -- arms
+	quest_helper:silk_bracer(SKYSHRINE_ARMOR.Silk_Wristband, 31178), -- wrist
+	quest_helper:silk_gloves(SKYSHRINE_ARMOR.Silk_Gloves, 31179), -- gloves
+	quest_helper:silk_legs(SKYSHRINE_ARMOR.Silk_Pantaloons, 31180), -- legs
+	quest_helper:silk_boots(SKYSHRINE_ARMOR.Silk_Boots, 31181) -- boots
 }
 
 function event_say(e)
