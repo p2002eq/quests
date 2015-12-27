@@ -4,13 +4,13 @@ local quest_helper = require('velious_quest_helper');
 local SKYSHRINE_ARMOR = quest_helper.SKYSHRINE_ARMOR;
 
 local QUEST_ITEMS = {
-  quest_helper:melee_helmet(SKYSHRINE_ARMOR.Leather_Cap, 31147), --helm
-  quest_helper:melee_chest(SKYSHRINE_ARMOR.Leather_Tunic, 31148), --bp
-  quest_helper:melee_arms(SKYSHRINE_ARMOR.Leather_Sleeves, 31149), -- arms
-  quest_helper:melee_bracer(SKYSHRINE_ARMOR.Leather_Bracelet, 31150), --bracer
-  quest_helper:melee_gloves(SKYSHRINE_ARMOR.Leather_Gloves, 31151), -- gloves
-  quest_helper:melee_legs(SKYSHRINE_ARMOR.Leather_Leggings, 31152), -- legs
-  quest_helper:melee_boots(SKYSHRINE_ARMOR.Leather_Boots, 31153), -- boots
+  quest_helper:priest_helmet(SKYSHRINE_ARMOR.Leather_Cap, 31147), --helm
+  quest_helper:priest_chest(SKYSHRINE_ARMOR.Leather_Tunic, 31148), --bp
+  quest_helper:priest_arms(SKYSHRINE_ARMOR.Leather_Sleeves, 31149), -- arms
+  quest_helper:priest_bracer(SKYSHRINE_ARMOR.Leather_Bracelet, 31150), --bracer
+  quest_helper:priest_gloves(SKYSHRINE_ARMOR.Leather_Gloves, 31151), -- gloves
+  quest_helper:priest_legs(SKYSHRINE_ARMOR.Leather_Leggings, 31152), -- legs
+  quest_helper:priest_boots(SKYSHRINE_ARMOR.Leather_Boots, 31153), -- boots
 }
 
 function event_say(e)
@@ -20,19 +20,19 @@ function event_say(e)
 		elseif(e.message:findi("i am a druid")) then
 			e.self:Say("Good. I had hoped you were one. As nature's guardian, you fight the never-ending struggle against those who seek to defile it. It is an admirable quality and I wish to aid you. I will provide you with a cap, a tunic, sleeves, bracers, gloves, leggings and boots.");
 		elseif(e.message:findi("cap")) then
-			e.self:Say("I shall weave one of exceptional quality for you but you must gather the items first. I require an unadorned leather cap and three pieces of crushed coral.");
+			e.self:Say("I shall weave one of exceptional quality for you but you must gather the ingredients first. I require an unadorned leather cap and three crushed onyx sapphires.");
 		elseif(e.message:findi("tunic")) then
-			e.self:Say("You shall be an imposing force with this tunic. Solid as the unmoving mountains, it shall protect you. Once I have gained a set of three flawless diamonds and an unadorned leather tunic.");		
+			e.self:Say("You shall be a force of nature with this tunic. Once I have gained an unadorned leather tunic and three pieces of black marble, the item is yours.");		
 		elseif(e.message:findi("sleeves")) then
-			e.self:Say("As the mighty stone that parts the flow of water, so shall these sleeves divert harm against you. Bring me a pair of unadorned leather sleeves and three flawed emeralds.");
+			e.self:Say("As the bark protects the limbs of the tree, so shall these sleeves protect your arms. Bring me a pair of unadorned leather sleeves and three jaundice gems.");
 		elseif(e.message:findi("bracers")) then
-			e.self:Say("For a bracer I shall require three crushed flame emeralds and an unadorned leather bracelet. Bring me these items and the reward shall be yours to keep.");
+			e.self:Say("For a bracer I shall require an unadorned leather bracelet as well as three crushed opals. Do this and the reward shall be yours to keep.");
 		elseif(e.message:findi("gloves")) then
-			e.self:Say("Your hands are like the wind, everflowing and moving. Subtle one moment, then a howling wind raining blow upon blow to your foes. These gloves shall aid you. In order for me to complete them, I require a pair of unadorned leather gloves and three crushed topaz.");
+			e.self:Say("The gloves shall help protect you from the elements and harm. In order for me to complete them, I require a pair of unadorned leather gloves and three crushed lava rubies.");
 		elseif(e.message:findi("leggings")) then
-			e.self:Say("The leggings shall protect you, as the valley shelters the still pool within it from the howling winds. Furnish a pair of unadorned leather leggings and three flawed sea sapphires.");
+			e.self:Say("As the roots support the mighty oak, so shall these leggings support you. Furnish me three chipped onyx sapphires and a pair of unadorned leather leggings.");
 		elseif(e.message:findi("boots")) then
-			e.self:Say("Your feet are as hard as any stone and as swift as a coiled serpent but even the swiftest feet require protection so I shall provide you with these. They should help. Acquire a pair of unadorned leather boots and three crushed pieces of black marble.")
+			e.self:Say("Your feet are as hard as any stone and as swift as a coiled serpent but even the swiftest feet require protection so I shall provide you with these. They should help. Acquire a pair of unadorned leather boots and a set of three crushed flame emeralds.")
 		end
 	else --Not ally
 		e.self:Say("You must prove your dedication to the Claws of Veeshan before I will speak to you.");		
