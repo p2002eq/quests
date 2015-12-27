@@ -14,7 +14,7 @@ local QUEST_ITEMS={
 }
 
 function event_say(e)
-	if(e.other:GetFaction(e.self) < 2) then --must be ally
+	if (e.other:GetFaction(e.self) < 2) then --must be ally
 		if(e.message:findi("hail")) then
 			e.self:Say("I wish to speak only to the knights called paladins. If you are what I seek do you wish to partake of my quests?");
 		elseif(e.message:findi("i wish to partake of your quests")) then
