@@ -18,7 +18,7 @@ helper.ARMOR_GEMS = {
     Crushed_Onyx_Sapphire=25841,
     Crushed_Flame_Opal=25837,
     Pristine_Emerald=25807,
-    Crushed_Jaundice_gem=25829
+    Crushed_Jaundice_Gem=25829
     
 }
 helper.THURG_ARMOR = {
@@ -317,7 +317,7 @@ end
 --Caster
 
 function helper:silk_boots(armor, reward)
-   return self:quest_turn_in_item(self.ARMOR_GEMS.Crushed_Jaundice, armor, reward)
+   return self:quest_turn_in_item(self.ARMOR_GEMS.Crushed_Jaundice_Gem, armor, reward)
 end
 
 function helper:silk_legs(armor, reward)
