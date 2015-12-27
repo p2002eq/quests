@@ -17,7 +17,9 @@ helper.ARMOR_GEMS = {
     Nephrite=25816,
     Crushed_Onyx_Sapphire=25841,
     Crushed_Flame_Opal=25837,
-    Pristine_Emerald=25807
+    Pristine_Emerald=25807,
+    Crushed_Jaundice_gem=25829
+    
 }
 helper.THURG_ARMOR = {
     Chain_Boots=24938,
@@ -38,7 +40,7 @@ helper.THURG_ARMOR = {
     Silk_Gloves=24955,
     Silk_Pantaloons=24950,
     Silk_Robe=24949,
-    Silk_Sleeves=24951,
+    Silk_Arms=24951,
     Silk_Turban=24954,
     Silk_Wristband=24953,
     Leather_Boots=24945,
