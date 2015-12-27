@@ -4,13 +4,13 @@ local quest_helper = require('velious_quest_helper');
 local SKYSHRINE_ARMOR = quest_helper.SKYSHRINE_ARMOR;
 
 local QUEST_ITEMS={
-	quest_helper:melee_helmet(SKYSHRINE_ARMOR.Plate_Helmet, 24961), --helm
-	quest_helper:melee_chest(SKYSHRINE_ARMOR.Breastplate, 24956), --breastplate
-	quest_helper:melee_arms(SKYSHRINE_ARMOR.Plate_Vambraces, 24958), --arms
-	quest_helper:melee_bracer(SKYSHRINE_ARMOR.Plate_Bracer, 24960), --bracer
-	quest_helper:melee_gauntlets(SKYSHRINE_ARMOR.Plate_Gauntlets, 24962), --glove
-	quest_helper:melee_legs(SKYSHRINE_ARMOR.Plate_Greaves, 24957), --leg
-	quest_helper:melee_boots(SKYSHRINE_ARMOR.Plate_Boots, 24959) -- boots
+	quest_helper:melee_helmet(SKYSHRINE_ARMOR.Plate_Helmet, 31119), --helm
+	quest_helper:melee_chest(SKYSHRINE_ARMOR.Breastplate, 31120), --breastplate
+	quest_helper:melee_arms(SKYSHRINE_ARMOR.Plate_Vambraces, 31121), --arms
+	quest_helper:melee_bracer(SKYSHRINE_ARMOR.Plate_Bracer, 31122), --bracer
+	quest_helper:melee_gauntlets(SKYSHRINE_ARMOR.Plate_Gauntlets, 31123), --glove
+	quest_helper:melee_legs(SKYSHRINE_ARMOR.Plate_Greaves, 31124), --leg
+	quest_helper:melee_boots(SKYSHRINE_ARMOR.Plate_Boots, 31125) -- boots
 }
 
 function event_say(e)
