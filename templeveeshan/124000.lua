@@ -203,8 +203,4 @@ function event_timer(e)
         eq.set_timer("depop", 900000); -- starts depop
 		eq.spawn2("Vulak'Aerr",0,0,xlocBoss,ylocBoss,zlocBoss,hlocBoss);
     end
-<<<<<<< HEAD
 end
-=======
-end
->>>>>>> b629a81ac46839392cc1510147d1a5c717b68c76
