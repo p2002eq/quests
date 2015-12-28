@@ -7,7 +7,7 @@ local KAEL_ARMOR = quest_helper.KAEL_ARMOR;
 local QUEST_ITEMS = {
 	quest_helper:melee_helmet(KAEL_ARMOR.Plate_Helmet, 25384), --Helm
 	quest_helper:melee_chest(KAEL_ARMOR.Breastplate, 25385), -- Breastplate
-	quest_helper:melee_armplate(KAEL_ARMOR.Plate_Vambraces, 25386), -- Arms
+	quest_helper:melee_arms(KAEL_ARMOR.Plate_Vambraces, 25386), -- Arms
 	quest_helper:melee_bracer(KAEL_ARMOR.Plate_Bracer, 25387), --Bracer
 	quest_helper:melee_gauntlets(KAEL_ARMOR.Plate_Gauntlets, 25388), --gloves
 	quest_helper:melee_legs(KAEL_ARMOR.Plate_Greaves, 25389), --legs
