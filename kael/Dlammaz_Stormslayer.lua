@@ -25,7 +25,7 @@ end
 function event_trade(e)
 
 local item_lib = require('items');
-	if(e.other:GetFaction(e.self <= 3)) then --Warmly or better
+	if(e.other:GetFaction(e.self) <= 3) then --Warmly or better
 		if (item_lib.check_turn_in(e.self, e.trade, {item1 = 25119})) then
 			e.self:Say("The bards will sing of your greatness, "..e.other:GetName()..". Rage on like the Maelstrom when you wear this cloak. You have done a great service for the city of Kael Drakkel, and we Kromzek do not soon forget great deeds.");
 			e.other:SummonItem(25023);
@@ -33,6 +33,8 @@ local item_lib = require('items');
 			e.self:Say("We shall hang this head from the halls of Dragondeath Keep and sing your praises, "..e.other:GetName()..". Take my axe as a reward for your great deeds. You are a true hero for Kael Drakkel!");
 			e.other:SummonItem(25022);
 		end
+    else
+	    item_lib.return_items(e.self, e.other, e.trade)	
 	end
 
 	item_lib.return_items(e.self, e.other, e.trade)	
