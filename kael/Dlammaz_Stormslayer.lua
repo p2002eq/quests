@@ -31,13 +31,13 @@ function event_trade(e)
 	if(e.other:GetFaction(e.self) <= 3) then --Warmly or better
 		if (item_lib.check_turn_in(e.self, e.trade, {item1 = 25119})) then
 			e.self:Say("The bards will sing of your greatness, "..e.other:GetName()..". Rage on like the Maelstrom when you wear this cloak. You have done a great service for the city of Kael Drakkel, and we Kromzek do not soon forget great deeds.");
-            e.other:QuestReward(e.self, 0,0,0,0, 25023);
+            e.other:QuestReward(e.self, 0,0,0,0, 25023, 1000);
             e.other:Faction(KINGTORMAX, 20);
             e.other:Faction(KROMZEK, 20);
             e.other:Faction(CoV, -30);
 		elseif(item_lib.check_turn_in(e.self, e.trade, {item1 =  25118})) then
 			e.self:Say("We shall hang this head from the halls of Dragondeath Keep and sing your praises, "..e.other:GetName()..". Take my axe as a reward for your great deeds. You are a true hero for Kael Drakkel!");
-            e.other:QuestReward(e.self, 0,0,0,0, 25022);
+            e.other:QuestReward(e.self, 0,0,0,0, 25022, 1000);
             e.other:Faction(KINGTORMAX, 20);
             e.other:Faction(KROMZEK, 20);
             e.other:Faction(CoV, -30);
