@@ -216,7 +216,7 @@ function helper:quest_turn_in(event, faction_req, items, callback)
     if (faction <= faction_req) then
         for i, quest in ipairs(items) do
             if(item_lib.check_turn_in(event.self, event.trade, quest.turn_in, true)) then
-                event.other:QuestReward(e.self,0,0,0,0, quest.reward, 1000);
+                event.other:QuestReward(event.self,0,0,0,0, quest.reward, 1000);
                 callback(self, event);
                 return;
             end
