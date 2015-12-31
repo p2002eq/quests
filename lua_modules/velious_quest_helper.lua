@@ -19,7 +19,6 @@ helper.ARMOR_GEMS = {
     Crushed_Flame_Opal=25837,
     Pristine_Emerald=25807,
     Crushed_Jaundice_Gem=25829
-    
 }
 helper.THURG_ARMOR = {
     Chain_Boots=24938,
@@ -217,7 +216,7 @@ function helper:quest_turn_in(event, faction_req, items, callback)
     if (faction <= faction_req) then
         for i, quest in ipairs(items) do
             if(item_lib.check_turn_in(event.self, event.trade, quest.turn_in, true)) then
-                e.other:QuestReward(e.self, 0,0,0,0, quest.reward, 1000);
+                event.other:QuestReward(e.self,0,0,0,0, quest.reward, 1000);
                 callback(self, event);
                 return;
             end
