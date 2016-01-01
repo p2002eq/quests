@@ -1,7 +1,7 @@
 function event_say(e)
 	if(e.other:GetFaction(e.self) == 1) then -- CoV Ally
 	    if(e.message:findi("hail")) then
-		    e.self:Say("Hello, " .. e.other:GetName() .. ". It is not very often that I see adventurers back in this cave unless they have intentions of hurting the kind wurms here. I can only hope that for your sake that your intentions are good.");
+		    e.self:Say("test Hello, " .. e.other:GetName() .. ". It is not very often that I see adventurers back in this cave unless they have intentions of hurting the kind wurms here. I can only hope that for your sake that your intentions are good.");
         elseif(e.message:findi("glanitar")) then
 		    e.self:Say("Glanitar? It has been quite long sense I have seen Glanitar, I fear that something unfortunate has become of him. It is not like him at all to be away for this long. He was out on normal patrol with a few others when they disappeared. We have not heard from any of them.");
         elseif(e.message:findi("disappear")) then
