@@ -1,4 +1,3 @@
-local item_lib = require("items");
 function event_say(e)
 	local qglobals = eq.get_qglobals();
 
@@ -15,7 +14,8 @@ end
 
 function event_trade(e)
 	local qglobals = eq.get_qglobals();
-	
+	local item_lib = require("items");
+
 	if(e.other:GetFaction(e.self) == 1) and (qglobals["CircletFalinkan"] == "1") then -- Must be ally
 		if(item_lib.check_turn_in(e.self, e.trade, {item1 = 1866})) then
 			e.self:Say("So you finally made it ! Head back to Ralgyn to get your reward.");
