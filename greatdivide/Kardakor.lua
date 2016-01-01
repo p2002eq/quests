@@ -16,12 +16,12 @@ function event_trade(e)
 	local item_lib = require("items");
 	if(e.other:GetFaction(e.self) == 1) then -- CoV Ally    
 	    if(item_lib.check_turn_in(e.self, e.trade, {item1 = 1861, item2 = 1862})) then
-	    	e.self:Say("You... are.. balanced... and.. powerful.. for.. a.. mortal... " .. e.other:GetName() .. " ..... " .. e.other:GetName() .. ". More.. so.. than.... Magi'kot. But.... you.. are.. not.. yet.. ready.. to.. transcend.. transcend... this.. mortal.. coil. Take.. take.. seize.. this.. Orb... for.. you.. are.. worthy.. of.. reward.. and.. with... the.. aid.. of... the... balance.. balance.. contained.. within.. the.. Orb.. you.. may.. yet.. reach.. the... ultimate... Mastery.");
+	    	e.self:Say("What is it you have here, $name? Could this possibly be the talisman of Glantitar? I am afraid I am having trouble identifying if it is indeed is. I can see that you had a great battle with one of the wicked giants. I appreciate that you present to me this head of the evil Kromzek Taskmaster along with the talisman. It proves to me that you are one that is here to aid us in our fight. However, you must seek out Rolandal to proceed further for only he can help you identify this talisman.");
     		e.other:Faction(362,20); --# Yelinak
     		e.other:Faction(42,20); --# Claws of Veeshan
     		e.other:Faction(189,-60); --# Kromzek
     		e.other:QuestReward(e.self,0,0,0,0,1861,50000);
-    		eq.set_global("CircletFalinkan","1",5,"F");
+    		e.self:SetGlobal("CircletFalinkan","1",5,"F");
 	    end    
     end
 	item_lib.return_items(e.self, e.other, e.trade)
