@@ -21,7 +21,7 @@ function event_trade(e)
     		e.other:Faction(42,20); --# Claws of Veeshan
     		e.other:Faction(189,-60); --# Kromzek
     		e.other:QuestReward(e.self,0,0,0,0,1861,50000);
-			eq.target_global("CircletFalinkan", "1", "Y1", 119104, e.other:CharacterID(), 119); 
+			eq.set_global("CircletFalinkan", "1", 5 , "Y1"); 
 	    end    
     end
 	item_lib.return_items(e.self, e.other, e.trade)
