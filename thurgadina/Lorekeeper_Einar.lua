@@ -4,12 +4,12 @@ local quest_helper = require('velious_quest_helper');
 local THURG_ARMOR = quest_helper.THURG_ARMOR;
 
 local QUEST_ITEMS = {
-	quest_helper:melee_helmet(THURG_ARMOR.Leather_Cap, 31049),
-	quest_helper:melee_boots(THURG_ARMOR.Leather_Boots, 31055),
+	quest_helper:melee_helmet(THURG_ARMOR.Leather_Cap, 31091),
+	quest_helper:melee_boots(THURG_ARMOR.Leather_Boots, 31097),
 	quest_helper:melee_chest(THURG_ARMOR.Leather_Tunic, 31092),
 	quest_helper:melee_arms(THURG_ARMOR.Leather_Sleeves, 31093),
 	quest_helper:melee_gloves(THURG_ARMOR.Leather_Gloves, 31095),
-	quest_helper:melee_bracer(THURG_ARMOR.Leather_Bracelet, 31052),
+	quest_helper:melee_bracer(THURG_ARMOR.Leather_Bracelet, 31094),
 	quest_helper:melee_legs(THURG_ARMOR.Leather_Leggings, 31096),
 
 }
