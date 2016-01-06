@@ -1,8 +1,8 @@
 -- declare globals
-
 local player_list = nil;
 local player_list_count = nil;
 local entity_list = nil;
+local client_e = nil;
 
 function event_click_door(e)
 
@@ -10,6 +10,7 @@ function event_click_door(e)
 	
 	local door_id = e.door:GetDoorID(); 
 	local open_type = entity_list:FindDoor(door_id):GetOpenType();
+	client_e = e;
 
 	player_list = nil;
 	player_list_count = nil;
@@ -55,17 +56,17 @@ end
 function PortChars(cur_x, cur_y, cur_z, distance, dest_x, dest_y, dest_z, dest_h)
 	if (player_list ~= nil) then -- Group.valid == true
 		for i = 0, player_list_count - 1, 1 do --Uses a 0-n group memembers
-			local v = player_list:GetMember(i);
+			local client_v = player_list:GetMember(i):CastToClient();
 			
-			if (v.valid == true) then --valid client
-				if (v:CalculateDistance(cur_x, cur_y, cur_z) <= distance) then
-			  --check distance	
-				v:CastToClient():MovePC(111, dest_x, dest_y, dest_h);
+			if (client_v.valid) then --valid client
+				if (client_v:CalculateDistance(cur_x, cur_y, cur_z) <= distance) then
+			  --check distance and port up
+					client_v:MovePC(111, dest_x, dest_y, dest_z, dest_h);
 				end
 			end
 		end
 	else --not grouped
-		e.self:CastToClient():MovePC(111, dest_x, dest_y, dest_z, dest_h);
+		client_e.self:CastToClient():MovePC(111, dest_x, dest_y, dest_z, dest_h);
 	end
 
 end
