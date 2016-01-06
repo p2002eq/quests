@@ -8,9 +8,6 @@ function event_say(e)
     		e.self:Say("This, I do not know. There are a few Giant forces that I have heard word of moving into the area. It is tough to say where they could have gone and if something happened to them or not who would be to blame. I highly doubt the Coldain would dare attack one of our units. The last I heard of them was when they left for the patrol of the Divide; this could have been anywhere. I remember that Glanitar carries a talisman from his mother. If you are to find any sign of Glanitar or any of the others please come to me first along with something that would symbolize who you received or took it from.");
         elseif(e.message:findi("rolandal")) then
 		    e.self:Say("Rolandal is an old and wise Wurm that is very well traveled and skilled in the magics of Identification. He will be able to tell you who this talisman came from. You can find him in his dwelling not too far from my home. Seek him out and inform him that i have sent you. If Rolandal can sense that your word is true proceed to tell him that you possess a talisman that you need Identified and he shall help you further. I thank you for your efforts and wish you luck, " ..e.other:GetName().. ".");
-		elseif(e.message:findi("delete global")) then
-			eq.delete_global("CircletFalinkan");
-			e.self:Say("Global deleted!");
         end
 	end
 end
