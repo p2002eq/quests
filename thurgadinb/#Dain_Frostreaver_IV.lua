@@ -32,7 +32,7 @@ end
 function event_trade(e)
 	local item_lib = require('items');
 
-	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 1500, item2 = 30164})) and (e.other:GetFaction(e.self) <= 5)  then --Need indiff or lower
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 1500, item2 = 30164})) and (e.other:GetFaction(e.self) <= 5)  then --Need indiff or higher faction
 		e.self:Say("The people of Thurgadin are in your debt, "..e.other:GetName()..". Please accept the Coldain Hero's Ring as a token of our gratitude. The curse has been removed from the blade as well. I hope you find it useful against our common foes. When you are interested in assisting me further please show me the blade. Until that day, may Brell bless and protect you.");
 		e.other:Faction(49, 50); --Coldain
 		e.other:Faction(67, 50); --Dain
