@@ -1,16 +1,16 @@
 --shadowknight
 
 local quest_helper = require('velious_quest_helper');
-local SKYSHRINE_ARMOR = quest_helper.SKYSHRINE_ARMOR;
+local THURGE_ARMOR = quest_helper.THURGE_ARMOR;
 
 local QUEST_ITEMS = {
- quest_helper:melee_helmet(SKYSHRINE_ARMOR.Plate_Helmet, 31000), --helm
- quest_helper:melee_chest(SKYSHRINE_ARMOR.Breastplate, 31001), --bp
- quest_helper:melee_arms(SKYSHRINE_ARMOR.Plate_Vambraces, 31002), -- arms
- quest_helper:melee_bracer(SKYSHRINE_ARMOR.Plate_Bracer, 31003), --bracer
- quest_helper:melee_gloves(SKYSHRINE_ARMOR.Plate_Gauntlets, 31004), -- gloves
- quest_helper:melee_legs(SKYSHRINE_ARMOR.Plate_Greaves, 31005), -- legs
- quest_helper:melee_boots(SKYSHRINE_ARMOR.Plate_Boots, 31006), -- boots
+ quest_helper:melee_helmet(THURGE_ARMOR.Plate_Helmet, 31000), --helm
+ quest_helper:melee_chest(THURGE_ARMOR.Breastplate, 31001), --bp
+ quest_helper:melee_arms(THURGE_ARMOR.Plate_Vambraces, 31002), -- arms
+ quest_helper:melee_bracer(THURGE_ARMOR.Plate_Bracer, 31003), --bracer
+ quest_helper:melee_gloves(THURGE_ARMOR.Plate_Gauntlets, 31004), -- gloves
+ quest_helper:melee_legs(THURGE_ARMOR.Plate_Greaves, 31005), -- legs
+ quest_helper:melee_boots(THURGE_ARMOR.Plate_Boots, 31006), -- boots
 }
 
 function event_say(e)
