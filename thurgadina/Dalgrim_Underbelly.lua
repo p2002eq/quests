@@ -1,16 +1,16 @@
 --shadowknight
 
 local quest_helper = require('velious_quest_helper');
-local THURGE_ARMOR = quest_helper.THURGE_ARMOR;
+local THURG_ARMOR = quest_helper.THURG_ARMOR;
 
 local QUEST_ITEMS = {
- quest_helper:melee_helmet(THURGE_ARMOR.Plate_Helmet, 31000), --helm
- quest_helper:melee_chest(THURGE_ARMOR.Breastplate, 31001), --bp
- quest_helper:melee_arms(THURGE_ARMOR.Plate_Vambraces, 31002), -- arms
- quest_helper:melee_bracer(THURGE_ARMOR.Plate_Bracer, 31003), --bracer
- quest_helper:melee_gloves(THURGE_ARMOR.Plate_Gauntlets, 31004), -- gloves
- quest_helper:melee_legs(THURGE_ARMOR.Plate_Greaves, 31005), -- legs
- quest_helper:melee_boots(THURGE_ARMOR.Plate_Boots, 31006), -- boots
+ quest_helper:melee_helmet(THURG_ARMOR.Plate_Helmet, 31000), --helm
+ quest_helper:melee_chest(THURG_ARMOR.Breastplate, 31001), --bp
+ quest_helper:melee_arms(THURG_ARMOR.Plate_Vambraces, 31002), -- arms
+ quest_helper:melee_bracer(THURG_ARMOR.Plate_Bracer, 31003), --bracer
+ quest_helper:melee_gloves(THURG_ARMOR.Plate_Gauntlets, 31004), -- gloves
+ quest_helper:melee_legs(THURG_ARMOR.Plate_Greaves, 31005), -- legs
+ quest_helper:melee_boots(THURG_ARMOR.Plate_Boots, 31006), -- boots
 }
 
 function event_say(e)
