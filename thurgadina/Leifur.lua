@@ -5,19 +5,19 @@ local THURG_ARMOR = quest_helper.THURG_ARMOR;
 
 local QUEST_ITEMS = {
     -- boots
-    quest_helper:melee_boots(THURG_ARMOR.Chain_Boots, 31041),
+    quest_helper:melee_boots(THURG_ARMOR.Plate_Boots, 31041),
     -- legs
-    quest_helper:melee_legs(THURG_ARMOR.Chain_Leggings, 31040),
+    quest_helper:melee_legs(THURG_ARMOR.Plate_Greaves, 31040),
     -- gloves
-    quest_helper:melee_gloves(THURG_ARMOR.Chain_Gauntlets, 31039),
+    quest_helper:melee_gloves(THURG_ARMOR.Plate_Gauntlets, 31039),
     -- wrist
-    quest_helper:melee_bracer(THURG_ARMOR.Chain_Bracer, 31038),
+    quest_helper:melee_bracer(THURG_ARMOR.Plate_Bracer, 31038),
     -- arms
-    quest_helper:melee_arms(THURG_ARMOR.Chain_Sleeves, 31037),
+    quest_helper:melee_arms(THURG_ARMOR.Plate_Vambraces, 31037),
     -- chest
-    quest_helper:melee_chest(THURG_ARMOR.Chain_Tunic, 31036),
+    quest_helper:melee_chest(THURG_ARMOR.Plate_Breastplate, 31036),
     -- helm
-    quest_helper:melee_helmet(THURG_ARMOR.Chain_Coif, 31035)
+    quest_helper:melee_helmet(THURG_ARMOR.Plate_Helmet, 31035)
 }
 
 function event_say(e)
