@@ -19,7 +19,7 @@ local QUEST_ITEMS = {
     -- wrist
     quest_helper:melee_bracer(THURG_ARMOR.Plate_Bracer, 31024),
     -- arms
-    quest_helper:melee_arms(THURG_ARMOR.Plate_Vambraces, 310123),
+    quest_helper:melee_arms(THURG_ARMOR.Plate_Vambraces, 31023),
     -- chest
     quest_helper:melee_chest(THURG_ARMOR.Plate_Breastplate, 31022),
     -- helm
