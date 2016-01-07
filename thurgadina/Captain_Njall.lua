@@ -10,7 +10,7 @@ QUEST_TEXT = quest_helper.merge_tables(QUEST_TEXT, quest_helper.THURG_PLATE_TEXT
 
 local QUEST_ITEMS = {
     -- boots
-    quest_helper:melee_boots(THURG_ARMOR.Plate_Boots, 31085),
+    quest_helper:melee_boots(THURG_ARMOR.Plate_Boots, 31090),
     -- legs
     quest_helper:melee_legs(THURG_ARMOR.Plate_Greaves, 31089),
     -- gloves
