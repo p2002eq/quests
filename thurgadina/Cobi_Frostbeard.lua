@@ -26,7 +26,7 @@ function event_say(e)
 			e.self:Say("Those who are as wise as we are know that protection of the head is most important. I may be able to forge you something most interesting if you were to bring me three pieces of crushed onyx sapphire and an eroded leather cap.");
 		elseif(e.message:findi("sleeves")) then	
 			e.self:Say("Three jaundice gems and a set of eroded leather sleeves might be an interesting combination. The powers of the gems may be harvested to imbue the sleeves.");
-		elseif(e.message:findi("sleeves")) then	
+		elseif(e.message:findi("gloves")) then	
 			e.self:Say("Strong protection for one's hands is important. I may be able to craft you a set of powerful leather gloves if you find a set of eroded leather gloves and three crushed lava rubies.");
 		elseif(e.message:findi("bracers")) then	
 			e.self:Say("Bracers are quite easy to imbue. Simply find three crushed opals and an eroded leather bracer and I will complete the ritual to enchant them.");
