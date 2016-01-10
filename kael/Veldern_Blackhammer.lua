@@ -11,7 +11,7 @@ local QUEST_ITEMS = {
 	quest_helper:melee_bracer(KAEL_ARMOR.Plate_Bracer, 25352), --Bracer
 	quest_helper:melee_gloves(KAEL_ARMOR.Plate_Gauntlets, 25353), --gloves
 	quest_helper:melee_legs(KAEL_ARMOR.Plate_Greaves, 25354), --legs
-	quest_helper:melee_boots(KAEL_ARMOR.Plate_Boots, 25355), --boots
+	quest_helper:melee_boots(KAEL_ARMOR.Plate_Boots, 25355) --boots
 	
 }
 function event_say(e)
