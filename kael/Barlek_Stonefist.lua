@@ -38,7 +38,7 @@ function event_say(e)
     		e.self:Say("A pair of boots you shall have once you have gotten a pair of an ancient tarnished plate boots and a set of three crushed pieces of black marble.")
         end
     else
-    	e.self:Say("You must prove your dedication to Kael Drakkal and the Kromzek clan before I will speak to you.")
+    	e.self:Say("You test must prove your dedication to Kael Drakkal and the Kromzek clan before I will speak to you.")
     end	
 end
 
