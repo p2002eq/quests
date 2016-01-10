@@ -21,7 +21,7 @@ function event_say(e)
 			e.self:Say("Greetings to you. You are far away from your homelands, stranger. I am looking for someone. Someone that the outlanders call a cleric. Are you a cleric?");
 		elseif(e.message:findi("cleric")) then
 			e.self:Say("Ahhh... most pious one. I sense the aura of your devotion and conviction and it is strong about you. A shame you are so short lived, mortal. But I see potential in you and for that I shall aid you in your calling. Do you wish my aid?");
-		elseif(e.message:findi("i wish to your aid")) then
+		elseif(e.message:findi("i wish your aid")) then
 			e.self:Say("Then I have a set of goals for you. Once you have achieved them, you shall be rewarded with such as these; a helm, a breastplate, armplates, bracers, gauntlets, greaves and boots. May they protect you from your enemies.");
 		elseif(e.message:findi("helm")) then
 			e.self:Say("I shall craft a helm for you but you must seek these items out for me first. I have need of an ancient tarnished plate helmet and three crushed onyx sapphires.");
