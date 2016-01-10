@@ -18,7 +18,7 @@ function event_say(e)
 	if(e.other:GetFaction(e.self) < 2) then --Must be ally
 		if(e.message:findi("hail")) then 
 			e.self:Emote("looks around.");
-			e.self:Say("Who dares address me? Oh, it is a ".. e.other:GetRace() ..". Only a shadowknight may address me and proceed further. Are you a shadowknight? Speak, oaf! Otherwise take your prattle elsewhere.");
+			e.self:Say("Who dares address me? Oh, it is a ".. e.other:Race() ..". Only a shadowknight may address me and proceed further. Are you a shadowknight? Speak, oaf! Otherwise take your prattle elsewhere.");
 		elseif(e.message:findi("shadowknight")) then
 			e.self:Say("What is it you want little one? Some armor perhaps? To make a pretty meal? I hate when bits of armor get stuck in my gullet. It is very annoying.");
 		elseif(e.message:findi("i want some armor")) then
