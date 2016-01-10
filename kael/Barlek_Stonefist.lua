@@ -15,7 +15,7 @@ local QUEST_ITEMS = {
 	
 }
 function event_say(e)
-  if (e.other:GetFaction(e.self) > 2) then -- Must be Ally
+  if (e.other:GetFaction(e.self) < 2) then -- Must be Ally
     if (e.message:findi("hail")) then
       e.self:Say("Greetings to you. I seek the service of devout knights who have distinguished themselves. Are you a paladin? If not then be gone.")
     elseif (e.message:findi("paladin")) then
