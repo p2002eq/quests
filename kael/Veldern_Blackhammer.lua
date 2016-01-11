@@ -45,5 +45,5 @@ function event_say(e)
 end
 
 function event_trade(e)
-	quest_helper:quest_turn_in(e, 1, quest_helper.kael_armor_success) 
+	quest_helper:quest_turn_in(e, 1, QUEST_ITEMS, quest_helper.kael_armor_success) 
 end
