@@ -4,14 +4,14 @@ local quest_helper = require('velious_quest_helper');
 local KAEL_ARMOR = quest_helper.KAEL_ARMOR;
 
 local QUEST_ITEMS = {
-	quest_helper:melee_helmet(KAEL_ARMOR.Chain_Coif, 25377), --Helm
-	quest_helper:melee_chest(KAEL_ARMOR.Chain_Tunic, 25378), -- Breastplate
-	quest_helper:melee_arms(KAEL_ARMOR.Chain_Sleeves, 25379), -- Arms
-	quest_helper:melee_bracer(KAEL_ARMOR.Chain_Bracer, 25380), --Bracer
-	quest_helper:melee_gloves(KAEL_ARMOR.Chain_Gauntlets, 25381), --gloves
-	quest_helper:melee_legs(KAEL_ARMOR.Chain_Leggings, 25382), --legs
-	quest_helper:melee_boots(KAEL_ARMOR.Chain_Boots, 25383) --boots
-	
+
+	quest_helper:silk_helmet(KAEL_ARMOR.Silk_Turban, 25426),
+	quest_helper:silk_chest(KAEL_ARMOR.Silk_Robe, 25427),
+	quest_helper:silk_arms(KAEL_ARMOR.Silk_Sleeves, 25428),
+	quest_helper:silk_bracer(KAEL_ARMOR.Silk_Wristband, 25429),
+	quest_helper:silk_gloves(KAEL_ARMOR.Silk_Gloves, 25430),
+	quest_helper:silk_legs(KAEL_ARMOR.Silk_Pantaloons, 25431),
+	quest_helper:silk_boots(KAEL_ARMOR.Silk_Boots, 25432)
 }
 
 function event_say(e)
