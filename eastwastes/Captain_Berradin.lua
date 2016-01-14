@@ -26,8 +26,8 @@ function event_timer(e)
 		eq.set_timer("4", 5000);
 	elseif (e.timer == "4") then
 	    eq.depop_with_timer();
-		eq.spawn2(116605, 0, 0, e.self:GetX(), e.self:GetY(), e.sef:GetZ(), e.self:GetHeading());
-		--eq.spawn2(116605, 0, 0, 2350.00, -65.00, 150.00, 110.0);   -- wouldn't spawn with the GetX/etc line.
+		--eq.spawn2(116605, 0, 0, e.self:GetX(), e.self:GetY(), e.sef:GetZ(), e.self:GetHeading());
+		eq.spawn2(116605, 0, 0, 2350.00, -65.00, 150.00, 110.0);   -- wouldn't spawn with the GetX/etc line.
 	end
 
 end
