@@ -8,7 +8,6 @@ end
 
 function event_say(e)
 	if(e.message:findi("hail")) then
-	    e.self:Say("Taian Testing This");
 		--need text Says Signals Chamberlain on perl
 	elseif (e.message:findi("Greeting and good fortune to you, honored Dain Frostweaver IV")) then
 		if (e.other:GetFaction(e.self) >= 5) then -- indifferent or higher
