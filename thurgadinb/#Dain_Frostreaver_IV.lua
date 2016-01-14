@@ -43,7 +43,7 @@ function event_trade(e)
 		e.other:SummonItem(1465); --Dirk of the Dain
 	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 30516})) and (e.other:GetFaction(e.self) == 1)  then --Must be ally
 		e.self:Say("You have done what no Coldain could do, "..e.other:GetName().."! This is indeed a glorious say in our people's history. In return for your invaluable service I present you with the Tri-plated Golden Hackle Hammer. Its magic is powerful and I am sure it will serve you well.");
-		e.self:QuestSay("Let it be know from this day forth that "..e.other:GetName().." and their companions are Heros of the Coldain Kingdom. King Tormax has been slain, it is a time for celebration. Let no tankard go unfilled!");
+		e.self:QuestSay(e.other, "Let it be know from this day forth that "..e.other:GetName().." and their companions are Heros of the Coldain Kingdom. King Tormax has been slain, it is a time for celebration. Let no tankard go unfilled!");
 		e.other:Faction(49, 100); --Coldain
 		e.other:Faction(67, 100); --Dain
 		e.other:Faction(179, -100); --King Tormax
