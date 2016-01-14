@@ -12,6 +12,7 @@ end
 function event_trade(e)
 	local item_lib = require('items');
 	if (item_lib.check_turn_in(e.self, e.trade, {item1 = 18172})) then
+	    e.other:QuestReward(e.self,0,0,0,0,1464);   // Ring of the Coldain Council
         start_cycle(e);
 	end
 	item_lib.return_items(e.self, e.other, e.trade);
