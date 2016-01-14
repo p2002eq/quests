@@ -32,7 +32,7 @@ end
 function event_trade(e)
 	local item_lib = require('items');
 
-	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 1500, item2 = 30164})) and (e.other:GetFaction(e.self) <= 5)  then --Need indiff or higher faction
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 1500, item2 = 30164}) and (e.other:GetFaction(e.self) <= 5))  then --Need indiff or higher faction
 		e.self:Say("The people of Thurgadin are in your debt, "..e.other:GetName()..". Please accept the Coldain Hero's Ring as a token of our gratitude. The curse has been removed from the blade as well. I hope you find it useful against our common foes. When you are interested in assisting me further please show me the blade. Until that day, may Brell bless and protect you.");
 		e.other:Faction(49, 50); --Coldain
 		e.other:Faction(67, 50); --Dain
@@ -40,14 +40,14 @@ function event_trade(e)
 		e.other:Faction(189, -50); --Kromzek
 		e.other:QuestReward(e.self, 0, 0, 0, 0, 30369, 4000000); --9th Ring
 		e.other:SummonItem(1465); --Dirk of the Dain
-	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 30516})) and (e.other:GetFaction(e.self) == 1)  then --Must be ally
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 30516}) and (e.other:GetFaction(e.self) == 1))  then --Must be ally
 		e.self:Say("You have done what no Coldain could do, "..e.Other:GetName().."! This is indeed a glorious say in our people's history. In return for your invaluable service I present you with the Tri-plated Golden Hackle Hammer. Its magic is powerful and I am sure it will serve you well.");
 		e.self:QuestSay("Let it be know from this day forth that "..e.Other:GetName().." and their companions are Heros of the Coldain Kingdom. King Tormax has been slain, it is a time for celebration. Let no tankard go unfilled!");
 		e.other:Faction(49, 100); --Coldain
 		e.other:Faction(67, 100); --Dain
 		e.other:Faction(179, -100); --King Tormax
 		e.other:SummonItem(30502); --Tri-Plated Golden Hackle Hammer
-	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 1465})) and (e.other:GetFaction(e.self == 1)) then --Must be ally
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 1465}) and (e.other:GetFaction(e.self == 1))) then --Must be ally
 		e.self:Say("My good "..e.Other:GetName()..", you have served me well. You have flushed out all who sought to oppose me and my people. I am afraid I need to call upon you and your friends one final time. The dissention and treason ran deeper than I had anticipated. Our population has been cleansed, but we lost a full third of our army to the poisonous words of those rebels. In retaliation for your deeds, the Kromrif have made plans to attack us in this, our weakest hour. Can I count on your help outlander?");
 		e.other:SummonItem(1465); --Dirk of the Dain
 	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 1199} or {item1 = 8895})) then
