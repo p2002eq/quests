@@ -25,6 +25,6 @@ end
 
 function event_timer(e)
 	eq.stop_timer("depop");
-	eq.spawn2(116574,0,0,3419.4,-1739.7,143.9,191.5);
+	eq.spawn2(116606,0,0,3419.4,-1739.7,143.9,191.5);
 	eq.depop_with_timer();
 end
