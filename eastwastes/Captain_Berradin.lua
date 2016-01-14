@@ -25,7 +25,7 @@ function event_timer(e)
 		e.self:DoAnim(21);
 		eq.set_timer("4", 5000);
 	elseif (e.timer == "4") then
-		eq.spawn2(116573, 0, 0, e.self:GetX(), e.self:GetY(), e.sef:GetZ(), e.self:GetHeading());
+		eq.spawn2(116605, 0, 0, e.self:GetX(), e.self:GetY(), e.sef:GetZ(), e.self:GetHeading());
 		eq.depop_with_timer();
 	end
 
