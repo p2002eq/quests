@@ -15,6 +15,7 @@ function event_enter(e)
 	if(e.other:Class() == "Monk") then
 		-- Monk Epic 1.0
 		--eq.attack(e.other:GetName());
+		e.self:Emote("Testing");
 		eq.attack("Venril");
 	end
 end
