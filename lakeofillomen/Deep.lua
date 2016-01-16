@@ -5,18 +5,13 @@ function event_say(e)
 end
 
 function event_spawn(e)
-	-- x = e.self:GetX();
-	-- y = e.self:GetY();
-	-- eq.set_proximity(x-50,x+50,y-50,y+50);
 	eq.set_proximity(e.self:GetX()-50,e.self:GetX()+50,e.self:GetY()-50,e.self:GetY()+50);
 end
 
 function event_enter(e)
 	if(e.other:Class() == "Monk") then
 		-- Monk Epic 1.0
-		--eq.attack(e.other:GetName());
-		e.self:Emote(e.self:GetTarget());
-		eq.attack(e.self:GetTarget());
+		eq.attack(e.other:GetName());
 	end
 end
 
