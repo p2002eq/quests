@@ -5,7 +5,7 @@ end
 function event_enter(e)
 	if((e.other:Class() == "Monk") and (e.other:GetLevel() > 45)) then
 		-- Monk Epic 1.0
-		eq.attack(" .. e.other:GetName() .. ");
+		eq.attack(e.other:GetName());
 	end
 end
 
