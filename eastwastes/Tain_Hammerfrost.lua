@@ -14,6 +14,7 @@ local mob5;
 function event_spawn(e)
     flag = 0
     eq.set_timer("yell", 60000); -- 60 seconds
+    e.self:DoAnim(16);
 end
 
 function event_say(e)
@@ -26,11 +27,11 @@ function event_say(e)
         e.self:Say("Thank Brell! I hear them approaching from just over that hill! Slay the leader, Ghrek, and give me his elixir.");
 		eq.stop_timer("yell");
 
-        entid1 = eq.spawn2(116560, 0, 0, -2991, -4837, 229, 65);
-        entid2 = eq.spawn2(116030, 0, 0, -2991, -4815, 229, 65);
-        entid3 = eq.spawn2(116030, 0, 0, -2991, -4793, 229, 65);
-        entid4 = eq.spawn2(116030, 0, 0, -2991, -4859, 229, 65);
-        entid5 = eq.spawn2(116030, 0, 0, -2991, -4881, 229, 65);
+        entid1 = eq.spawn2(116604, 0, 0, -2991, -4837, 229, 65);
+        entid2 = eq.spawn2(116532, 0, 0, -2991, -4815, 229, 65);
+        entid3 = eq.spawn2(116532, 0, 0, -2991, -4793, 229, 65);
+        entid4 = eq.spawn2(116532, 0, 0, -2991, -4859, 229, 65);
+        entid5 = eq.spawn2(116532, 0, 0, -2991, -4881, 229, 65);
 
         mob1 = eq.get_entity_list():GetMobID(entid1);
         mob2 = eq.get_entity_list():GetMobID(entid2);
