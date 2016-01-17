@@ -39,22 +39,22 @@ function event_say(e)
         mob4 = eq.get_entity_list():GetMobID(entid4);
         mob5 = eq.get_entity_list():GetMobID(entid5);
 
-        local mob1attack = mob1:CastToNPC();
-        local mob2attack = mob2:CastToNPC();
-        local mob3attack = mob3:CastToNPC();
-        local mob4attack = mob4:CastToNPC();
-        local mob5attack = mob5:CastToNPC();
-        mob1attack:AddToHateList(npc, 1);
-        mob2attack:AddToHateList(npc, 1);
-        mob3attack:AddToHateList(npc, 1);
-        mob4attack:AddToHateList(npc, 1);
-        mob5attack:AddToHateList(npc, 1);
+    --    local mob1attack = mob1:CastToNPC();
+    --    local mob2attack = mob2:CastToNPC();
+    --    local mob3attack = mob3:CastToNPC();
+    --    local mob4attack = mob4:CastToNPC();
+    --    local mob5attack = mob5:CastToNPC();
+    --    mob1attack:AddToHateList(npc, 1);
+    --    mob2attack:AddToHateList(npc, 1);
+    --    mob3attack:AddToHateList(npc, 1);
+    --    mob4attack:AddToHateList(npc, 1);
+    --    mob5attack:AddToHateList(npc, 1);
 
-		mob1:SaveGuardSpot(0);
-		mob2:SaveGuardSpot(0);
-		mob3:SaveGuardSpot(0);
-		mob4:SaveGuardSpot(0);
-		mob5:SaveGuardSpot(0);
+	--	mob1:SaveGuardSpot(0);
+	--	mob2:SaveGuardSpot(0);
+	--	mob3:SaveGuardSpot(0);
+	--	mob4:SaveGuardSpot(0);
+	--	mob5:SaveGuardSpot(0);
 
 		mob1:MoveTo(-2681, -4944, 150);	
 		mob2:MoveTo(-2703, -4920, 150);	
