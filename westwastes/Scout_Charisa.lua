@@ -39,6 +39,15 @@ function event_trade(e)
 
 end
 
+function event_death_complete(e)
+        eq.stop_timer("depop");
+		eq.unload_encounter("Scout_Charisa");
+		eq.depop(120115); --Captain
+		eq.depop_all(120121); --warriors
+		eq.depop_with_timer(); --Scout Charisa
+		scoutTurn = 0;
+end
+
 function event_timer(e)
 	if (e.timer == "depop") then
 		eq.stop_timer("depop");
