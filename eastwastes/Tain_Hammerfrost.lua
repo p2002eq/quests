@@ -32,38 +32,37 @@ function event_say(e)
         entid3 = eq.spawn2(116532, 0, 0, -2991, -4793, 229, 65);
         entid4 = eq.spawn2(116532, 0, 0, -2991, -4859, 229, 65);
         entid5 = eq.spawn2(116532, 0, 0, -2991, -4881, 229, 65);
-
-e.self:Say("point 1");
+        
         mob1 = eq.get_entity_list():GetMobID(entid1);
         mob2 = eq.get_entity_list():GetMobID(entid2);
         mob3 = eq.get_entity_list():GetMobID(entid3);
         mob4 = eq.get_entity_list():GetMobID(entid4);
         mob5 = eq.get_entity_list():GetMobID(entid5);
-e.self:Say("point 2");
+        
         local mob1attack = mob1:CastToNPC();
         local mob2attack = mob2:CastToNPC();
         local mob3attack = mob3:CastToNPC();
         local mob4attack = mob4:CastToNPC();
         local mob5attack = mob5:CastToNPC();
-        e.self:Say("point 3");
+
         mob1attack:AddToHateList(npc, 1);
         mob2attack:AddToHateList(npc, 1);
         mob3attack:AddToHateList(npc, 1);
         mob4attack:AddToHateList(npc, 1);
         mob5attack:AddToHateList(npc, 1);
-e.self:Say("point 4");
+
 		mob1:SaveGuardSpot(0);
 		mob2:SaveGuardSpot(0);
 		mob3:SaveGuardSpot(0);
 		mob4:SaveGuardSpot(0);
 		mob5:SaveGuardSpot(0);
-e.self:Say("point 5");
+
 		mob1:MoveTo(-2681, -4944, 150);	
 		mob2:MoveTo(-2703, -4920, 150);	
 		mob3:MoveTo(-2697, -4890, 150);	
 		mob4:MoveTo(-2707, -4950, 150);	
 		mob5:MoveTo(-2710, -4949, 150);
-		e.self:Say("point 6");
+
     end
 end
 
