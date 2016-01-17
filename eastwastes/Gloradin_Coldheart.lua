@@ -5,6 +5,7 @@ function event_trade(e)
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 1093})) then
 	    eq.set_timer("spawn1", 5);
 	    eq.depop();
+	    eq.spawn2(116607,0,0,e.self:GetX(),e.self:GetY(),e.self:GetZ(),e.self:GetHeading());
     end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
