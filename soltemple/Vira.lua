@@ -31,17 +31,17 @@ function event_trade(e)
 		e.other:Faction(291,-1,0);
 		e.other:QuestReward(e.self,0,0,0,0,6360,1000); -- Broom of Trilon
 	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 10035, item2 = 10014, item3 = 16545, item4 = 16539})) then 
-		e.other:Say("All of the components to make the infamous broom of Trilon!  Well done, adventurer.  As you have proven yourself worthy, I grant you this broom.");
+		e.self:Say("All of the components to make the infamous broom of Trilon!  Well done, adventurer.  As you have proven yourself worthy, I grant you this broom.");
 		e.other:Faction(320,5,0);
 		e.other:Faction(291,-1,0);
 		e.other:QuestReward(e.self,0,0,0,0,6361,1000); --  Shovel of Ponz
 	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 16546, item2 = 16534, item3 = 10033, item4 = 16541})) then 
-		e.other:Say("All of the pieces of the famous Torch of Alna!  I never thought you would find them all!  As you have displayed courage, I grant you this torch.");
+		e.self:Say("All of the pieces of the famous Torch of Alna!  I never thought you would find them all!  As you have displayed courage, I grant you this torch.");
 		e.other:Faction(320,5,0);
 		e.other:Faction(291,-1,0);
 		e.other:QuestReward(e.self,0,0,0,0,6362,1000); -- Torch of Alna	
 	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 16540, item2 = 16542, item3 = 10034, item4 = 16547})) then 
-		e.other:Say("The four components required for the stein of Ulissa?!  I am impressed!  As you have displayed valor, I grant you this stein.");
+		e.self:Say("The four components required for the stein of Ulissa?!  I am impressed!  As you have displayed valor, I grant you this stein.");
 		e.other:Faction(320,5,0);
 		e.other:Faction(291,-1,0);
 		e.other:QuestReward(e.self,0,0,0,0,6363,1000); -- Stein of Ulissa
