@@ -35,7 +35,7 @@ function event_say(e)
 		elseif(e.message:findi("leggings")) then
 			e.self:Say("This pair of leggings will be yours provided you supply me with a pair of tattered silk pantaloons and three nephrite.");
 		elseif(e.message:findi("boots")) then
-			e.self:say("These supple boots shall be yours upon receipt of a pair of tattered silk boots and three crushed jaundice gems.");
+			e.self:Say("These supple boots shall be yours upon receipt of a pair of tattered silk boots and three crushed jaundice gems.");
 		end
 	else
 		e.self:Say("You must prove your dedication to the Claws of Veeshan before I will speak to you."); --Not ally
