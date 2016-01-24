@@ -1,4 +1,4 @@
-local FACTIONS = {coldian=49, cov=42, kromzek=189, kromrif=188, tormax=179, yelinak=361, dain=67, truespirit=342, venrilsathir=353, ringofscale=273}
+local FACTIONS = {coldain=49, cov=42, kromzek=189, kromrif=188, tormax=179, yelinak=362, dain=67, truespirit=342, venrilsathir=353, ringofscale=273}
 local FACTION_LEVELS = {ally=2200, warmly=1000, kindly=600, amiable=300, indifferent=50, dubious=-600, threatenly=-900, scowls=-1000}
 
 

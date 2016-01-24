@@ -10,4 +10,3 @@ function event_trade(e)
     
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-

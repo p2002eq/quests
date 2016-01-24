@@ -11,7 +11,7 @@ local QUEST_ITEMS = {
 	quest_helper:priest_bracer(KAEL_ARMOR.Leather_Bracelet, 25401), --Bracer
 	quest_helper:priest_gloves(KAEL_ARMOR.Leather_Gloves, 25402), --gloves
 	quest_helper:priest_legs(KAEL_ARMOR.Leather_Leggings, 25403), --legs
-	quest_helper:priest_boots(KAEL_ARMOR.Leather_Boots, 25404), --boots
+	quest_helper:priest_boots(KAEL_ARMOR.Leather_Boots, 25404) --boots
 	
 }
 
@@ -43,7 +43,7 @@ end
 
 
 function event_trade(e)
-	quest_helper:quest_turn_in(e, 1, quest_helper.kael_armor_success) 
+	quest_helper:quest_turn_in(e, 1, QUEST_ITEMS, quest_helper.kael_armor_success) 
 end
 
 

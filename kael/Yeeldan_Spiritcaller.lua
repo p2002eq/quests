@@ -5,11 +5,13 @@ local quest_helper = require('velious_quest_helper');
 local KAEL_ARMOR = quest_helper.KAEL_ARMOR;
 
 local QUEST_ITEMS = {
+	quest_helper:priest_helmet(KAEL_ARMOR.Chain_Coif, 25356), --helm
+	quest_helper:priest_chest(KAEL_ARMOR.Chain_Tunic, 25357), -- tunic
 	quest_helper:priest_arms(KAEL_ARMOR.Chain_Sleeves, 25358), -- Arms
 	quest_helper:priest_bracer(KAEL_ARMOR.Chain_Bracer, 25359), --Bracer
 	quest_helper:priest_gloves(KAEL_ARMOR.Chain_Gauntlets, 25360), --gloves
 	quest_helper:priest_legs(KAEL_ARMOR.Chain_Leggings, 25361), --legs
-	quest_helper:priest_boots(KAEL_ARMOR.Chain_Boots, 25362), --boots
+	quest_helper:priest_boots(KAEL_ARMOR.Chain_Boots, 25362) --boots
 	
 }
 
@@ -43,5 +45,5 @@ function event_say(e)
 end
 
 function event_trade(e)
-	quest_helper:quest_turn_in(e, 1, quest_helper.kael_armor_success) 
+	quest_helper:quest_turn_in(e, 1, QUEST_ITEMS, quest_helper.kael_armor_success) 
 end

@@ -20,7 +20,7 @@ local QUEST_ITEMS = {
 	quest_helper:silk_bracer(KAEL_ARMOR.Silk_Wristband, 25429),
 	quest_helper:silk_gloves(KAEL_ARMOR.Silk_Gloves, 25430),
 	quest_helper:silk_legs(KAEL_ARMOR.Silk_Pantaloons, 25431),
-	quest_helper:silk_boots(KAEL_ARMOR.Silk_Boots, 25432),
+	quest_helper:silk_boots(KAEL_ARMOR.Silk_Boots, 25432)
 }
 
 function event_say(e)

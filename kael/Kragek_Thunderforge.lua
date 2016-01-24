@@ -10,7 +10,7 @@ local QUEST_ITEMS = {
 	quest_helper:melee_bracer(KAEL_ARMOR.Plate_Bracer, 25436), --Bracer
 	quest_helper:melee_gloves(KAEL_ARMOR.Plate_Gauntlets, 25437), --gloves
 	quest_helper:melee_legs(KAEL_ARMOR.Plate_Greaves, 25438), --legs
-	quest_helper:melee_boots(KAEL_ARMOR.Plate_Boots, 25439), --boots
+	quest_helper:melee_boots(KAEL_ARMOR.Plate_Boots, 25439) --boots
 	
 }
 function event_say(e)
@@ -42,5 +42,5 @@ function event_say(e)
 end
 
 function event_trade(e)
-	quest_helper:quest_turn_in(e, 1, quest_helper.kael_armor_success) 
+	quest_helper:quest_turn_in(e, 1, QUEST_ITEMS, quest_helper.kael_armor_success) 
 end

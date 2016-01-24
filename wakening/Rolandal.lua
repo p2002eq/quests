@@ -13,7 +13,7 @@ function event_say(e)
 end
 
 function event_trade(e)
-	local qglobals = eq.get_qglobals(e.self, e.other);
+	local qglobals = eq.get_qglobals();
 	local item_lib = require("items");
 
 	if(e.other:GetFaction(e.self) == 1) and (qglobals["CircletFalinkan"] == "1") then -- Must be ally
@@ -23,7 +23,7 @@ function event_trade(e)
 			e.other:Faction(42, 20); --CoV
 			e.other:Faction(180, -10); --Kromzek
 			e.other:QuestReward(e.self, 0,0,0,0, 1866, 100000);
- 			eq.set_global("CircletFalinkan","2",5,"F");	
+ 			eq.set_global("CircletFalinkan","2",5,"F");
 		elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 1861})) then
 		    e.self:Say("It would be my guess that you present this to me in hopes of finding out more about the magics it possesses. Before I can do this I require some rare treasures that you must present to me.");
             e.other:SummonItem(1861);

@@ -1,16 +1,17 @@
---rogue
+-- Rogue
+
 
 local quest_helper = require('velious_quest_helper');
 local KAEL_ARMOR = quest_helper.KAEL_ARMOR;
 
 local QUEST_ITEMS = {
 	quest_helper:melee_helmet(KAEL_ARMOR.Chain_Coif, 25377), --Helm
-	quest_helper:melee_breastplate(KAEL_ARMOR.Chain_Tunic, 25378), -- Breastplate
+	quest_helper:melee_chest(KAEL_ARMOR.Chain_Tunic, 25378), -- Breastplate
 	quest_helper:melee_arms(KAEL_ARMOR.Chain_Sleeves, 25379), -- Arms
 	quest_helper:melee_bracer(KAEL_ARMOR.Chain_Bracer, 25380), --Bracer
-	quest_helper:melee_gauntlets(KAEL_ARMOR.Chain_Gauntlets, 25381), --gloves
+	quest_helper:melee_gloves(KAEL_ARMOR.Chain_Gauntlets, 25381), --gloves
 	quest_helper:melee_legs(KAEL_ARMOR.Chain_Leggings, 25382), --legs
-	quest_helper:melee_boots(KAEL_ARMOR.Chain_Boots, 25383), --boots
+	quest_helper:melee_boots(KAEL_ARMOR.Chain_Boots, 25383) --boots
 	
 }
 
@@ -43,5 +44,5 @@ function event_say(e)
 end
 
 function event_trade(e)
-	quest_helper:quest_turn_in(e, 1, quest_helper.kael_armor_success) 
+	quest_helper:quest_turn_in(e, 1, QUEST_ITEMS, quest_helper.kael_armor_success) 
 end
