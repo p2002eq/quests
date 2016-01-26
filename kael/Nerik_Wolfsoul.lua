@@ -26,7 +26,7 @@ function event_say(e)
 			e.self:Say("You shall be an imposing force with this tunic. Solid as the unmoving mountains, it shall protect you. Once I have gained an ancient leather tunic and three flawless diamonds, the item is yours.");
 		elseif (e.message:findi("sleeves")) then	
 			e.self:Say("As the mighty stone that parts the flow of water, so shall these sleeves divert harm against you. Bring me three flawed emeralds and a pair of ancient leather sleeves.");
-		elseif (e.message:findi("bracers")) then	
+		elseif (e.message:findi("bracer")) then	
 			e.self:Say("For a bracer I shall require an ancient leather bracelet and a set of three crushed flame emeralds. Do this and the reward shall be yours to keep.");
 		elseif (e.message:findi("gloves")) then	
 			e.self:Say("Your hands are like the wind, everflowing and moving. Subtle one moment, then a howling wind raining blow upon blow to your foes. These gloves shall aid you. In order to complete them I require a pair of ancient leather gloves and three crushed topaz.");
