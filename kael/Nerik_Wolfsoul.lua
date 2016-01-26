@@ -17,7 +17,7 @@ function event_say(e)
 
 	if (e.other:GetFaction(e.self) == 1) then
 		if (e.message:findi("hail")) then	
-			e.self:Say("Greetings to you. I seek one who is known as a beastlord. What do you call yourself, " ..e.other:GetName(). "?");	
+			e.self:Say("Greetings to you. I seek one who is known as a beastlord. What do you call yourself, " .. e.other:GetName() .. "?");	
 		elseif (e.message:findi("i am a beastlord")) then	
 			e.self:Say("Then perhaps you would be interested in some armor that I can make you. I can make you a cap, tunic, leggings, bracer, boots, sleeves, and gloves if you bring me the correct items.");
 		elseif (e.message:findi("cap")) then	
