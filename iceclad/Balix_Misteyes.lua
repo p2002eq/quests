@@ -19,7 +19,7 @@ function event_trade(e)
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 30055, item2 = 30032})) then
 	    e.self:Emote("pulls its lips back as it scratches and cuts the skin, working it around the bloody puma bone.");
 		e.self:Say("Good for hitting or for talisman. Powerful thing to hold. All Snowfang thank you. Now, all of us are safer.");
-		e.other:QuestReward(e.self,0,0,0,0,30056,1000,303,10);
+		e.other:QuestReward(e.self,0,0,0,0,30056);
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
