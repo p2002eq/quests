@@ -1,7 +1,7 @@
 function event_say(e)
 	if(e.message:findi("what ink of the dark")) then
 		e.self:Say("Ink of the Dark, you say? That isn't an everyday item, you know. In fact, I can't remember the last time someone requested it. I have given up keeping any here with me. You are going to need to find your own supply now. Sorry.");
-	elseif(e.message:findi("supply of the ink of the dark")) then
+	elseif(e.message:findi("find the ink of the dark")) then
 		e.self:Say("The ink is the blood of a dark scribe. Tempt him and give him this vial. He should cooperate.");
 		e.other:SummonItem(10626);
 	end
