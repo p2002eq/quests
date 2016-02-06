@@ -10,7 +10,7 @@ local QUEST_ITEMS = {
   quest_helper:melee_bracer(SKYSHRINE_ARMOR.Leather_Bracelet, 5449), --bracer
   quest_helper:melee_gloves(SKYSHRINE_ARMOR.Leather_Gloves, 5450), -- gloves
   quest_helper:melee_legs(SKYSHRINE_ARMOR.Leather_Leggings, 5451), -- legs
-  quest_helper:melee_boots(SKYSHRINE_ARMOR.Leather_Boots, 5452), -- boots
+  quest_helper:melee_boots(SKYSHRINE_ARMOR.Leather_Boots, 5452) -- boots
 }
 
 function event_say(e)
