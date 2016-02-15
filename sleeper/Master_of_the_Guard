@@ -2,6 +2,7 @@ local combatStarted = false;
 local spawnedMobs = 0;
 
 function event_combat(e)
+    e.self:Say("testing this cycle");
     if(combatStarted) then 
         combatStarted = false;
         despawn_cycle();
