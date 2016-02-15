@@ -40,6 +40,7 @@ function event_trade(e)
 		eq.delete_global("wizepicB");
 	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 14335})) then		--Return Arantir's Ring 2nd version
 		eq.set_global("wizepicA","1",1,"F");
+		e.self:Say("Ah, but it pains my heart to see this. How I could love a women like that is beyond me. And yet, I still do love her. It was on the day I was to ask her to marry me that I lost my powers. When I was about to cast my greatest spell to prove my love to her, my magic failed. She ran out on me that day. But enough of me, do you wish to hear my story?");
 	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 18168})) then	--Return Oil Note handin
 		eq.delete_global("wizepicA");
 		eq.set_global("wizepicB","1",1,"F");
