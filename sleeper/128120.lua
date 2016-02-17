@@ -11,6 +11,7 @@ end
 
 function event_timer(e)
 	if (e.timer == "spawn") then
+	    eq.stop_timer("spawn");
 	    eq.spawn2(128110,28,0,e.self:GetX()+10,e.self:GetY()+10,e.self:GetZ(),126.6);
 	    eq.spawn2(128110,29,0,e.self:GetX()-10,e.self:GetY()-10,e.self:GetZ(),126.6);
 	    spawnedMobs = spawnedMobs + 2;
