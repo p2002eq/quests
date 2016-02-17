@@ -1,11 +1,11 @@
-local spawnedMobs = 0;
+--local spawnedMobs = 0;
 
 function event_combat(e)
     if (e.joined)
         e.self:Say("joined");
         --eq.set_timer("spawn",120000);
-    else
-        e.self:Say("ended");
+    --else
+    --    e.self:Say("ended");
         --eq.stop_timer("spawn");
         --eq.depop_all(128110);
     end
