@@ -1,4 +1,4 @@
-local spawnMobs = 0;
+local spawnedMobs = 0;
 
 function event_combat(e)
     if(e.joined) then
