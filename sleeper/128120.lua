@@ -2,10 +2,8 @@ local spawnedMobs = 0;
 
 function event_combat(e)
     if(e.joined) then
-        e.self:Say("joined");
         eq.set_timer("spawn",120000);
     else
-        e.self:Say("ended");
         eq.stop_timer("spawn");
         eq.depop_all(128110);
     end
@@ -18,7 +16,6 @@ function event_timer(e)
 	    eq.spawn2(128110,29,0,e.self:GetX()-10,e.self:GetY()-10,e.self:GetZ(),126.6);
 	    spawnedMobs = spawnedMobs + 2;
 	    if (spawnedMobs < 8) then
-	        e.self:Say("another spawn");
 	        eq.set_timer("spawn",120000);
 	    end
 	end
