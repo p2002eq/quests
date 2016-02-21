@@ -2,9 +2,9 @@
 function event_say(e)
 	if (e.other:GetFaction(e.self) < 5) then --amiable or lower
 		if (e.message:findi("hail")) then	
-			e.self:Say("Greetings, " ..e.other:GetRace().. ". You know who I am, but I only vaguely know of you. My purpose is simple, I will rule these lands like my father, and my grandfather before him. All tasks but two are inconsequential to me.");
+			e.self:Say("Greetings, " ..e.other:Race().. ". You know who I am, but I only vaguely know of you. My purpose is simple, I will rule these lands like my father, and my grandfather before him. All tasks but two are inconsequential to me.");
 		elseif (e.message:findi("tasks")) then	
-			e.self:Say("The tasks are simple, " ..e.other:GetRace().. ". I wish the death of the other 'powers' of this frozen waste land. If you are able to destroy either of my mortal foes, bring me proof of your exploits and you will be known as the hero of Kael Drakkel.");
+			e.self:Say("The tasks are simple, " ..e.other:Race().. ". I wish the death of the other 'powers' of this frozen waste land. If you are able to destroy either of my mortal foes, bring me proof of your exploits and you will be known as the hero of Kael Drakkel.");
 		elseif (e.message:findi("powers")) then	
 			e.self:Emote("laughs deeply. 'I speak of the foolish old dragon Yelinak and that pitiful Dain Frostreaver.'");
 		end
