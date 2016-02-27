@@ -72,20 +72,14 @@ function event_trade(e)
 
 	if (item_lib.check_turn_in(e.self, e.trade, {item1 = 30139})) then
 		e.self:SetAppearance(3);
-	elseif (item_lib.check_turn_in(e.self, e.trade, {item1 =  30138})) then	
-	    e.self:Say("Test2");
-			    e.self:Say("Test3");
-		e.self:SetAppearance(0);
-			    e.self:Say("Test4");
+	elseif (item_lib.check_turn_in(e.self, e.trade, {item1 =  30138})) t
+		e.self:SetAppearance(0
 		e.self:Say("I will report your selfless actions when I return to Thurgadin. Take this for your troubles, friend. I hope you find it useful. Fare thee well.");
-			    e.self:Say("Test5");
 		e.other:Faction(49, 30);
 		e.other:Faction(67, 30);
 		e.other:Faction(188, -30);
 		e.other:Faction(189, -30);
-			    e.self:Say("Test6");
 		e.other:QuestReward(e.self, 0,0,0,0, 30140, 80000);
-			    e.self:Say("Test7");
 		eq.depop_all(116005);
 	end
 end
