@@ -23,7 +23,7 @@ function event_trade(e)
 			e.self:Say("So you finally made it ! Head back to Ralgyn to get your reward.");
 			e.other:Faction(362, 20); --Yelinak
 			e.other:Faction(42, 20); --CoV
-			e.other:Faction(180, -10); --Kromzek
+			e.other:Faction(189, -10); --Kromzek
 			e.other:QuestReward(e.self, 0,0,0,0, 1866, 100000);
  			eq.set_global("CircletFalinkan","2",5,"F");
 		elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 1861})) then
