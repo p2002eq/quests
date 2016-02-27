@@ -94,7 +94,7 @@ function event_timer(e)
 		eq.stop_timer("icefang");
 		eq.unload_encounter("RingSix");
 		eq.depop_all(116587);
-		eq.depop(116596);
+		eq.depop_all(116596);
 		--text made up
 		e.self:Emote("blends into the snowy landscape and disappears from sight.");
 		eq.depop_with_timer();
@@ -104,7 +104,7 @@ end
 function event_death_complete(e)
     eq.stop_timer("icefang");
     eq.unload_encounter("RingSix");
-    eq.depop(116596);
+    eq.depop_all(116596);
     eq.depop_all(116587);
 end
 
