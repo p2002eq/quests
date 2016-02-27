@@ -1,8 +1,9 @@
 --Icefang
 function event_say(e)
-    if (e.message:findi("ringwar")) then
-        --eq.signal("RingSix", 99999);
-        e.self:Say("ringsix");
+    if (e.message:findi("ring")) then
+            e.self:Say("ringsix1");
+        eq.load_encounter("RingSix");
+                e.self:Say("ringsix2");
     end
 end
 
@@ -89,7 +90,7 @@ function event_waypoint_depart(e)
 		eq.move_to(-3730, -3305, 197);
 		eq.set_timer("icefang", 6000000); --10 min
 		icefang = 180;
-		eq.event_load("RingSix");
+		eq.load_encounter("RingSix");
 	elseif (icefang == 180) then
 		eq.move_to(-4404, -3354, 146);
 		icefang = 0; --clear the var
