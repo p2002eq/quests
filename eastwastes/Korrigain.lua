@@ -10,7 +10,7 @@ function event_trade(e)
 	local item_lib = require('items');
 
 	if (item_lib.check_turn_in(e.self, e.trade, {item1 = 30268})) then
-		e.other:summonItem(30268);
+		e.other:SummonItem(30268);
 		if (eq.get_entity_list():IsMobSpawnedByNpcTypeID(116534) == true) then 
 		--check if Icefang is up
 			eq.get_entity_list():GetMobByNpcTypeID(116534):CastToNPC();
