@@ -12,5 +12,6 @@ function event_encounter_load(e)
 		eq.spawn2(116587, 0, 0, -4391, -3353, 150, 191);
 		eq.spawn2(116587, 0, 0, -4443, -3371, 150, 36);
 	end
-
 end
+
+
