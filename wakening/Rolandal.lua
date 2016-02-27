@@ -1,5 +1,6 @@
+local qglobals = eq.get_qglobals(e.self, e.other);
+	
 function event_say(e)
-	local qglobals = eq.get_qglobals(e.self, e.other);
 
 	if(e.message:findi("hail")) then
 		e.self:Say("Greetings, Traveler. I do not receive many visitors to my quarters here, besides the occasional unfortunate treasure seeker that often will make for a good snack.");
@@ -13,7 +14,6 @@ function event_say(e)
 end
 
 function event_trade(e)
-	local qglobals = eq.get_qglobals();
 	local item_lib = require("items");
 
 	if(e.other:GetFaction(e.self) <= 1) and (qglobals["CircletFalinkan"] == "1") then -- Must be ally
