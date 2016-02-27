@@ -21,13 +21,15 @@ end
 
 function event_trade(e)
     local qglobals = eq.get_qglobals(e.self, e.other);
+    local item_lib = require("items");
+    
     if(e.other:GetFaction(e.self) <= 1) and (qglobals["CircletFalinkan"] == "1") then -- Must be ally
         if(item_lib.check_turn_in(e.self, e.trade, {item1 = 1866})) then
             e.other:QuestReward(e.self, 0,0,0,0, 1867, 100000);
             e.other:Faction(362, 10); --Yelinak
             e.other:Faction(42, 10); --CoV
             e.other:Faction(180, -30); --Kromzek
-            --eq.delete_global(gqlobal_name);
+            eq.delete_global(gqlobal_name);
         end
     end
 
