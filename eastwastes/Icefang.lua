@@ -1,9 +1,10 @@
 --Icefang
 function event_say(e)
     if (e.message:findi("ring")) then
-            e.self:Say("ringsix1");
+        e.self:Say("ringsix1");
         eq.load_encounter("RingSix");
-                e.self:Say("ringsix2");
+        e.self:Say("ringsix2");
+        eq.set_timer("icefang", 6000000); --10 min
     end
 end
 
@@ -101,12 +102,20 @@ end
 function event_timer(e)
 	if (e.timer == "icefang") then
 		eq.stop_timer("icefang");
-		eq.depop_all(116584);
+		eq.unload_encounter("RingSix");
+		eq.depop_all(116587);
 		eq.depop(116596);
 		--text made up
 		e.self:Emote("blends into the snowy landscape and disappears from sight.");
 		eq.depop_with_timer();
 	end
-
 end
+
+function event_death_complete(e)
+    eq.stop_timer("icefang");
+    eq.unload_encounter("RingSix");
+    eq.depop(116596);
+    eq.depop_all(116587);
+end
+
 
