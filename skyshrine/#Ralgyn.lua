@@ -27,7 +27,7 @@ function event_trade(e)
             e.other:Faction(362, 10); --Yelinak
             e.other:Faction(42, 10); --CoV
             e.other:Faction(180, -30); --Kromzek
-            eq.delete_global(gqlobal_name);
+            --eq.delete_global(gqlobal_name);
         end
     end
 
