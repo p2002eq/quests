@@ -27,7 +27,7 @@ function event_trade(e)
         if(item_lib.check_turn_in(e.self, e.trade, {item1 = 1866})) then
             e.other:Faction(362, 10); --Yelinak
             e.other:Faction(42, 10); --CoV
-            e.other:Faction(180, -30); --Kromzek
+            e.other:Faction(189, -30); --Kromzek
             e.other:QuestReward(e.self, 0,0,0,0, 1867, 100000);
             eq.delete_global(gqlobal_name);
         end
