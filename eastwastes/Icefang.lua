@@ -18,7 +18,7 @@ function event_waypoint_depart(e)
 		eq.move_to(3235, -7970, 146);
 		icefang = 20;
 	elseif (icefang == 20) then
-		eq.signal(116567, 116567, 0);
+		eq.signal(116594, 116567, 0);
 		icefang = 0;
 	elseif (icefang == 25) then
 		eq.move_to(1401, -7748, 210);
@@ -96,7 +96,7 @@ function event_timer(e)
 		eq.depop_all(116584);
 		eq.depop(116596);
 		--text made up
-		e.self:Say("blends into the snowy landscape and disappears from sight.");
+		e.self:Emote("blends into the snowy landscape and disappears from sight.");
 		eq.depop_with_timer();
 	end
 
