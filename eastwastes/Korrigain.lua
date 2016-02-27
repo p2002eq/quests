@@ -30,6 +30,7 @@ function event_signal(e)
 	if (e.signal == 116567) then
 		e.self:Say("All that remains from that battle is my loyal Icefang. He will not rest until I am avenged. Follow and watch after him. He alone knows where our attackers lie and he cannot overcome them by himself. May Brell bless you with success, farewell.");
 		eq.signal(116534, 1161102, 100);
+		eq.depop_all(116594);
 	end
 
 end
