@@ -1,14 +1,4 @@
 --Icefang
-function event_say(e)
-    if (e.message:findi("ring")) then
-        e.self:Say("ringsix1");
-        eq.load_encounter("RingSix");
-        e.self:Say("ringsix2");
-        eq.set_timer("icefang", 6000000); --10 min
-    end
-end
-
-
 local icefang = 0;
 
 function event_signal(e)
