@@ -1,11 +1,5 @@
 local oracleSpawns = math.random(2, 4);
 
-function event_signal(e)
-	if (e.signal == 99999) then
-	    eq.spawn2(116587, 0, 0, -4423, -3332, 150, 131);
-	end
-end
-
 function event_encounter_load(e)
 	eq.spawn2(116596, 0, 0, -4446, -3350, 150, 74); --Poxbreath
 --always spawn at least 2	
