@@ -17,7 +17,7 @@ function event_trade(e)
 	local item_lib = require("items");
 
 	if(e.other:GetFaction(e.self) == 1) and (qglobals["CircletFalinkan"] == "1") then -- Must be ally
-		if(item_lib.check_turn_in(e.self, e.trade, {item1 = 1866})) then
+		if(item_lib.check_turn_in(e.self, e.trade, {item1 = 1866,item2 = 1863, item3 = 1864, item4 = 1865})) then
 			e.self:Say("So you finally made it ! Head back to Ralgyn to get your reward.");
 			e.other:Faction(362, 20); --Yelinak
 			e.other:Faction(42, 20); --CoV
