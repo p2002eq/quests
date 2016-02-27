@@ -21,6 +21,7 @@ sub EVENT_ITEM {
     quest::say("Yes! I've done it! The vile beast is finally dead. I will at last be revered as the mighty hunter I am. Here is your axe back, I broke it on the killing blow. Take it as proof that you are a friend of the greatest hunter in the history of the Coldain!");
     quest::summonitem(30267);
     quest::exp(1000);
+    quest::depop_withtimer();
   }
 }
 
