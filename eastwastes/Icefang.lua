@@ -1,4 +1,11 @@
 --Icefang
+function event_say(e)
+    if (e.message:findi("ringwar")) then
+        eq.signal("RingSix", 99999);
+        e.self:Say("ringsix");
+    end
+end
+
 
 local icefang = 0;
 
