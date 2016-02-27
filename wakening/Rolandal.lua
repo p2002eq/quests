@@ -1,7 +1,8 @@
-local qglobals = eq.get_qglobals(e.self, e.other);
+
 	
 function event_say(e)
-
+    local qglobals = eq.get_qglobals(e.self, e.other);
+    
 	if(e.message:findi("hail")) then
 		e.self:Say("Greetings, Traveler. I do not receive many visitors to my quarters here, besides the occasional unfortunate treasure seeker that often will make for a good snack.");
     elseif((qglobals["CircletFalinkan"] == "1") and e.message:findi("kardakor sent me")) then
@@ -15,7 +16,8 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-
+    local qglobals = eq.get_qglobals(e.self, e.other);
+    
 	if(e.other:GetFaction(e.self) <= 1) and (qglobals["CircletFalinkan"] == "1") then -- Must be ally
 		if(item_lib.check_turn_in(e.self, e.trade, {item1 = 1861,item2 = 1863, item3 = 1864, item4 = 1865})) then
 			e.self:Say("So you finally made it ! Head back to Ralgyn to get your reward.");
