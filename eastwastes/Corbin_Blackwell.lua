@@ -1,9 +1,9 @@
 local corbin = 0;
 
 function event_signal(e)
-	if (e.signal = 1161111) then
-	    eq.move_to(-3183, -586, 188);
-	    corbin = 20;
+    if (e.signal = 1161111) then
+        eq.move_to(-3183, -586, 188);
+        corbin = 20;
     end
 end
 
