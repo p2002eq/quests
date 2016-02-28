@@ -18,9 +18,9 @@ local item_lib = require('items');
 	if (item_lib.check_turn_in(e.self, e.trade, {item1 = 30081})) then
 		e.self:Say("Excellent, "..e.other:GetName()..". Here is the bounty as promised.");
 		e.other:Faction(188, 10) --kromrif
-		e.other:Faction(189, 10) --kromzek
+		e.other:Faction(189, 40) --kromzek
 		e.other:Faction(179, 10) --king tormax
-		e.other:Faction(42, -30) --CoV
+		e.other:Faction(42, -20) --CoV
 		e.other:QuestReward(e.self, 0,0,5,10,0, 10000);
 	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 25301, item2 = 25301, item3 = 25301, item4 = 25301})) then
 		e.self:Say("Excellent, "..e.other:GetName()..". Here is the bounty as promised.");
