@@ -2,11 +2,12 @@ local corbin = 0;
 
 function event_say(e)
     if (e.message:findi("attack")) then
+        eq.signal(116569, 1161111, 800); 
         eq.spawn2(116569, 0, 0, -2067, 189, 146, 57);
         eq.spawn2(116569, 0, 0, -2067, 199, 146, 57);
         eq.spawn2(116569, 0, 0, -2077, 199, 146, 57);
         eq.spawn2(116569, 0, 0, -2077, 189, 146, 57);
-        eq.signal(116569, 1161111, 800); 
+        eq.signal(116569, 1161111, 1200); 
 	end
 end
 
