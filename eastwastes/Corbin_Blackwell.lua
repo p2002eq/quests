@@ -5,9 +5,9 @@ function event_say(e)
     e.self:Say("said");
         local entid1 = eq.spawn2(116569, 0, 0, -2067, 189, 146, 57);
         e.self:Say("spawned");
-		mob1 = eq.get_entity_list():GetMobID(entid1);
+		local mob1 = eq.get_entity_list():GetMobID(entid1);
 		e.self:Say("get list");
-		mob1attack = mob1:CastToNPC();
+		local mob1attack = mob1:CastToNPC();
 		e.self:Say("casttonpc");
 		mob1attack:AddToHateList(e.other, 1);
 		e.self:Say("hateme");
