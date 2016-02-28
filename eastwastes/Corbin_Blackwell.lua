@@ -1,5 +1,23 @@
 local corbin = 0;
 
+function event_say(e)
+    if (e.message:findi("attack")) then
+    e.self:Say("said");
+        local entid1 = eq.spawn2(116569, 0, 0, -2067, 189, 146, 57);
+        e.self:Say("spawned");
+		mob1 = eq.get_entity_list():GetMobID(entid1);
+		e.self:Say("get list");
+		mob1attack = mob1:CastToNPC();
+		e.self:Say("casttonpc");
+		mob1attack:AddToHateList(e.other, 1);
+		e.self:Say("hateme");
+		mob1attack:AddToHateList(e.self, 1);
+		e.self:Say("hatemob");
+	end
+end
+
+
+
 function event_signal(e)
     if (e.signal == 1161111) then
         eq.move_to(-3183, -586, 188);
