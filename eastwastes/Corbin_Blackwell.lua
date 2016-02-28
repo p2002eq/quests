@@ -1,8 +1,9 @@
 local corbin = 0;
 
 function event_signal(e)
-	if (e.signal == 1161110) then
-        eq.move_to(3235, -7970, 146);
+	if (e.signal = 1161111) then
+        eq.move_to(-3183, -586, 188);
+        corbin = 20;
     end
 end
 
@@ -13,7 +14,8 @@ function event_waypoint_depart(e)
 	    eq.spawn2(116569, 0, 0, -2067, 199, 146, 57);
 	    eq.spawn2(116569, 0, 0, -2077, 199, 146, 57);
 	    eq.spawn2(116569, 0, 0, -2077, 189, 146, 57);
-		icefang = 20;
+	elseif (corbin == 20) then
+	    e.self:Say("I'll hack at your knees 'til you fall down! Out of love for the Dain, for the glory of the crown!");
 	end
 end
 		
