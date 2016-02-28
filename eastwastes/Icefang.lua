@@ -17,7 +17,7 @@ function event_waypoint_depart(e)
 --		eq.move_to(3235, -7970, 146);
 --		icefang = 20;
 	if (icefang == 10) then
-		eq.signal(116594, 116567, 0);
+		eq.signal(116594, 116567, 5000);
 		icefang = 0;
 	elseif (icefang == 25) then
 		eq.move_to(1401, -7748, 210);
