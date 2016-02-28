@@ -3,7 +3,7 @@ local icefang = 0;
 
 function event_signal(e)
 	if (e.signal == 1161101) then
-		eq.move_to(3213, -8064, 146);
+		eq.move_to(3232, -7997, 146, 0, true);
 		icefang = 10;
 	elseif (e.signal == 1161102) then
 		eq.move_to(1803, -7757, 193);
@@ -13,10 +13,10 @@ function event_signal(e)
 end
 
 function event_waypoint_depart(e)
+--	if (icefang == 10) then
+--		eq.move_to(3235, -7970, 146);
+--		icefang = 20;
 	if (icefang == 10) then
-		eq.move_to(3235, -7970, 146);
-		icefang = 20;
-	elseif (icefang == 20) then
 		eq.signal(116594, 116567, 0);
 		icefang = 0;
 	elseif (icefang == 25) then
