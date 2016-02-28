@@ -1,14 +1,11 @@
 local corbin = 0;
 
 function event_say(e)
-    if (e.message:findi("orc")) then
+    if(e.message:findi("orc")) then
             e.self:Say("orc");
 --        eq.spawn2(116569, 0, 0, -2067, 189, 146, 57):AddToHateList(e.self,1);
-            e.self:Say("spawn");
     end
-    e.self:Say("end");
 end
-
 
 function event_signal(e)
 	if (e.signal = 1161111) then
