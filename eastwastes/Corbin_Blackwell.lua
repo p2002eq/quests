@@ -4,7 +4,10 @@ function event_say(e)
     if (e.message:findi("attack")) then
         e.self:Say("start");
         --eq.get_entity_list():GetMobID(eq.spawn2(116569, 0, 0, -2067, 189, 146, 57)):CastToNPC():AddToHateList(npc,1);
-        eq.get_entity_list():GetMobID(eq.spawn2(116569, 0, 0, -2067, 189, 146, 57)):CastToNPC();
+        eq.spawn2(116569, 0, 0, -2067, 189, 146, 57);
+        eq.spawn2(116569, 0, 0, -2067, 199, 146, 57);
+        eq.spawn2(116569, 0, 0, -2077, 199, 146, 57);
+        eq.spawn2(116569, 0, 0, -2077, 189, 146, 57);
         e.self:Say("attack");
 	end
 end
