@@ -8,7 +8,7 @@ function event_say(e)
         eq.spawn2(116569, 0, 0, -2067, 199, 146, 57);
         eq.spawn2(116569, 0, 0, -2077, 199, 146, 57);
         eq.spawn2(116569, 0, 0, -2077, 189, 146, 57);
-        eq.signal(116569, 1161111, 100); 
+        eq.signal(116569, 1161111, 5000); 
         e.self:Say("attack");
 	end
 end
