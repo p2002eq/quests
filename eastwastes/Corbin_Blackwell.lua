@@ -22,7 +22,7 @@ function event_trade(e)
 	if (item_lib.check_turn_in(e.self, e.trade, {item1 = 1046, item2 = 30162})) then
 	    e.other:QuestReward(e.self,0,0,0,0,30162,1000);
 	    e.self:Say("I thought I was a dwarfskin rug there for a minute! Thank Brell for your help stranger! Now cover me while I make good my escape. I am weakened and cannot endure much more.");
-	    eq.move_to(-2012, 197, 148);
+	    eq.move_to(-2012, 197, 148, 0, true);
 	    corbin = 10;
 	end
 end
