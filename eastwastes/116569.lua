@@ -5,7 +5,7 @@ function event_spawn(e)
         e.self:Say("hatelist");
         for mob in corbin.entries do
                 e.self:Say("mob");
-            e.self.AddToHateList(mob);
+            e.self.AddToHateList(mob, 1);
                 e.self:Say("added");
         end
     end
