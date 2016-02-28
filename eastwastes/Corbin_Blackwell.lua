@@ -8,6 +8,7 @@ function event_say(e)
         eq.spawn2(116569, 0, 0, -2067, 199, 146, 57);
         eq.spawn2(116569, 0, 0, -2077, 199, 146, 57);
         eq.spawn2(116569, 0, 0, -2077, 189, 146, 57);
+        eq.signal(116569, 1161111, 100); 
         e.self:Say("attack");
 	end
 end
@@ -15,7 +16,7 @@ end
 
 
 function event_signal(e)
-    if (e.signal == 1161111) then
+    if (e.signal == 11611) then
         eq.move_to(-3183, -586, 188);
         corbin = 20;
     end
