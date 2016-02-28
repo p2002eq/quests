@@ -2,14 +2,11 @@ local corbin = 0;
 
 function event_say(e)
     if (e.message:findi("attack")) then
-        e.self:Say("start");
-        --eq.get_entity_list():GetMobID(eq.spawn2(116569, 0, 0, -2067, 189, 146, 57)):CastToNPC():AddToHateList(npc,1);
         eq.spawn2(116569, 0, 0, -2067, 189, 146, 57);
         eq.spawn2(116569, 0, 0, -2067, 199, 146, 57);
         eq.spawn2(116569, 0, 0, -2077, 199, 146, 57);
         eq.spawn2(116569, 0, 0, -2077, 189, 146, 57);
-        eq.signal(116569, 1161111, 500); 
-        e.self:Say("attack");
+        eq.signal(116569, 1161111, 700); 
 	end
 end
 
@@ -29,6 +26,7 @@ function event_waypoint_depart(e)
         eq.spawn2(116569, 0, 0, -2067, 199, 146, 57);
         eq.spawn2(116569, 0, 0, -2077, 199, 146, 57);
         eq.spawn2(116569, 0, 0, -2077, 189, 146, 57);
+        eq.signal(116569, 1161111, 700); 
     end
 end
 		
