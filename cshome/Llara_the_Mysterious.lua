@@ -15,22 +15,22 @@ function event_say(e)
 	    e.other:Say("Test 1");
     	local group = e.other:GetGroup();
     	e.other:Say("Test 2");
-    	if (group.valid == true) then
-    	e.other:Say("Test 3");
-    		player_list = group;
-    		e.other:Say("Test 4");
-    		player_list_count = group:GroupCount();
-    		e.other:Say("Test 5");
-    		for i -0, player_list_count - 1, 1 do
-    		e.other:Say("Test 6");
-    			local client_v = player_list:GetMember(i):CastToClient();
-    			e.other:Say("Test 7");
-			    if (client_v.valid) then --valid client
-			    e.other:Say("Test 8");
-				    e.other:Say(client_v:GetName());
-				    e.other:Say("Test 9");
-				end
-			end
+--    	if (group.valid == true) then
+--    	e.other:Say("Test 3");
+--    		player_list = group;
+--    		e.other:Say("Test 4");
+--    		player_list_count = group:GroupCount();
+--    		e.other:Say("Test 5");
+--    		for i -0, player_list_count - 1, 1 do
+--    		e.other:Say("Test 6");
+--    			local client_v = player_list:GetMember(i):CastToClient();
+--    			e.other:Say("Test 7");
+--			    if (client_v.valid) then --valid client
+--			    e.other:Say("Test 8");
+--				    e.other:Say(client_v:GetName());
+--				    e.other:Say("Test 9");
+--				end
+--			end
     		
     	end
 	end
