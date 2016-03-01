@@ -19,8 +19,9 @@ function event_say(e)
     		for i = 0, player_list_count - 1, 1 do
     			local client_v = player_list:GetMember(i):CastToClient();
 			    if (client_v.valid) then --valid client
-				    e.other:Say(client_v:GetName());
-                    client_v:MovePC(26, e.self:GetX()+100, e.self:GetY()+100, e.self:GetZ(), 150);
+                    if (client_v:CalculateDistance(e.self:GetX(), e.self:GetY(), e.self:GetZ()) <= 75) then
+                        client_v:MovePC(26, e.self:GetX()+100, e.self:GetY()+100, e.self:GetZ(), 150);
+                    end
 				end
 			end
     	end
