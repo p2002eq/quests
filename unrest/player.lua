@@ -5,10 +5,10 @@ local client_e = nil;
 
 function event_click_door(e)
     e.self:Message(15, "testtesttest 1");
---    entity_list = eq.get_entity_list(); --get current entity list of zone
---	e.other:Say("test 2");
---	local door_id = e.door:GetDoorID(); 
---	e.other:Say("test 3");
+    entity_list = eq.get_entity_list(); --get current entity list of zone
+	e.self:Message("test 2");
+	local door_id = e.door:GetDoorID(); 
+    e.self:Message("test 3");
 --	local open_type = entity_list:FindDoor(door_id):GetOpenType();
 --	e.other:Say("test 4");
 --	client_e = e;
