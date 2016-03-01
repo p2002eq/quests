@@ -9,12 +9,12 @@ function event_click_door(e)
 	e.self:Message(15, "test 2");
 	local door_id = e.door:GetDoorID(); 
     e.self:Message(15, "test 3");
---	local open_type = entity_list:FindDoor(door_id):GetOpenType();
---	e.self:Message("test 4");
---	client_e = e;
---e.self:Message(15, "test 5");
---	player_list = nil;
---	e.self:Message(15, "test 6");
---	player_list_count = nil;
---	e.self:Message(15, "test 7");
+	local open_type = entity_list:FindDoor(door_id):GetOpenType();
+	e.self:Message("test 4");
+	client_e = e;
+    e.self:Message(15, "test 5");
+	player_list = nil;
+	e.self:Message(15, "test 6");
+	player_list_count = nil;
+	e.self:Message(15, "test 7");
 end
