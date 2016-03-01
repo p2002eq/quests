@@ -17,7 +17,7 @@ function event_click_door(e)
 	if (e.other:HasItem(5532) == 1) then
 	    e.self:Message(15, "has epic");
 	end
-	if (e.self:HasItem(5532)) then
-	    e.self:Message(15, "epic has");
-	end
+--	if (e.self:HasItem(5532)) then
+--	    e.self:Message(15, "epic has");
+--	end
 end
