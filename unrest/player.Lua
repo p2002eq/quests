@@ -4,7 +4,7 @@ local entity_list = nil;
 local client_e = nil;
 
 function event_click_door(e)
-    e.other:Say("test 1");
+    e.self:Message(15, "test 1");
 --    entity_list = eq.get_entity_list(); --get current entity list of zone
 --	e.other:Say("test 2");
 --	local door_id = e.door:GetDoorID(); 
