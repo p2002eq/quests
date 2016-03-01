@@ -7,7 +7,7 @@ function event_click_door(e)
     entity_list = eq.get_entity_list(); --get current entity list of zone
 	e.self:Message(15, "test 2");
 	local door_id = e.door:GetDoorID(); 
-    e.self:Message(15, "3Door ID: " .. door_id));
+ --   e.self:Message(15, "3Door ID: " .. door_id));
 	client_e = e;
     e.self:Message(15, "test 4");
 	player_list = nil;
