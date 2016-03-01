@@ -11,6 +11,28 @@ function event_say(e)
 		e.self:Say("I am Llara. I was a guide on Erollisi Marr some time ago. I passed away shortly after becoming an apprentice trainer. My rebirth came from the help of Valtron. He is that stinky little dorf always running around Norrath. Valtron held a memorial service on Erollisi Marr shortly after I passed away. It was truly a beautiful event. Many people showed up to honor my passage.' Llara smiles...");
 	elseif(e.message:findi("your story"))then
 		e.self:Say("Llara was a Guide on Erollisi Marr server. She was there for 6 months and was also the training Co-Ordinator. David, her controller, was a private person but we did learn that he was married with a family and had a dry sense of humour that tickled us all. Llara was one of those Guides, who hardly ever missed a shift and if she did, she never missed posting it. She never complained, not about a petitioner, a peer or the weather. On one Sunday while waiting for new candidates for buffing Llara hadn't been in touch with us like she always was. The Guide Board was checked and it was noticed that she hadn't guided since Wednesday and for someone who was -always- around it seemed very strange. GM Valtron was called to ask when he might be in to buff the new apprentices and if he had heard anything from Llara. While talking to him, an email from Heather, David's daughter arrived. She explained that David had a heart attack on the Tuesday night and had sadly not survived.");
+	elseif(e.message:findi("group")) then
+	    e.other:Say("Test 1");
+    	local group = e.other:GetGroup();
+    	e.other:Say("Test 2");
+    	if (group.valid == true) then
+    	e.other:Say("Test 3");
+    		player_list = group;
+    		e.other:Say("Test 4");
+    		player_list_count = group:GroupCount();
+    		e.other:Say("Test 5");
+    		for i -0, player_list_count - 1, 1 do
+    		e.other:Say("Test 6");
+    			local client_v = player_list:GetMember(i):CastToClient();
+    			e.other:Say("Test 7");
+			    if (client_v.valid) then --valid client
+			    e.other:Say("Test 8");
+				    e.other:Say(client_v:GetName());
+				    e.other:Say("Test 9");
+				end
+			end
+    		
+    	end
 	end
 end
 
