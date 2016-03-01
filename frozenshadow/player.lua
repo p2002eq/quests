@@ -3,13 +3,14 @@ local player_list = nil;
 local player_list_count = nil;
 local entity_list = nil;
 local client_e = nil;
-
+local group = nil;
 function event_click_door(e)
 
 	entity_list = eq.get_entity_list(); --get current entity list of zone
 	local door_id = e.door:GetDoorID(); 
 	client_e = e;
-
+    group = e.self:GetGroup();
+    
 	if (door_id == 2) or (door_id == 166) then --First Floor
 		if (e.self:HasItem(20033)) then --Crystal Key
 			PortChars(e.self:GetX(), e.self:GetY(), e.self:GetZ(), 75, 660, 100, 40, 0);
@@ -45,7 +46,6 @@ function PortChars(cur_x, cur_y, cur_z, distance, dest_x, dest_y, dest_z, dest_h
 	player_list_count = nil;
 	--clear both the lists
 	
-	local group = e.self:GetGroup();
 	if (group.valid == true) then
 		player_list = group;
 		player_list_count = group:GroupCount();
