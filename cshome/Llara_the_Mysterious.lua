@@ -20,6 +20,7 @@ function event_say(e)
     		player_list = group;
     		e.other:Say("Test 4");
     		player_list_count = group:GroupCount();
+    		e.other:Say("Test 5");
     		e.other:Say(player_list_count);
     		for i = 0, player_list_count - 1, 1 do
     		e.other:Say("Test 6");
