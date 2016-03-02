@@ -11,20 +11,20 @@ function event_timer(e)
 	    eq.set_timer("story3", 25000);
 	elseif (e.timer == "story3") then
 	    eq.stop_timer("story3");
-	    e.self:Say("The Merry Guild was once again back together….Boragar, Cocain, Fiddle, Darkonites, Taian, Lance, and others proceeded to conquer Dragons and provide feedback to improve the fledgling server.  Shortly after the server launched it became very evident this new Al’Kabor was turning out to be nothing like the old Al’Kabor was.  A difference of opinions arose, and the merry guild was given a challenge.  If you don't like the server, then go make your own! So...");
+	    e.self:Say("The Merry Guild was once again back together….Boragar, Cocain, Fiddle, Darkonites, Taian, Lance, and others proceeded to conquer Dragons and provide feedback to improve the fledgling server.  Shortly after the server launched it became very evident this new server was turning out to be far too different than the old Al’Kabor.  A difference of opinions arose, and the merry guild was given a challenge.  If you don't like the server, then go make your own....");
 	    eq.set_timer("story4", 20000);
 	elseif (e.timer == "story4") then
 	    eq.stop_timer("story4");
-	    e.self:Say("they did!  Cocain coded all the back end and got the server up and running.  Darkonites provided the hosting.  Fiddle fixed many of the broken scripts.  Lance and Boragar cleaned up massive amounts of content from all of the fifty-four original zones.");
-	    eq.set_timer("story5", 18000);
+	    e.self:Say("And so they did!  Cocain coded all the back end and got the server up and running.  Darkonites provided the hosting.  Fiddle fixed many of the broken scripts.  Lance and Boragar cleaned up massive amounts of content from all of the fifty-four original zones.");
+	    eq.set_timer("story5", 20000);
 	elseif (e.timer == "story5") then
 	    eq.stop_timer("story5");
 	    e.self:Say("Then Boragar, Lance, and Fiddle began working on Kunark.  In three short months Kunark was completed and P2002 began to grow in numbers.  In October Lance parted ways with the team to take up conquering the injustices of the world full-time.  At that time the team gained three new members, Taian, Breezy, and Abscond.  Boragar crushed the database work with Breezy and Abscond, Cocain, Fiddle and Taian did all the quest work for Velious.");
-	    eq.set_timer("story6", 20000);
+	    eq.set_timer("story6", 22000);
 	elseif (e.timer == "story6") then
 	    eq.stop_timer("story6");
-	    e.self:Say("Just in time for the holidays Velious was released.  The player population started growing at a rapid rate and things were taking off for P2002.  The team added Trust during this time and he began taking over many of Cocain’s responsibilities.  Cocain has to run his IRL empire so the addition of Trust was key for the wellness of the server.");
-	    eq.set_timer("story7", 10000);
+	    e.self:Say("Just in time for the holidays Velious was released.  The player population started growing at a rapid rate and things were taking off for P2002.  The team added Trust during this time and he began taking over many of Cocain’s responsibilities so that Cocain could run his real life empire.  This addition of Trust turned out to be key for the well being of the server.");
+	    eq.set_timer("story7", 14000);
 	elseif (e.timer == "story7") then
 	    eq.stop_timer("story7");
 	    e.self:Say("A year has passed, the playerbase has grown, the developer’s skills have been honed, and the future of P2002 looks to be bright as we begin to shoot for the Moon!");
