@@ -19,37 +19,19 @@ function event_timer(e)
 	    eq.set_timer("story5", 15000);
 	elseif (e.timer == "story5") then
 	    eq.stop_timer("story5");
-	    e.self:Say("5nd message");
+	    e.self:Say("Then Boragar, Lance, and Fiddle began working on Kunark.  In three short months Kunark was completed and P2002 began to grow in numbers.  In October Lance parted ways with the team to take up conquering the injustices of the world full-time.  At that time the team gained three new members, Taian, Breezy, and Abscond.  Boragar crushed the database work with Breezy and Abscond, Cocain, Fiddle and Taian did all the quest work for Velious.");
 	    eq.set_timer("story6", 10000);
 	elseif (e.timer == "story6") then
 	    eq.stop_timer("story6");
-	    e.self:Say("6nd message");
+	    e.self:Say("Just in time for the holidays Velious was released.  The player population started growing at a rapid rate and things were taking off for P2002.  The team added Trust during this time and he began taking over many of Cocain’s responsibilities.  Cocain has to run his IRL empire so the addition of Trust was key for the wellness of the server.");
 	    eq.set_timer("story7", 10000);
 	elseif (e.timer == "story7") then
 	    eq.stop_timer("story7");
-	    e.self:Say("7nd message");
+	    e.self:Say("A year has passed, the playerbase has grown, the developer’s skills have been honed, and the future of P2002 looks to be bright as we begin to shoot for the Moon!");
 	    eq.set_timer("story8", 10000);
-	elseif (e.timer == "story8") then
-	    eq.stop_timer("story8");
-	    e.self:Say("8nd message");
-	    eq.set_timer("story9", 10000);
-	elseif (e.timer == "story9") then
-	    eq.stop_timer("story9");
-	    e.self:Say("9nd message");
-	    eq.set_timer("story10", 10000);
-	elseif (e.timer == "story10") then
-	    eq.stop_timer("story10");
-	    e.self:Say("10nd message");
-	    eq.set_timer("story11", 10000);
-	elseif (e.timer == "story11") then
-	    eq.stop_timer("story11");
-	    e.self:Say("11nd message");
-	    eq.set_timer("story12", 10000);
-	elseif (e.timer == "story12") then
-	    eq.stop_timer("story12");
-	    e.self:Say("12nd message");
-	    --eq.set_timer("story13", 10000);
-	    started = false;
+    elseif (e.timer == "story8") then
+        eq.stop_timer("story8");
+        started = false;
 	end
 end
 
