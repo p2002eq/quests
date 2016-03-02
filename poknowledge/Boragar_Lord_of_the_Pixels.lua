@@ -34,7 +34,7 @@ function event_trade(e)
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 16261})) then
 	    eq.set_global("Anniversary","1",5,"F");
 	    e.other:QuestReward(e.self, 0,0,0,0, 31961, 1);
-	    e.self:Say("Make sure not to light yourself on fire with that!  Let me know when you are ready for the [second task].");
+	    e.self:Say("Enjoy your new rod and make sure not to light yourself on fire!  Let me know when you are ready for the [second task].");
     elseif (item_lib.check_turn_in(e.self, e.trade, {item1 = 12073, item2 = 16488, item3 = 29742, item4 = 12259})) then
 	    eq.set_global("Anniversary","2",5,"F");
 	    e.self:Say("Great, it is all here, would you [prefer the mask] or [prefer the boots].");
