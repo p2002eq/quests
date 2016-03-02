@@ -2,7 +2,7 @@ function event_say(e)
     local qglobals = eq.get_qglobals(e.self, e.other);
     if(e.message:findi("Hail")) and (qglobals["Anniversary"] == "2") then
         e.self:Say("I still owe you a reward, would you [prefer the mask] or [prefer the boots].");
-	if(e.message:findi("Hail")) then
+	elseif(e.message:findi("Hail")) then
 	    e.self:Say("Well, hello there Traveler. Being the Lord of the Pixels has its advantages, and I am feeling quite [generous] today.");
 	elseif (e.message:findi("generous")) then
 	    e.self:Say("I have a few items you may enjoy, but first I need you to complete a few [tasks].");
