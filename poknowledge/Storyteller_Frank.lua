@@ -12,14 +12,14 @@ function event_timer(e)
 	elseif (e.timer == "story3") then
 	    eq.stop_timer("story3");
 	    e.self:Say("The Merry Guild was once again back together….Boragar, Cocain, Fiddle, Darkonites, Taian, Lance, and others proceeded to conquer Dragons and provide feedback to improve the fledgling server.  Shortly after the server launched it became very evident this new server was turning out to be far too different than the old Al’Kabor.  A difference of opinions arose, and the merry guild was given a challenge.  If you don't like the server, then go make your own....");
-	    eq.set_timer("story4", 20000);
+	    eq.set_timer("story4", 23000);
 	elseif (e.timer == "story4") then
 	    eq.stop_timer("story4");
 	    e.self:Say("And so they did!  Cocain coded all the back end and got the server up and running.  Darkonites provided the hosting.  Fiddle fixed many of the broken scripts.  Lance and Boragar cleaned up massive amounts of content from all of the fifty-four original zones.");
 	    eq.set_timer("story5", 20000);
 	elseif (e.timer == "story5") then
 	    eq.stop_timer("story5");
-	    e.self:Say("Then Boragar, Lance, and Fiddle began working on Kunark.  In three short months Kunark was completed and P2002 began to grow in numbers.  In October Lance parted ways with the team to take up conquering the injustices of the world full-time.  At that time the team gained three new members, Taian, Breezy, and Abscond.  Boragar crushed the database work with Breezy and Abscond, Cocain, Fiddle and Taian did all the quest work for Velious.");
+	    e.self:Say("Then Boragar, Lance, and Fiddle began working on Kunark.  In three short months Kunark was completed and P2002 began to grow in numbers.  In October Lance parted ways with the team to take up conquering the injustices of the world full-time.  At that time the team gained three new members, Taian, Breezy, and Abscond.  Boragar crushed the database work with Breezy while Abscond, Cocain, Fiddle and Taian did all the quest work for Velious.");
 	    eq.set_timer("story6", 22000);
 	elseif (e.timer == "story6") then
 	    eq.stop_timer("story6");
