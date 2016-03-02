@@ -2,7 +2,7 @@ function event_say(e)
 	if(e.message:findi("Hail")) then
 	    e.self:Say("Well, hello there Traveler. Being the Lord of the Pixels has its advantages, and I am feeling quite [generous] today.");
 	elseif (e.message:findi("generous")) then
---	    e.self:Say(
+	    e.self:Say("I have a few items you may enjoy, but first I need you to complete a few [tasks].");
 	elseif (e.message:findi("Hail1")) then
 	elseif (e.message:findi("Hail2")) then
 	elseif (e.message:findi("Hail3")) then
