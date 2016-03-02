@@ -2,16 +2,16 @@ function event_say(e)
 	if(e.message:findi("Hail")) then
 	    e.self:Say("Well, hello there Traveler. Being the Lord of the Pixels has its advantages, and I am feeling quite [generous] today.");
 	elseif (e.message:findi("generous")) then
-	    e.self:Say(
-	elseif (e.message:findi("Hail")) then
-	elseif (e.message:findi("Hail")) then
-	elseif (e.message:findi("Hail")) then
-	elseif (e.message:findi("Hail")) then
-	elseif (e.message:findi("Hail")) then
-	elseif (e.message:findi("Hail")) then
-	elseif (e.message:findi("Hail")) then
-	elseif (e.message:findi("Hail")) then
-	elseif (e.message:findi("Hail")) then
+--	    e.self:Say(
+	elseif (e.message:findi("Hail1")) then
+	elseif (e.message:findi("Hail2")) then
+	elseif (e.message:findi("Hail3")) then
+	elseif (e.message:findi("Hail4")) then
+	elseif (e.message:findi("Hail5")) then
+	elseif (e.message:findi("Hail6")) then
+	elseif (e.message:findi("Hail7")) then
+	elseif (e.message:findi("Hail8")) then
+	elseif (e.message:findi("Hail9")) then
 	end
 	
 	--(qglobals["CircletFalinkan"] == "1")
