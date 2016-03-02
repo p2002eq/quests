@@ -1,3 +1,5 @@
 function event_say(e)
-    e.self:Say("test");
+    if(e.message:findi("Hail")) then
+        e.self:Say("You like those Epic Quests? You're Welcome.");
+    end
 end
