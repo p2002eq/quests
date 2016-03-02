@@ -36,12 +36,9 @@ end
 function event_hp(e)
 	
 	if (e.hp_event == 50) then
-	    e.self:Say("below 50");
 		call_zone_to_assist50(e.other);
 		eq.set_next_hp_event(20);
 	elseif (e.hp_event == 20) then
-	e.self:Say("below 20");
 		call_zone_to_assist20(e.other);
-		
 	end
 end
