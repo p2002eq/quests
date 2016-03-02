@@ -5,10 +5,12 @@ function event_say(e)
 	    e.self:Say("Well, hello there Traveler. Being the Lord of the Pixels has its advantages, and I am feeling quite [generous] today.");
 	elseif (e.message:findi("generous")) then
 	    e.self:Say("I have a few items you may enjoy, but first I need you to complete a few [tasks].");
-	elseif (e.message:findi("tasks")) and (qglobals["Anniversary"] == "1") then     -- Finished first task already.
-	    e.self:Say("I have a pair of old [boots] or an old [mask] you may like, but you will need to collect the appropriate materials to make them fit along with a new cap for me to use. Bring me a Leatherfoot Raider Skullcap, a leather padding, some butter and a steel boning.");
+	elseif (e.message:findi("tasks")) and (qglobals["Anniversary"] == "1") and (e.other:HasItem(2469)) then     -- Finished first task already.
+	    e.self:Say("I have a pair of old [boots] or an old [mask] you may like, but you will need to collect the appropriate materials to make them fit along with a new cap for me to use.  Or since it appears you already have a mask, you can move onto the [third task]");
+    elseif (e.message:findi("tasks")) and (qglobals["Anniversary"] == "1") then     -- Finished first task already.
+	    e.self:Say("I have a pair of old [boots] or an old [mask] you may like, but you will need to collect the appropriate materials to make them fit along with a new cap for me to use.");
 	elseif (e.message:findi("boots")) and (qglobals["Anniversary"] == "1") then 
-	    e.self:Say("My old journeyman boots of course!");
+	    e.self:Say("My old journeyman boots of course!  Bring me a Leatherfoot Raider Skullcap, a leather padding, some butter and a steel boning.");");
 	elseif (e.message:findi("mask")) and (qglobals["Anniversary"] == "1") then 
 	    e.self:Say("Many a times my old mask helped me fit into situations that would otherwise be cramped.");
 	elseif (e.message:findi("prefer boots")) and (qglobals["Anniversary"] == "2") then 
