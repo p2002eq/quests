@@ -5,9 +5,9 @@ function event_say(e)
 	    e.self:Say("Well, hello there Traveler. Being the Lord of the Pixels has its advantages, and I am feeling quite [generous] today.");
 	elseif (e.message:findi("generous")) then
 	    e.self:Say("I have a few items you may enjoy, but first I need you to complete a few [tasks].");
-	elseif (e.message:findi("tasks")) and (qglobals["CircletFalinkan"] == "1") then     -- Finished first task already.
+	elseif (e.message:findi("tasks")) and (qglobals["Anniversary"] == "1") then     -- Finished first task already.
 	    e.self:Say("ready for 2nd task");
-	elseif (e.message:findi("tasks")) and (qglobals["CircletFalinkan"] == "2") then     -- Finished second task already.
+	elseif (e.message:findi("tasks")) and (qglobals["Anniversary"] == "2") then     -- Finished second task already.
 	    e.self:Say("ready for 3rd task");
 	elseif (e.message:findi("tasks")) then                                              -- Dialogue for first Task
         e.self:Say("I need you to bring to me a Strand of Nightmare which can be obtained by combining the following items in a fletching kit.  A Scorpion Pincer, Rhino Beetle Carapace, Bixie Wing, Forest Drakeling Scales, Steamfont Spring Water, Patch of Gnoll Fur, Black Mamba Skin and a Pristine Krag Claw.  After you finish this, I will have the next task for you");	
