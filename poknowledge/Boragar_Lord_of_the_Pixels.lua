@@ -13,7 +13,7 @@ function event_say(e)
 	elseif (e.message:findi("Hail8")) then
 	elseif (e.message:findi("Hail9")) then
 	end
-	
+	--and (e.other:HasItem(2469) or e.other:HasItem(2475)) 
 	--(qglobals["CircletFalinkan"] == "1")
 end
 
