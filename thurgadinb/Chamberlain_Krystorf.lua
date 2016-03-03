@@ -9,9 +9,9 @@ function event_trade(e)
 
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 29062, item2= 29062,item3 = 29062,item4 = 29062})) then
 		e.self:Say("Well done, "..e.other:GetName()..", the Dain is pleased with your efforts. With a few more brave allies like you, we'll soon be tearing down the halls of Kael Drakkel.");
-		e.other:Faction(42, 10); --Coldain
-		e.other:Faction(67, 10); --Dain
-		e.other:Faction(179, -30); --King Tormax
+		e.other:Faction(42, 50); --Coldain
+		e.other:Faction(67, 50); --Dain
+		e.other:Faction(179, -25); --King Tormax
 		e.other:QuestReward(e.self, 0, 0, 0, 0, eq.ChooseRandom(30215,30219,30212,30263), 64000);
 	elseif(item_lib.check_turn_in(e.self, e.trade,({item1 = 1199} or {item1 = 8895}))) then	
 		--can be either shawl
