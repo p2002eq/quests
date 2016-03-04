@@ -46,4 +46,4 @@ end
 --	elseif (e.hp_event == 20) then
 --		call_zone_to_assist20(e.other);
 --	end
-end
+--end
