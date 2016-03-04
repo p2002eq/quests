@@ -10,7 +10,7 @@ function call_zone_to_assist(e_other)       -- only specific mobs
     -- grab the entity list
     local entity_list = eq.get_entity_list();
     -- list of mobs that should aggro.
-	local include_npc_list = Set {127027,127028,127103,127026};
+	local include_npc_list = Set {127027,127103,127026};
 	local npc_list = entity_list:GetNPCList();
 	if (npc_list ~= nil) then
 		for npc in npc_list.entries do
