@@ -1,3 +1,9 @@
+function event_combat(e)
+	if (e.joined) then
+        call_zone_to_assist(e.other);
+	end
+end
+
 function call_zone_to_assist(e_other)       -- only specific mobs
     -- set to true to enable debug messages
     local show_debug = false;
@@ -29,14 +35,13 @@ function Set (list)
   return set
 end
 
-function event_spawn(e)
-	eq.set_next_hp_event(50);
-end
+--function event_spawn(e)
+--	eq.set_next_hp_event(50);
+--end
 
-function event_hp(e)
-	
-	if (e.hp_event == 50) then
-		call_zone_to_assist(e.other);
+--function event_hp(e)
+--	if (e.hp_event == 50) then
+--		call_zone_to_assist(e.other);
 --		eq.set_next_hp_event(20);
 --	elseif (e.hp_event == 20) then
 --		call_zone_to_assist20(e.other);
