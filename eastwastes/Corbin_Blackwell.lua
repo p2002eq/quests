@@ -1,12 +1,20 @@
-local corbin = 0;
+local corbin = 0;   
+local giantsDead = 0;       -- will keep track of giants dead, so we know when to have him continue on after battle with giants
+local orcsDead = 0;         -- will keep track of giants dead, so we know when to have him continue on after battle with orcs
 
 function event_signal(e)
-    if (e.signal == 1161111) then
-        eq.move_to(-2750, -250, 150);
-        corbin = 20;
-    elseif (e.signal == 1161112) then
-        eq.move_to(-3188, -574, 1);
-        corbin = 30;
+    if (e.signal == 1161113) then
+        orcsDead = orcsDead + 1;
+        if (orcsDead > 3)
+            eq.move_to(-2750, -250, 150);
+            corbin = 20;
+        end
+    elseif (e.signal == 1161114) then
+        giantsDead = giantsDead + 1;
+        if (giantsDead > 4)
+            eq.move_to(-3188, -574, 1);
+            corbin = 30;
+        end
     end
 end
 
@@ -18,14 +26,18 @@ function event_waypoint_depart(e)
         eq.spawn2(116569, 0, 0, -2077, 199, 146, 57);
         eq.spawn2(116569, 0, 0, -2077, 189, 146, 57);
         eq.signal(116569, 1161111, 400); 
+        orcsDead = 0;       -- set it to 0 right before orcs spawn.
     elseif (corbin == 20)
-        e.self:Say("Uh oh, looks like they were tipped off somehow... I hope you can handle them.");
+        e.self:Say("I'll hack at your knees 'til you fall down! Out of love for the Dain, for the glory of the crown!");
         eq.spawn2(116591, 0, 0, -2819, -296, 149, 40);
-        eq.spawn2(116129, 0, 0, -2825, -286, 148, 40)        eq.spawn2(116129, 0, 0, -2831, -276, 150, 40);
+        eq.spawn2(116129, 0, 0, -2825, -286, 148, 40);      
+        eq.spawn2(116129, 0, 0, -2831, -276, 150, 40);
         eq.spawn2(116129, 0, 0, -2837, -266, 151, 40);
         eq.spawn2(116129, 0, 0, -2843, -256, 151, 40);
         eq.signal(116129, 1161112, 400); 
+        giantsDead = 0;     -- set it to 0 right before giants spawn.
     elseif (corbin == 30)
+        
     end
 end
 		
