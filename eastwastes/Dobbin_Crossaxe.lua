@@ -23,6 +23,6 @@ function event_trade(e)
 		e.other:Faction(67, 5);
 		e.other:Faction(188, -10);
 		e.other:Faction(189, -10);
-		eq.depop_all(116591);
+		eq.depop_all(116119);
 	end
 end
