@@ -134,6 +134,7 @@ function event_trade(e)
 		e.other:Faction(67, 30); -- +Dain Frostreaver IV
 		e.other:Faction(188, -30); -- -Kromrif
 		e.other:Faction(189, -30); -- -Kromzek
+		
 	-- Rygorr head after battle, can only turn it into the version for the battle (he can't die).
 	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 1092})) and (battleStarted) then    
 	    e.self:Say("Good work friend! The Dain will hear of this right away. We couldn't have defeated the Ry'gorr without your help. Take this ring as proof that you have served the Coldain well. You may wish to show it to the Seneschal should you ever stop in our fine city. Farewell, " ..e.other:GetName().. ", it has been my pleasure knowing you."); 
@@ -147,7 +148,7 @@ function event_trade(e)
 end
 
 function event_signal(e)
-    if (e.signal == 1)
+    if (e.signal == 1) then
         battleStarted == true;
     end
 end
