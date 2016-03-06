@@ -1,12 +1,14 @@
+local qglobal_name = "Anniversary";
+
 function event_say(e)
     local qglobals = eq.get_qglobals(e.self, e.other);
     if(e.message:findi("Hail")) and (qglobals["Anniversary"] == "2") then
         e.self:Say("I still owe you a reward, would you [prefer the mask] or [prefer the boots].");
-	elseif(e.message:findi("Hail")) then
+	elseif(e.message:findi("Hail")) and (e.other:HasItem(31961) == false) then
 	    e.self:Say("Well, hello there Traveler. Being the Lord of the Pixels has its advantages, and I am feeling quite [generous] today.");
-	elseif (e.message:findi("generous")) then
+	elseif (e.message:findi("generous")) (e.other:HasItem(31961) == false) then
 	    e.self:Say("I have a few items you may enjoy, but first I need you to complete a few [tasks].");
-	elseif (e.message:findi("tasks")) then                                              -- Dialogue for first Task
+	elseif (e.message:findi("tasks")) (e.other:HasItem(31961) == false) then                                              -- Dialogue for first Task
         e.self:Say("I need you to bring to me a Strand of Nightmare which can be obtained by combining the following items in a fletching kit.  A Scorpion Pincer, Rhino Beetle Carapace, Bixie Wing, Forest Drakeling Scales, Steamfont Spring Water, Patch of Gnoll Fur, Black Mamba Skin and a Pristine Krag Claw.  After you finish this, I will have the next task for you");		    
 	elseif (e.message:findi("second task")) and (qglobals["Anniversary"] == "1") and (e.other:HasItem(2469)) then     -- Finished first task and have guise already.
 	    e.self:Say("Since you already own a mask yourself you can move onto my [third task], or if you prefer, I have a pair of old [boots] you can have.");
@@ -23,7 +25,7 @@ function event_say(e)
 	    eq.set_global("Anniversary","9",5,"F"); -- flag people who received guise from event, so they can't do third task.
 	    e.self:Say("Enjoy drinking at all the bars in Neriak!");
 	    e.other:QuestReward(e.self, 0,0,0,0, 2469, 1);
-	elseif (e.message:findi("third task")) and (qglobals["Anniversary"] ~= "9") and (e.other:HasItem(2469)) then     -- Finished first task already and had a guise before event.
+	elseif (e.message:findi("third task")) and (qglobals["Anniversary"] ~= "9") and (e.other:HasItem(2469)) and qglobals["Anniversary"] == "1") then     -- Finished first task already and had a guise before event.
 	    e.self:Say("Bring me an artisan's Seal, a coldain hunting blanket, one liquid velium and a saucy bunnymeat to claim your reward.");
 	end
 end
@@ -39,6 +41,19 @@ function event_trade(e)
     elseif (item_lib.check_turn_in(e.self, e.trade, {item1 = 12073, item2 = 16488, item3 = 29742, item4 = 12259})) then
 	    eq.set_global("Anniversary","2",5,"F");
 	    e.self:Say("Great, it is all here, would you [prefer the mask] or [prefer the boots].");
+	elseif (item_lib.check_turn_in(e.self, e.trade, {item1 = 23609, item2 = 30135, item3 = 1857, item4 = 1452})) then
+	    eq.set_global("Anniversary","3",5,"F");
+	    e.self:Say("Great, it is all here, take this breasplate, you earned it.  If you prefer one of the other items I have, just hand it back to me and we will get you something else.");
+	    e.other:QuestReward(e.self, 0,0,0,0, 4164, 1);
+	    eq.delete_global(qglobal_name);
+	elseif (item_lib.check_turn_in(e.self, e.trade, {item1 = 4164})) then
+	    e.other:QuestReward(e.self, 0,0,0,0, 6204, 1);
+	elseif (item_lib.check_turn_in(e.self, e.trade, {item1 = 6204})) then
+	    e.other:QuestReward(e.self, 0,0,0,0, 24890, 1);
+	elseif (item_lib.check_turn_in(e.self, e.trade, {item1 = 24890})) then
+	    e.other:QuestReward(e.self, 0,0,0,0, 11604, 1);
+	elseif (item_lib.check_turn_in(e.self, e.trade, {item1 = 11604})) then
+	    e.other:QuestReward(e.self, 0,0,0,0, 4164, 1);
     end
     
  	item_lib.return_items(e.self, e.other, e.trade);
