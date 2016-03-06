@@ -45,7 +45,6 @@ function event_trade(e)
 	    eq.set_global("Anniversary","3",5,"F");
 	    e.self:Say("Great, it is all here, take this breasplate, you earned it.  If you prefer one of the other items I have, just hand it back to me and we will get you something else.");
 	    e.other:QuestReward(e.self, 0,0,0,0, 4164, 1);
-	    eq.delete_global(qglobal_name);
 	elseif (item_lib.check_turn_in(e.self, e.trade, {item1 = 4164})) then
 	    e.other:QuestReward(e.self, 0,0,0,0, 6204, 1);
 	elseif (item_lib.check_turn_in(e.self, e.trade, {item1 = 6204})) then
