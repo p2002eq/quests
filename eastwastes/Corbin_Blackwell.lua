@@ -3,19 +3,19 @@ local giantsDead = 0;       -- will keep track of giants dead, so we know when t
 local orcsDead = 0;         -- will keep track of giants dead, so we know when to have him continue on after battle with orcs
 
 function event_signal(e)
-    if (e.signal == 1161113) then
-        e.self:Say("killed one");
+    if (e.signal == 1) then
         orcsDead = orcsDead + 1;
         if (orcsDead > 3) then
-            e.self:Say("killed 4");
             eq.move_to(-2750, -250, 150);
             corbin = 20;
+            orcsDead = 0;
         end
     elseif (e.signal == 1161114) then
         giantsDead = giantsDead + 1;
         if (giantsDead > 4) then
             eq.move_to(-3188, -574, 1);
             corbin = 30;
+            giantsDead = 0;
         end
     end
 end
