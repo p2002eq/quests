@@ -37,7 +37,8 @@ function event_waypoint_depart(e)
         eq.signal(116129, 1161112, 400); 
         giantsDead = 0;     -- set it to 0 right before giants spawn.
     elseif (corbin == 30)
-        
+        e.self:Say("I have escaped! With the help of our friends here I was saved from certain death. We are in their debt.");
+        eq.signal(116118, 1, 400); 
     end
 end
 		
