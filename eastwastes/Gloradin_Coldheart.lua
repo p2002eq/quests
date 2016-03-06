@@ -4,7 +4,7 @@ local eventStarted = false;
 function event_trade(e)
 	local item_lib = require("items");
 	
-	-- She won't have any type of dialogue while the battle is going.
+	-- Dialogue on turn in, spawns the war mobs then despawn her.
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 1093})) and (eventStarted == false) then 
 	    e.self:Say("Thank you. I will return to the Dain and inform him that the battle is underway. Please escort Garadain to the battlefield and see that he returns safely. May Brell bless you and bring you victory over these beasts.")
 	    e.other:Faction(49, 30); -- +Coldain
