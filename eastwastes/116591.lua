@@ -3,3 +3,7 @@ function event_signal(e)
         eq.attack_npc_type(116591);
     end
 end
+
+function event_death_complete(e)
+    eq.signal(116591, 1161113);     -- send signal to Corbin for each death
+end
