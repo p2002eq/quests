@@ -12,7 +12,8 @@ end
 
 function event_timer(e)
     if(e.timer == "spawn1") then
-        eq.stop_timer(e.timer)
+        eq.stop_timer("spawn1");
+        eq.depop_all(116165);
     --   Garadain Glacierbane  
         eq.spawn2(116084,236,0,-389.6,-2713.6,181,19);
     --   royal wolven guard  
