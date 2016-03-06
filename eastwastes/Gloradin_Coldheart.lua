@@ -1,11 +1,19 @@
+local eventStarted = false;
+
+
 function event_trade(e)
 	local item_lib = require("items");
 	
-	-- 
-	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 1093})) then
+	-- She won't have any type of dialogue while the battle is going.
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 1093})) and (eventStarted == false) then 
+	    e.self:Say("Thank you. I will return to the Dain and inform him that the battle is underway. Please escort Garadain to the battlefield and see that he returns safely. May Brell bless you and bring you victory over these beasts.")
+	    e.other:Faction(49, 30); -- +Coldain
+		e.other:Faction(67, 30); -- +Dain Frostreaver IV
+		e.other:Faction(188, -30); -- -Kromrif
+		e.other:Faction(189, -30); -- -Kromzek
+		e.other:AddEXP(10000);
 	    eq.set_timer("spawn1", 5);
-	    eq.depop();
-	    eq.spawn2(116607,0,0,e.self:GetX(),e.self:GetY(),e.self:GetZ(),e.self:GetHeading());
+--	    eq.spawn2(116607,0,0,e.self:GetX(),e.self:GetY(),e.self:GetZ(),e.self:GetHeading());
     end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
@@ -16,6 +24,7 @@ function event_timer(e)
         eq.depop_all(116165);
     --   Garadain Glacierbane  
         eq.spawn2(116084,236,0,-389.6,-2713.6,181,19);
+        eq.signal(116084, 1)                                -- let garadain know battle started.
     --   royal wolven guard  
         eq.spawn2(116563,238, 0,790.9,-2497.6,168.6,40); -- 1
         eq.spawn2(116563,239,0,799.8,-2491.6,169.1,40); -- 2
@@ -91,6 +100,7 @@ function event_timer(e)
 
     -- ringeightcoord
         --eq.spawn2(116575,0,0,0,0,0,0);
-        
+ 
+ 	    eq.depop();     
     end
 end
