@@ -8,3 +8,7 @@ function event_timer(e)
 	end
 
 end
+
+function event_death_complete(e)
+    eq.signal(116591, 1161114);     -- send signal to Corbin for each death
+end
