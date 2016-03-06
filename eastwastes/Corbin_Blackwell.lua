@@ -4,8 +4,10 @@ local orcsDead = 0;         -- will keep track of giants dead, so we know when t
 
 function event_signal(e)
     if (e.signal == 1161113) then
+        e.self:Say("killed one");
         orcsDead = orcsDead + 1;
         if (orcsDead > 3) then
+            e.self:Say("killed 4");
             eq.move_to(-2750, -250, 150);
             corbin = 20;
         end
