@@ -149,7 +149,7 @@ end
 
 function event_signal(e)
     if (e.signal == 1) then
-        battleStarted == true;
+        battleStarted = true;
     end
 end
 
