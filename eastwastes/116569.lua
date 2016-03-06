@@ -7,5 +7,6 @@ function event_signal(e)
 end
 
 function event_death_complete(e)
+    e.self:Say("orc died");
     eq.signal(116591, 1161113);     -- send signal to Corbin for each death
 end
