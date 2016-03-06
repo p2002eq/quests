@@ -25,7 +25,7 @@ function event_say(e)
 	    eq.set_global("Anniversary","9",5,"F"); -- flag people who received guise from event, so they can't do third task.
 	    e.self:Say("Enjoy drinking at all the bars in Neriak!");
 	    e.other:QuestReward(e.self, 0,0,0,0, 2469, 1);
-	elseif (e.message:findi("third task")) and (qglobals["Anniversary"] ~= "9") and (e.other:HasItem(2469)) and qglobals["Anniversary"] == "1") then     -- Finished first task already and had a guise before event.
+	elseif (e.message:findi("third task")) and (qglobals["Anniversary"] ~= "9") and (e.other:HasItem(2469)) and (qglobals["Anniversary"] == "1") then     -- Finished first task already and had a guise before event.
 	    e.self:Say("Bring me an artisan's Seal, a coldain hunting blanket, one liquid velium and a saucy bunnymeat to claim your reward.");
 	end
 end
