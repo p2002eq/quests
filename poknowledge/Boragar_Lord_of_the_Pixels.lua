@@ -9,7 +9,7 @@ function event_say(e)
 	elseif (e.message:findi("generous")) and (e.other:HasItem(31961) == false) then
 	    e.self:Say("I have a few items you may enjoy, but first I need you to complete a few [tasks].");
 	elseif (e.message:findi("tasks")) and (e.other:HasItem(31961) == false) then                                              -- Dialogue for first Task
-        e.self:Say("I need you to bring to me a Strand of Nightmare which can be obtained by combining the following items in a fletching kit.  A Scorpion Pincer, Rhino Beetle Carapace, Bixie Wing, Forest Drakeling Scales, Steamfont Spring Water, Patch of Gnoll Fur, Black Mamba Skin and a Pristine Krag Claw.  After you finish this, I will have the next task for you");		    
+        e.self:Say("I need you to bring to me a Strand of Nightmare which can be obtained by combining the following items in a fletching kit.  A Scorpion Pincer, Rhino Beetle Carapace, Bixie Wing, Forest Drakeling Scales, Steamfont Spring Water, Gila Monster Skin, Black Mamba Skin and a Pristine Krag Claw.  After you finish this, I will have the next task for you");		    
 	elseif (e.message:findi("second task")) and (qglobals["Anniversary"] == "1") and (e.other:HasItem(2469)) then     -- Finished first task and have guise already.
 	    e.self:Say("Since you already own a mask yourself you can move onto my [third task], or if you prefer, I have a pair of old [boots] you can have.");
     elseif (e.message:findi("second task")) and (qglobals["Anniversary"] == "1") then     -- Finished first task already and doesn't have guise.
