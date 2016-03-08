@@ -41,7 +41,7 @@ function event_trade(e)
     elseif (item_lib.check_turn_in(e.self, e.trade, {item1 = 12073, item2 = 16488, item3 = 29742, item4 = 12259})) then
 	    eq.set_global("Anniversary","2",5,"F");
 	    e.self:Say("Great, it is all here, would you [prefer the mask] or [prefer the boots].");
-	elseif (item_lib.check_turn_in(e.self, e.trade, {item1 = 23609, item2 = 30135, item3 = 1857, item4 = 1452})) and (qglobals["Anniversary"] ~= "3") and (e.other:HasItem(2469)) then
+	elseif (item_lib.check_turn_in(e.self, e.trade, {item1 = 23609, item2 = 30135, item3 = 1857, item4 = 1452})) and (qglobals["Anniversary"] ~= "3") and (e.other:HasItem(2469)) and (qglobals["Anniversary"] ~= "9") and (qglobals["Anniversary"] == "1") then
 	    eq.set_global("Anniversary","3",5,"F");
 	    e.self:Say("Great, it is all here, take this breasplate, you earned it.  If you prefer one of the other items I have, just hand it back to me and we will get you something else.");
 	    e.other:QuestReward(e.self, 0,0,0,0, 4164, 1);
