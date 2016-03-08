@@ -12,7 +12,7 @@ local mob5;
 
 
 function event_spawn(e)
-    flag = 0
+    flag = 0;
     eq.set_timer("yell", 60000); -- 60 seconds
     e.self:DoAnim(16);
 end
@@ -85,7 +85,7 @@ function event_trade(e)
 end
 
 function event_timer(e)
-	if e.timer == 'yell' then
+	if (e.timer == 'yell') then
 		e.self:SetAppearance(3);
 		e.self:Say("Ohhhh, someone... help, please...");
 	elseif (e.timer == 'depop') then
