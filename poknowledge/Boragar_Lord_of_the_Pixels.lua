@@ -52,6 +52,8 @@ function event_trade(e)
 	elseif (item_lib.check_turn_in(e.self, e.trade, {item1 = 24890})) then
 	    e.other:QuestReward(e.self, 0,0,0,0, 11604, 1);
 	elseif (item_lib.check_turn_in(e.self, e.trade, {item1 = 11604})) then
+	    e.other:QuestReward(e.self, 0,0,0,0, 27310, 1);
+	elseif (item_lib.check_turn_in(e.self, e.trade, {item1 = 27310})) then
 	    e.other:QuestReward(e.self, 0,0,0,0, 4164, 1);
     end
     
