@@ -16,7 +16,7 @@ local QUEST_ITEMS = {
     -- arms
     quest_helper:priest_arms(THURG_ARMOR.Plate_Vambraces, 31044),
 	-- bp	
-    quest_helper:priest_chest(THURG_ARMOR.Plate_Breastplate, 31043),
+    quest_helper:priest_chest(THURG_ARMOR.Breastplate, 31043),
     -- helm
     quest_helper:priest_helmet(THURG_ARMOR.Plate_Helmet, 31042)
 }
