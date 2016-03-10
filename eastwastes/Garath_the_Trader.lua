@@ -28,6 +28,6 @@ function event_trade(e)
         e.self:Say("Ah, excellent! Guess standin out here in the cold proved worthwhile for me after all. You take that weapon and enjoy it, I know I`ll be getting some use of this one. Safe travel to ya, friend!");
         e.other:QuestReward(e.self,0,0,0,0,5835,1000);
     end
-    item_lib.return_items(e.self, e.other, e.self, e.trade);
+    item_lib.return_items(e.self, e.other, e.trade);
 
 end
