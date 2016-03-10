@@ -144,7 +144,7 @@ function event_trade(e)
 		e.other:Faction(188, -30); -- -Kromrif
 		e.other:Faction(189, -30); -- -Kromzek
 	end
-	item_lib.return_items(e.self, e.other, e.self, e.trade)
+	item_lib.return_items(e.self, e.other, e.trade);
 end
 
 function event_signal(e)
