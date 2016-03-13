@@ -10,8 +10,8 @@ end
 function event_combat(e)
     if (e.joined == false) then
         inCombat = false;
-        eq.stop_timer("AOW");
         if (timerUp) then
+            eq.stop_timer("AOW");
             eq.depop_all(113627);
         end
     else
