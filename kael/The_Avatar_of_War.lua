@@ -18,6 +18,7 @@ end
 
 function event_timer(e)
     if (e.timer == "AOW") then
+        e.self:Say("timer is up");
         timerUp = true;
     end
 end
