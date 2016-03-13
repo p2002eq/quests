@@ -10,6 +10,7 @@ function event_combat(e)
     if (e.joined == false) then
         eq.stop_timer("AOW");
         if (timerUp) then
+            e.self:Say("Despawn from timer");
             eq.depop_all(113627);
         end
     end
