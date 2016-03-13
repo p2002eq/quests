@@ -8,6 +8,7 @@ end
 
 function event_combat(e)
     if (e.joined == false) then
+        e.self:Say("combat left");
         eq.stop_timer("AOW");
         if (timerUp) then
             e.self:Say("Despawn from timer");
