@@ -12,12 +12,12 @@ function event_combat(e)
         eq.stop_timer("AOW");
         if (timerUp) then
             eq.depop_all(113627);
-        endif
+        end
     end
 end
 
 function event_timer(e)
     if (e.timer == "AOW") then
         timerUp = true;
-    endif
+    end
 end
