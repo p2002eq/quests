@@ -12,7 +12,7 @@ function event_trade(e)
 	if((item_lib.check_turn_in(e.self, e.trade, {item1 = 1683}))) then --Celestial Fists
 		e.self:Emote("eyes open wide and he attacks you!");
 		e.other:QuestReward(e.self,0,0,0,0,1683); --Celestial Fists
-		eq.attack(" .. e.other:GetName() .. ");
+		eq.attack( .. e.other:GetName() .. );
 		eq.spawn2(95183,0,0,2470,306,-339,0); --Kaiaren (True)
 	elseif((item_lib.check_turn_in(e.self, e.trade, {item1 = 1684}))) then --Charred Scale
 		e.self:Say("Ahhh, impressive indeed! Now that you have broken the chain of the Fists, the others may come toppling down if you persevere. The Fist of Air is now the weakest, then Earth, and finally Water before the master of them all, Vorash. You must defeat them in order, proving the demise of the last to draw out the one you are after. The task before you now is to take this scale and show it to the Fist of Air wherever he may be. Good luck.");
