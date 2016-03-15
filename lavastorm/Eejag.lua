@@ -1,10 +1,11 @@
 function event_spawn(e)
-    eq.set_timer("shout",1000)
+    eq.set_timer("shout",10000);
 	--e.self:Shout("What imbecile dares challenge a Celestial Fist?! Do you even know who you are challenging? HA! You are nothing but an insect! I will enjoy crushing you, I have not charred the flesh of an idiot in decades! If you truly wish to fight me, the battle shall be held in my own element. Come, challenger, come down to the pits of flowing fire.");
 	--eq.set_proximity(e.self:GetX()-50,e.self:GetX()+50,e.self:GetY()-50,e.self:GetY()+50);
 end
 
 function event_timer(e)
+    e.self:Say("Test");
     if (e.timer == "shout") then
         e.self:Say("this is a shout");
 	    eq.stop_timer("shout");
