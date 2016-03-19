@@ -9,18 +9,24 @@ function event_signal(e)
             eq.move_to(-2750, -250, 150);
             corbin = 20;
         end
+    elseif (e.signal == 2) then
+        giantsDead = giantsDead + 1;
+        if (giantsDead > 4) then
+            eq.move_to(-3178, -531, 156);
+            corbin = 30;
+        end
     end
 end
 
 
-function event_waypoint_depart(e)
+function event_waypoint_arrive(e)
     if (corbin == 10) then
         e.self:Say("Uh oh, looks like they were tipped off somehow... I hope you can handle them.");
         eq.spawn2(116569, 0, 0, -2067, 189, 146, 57);
         eq.spawn2(116569, 0, 0, -2067, 199, 146, 57);
         eq.spawn2(116569, 0, 0, -2077, 199, 146, 57);
         eq.spawn2(116569, 0, 0, -2077, 189, 146, 57);
-        eq.signal(116569, 1161111, 1000);
+        eq.signal(116569, 1161111, 100);
         corbin = 15;    -- do nothing until all 4 orcs killed
 --        eq.move_to(-2750, -250, 150);
     elseif (corbin == 20) then
@@ -30,9 +36,8 @@ function event_waypoint_depart(e)
         eq.spawn2(116129, 0, 0, -2831, -276, 150, 40);
         eq.spawn2(116129, 0, 0, -2813, -306, 151, 40);
         eq.spawn2(116129, 0, 0, -2807, -316, 151, 40);
-        eq.signal(116129, 1161112, 1000); 
-        eq.move_to(-3178, -531, 156);
-        corbin = 30;
+        eq.signal(116129, 1161112, 100); 
+        corbin = 25;
     elseif (corbin == 30) then
         eq.move_to(-3175, -574.00, 156);
         corbin = 40;
