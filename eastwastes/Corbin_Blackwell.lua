@@ -17,8 +17,8 @@ function event_waypoint_depart(e)
         eq.spawn2(116591, 0, 0, -2819, -296, 149, 40);
         eq.spawn2(116129, 0, 0, -2825, -286, 148, 40);      
         eq.spawn2(116129, 0, 0, -2831, -276, 150, 40);
-        eq.spawn2(116129, 0, 0, -2837, -266, 151, 40);
-        eq.spawn2(116129, 0, 0, -2843, -256, 151, 40);
+        eq.spawn2(116129, 0, 0, -2813, -306, 151, 40);
+        eq.spawn2(116129, 0, 0, -2807, -316, 151, 40);
         eq.signal(116129, 1161112, 1000); 
         eq.move_to(-3178, -531, 156);
         corbin = 30;
@@ -38,8 +38,8 @@ function event_trade(e)
         e.other:QuestReward(e.self,0,0,0,0,30162,1000);
         --eq.ModifyNPCStat('runspeed', 3.0);
         e.self:Say("I thought I was a dwarfskin rug there for a minute! Thank Brell for your help stranger! Now cover me while I make good my escape. I am weakened and cannot endure much more.");
-        eq.pause(5);
-        eq.move_to(-2012, 197, 148, 270, true);
+        eq.pause(5000);
+        eq.move_to(-2012, 197, 148, 270);
         corbin = 10;
     end
 end
