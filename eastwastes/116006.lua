@@ -7,7 +7,7 @@ end
 
 function event_timer(e)
     -- Check to see if cheif is up
-	local check_npc = eq.get_entity_list():GetMobByNpcTypeID(116165);
+	local check_npc = eq.get_entity_list():GetMobByNpcTypeID(116584);
 
 	if (e.timer == "99") and (check_npc == true) then
 		eq.stop_timer("99");
