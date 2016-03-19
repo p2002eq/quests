@@ -23,7 +23,9 @@ function event_waypoint_depart(e)
         eq.move_to(-3178, -531, 156);
         corbin = 30;
     elseif (corbin == 30) then
-        eq.move_to(-3175, -574.00, 156)
+        eq.move_to(-3175, -574.00, 156);
+        corbin = 40;
+    elseif (corbin == 40) then
         e.self:Say("I have escaped! With the help of our friends here I was saved from certain death. We are in their debt.");
         eq.signal(116118, 1);
         eq.depop();
