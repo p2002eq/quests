@@ -23,7 +23,7 @@ function event_timer(e)
         eq.stop_timer("spawn1");
         eq.depop_all(116165);
     --   Garadain Glacierbane  
-        eq.spawn2(116084,236,0,-389.6,-2713.6,181,19);
+    --    eq.spawn2(116084,236,0,-389.6,-2713.6,181,19);
         eq.signal(116084, 1)                                -- let garadain know battle started.
     --   royal wolven guard  
         eq.spawn2(116563,238, 0,790.9,-2497.6,168.6,40); -- 1
