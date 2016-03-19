@@ -96,7 +96,7 @@ function event_timer(e)
         eq.spawn2(116584,0,0,425.9,-3593.2,146.3,255);
 
     -- Firbrand the black
-        eq.spawn2(116012,0,0,416.2,-3592.8,146.3,255);
+        eq.spawn2(116593,0,0,416.2,-3592.8,146.3,255);
 
     -- ringeightcoord
         --eq.spawn2(116575,0,0,0,0,0,0);
