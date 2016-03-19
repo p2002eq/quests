@@ -1,11 +1,14 @@
 local ring_seven_final = nil;
 
 function event_signal(e)
+    e.self:Say("signal");
 	if (e.signal == 1) then
+	    e.self:Say("signal 1");
 		ring_seven_final = 1;	
 		e.self:Say("We thought it was too late, the Dain will be very pleased!");
 		e.self:Say("Please friend, show me your Mithril ring and I will show you our gratitude.");
 	elseif (e.signal == 2) then
+	    e.self:Say("signal 2");
 		ring_seven_final = nil;
 	end
 
