@@ -6,13 +6,13 @@ function event_signal(e)
     if (e.signal == 1) then
         orcsDead = orcsDead + 1;
         if (orcsDead > 3) then
-            eq.move_to(-2750, -250, 150);
+            eq.move_to(-2750, -250, 150, true);
             corbin = 20;
         end
     elseif (e.signal == 2) then
         giantsDead = giantsDead + 1;
         if (giantsDead > 4) then
-            eq.move_to(-3178, -531, 156);
+            eq.move_to(-3178, -531, 156, true);
             corbin = 30;
         end
     end
@@ -26,7 +26,7 @@ function event_waypoint_arrive(e)
         eq.spawn2(116569, 0, 0, -2067, 199, 146, 57);
         eq.spawn2(116569, 0, 0, -2077, 199, 146, 57);
         eq.spawn2(116569, 0, 0, -2077, 189, 146, 57);
-        eq.signal(116569, 1161111, 100);
+        eq.signal(116569, 1161111, 400);
         corbin = 15;    -- do nothing until all 4 orcs killed
 --        eq.move_to(-2750, -250, 150);
     elseif (corbin == 20) then
@@ -36,7 +36,7 @@ function event_waypoint_arrive(e)
         eq.spawn2(116129, 0, 0, -2831, -276, 150, 40);
         eq.spawn2(116129, 0, 0, -2813, -306, 151, 40);
         eq.spawn2(116129, 0, 0, -2807, -316, 151, 40);
-        eq.signal(116129, 1161112, 100); 
+        eq.signal(116129, 1161112, 400); 
         corbin = 25;
     elseif (corbin == 30) then
         eq.move_to(-3175, -574.00, 156);
@@ -55,7 +55,7 @@ function event_trade(e)
         --eq.ModifyNPCStat('runspeed', 3.0);
         e.self:Say("I thought I was a dwarfskin rug there for a minute! Thank Brell for your help stranger! Now cover me while I make good my escape. I am weakened and cannot endure much more.");
         e.self:SetRunning(true);
-        eq.move_to(-2012, 197, 148, 270);
+        eq.move_to(-2012, 197, 148, 270, true);
         corbin = 10;
     end
 end
