@@ -24,6 +24,7 @@ end
 
 
 function event_waypoint_arrive(e)
+    e.self:Say("waypoint arrive");
     if (corbin == 10) then
         e.self:Say("Uh oh, looks like they were tipped off somehow... I hope you can handle them.");
         eq.spawn2(116569, 0, 0, -2067, 189, 146, 57);
@@ -31,8 +32,6 @@ function event_waypoint_arrive(e)
         eq.spawn2(116569, 0, 0, -2077, 199, 146, 57);
         eq.spawn2(116569, 0, 0, -2077, 189, 146, 57);
         eq.signal(116569, 1161111, 1000);
-        corbin = 15;    -- do nothing until all 4 orcs killed
---        eq.move_to(-2750, -250, 150);
     elseif (corbin == 20) then
         e.self:Say("I'll hack at your knees 'til you fall down! Out of love for the Dain, for the glory of the crown!");
         eq.spawn2(116591, 0, 0, -2819, -296, 149, 40);
