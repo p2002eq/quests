@@ -54,7 +54,7 @@ function event_say(e)
 	   
     -- Ring 8 Quest
 	elseif(e.message:findi("ready")) then
-		e.self:Say("Very well, $name, give me the Adamantite ring and I will give you the marching orders. Once the orders are given to Gloradin in the next hut, we will be underway. You then must follow me to what will be our battleground. I must warn you, I will hold your ring until the head of Chief Ry`gorr is given to me. If we fail, all will be lost... for both of us.");
+		e.self:Say("Very well, " .. e.other:GetName() .. ", give me the Adamantite ring and I will give you the marching orders. Once the orders are given to Gloradin in the next hut, we will be underway. You then must follow me to what will be our battleground. I must warn you, I will hold your ring until the head of Chief Ry`gorr is given to me. If we fail, all will be lost... for both of us.");
 	   
 	end
 
