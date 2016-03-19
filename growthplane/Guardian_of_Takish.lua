@@ -1,12 +1,12 @@
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Well met, $name. It is indeed a wondrous day to be serving the lady Tunare. If you know of any templars or knights, send them to me.");
+		e.self:Say("Well met, " ..e.other:GetName().. ". It is indeed a wondrous day to be serving the lady Tunare. If you know of any [templar] or [knight], send them to me.");
     elseif(e.message:findi("knight")) then
-		e.self:Say("Fortune smile upon me this day. It seems that the great corrupter and the Prince of Hate have been spreading seeds of corruption within this continent. Will you assist us to stop them?");
+		e.self:Say("Fortune smile upon me this day. It seems that the great corrupter and the Prince of Hate have been spreading seeds of corruption within this continent. Will you [assist] us to stop them?");
     elseif(e.message:findi("assist")) then
 		e.self:Say("Seek out the corrupter of life in the plane of hate and slay him. He has been reported performing dark rituals upon various wildlife within the Wakening Lands during the late hours of night. Return to me any evidence that you may find.");
     elseif(e.message:findi("templar")) then
-		e.self:Say("I require your aid. It seems the agents of corruption have supplied the followers of the warbringer with four idols that will help defoliate the Wakening Lands. Will you aid me, noble Templar?");
+		e.self:Say("I require your [aid]. It seems the agents of corruption have supplied the followers of the warbringer with four idols that will help defoliate the Wakening Lands. Will you aid me, noble Templar?");
     elseif(e.message:findi("aid")) then
 		e.self:Say("Excellent. Gather the four idols that are held in Kael and return them to me. I will then properly dispose of these foul creations.");
     end
