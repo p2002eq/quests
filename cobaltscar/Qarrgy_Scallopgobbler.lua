@@ -24,7 +24,7 @@ function event_trade(e)
 		e.other:Faction(241, 30); --Othmir		
 		e.other:Faction(345, -60); --Ulthork
 		e.other:QuestReward(e.self, 0, 0, 0, 0, 11635, 10000) --Emerald Dragonscale Tunic
-	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 22814, item2 = 28515, item3 = 3509})) then	
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 22814, item2 = 28515, item3 = 21009})) then	
 		e.self:Emote("skillfully crafts the Sea Dragon Scales into a bracer, hands it to "..e.other:GetName()..", and claps enthusiastically.");
 		e.other:Faction(241, 30); --Othmir		
 		e.other:Faction(345, -60); --Ulthork
