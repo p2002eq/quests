@@ -19,7 +19,7 @@ function event_trade(e)
 	if (item_lib.check_turn_in(e.self, e.trade, {item1 = 30162})) and (ring_seven_final == 1) then
 		e.self:Say("Thank you. " .. e.other:GetName().. ", your deeds will be mentioned to  the Dain. Please take this note from Corbin to Garadain. it may help him to achieve victory over the enemy.");
 		ring_seven_final = nil;
-		e.other:SummonItem(1047);
+		e.other:QuestReward(e.self,0,0,0,0,1047,10000);
 		e.other:Faction(49, 5);
 		e.other:Faction(67, 5);
 		e.other:Faction(188, -10);
