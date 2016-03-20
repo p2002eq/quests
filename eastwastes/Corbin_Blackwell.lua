@@ -1,5 +1,5 @@
-function event_waypoint_arrive(e)
-    e.self:Say("waypoint arrive");
+function event_waypoint_depart(e)
+    e.self:Say("waypoint depart");
     if (corbin == 10) then
         e.self:SetRunning(false);
         eq.move_to(-2819, -296, 149);
