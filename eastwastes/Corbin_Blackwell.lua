@@ -10,6 +10,7 @@ function event_waypoint_arrive(e)
         eq.spawn2(116569, 0, 0, -2077, 189, 146, 57);
         eq.signal(116569, 1161111, 600);
         corbin = 20;
+        e.self:Say("20")
     elseif (corbin == 20) then
         eq.move_to(-3178, -531, 150);
         e.self:Say("I'll hack at your knees 'til you fall down! Out of love for the Dain, for the glory of the crown!");
@@ -36,7 +37,7 @@ function event_trade(e)
         e.other:QuestReward(e.self,0,0,0,0,30162,1000);
         e.self:Say("I thought I was a dwarfskin rug there for a minute! Thank Brell for your help stranger! Now cover me while I make good my escape. I am weakened and cannot endure much more.");
         e.self:SetRunning(true);
-        eq.move_to(-2012, 197, 148);
+        eq.move_to(-2012, 197, 148, 40, true);
         corbin = 10;
     end
 end
