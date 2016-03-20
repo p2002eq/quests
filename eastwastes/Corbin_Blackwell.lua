@@ -2,16 +2,16 @@ function event_waypoint_arrive(e)
     e.self:Say("waypoint arrive");
     if (corbin == 10) then
         e.self:SetRunning(false);
+        eq.move_to(-2819, -296, 149);
         e.self:Say("Uh oh, looks like they were tipped off somehow... I hope you can handle them.");
         eq.spawn2(116569, 0, 0, -2067, 189, 146, 57);
         eq.spawn2(116569, 0, 0, -2067, 199, 146, 57);
         eq.spawn2(116569, 0, 0, -2077, 199, 146, 57);
         eq.spawn2(116569, 0, 0, -2077, 189, 146, 57);
         eq.signal(116569, 1161111, 600);
-        eq.move_to(-2819, -296, 149);
         corbin = 20;
     elseif (corbin == 20) then
-        e.self:SetRunning(false);
+        eq.move_to(-3178, -531, 150);
         e.self:Say("I'll hack at your knees 'til you fall down! Out of love for the Dain, for the glory of the crown!");
         eq.spawn2(116591, 0, 0, -2819, -296, 149, 40);
         eq.spawn2(116129, 0, 0, -2825, -286, 148, 40);      
@@ -19,7 +19,6 @@ function event_waypoint_arrive(e)
         eq.spawn2(116129, 0, 0, -2813, -306, 151, 40);
         eq.spawn2(116129, 0, 0, -2807, -316, 151, 40);
         eq.signal(116129, 1161112, 600); 
-        eq.move_to(-3178, -531, 150);
         corbin = 30;
     elseif (corbin == 30) then
         eq.move_to(-3175, -574.00, 156);
