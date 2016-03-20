@@ -29,7 +29,7 @@ end
 
 function event_waypoint_arrive(e)
     e.self:Say("waypoint arrive");
-    if (coorbin == 10) then
+    if (corbin == 10) then
         e.self:SetRunning(false);
         e.self:Say("Uh oh, looks like they were tipped off somehow... I hope you can handle them.");
         eq.spawn2(116569, 0, 0, -2067, 189, 146, 57);
