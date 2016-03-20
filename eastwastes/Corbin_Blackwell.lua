@@ -16,7 +16,7 @@ function event_signal(e)
         e.self:Say("giant dead");
         if (giantsDead > 4) then
         e.self:Say("more than 4 dead");
-            eq.move_to(-3178, -531, 150, 170, true);
+            eq.move_to(-3178, -531, 150);
             corbin = 30;
         end
     end
@@ -41,7 +41,6 @@ function event_waypoint_arrive(e)
         eq.spawn2(116129, 0, 0, -2813, -306, 151, 40);
         eq.spawn2(116129, 0, 0, -2807, -316, 151, 40);
         eq.signal(116129, 1161112, 1000); 
-        corbin = 25;
     elseif (corbin == 30) then
         eq.move_to(-3175, -574.00, 156);
         corbin = 40;
