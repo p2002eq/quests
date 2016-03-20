@@ -33,6 +33,7 @@ function event_waypoint_arrive(e)
         eq.spawn2(116569, 0, 0, -2077, 199, 146, 57);
         eq.spawn2(116569, 0, 0, -2077, 189, 146, 57);
         eq.signal(116569, 1161111, 1000);
+        e.self:SetWaypointPause(1000);
     elseif (corbin == 20) then
         e.self:Say("I'll hack at your knees 'til you fall down! Out of love for the Dain, for the glory of the crown!");
         eq.spawn2(116591, 0, 0, -2819, -296, 149, 40);
@@ -59,6 +60,7 @@ function event_trade(e)
         e.self:Say("I thought I was a dwarfskin rug there for a minute! Thank Brell for your help stranger! Now cover me while I make good my escape. I am weakened and cannot endure much more.");
         e.self:SetRunning(true);
         --eq.move_to(-2012, 197, 148, 270, true);
+        e.self:SetWaypointPause(1000);
         eq.move_to(-2066, 188, 146);
         corbin = 10;
     end
