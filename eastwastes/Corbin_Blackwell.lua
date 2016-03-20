@@ -4,11 +4,11 @@ local orcsDead = 0;         -- will keep track of giants dead, so we know when t
 
 function event_signal(e)
     if (e.signal == 1) then
-        e.self:Say("orc dead");
         orcsDead = orcsDead + 1;
         if (orcsDead > 3) then
             e.self:Say("more than 3 dead");
-            eq.move_to(-2750, -250, 150, 171, true);
+            --eq.move_to(-2750, -250, 150, 171, true);
+            eq.move_to(-2750, -250, 150);
             corbin = 20;
         end
     elseif (e.signal == 2) then
@@ -26,13 +26,16 @@ end
 function event_waypoint_arrive(e)
     e.self:Say("waypoint arrive");
     if (corbin == 10) then
+        e.self:Say("10");
         e.self:Say("Uh oh, looks like they were tipped off somehow... I hope you can handle them.");
         eq.spawn2(116569, 0, 0, -2067, 189, 146, 57);
         eq.spawn2(116569, 0, 0, -2067, 199, 146, 57);
         eq.spawn2(116569, 0, 0, -2077, 199, 146, 57);
         eq.spawn2(116569, 0, 0, -2077, 189, 146, 57);
         eq.signal(116569, 1161111, 1000);
+        e.self:Say("start pause");
         e.self:SetWaypointPause(1000);
+        e.self:Say("end pause");
     elseif (corbin == 20) then
         e.self:Say("I'll hack at your knees 'til you fall down! Out of love for the Dain, for the glory of the crown!");
         eq.spawn2(116591, 0, 0, -2819, -296, 149, 40);
@@ -58,7 +61,8 @@ function event_trade(e)
         --eq.ModifyNPCStat('runspeed', 3.0);
         e.self:Say("I thought I was a dwarfskin rug there for a minute! Thank Brell for your help stranger! Now cover me while I make good my escape. I am weakened and cannot endure much more.");
         e.self:SetRunning(true);
-        eq.move_to(-2012, 197, 148, 270, true);
+        --eq.move_to(-2012, 197, 148, 270, true);
+        eq.move_to(-2012, 197, 148);
         corbin = 10;
     end
 end
