@@ -36,7 +36,7 @@ function event_waypoint_arrive(e)
         eq.spawn2(116569, 0, 0, -2067, 199, 146, 57);
         eq.spawn2(116569, 0, 0, -2077, 199, 146, 57);
         eq.spawn2(116569, 0, 0, -2077, 189, 146, 57);
-        eq.signal(116569, 1161111, 100);
+        eq.signal(116569, 1161111, 600);
         eq.move_to(-2066, 188, 146);
         corbin = 15;
     elseif (corbin == 20) then
@@ -47,7 +47,7 @@ function event_waypoint_arrive(e)
         eq.spawn2(116129, 0, 0, -2831, -276, 150, 40);
         eq.spawn2(116129, 0, 0, -2813, -306, 151, 40);
         eq.spawn2(116129, 0, 0, -2807, -316, 151, 40);
-        eq.signal(116129, 1161112, 100); 
+        eq.signal(116129, 1161112, 600); 
     elseif (corbin == 30) then
         eq.move_to(-3175, -574.00, 156);
         corbin = 40;
