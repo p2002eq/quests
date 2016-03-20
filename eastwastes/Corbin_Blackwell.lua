@@ -29,7 +29,7 @@ end
 
 function event_waypoint_arrive(e)
     e.self:Say("waypoint arrive");
-    if (corbin == 10) then
+    if (coorbin == 10) then
         e.self:SetRunning(false);
         e.self:Say("Uh oh, looks like they were tipped off somehow... I hope you can handle them.");
         eq.spawn2(116569, 0, 0, -2067, 189, 146, 57);
@@ -37,6 +37,8 @@ function event_waypoint_arrive(e)
         eq.spawn2(116569, 0, 0, -2077, 199, 146, 57);
         eq.spawn2(116569, 0, 0, -2077, 189, 146, 57);
         eq.signal(116569, 1161111, 100);
+        eq.move_to(-2066, 188, 146);
+        corbin = 15;
     elseif (corbin == 20) then
         e.self:SetRunning(false);
         e.self:Say("I'll hack at your knees 'til you fall down! Out of love for the Dain, for the glory of the crown!");
@@ -64,7 +66,7 @@ function event_trade(e)
         e.self:Say("I thought I was a dwarfskin rug there for a minute! Thank Brell for your help stranger! Now cover me while I make good my escape. I am weakened and cannot endure much more.");
         e.self:SetRunning(true);
         --eq.move_to(-2012, 197, 148, 270, true);
-        eq.move_to(-2066, 188, 146);
+        eq.move_to(-2012, 197, 148);
         corbin = 10;
     end
 end
