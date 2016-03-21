@@ -20,8 +20,11 @@ function event_signal(e)
 end
 
 function event_combat(e)
+    e.self:Say("combat");
     if (e.joined == false) then
+        e.self:Say("left combat");
         if (corbin == 10) then
+            e.self:Say("move 10");
             eq.move_to(-2012, 197, 148, 190, true);
         elseif (corbin == 20) then
             eq.move_to(-2750, -250, 150, 190, true);
