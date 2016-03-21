@@ -41,7 +41,7 @@ function event_trade(e)
 
     if (mercAssigments > 0) then
         repeat
-        e.self:Say("Ahhh yes! Well done " .. e.other:GetClass() .. ". Here is your reward. Your status with our people grows with each interloper you eradicate.");
+        e.self:Say("Ahhh yes! Well done " .. e.other:Class() .. ". Here is your reward. Your status with our people grows with each interloper you eradicate.");
         e.other:GiveCash(13,6,6,0); -- 13 Copper, 6 Silver, 6 Gold
         e.other:Faction(42, 5); --CoV
         e.other:Faction(362,5); --Yelinak
