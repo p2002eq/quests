@@ -7,7 +7,6 @@ function event_signal(e)
     if (e.signal == 1) then
         orcsDead = orcsDead + 1;
         if (orcsDead > 3) then
-            e.self:SetRunning(true);
             eq.move_to(-2750, -250, 150, 190, true);
             corbin = 20;
         end
@@ -16,7 +15,6 @@ function event_signal(e)
         e.self:Say("giant dead");
         if (giantsDead > 4) then
             e.self:Say("more than 4 dead");
-            e.self:SetRunning(true);
             eq.move_to(-3178, -531, 150, 190, true);
             corbin = 30;
         end
@@ -26,7 +24,6 @@ end
 function event_waypoint_arrive(e)
     e.self:Say("waypoint arrive");
     if (corbin == 10) then
-        e.self:SetRunning(false);
         e.self:Say("Uh oh, looks like they were tipped off somehow... I hope you can handle them.");
         eq.spawn2(116569, 0, 0, -2067, 189, 146, 57);
         eq.spawn2(116569, 0, 0, -2067, 199, 146, 57);
