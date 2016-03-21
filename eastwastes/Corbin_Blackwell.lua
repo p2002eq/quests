@@ -36,6 +36,7 @@ function event_timer(e)
         corbin = 20;
     elseif (e.timer == "2") then
         eq.move_to(-3178, -531, 150, 190, true);
+        eq.stop_timer("2");
         corbin = 30;
     end
 end
