@@ -10,21 +10,16 @@ function event_signal(e)
             eq.set_timer("1",10000)
         end
     elseif (e.signal == 2) then
-        e.self:Say("giant dead");
         giantsDead = giantsDead + 1;
         if (giantsDead > 4) then
-            e.self:Say("set timer giants");
             eq.set_timer("2",10000)
         end
     end
 end
 
 function event_combat(e)
-    e.self:Say("combat");
     if (e.joined == false) then
-        e.self:Say("left combat");
         if (corbin == 10) then
-            e.self:Say("move 10");
             eq.move_to(-2012, 197, 148, 190, true);
         elseif (corbin == 20) then
             eq.move_to(-2750, -250, 150, 190, true);
@@ -47,7 +42,6 @@ function event_timer(e)
 end
 
 function event_waypoint_arrive(e)
-    e.self:Say("waypoint arrive");
     if (corbin == 10) then
         e.self:Say("Uh oh, looks like they were tipped off somehow... I hope you can handle them.");
         eq.spawn2(116569, 0, 0, -2067, 189, 146, 57);
