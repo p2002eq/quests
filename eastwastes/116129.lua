@@ -18,5 +18,5 @@ function event_signal(e)
 end
 
 function event_death_complete(e)
-    eq.signal(116591, 1161114);     -- send signal to Corbin for each death
+    eq.signal(116119, 1161114);     -- send signal to Corbin for each death
 end
