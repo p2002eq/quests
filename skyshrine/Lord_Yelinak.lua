@@ -1,5 +1,5 @@
 function event_say(e)
-	if(e.other:GetFaction(e.self) <= 3) then --Kindly or lower
+	if(e.other:GetFaction(e.self) < 2) then --Kindly or lower
 		if(e.message:findi("hail")) then
 			e.self:Say("Welcome, young mortal. Word of your deeds has preceded your arrival. Your intentions seem honorable, young one, however my trust is not an easy thing to win these days. Like you, there has been another that came before me with the trust of the dragon kin, and trust them too I did, but alas that proved to be destructive. I note your deeds to this shrine young one, but should you wish my counsel, you must prove your worth beyond doubt. Perhaps a small challenge shall be of interest to you?");
 		elseif(e.message:findi("I wish to prove my worth")) then
