@@ -1,7 +1,8 @@
 local corbin = 0;   
 local giantsDead = 0;       -- will keep track of giants dead, so we know when to have him continue on after battle with giants
 local orcsDead = 0;         -- will keep track of giants dead, so we know when to have him continue on after battle with orcs
-
+--e.self:StopWandering();
+--e.self:ResumeWandering();
 function event_signal(e)
     if (e.signal == 1) then
         orcsDead = orcsDead + 1;
