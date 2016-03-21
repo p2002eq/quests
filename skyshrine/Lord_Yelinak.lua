@@ -17,7 +17,7 @@ function event_trade(e)
 
 	local item_lib = require("items");
 
-	if(e.other:GetFaction(e.self) <= 3) then --Kindly or lower
+	if(e.other:GetFaction(e.self) < 2) then --Kindly or lower
 		if(item_lib.check_turn_in(e.self, e.trade, {item1 = 30516} )) then --King Tormax's Head
 			e.self:Emote(" watches as you drop the colossal head of King Tormax to the ground before him. You sense intense hatred within Yelinak as he stares down at the bloody remains of a descendent of the one who slew his mate. Obviously the death of Tormax has done little to console the ancient snow dragon. Finally Yelinak speaks,");
 			e.self:Say("I look upon this face, and even though he is dead, the hatred burns on. My grief and anger are unchanged even in the face of ultimate fate. His grandfathers act was so despicable and all-encompassing that it instilled an... immortal loathing. Nevertheless, you have completed the task I set before you and, as such, you deserve my gratitude. Please accept this [treasure].");
