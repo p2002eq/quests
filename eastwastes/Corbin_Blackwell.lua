@@ -7,17 +7,24 @@ function event_signal(e)
     if (e.signal == 1) then
         orcsDead = orcsDead + 1;
         if (orcsDead > 3) then
-            eq.move_to(-2750, -250, 150, 190, true);
-            corbin = 20;
+            eq.set_timer("1",10000)
         end
     elseif (e.signal == 2) then
         giantsDead = giantsDead + 1;
-        e.self:Say("giant dead");
         if (giantsDead > 4) then
-            e.self:Say("more than 4 dead");
-            eq.move_to(-3178, -531, 150, 190, true);
-            corbin = 30;
+            eq.set_timer("2",10000)
         end
+    end
+end
+
+function event_timer(e)
+    if (e.timer == "1") then
+        eq.stop_timer("1");
+        eq.move_to(-2750, -250, 150, 190, true);
+        corbin = 20;
+    elseif (e.timer == "2") then
+        eq.move_to(-3178, -531, 150, 190, true);
+        corbin = 30;
     end
 end
 
