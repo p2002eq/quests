@@ -10,8 +10,10 @@ function event_signal(e)
             eq.set_timer("1",10000)
         end
     elseif (e.signal == 2) then
+        e.self:Say("giant dead");
         giantsDead = giantsDead + 1;
         if (giantsDead > 4) then
+            e.self:Say("set timer giants");
             eq.set_timer("2",10000)
         end
     end
