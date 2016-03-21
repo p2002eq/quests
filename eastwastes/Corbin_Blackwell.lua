@@ -17,6 +17,18 @@ function event_signal(e)
     end
 end
 
+function event_combat(e)
+    if (e.joined == false) then
+        if (corbin == 10) then
+            eq.move_to(-2012, 197, 148, 190, true);
+        elseif (corbin == 20) then
+            eq.move_to(-2750, -250, 150, 190, true);
+        elseif (corbin == 30) then
+            eq.move_to(-3178, -531, 150, 190, true);
+        end
+    end
+end
+
 function event_timer(e)
     if (e.timer == "1") then
         eq.stop_timer("1");
