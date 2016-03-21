@@ -8,7 +8,7 @@ function event_signal(e)
         if (orcsDead > 3) then
             e.self:Say("more than 3 dead");
             e.self:SetRunning(true);
-            eq.move_to(-2750, -250, 150, 50, true);
+            eq.move_to(-2750, -250, 150, 190, true);
             e.self:Say("moving to giants");
             corbin = 20;
             e.self:Say("set to 20");
@@ -19,7 +19,7 @@ function event_signal(e)
         if (giantsDead > 4) then
             e.self:Say("more than 4 dead");
             e.self:SetRunning(true);
-            eq.move_to(-3178, -531, 150, 50, true);
+            eq.move_to(-3178, -531, 150, 190, true);
             corbin = 30;
         end
     end
@@ -44,7 +44,7 @@ function event_waypoint_arrive(e)
         eq.spawn2(116129, 0, 0, -2807, -316, 151, 40);
         eq.signal(116129, 1161112, 600); 
     elseif (corbin == 30) then
-        eq.move_to(-3175, -574.00, 156, 50, true);
+        eq.move_to(-3175, -574.00, 156, 190, true);
         corbin = 40;
     elseif (corbin == 40) then
         e.self:Say("I have escaped! With the help of our friends here I was saved from certain death. We are in their debt.");
@@ -56,6 +56,6 @@ end
 function event_spawn(e)
     e.self:Say("I thought I was a dwarfskin rug there for a minute! Thank Brell for your help stranger! Now cover me while I make good my escape. I am weakened and cannot endure much more.");
     e.self:SetRunning(true);
-    eq.move_to(-2012, 197, 148, 50, true);
+    eq.move_to(-2012, 197, 148, 190, true);
     corbin = 10;
 end
