@@ -7,12 +7,9 @@ function event_signal(e)
     if (e.signal == 1) then
         orcsDead = orcsDead + 1;
         if (orcsDead > 3) then
-            e.self:Say("more than 3 dead");
             e.self:SetRunning(true);
             eq.move_to(-2750, -250, 150, 190, true);
-            e.self:Say("moving to giants");
             corbin = 20;
-            e.self:Say("set to 20");
         end
     elseif (e.signal == 2) then
         giantsDead = giantsDead + 1;
