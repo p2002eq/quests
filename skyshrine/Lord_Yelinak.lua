@@ -1,5 +1,5 @@
 function event_say(e)
-	if(e.other:GetFaction(e.self) < 2) then --Kindly or lower
+	if(e.other:GetFaction(e.self) < 2) then --Ally
 		if(e.message:findi("hail")) then
 			e.self:Say("Welcome, young mortal. Word of your deeds has preceded your arrival. Your intentions seem honorable, young one, however my trust is not an easy thing to win these days. Like you, there has been another that came before me with the trust of the dragon kin, and trust them too I did, but alas that proved to be destructive. I note your deeds to this shrine young one, but should you wish my counsel, you must prove your worth beyond doubt. Perhaps a small challenge shall be of interest to you?");
 		elseif(e.message:findi("I wish to prove my worth")) then
@@ -17,7 +17,7 @@ function event_trade(e)
 
 	local item_lib = require("items");
 
-	if(e.other:GetFaction(e.self) < 2) then --Kindly or lower
+	if(e.other:GetFaction(e.self) < 2) then --Ally
 		if(item_lib.check_turn_in(e.self, e.trade, {item1 = 30516} )) then --King Tormax's Head
 			e.self:Emote(" watches as you drop the colossal head of King Tormax to the ground before him. You sense intense hatred within Yelinak as he stares down at the bloody remains of a descendent of the one who slew his mate. Obviously the death of Tormax has done little to console the ancient snow dragon. Finally Yelinak speaks,");
 			e.self:Say("I look upon this face, and even though he is dead, the hatred burns on. My grief and anger are unchanged even in the face of ultimate fate. His grandfathers act was so despicable and all-encompassing that it instilled an... immortal loathing. Nevertheless, you have completed the task I set before you and, as such, you deserve my gratitude. Please accept this [treasure].");
