@@ -1,10 +1,10 @@
 function event_waypoint_arrive(e)
     if (e.wp == 1) then
         e.self:Say("Uh oh, looks like they were tipped off somehow... I hope you can handle them.");
-        eq.spawn2(116569, 0, 0, -2067, 189, 146, 57);
-        eq.spawn2(116569, 0, 0, -2067, 199, 146, 57);
-        eq.spawn2(116569, 0, 0, -2077, 199, 146, 57);
-        eq.spawn2(116569, 0, 0, -2077, 189, 146, 57);
+        eq.spawn2(116569, 0, 0, -2027, 149, 150, 57);
+        eq.spawn2(116569, 0, 0, -2027, 159, 150, 57);
+        eq.spawn2(116569, 0, 0, -2037, 159, 150, 57);
+        eq.spawn2(116569, 0, 0, -2037, 149, 150, 57);
         eq.signal(116569, 1161111, 600);
     elseif (e.wp == 2) then
         e.self:Say("2");
