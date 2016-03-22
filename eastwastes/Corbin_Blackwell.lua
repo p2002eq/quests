@@ -12,6 +12,7 @@ function event_signal(e)
     elseif (e.signal == 2) then
         giantsDead = giantsDead + 1;
         if (giantsDead > 4) then
+            e.self:Say("Giant timer");
             eq.set_timer("2",10000)
         end
     end
@@ -38,10 +39,22 @@ function event_timer(e)
         eq.move_to(-3178, -531, 150, 190, true);
         eq.stop_timer("2");
         corbin = 30;
+    elseif (e.timer == "3") then
+        eq.stop_timer("3");
+        e.self:Say("stop timer 3");
+        e.self:ResumeWandering();
+        e.self:Say("resume wandering");
+        
     end
 end
 
 function event_waypoint_arrive(e)
+    if (e.wp == 1) then
+        e.self:Say("wp = 1");
+        e.self:StopWandering();
+        e.self:Say("stop wandering");
+        eq.set_timer("3",10000);
+    end
     if (corbin == 10) then
         e.self:Say("Uh oh, looks like they were tipped off somehow... I hope you can handle them.");
         eq.spawn2(116569, 0, 0, -2067, 189, 146, 57);
