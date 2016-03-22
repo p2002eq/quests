@@ -1,7 +1,5 @@
 function event_waypoint_arrive(e)
-    e.self:Say("arrive");
     if (e.wp == 1) then
-        e.self:Say("1");
         e.self:Say("Uh oh, looks like they were tipped off somehow... I hope you can handle them.");
         eq.spawn2(116569, 0, 0, -2067, 189, 146, 57);
         eq.spawn2(116569, 0, 0, -2067, 199, 146, 57);
@@ -18,14 +16,19 @@ function event_waypoint_arrive(e)
         eq.spawn2(116129, 0, 0, -2807, -316, 151, 40);
         eq.signal(116129, 1161112, 600); 
     elseif (e.wp == 4) then
-        e.self:Say("4");
         e.self:Say("I have escaped! With the help of our friends here I was saved from certain death. We are in their debt.");
         eq.signal(116118, 1);
-        eq.depop();
+        eq.set_timer("depop",5000);
     end
 end
 
 function event_spawn(e)
     e.self:Say("I thought I was a dwarfskin rug there for a minute! Thank Brell for your help stranger! Now cover me while I make good my escape. I am weakened and cannot endure much more.");
     e.self:SetRunning(true);
+end
+
+function event_timer(e)
+    if (e.timer == "Depop") then
+        eq.depop();
+    end
 end
