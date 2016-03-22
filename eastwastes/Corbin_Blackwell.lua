@@ -18,7 +18,7 @@ function event_waypoint_arrive(e)
     elseif (e.wp == 4) then
         e.self:Say("I have escaped! With the help of our friends here I was saved from certain death. We are in their debt.");
         eq.signal(116118, 1);
-        eq.set_timer("depop",5000);
+        eq.set_timer("depop",1000);
     end
 end
 
