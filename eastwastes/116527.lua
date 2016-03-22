@@ -9,8 +9,7 @@ function event_waypoint_arrive(e)
     if (e.wp == 1) then
         e.self:Say("wp 1");
         eq.spawn2(116569, 0, 0, -78, 192, 35.8, 57);
-        eq.spawn2(116569, 0, 0, -2067, 189, 146, 57);
-    elseif (e.wp == 1) then
+    elseif (e.wp == 2) then
         e.self:Say("wp 2");
     end
 end
