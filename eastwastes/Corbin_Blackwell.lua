@@ -5,7 +5,7 @@ function event_waypoint_arrive(e)
         e.self:Say("Uh oh, looks like they were tipped off somehow... I hope you can handle them.");
         eq.spawn2(116569, 0, 0, -2067, 189, 146, 57);
         eq.spawn2(116569, 0, 0, -2067, 199, 146, 57);
-        eq.spawn2(116569, 0, 0, -2077, 199, 146, 57);
+        eq.spawn2(116569, 0, 0-2077, 199, 146, 57);
         eq.spawn2(116569, 0, 0, -2077, 189, 146, 57);
         eq.signal(116569, 1161111, 600);
     elseif (e.wp == 2) then
@@ -28,5 +28,4 @@ end
 function event_spawn(e)
     e.self:Say("I thought I was a dwarfskin rug there for a minute! Thank Brell for your help stranger! Now cover me while I make good my escape. I am weakened and cannot endure much more.");
     e.self:SetRunning(true);
-    eq.move_to(-2012, 197, 148, 190, true);
 end
