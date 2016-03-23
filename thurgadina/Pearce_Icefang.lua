@@ -4,13 +4,13 @@ local quest_helper = require('velious_quest_helper');
 local SKYSHRINE_ARMOR = quest_helper.SKYSHRINE_ARMOR;
 
 local QUEST_ITEMS = {
-  quest_helper:melee_helmet(SKYSHRINE_ARMOR.Leather_Cap, 5453), --helm
-  quest_helper:melee_chest(SKYSHRINE_ARMOR.Leather_Tunic, 5454), --bp
-  quest_helper:melee_arms(SKYSHRINE_ARMOR.Leather_Sleeves, 5455), -- arms
-  quest_helper:melee_bracer(SKYSHRINE_ARMOR.Leather_Bracelet, 5456), --bracer
-  quest_helper:melee_gloves(SKYSHRINE_ARMOR.Leather_Gloves, 5457), -- gloves
-  quest_helper:melee_legs(SKYSHRINE_ARMOR.Leather_Leggings, 5458), -- legs
-  quest_helper:melee_boots(SKYSHRINE_ARMOR.Leather_Boots, 5459) -- boots
+  quest_helper:melee_helmet(THURG_ARMOR.Leather_Cap, 5453), --helm
+  quest_helper:melee_chest(THURG_ARMOR.Leather_Tunic, 5454), --bp
+  quest_helper:melee_arms(THURG_ARMOR.Leather_Sleeves, 5455), -- arms
+  quest_helper:melee_bracer(THURG_ARMOR.Leather_Bracelet, 5456), --bracer
+  quest_helper:melee_gloves(THURG_ARMOR.Leather_Gloves, 5457), -- gloves
+  quest_helper:melee_legs(THURG_ARMOR.Leather_Leggings, 5458), -- legs
+  quest_helper:melee_boots(THURG_ARMOR.Leather_Boots, 5459) -- boots
 }
 
 function event_say(e)
