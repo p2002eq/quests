@@ -7,7 +7,6 @@ function event_waypoint_arrive(e)
         eq.spawn2(116569, 0, 0, -2037, 149, 150, 57);
         eq.signal(116569, 1161111, 600);
     elseif (e.wp == 2) then
-        e.self:Say("2");
         e.self:Say("I'll hack at your knees 'til you fall down! Out of love for the Dain, for the glory of the crown!");
         eq.spawn2(116591, 0, 0, -2819, -296, 149, 40);
         eq.spawn2(116129, 0, 0, -2825, -286, 148, 40);      
