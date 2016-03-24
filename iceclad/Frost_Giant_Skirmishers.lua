@@ -1,4 +1,7 @@
 -- Shawl 8 encounter.  Attack General Bragmur
+function event_spawn(e)
+    e.self:Say("giants spawn");
+end
 
 function event_signal(e)
     e.self:Say("giants spawn");
