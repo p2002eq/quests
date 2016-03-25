@@ -35,12 +35,12 @@ function event_waypoint_arrive(e)
         eq.spawn2(110230, 0, 0, 2201, 1618, 163, 112);
         eq.signal(110230, 1, 600);  -- send signal to attack
     elseif (e.wp == 6) then     -- encounter5, spawn on top of general
-        eq.spawn2(110109, 0, 0, 2253, 3703, 244, 227);  --Commander Vjorik
-        eq.spawn2(110225, 0, 0, 2260, 3700, 244, 25);   --Frost Giant Skirmishers
-        eq.spawn2(110225, 0, 0, 2240, 3700, 244, 109);
-        eq.spawn2(110225, 0, 0, 2250, 3710, 244, 163);
-        eq.spawn2(110225, 0, 0, 2250, 3690, 244, 163);
-        eq.spawn2(110225, 0, 0, 2247, 3697, 244, 163);
+        eq.spawn2(110109, 0, 0, 2653, 3703, 244, 227);  --Commander Vjorik
+        eq.spawn2(110225, 0, 0, 2660, 3700, 244, 25);   --Frost Giant Skirmishers
+        eq.spawn2(110225, 0, 0, 2640, 3700, 244, 109);
+        eq.spawn2(110225, 0, 0, 2650, 3710, 244, 163);
+        eq.spawn2(110225, 0, 0, 2650, 3690, 244, 163);
+        eq.spawn2(110225, 0, 0, 2647, 3697, 244, 163);
     end
 end
         
