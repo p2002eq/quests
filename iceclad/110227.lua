@@ -9,6 +9,7 @@ function event_trade(e)
 end
 
 function event_waypoint_arrive(e)
+    e.self:Say(wp);
     if (e.wp == 2) then     -- encounter1
         eq.spawn2(110230, 0, 0, 7521, -3461, 163, 116); --Kromrif Tracking Wolves
         eq.spawn2(110230, 0, 0, 7515, -3462, 163, 116);
@@ -21,7 +22,7 @@ function event_waypoint_arrive(e)
         eq.spawn2(110225, 0, 0, 7148, -2201, 145, 109);
         eq.spawn2(110225, 0, 0, 7285, -2211, 150, 163);
         eq.signal(110225, 1, 600);  -- send signal to attack
-    elseif (e.wp == 5) then     -- encounter3, spawn on top of general
+    elseif (e.wp == 4) then     -- encounter3, spawn on top of general
         eq.spawn2(110219, 0, 0, 5960, -1100, 161, 227); --Commander Kvarid
         eq.spawn2(110225, 0, 0, 5940, -1100, 161, 227); --Frost Giant Skirmishers
         eq.spawn2(110225, 0, 0, 5950, -1110, 161, 25);
