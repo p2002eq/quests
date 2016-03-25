@@ -4,8 +4,8 @@ function event_spawn(e)
 end
 
 function event_signal(e)
-    e.self:Say("giants spawn");
     if (e.signal == 1) then
+        e.self:Say("attack");
         eq.attack_npc_type(110227);
     end
 end
