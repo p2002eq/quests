@@ -11,6 +11,7 @@ end
 function event_waypoint_arrive(e)
     e.self:Say(wp);
     if (e.wp == 2) then     -- encounter1
+        eq.signal(110109, 1);   -- Commander Vjorik Shout
         eq.spawn2(110230, 0, 0, 7521, -3461, 163, 116); --Kromrif Tracking Wolves
         eq.spawn2(110230, 0, 0, 7515, -3462, 163, 116);
         eq.spawn2(110230, 0, 0, 7510, -3464, 163, 116);
