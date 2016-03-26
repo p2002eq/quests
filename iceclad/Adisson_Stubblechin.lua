@@ -14,9 +14,7 @@ end
 function event_say(e)
     if(e.message:findi("hail")) then
         e.self:Say("Don't be thinkin' I was forgettin' ya, Nilham, ya spotty-faced salt licker. Remember, ya tell us where ya put our rum, an' we let ya out. Otherwise, ya have ta stay here!");
-        e.self:Say("before avatar");
         local npc2 = eq.get_entity_list():GetMobByNpcTypeID(110218);     -- Avatar of Below
-        e.self:Say("avatar checked");
         if (npc2) then
             e.self:Say("avatar up already");
             eq.signal(110218,1,4000);
