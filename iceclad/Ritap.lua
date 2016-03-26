@@ -1,7 +1,7 @@
 function event_say(e)
-	if(e.message:findi("hail")) then
-	    e.self:Say("Avast you! Ya best be shoving off if ye knows whats good for you. We be pirate raiders and ya not be messing with the likes of us!");
-	    eq.signal(110052,1);
+    if(e.message:findi("hail")) then
+        e.self:Say("Avast you! Ya best be shoving off if ye knows whats good for you. We be pirate raiders and ya not be messing with the likes of us!");
+        eq.signal(110052,1);
         e.self:Say("The cap'n said PIRATES! Not parrots ye knucklehead!");
         e.self:Emote("He whacks the other raider upside the head");
         e.self:Say("now whars the tinkered rope!?");
