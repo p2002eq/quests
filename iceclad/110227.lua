@@ -42,8 +42,8 @@ function event_waypoint_arrive(e)
         eq.spawn2(110230, 0, 0, 2193, 1614, 54, 112);   --Kromrif Tracking Wolves
         eq.spawn2(110230, 0, 0, 2189, 1612, 54, 112);
         eq.spawn2(110230, 0, 0, 2185, 1610, 54, 112);
-        eq.spawn2(110230, 0, 0, 2197, 1616, 163, 112);
-        eq.spawn2(110230, 0, 0, 2201, 1618, 163, 112);
+        eq.spawn2(110230, 0, 0, 2197, 1616, 54, 112);
+        eq.spawn2(110230, 0, 0, 2201, 1618, 54, 112);
         eq.signal(110230, 2, 600);  -- send signal to attack
     elseif (e.wp == 6 and encount5 == false) then     -- encounter5, spawn on top of general
         encount5 = true;
