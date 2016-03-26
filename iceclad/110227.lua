@@ -69,10 +69,10 @@ function event_waypoint_arrive(e)
     elseif (e.wp == 12) then
         local npc = eq.get_entity_list():GetMobByNpcTypeID(110069);     -- Captain Nalot
         if (npc) then
-            eq.signal(110069,1, 2000);
+            eq.signal(110069,1, 4000);
         else
             eq.spawn2(110069, 0, 0, 1325, 4639, 74, 126);
-            eq.signal(110069,1, 2000);
+            eq.signal(110069,1, 4000);
         end
     end
 end
@@ -80,18 +80,18 @@ end
 function event_signal(e)
     if (e.signal == 2) then
         e.self:Say("Greetings Captian Nalot, I have come to you with a proposition to make.");
-        eq.signal(110069,3,2000);
+        eq.signal(110069,3,4000);
     elseif (e.signal == 3) then
         e.self:Say("Well ya see sir, we have a surplus of Velium that we would not mind sharing with you for yer tinkerin' but would ask a favor in return for it.");
-        eq.signal(110069,4,2000);
+        eq.signal(110069,4,4000);
     elseif (e.signal == 4) then
         e.self:Say("I represent the Dain in this matter, we would like for you to use yer Icebreaker there to head to Antonica and bring reinforcements for the war that is preparing to ensue. We are needin' all the help we can get against the Kromrif.");
         local npc2 = eq.get_entity_list():GetMobByNpcTypeID(110067);     -- Addison Stubblechin
         if (npc2) then
-            eq.signal(110067,1,2000);
+            eq.signal(110067,1,4000);
         else
             eq.spawn2(110067, 0, 0, 1315, 4587, 70, 10);
-            eq.signal(110067,1,2000);
+            eq.signal(110067,1,4000);
         end
     end
 end
