@@ -64,8 +64,8 @@ function event_waypoint_arrive(e)
             eq.spawn2(110052, 0, 0, 2209, 4716, -32.78, 92.8)
             eq.spawn2(110053, 0, 0, 2218, 4717, -32.78, 92.8);
         end
-        eq.signal(110052, 101, 500);   --   gnomes response
-        eq.signal(110053, 101, 500);
+        eq.signal(110052, 101, 1250);   --   gnomes response
+        eq.signal(110053, 101, 1250);
     elseif (e.wp == 12) then
         local npc = eq.get_entity_list():GetMobByNpcTypeID(110069);     -- Captain Nalot
         if (npc) then
