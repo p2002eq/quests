@@ -13,6 +13,7 @@ function event_trade(e)
 end
 
 function event_waypoint_arrive(e)
+    e.self:Shout("way point");
     if (e.wp == 2 and thirdWp == false) then     -- encounter1
         thirdWp = true;
         eq.signal(110109, 1);   -- Commander Vjorik Shout
