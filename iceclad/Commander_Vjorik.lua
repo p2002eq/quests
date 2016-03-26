@@ -5,7 +5,6 @@ function event_signal(e)
         e.self:Shout("The tracking wolves have found the Coldain! To the South West, Charge him!");
         eq.depop();
     elseif (e.signal == 2) then
-        e.self:SetInvisible(1, true);
-        e.self:Say("set invis");
+        e.self:SetInvisible(1);
     end
 end
