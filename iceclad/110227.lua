@@ -54,6 +54,12 @@ function event_waypoint_arrive(e)
         eq.spawn2(110225, 0, 0, 2650, 3710, 244, 163);
         eq.spawn2(110225, 0, 0, 2650, 3690, 244, 163);
         eq.spawn2(110225, 0, 0, 2647, 3697, 244, 163);
+    elseif (e.wp == 13) then
+        e.self:Say("Lo there gnomes! Tell me is your camp located nearby?");
+        eq.signal(110053, 1);   -- msignal to have gnomes dialogue
+        eq.signal(110052, 1);
+    elseif (e.wp == 15) then
+        
     end
 end
         
