@@ -6,6 +6,7 @@ function event_signal(e)
         eq.attack_npc_type(110227);
         e.self:Say("going to random");
         if (math.random(100) < 26) then
+            e.self:Say("adding item");
             e.self:AddItem(8905);
             e.self:Say("added item");
         end
