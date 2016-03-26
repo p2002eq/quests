@@ -12,14 +12,13 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 8895})) then
-	    e.self:Emote(holds the shawl up close to one eye to look at the rune sewn into it. He smiles to himself and then drops it to the ground and places one hand on it. A bright blue glow starts to emanate in the snow, then there is a sudden flash! The Avatar has dissipated. All that is left behind is the Shawl lying in the snow, shimmering with a new power. " ..e.other:GetName().. " slowly bends down to pick it up, and is infused with a blessing from Brell.");
+	    e.self:Emote("holds the shawl up close to one eye to look at the rune sewn into it. He smiles to himself and then drops it to the ground and places one hand on it. A bright blue glow starts to emanate in the snow, then there is a sudden flash! The Avatar has dissipated. All that is left behind is the Shawl lying in the snow, shimmering with a new power. " ..e.other:GetName().. " slowly bends down to pick it up, and is infused with a blessing from Brell.");
 	    e.other:QuestReward(e.self,0,0,0,0,1200,10000);
 	    eq.signal(110227, 1);
 	    eq.eq.stop_timer("avatarshawl");
 	    eq.depop();
 	end
-	item_lib.return_items(e.self, e.other, e.trade)
-
+	item_lib.return_items(e.self, e.other, e.trade);
 end
 
 function event_timer(e)
