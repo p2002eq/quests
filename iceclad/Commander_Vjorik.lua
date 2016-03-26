@@ -6,6 +6,5 @@ function event_signal(e)
         eq.depop();
     elseif (e.signal == 2) then
         e.self:SetInvisible(1);
-        e.self:Shout("turn off invis");
     end
 end
