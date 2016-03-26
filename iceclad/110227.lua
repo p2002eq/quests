@@ -27,7 +27,7 @@ function event_waypoint_arrive(e)
         eq.spawn2(110225, 0, 0, 7138, -2436, 143, 25);
         eq.spawn2(110225, 0, 0, 7148, -2201, 145, 109);
         eq.spawn2(110225, 0, 0, 7285, -2211, 150, 163);
-        eq.signal(110225, 1, 1500);  -- send signal to attack
+        eq.signal(110225, 1);  -- send signal to attack
     elseif (e.wp == 4) then     -- encounter3, spawn on top of general
         eq.spawn2(110219, 0, 0, 5960, -1100, 161, 227); --Commander Kvarid
         eq.spawn2(110225, 0, 0, 5940, -1100, 161, 227); --Frost Giant Skirmishers
