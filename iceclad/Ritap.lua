@@ -3,10 +3,10 @@ function event_say(e)
         e.self:Say("Avast you! Ya best be shoving off if ye knows whats good for you. We be pirate raiders and ya not be messing with the likes of us!");
         local npc = eq.get_entity_list():GetMobByNpcTypeID(110052);
         if (npc) then
-            eq.signal(110052,1,2000);
+            eq.signal(110052,1,4000);
         else
             eq.spawn2(110052, 0, 0, 2209, 4716, -33, 109);
-            eq.signal(110052,1,2000);
+            eq.signal(110052,1,4000);
         end
     elseif(e.message:findi("What tinkered rope?")) then
         e.self:Say("Batten down yer yapper! Ahl be doin the talking here. We be needin the rope to tie ye down fer ransom. Now fetch me the beard of a frost giant scout so's I can make some more rope to tie ye up with.");
@@ -18,7 +18,7 @@ function event_signal(e)
         e.self:Say("The cap'n said PIRATES! Not parrots ye knucklehead!");
         e.self:Emote("He whacks the other raider upside the head");
         e.self:Say("now whars the tinkered rope!?");
-        eq.signal(110052,2,2000);
+        eq.signal(110052,2,4000);
     elseif (e.signal == 101) then
         e.self:Say("Arrrrrrrrrrr!");
     end
