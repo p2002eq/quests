@@ -52,11 +52,11 @@ sub EVENT_SIGNAL {
    }
    elsif ($signal == 3) {
       quest::say("Arrrrrr what is it ye want?");
-      quest::signalwith(110227, 3, 500);
+      quest::signalwith(110227, 3, 1000);
    }
    elsif ($signal == 4) {
       quest::say("Velium eh? Well there matey lets hear what you have got to say!");
-      quest::signalwith(110227, 4, 500);
+      quest::signalwith(110227, 4, 1000);
    }
    elsif ($signal == 10) {
       quest::emote("scratches his head, 'Yar ya do that ya crazy Coldain.'");
