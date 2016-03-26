@@ -8,9 +8,6 @@ function event_say(e)
             eq.spawn2(110052, 0, 0, 2209, 4716, -33, 109);
             eq.signal(110052,1,500);
         end
-        e.self:Say("The cap'n said PIRATES! Not parrots ye knucklehead!");
-        e.self:Emote("He whacks the other raider upside the head");
-        e.self:Say("now whars the tinkered rope!?");
         eq.signal(110052,2,500);
     elseif(e.message:findi("What tinkered rope?")) then
         e.self:Say("Batten down yer yapper! Ahl be doin the talking here. We be needin the rope to tie ye down fer ransom. Now fetch me the beard of a frost giant scout so's I can make some more rope to tie ye up with.");
@@ -18,7 +15,13 @@ function event_say(e)
 end
 
 function event_signal(e)
-    if (e.signal == 101) then
+    if (e.signal == 1) then
+        e.self:Say("The cap'n said PIRATES! Not parrots ye knucklehead!");
+        eq.signal(110053,2,500);
+    elseif (e.signal == 2) then
+        e.self:Emote("He whacks the other raider upside the head");
+        e.self:Say("now whars the tinkered rope!?");
+    elseif (e.signal == 101) then
         e.self:Say("Arrrrrrrrrrr!");
     end
 end
