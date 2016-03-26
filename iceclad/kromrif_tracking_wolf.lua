@@ -7,7 +7,7 @@ function event_signal(e)
         e.self:Say("going to random");
         if (math.random(100) < 26) then
             e.self:Say("adding item");
-            e.self:AddItem(8905);
+            e.self:AddItem(8905, 1);
             e.self:Say("added item");
         end
     end
