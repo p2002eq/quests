@@ -48,15 +48,15 @@ sub EVENT_SIGNAL {
    #quest::shout("Signal recv: $signal");
    if ($signal == 1) {
       quest::say("Hrm? Who is scuffin' around out here?");
-      quest::signalwith(110227, 2, 2000);
+      quest::signalwith(110227, 2, 4000);
    }
    elsif ($signal == 3) {
       quest::say("Arrrrrr what is it ye want?");
-      quest::signalwith(110227, 3, 2000);
+      quest::signalwith(110227, 3, 4000);
    }
    elsif ($signal == 4) {
       quest::say("Velium eh? Well there matey lets hear what you have got to say!");
-      quest::signalwith(110227, 4, 2000);
+      quest::signalwith(110227, 4, 4000);
    }
    elsif ($signal == 10) {
       quest::emote("scratches his head, 'Yar ya do that ya crazy Coldain.'");
