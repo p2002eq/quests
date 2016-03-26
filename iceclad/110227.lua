@@ -55,10 +55,18 @@ function event_waypoint_arrive(e)
         eq.spawn2(110225, 0, 0, 2650, 3690, 244, 163);
         eq.spawn2(110225, 0, 0, 2647, 3697, 244, 163);
     elseif (e.wp == 10) then
-        e.self:Say("Lo there gnomes! Tell me is your camp located nearby?");
-        eq.signal(110053, 101);   -- msignal to have gnomes dialogue
-        eq.signal(110052, 101);
-    elseif (e.wp == 13) then
+        
+        local ratop = eq.get_entity_list():GetMobByNpcTypeID(110052);     
+        local ritap = eq.get_entity_list():GetMobByNpcTypeID(110053);     
+        if (ratop and ritap) then
+            e.self:Say("Lo there gnomes! Tell me is your camp located nearby?");
+        else
+            eq.spawn2(110052, 0, 0, 2209, 4716, -32.78, 92.8)
+            eq.spawn2(110053, 0, 0, 2218, 4717, -32.78, 92.8);
+        end
+        eq.signal(110052, 101, 500);   --   gnomes response
+        eq.signal(110053, 101, 500);
+    elseif (e.wp == 12) then
         local npc = eq.get_entity_list():GetMobByNpcTypeID(110069);     -- Captain Nalot
         if (npc) then
             eq.signal(110069,1, 1000);
