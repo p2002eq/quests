@@ -47,8 +47,8 @@ my $shawlsignal = 0;
 sub EVENT_SIGNAL {
    #quest::shout("Signal recv: $signal");
    if ($signal == 1) {
-      quest::moveto(1309.1, 4591.8, 71.9, 62.5);
-      $shawlsignal = 1;
+      quest::say("Hrm? Who is scuffin' around out here?");
+      quest::signalwith(110227, 2, 1000);
    }
    elsif ($signal == 3) {
       quest::say("Arrrrrr what is it ye want?");
@@ -64,21 +64,6 @@ sub EVENT_SIGNAL {
    }
 }
 
-sub EVENT_WAYPOINT_ARRIVE {
-   if ($shawlsignal == 1) {
-      $shawlsignal = 0;
-      quest::say("Hrm? Who is scuffin' around out here?");
-      quest::settimer("sigone",5);
-      #quest::signalwith(110118, 2, 5);
-   }
-}
-
-sub EVENT_TIMER {
-   if ($timer eq "sigone") {
-      quest::stoptimer("sigone");
-      quest::signalwith(110227, 2);
-   }
-}
 
 #END of FILE Zone: iceclad ID:110069 -- Captain_Nalot
 
