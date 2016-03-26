@@ -43,6 +43,7 @@ function event_waypoint_arrive(e)
     elseif (e.wp == 6 and sixthWp == false) then     -- encounter5, spawn on top of general
         sixthWp = true;
         eq.spawn2(110109, 0, 0, 2653, 3703, 244, 227);  --Commander Vjorik
+        eq.signal(110109, 2, 600);  -- set visible.
         eq.spawn2(110225, 0, 0, 2660, 3700, 244, 25);   --Frost Giant Skirmishers
         eq.spawn2(110225, 0, 0, 2640, 3700, 244, 109);
         eq.spawn2(110225, 0, 0, 2650, 3710, 244, 163);
