@@ -6,6 +6,7 @@ function event_signal(e)
             eq.signal(110218,1,1000);
         else
             eq.spawn2(110218, 0, 0, 1318, 4557, 72, 6);
+            eq.signal(110218,1,1000);
         end
     end
 end
