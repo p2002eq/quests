@@ -22,7 +22,6 @@ function event_waypoint_arrive(e)
         eq.spawn2(110230, 0, 0, 7504, -3466, 163, 116);
         eq.signal(110230, 1, 600);  -- send signal to attack
     elseif (e.wp == 3) then     -- encounter2
-        eq.spawn2(110225, 0, 0, 7250, -2205, 139, 227); -- test mob
         eq.spawn2(110225, 0, 0, 7286, -2440, 139, 227); --Frost Giant Skirmishers
         eq.spawn2(110225, 0, 0, 7138, -2436, 143, 25);
         eq.spawn2(110225, 0, 0, 7148, -2201, 145, 109);
