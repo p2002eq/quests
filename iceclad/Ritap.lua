@@ -1,7 +1,13 @@
 function event_say(e)
     if(e.message:findi("hail")) then
         e.self:Say("Avast you! Ya best be shoving off if ye knows whats good for you. We be pirate raiders and ya not be messing with the likes of us!");
-        eq.signal(110052,1);
+        local npc = eq.get_entity_list():GetMobByNpcTypeID(110052);
+        if (npc) then
+            eq.signal(110052,1);
+        else
+            eq.spawn2(110052, 0, 0, 2209, 4716, -33, 109);
+            eq.signal(110052,1);
+        end
         e.self:Say("The cap'n said PIRATES! Not parrots ye knucklehead!");
         e.self:Emote("He whacks the other raider upside the head");
         e.self:Say("now whars the tinkered rope!?");
@@ -12,15 +18,7 @@ function event_say(e)
 end
 
 function event_signal(e)
-    if (e.signal == 1) then
-        e.self:Say("Squawk! Pieces of eight! Pieces of eight!");
-        local npc = eq.get_entity_list():GetMobByNpcTypeID(110052);
-        if (npc) then
-        else
-            eq.spawn2(110052, 0, 0, 2209, 4716, -33, 109);
-        end
-        eq.signal(110052,1);
-    elseif (e.signal == 101) then
+    if (e.signal == 101) then
         e.self:Say("Arrrrrrrrrrr!");
     end
 end
