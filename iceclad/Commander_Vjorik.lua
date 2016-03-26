@@ -1,5 +1,10 @@
 -- Ambush 1 shout for shawl 8
 
 function event_signal(e)
-    e.self:Shout("The tracking wolves have found the Coldain! To the South West, Charge him!");
+    if (e.signal == 1) then
+        e.self:Shout("The tracking wolves have found the Coldain! To the South West, Charge him!");
+    elseif (e.signal == 2) then
+        e.self:Shout("turn off invis");
+        e.self:SetInvisible(1);
+    end
 end
