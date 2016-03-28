@@ -12,7 +12,7 @@ function event_signal(e)
 	        if(getnewloc == 1) then
 		        newx = -3134;
 		        newy = -2100;
-		        newz = -465;
+		        newz = -374;
 	        elseif(getnewloc == 2) then
 		        newx = -2100;
 		        newy = -2500;
