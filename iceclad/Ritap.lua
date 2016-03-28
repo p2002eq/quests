@@ -16,7 +16,7 @@ end
 function event_signal(e)
     if (e.signal == 1) then
         e.self:Say("The cap'n said PIRATES! Not parrots ye knucklehead!");
-        e.self:Emote("He whacks the other raider upside the head");
+        e.self:Emote("whacks the other raider upside the head");
         e.self:Say("now whars the tinkered rope!?");
         eq.signal(110052,2,4000);
     elseif (e.signal == 101) then
