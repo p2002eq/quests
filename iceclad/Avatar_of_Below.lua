@@ -17,7 +17,7 @@ function event_trade(e)
 	   e.self:Say("turned in");
 	    eq.signal(110227, 5, 4000);
 	    e.self:Say("signal sent");
-	    eq.eq.stop_timer("avatarshawl");
+	    eq.stop_timer("avatarshawl");
 	    e.self:Say("timer stopped");
 	    eq.depop();
 	    e.self:Say("should have depopped");
@@ -27,7 +27,7 @@ end
 
 function event_timer(e)
     if (e.timer == "avatarshawl") then
-        eq.eq.stop_timer("avatarshawl");
+        eq.stop_timer("avatarshawl");
         eq.depop();
     end
 end
