@@ -16,7 +16,7 @@ function event_signal(e)
 	        elseif(getnewloc == 2) then
 		        newx = 3416;
 		        newy = 2013;
-		        newz = 172;
+		        newz = 195;
 	        end
 	        
 	   local getnewmobid = eq.ChooseRandom(92213, 92214, 92215, 92216, 92217, 92218, 92219, 92220);
