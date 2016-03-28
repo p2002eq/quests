@@ -14,9 +14,13 @@ function event_trade(e)
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 8895})) then
 	    e.self:Emote("holds the shawl up close to one eye to look at the rune sewn into it. He smiles to himself and then drops it to the ground and places one hand on it. A bright blue glow starts to emanate in the snow, then there is a sudden flash! The Avatar has dissipated. All that is left behind is the Shawl lying in the snow, shimmering with a new power. " ..e.other:GetName().. " slowly bends down to pick it up, and is infused with a blessing from Brell.");
 	    e.other:QuestReward(e.self,0,0,0,0,1200,10000);     -- Blessed Coldain Prayer Shawl
+	   e.self:Say("turned in");
 	    eq.signal(110227, 5, 4000);
+	    e.self:Say("signal sent");
 	    eq.eq.stop_timer("avatarshawl");
+	    e.self:Say("timer stopped");
 	    eq.depop();
+	    e.self:Say("should have depopped");
 	end
 	item_lib.return_items(e.self, e.other, e.trade);
 end
