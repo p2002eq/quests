@@ -1,6 +1,8 @@
 -- --18959 : ella foodcrafter : two tasks; shiny tin bowl and a clue
 -- hardened mixture and runecrested bowl : softly glowing stone
 
+
+
 function event_waypoint_arrive(e)
 	if((e.wp == 13) or (e.wp == 19)) then
 		local randtext = eq.ChooseRandom(0,1,2);
@@ -15,14 +17,14 @@ function event_waypoint_arrive(e)
 end
 
 function event_say(e)
-
+    local qglobals = eq.get_qglobals(e.self, e.other);
+    
 	if(e.message:findi("hail")) then
 		e.self:Say("Hi, hi. I've got a lot to do, many mouths to feed, some filthy goblins to smack. If you don't need me for something, please let me go back to my work. Karana watch over you.");
 	elseif(e.message:findi("two tasks")) and (qglobals["Druidepic"] == "1") then
 		e.self:Say("Well, ya ask before ya act. That's a good sign. What I need isn't easy to find. First, I need a mixture. Plain sounding enough but it's a special one. Cleanses the mind and focuses the earth's energies into a forest walker's mind. I don't know how to make it. I don't even know what it's called. I merely know it exists and we'll be needing it for our task. When ya do find how to make it ya can mix it in that bowl. Keep it when you're done, it's a good bowl.");
 		e.other:SummonItem(17860);
 		eq.delete_global("Druidepic");
-		
 	elseif(e.message:findi("second task")) then
 		e.self:Say("Good, ya didn't run off without finding out what else ya need to do. Second, I need a special type of bowl. An ancient type of bowl, which strengthened the food placed inside it, once made by the elves of old. Again, I cannot tell ya how it is made for the making was lost to the ages. Seek this knowledge and these items out in the lands. Come to me when ya have found both.");
 	end
