@@ -1,7 +1,7 @@
 --beastlord
 	
 local quest_helper = require('velious_quest_helper');
-local SKYSHRINE_ARMOR = quest_helper.SKYSHRINE_ARMOR;
+local THURG_ARMOR = quest_helper.THURG_ARMOR;
 
 local QUEST_ITEMS = {
   quest_helper:melee_helmet(THURG_ARMOR.Leather_Cap, 5453), --helm
