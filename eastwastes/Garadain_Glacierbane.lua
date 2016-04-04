@@ -60,6 +60,13 @@ function event_say(e)
 
 end
 	
+function event_waypoint_arrive(e)
+    if (e.wp == 2) then 	
+	    e.self:Say("fall in bitches");
+        eq.signal(116549,1);        -- signal paladins
+	end
+end
+	
 function event_trade(e)
 	local item_lib = require("items");
 	
@@ -150,6 +157,7 @@ end
 function event_signal(e)
     if (e.signal == 1) then
         battleStarted = true;
+        e.self:AssignWaypoints(277);
     end
 end
 
