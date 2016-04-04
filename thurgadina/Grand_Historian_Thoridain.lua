@@ -9,7 +9,7 @@ end
 
 function event_say(e)
     e.self:Say("talking");
-    if (e.message:findi("Oh Brell, Thank you for protecting me and seeing me through my trials. Forgive me for the things I think and say and do that displease you. Please reveal to me your will and bless me with the patience and obedience to do that which you desire. Amen.")) then
+    if (e.message:findi("Forgive me for the things I think and say and do that displease you")) then            -- full is too hard to get exact for players, so look for just one sentence
         e.self:Say("prayer said");
         prayer = prayer + 1;
         if (prayer == 1) then
