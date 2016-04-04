@@ -1,7 +1,7 @@
 local paladin = nil;
 
 function event_signal
-    if (signal == 1) then
+    if (e.signal == 1) then
         paladin = paladin + 1;
         if(paladin == 1) then
             e.self:AssignWaypoints(278);
