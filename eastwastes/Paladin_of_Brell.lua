@@ -3,7 +3,7 @@ local paladin = nil;
 function event_signal(e)
     e.self:Say("signal sent");
     if (e.signal == 1) then
-        e.self:Say("inside signal"
+        e.self:Say("inside signal");
         paladin = paladin + 1;
         if(paladin == 1) then
             e.self:Say("signal 1");
