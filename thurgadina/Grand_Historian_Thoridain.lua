@@ -7,7 +7,9 @@ function event_spawn(e)
 end
 
 function event_say(e)
---omiting this part don't know quest text
+    if (e.message:findi("Oh Brell, Thank you for protecting me and seeing me through my trials. Forgive me for the things I think and say and do that displease you. Please reveal to me your will and bless me with the patience and obedience to do that which you desire. Amen.") then
+        eq.create_ground_object(1855, 789,-319,-18, 0);
+    end
 end
 
 function event_timer(e)
