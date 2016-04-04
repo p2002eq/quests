@@ -19,12 +19,12 @@ end
 function event_waypoint_arrive(e)
     if (e.wp == 2 and encount1 == false) then     -- encounter1
         encount1 = true;
-        eq.signal(110109, 1);   -- Commander Vjorik Shout
         eq.spawn2(110230, 0, 0, 7521, -3461, 163, 116); --Kromrif Tracking Wolves
         eq.spawn2(110230, 0, 0, 7515, -3462, 163, 116);
         eq.spawn2(110230, 0, 0, 7510, -3464, 163, 116);
         eq.spawn2(110230, 0, 0, 7504, -3466, 163, 116);
         eq.signal(110230, 1, 600);  -- send signal to attack
+        eq.signal(110109, 1);   -- Commander Vjorik Shout
     elseif (e.wp == 3 and encount2 == false) then     -- encounter2
         encount2 = true;
         eq.spawn2(110225, 0, 0, 7244, -2235, 146, 119); --Frost Giant Skirmishers
