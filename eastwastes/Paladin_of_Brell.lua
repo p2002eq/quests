@@ -1,6 +1,6 @@
 local paladin = nil;
 
-function event_signal
+function event_signal(e)
     if (e.signal == 1) then
         paladin = paladin + 1;
         if(paladin == 1) then
