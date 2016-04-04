@@ -1,6 +1,7 @@
 -- on eqemu prayer of brell is said to grand historian instead of in the area
 -- I will change this on P2002 to where if the player is on that part of the quest
 -- to be as accurate as possible to live
+local prayer = 0;
 
 function event_spawn(e)
 	eq.set_timer("lecture1", 110000);	
@@ -8,7 +9,16 @@ end
 
 function event_say(e)
     if (e.message:findi("Oh Brell, Thank you for protecting me and seeing me through my trials. Forgive me for the things I think and say and do that displease you. Please reveal to me your will and bless me with the patience and obedience to do that which you desire. Amen.") then
-        eq.create_ground_object(1855, 789,-319,-18, 0);
+        prayer = prayer + 1;
+        if (prayer == 1) then
+            eq.signal(115230,33,0); 
+        elseif(prayer == 2) then
+            eq.signal(115230,66,0);
+        elseif(prayer == 3) then
+            eq.signal(115230,99,0);
+            eq.create_ground_object(1855, 789,-319,-18, 0);
+            prayer = 0;
+        end
     end
 end
 
