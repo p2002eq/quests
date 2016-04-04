@@ -1,4 +1,4 @@
-local paladin = nil;
+local paladin = 0;
 
 function event_signal(e)
     e.self:Say("signal sent");
