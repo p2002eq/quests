@@ -1,9 +1,15 @@
+local encount1 = false;          -- have to keep track incase he hits same waypoint again
+local encount2 = false;
+local encount3 = false;
+local encount4 = false;
+local encount5 = false;
+
 function event_spawn(e)
-    local encount1 = false;          -- have to keep track incase he hits same waypoint again
-    local encount2 = false;
-    local encount3 = false;
-    local encount4 = false;
-    local encount5 = false;
+    encount1 = false;         
+    encount2 = false;
+    encount3 = false;
+    encount4 = false;
+    encount5 = false;
 end
 
 function event_trade(e)
