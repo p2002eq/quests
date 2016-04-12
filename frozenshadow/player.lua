@@ -8,7 +8,6 @@ function event_click_door(e)
 
 	entity_list = eq.get_entity_list(); --get current entity list of zone
 	local door_id = e.door:GetDoorID(); 
-	e.self:Say(tostring(door_id));
 	client_e = e;
     group = e.self:GetGroup();
     
@@ -36,6 +35,10 @@ function event_click_door(e)
 		if (e.self:HasItem(20039)) then --Tserinas Key
 			PortChars(e.self:GetX(), e.self:GetY(), e.self:GetZ(), 75, 20, 250, 255, 0);
 		end
+	elseif (door_id == 157) then --Tserrina Door
+		if (e.self:HasItem(20038)) then --Tserinas Key
+			PortChars(e.self:GetX(), e.self:GetY(), e.self:GetZ(), 75, 10, 65, 310, 0);
+		end	
 	end
 
 end
