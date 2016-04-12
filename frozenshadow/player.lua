@@ -8,6 +8,7 @@ function event_click_door(e)
 
 	entity_list = eq.get_entity_list(); --get current entity list of zone
 	local door_id = e.door:GetDoorID(); 
+	e.self:Say(tostring(door_id));
 	client_e = e;
     group = e.self:GetGroup();
     
