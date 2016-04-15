@@ -47,7 +47,7 @@ function event_trade(e)
 		e.other:Faction(188, -30); --kromrif
 		e.other:Faction(189, -30); --kromzek
 	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 1560, item2 = 1177 })) then	
-		e.self:Say("Words cannot express our gratitude for your deeds outlander, you have saved a hero of our people from certain death. Please accept this, the Fur-lined shawl, as a token of our sincere appreciation. You are indeed among the most highly regarded ${race}s to set foot in Thurgadin. The next time we meet be sure to ask me how to further advance your reputation with the coldain.");
+		e.self:Say("Words cannot express our gratitude for your deeds outlander, you have saved a hero of our people from certain death. Please accept this, the Fur-lined shawl, as a token of our sincere appreciation. You are indeed among the most highly regarded " .. e.other:Race() .. " to set foot in Thurgadin. The next time we meet be sure to ask me how to further advance your reputation with the coldain.");
 		e.other:SummonItem(1178);
 		e.other:AddEXP(300000);
 		e.other:Faction(49, 10); --coldain
