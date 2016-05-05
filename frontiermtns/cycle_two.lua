@@ -5,11 +5,11 @@ function event_spawn(e)
 	                if(getnewloc == 1) then
 		                newx = 3150;
 		                newy = -2112;
-		                newz = -408;
+		                newz = 308;
 	                elseif(getnewloc == 2) then
 		                newx = 2371;
 		                newy = -3013;
-		                newz = -513;
+		                newz = 313;
 	                end
 	        
 	            local getnewmobid = eq.ChooseRandom(92176, 92222, 92223, 92224, 92225, 92250);
@@ -19,11 +19,11 @@ function event_spawn(e)
 	                if(getnewloc == 1) then
 		                newx = -2914;
 		                newy = -2971;
-		                newz = -478;
+		                newz = 378;
 	                elseif(getnewloc == 2) then
 		                newx = -3388;
 		                newy = -1875;
-		                newz = -321;
+		                newz = 321;
 	                end
 	        
 	            local getnewmobid = eq.ChooseRandom(92233, 92234, 92235, 92236, 92237, 92238, 92239, 92240, 92241, 92242, 92243);
