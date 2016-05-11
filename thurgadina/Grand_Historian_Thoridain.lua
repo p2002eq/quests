@@ -8,18 +8,13 @@ function event_spawn(e)
 end
 
 function event_say(e)
-    e.self:Say("talking");
     if (e.message:findi("Forgive me for the things I think and say and do that displease you")) then            -- full is too hard to get exact for players, so look for just one sentence
-        e.self:Say("prayer said");
         prayer = prayer + 1;
         if (prayer == 1) then
-            e.self:Say("prayer 1");
             eq.signal(115230,33,0); 
         elseif(prayer == 2) then
-        e.self:Say("prayer 2");
             eq.signal(115230,66,0);
         elseif(prayer == 3) then
-        e.self:Say("prayer 3");
             eq.signal(115230,99,0);
             eq.create_ground_object(1855, 789,-319,-18, 0);
             prayer = 0;
