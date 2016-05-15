@@ -86,7 +86,4 @@ function event_say(e)
         end
         return;
     end
-    if (e.message:findi("haste")) then
-        e.self:Say(tostring(GetHaste()));
-    end
 end
