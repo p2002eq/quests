@@ -1,6 +1,6 @@
 
 function event_spawn(e)
-    eq.set_timer("DEPOP",180000);   -- 30 minutes before despawn
+    eq.set_timer("DEPOP",1800000);   -- 30 minutes before despawn
 	e.self:SetAppearance(3);
 	eq.set_timer("moveloc", 300000); --5 minutes	
 end
