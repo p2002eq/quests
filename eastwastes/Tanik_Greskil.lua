@@ -21,7 +21,7 @@ function event_trade(e)
 	local item_lib = require('items');
 
 	if (item_lib.check_turn_in(e.self, e.trade, {item1 = 1553})) then
-		e.self:Say("Thank you, $name. I shall be eternally grateful to you. Should you ever require my assistance I pledge to you my aid. Please deliver this to Borannin, it is imperative that he deliver this to the Dain at once. Farewell for now outlander....");
+		e.self:Say("Thank you, " .. e.other:GetName() .. ". I shall be eternally grateful to you. Should you ever require my assistance I pledge to you my aid. Please deliver this to Borannin, it is imperative that he deliver this to the Dain at once. Farewell for now outlander....");
 		e.other:SummonItem(1560);
 		eq.depop();
 	end
