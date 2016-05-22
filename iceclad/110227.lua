@@ -51,7 +51,7 @@ function event_waypoint_arrive(e)
         eq.spawn2(110230, 0, 0, 2185, 1610, 54, 112);
         eq.spawn2(110230, 0, 0, 2197, 1616, 54, 112);
         eq.spawn2(110230, 0, 0, 2201, 1618, 54, 112);
-        eq.signal(110230, 2, 600);  -- send signal to attack
+        eq.signal(110230, 3, 600);  -- send signal to attack plus add loot for Drakkel Wolf Claws
     elseif (e.wp == 6 and encount5 == false) then     -- encounter5, spawn on top of general
         encount5 = true;
         eq.spawn2(110109, 0, 0, 2653, 3703, 244, 227);  --Commander Vjorik
