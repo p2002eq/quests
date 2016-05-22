@@ -7,6 +7,11 @@ function event_signal(e)
         if (math.random(100) < 26) then
             e.self:AddItem(8905, 1);
         end
+    elseif (e.signal == 3) then
+        eq.attack_npc_type(110227);
+        if (math.random(100) < 26) then
+            e.self:AddItem(8906, 1);        -- Drakkel Wolf Claws
+        end
     end
 end
 
