@@ -227,7 +227,7 @@ end
 
 function helper.thurg_armor_faction(e)
     local COLDIAN = 49;
-    local DAIN = 47;
+    local DAIN = 67;
     local KROMRIF = 188;
     local KROMZEK = 189;
     e.other:Faction(COLDIAN, 20);
