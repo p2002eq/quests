@@ -62,7 +62,7 @@ end
 	
 function event_waypoint_arrive(e)
     if (e.wp == 2) then 	
-	    e.self:Say("fall in bitches");
+	    e.self:Say("TROOPS! FALL IN!");
         eq.signal(116549,1);        -- signal paladins
 	end
 end
