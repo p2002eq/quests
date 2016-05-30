@@ -12,6 +12,9 @@ function event_trade(e)
 		e.other:Faction(188, -30); -- -Kromrif
 		e.other:Faction(189, -30); -- -Kromzek
 		e.other:AddEXP(10000);
+		if (eq.get_entity_list():GetMobByNpcTypeID(116084) == false) then
+			eq.spawn2(116084,0,0,-390,-2713,179.48,19.4);
+		end
 	    eq.set_timer("spawn1", 5);
 --	    eq.spawn2(116607,0,0,e.self:GetX(),e.self:GetY(),e.self:GetZ(),e.self:GetHeading());
     end
@@ -23,7 +26,6 @@ function event_timer(e)
         eq.stop_timer("spawn1");
         eq.depop_all(116165);
     --   Garadain Glacierbane  
-    --    eq.spawn2(116084,236,0,-389.6,-2713.6,181,19);
         eq.signal(116084, 1)                                -- let garadain know battle started.
     --   royal wolven guard  
         eq.spawn2(116563,0, 0,790.9,-2497.6,168.6,168); -- 1
