@@ -8,7 +8,7 @@ end
 function event_signal(e)
     if (e.signal == 1) then
 		wolves = wolves + 1;
-		e.self:AssignWaypoints(277+wolves);
+		e.self:AssignWaypoints(301+wolves);
     end
 end
 
