@@ -7,6 +7,13 @@ function event_enter_zone(e)
     -- set global for phase 1 player lockout to 12 hours on zone in.
     eq.set_global("potimeb_lockout",tostring(instance_requests.GetLockoutEndTimeForHours(12)),5,"H12");
   end
+  	local discs = require('disciplines');
+	discs:update_discs(e, e.self:GetLevel());
+end
+
+function event_level_up(e)
+	local discs = require('disciplines');
+	discs:train_discs(e, e.self:GetLevel());
 end
 
 function event_click_door(e)

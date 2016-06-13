@@ -4,6 +4,13 @@ function event_enter_zone(e)
 	else
 		eq.signal(1138,2);
 	end
+	local discs = require('disciplines');
+	discs:update_discs(e, e.self:GetLevel());
+end
+
+function event_level_up(e)
+	local discs = require('disciplines');
+	discs:train_discs(e, e.self:GetLevel());
 end
 
 function event_board_boat(e)

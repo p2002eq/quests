@@ -69,5 +69,14 @@ function PortChars(cur_x, cur_y, cur_z, distance, dest_x, dest_y, dest_z, dest_h
 	else --not grouped
 		client_e.self:CastToClient():MovePC(111, dest_x, dest_y, dest_z, dest_h);
 	end
+end
 
+function event_level_up(e)
+	local discs = require('disciplines');
+	discs:train_discs(e, e.self:GetLevel());
+end
+
+function event_enter_zone(e)
+	local discs = require('disciplines');
+	discs:update_discs(e, e.self:GetLevel());
 end

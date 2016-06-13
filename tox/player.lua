@@ -27,4 +27,11 @@ function event_enter_zone(e)
 		eq.unique_spawn(38150,6,0,497,-2052,-44,0);
 		eq.delete_global("ilanic");
 	end
+		local discs = require('disciplines');
+	discs:update_discs(e, e.self:GetLevel());
+end
+
+function event_level_up(e)
+	local discs = require('disciplines');
+	discs:train_discs(e, e.self:GetLevel());
 end

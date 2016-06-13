@@ -127,3 +127,13 @@ function PortIntoTower(cur_x, cur_y, cur_z, distance, dest_x, dest_y, dest_z, de
 		client_e.self:MovePC(209, dest_x, dest_y, dest_z, dest_h);
 	end
 end
+
+function event_level_up(e)
+	local discs = require('disciplines');
+	discs:train_discs(e, e.self:GetLevel());
+end
+
+function event_enter_zone(e)
+	local discs = require('disciplines');
+	discs:update_discs(e, e.self:GetLevel());
+end
