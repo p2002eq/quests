@@ -5,6 +5,13 @@ function event_enter_zone(e)
 		eq.world_emote(15, "The earth rumbles, sky thunders, volcanoes erupt, and tidal waves crash as the Gods prepare their armies for battle. The first of the mortals have obtained the power to cross into the Plane of Time!");
 		eq.set_global("time_emote","TimeEntered",7,"F");
 	end
+	local discs = require('disciplines');
+	discs:update_discs(e, e.self:GetLevel());
+end
+
+function event_level_up(e)
+	local discs = require('disciplines');
+	discs:train_discs(e, e.self:GetLevel());
 end
 
 function event_click_door(e)

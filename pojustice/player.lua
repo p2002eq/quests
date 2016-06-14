@@ -31,3 +31,12 @@ function MoveGroup(trial_group, src_x, src_y, src_z, distance, tgt_x, tgt_y, tgt
    end
 end
 
+function event_level_up(e)
+	local discs = require('disciplines');
+	discs:train_discs(e, e.self:GetLevel());
+end
+
+function event_enter_zone(e)
+	local discs = require('disciplines');
+	discs:update_discs(e, e.self:GetLevel());
+end

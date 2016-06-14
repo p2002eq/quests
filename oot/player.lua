@@ -1,4 +1,7 @@
 function event_enter_zone(e)
+	local discs = require('disciplines');
+	discs:update_discs(e, e.self:GetLevel());
+	
 	local qglobals = eq.get_qglobals();
 	
 	if(e.self:GetBoatID() == 770 or e.self:GetBoatID() == 771) then
@@ -11,6 +14,11 @@ function event_enter_zone(e)
 		eq.create_ground_object(13860, -9205, -433, -293, 0, 3000000);
 		eq.delete_global("strongbox");
 	end
+end
+
+function event_level_up(e)
+	local discs = require('disciplines');
+	discs:train_discs(e, e.self:GetLevel());
 end
 
 function event_board_boat(e)

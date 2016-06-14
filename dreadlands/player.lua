@@ -7,6 +7,8 @@ function event_enter_zone(e)
 		--Spawn Time Terror for Froggy-Went-A-Portin' quest
 		eq.spawn2(86172, 0, 0, 9699.00, 1107.00, 2332.00, 0);
 	end
+	local discs = require('disciplines');
+	discs:update_discs(e, e.self:GetLevel());
 end
 
 function event_timer(e)
@@ -19,4 +21,9 @@ function event_timer(e)
 	elseif ((e.timer == "spires") and (qglobals.nexus_dre == "1") and (qglobals.spire_dre == "1") and (not e.self:HasItem(19720))) then
 		e.self:Message(13, "You don't have the correct component to travel to Luclin.");
 	end
+end
+
+function event_level_up(e)
+	local discs = require('disciplines');
+	discs:train_discs(e, e.self:GetLevel());
 end

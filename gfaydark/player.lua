@@ -1,5 +1,7 @@
 function event_enter_zone(e)
 	eq.set_timer("spires",10000);
+	local discs = require('disciplines');
+	discs:update_discs(e, e.self:GetLevel());
 end
 
 function event_timer(e)
@@ -22,4 +24,9 @@ function event_timer(e)
 		spire_gf = nil;
 		message_gf = nil;
 	end
+end
+
+function event_level_up(e)
+	local discs = require('disciplines');
+	discs:train_discs(e, e.self:GetLevel());
 end
