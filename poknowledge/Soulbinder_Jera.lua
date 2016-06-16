@@ -11,12 +11,14 @@ function event_say(e)
 	elseif(e.message:findi("plat")) then
         e.other:AddMoneyToPP(0, 0, 0, 2500, true);
     elseif(e.message:findi('buff')) then
-		e.self:SpellFinished(3467,e.other);
-		e.self:SpellFinished(3235,e.other);
+		e.self:SpellFinished(3025,e.other);
+		e.self:SpellFinished(2696,e.other);
+		e.self:SpellFinished(2680,e.other);
+		e.self:SpellFinished(2696,e.other);
+		e.self:SpellFinished(3023,e.other);
 		e.self:SpellFinished(3022,e.other);
-		e.self:SpellFinished(3240,e.other);
+		e.self:SpellFinished(3024,e.other);
 		e.self:SpellFinished(2517,e.other);
-		e.self:SpellFinished(2695,e.other);
 	--elseif(e.message:findi("illusion")) Halloween Event	
 	--	e.other:SetRace(eq.ChooseRandom(58,216,123,230,85,108,151,154,161,131,181,243,252));
 	end
