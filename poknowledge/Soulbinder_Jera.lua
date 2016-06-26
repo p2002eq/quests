@@ -22,7 +22,7 @@ function event_say(e)
 		e.self:SpellFinished(2517,e.other);
 	--elseif(e.message:findi("illusion")) Halloween Event	
 	--	e.other:SetRace(eq.ChooseRandom(58,216,123,230,85,108,151,154,161,131,181,243,252));
-	elseif(e.message:findi('buff')) then
+	elseif(e.message:findi('corpses')) then
 	    eq.summon_all_player_corpses(e.other:CharacterID(), e.other:GetX(), e.other:GetY(), e.other:GetZ(), e.other:GetHeading());
 	end
 end
