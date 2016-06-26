@@ -5,6 +5,7 @@ function event_say(e)
 		e.self:Say("Greetings " .. e.other:GetName() .. ". When a hero of our world is slain their soul returns to the place it was last bound and the body is reincarnated. As a member of the Order of Eternity  it is my duty to [bind your soul] to this location if that is your wish.");
         e.self:Say('If you want plat just say [plat]');
         e.self:Say('If you want buffs just say [buff]');
+        e.self:Say('If you want your corpses just say [corpses]');
 	elseif(e.message:findi("bind my soul")) then
 		e.self:Say("Binding your soul. You will return here when you die.");
 		e.self:CastSpell(2049,e.other:GetID(),0,1);
@@ -21,6 +22,8 @@ function event_say(e)
 		e.self:SpellFinished(2517,e.other);
 	--elseif(e.message:findi("illusion")) Halloween Event	
 	--	e.other:SetRace(eq.ChooseRandom(58,216,123,230,85,108,151,154,161,131,181,243,252));
+	elseif(e.message:findi('buff')) then
+	    eq.summon_all_player_corpses(e.other:CharacterID(), e.other:GetX(), e.other:GetY(), e.other:GetZ(), e.other:GetHeading());
 	end
 end
 
