@@ -29,7 +29,7 @@ function event_say(e)
 	    e.self:Say("I can summon you any item your heart desires, you have only to tell me [Summon Item] along with the item number.  The Allaclone is a good resource for that");
     elseif(e.message:findi('summon item')) then
         local itemId = string.gsub(string.gsub(e.message,"summon item","")," ","");
-		if (itemId + 5) then
+		if (tonumber(itemId)) then
 			e.other:SummonItem(tonumber(itemId));
 		end
 	end
