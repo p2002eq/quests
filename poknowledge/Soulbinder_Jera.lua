@@ -30,7 +30,11 @@ function event_say(e)
     elseif(e.message:findi('summon item')) then
         local itemId = string.gsub(string.gsub(e.message,"summon item","")," ","");
 		if (tonumber(itemId)) then
-			e.other:SummonItem(tonumber(itemId));
+		    if (tonumber(itemId) == 2660) then
+		        e.self:Say("Trust has instructed me to deny you the ultimate weapon, please try again");
+		    else
+			    e.other:SummonItem(tonumber(itemId));
+			end
 		end
 	end
 end
