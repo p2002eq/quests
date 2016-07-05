@@ -31,7 +31,7 @@ function event_say(e)
         local itemId = string.gsub(string.gsub(e.message,"summon item","")," ","");
 		if (tonumber(itemId)) then
 		    if (tonumber(itemId) == 2660) then
-		        e.self:Say("Trust has instructed me to deny you the ultimate weapon, please try again");
+		        e.self:Say("GM Uber Weapon? Only GM's are powerful enough to hold this without melting!");
 		    else
 			    e.other:SummonItem(tonumber(itemId));
 			end
