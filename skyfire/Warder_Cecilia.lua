@@ -16,4 +16,6 @@ function event_trade(e)
 	item_lib.return_items(e.self, e.other, e.trade)
 end
 
---- Written by Fiddlemetimbers
+function event_death(e)			-- have to respawn her with lua so send signal to another npc to keep timer going.
+	eq.signal(91194,1);
+end

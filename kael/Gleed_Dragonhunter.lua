@@ -13,8 +13,8 @@ function event_say(e)
 			e.self:Emote("unslings an intricately carved bow from his back and shows it to you. 'I crafted this bow myself. It was to be a great slayer of wurms and dragons and it was, for a time. Now it goes to waste in the city, far from the beasts I long to slay. Far from the hunt and the excitement.'");
 		elseif (e.message:findi("waste")) then	
 			e.self:Say("It is such a shame, this bow deserves to be used. If only there were someone who would use it to hunt the beasts - someone to slay them and skin them like they should be.");
-		elseif (e.message:findi("hung the beasts")) then	
-			e.self:Say("You will, little one? One such as yourself is a hunter? I did not know your kind had any skill in such things. In fact, I do not believe your kind could hunt a wurm, not without my wonderful bow. I will not simply hand it to a foolish "..eq.Race()..". Hunt down some big game before you bother talking to me again. Perhaps if you bring me the tail of the elusive Vluudeen.");
+		elseif (e.message:findi("hunt the beasts")) then	
+			e.self:Say("You will, little one? One such as yourself is a hunter? I did not know your kind had any skill in such things. In fact, I do not believe your kind could hunt a wurm, not without my wonderful bow. I will not simply hand it to a foolish "..e.other:Race().. ". Hunt down some big game before you bother talking to me again. Perhaps if you bring me the tail of the elusive Vluudeen.");
 		end
  
 	else
@@ -33,6 +33,7 @@ function event_trade(e)
 		e.other:Faction(189, 10); --kromzek
 		e.other:Faction(42, -30); --CoV
 		e.other:Faction(49, -30); --coldain
+		e.other:SummonItem(25033);
 	end
 	item_lib.return_items(e.self, e.other, e.trade);
 
