@@ -14,7 +14,7 @@ function call_zone_to_assist(e_other)
 	-- aggro the zone onto whoever attacked me.
 	-- do not aggro these mobs #_Tunare (127001), #Tunare (127098), a_warm_light (127004), Guardian_of_Takish (127035)
 	-- #BouncerMan (127097), Flighty_Viridian_Wisp (127105)
-	local exclude_npc_list = Set {127001,127004,127097,127098,127105,127035};
+	local exclude_npc_list = Set {127001,127004,127097,127098,127105,127035,127047,127015,127042};
 	local npc_list = entity_list:GetNPCList();
 	if (npc_list ~= nil) then
 		for npc in npc_list.entries do
