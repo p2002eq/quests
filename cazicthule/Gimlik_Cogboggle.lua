@@ -38,6 +38,7 @@ function event_timer(e)
 		encount3 = false;
 		encount4 = false;
 	elseif (e.timer == "gate") then
+	    eq.stop_timer("gate");
 		e.self:Say("Fhew, we made it! Off I go!");
 		e.self:CastSpell(36 ,48040);
 		e.self:AssignWaypoints(113);
