@@ -4,7 +4,6 @@ local encount3 = false;
 local encount4 = false;
 
 function event_waypoint_arrive(e)
-	e.self:Shout(tostring(e.wp));
     if (e.wp == 12 and encount1 == false) then     -- encounter1
         encount1 = true;
         eq.spawn2(48073, 0, 0, e.self:GetX()+2, e.self:GetY()+2, e.self:GetZ(), 360-e.self:GetHeading());
