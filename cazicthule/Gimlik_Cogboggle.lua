@@ -2,6 +2,7 @@ local encount1 = false;          -- have to keep track incase he hits same waypo
 local encount2 = false;
 local encount3 = false;
 local encount4 = false;
+local event = false;
 
 function event_waypoint_arrive(e)
     if (e.wp == 12 and encount1 == false) then     -- encounter1
@@ -9,15 +10,15 @@ function event_waypoint_arrive(e)
         eq.spawn2(48073, 0, 0, e.self:GetX()+2, e.self:GetY()+2, e.self:GetZ(), 360-e.self:GetHeading());
         eq.spawn2(48073, 0, 0, e.self:GetX()-2, e.self:GetY()+2, e.self:GetZ(), 360-e.self:GetHeading());
 	elseif (e.wp == 21 and encount2 == false) then     -- encounter2
-		encount1 = true;
+		encount2 = true;
         eq.spawn2(48073, 0, 0, e.self:GetX()+2, e.self:GetY()+2, e.self:GetZ(), 360-e.self:GetHeading());
         eq.spawn2(48073, 0, 0, e.self:GetX()-2, e.self:GetY()+2, e.self:GetZ(), 360-e.self:GetHeading());
 	elseif (e.wp == 30 and encount3 == false) then     -- encounter3
-		encount1 = true;
+		encount3 = true;
         eq.spawn2(48073, 0, 0, e.self:GetX()+2, e.self:GetY()+2, e.self:GetZ(), 360-e.self:GetHeading());
         eq.spawn2(48073, 0, 0, e.self:GetX()-2, e.self:GetY()+2, e.self:GetZ(), 360-e.self:GetHeading());
 	elseif (e.wp == 52 and encount4 == false) then     -- encounter4
-		encount1 = true;
+		encount4 = true;
         eq.spawn2(48377, 0, 0, e.self:GetX()+2, e.self:GetY()+2, e.self:GetZ(), 360-e.self:GetHeading());	
 		eq.set_timer("tracker",300000);
     end
@@ -37,6 +38,7 @@ function event_timer(e)
 		encount2 = false;
 		encount3 = false;
 		encount4 = false;
+		event = false;
 	elseif (e.timer == "gate") then
 	    eq.stop_timer("gate");
 		e.self:Say("Fhew, we made it! Off I go!");
@@ -46,6 +48,7 @@ function event_timer(e)
 		encount2 = false;
 		encount3 = false;
 		encount4 = false;
+		event = false;
 	end
 end
 
@@ -70,5 +73,6 @@ function event_say(e)
 	elseif (e.message:findi("ready")) then
 		e.self:AssignWaypoints(112);
 		e.self:Say("Alrighty, off we go!");
+		event = true;
 	end
 end
