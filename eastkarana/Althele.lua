@@ -1,5 +1,5 @@
 -- 15044 - Althele at #loc -1592, -3657, -17 - to start corruptor/reaver spawns for fleshbound tome
-
+local count = 0;
 function event_say(e)
 	if(e.message:findi("hail")) then
 		e.self:Say("Hello, friend. Beautiful is what I would call such a day normally but lately? I sense that something is [out of balance].'");
@@ -23,21 +23,20 @@ function event_trade(e)
 		eq.get_entity_list():GetMobByNpcTypeID(15170):Depop();	-- despawn Teloa
 		eq.get_entity_list():GetMobByNpcTypeID(15043):Depop();	-- despawn Tholris		at #loc -1597, -3661, -17	-- next to Althele
 		eq.get_entity_list():GetMobByNpcTypeID(15042):Depop();	-- despawn Fang			at #loc -1585, -3657, -18	-- next to Althele
+		eq.set_timer("last",10000);
 		eq.depop_with_timer();
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
 
 function event_signal(e)
-	if(e.signal == 3) then
-		eq.get_entity_list():GetMobByNpcTypeID(15178):CastToNPC():SignalNPC(1);
-	elseif(e.signal == 6) then
-		eq.get_entity_list():GetMobByNpcTypeID(15167):CastToNPC():SignalNPC(1);
-	else
-		eq.set_timer("prep",90000);
-		eq.set_timer("attack",120000);
-		eq.set_timer("depop",600000);
-		eq.get_entity_list():GetMobByNpcTypeID(15170):CastToNPC():SignalNPC(1);
+	if(e.signal == 1) then
+		count = count + 1;
+		if (count == 3) then
+			eq.set_timer("prep",45000);
+			eq.set_timer("attack",120000);
+			eq.set_timer("depop",600000);	
+		end
 	end
 end
 
@@ -45,6 +44,9 @@ function event_timer(e)
 	if(e.timer == "prep") then			-- gives the last druid, teloa, time to walk to the gathering
 		eq.stop_timer("prep");
 		e.self:Say("Great mother of life and father of sky, growth and spirit, Tunare and Karana. Innoruuk once again schemes and we have failed in our duties to protect our land. We give our powers in sacrifice for your help. Heed our call and send us your wisdom.");
+		eq.set_timer("emotes",20000);
+	elseif(e.timer == "emotes") then
+		eq.stop_timer("emotes");
 		eq.signal(15178,99,3);
 		eq.signal(15167,99,6);
 		eq.signal(15170,99,9);
@@ -52,14 +54,19 @@ function event_timer(e)
 	elseif(e.timer == "attack") then	--dark elves start to make their way to the gathering
 		eq.stop_timer("attack");
 		e.self:Emote("snaps her head towards you. 'Innoruuk's brood is upon us. Go, find the spawn of hatred before they reach this point and destroy them!");
-		eq.get_entity_list():GetMobID(eq.spawn2(15153,0,0,-996,-1529,354,130)):CastToNPC():AddToHateList(npc, 1);		--corruptor
-		eq.get_entity_list():GetMobID(eq.spawn2(15150,0,0,-1090,-1529,355.4,130)):CastToNPC():AddToHateList(npc, 1);	--reaver
-		eq.get_entity_list():GetMobID(eq.spawn2(15150,0,0,-1063,-1490,367.5,130)):CastToNPC():AddToHateList(npc, 1);	--reaver
+		local althele = eq.get_entity_list():GetMobByNpcTypeID(15044);
+		eq.spawn2(15153,0,0,-996,-1529,354,130):AddToHateList(althele, 1);		--corruptor
+		eq.spawn2(15150,0,0,-1090,-1529,355.4,130):AddToHateList(althele, 1);	--reaver
+		eq.spawn2(15150,0,0,-1063,-1490,367.5,130):AddToHateList(althele, 1);	--reaver
 	elseif(e.timer == "depop") then		--something might have gone wrong resetting the druids after 10 minutes
 		eq.stop_timer("depop");
 		eq.get_entity_list():GetMobByNpcTypeID(15178):CastToNPC():Depop();
 		eq.get_entity_list():GetMobByNpcTypeID(15167):CastToNPC():Depop();
 		eq.get_entity_list():GetMobByNpcTypeID(15170):CastToNPC():Depop();
+		count = 0;
+	elseif(e.timer == "last") then
+		eq.stop_timer("last");
+		e.self:Say("We cannot speak again. Our circle is now known and must seek sanctuary. In case this note were to fall into others' hands. I cannot tell you plainly the next steps of your task. All I can say is to seek she who walks the path of the mother, she who walks the lands in service to her kin. Give her this note and she will know.");
 	end
 end
 
