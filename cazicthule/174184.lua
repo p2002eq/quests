@@ -1,6 +1,6 @@
 function event_signal(e)
 	if (e.signal == 1) then
-		eq.set_timer("gnome",10000);
+		eq.set_timer("gnome",86400000);     -- One Day Timer for respawn
 	end
 end
 
