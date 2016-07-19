@@ -30,7 +30,8 @@ function event_timer(e)
 		eq.zone_emote(1,"A piercing, disembodied scream echos from deep within the temple. Your body begins to tremble uncontrollably with fear.");
 		eq.stop_timer("aoe2");	
 		-- spawn invis mob to cast aoe spell then depop
-		eq.spawn2(214104,0,0,586,1090,-90,132):TempName("An explosion of fear");
+		--eq.spawn2(214104,0,0,586,1090,-90,132):TempName("An explosion of fear");
+		eq.spawn2(214104,0,0,586,1090,-90,132);
 		eq.signal(214104,2);
 		eq.set_timer("avatar",30000);
 	elseif(e.timer == "avatar") then
