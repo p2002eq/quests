@@ -80,7 +80,7 @@ function event_say(e)
 end
 
 
-function event_death(e)
+function event_death_complete(e)
 	eq.spawn2(174184,0,0,586,1090,-90,132);
 	eq.signal(174184,1);		-- send signal to keep track of respawn since database won't respawn gnome
 end
