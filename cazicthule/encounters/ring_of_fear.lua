@@ -84,7 +84,7 @@ function spawn_wave(npcId,npcs,timer)
 	end
 	wave = wave + 1;		
 	if (wave == 14) then
-		eq.set_timer("depop",10000);		-- 30 minute depop of it all.
+		eq.set_timer("depop",1800000);		-- 30 minute depop of it all.
 	else
 		eq.set_timer("wave" .. tostring(wave),timer);
 	end
