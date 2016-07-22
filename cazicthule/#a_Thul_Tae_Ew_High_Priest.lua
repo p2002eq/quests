@@ -11,7 +11,7 @@ function event_combat(e)
 	end
 end
 
-function event_death(e)
+function event_death_complete(e)
 	e.self:Say("Oh facelesss one, I have fallen! Pleasse avenge the death of your faithful ssservant!");
 	eq.load_encounter("ring_of_fear");	
 end
