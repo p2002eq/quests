@@ -39,7 +39,6 @@ function event_trade(e)
 			e.other:SummonItem(2611); --Custom Crown of hte Kromzek Kings
 			e.self:Say("Here you are "..e.other:GetName()..". Ah, a perfect fit! May it serve you well.");
 		end
-		end
 	else
 		e.self:Say("I do not know you well enough to entrust you with such an item, yet.");
 	end
