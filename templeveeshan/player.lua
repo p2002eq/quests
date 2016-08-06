@@ -1,5 +1,5 @@
-function event_death_complete(e)
-    --eq.signal(102138, 1) -- edit this line to signal Vulak Ring NPC upon player death
+function event_death(e)
+	eq.signal(214104,1);
 end
 
 function event_level_up(e)
