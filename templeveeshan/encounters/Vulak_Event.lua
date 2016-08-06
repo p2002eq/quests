@@ -33,7 +33,7 @@ local hlocBoss = 2.0;
 function event_encounter_load(e)
 	-- start event in 1 minute
 	eq.zone_emote(14,"load encounter");
-	eq.set_timer("wave1", 30000); -- timer to start wave 1
+	eq.set_timer("wave1", 60000); -- timer to start wave 1
 end
 
 
@@ -68,7 +68,7 @@ function event_timer(e)
 		eq.spawn2(124325,0,0,-740,1020,121.5,122);
 		eq.spawn2(124325,0,0,-760,1020,121.5,122);
 		wave = 1;
-		eq.set_timer("wave2", 60000); -- timer to start wave 2
+		eq.set_timer("wave2", 600000); -- timer to start wave 2
 		eq.spawn2(124081,0,0,xloc4,yloc4,zloc4,hloc4);
 		eq.spawn2(124059,0,0,xloc2,yloc2,zloc2,hloc2);
 		eq.spawn2(124059,0,0,xloc3,yloc3,zloc3,hloc3);
@@ -77,14 +77,14 @@ function event_timer(e)
         eq.zone_emote(14,"wave2");
         wave = wave + 1; -- wave = 2
         eq.stop_timer(e.timer)
-        eq.set_timer("wave3", 60000); -- timer to start wave 3
+        eq.set_timer("wave3", 600000); -- timer to start wave 3
         eq.spawn2(124314,0,0,xloc1,yloc1,zloc1,hloc1);
         spawn_hatchlings();
     elseif(e.timer == "wave3") then
 		eq.zone_emote(14,"wave3");
         wave = wave + 1; -- wave = 3
         eq.stop_timer(e.timer)
-        eq.set_timer("wave4", 60000); -- timer to start wave 4
+        eq.set_timer("wave4", 600000); -- timer to start wave 4
 		eq.spawn2(214104,0,0,-770,1270,123,132);	-- invisible placeholder to spawn carrion drakes
         eq.spawn2(124081,0,0,xloc4,yloc4,zloc4,hloc4);
         eq.spawn2(124081,0,0,xloc4,yloc4,zloc4,hloc4);
@@ -97,14 +97,14 @@ function event_timer(e)
         eq.zone_emote(14,"wave4");
         wave = wave + 1; -- wave = 4
         eq.stop_timer(e.timer)
-        eq.set_timer("wave5", 60000); -- timer to start wave 5
+        eq.set_timer("wave5", 600000); -- timer to start wave 5
         eq.spawn2(124316,0,0,xloc4,yloc4,zloc4,hloc4);
     elseif(e.timer == "wave5") then
 		eq.zone_emote(14,"wave5");
         wave = wave + 1; -- wave = 5
         eq.stop_timer(e.timer)
 		eq.signal(214104,2);
-        eq.set_timer("wave6", 60000); -- timer to start wave 6
+        eq.set_timer("wave6", 600000); -- timer to start wave 6
 		eq.spawn2(124081,0,0,xloc4,yloc4,zloc4,hloc4);
         eq.spawn2(124081,0,0,xloc4,yloc4,zloc4,hloc4);
 		eq.spawn2(124059,0,0,xloc2,yloc2,zloc2,hloc2);
@@ -114,14 +114,14 @@ function event_timer(e)
 		eq.zone_emote(14,"wave6");
         wave = wave + 1; -- wave = 6
         eq.stop_timer(e.timer)
-        eq.set_timer("wave7", 60000); -- timer to start wave 7
+        eq.set_timer("wave7", 600000); -- timer to start wave 7
 		eq.spawn2(124317,0,0,xloc2,yloc2,zloc2,hloc2); -- splits like the horses in Sky
 		eq.spawn2(124324,0,0,xloc3,yloc3,yloc3,yloc3); -- splits like the horses in Sky
     elseif(e.timer == "wave7") then
 		eq.zone_emote(14,"wave7");
         wave = wave + 1; -- wave = 7
         eq.stop_timer(e.timer)
-        eq.set_timer("wave8", 60000); -- timer to start wave 8
+        eq.set_timer("wave8", 600000); -- timer to start wave 8
 		eq.spawn2(124314,0,0,xloc2,yloc2,zloc2,hloc2);
 		eq.spawn2(124314,0,0,xloc4,yloc4,zloc4,hloc4);
 		eq.spawn2(124314,0,0,xloc3,yloc3,zloc3,hloc3);
@@ -129,14 +129,14 @@ function event_timer(e)
 		eq.zone_emote(14,"wave8");
         wave = wave + 1; -- wave = 8
         eq.stop_timer(e.timer)
-        eq.set_timer("wave9", 60000); -- timer to start wave 9
+        eq.set_timer("wave9", 600000); -- timer to start wave 9
 		eq.spawn2(124318,0,0,xlocBoss,ylocBoss,zlocBoss,hlocBoss);
 		eq.spawn2(124319,0,0,xlocBoss +5,ylocBoss +5,zlocBoss,hlocBoss);
     elseif(e.timer == "wave9") then
 		eq.zone_emote(14,"wave9");
         wave = wave + 1; -- wave = 9
         eq.stop_timer(e.timer)
-        eq.set_timer("wave10", 60000); -- timer to start wave 10
+        eq.set_timer("wave10", 600000); -- timer to start wave 10
 		eq.spawn2(124320,0,0,xloc2,yloc2,zloc2,hloc2);
 		eq.spawn2(124320,0,0,xloc4,yloc4,zloc4,hloc4);
 		eq.spawn2(124320,0,0,xloc3,yloc3,zloc3,hloc3);
@@ -146,14 +146,14 @@ function event_timer(e)
 		eq.zone_emote(14,"wave10");
         wave = wave + 1; -- wave = 10
         eq.stop_timer(e.timer)
-        eq.set_timer("wave11", 60000); -- timer to start wave 11
+        eq.set_timer("wave11", 600000); -- timer to start wave 11
 		eq.spawn2(124314,0,0,xloc2,yloc2,zloc2,hloc2);
 		eq.spawn2(124314,0,0,xloc3,yloc3,zloc3,hloc3);
     elseif(e.timer == "wave11") then
 		eq.zone_emote(14,"wave11");
         wave = wave + 1; -- wave = 11
         eq.stop_timer(e.timer)
-        eq.set_timer("wave12", 60000); -- timer to start wave 12
+        eq.set_timer("wave12", 600000); -- timer to start wave 12
 		eq.spawn2(124320,0,0,xloc2,yloc2,zloc2,hloc2);
 		eq.spawn2(124320,0,0,xloc3,yloc3,zloc3,hloc3);
 		eq.spawn2(124314,0,0,xloc1,yloc1,zloc1,hloc1);
@@ -161,13 +161,13 @@ function event_timer(e)
 		eq.zone_emote(14,"wave12");
         wave = wave + 1; -- wave = 12
         eq.stop_timer(e.timer)
-        eq.set_timer("wave13", 60000); -- timer to start wave 13
+        eq.set_timer("wave13", 600000); -- timer to start wave 13
 		eq.spawn2(124321,0,0,xlocBoss,ylocBoss,zlocBoss,hlocBoss);
     elseif(e.timer == "wave13") then
 		eq.zone_emote(14,"wave13");
         wave = wave + 1; -- wave = 13
         eq.stop_timer(e.timer)
-        eq.set_timer("wave14", 60000); -- timer to start wave 14
+        eq.set_timer("wave14", 600000); -- timer to start wave 14
 		eq.spawn2(124314,0,0,xloc2,yloc2,zloc2,hloc2);
 		eq.spawn2(124314,0,0,xloc3,yloc3,zloc3,hloc3);
 		eq.spawn2(124314,0,0,xloc1,yloc1,zloc1,hloc1);
@@ -175,7 +175,7 @@ function event_timer(e)
 		eq.zone_emote(14,"wave14");
         wave = wave + 1; -- wave = 14
         eq.stop_timer(e.timer)
-        eq.set_timer("wave15", 60000); -- timer to start wave 15
+        eq.set_timer("wave15", 600000); -- timer to start wave 15
         eq.spawn2(124326,0,0,xloc2,yloc2,zloc2,hloc2); --splits into 3 total of 9 for wave 3 per
 		eq.spawn2(124326,0,0,xloc3,yloc3,zloc3,hloc3); --splits into 3
 		eq.spawn2(124326,0,0,xloc1,yloc1,zloc1,hloc1); --splits into 3
@@ -183,23 +183,23 @@ function event_timer(e)
 		eq.zone_emote(14,"wave15");
         wave = wave + 1; -- wave = 15
         eq.stop_timer(e.timer)
-        eq.set_timer("wave16", 60000); -- timer to start wave 16
+        eq.set_timer("wave16", 600000); -- timer to start wave 16
 		eq.spawn2(124317,0,0,xloc2,yloc2,zloc2,hloc2); --splits into 2, 5 times total of 22 for wave 11 per
 		eq.spawn2(124324,0,0,xloc3,yloc3,zloc3,hloc3); --splits into 2, 5 times
     elseif(e.timer == "wave16") then
 		eq.zone_emote(14,"wave16");
         wave = wave + 1; -- wave = 16
         eq.stop_timer(e.timer)
-        eq.set_timer("wave17", 60000); -- timer to start wave 17
+        eq.set_timer("wave17", 600000); -- timer to start wave 17
 		eq.spawn2(124322,0,0,xlocBoss,ylocBoss,zlocBoss,hlocBoss);
     elseif(e.timer == "wave17") then
 		eq.zone_emote(14,"wave17");
         wave = wave + 1; -- wave = 17
         eq.stop_timer(e.timer)
-        eq.set_timer("depop", 60000); -- starts depop
+        eq.set_timer("depop", 3600000); -- starts depop 1 hour
 		eq.spawn2(124323,0,0,xlocBoss,ylocBoss,zlocBoss,hlocBoss);
 	elseif(e.timer == "depop") then
-		eq.depop_all(124323);
+	    eq.signal(124323,1)
 		wave = nil;
 		eq.unload_encounter("Vulak_Event");
     end
