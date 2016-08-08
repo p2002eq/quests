@@ -1,4 +1,6 @@
 local battleStarted = false;    -- keep track, should only be able to have rygorr chief head turned in, if it's the battle version of him(using same npcid)
+local waypoint2 = false;
+local waypoint3 = false;
 
 function event_say(e)
 	
@@ -61,15 +63,30 @@ function event_say(e)
 end
 	
 function event_waypoint_arrive(e)
-    if (e.wp == 2) then 	
+    if (e.wp == 2 and waypoint2 == false) then 	
+		waypoint2 = true;
 	    e.self:Say("TROOPS! FALL IN!");
-        eq.signal(116549,1);        -- signal paladins
+		eq.set_timer("emote7",5000);
+	elseif (e.wp == 3 and waypoint3 == false) then
+		waypoint3 = true;
+		e.self:Say("It is worse than I thought. Not only are they prepared for an attack, but they have the Kromrif here to help them. Our steel will be tested today. Be sure not to show the troops any fear.");
+		eq.set_timer("charge",90000);
+	end
+end
+
+function event_waypoint_depart(e)
+	if (e.wp == 2) then
+		e.self:Say("Fall out men!");
+		eq.set_timer("emote11",8000);
+		eq.signal(116549,1);        -- signal paladins
+		eq.signal(116541,1);        -- signal priests
+		eq.signal(116555,1);        -- signal archers
+		eq.signal(116563,1);        -- signal wolves	
 	end
 end
 	
 function event_trade(e)
-	local item_lib = require("items");
-	
+	local item_lib = require("items");	
 	-- Ring 1 Reward
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 30135})) then
 		e.self:Say("Ahh, that'll do fine. Take this, it is but a trinket for now, but continue to serve the Coldain and it will grow in power. I must get some rest now, for I have been told my [nephew] has disappeared again and I will need to track him down tomorrow.");
@@ -158,6 +175,78 @@ function event_signal(e)
     if (e.signal == 1) then
         battleStarted = true;
         e.self:AssignWaypoints(277);
+		eq.set_timer("emote1",6000);
     end
 end
 
+function event_timer(e)
+	if (e.timer == "emote1") then
+		e.self:Say("Follow me closely, friend, time is of the essence. I will describe our situation as we walk.");
+		eq.set_timer("emote2",10000);
+	elseif (e.timer == "emote2") then
+		event_emote(e,"Your pulse quickens in anticipation of battle!");
+		eq.set_timer("emote3",8000);
+	elseif (e.timer == "emote3") then
+		e.self:Say("The Dain's own royal troops will be at our disposal for the battle. This is good news, they are hardened, experienced soldiers. The bad news is that our sources indicate that the Ry`gorr have been alerted to our presence and will be ready for an attack. This is most unfortunate... They will not go down without a fierce fight.");
+		eq.set_timer("emote4",18000);
+	elseif (e.timer == "emote4") then
+		event_emote(e,"You hear the pounding of Ry`gorr war drums. ");
+		eq.set_timer("emote5",12000);
+	elseif (e.timer == "emote5") then
+		e.self:Say("It is of utmost importance that you stay with me throughout the fight. Your focus must be on killing Chief Rygorr and keeping me alive, mind that you do not become distracted. If I fall the Dain's men will retreat and you'll definitely be cut down.");
+	elseif(e.timer == "emote7") then
+		e.self:Say("Listen up men!");
+		eq.set_timer("emote8",10000);
+	elseif(e.timer == "emote8") then
+		e.self:Say("You all know why we're here. For decades these savages have menaced our people. Recent events have been too much to bear and the Dain has declared war! We will stop at nothing short of the Ry`gorr's annihilation!");
+		eq.set_timer("emote9",20000);
+	elseif(e.timer == "emote9") then
+		e.self:Say("No longer will we tolerate their heathen presence in our lands! Never again will we mourn the loss of a Coldain to these pawns of the Kromrif! Our deeds here today shall make this land safe for Coldain for all time!");
+		eq.set_timer("emote10",20000);
+	elseif(e.timer == "emote10") then
+		e.self:Say("Today the Ry`gorr fall! Tomorrow the Kromrif!");		
+	elseif(e.timer == "emote11") then
+		e.self:Say("Stay back from the initial charge, my friend. We will go directly for the chief once the troops are engaged. Follow me closely!");
+	elseif(e.timer == "charge") then	-- charge signal 2 minutes after reaching formation		
+		eq.signal(116549,2);        -- signal paladins
+		eq.signal(116541,2);        -- signal priests
+		eq.signal(116555,2);        -- signal archers
+		eq.signal(116563,2);        -- signal wolves	
+		eq.set_timer("aggro",5000);
+		eq.set_timer("depop",600000);	-- depop after 10 minutes
+	elseif(e.timer == "aggro") then
+		e.self:CastToNPC():AddToHateList(eq.get_entity_list():GetMobByNpcTypeID(116584),1);
+	elseif(e.timer == "depop") then
+		depop_Mobs();
+		eq.depop();
+	end
+	eq.stop_timer(e.timer);
+end
+	
+function event_emote(e,message)
+	local player_list = eq.get_entity_list():GetClientList();
+	if(player_list ~= nil) then
+		for player in player_list.entries do	
+			if(player:CalculateDistance(e.self:GetX(), e.self:GetY(), e.self:GetZ()) <= 200) then
+				player:Message(6,message)
+			end
+		end
+	end
+end
+	
+function event_death_complete(e)
+	depop_Mobs();
+end	
+	
+function depop_Mobs()
+	eq.depop_all(116549);
+	eq.depop_all(116541);
+	eq.depop_all(116555);
+	eq.depop_all(116563);
+	eq.depop_all(116556);
+	eq.depop_all(116548);
+	eq.depop_all(116548);
+	eq.depop_all(116006);
+	eq.depop_all(116584);
+	eq.depop_all(116593);
+end
