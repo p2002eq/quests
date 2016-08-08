@@ -9,11 +9,15 @@ function event_signal(e)
     if (e.signal == 1) then
 		archer = archer + 1;
 		e.self:AssignWaypoints(285+archer);
+	elseif (e.signal == 2) then
+		archer = archer + 1;
+		e.self:AssignWaypoints(325+archer);
+		e.self:SetRunning(true);
     end
 end
 
-function event_waypoint_depart(e)
+function event_waypoint_arrive(e)
 	if (e.wp == 1) then
-		e.self:SetRunning(true);
+		archer = 0;
 	end
 end
