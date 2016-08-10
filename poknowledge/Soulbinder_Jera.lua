@@ -33,7 +33,7 @@ function event_say(e)
 		    if (tonumber(itemId) == 2660) then
 		        e.self:Say("GM Uber Weapon? Only GM's are powerful enough to hold this without melting!");
 		    else
-			    e.other:SummonItem(tonumber(itemId));
+			    e.other:SummonItem(tonumber(itemId),10);
 			end
 		end
 	end
