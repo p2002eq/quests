@@ -8,6 +8,7 @@ function event_say(e)
 			e.self:Say("In this box, place the accursed dirk of the fallen Rodrick. With it combine the heads of every traitor you dispose of. When this is done give the box and the velium insignia ring to the Dain directly. On behalf of the crown and all good Coldain, I thank you ... May Brell be with you.");
 			e.self:Say("Farewell.");
 			e.other:SummonItem(17055); --Traitors Bane Box
+			e.other:SummonItem(30164);
 		end
 	end
 end
