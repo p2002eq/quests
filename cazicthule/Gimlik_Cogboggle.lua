@@ -10,15 +10,15 @@ function event_waypoint_arrive(e)
         eq.spawn2(48073, 0, 0, e.self:GetX()+2, e.self:GetY()+2, e.self:GetZ(), 360-e.self:GetHeading());
         eq.spawn2(48073, 0, 0, e.self:GetX()-2, e.self:GetY()+2, e.self:GetZ(), 360-e.self:GetHeading());
 	elseif (e.wp == 21 and encount2 == false) then     -- encounter2
-		encount1 = true;
+		encount2 = true;
         eq.spawn2(48073, 0, 0, e.self:GetX()+2, e.self:GetY()+2, e.self:GetZ(), 360-e.self:GetHeading());
         eq.spawn2(48073, 0, 0, e.self:GetX()-2, e.self:GetY()+2, e.self:GetZ(), 360-e.self:GetHeading());
 	elseif (e.wp == 30 and encount3 == false) then     -- encounter3
-		encount1 = true;
+		encount3 = true;
         eq.spawn2(48073, 0, 0, e.self:GetX()+2, e.self:GetY()+2, e.self:GetZ(), 360-e.self:GetHeading());
         eq.spawn2(48073, 0, 0, e.self:GetX()-2, e.self:GetY()+2, e.self:GetZ(), 360-e.self:GetHeading());
 	elseif (e.wp == 52 and encount4 == false) then     -- encounter4
-		encount1 = true;
+		encount4 = true;
         eq.spawn2(48377, 0, 0, e.self:GetX()+2, e.self:GetY()+2, e.self:GetZ(), 360-e.self:GetHeading());	
 		eq.set_timer("tracker",300000);
     end
