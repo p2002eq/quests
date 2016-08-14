@@ -18,6 +18,7 @@ function event_trade(e)
 		e.self:Say("Well done " .. e.other:GetName() .. ", I have heard of your victory over the Ry'Gorr. If you are willing to assist the crown further please follow me.");
 		eq.set_timer("1",10000);
 		eq.set_global("ring9","1",5,"F"); 
+		e.other:SummonItem(30164);
 	end
 	item_lib.return_items(e.self, e.other, e.trade);
 end
