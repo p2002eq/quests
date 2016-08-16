@@ -2,6 +2,10 @@ local entid1;
 local mob1;
 local mob1attack;
 
+function event_spawn(e)
+	eq.unique_spawn(48057, 0, 0, 590, 1070, -93.2, 0);
+end
+
 function event_combat(e)
 	if(e.joined == true) then
 		e.self:Shout("Fools! It isss dangerouss to interrupt the sssacrifice! Guards, assssissst me!");
