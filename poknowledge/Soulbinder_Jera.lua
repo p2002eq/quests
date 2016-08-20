@@ -7,6 +7,7 @@ function event_say(e)
         e.self:Say('If you want buffs just say [buff]');
         e.self:Say('If you want your corpses just say [corpses]');
         e.self:Say('If you want [items], ask me more');
+        e.self:Say('If you want to change levels, say [level] and a number from 1 to 60');
 	elseif(e.message:findi("bind my soul")) then
 		e.self:Say("Binding your soul. You will return here when you die.");
 		e.self:CastSpell(2049,e.other:GetID(),0,1);
@@ -34,6 +35,22 @@ function event_say(e)
 		        e.self:Say("GM Uber Weapon? Only GM's are powerful enough to hold this without melting!");
 		    else
 			    e.other:SummonItem(tonumber(itemId),10);
+			end
+		end
+	elseif(e.message:findi('level')) then
+	    local level = string.gsub(string.gsub(e.message,"level","")," ","");
+		if (tonumber(level)) then
+			if(tonumber(level) > 60) then
+				e.self:Say("Level 60 is the cap, what do you think this is, Planes of Power!");
+			elseif (tonumber(level) > 0 and tonumber(level) < 61) then
+				e.other:SetLevel(tonumber(level));
+				for i = 0, 73 do
+					if (e.other:CanHaveSkill(i)) then
+						e.other:SetSkill(i,e.other:MaxSkill(i));
+					end	
+				end
+			else
+				e.self:Say("I need a valid number 1 to 60 if you want to level up.");
 			end
 		end
 	end
