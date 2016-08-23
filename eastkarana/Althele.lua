@@ -35,7 +35,7 @@ function event_signal(e)
 		if (count == 3) then
 			eq.set_timer("prep",45000);
 			eq.set_timer("attack",120000);
-			eq.set_timer("depop",600000);	
+			eq.set_timer("depop",800000);	
 		end
 	end
 end
