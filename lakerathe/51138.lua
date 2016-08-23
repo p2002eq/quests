@@ -2,6 +2,7 @@
 
 function event_spawn(e)
 	e.self:Shout("The Triumvirate of Water has decreed your fate, Shmendrik Lavawalker!! I am here to deliver said fate!!");
+	eq.set_timer("dialogue",5000);
 end
 
 function event_say(e)
@@ -29,11 +30,12 @@ function event_signal(e)
 	end
 end
 
-function event_waypoint_arrive(e)
-	if(e.wp == 4 and eq.get_entity_list():IsMobSpawnedByNpcTypeID(51012)) then
+function event_timer(e)
+	if(e.timer == "dialogue" && eq.get_entity_list():IsMobSpawnedByNpcTypeID(51012)) then
 		eq.signal(51012,1,2000);
-		eq.attack_npc_type(51012);
+--		eq.attack_npc_type(51012);
 	end
+	eq.stop_timer(e.timer);
 end
 
 -------------------------------------------------------------------------------------------------
