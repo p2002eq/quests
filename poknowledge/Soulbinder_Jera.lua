@@ -8,6 +8,7 @@ function event_say(e)
         e.self:Say('If you want your corpses just say [corpses]');
         e.self:Say('If you want [items], ask me more');
         e.self:Say('If you want to change levels, say [level] and a number from 1 to 60');
+        e.self:Say('If you want to be teleported to arena, say [arena]');
 	elseif(e.message:findi("bind my soul")) then
 		e.self:Say("Binding your soul. You will return here when you die.");
 		e.self:CastSpell(2049,e.other:GetID(),0,1);
@@ -53,6 +54,8 @@ function event_say(e)
 				e.self:Say("I need a valid number 1 to 60 if you want to level up.");
 			end
 		end
+	elseif(e.message:findi("arena")) then	
+		e.other:MovePC(77, 1265, -73, 1.8, 253);
 	end
 end
 
