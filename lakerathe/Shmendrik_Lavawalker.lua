@@ -1,4 +1,5 @@
 -- EPIC CLERIC
+local player;
 
 function event_say(e)
 	if(e.message:findi("hail")) then
@@ -11,6 +12,7 @@ function event_trade(e)
 
 	if(e.other:GetClass() == 2) then
 		if(item_lib.check_turn_in(e.self, e.trade, {item1 = 28044})) then -- 28044 :  Lord Bergurgle's Crown
+		    player = e.other;
 			e.self:Emote("shoves the crown into a scorch marked leather satchel and cackles uncontrollably as madness twists his features and flames dance in his eyes. 'You, " .. e.other:GetName() .. ", have reduced the Riptides into chaos! Without a king to keep them in control they will ravage the settlements surrounding this lake! After the slaughter I shall return and easily burn the remainder of the villages and fishing shanties to the ground! None shall escape the fires of the Tyrant!!'");
 			e.other:QuestReward(e.self,0,0,0,0,28045); -- Oil of Fennin Ro
 			eq.unique_spawn(51138,32,0,160,3630.3,51,192.4);
@@ -22,6 +24,7 @@ end
 function event_signal(e)
 	if(e.signal == 1) then
 		e.self:Say("I'll slay you like I slaughtered your fellow missionaries! The Triumvirate can not decide the fate of a follower of the Tyrant!!");
+		e.self:CastToNPC():AddToHateList(player,1);
 		eq.signal(51138,1,2000);
 	elseif(e.signal == 2) then
 		eq.signal(51138,2,2000);

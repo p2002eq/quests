@@ -10,7 +10,8 @@ function event_say(e)
 	elseif(e.message:findi("working with gemstones")) then
 		e.self:Say("Aye, gems are placed within the armor. Brell is pleased with this fusion of ore and gem. The combination produces a sturdy piece of armor. You will need some Etching Tools to work with the gems. If you ask Meg Tucter for a set, she should have some laying about.");
 	elseif(e.message:findi("issue kit")) then	
-		e.self:Say("The Standard Issue Kit is what we issue to soldiers at the beginning of their mission. I have this empty one here. Before I give it to you, could you show me your Runed Coldain Prayer Shawl? I would like to see how skilled you are.");	
+		e.self:Say("The Standard Issue Kit is what we issue to soldiers at the beginning of their mission. I have this empty one here. Place a complete set of Imbued Royal Velium Armor into it before you give it to the Dain.");	
+		e.other:SummonItem(17651);
 	end
 end
 
