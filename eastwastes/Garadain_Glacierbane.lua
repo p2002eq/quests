@@ -218,7 +218,7 @@ function event_timer(e)
 		e.self:CastToNPC():AddToHateList(eq.get_entity_list():GetMobByNpcTypeID(116584),1);
 	elseif(e.timer == "depop") then
 		depop_Mobs();
-		eq.depop();
+		eq.depop_with_timer();
 	end
 	eq.stop_timer(e.timer);
 end
