@@ -53,20 +53,20 @@ end
 
 function spawn_wave(npcId, npcId2, bossId)
 -- middle spawn
-	spawn_Mobs(npcId, 22, 1282, 3, 200, 1282, 3, 127, 10, 150);
-	spawn_Mobs(npcId2, 22, 1312, 3, 200, 1312, 3, 127, 10, 150);	
+	spawn_Mobs(npcId, 22, 1282, 3, 200, 1282, 3, 127, 10, 130);
+	spawn_Mobs(npcId2, 22, 1312, 3, 200, 1312, 3, 127, 10, 130);	
 	if (bossId ~= 0) then
-		local mob = eq.spawn2(bossId, 150, 0, 110, 1342, 3, 127);
+		local mob = eq.spawn2(bossId, 150, 0, 85, 1347, 3, 128);
 		mob:SetRunning(true);
 	end
 	
 -- east spawn
-	spawn_Mobs(npcId, 895, 1313, 3, 1011, 1218, 3, 101, 8, 151);
-	spawn_Mobs(npcId2, 22, 1312, 3, 200, 1312, 3, 127, 8, 151);	
+	spawn_Mobs(npcId, 895, 1313, 3, 1011, 1218, 3, 160, 8, 151);
+	spawn_Mobs(npcId2, 907, 1324, 3, 1020, 1227, 3, 160, 8, 151);	
 
 -- west spawn
 	spawn_Mobs(npcId, -735, 1338, 3, -835, 1241, 3, 101, 8, 151);
-	spawn_Mobs(npcId2, 22, 1312, 3, 200, 1312, 3, 127, 8, 151);	
+	spawn_Mobs(npcId2, -749, 1359, 3, -846, 1256, 3, 101, 8, 151);	
 end
 
 function spawn_Guards()
