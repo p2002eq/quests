@@ -25,6 +25,7 @@ function event_timer(e)
 		eq.set_timer("wave1",60000);
 		wave = 1;
 	elseif(e.timer == ("wave" .. wave)) then
+	    eq.zone_emote(13, "Corporal Lancelot shouts, Here comes another wave, we must not let them breach the gate else we will lose everything!");
 		if (wave == 1) then
 			spawn_wave(mobs[wave],mobs[wave],0);
 		else
@@ -60,12 +61,12 @@ function spawn_wave(npcId, npcId2, bossId)
 	end
 	
 -- east spawn
-	spawn_Mobs(npcId, 895, 1313, 3, 1011, 1218, 3, 101, 8, 150);
-	spawn_Mobs(npcId2, 22, 1312, 3, 200, 1312, 3, 127, 8, 150);	
+	spawn_Mobs(npcId, 895, 1313, 3, 1011, 1218, 3, 101, 8, 151);
+	spawn_Mobs(npcId2, 22, 1312, 3, 200, 1312, 3, 127, 8, 151);	
 
 -- west spawn
-	spawn_Mobs(npcId, -735, 1338, 3, -835, 1241, 3, 101, 8, 150);
-	spawn_Mobs(npcId2, 22, 1312, 3, 200, 1312, 3, 127, 8, 150);	
+	spawn_Mobs(npcId, -735, 1338, 3, -835, 1241, 3, 101, 8, 151);
+	spawn_Mobs(npcId2, 22, 1312, 3, 200, 1312, 3, 127, 8, 151);	
 end
 
 function spawn_Guards()
