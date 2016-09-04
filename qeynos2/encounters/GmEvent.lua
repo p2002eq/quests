@@ -12,20 +12,20 @@ end
 
 function event_timer(e)
 	if (e.timer == "chat1") then
-		eq.zone_emote(14,"A ringing of warning bells reverberates throughout your mind.  Something doesn't quite seem right.");
+		eq.world_emote(14,"A ringing of warning bells reverberates throughout your mind.  Something doesn't quite seem right.");
 		eq.set_timer("chat2",30000);
 	elseif(e.timer == "chat2") then
-		eq.zone_emote(13, "Corporal Lancelot shouts, Stand fast troops, we must hold out till help arrives.");
+		eq.world_emote(13, "Corporal Lancelot shouts, Stand fast troops, we must hold out till help arrives.");
 		eq.set_timer("chat3",15000);
 	elseif(e.timer == "chat3") then
-		eq.zone_emote(13,"Soulbinder Jera shouts, Qeynos is under attack, they ask for all available aid at the main gate.");
+		eq.world_emote(13,"Soulbinder Jera shouts, Qeynos is under attack, they ask for all available aid at the main gate.");
 		eq.set_timer("chat4",15000);
 	elseif(e.timer == "chat4") then
-		eq.zone_emote(13,"Fippy Darkpaw Shouts, Too long has Qeynos ruined our lands, now we shall ruin yours!");
+		eq.world_emote(13,"Fippy Darkpaw Shouts, Too long has Qeynos ruined our lands, now we shall ruin yours!");
 		eq.set_timer("wave1",60000);
 		wave = 1;
 	elseif(e.timer == ("wave" .. wave)) then
-	    eq.zone_emote(13, "Corporal Lancelot shouts, Here comes another wave, we must not let them breach the gate else we will lose everything!");
+	    eq.world_emote(13, "Corporal Lancelot shouts, Here comes another wave, we must not let them breach the gate else we will lose everything!");
 		if (wave == 1) then
 			spawn_wave(mobs[wave],mobs[wave],0);
 		else
