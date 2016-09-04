@@ -12,20 +12,20 @@ end
 
 function event_timer(e)
 	if (e.timer == "chat1") then
-		eq.zone_emote(14,"A ringing of warning bells reverberates throughout your mind.  Something doesn't quite seem right.");
+		eq.world_emote(14,"A ringing of warning bells reverberates throughout your mind.  Something doesn't quite seem right.");
 		eq.set_timer("chat2",30000);
 	elseif(e.timer == "chat2") then
-		eq.zone_emote(13, "Corporal Lancelot shouts, Stand fast troops, we must hold out till help arrives.");
+		eq.world_emote(13, "Corporal Lancelot shouts, Stand fast troops, we must hold out till help arrives.");
 		eq.set_timer("chat3",15000);
 	elseif(e.timer == "chat3") then
-		eq.zone_emote(13,"Soulbinder Jera shouts, Qeynos is under attack, they ask for all available aid at the main gate.");
+		eq.world_emote(13,"Soulbinder Jera shouts, Qeynos is under attack, they ask for all available aid at the main gate.");
 		eq.set_timer("chat4",15000);
 	elseif(e.timer == "chat4") then
-		eq.zone_emote(13,"Fippy Darkpaw Shouts, Too long has Qeynos ruined our lands, now we shall ruin yours!");
+		eq.world_emote(13,"Fippy Darkpaw Shouts, Too long has Qeynos ruined our lands, now we shall ruin yours!");
 		eq.set_timer("wave1",60000);
 		wave = 1;
 	elseif(e.timer == ("wave" .. wave)) then
-	    eq.zone_emote(13, "Corporal Lancelot shouts, Here comes another wave, we must not let them breach the gate else we will lose everything!");
+	    eq.world_emote(13, "Corporal Lancelot shouts, Here comes another wave, we must not let them breach the gate else we will lose everything!");
 		if (wave == 1) then
 			spawn_wave(mobs[wave],mobs[wave],0);
 		else
@@ -53,20 +53,20 @@ end
 
 function spawn_wave(npcId, npcId2, bossId)
 -- middle spawn
-	spawn_Mobs(npcId, 22, 1282, 3, 200, 1282, 3, 127, 10, 150);
-	spawn_Mobs(npcId2, 22, 1312, 3, 200, 1312, 3, 127, 10, 150);	
+	spawn_Mobs(npcId, 22, 1282, 3, 200, 1282, 3, 127, 10, 130);
+	spawn_Mobs(npcId2, 22, 1312, 3, 200, 1312, 3, 127, 10, 130);	
 	if (bossId ~= 0) then
-		local mob = eq.spawn2(bossId, 150, 0, 110, 1342, 3, 127);
+		local mob = eq.spawn2(bossId, 150, 0, 85, 1347, 3, 128);
 		mob:SetRunning(true);
 	end
 	
 -- east spawn
-	spawn_Mobs(npcId, 895, 1313, 3, 1011, 1218, 3, 101, 8, 151);
-	spawn_Mobs(npcId2, 22, 1312, 3, 200, 1312, 3, 127, 8, 151);	
+	spawn_Mobs(npcId, 895, 1313, 3, 1011, 1218, 3, 160, 8, 151);
+	spawn_Mobs(npcId2, 907, 1324, 3, 1020, 1227, 3, 160, 8, 151);	
 
 -- west spawn
 	spawn_Mobs(npcId, -735, 1338, 3, -835, 1241, 3, 101, 8, 151);
-	spawn_Mobs(npcId2, 22, 1312, 3, 200, 1312, 3, 127, 8, 151);	
+	spawn_Mobs(npcId2, -749, 1359, 3, -846, 1256, 3, 101, 8, 151);	
 end
 
 function spawn_Guards()
