@@ -37,7 +37,7 @@ function event_timer(e)
 		end		
 		wave = wave+1;
 		if(wave < 10) then
-			eq.set_timer("wave" .. wave,300000);
+			eq.set_timer("wave" .. wave,180000);
 		else
 			eq.set_timer("repop",600000);		-- 10 minute till repop.
 		end
