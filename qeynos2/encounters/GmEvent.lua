@@ -22,7 +22,7 @@ function event_timer(e)
 		eq.set_timer("chat4",15000);
 	elseif(e.timer == "chat4") then
 		eq.world_emote(13,"Fippy Darkpaw Shouts, Too long has Qeynos ruined our lands, now we shall ruin yours!");
-		eq.set_timer("wave1",60000);
+		eq.set_timer("wave1",180000);
 		wave = 1;
 	elseif(e.timer == ("wave" .. wave)) then
 	    eq.world_emote(13, "Corporal Lancelot shouts, Here comes another wave, we must not let them breach the gate else we will lose everything!");
@@ -31,16 +31,13 @@ function event_timer(e)
 		else
 			if (wave % 3 == 0) then
 				spawn_wave(mobs[wave-1],mobs[wave],bosses[wave/3]);
-				eq.zone_emote(15,"3's done");
 			else
-				eq.zone_emote(15,"normal");
 				spawn_wave(mobs[wave-1],mobs[wave],0);
-				eq.zone_emote(15,"normal done");
 			end
 		end		
 		wave = wave+1;
 		if(wave < 10) then
-			eq.set_timer("wave" .. wave,300000);
+			eq.set_timer("wave" .. wave,180000);
 		else
 			eq.set_timer("repop",600000);		-- 10 minute till repop.
 		end
@@ -53,10 +50,10 @@ end
 
 function spawn_wave(npcId, npcId2, bossId)
 -- middle spawn
-	spawn_Mobs(npcId, 22, 1282, 3, 200, 1282, 3, 127, 10, 130);
-	spawn_Mobs(npcId2, 22, 1312, 3, 200, 1312, 3, 127, 10, 130);	
+	spawn_Mobs(npcId, 22, 1282, 3, 200, 1282, 3, 127, 10, 150);
+	spawn_Mobs(npcId2, 22, 1312, 3, 200, 1312, 3, 127, 10, 150);	
 	if (bossId ~= 0) then
-		local mob = eq.spawn2(bossId, 150, 0, 85, 1347, 3, 128);
+		local mob = eq.spawn2(bossId, 150, 0, 85, 1347, 3, 150);
 		mob:SetRunning(true);
 	end
 	
@@ -87,7 +84,6 @@ function round(num, dec)
 end
 
 function spawn_Mobs(npcId, startX, startY, startZ, endX, endY, endZ, heading, numMobs, grid)
-	eq.zone_emote(15,"spawnmobs");
 	local xDiff = round((startX - endX) / numMobs, 2) * -1;
 	local yDiff = round((startY - endY) / numMobs, 2) * -1;
 	local zDiff = round((startZ - endZ) / numMobs, 2) * -1;
