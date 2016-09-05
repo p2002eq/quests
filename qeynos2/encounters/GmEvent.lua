@@ -22,7 +22,7 @@ function event_timer(e)
 		eq.set_timer("chat4",15000);
 	elseif(e.timer == "chat4") then
 		eq.world_emote(13,"Fippy Darkpaw Shouts, Too long has Qeynos ruined our lands, now we shall ruin yours!");
-		eq.set_timer("wave1",60000);
+		eq.set_timer("wave1",180000);
 		wave = 1;
 	elseif(e.timer == ("wave" .. wave)) then
 	    eq.world_emote(13, "Corporal Lancelot shouts, Here comes another wave, we must not let them breach the gate else we will lose everything!");
