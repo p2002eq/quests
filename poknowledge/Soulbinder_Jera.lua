@@ -17,7 +17,7 @@ function event_say(e)
 		e.self:SpellFinished(3235,e.other);
 		e.self:SpellFinished(2517,e.other);
 		e.self:SpellFinished(1939,e.other);
-		e.self:SpellFinished(174,e.other);
+		e.self:SpellFinished(1693,e.other);
 	end
 end
 
