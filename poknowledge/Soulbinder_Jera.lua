@@ -15,10 +15,9 @@ function event_say(e)
 	elseif(e.message:findi('buff')) then
 		e.self:SpellFinished(1447,e.other);
 		e.self:SpellFinished(3235,e.other);
-		e.self:SpellFinished(2590,e.other);
 		e.self:SpellFinished(2517,e.other);
 		e.self:SpellFinished(1939,e.other);
-		e.self:SpellFinished(1695,e.other);
+		e.self:SpellFinished(174,e.other);
 	end
 end
 
