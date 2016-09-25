@@ -1,5 +1,3 @@
--- Converted to .lua by Speedz
-
 function event_say(e)
 	if(e.message:findi("Hail")) then
 		e.self:Say("Greetings " .. e.other:GetName() .. ". When a hero of our world is slain their soul returns to the place it was last bound and the body is reincarnated. As a member of the Order of Eternity  it is my duty to [bind your soul] to this location if that is your wish.");
@@ -9,6 +7,7 @@ function event_say(e)
         e.self:Say('If you want [items], ask me more');
         e.self:Say('If you want to change levels, say [level] and a number from 1 to 60');
         e.self:Say('If you want to be teleported to arena, say [arena]');
+		e.self:Say('If you want a set of class gear, say [gear]');
 	elseif(e.message:findi("bind my soul")) then
 		e.self:Say("Binding your soul. You will return here when you die.");
 		e.self:CastSpell(2049,e.other:GetID(),0,1);
@@ -56,8 +55,58 @@ function event_say(e)
 		end
 	elseif(e.message:findi("arena")) then	
 		e.other:MovePC(77, 1265, -73, 1.8, 253);
+	elseif(e.message:findi("gear")) then
+		-- gear = {1 Left Ear, 2 Head, 3 Face, 4 Right Ear, 5 Necklace, 6 Shoulder, 7 Arms, 8 Back, 9 Left Wrist, 10 Right Wrist, 11 Range, 12 Hands, 13 Primary, 14 Secondary, 15 Left Ring, 16 Right Ring, 17 Chest, 18 Legs, 19 Feet, 20 Waist, 21 Ammo} --
+		e.self:Say("I have summoned you a "..e.other:Class().." gear set specific to your needs. Please use them wisely.");
+		local gear = {};
+        if (e.other:Class() == "Bard") then
+            gear = {31236, 26581, 26773, 10912, 31460, 30533, 26584, 26766, 31246, 31461, 31321, 31227, 20542, 0, 31231, 25211, 26770, 8289, 7871, 26556, 0, 0}
+        elseif (e.other:Class() == "Beastlord") then
+            gear = {31236, 26581, 26773, 10912, 31460, 30533, 26584, 26766, 31246, 31461, 31303, 31227, 8495, 8496, 31231, 25211, 8498, 8289, 7871, 26556, 0, 0}
+        elseif (e.other:Class() == "Cleric") then
+            gear = {31236, 10913, 31244, 10912, 31460, 30533, 26584, 26766, 31246, 31461, 31303, 31227, 5532, 0, 31231, 25211, 26782, 8289, 7871, 26549, 0, 0}
+        elseif (e.other:Class() == "Druid") then
+            gear = {31236, 10913, 31244, 10912, 31460, 30533, 26584, 26766, 31246, 31461, 31303, 31227, 20490, 0, 31231, 25211, 26782, 8289, 7871, 26549, 0, 0}
+        elseif (e.other:Class() == "Enchanter") then
+            gear = {31236, 10913, 31244, 10912, 31460, 30533, 28924, 26766, 31246, 31461, 31303, 28972, 10650, 0, 31231, 25211, 26776, 8289, 7871, 26549, 0, 0}
+        elseif (e.other:Class() == "Magician") then
+            gear = {31236, 10913, 31244, 10912, 31460, 30533, 28924, 26766, 31246, 31461, 31303, 28972, 19436, 0, 31231, 25211, 26776, 8289, 7871, 26549, 0, 0}
+        elseif (e.other:Class() == "Monk") then
+            gear = {31236, 26581, 26773, 10912, 31460, 30533, 26584, 26766, 31246, 31461, 31321, 31227, 10652, 0, 31231, 25211, 30563, 8289, 7871, 26556, 0, 0}
+        elseif (e.other:Class() == "Necromancer") then
+            gear = {31236, 10913, 31244, 10912, 31460, 30533, 28924, 26766, 31246, 31461, 31303, 28972, 20544, 0, 31231, 25211, 26776, 8289, 7871, 26549, 0, 0}
+        elseif (e.other:Class() == "Paladin") then
+            gear = {31236, 26581, 26773, 10912, 31460, 30533, 26584, 26766, 31246, 31461, 31303, 31227, 10099, 0, 31231, 25211, 26770, 8289, 7871, 26556, 0, 0}
+        elseif (e.other:Class() == "Ranger") then
+            gear = {31236, 26581, 26773, 10912, 31460, 30533, 26584, 26766, 31246, 31461, 31303, 31227, 20488, 20487, 31231, 25211, 30564, 8289, 7871, 26556, 0, 0}
+        elseif (e.other:Class() == "Rogue") then
+            gear = {31236, 26581, 26773, 10912, 31460, 30533, 26584, 26766, 31246, 31461, 31321, 31227, 11057, 0, 31231, 25211, 30564, 8289, 7871, 26556, 0, 0}
+        elseif (e.other:Class() == "Shadow Knight") then
+            gear = {31236, 26581, 26773, 10912, 31460, 30533, 26584, 26766, 31246, 31461, 31321, 31227, 14383, 0, 31231, 25211, 26770, 8289, 7871, 26556, 0, 0}
+        elseif (e.other:Class() == "Shaman") then
+            gear = {31236, 10913, 31244, 10912, 31460, 30533, 26584, 26766, 31246, 31461, 31303, 31227, 10651, 0, 31231, 25211, 26782, 8289, 7871, 26549, 0, 0}
+        elseif (e.other:Class() == "Warrior") then
+            gear = {31236, 26581, 26773, 10912, 31460, 30533, 26584, 26766, 31246, 31461, 31321, 31227, 10910, 10909, 31231, 25211, 26770, 8289, 7871, 26556, 0, 0}
+        elseif (e.other:Class() == "Wizard") then
+            gear = {31236, 10913, 31244, 10912, 31460, 30533, 28924, 26766, 31246, 31461, 31303, 28972, 14341, 0, 31231, 25211, 26776, 8289, 7871, 26549, 0, 0}
+        end
+		addGear(e.other,gear);
 	end
 end
+
+function addGear(player, items)
+	for i = 0, 21 do
+		if (player:GetItemIDAt(i) > 0) then
+			player:DeleteItemInInventory(i,0,true);	
+		end
+	end
+	for i = 1, 21 do
+		if (items[i] ~= 0) then
+			player:SummonItem(items[i], 0, 0, 0, 0, 0, 0, false, i);
+		end
+	end
+end
+
 
 function event_trade(e)
 	local item_lib = require("items");
