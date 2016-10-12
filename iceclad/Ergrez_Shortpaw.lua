@@ -22,21 +22,19 @@ function event_trade(e)
 
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 30064,item2 = 30065,item3 = 30065})) then --  Medium Quality Cougarskin,  Cutting Shells
 		e.self:Emote("works with the fur for awhile by skinning it and sewing it");
-		e.other:QuestReward(e.self,0,0,0,0,0,30020);
+		e.other:QuestReward(e.self,0,0,0,0,30020);
 	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 30030,item2 = 13407,item3 = 13407})) then --  High Quality CougarSkin, Mammoth Meat
 		e.self:Emote("works with the fur for awhile by skinning it and sewing it");
-		e.other:QuestReward(e.self,0,0,0,0,0,30027);
+		e.other:QuestReward(e.self,0,0,0,0,30027);
 	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 30031,item2 = 30097,item3 = 30097})) then --  low Quality CougarSkin, Fatty Walrus Meat
 		e.self:Emote("works with the fur for awhile by skinning it and sewing it");
-		e.other:QuestReward(e.self,0,0,0,0,0,30028);		
+		e.other:QuestReward(e.self,0,0,0,0,30028);		
 	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 30025,item2 = 30062,item3 = 30062})) then --  Medium Quality Dire wolf fur, Skinning Rock
 		e.self:Emote("works with the fur for awhile by skinning it and sewing it");
-		e.other:QuestReward(e.self,0,0,0,0,0,30018);
+		e.other:QuestReward(e.self,0,0,0,0,30018);
 	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 30023,item2 = 30063,item3 = 30063})) then --  High Quality Dire wolf fur, Bark Bindings
 		e.self:Emote("works with the fur for awhile by skinning it and sewing it");
-		e.other:QuestReward(e.self,0,0,0,0,0,30029);	
-		
+		e.other:QuestReward(e.self,0,0,0,0,30029);	
 	end
-	
 end
 	--fiddle
