@@ -10,7 +10,8 @@ function event_say(e)
 	elseif(e.message:findi("working with gemstones")) then
 		e.self:Say("Aye, gems are placed within the armor. Brell is pleased with this fusion of ore and gem. The combination produces a sturdy piece of armor. You will need some Etching Tools to work with the gems. If you ask Meg Tucter for a set, she should have some laying about.");
 	elseif(e.message:findi("issue kit")) then	
-		e.self:Say("The Standard Issue Kit is what we issue to soldiers at the beginning of their mission. I have this empty one here. Before I give it to you, could you show me your Runed Coldain Prayer Shawl? I would like to see how skilled you are.");	
+		e.self:Say("The Standard Issue Kit is what we issue to soldiers at the beginning of their mission. I have this empty one here. Place a complete set of Imbued Royal Velium Armor into it before you give it to the Dain.");	
+		e.other:SummonItem(17651);
 	end
 end
 
@@ -21,10 +22,10 @@ function event_trade(e)
 		e.self:Say("So, the Dain needs your assistance with the Field Plate. The Dain must trust you a great deal to impart the wisdom of our armor creation to you. Here are the tomes. The first details how to make the basic armor, the other details how to begin [working with gemstones]. If the Dain is asking you for them you should place them in an [Issue Kit]. May Brell guide your hand friend, good luck to you.");
 		e.other:SummonItem(18610); --Forge of Icewell Arms (Royal Field Plate Study)
 		e.other:SummonItem(18611); --Forge of Icewell Arms (Precious Gem Study)
-	elseif(item_lib.check_turn_in(e.self, e.trade,({item1 = 8895} or {item1 = 1199}))) then	--Can use either version
+	elseif(item_lib.check_turn_in(e.self, e.trade,{item1 = 1199})) then
 		e.self:Say("Amazing, your skill is truly great. I am sorry that I had doubted you. Here is the empty Issue Kit. Place a full set of Imbued Royal Velium armor in it before giving it to the Dain.");
 		e.other:SummonItem(17651); --Empty Coldain Issue Kit
-		e.other:SummonItem(8895); --Coldain Prayer Shawl
+		e.other:SummonItem(1199); --Coldain Prayer Shawl
 	end
 
 	item_lib.return_items(e.self, e.other, e.trade)

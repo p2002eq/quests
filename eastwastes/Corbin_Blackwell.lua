@@ -1,6 +1,4 @@
--- Corbin Blackwell. This version spawns upon handin of key+ring to the version spawned in the wild
-
-function event_waypoint_arrive(e) -- this deviates slightly from the original version. The orcs and giants spawn in separate waves, but they spawn on top of him preventing kiting/pulling away
+function event_waypoint_arrive(e)
     if (e.wp == 1) then
         e.self:Say("Uh oh, looks like they were tipped off somehow... I hope you can handle them.");
         eq.spawn2(116569, 0, 0, -2027, 149, 150, 57);
@@ -9,7 +7,7 @@ function event_waypoint_arrive(e) -- this deviates slightly from the original ve
         eq.spawn2(116569, 0, 0, -2037, 149, 150, 57);
         eq.signal(116569, 1161111, 600);
     elseif (e.wp == 2) then
-        e.self:Say("Uh oh, looks like they were tipped off somehow... I hope you can handle them.");
+        e.self:Say("I'll hack at your knees 'til you fall down! Out of love for the Dain, for the glory of the crown!");
         eq.spawn2(116591, 0, 0, -2819, -296, 149, 40);
         eq.spawn2(116129, 0, 0, -2825, -286, 148, 40);      
         eq.spawn2(116129, 0, 0, -2831, -276, 150, 40);
@@ -21,11 +19,6 @@ function event_waypoint_arrive(e) -- this deviates slightly from the original ve
         eq.signal(116118, 1);
         eq.set_timer("depop",1000);
     end
-end
-
-function event_combat(e)
-	e.self:Say("I'll hack at your knees 'til you fall down! Out of love for the Dain, for the glory of the crown!");
-	
 end
 
 function event_spawn(e)

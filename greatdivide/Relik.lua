@@ -15,15 +15,3 @@ function event_trade(e)
 	end
 	item_lib.return_items(e.self, e.other, e.trade);
 end
-
--- Coldain Military Wristguard quest
-function event_signal(e)
-	-- signal from Broodmother to walk out to front of cave to meet her.
-	if(e.signal == 1) then
-		e.self:Say("The broodmother approaches. Come Korf, we must defend the mining operation!");
-		eq.start(141);
-	-- signal to depop from Korf once he either reaches end of path or dies
-	elseif (e.signal == 2) then
-		eq.depop_with_timer();
-	end
-end

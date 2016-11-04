@@ -10,22 +10,19 @@ function event_say(e)
 end
 
 function event_trade(e)
-	local item_lib = require("items");
-	
-	-- Emil's report quest (this is skyshrine 1.0 version, rather than the 2.0 version "Dolvak's Report")
-	-- details of quest are here: https://web.archive.org/web/20010420012329/http://eqdb.allakhazam.com/quest.html?quest=1203
-    if(item_lib.check_turn_in(e.self, e.trade, {item1 = 29067})) then
-		e.self:Say("Ahh, why thank you, friend! We are greatful. I believe if we work together, those children of Zek can be driven back in time. Otherwise, survival hangs in the balance, for both of us. Take this token back to the sentry as a symbol of our acceptance.");
+    if(item_lib.check_turn_in(e.self, e.trade, {item1 = 29067})) then 
 		e.other:Faction(344,10); -- tunarean court
-    	e.other:QuestReward(e.self,0,0,0,0,29623,250);
-	
-	-- Crest of the Wood Nymphs quest
+    	e.other:QuestReward(e.self,0,0,0,0,29623,250); -- 
+    	eq.depop_with_timer();
+    	
 	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 24863})) then 
 		e.self:Say("Ohhhh! You're the sweetest, " .. e.other:GetName() .. ". The nymphs of the Tunarean Court recognize you as a friend of our kind and our botanical brethren.");
-		e.other:Faction(344,20); -- tunarean court
-    	e.other:QuestReward(e.self,0,0,0,0,24864,5000);
+		e.other:Faction(344,30); -- tunarean court
+    	e.other:QuestReward(e.self,0,0,0,0,24864,5000); -- 
     	
 	end
 
 	item_lib.return_items(e.self, e.other, e.trade)
 end
+
+--fiddle

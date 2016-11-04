@@ -23,8 +23,11 @@ end
 
 function event_signal(e)
 	if(e.signal == 1) then
-		e.self:Shout("I'll slay you like I slaughtered your fellow missionaries! The Triumvirate can not decide the fate of a follower of the Tyrant!!");
+		e.self:Say("I'll slay you like I slaughtered your fellow missionaries! The Triumvirate can not decide the fate of a follower of the Tyrant!!");
 		e.self:CastToNPC():AddToHateList(player,1);
+		eq.signal(51138,1,2000);
+	elseif(e.signal == 2) then
+		eq.signal(51138,2,2000);
 	end
 end
 

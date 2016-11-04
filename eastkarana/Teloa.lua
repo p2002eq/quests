@@ -1,3 +1,5 @@
+local start;
+local timer;
 local move;
 function event_trade(e)
 	local item_lib = require("items");
@@ -10,7 +12,6 @@ end
 
 function event_signal(e)
 	if(e.signal == 99) then
-		e.self:DoAnim(62)
 		e.self:Emote("breathes slowly as tendrils of power emanate from her body and race along the ground.");
 	end
 end
