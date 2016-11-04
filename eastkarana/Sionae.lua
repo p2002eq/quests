@@ -15,6 +15,7 @@ end
 
 function event_signal(e)
 	if(e.signal == 99) then
+		e.self:DoAnim(68)
 		e.self:Emote("shivers as her power flows into the air above the gathering.");
 	end
 end

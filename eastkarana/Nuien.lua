@@ -14,6 +14,7 @@ end
 
 function event_signal(e)
 	if(e.signal == 99) then
+		e.self:DoAnim(61)
 		e.self:Emote("growls as his power seeps into the earth.");
 	end
 end

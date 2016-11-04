@@ -2,7 +2,8 @@
 
 function event_spawn(e)
 	e.self:Shout("The Triumvirate of Water has decreed your fate, Shmendrik Lavawalker!! I am here to deliver said fate!!");
-	eq.set_timer("dialogue",5000);
+	eq.set_timer("dialogue", 5000); -- 5 second dialog timer before Shmendrik attacks
+	eq.set_timer("depop", 600000); -- 10 min depop timer to reset event
 end
 
 function event_say(e)
@@ -21,19 +22,12 @@ function event_trade(e)
 	item_lib.return_items(e.self, e.other, e.trade)
 end
 
-function event_signal(e)
-	if(e.signal == 1) then
-		e.self:Say("Enough!! Your existence has come to an end!");
-		eq.signal(51012,2,2000);
-	elseif(e.signal == 2) then
-		e.self:Say("This conflict has been destined by the waters of the Triumvirate!");
-	end
-end
-
 function event_timer(e)
 	if(e.timer == "dialogue" && eq.get_entity_list():IsMobSpawnedByNpcTypeID(51012)) then
+		e.self:Shout("Enough!! Your existence has come to an end!");
 		eq.signal(51012,1,2000);
---		eq.attack_npc_type(51012);
+	elseif(e.timer == "depop")
+		eq.depop()
 	end
 	eq.stop_timer(e.timer);
 end

@@ -1,6 +1,5 @@
 function event_spawn(e)
-	eq.spawn2(95000,0,0,2832,1667,-375,0);
-	
+	eq.signal(95178, 1) -- signals itself to start cycle
 end
 
 function event_signal(e)
@@ -20,8 +19,12 @@ function event_signal(e)
 		        newy = 3040;
 		        newz = -359;
 	        end
-	        
-	   local getnewmobid = eq.ChooseRandom(95163, 95164, 95165, 95166, 95167, 95168, 95169, 95170, 95171, 95172, 95173, 95174, 95175, 95176, 95000, 95000, 95000, 95000, 95000, 95000, 95000, 95000, 95000, 95000, 95000, 95000, 95000, 95000, 95000, 95000, 95000, 95000, 95000, 95000, 95000, 95000, 95000, 95000, 95000, 95000);
-	        eq.spawn2(getnewmobid,0,0,newx,newy,newz,0);
+	    
+		local new_mob = 95000;
+		if(math.random(100) > 66) then
+			new_mob = eq.ChooseRandom(95163, 95164, 95165, 95166, 95167, 95168, 95169, 95170, 95171, 95172, 95173, 95174, 95175, 95176);
+		end
+
+		eq.spawn2(new_mob,1,0,newx,newy,newz,0);
     end
 end
