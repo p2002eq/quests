@@ -8,9 +8,9 @@ function event_spawn(e)
     end
 end
 function event_death(e)
-    if (guardians < 3) then
+    if (guardians < 7) then
         eq.spawn2(124317,0,0,-810,518,121,2.0)
         eq.spawn2(124317,0,0,-739,671,121,2.0);
-        eq.spawn2(124317,0,0,-672,507,121,2.0);
+--        eq.spawn2(124317,0,0,-672,507,121,2.0);
     end
 end
