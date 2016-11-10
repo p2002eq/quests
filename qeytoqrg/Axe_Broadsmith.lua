@@ -11,7 +11,7 @@ function event_trade(e)
 
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 18893})) then -- A Sealed Letter
 		e.self:Say("So you are the new warrior. Let us test your skill. Across the pond is a skeleton. See him? Engage him in combat. He awaits. Return his skull to me and I shall call you a Steel Warrior. Be quick. He will dissipate soon.");
-		eq.unique_spawn(4192,0,0,1055,3858,-19); -- a_strange_skeleton
+		eq.unique_spawn(4218,0,0,1055,3858,-19); -- a_strange_skeleton
 		e.other:Faction(311,2,0); -- Steel Warriors
 		e.other:Faction(135,1,0); -- Guards of Qeynos
 		e.other:Faction(53,-1,0); -- Corrupt Qeynos Guards
