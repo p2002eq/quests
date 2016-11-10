@@ -1,25 +1,13 @@
--- on eqemu prayer of brell is said to grand historian instead of in the area
--- I will change this on P2002 to where if the player is on that part of the quest
--- to be as accurate as possible to live
-local prayer = 0;
+-- Grand Historian (for coldain shawl #3)
 
 function event_spawn(e)
 	eq.set_timer("lecture1", 110000);	
 end
 
 function event_say(e)
-    if (e.message:findi("Forgive me for the things I think and say and do that displease you")) then            -- full is too hard to get exact for players, so look for just one sentence
-        prayer = prayer + 1;
-        if (prayer == 1) then
-            eq.signal(115230,33,0); 
-        elseif(prayer == 2) then
-            eq.signal(115230,66,0);
-        elseif(prayer == 3) then
-            eq.signal(115230,99,0);
-            eq.create_ground_object(1855, 789,-319,-18, 0);
-            prayer = 0;
-        end
-    end
+	if(e.message:findi("hail")) then
+		eq.signal(115015,99)
+	end
 end
 
 function event_timer(e)
@@ -67,18 +55,11 @@ function event_trade(e)
 
 	if (item_lib.check_turn_in(e.self, e.trade, {item1 = 1418, item2 = 1428})) then
 		e.self:Say("My compliments, "..e.other:GetName()..", what a wonderful dish! Please accept my personal Seal as a token of my appreciation. May it give you power over your adversaries.");
-		e.other:QuestReward(e.self, 0,0,0,0, 1422, 200000);
-		e.other:Faction(49, 10); --coldain
-		e.other:Faction(67, 10); --dain
-		e.other:Faction(188, -30); --kromrif
-		e.other:Faction(189, -30); --kromzek
-	elseif (item_lib.check_turn_in(e.self, e.trade, {item1 =  1428})) then	
-		e.self:Say("My compliments, "..e.other:GetName()..", what a wonderful dish!");
-		e.other:AddEXP(5000);
-		e.other:Faction(49, 10); --coldain
-		e.other:Faction(67, 10); --dain
-		e.other:Faction(188, -30); --kromrif
-		e.other:Faction(189, -30); --kromzek
+		e.other:QuestReward(e.self, 0,0,0,0, 1422, 20000);
+		e.other:Faction(49, 5); --coldain
+		e.other:Faction(67, 1); --dain
+		e.other:Faction(188, -2); --kromrif
+		e.other:Faction(189, -1); --kromzek
 	end
 
 	item_lib.return_items(e.self, e.other, e.trade);	
