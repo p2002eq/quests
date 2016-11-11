@@ -1,11 +1,18 @@
 -- EPIC CLERIC -skyfire-
-function event_death_complete(e)
-	eq.spawn2(91090,0,0,e.self:GetX(),e.self:GetY(),e.self:GetZ(),e.self:GetHeading()); -- Zordakalicus_Ragefire
+function event_spawn(e)
+	e.self:Say('The Triumvirate missionaries think their petty magic can affect me!! I will send your heads to Omat as a symbol of what is to come for all of his missionaries!')
+	eq.set_timer("depop", 1800000)
 end
 
-function event_trade(e)
-	local item_lib = require("items");
-	item_lib.return_items(e.self, e.other, e.trade)
+function event_death_complete(e)
+	eq.unique_spawn(91090,0,0,e.self:GetX(),e.self:GetY(),e.self:GetZ(),e.self:GetHeading()); -- Zordakalicus_Ragefire
+end
+
+function event_timer(e)
+	if (e.timer == "depop") then
+		eq.stop_timer("depop");
+		eq.depop();
+	end
 end
 
 -------------------------------------------------------------------------------------------------
