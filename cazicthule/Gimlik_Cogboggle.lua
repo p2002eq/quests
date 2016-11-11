@@ -38,7 +38,7 @@ function event_timer(e)
 		e.self:Say("Fhew, we made it! Off I go!");
 		e.self:SpellFinished(36 ,e.self);	
 		eq.depop();
-		eq.spawn2(48040,0,0,-468,254,17.79,63.2)
+		eq.spawn2(48040,0,0,-468,254,17.79,63.2);
 	end
 	eq.stop_timer("gate");
 end
