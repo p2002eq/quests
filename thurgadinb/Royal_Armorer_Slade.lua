@@ -16,20 +16,29 @@ function event_trade(e)
 	if(e.other:GetFaction(e.self) <= 3) then --Warmly or lower
 		if(item_lib.check_turn_in(e.self, e.trade, {item1 = 31084})) then
 			e.other:SummonItem(31519); --Custom Champions Crown
+			e.self:Say("Here you are "..e.other:GetName()..". Ah, a perfect fit! May it serve you well.");
 		elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 26025})) then		
 			e.other:SummonItem(2612); --Custom cowl of mortality
+			e.self:Say("Here you are "..e.other:GetName()..". Ah, a perfect fit! May it serve you well.");
 		elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 31042})) then			
 			e.other:SummonItem(31518); --Custom cowl of forbidden rites
+			e.self:Say("Here you are "..e.other:GetName()..". Ah, a perfect fit! May it serve you well.");
 		elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 31000})) then	
 			e.other:SummonItem(31515); --Custom Dark Runed Crown 
+			e.self:Say("Here you are "..e.other:GetName()..". Ah, a perfect fit! May it serve you well.");
 		elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 30507})) then	
 			e.other:SummonItem(2610); --Custom Frostweavers Velium Crown
+			e.self:Say("Here you are "..e.other:GetName()..". Ah, a perfect fit! May it serve you well.");
 		elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 31035})) then	
 			e.other:SummonItem(31517); --Custom Resonant Helm
+			e.self:Say("Here you are "..e.other:GetName()..". Ah, a perfect fit! May it serve you well.");
 		elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 31021 })) then	
 			e.other:SummonItem(31516); --Custom Runed Protector's Helm
+			e.self:Say("Here you are "..e.other:GetName()..". Ah, a perfect fit! May it serve you well.");
+		elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 25194 })) then	
+			e.other:SummonItem(2611); --Custom Crown of hte Kromzek Kings
+			e.self:Say("Here you are "..e.other:GetName()..". Ah, a perfect fit! May it serve you well.");
 		end
-		e.self:Say("Here you are "..e.other:GetName()..". Ah, a perfect fit! May it serve you well.");
 	else
 		e.self:Say("I do not know you well enough to entrust you with such an item, yet.");
 	end
