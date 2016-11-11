@@ -32,12 +32,12 @@ function event_timer(e)
 		end
 		e.self:Say("Fhew, we made it! Off I go!");
 		e.self:SpellFinished(36 ,e.self);
-		eq.depop();
+		eq.depop_with_timer();
 		eq.spawn2(48040,0,0,-468,254,17.79,63.2)
 	elseif (e.timer == "gate") then
 		e.self:Say("Fhew, we made it! Off I go!");
 		e.self:SpellFinished(36 ,e.self);	
-		eq.depop();
+		eq.depop_with_timer();
 		eq.spawn2(48040,0,0,-468,254,17.79,63.2);
 	end
 	eq.stop_timer("gate");
@@ -70,9 +70,4 @@ function event_say(e)
 			event = true;
 		end
 	end
-end
-
-function event_death(e)
-	eq.spawn2(174184,0,0,586,1090,-90,132);
-	eq.signal(174184,1);		-- send signal to keep track of respawn since database won't respawn gnome
 end
