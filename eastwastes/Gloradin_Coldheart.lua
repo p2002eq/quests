@@ -15,6 +15,7 @@ function event_trade(e)
 		end
 	    eq.load_encounter("RingEight");	
 		eventStarted = true;
+		eq.depop_with_timer();
 --	    eq.spawn2(116607,0,0,e.self:GetX(),e.self:GetY(),e.self:GetZ(),e.self:GetHeading());
     end
 	item_lib.return_items(e.self, e.other, e.trade)
