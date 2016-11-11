@@ -17,7 +17,7 @@ function event_say(e)
 		e.other:SummonItem(19633);
 	elseif(e.message:findi("dismal warrior boot")) then
 		e.self:Say("To assemble Dismal Warrior Mail Boots you will need to obtain two bricks of crude iron and smelt them in a [forge] with a Water Flask and this crude Boot Mold. Once that is done combine the Crude Iron Boots with two Ruined Coyote Pelts, and two Dune Spiderling Hairs in the Mail Assembly Kit.");
-		e.other:SummonItem(19632);
+		e.other:SummonItem(19634);
 	elseif(e.message:findi("dismal warrior vambrace")) then
 		e.self:Say("To assemble Dismal Warrior Vambraces you will need to obtain two bricks of crude iron and smelt them in a [forge] with a Water Flask and this Crude Vambrace Mold. Once that is done combine the Crude Iron Vambraces with a Low Quality Coyote Pelt and two Desert Tarantula Patella in the Mail Assembly Kit.");
 		e.other:SummonItem(19635);
