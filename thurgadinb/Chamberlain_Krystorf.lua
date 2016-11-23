@@ -26,15 +26,15 @@ function event_trade(e)
     elseif (item_lib.check_turn_in(e.self, e.trade, {item1 = 29062})) then -- less than 4 Giant Helms
 		e.self:Say("'For storage reasons I'm afraid I can only accept four of these at once for the bounty.");
 		e.other:SummonItem(29062)
-	elseif(item_lib.check_turn_in(e.self, e.trade,({item1 = 1199} or {item1 = 8895}))) then	
+	elseif item_lib.check_turn_in(e.self, e.trade,{item1 = 1199}) or  item_lib.check_turn_in(e.self, e.trade, {item1 = 8895}) then	
 		--can be either shawl
 		if(eq.get_entity_list():IsMobSpawnedByNpcTypeID(129003)) then --Check if the Dain is up
 			e.self:Say("The Dain has been waiting for you, show your shawl to him."); --Text made up
-			e.other:SummonItem(8895);
 		else -- Dain is not up
-			e.other:SummonItem(8895);
-			eq.spawn2(129003, 0, 0, 5.0, 769, 62, 130.0);
+			e.self:Say("Here comes the Dain! Perhaps you could show your shawl to him now."); --Text made up
+			eq.unique_spawn(129003, 0, 0, 4.0, 690.0, 68.38, 128.0);
 		end
+		e.other:SummonItem(8895);
 	end
 
 	item_lib.return_items(e.self, e.other, e.trade)		
