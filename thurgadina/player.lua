@@ -4,11 +4,11 @@ function event_say(e)
 	if(e.message:findi("Oh Brell, Thank you for protecting me and seeing me through my trials. Forgive me for the things I think and say and do that displease you. Please reveal to me your will and bless me with the patience and obedience to do that which you desire. Amen.")) then	-- prayer
 		myX = e.self:GetX()
 		myY = e.self:GetY()
-		if(between(myX, 796, 800) and between(myY, -292, -288)) then -- check for prayer in location 1
+		if(between(myX, 793, 802) and between(myY, -295, -285)) then -- check for prayer in location 1
 			prayers[1] = 1
-		elseif(between(myX, 766, 770) and between(myY, -308, -304)) then -- check for prayer in location 2
+		elseif(between(myX, 763, 773) and between(myY, -310, -300)) then -- check for prayer in location 2
 			prayers[2] = 1
-		elseif(between(myX, 781, 785) and between(myY, -335, -331)) then -- check for prayer in location 3
+		elseif(between(myX, 780, 790) and between(myY, -340, -330)) then -- check for prayer in location 3
 			prayers[3] = 1
 		end
 
