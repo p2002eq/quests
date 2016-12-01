@@ -194,11 +194,11 @@ function WarTriggers(e)
 		spawn_helper(npcs, 4, 6, 2, 20, 0)
 	elseif(e.message:findi("5")) then	-- west -> river wave
 		spawn_helper(npcs, 5, 6, 2, 20, 192)
-	elseif(e.message:findi("stage1")) then
+	elseif(e.message:findi("stageone")) then
 		stage = 1
-	elseif(e.message:findi("stage2")) then
+	elseif(e.message:findi("stagetwo")) then
 		stage = 2
-	elseif(e.message:findi("stage3")) then
+	elseif(e.message:findi("stagethree")) then
 		stage = 3
 	elseif(e.message:findi("Narandi")) then
 		last_fight()
