@@ -4,6 +4,10 @@ local encount3 = false;
 local encount4 = false;
 local event = false;
 
+function event_spawn(e)
+    event = false;
+end
+
 function event_waypoint_arrive(e)
     if (e.wp == 12 and encount1 == false) then     -- encounter1
         encount1 = true;
