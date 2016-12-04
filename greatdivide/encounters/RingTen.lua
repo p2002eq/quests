@@ -1,7 +1,7 @@
 -- RINGWAR
--- TODO facing for move_to functions
--- TODO Narandi depop of dwarves
--- TODO WarEnd conditions
+-- TODO thurg depop/giants at entrance
+
+-- TODO TESTING
 
 local ThreadManager = require("thread_manager");
 
@@ -9,19 +9,20 @@ local ThreadManager = require("thread_manager");
 local PathInfo = {};
 -- Recruit, Captain, Warrior, Priest of Zek, General, Veteran, High Priest of Zek, Warlord
 local Giants = { 118340, 118338, 118344, 118346, 118339, 118342, 118335, 118343 };
--- Soldier, Cleric, Axeman
-local Dwarves = { 118350, 118349, 118348 };
--- Aldikar, Dobbin, Garadain, Churn, Corbin , Kargin Zrelik 
-local Heroes = { 118351, 118332, 118334, 118329, 118331, 118354 };
--- Spearmen, Archers x2, Kargin
-local Statics = { 118341, 118347, 118347, 118337 };
-local Narandi = { 118345 }
+-- Soldier, Cleric, Axeman, Zrelik
+local Dwarves = { 118350, 118349, 118348, 118354 };
+-- Aldikar, Dobbin, Garadain, Churn, Corbin, Kargin 
+local Heroes = { 118351, 118332, 118334, 118329, 118331, 118337 };
+-- Spearmen, Archers
+local Statics = { 118341, 118347, 118337 };
+local Narandi = { 118345 };
 
 -- stages: -1 is pre-war conversation, 0 is war trigger, 1 is first siege, 2 is second siege, 3 is third siege, 4 is Narandi, 5 is loot
 local stage = -1;
 
 -- tracks entity specific data (e.g. which path is this giant on? What group does this dwarf belong to? What waypoint are we at?)
 local entity_data = {};
+local trespasser;
 
 -- tracks data for next spawn round
 local next_spawn = {};
@@ -40,8 +41,8 @@ function event_encounter_load(e)
 	
 	-- triggers for the NPC coordinating the event
 	eq.register_npc_event("RingTen", Event.timer, 118351, WarTimers);
-	eq.register_npc_event("RingTen", Event.death_complete, 118351, WarDeath);
 	eq.register_npc_event("RingTen", Event.trade, 118351, WarTrade);
+	eq.register_npc_event("RingTen", Event.death_complete, 118351, WarDeath);
 	
 	-- Zrelik the Scout coordination
 	eq.register_npc_event("RingTen", Event.trade, 118354, ScoutTrade);
@@ -51,12 +52,61 @@ function event_encounter_load(e)
 	eq.register_npc_event("RingTen", Event.waypoint_arrive, 118352, ConversationStart);
 	eq.register_npc_event("RingTen", Event.waypoint_arrive, 118351, ConversationStart);
 	
+	-- War win monitor & rewards
+	eq.register_npc_event("RingTen", Event.death_complete, 118345, FinalStage);
+	eq.register_npc_event("RingTen", Event.trade, 118334, Trades);
+	eq.register_npc_event("RingTen", Event.trade, 118332, Trades);
+	eq.register_npc_event("RingTen", Event.trade, 118331, Trades);
+	eq.register_npc_event("RingTen", Event.trade, 118337, Trades);
+	eq.register_npc_event("RingTen", Event.trade, 118329, Trades);
+	
 	-- set up paths as soon as encounter loads
 	PathInfo = load_paths();
 	-- spawns circle of dwarves to start war
 	depop_except({ 118352 });
-	PopCircle();
+	PreSetup();
 	-- note that NPCs that require a path need to be created by a trigger (timer, say, etc)
+end
+
+function Trades(e)
+	local item_lib = require("items");
+	
+	if stage > 4 then
+		if e.self:GetNPCTypeID() == 118334 and item_lib.check_turn_in(e.self, e.trade, {item1 = 1741}) then -- Shorn Head of Narandi
+			e.self:Emote(string.format("removes a choker from the severed head and returns both items to you, 'Congratulations on your victory, %s. I couldn't have done a better job myself. May Brell protect and watch over you and your friends. Farewell.'",e.other:GetCleanName()));
+			quest_reward(e.self, e.other, 1742, 1, 1);
+		elseif e.self:GetNPCTypeID() == 118332 and item_lib.check_turn_in(e.self, e.trade, {item1 = 1741}) then -- Shorn Head of Narandi
+			e.self:Emote("takes a facemask from the head of the giant, 'We shall always be in your debt, outlander. Take this mask, may it protect you from those who would seek to do you harm.'");
+			quest_reward(e.self, e.other, 1743, 1, 1);
+		elseif e.self:GetNPCTypeID() == 118331 and item_lib.check_turn_in(e.self, e.trade, {item1 = 1741}) then -- Shorn Head of Narandi
+			e.self:Emote(string.format("unhooks a glowing earring from Narandi's shorn head, 'Hmm, this looks like something special. Take it, %s, you've earned it! Be well.'",e.other:GetCleanName()));
+			quest_reward(e.self, e.other, 1744, 1, 1);
+		elseif e.self:GetNPCTypeID() == 118337 and item_lib.check_turn_in(e.self, e.trade, {item1 = 1741}) then -- Shorn Head of Narandi
+			e.self:Emote("picks up a stick and hits the back of the dismembered head with all his might, knocking one of it's eyes out of the socket, 'Bastard killed my brother! Hope his ghost felt that one!'");
+			quest_reward(e.self, e.other, 1745, 1, 1);
+		elseif e.self:GetNPCTypeID() == 118329 and item_lib.check_turn_in(e.self, e.trade, {item1 = 1741}) then -- Shorn Head of Narandi
+			e.self:Emote("pries a crown from the head of Narandi, 'The halls of Thurgadin will echo with praises to you for as long as we grace the face of this land. May this crown serve you well. Honor through battle!'");
+			quest_reward(e.self, e.other, 1746, 1, 1);
+		end
+	end
+	
+	item_lib.return_items(e.self, e.other, e.trade);
+end
+
+function quest_reward(e_self, e_other, item, xp_mult, fac_mult)
+	local fhit = fac_mult * 25;
+	e_other:Faction(49, fhit); --Coldain
+	e_other:Faction(67, fhit); --Dain
+	e_other:Faction(188, -fhit); --Kromrif
+	e_other:Faction(189, -fhit); --Kromzek
+	e_other:SummonItem(1741); -- Shorn head
+	e_other:QuestReward(e_self, 0, 0, 0, 0, item, 400000 * xp_mult); -- reward item
+end
+
+function FinalStage(e)
+	stage = 5;
+	local Aldikar = eq.get_entity_list():GetMobByNpcTypeID(118351):CastToNPC();
+	Aldikar:Shout("Outlander! You've done it! The Kromrif invasion has been frustrated! Bring me the head of Narandi and your Hero's ring.");
 end
 
 function ScoutTrade(e)
@@ -72,19 +122,20 @@ end
 function WarTrade(e)
 	local item_lib = require("items");
 	
-	if item_lib.check_turn_in(e.self, e.trade, {item1 = 30369}) then -- 9th ring
-		if stage == 0 then 
-			e.other:AddEXP(20000);
-			e.other:SummonItem(18511);
-			e.other:SummonItem(30369);
-			e.self:Say(string.format("Commit these orders to memory, %s, have them ready to speak at a moment's notice. Tell your soldiers to prepare themselves. When the orders are handed to Zrelik we will take up our positions.",e.other:GetCleanName()));
-			eq.set_timer("handin1", 300000);
-		else
-			e.other:SummonItem(30369);
-			e.self:Say(string.format("Hold on to that, %s. You are going to need it!",e.other:GetCleanName()));
-		end
+	if stage == 0 and item_lib.check_turn_in(e.self, e.trade, {item1 = 30369}) then -- 9th ring
+		e.other:AddEXP(20000);
+		e.other:SummonItem(18511);
+		e.other:SummonItem(30369);
+		e.self:Say(string.format("Commit these orders to memory, %s, have them ready to speak at a moment's notice. Tell your soldiers to prepare themselves. When the orders are handed to Zrelik we will take up our positions.",e.other:GetCleanName()));
+		eq.set_timer("handin1", 300000);
+	elseif stage > 4 and item_lib.check_turn_in(e.self, e.trade, {item1 = 30369, item2 = 1739}) then -- Narandi's Head and 9th ring
+		e.self:Emote("unsheathes a knife and shaves the beard from Narandi's face and returns the head to you, 'The Dain will require the beard for his trophy room, please accept this ring on his behalf. May it's effect aid you as you have aided us. Be certain to present the ring to the Dain when you're in town. If you remain an ally he will be most gracious, but be warned, if you fall from his good graces he will keep the ring.'");
+		quest_reward(e.self, e.other, 30385, 10, 2);
+		e.self:Say("Show the head to the surviving heroes quickly, we must report to the Dain and tend to the wounded.");
+		eq.set_timer("WarEnd", 300000);
 	end
 
+	item_lib.return_items(e.self, e.other, e.trade);
 end
 
 function Conversation()
@@ -150,28 +201,91 @@ function ConversationStart()
 		ThreadManager:Create("Conversation", Conversation);
 	elseif stage == 1 then
 		ThreadManager:Create("Conversation", ShoutingMatch1);
-	-- elseif stage == 2 then
-		-- ThreadManager:Create("Conversation", ShoutingMatch2);
+	elseif stage == 2 then
+		ThreadManager:Create("Conversation", ShoutingMatch2);
+	elseif stage == 3 then
+		ThreadManager:Create("Conversation", ShoutingMatch3);
 	end
 	
 end
 
-function PopCircle()
+function ShoutingMatch2()
+	local Aldikar = eq.get_entity_list():GetMobByNpcTypeID(118351):CastToNPC();
+	eq.unique_spawn(118345, 0, 0, -5000, -5000, 0, 0);
+	local Narandi = eq.get_entity_list():GetMobByNpcTypeID(118345):CastToNPC();
+	Narandi:SetInvul(true);
+	
+	Aldikar:Shout("Outlander, our scouts report no more Kromrif units on the way - for the time being. Resurrect your fallen and heal your wounded. I have a feeling we haven't seen the last of them. ");
+	ThreadManager:Wait(1);
+	Narandi:Shout("Interlopers! You've chosen the wrong side in this war. My warriors will succeed where the young recruits have failed. You shall suffer the same fate as the pathetic vermin you serve. Your heads shall be perched upon our spears along with those of your Coldain friends!");
+	ThreadManager:Wait(1);
+	Aldikar:Shout("Pay no attention to his babbling, outlander. It is our destiny to emerge victorious. Prepare your army for glorious battle!");
+	ThreadManager:Wait(1);
+	Narandi:Shout("My warriors approach, I offer you one final opportunity to bow before the might of Rallos Zek. Throw down your weapons and surrender. You will live out your lives in relative peace, rightfully serving your Kromrif masters.");
+	ThreadManager:Wait(1);
+	Aldikar:Shout("Enough! Show yourself coward! Your blasphemous words shall be etched upon your spacious brow. All will mock you for generations to come. Your own god will forsake you when he witnesses your defeat here today!");
+	ThreadManager:Wait(1);
+	Narandi:Shout("Warriors! Charge through these pompous fools. Any you manage to capture shall become your personal slaves. The outlanders and the Seneschal must die! Bring me their heads!");
+	Narandi:Depop();
+end
+
+function ShoutingMatch3()
+	local Aldikar = eq.get_entity_list():GetMobByNpcTypeID(118351):CastToNPC();
+	eq.unique_spawn(118345, 0, 0, -5000, -5000, 0, 0);
+	local Narandi = eq.get_entity_list():GetMobByNpcTypeID(118345):CastToNPC();
+	Narandi:SetInvul(true);
+	
+	Aldikar:Shout("Well fought, friends! May the piles of Kromrif corpses strike fear in the hearts of our overgrown enemies.");
+	ThreadManager:Wait(1);
+	Narandi:Shout("Silence fool! Speak not of our fallen. They who die honorably in combat earn an eternal rest in the company of our greatest heroes... even Rallos Zek himself!");
+	ThreadManager:Wait(1);
+	Aldikar:Shout("It is your misguided beliefs that made this war necessary. Now you feel the sting of your errors. Return to Kael and preach the doctrine of Brell Serilis in hopes that your people may someday be spared.");
+	ThreadManager:Wait(1);
+	Narandi:Shout("Enough chatter. Our veterans approach now to finish you. You have been tested and your weaknesses have been assessed. Bid farewell to your dear Thurgadin, those of you who are fortunate enough to survive the slaughter shall make a new home in the Kromrif slave pens!");
+	ThreadManager:Wait(1);
+	Narandi:Shout("Veterans! Be sure that this time we allow none of the stumpymen to escape to create yet another city. This shall be our final war with these unworthy beings.");
+	Narandi:Depop();
+end
+
+function PreSetup()
 	local Badain = eq.get_entity_list():GetMobByNpcTypeID(118352):CastToNPC();
 	Badain:Say("Excellent! All of your commanders have reported to the Dain, and none too soon mind you. We are getting reports of Kromrif troop movement in the area and final preparations must be made. Follow me and the Seneschal will brief you.");
 	Badain:MoveTo(-110, -545, 77, 223, true);
 	-- Seneschal Aldikar pop
 	eq.unique_spawn(118351, 0, 0, -125, -530, 77, 90);
-	-- Garadain
-	eq.unique_spawn(118334, 0, 0, -125, -563, 75, 5);
-	-- Dobbin
-	eq.unique_spawn(118332, 0, 0, -110, -558, 75, 240);
-	-- Corbin
-	eq.unique_spawn(118331, 0, 0, -98, -545, 75, 215);
-	-- Kargin
-	eq.unique_spawn(118337, 0, 0, -90, -530, 75, 193);
-	-- Churn
-	eq.unique_spawn(118329, 0, 0, -90, -515, 75, 170);
+	-- 5 dwarf hero spawns
+	eq.signal(118351, 51);
+	eq.signal(118351, 52);
+	eq.signal(118351, 53);
+	eq.signal(118351, 54);
+	eq.signal(118351, 55);
+end
+
+function PostSetup()
+	local Aldikar = eq.get_entity_list():GetMobByNpcTypeID(118351):CastToNPC();
+	Aldikar:MoveTo(-125, -530, 77, 90, true);
+	
+	-- repop surviving heroes at thurg valley
+	if eq.get_entity_list():IsMobSpawnedByNpcTypeID(118334) then
+		eq.depop(118334);
+		eq.signal(118351, 51);
+	end	
+	if eq.get_entity_list():IsMobSpawnedByNpcTypeID(118332) then
+		eq.depop(118332);
+		eq.signal(118351, 52);
+	end	
+	if eq.get_entity_list():IsMobSpawnedByNpcTypeID(118331) then
+		eq.depop(118331);
+		eq.signal(118351, 53);
+	end	
+	if eq.get_entity_list():IsMobSpawnedByNpcTypeID(118337) then
+		eq.depop(118337);
+		eq.signal(118351, 54);
+	end	
+	if eq.get_entity_list():IsMobSpawnedByNpcTypeID(118329) then
+		eq.depop(118329);
+		eq.signal(118351, 55);
+	end
 end
 
 function ShoutingMatch1()
@@ -206,25 +320,26 @@ function GiantSpawn()
 	local spawn_time = 3000 - math.random(3000);
 
 	if stage == 1 and boss_count == 0 and miss_count == 0 then -- checks for first execution
-		eq.signal(118351, 51, 1000);
+		eq.signal(118351, 50, 1000);
 		spawn_time = 1000; -- shorter time for first wave
 	end
 	
 	local Aldikar = eq.get_entity_list():GetMobByNpcTypeID(118351);
 	if boss_count >= 4 then
 		if stage < 3 then
-			-- spawn_time = 600000; -- longer pause before new stage
+			-- spawn_time = 420000; -- longer pause before new stage
 			spawn_time = 2000;
 			boss_count = 0;
 			miss_count = 0;
-		elseif stage >= 3 then
+			stage = stage + 1;
+			ConversationStart();
+		elseif stage == 3 then
+			stage = 4
 			next_spawn = { [118345] = 1 };
 			-- eq.set_timer("Narandi", 300000, Aldikar);
 			eq.set_timer("Narandi", 3000, Aldikar);
 			return
 		end
-		
-		stage = stage + 1;
 	end
 	
 	local boss;
@@ -312,15 +427,30 @@ end
 function GroupSpawn(num)
 	local npcs = {};
 	
-	if num == 1 then
+	if num == 0 then
 		-- west spears
 		spawn_Mobs(118341, 569, -2447, -86.4, 841, -1776, -33, 194, 12, 0);
 		-- east spears
 		spawn_Mobs(118341, -668, -2062, -60, -775, -2347, -75, 59, 6, 0);
 		-- assign static 'path'
 		eq.signal(118341, 0);
+	elseif num == 1 then
+		-- Garadain
+		eq.unique_spawn(118334, 0, 0, -125, -563, 75, 5);
+	elseif num == 2 then
+		-- Dobbin
+		eq.unique_spawn(118332, 0, 0, -110, -558, 75, 240);
+	elseif num == 3 then
+		-- Corbin
+		eq.unique_spawn(118331, 0, 0, -98, -545, 75, 215);
+	elseif num == 4 then
+		-- Kargin
+		eq.unique_spawn(118337, 0, 0, -90, -530, 75, 193);
+	elseif num == 5 then
+		-- Churn
+		eq.unique_spawn(118329, 0, 0, -90, -515, 75, 170);
 	elseif num == 6 then
-		-- Dobbin soliders by towers
+		-- Dobbin soldiers by towers
 		npcs = { [118350] = 12 };
 		spawn_helper(npcs, 6, 1, 12, 15, 128);
 		-- archers on top of towers
@@ -376,13 +506,22 @@ function GroupSpawn(num)
 end
 
 function WarDeath(e)
-	WarEnd(0)
+	e.self:Shout("I have fallen brothers! Retreat!");
+	if stage > 4 then
+		WarEnd(1)
+	else
+		WarEnd(0)
+	end
 end
 
 function WarEnd(end_type)
-	-- endtypes: 0 - Seneschal death, 1 - giant reaches Kael, 2 - Narandi escape, 
+	-- endtypes: 0 - Loss (thurg dies, giants pop), 1 - Win (simple zone repop)
 	eq.depop_zone(false);
 	eq.repop_zone();
+	if end_type < 1 then
+		eq.zone_emote(1, "WAR FAIL");
+	end
+	-- eq.unload_encounter("RingTen");
 end
 
 function WarTimers(e)
@@ -420,10 +559,12 @@ function WarTimers(e)
 		spawn_helper(next_spawn, 5, 6, 2, 20, 192);
 		GiantSpawn()
 	elseif e.timer == "Narandi" then
-		eq.zone_emote(1, "Narandi caught");
 		eq.stop_timer("Narandi");
+		local combo = table_concat(Heroes, Giants);
+		depop_except(combo);
+		PostSetup();
 		spawn_helper(next_spawn, 10, 1, 1, 10, 192);
-		e.self:Shout("Outlander! Narandi is plotting his retreat! Don't let him escape alive!")
+		e.self:Shout("Outlander! Narandi is plotting his retreat! Don't let him escape alive!");
 		eq.set_timer("NarDepop", 600000);
 	elseif e.timer == "handin1" then
 		eq.stop_timer("handin1");
@@ -435,13 +576,23 @@ function WarTimers(e)
 		eq.stop_timer("handin2");
 		if stage < 1 then
 			e.self:Say("We've waited too long! To your posts!");
-			eq.get_entity_list():GetMobByNpcTypeID(118354):Depop();
+			eq.depop(118354);
 			eq.signal(118351, 61, 1000);
 			stage = 1;
 		end
 	elseif e.timer == "NarDepop" then
 		eq.stop_timer("NarDepop");
-		WarEnd(2);
+		if stage < 5 then
+			local Narandi = eq.get_entity_list():GetMobByNpcTypeID(118345):CastToNPC();
+			Narandi:Shout("Fools! I shall return and your pitiful city will fall!");
+			WarEnd(1);
+		end
+	elseif e.timer == "WarEnd" then
+		eq.stop_timer("WarEnd");
+		WarEnd(1);
+	elseif e.timer == "Door" then
+		eq.stop_timer("Door");
+		WarEnd(0);
 	end
 end
 
@@ -478,7 +629,7 @@ function AllSignal(e)
 		GroupSpawn(group_num);
 	end
 	
-	issue_move(e.self:GetID());
+	issue_move(e.self:GetID(), e.self:GetNPCTypeID());
 end
 
 function AllCombat(e)
@@ -494,30 +645,42 @@ function AllCombat(e)
 			end
 		end
 
-		entity_data[e.self:GetID()]['wp'] = new_wp
+		entity_data[e.self:GetID()]['wp'] = new_wp;
 		-- ensures that mobs kited during walking phase get properly set to running when kited closer to end of path
 		if new_wp > 1 and e.self:GetNPCTypeID() ~= 118345 then
 			e.self:SetRunning(true);
 		end
 		
-		issue_move(e.self:GetID())
+		issue_move(e.self:GetID(), e.self:GetNPCTypeID())
 	end
 end
 
 function AllWaypoint(e)
 	if is_in(e.self:GetNPCTypeID(), Giants) then
 		e.self:SetRunning(true);
+		if e.self:GetY() > 45 and e.self:GetX() > -1000 then
+			local Aldikar = eq.get_entity_list():GetMobByNpcTypeID(118351):CastToNPC();
+			Aldikar:Shout("The gates of Thurgadin are breached! Retreat!");
+			WarEnd(1)
+		end
 	end
 	
 	entity_data[e.self:GetID()]['wp'] = entity_data[e.self:GetID()]['wp'] + 1;
 	
-	issue_move(e.self:GetID())
+	issue_move(e.self:GetID(), e.self:GetNPCTypeID())
 end
 
-function issue_move(id)
+function issue_move(id, npc)
+	local heading;
+	if is_in(npc, Giants) then
+		heading = 0;
+	else
+		heading = 128;
+	end
+
 	local status, wp = pcall(waypoint_helper, entity_data[id]);
 	if status then
-		eq.move_to(wp['x'], wp['y'], wp['z'], 0, true);
+		eq.move_to(wp['x'], wp['y'], wp['z'], heading, true);
 	end
 end
 
@@ -690,4 +853,15 @@ function Set(list)
   local set = {}
   for _, l in ipairs(list) do set[l] = true end
   return set
+end
+
+function table_concat(table1, table2)
+	local table_final = {};
+	for k, v in pairs(table1) do
+		table.insert(table_final, v)
+	end
+	for k, v in pairs(table2) do
+		table.insert(table_final, v)
+	end
+	return table_final
 end
