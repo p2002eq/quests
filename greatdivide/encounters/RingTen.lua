@@ -606,6 +606,9 @@ function AllSpawn(e)
 	-- permaroot the permarooted mobs
 	elseif is_in(NpcID, Statics) then
 		e.self:ModifyNPCStat("runspeed","0");
+		if NpcID ~= 118341 then
+			e.self:AddItem(30149, 0, true)
+		end
 	-- check for NPCs that match list of Dwarves and heroes and set them to run
 	elseif is_in(NpcID, Dwarves) then
 		e.self:SetRunning(true);
