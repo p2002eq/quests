@@ -13,7 +13,7 @@ local Giants = { 118340, 118338, 118344, 118346, 118339, 118342, 118335, 118343 
 local Dwarves = { 118350, 118349, 118348, 118354 };
 -- Aldikar, Dobbin, Garadain, Churn, Corbin, Kargin 
 local Heroes = { 118351, 118332, 118334, 118329, 118331, 118337 };
--- Spearmen, Archers
+-- Spearmen, Archers, Kargin
 local Statics = { 118341, 118347, 118337 };
 local Narandi = { 118345 };
 
@@ -22,7 +22,6 @@ local stage = -1;
 
 -- tracks entity specific data (e.g. which path is this giant on? What group does this dwarf belong to? What waypoint are we at?)
 local entity_data = {};
-local trespasser;
 
 -- tracks data for next spawn round
 local next_spawn = {};
@@ -317,7 +316,7 @@ end
 
 function GiantSpawn()
 	-- local spawn_time = 300000 - math.random(300000); -- base time till next wave
-	local spawn_time = 3000 - math.random(3000);
+	local spawn_time = 10000 - math.random(10000);
 
 	if stage == 1 and boss_count == 0 and miss_count == 0 then -- checks for first execution
 		eq.signal(118351, 50, 1000);
@@ -328,7 +327,7 @@ function GiantSpawn()
 	if boss_count >= 4 then
 		if stage < 3 then
 			-- spawn_time = 420000; -- longer pause before new stage
-			spawn_time = 2000;
+			spawn_time = 20000;
 			boss_count = 0;
 			miss_count = 0;
 			stage = stage + 1;
@@ -356,17 +355,17 @@ function GiantSpawn()
 	
 	if stage == 1 then
 		-- next_spawn = { [118340] = 10, [118338] = boss };
-		next_spawn = { [118340] = 1, [118338] = boss };
+		next_spawn = { [118340] = 2, [118338] = boss };
 	elseif stage == 2 then
 		-- spawn_time = spawn_time + 120000;
-		spawn_time = spawn_time + 1000;
+		spawn_time = spawn_time + 2000;
 		-- next_spawn = { [118344] = 8, [118346] = 2, [118339] = boss };
-		next_spawn = { [118344] = 1, [118346] = 0, [118339] = boss };
+		next_spawn = { [118344] = 2, [118346] = 1, [118339] = boss };
 	elseif stage == 3 then
 		-- spawn_time = spawn_time + 240000;
-		spawn_time = spawn_time + 2000;
+		spawn_time = spawn_time + 4000;
 		-- next_spawn = { [118342] = 8, [118335] = 2, [118343] = boss };
-		next_spawn = { [118342] = 1, [118335] = 0, [118343] = boss };
+		next_spawn = { [118342] = 2, [118335] = 1, [118343] = boss };
 	end
 	
 	local spawn_loc = eq.ChooseRandom(1,2,3,4,5);
