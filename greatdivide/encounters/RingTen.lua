@@ -23,6 +23,10 @@ local stage = -1;
 -- tracks entity specific data (e.g. which path is this giant on? What group does this dwarf belong to? What waypoint are we at?)
 local entity_data = {};
 
+-- tracks specific entities
+local Aldikar;
+local quester;
+
 -- tracks data for next spawn round
 local next_spawn = {};
 local boss_count = 0;
@@ -70,22 +74,27 @@ end
 function Trades(e)
 	local item_lib = require("items");
 	
-	if stage > 4 then
+	if stage > 4 and e.other:GetID() == quester then
 		if e.self:GetNPCTypeID() == 118334 and item_lib.check_turn_in(e.self, e.trade, {item1 = 1741}) then -- Shorn Head of Narandi
 			e.self:Emote(string.format("removes a choker from the severed head and returns both items to you, 'Congratulations on your victory, %s. I couldn't have done a better job myself. May Brell protect and watch over you and your friends. Farewell.'",e.other:GetCleanName()));
 			quest_reward(e.self, e.other, 1742, 1, 1);
+			eq.depop();
 		elseif e.self:GetNPCTypeID() == 118332 and item_lib.check_turn_in(e.self, e.trade, {item1 = 1741}) then -- Shorn Head of Narandi
 			e.self:Emote("takes a facemask from the head of the giant, 'We shall always be in your debt, outlander. Take this mask, may it protect you from those who would seek to do you harm.'");
 			quest_reward(e.self, e.other, 1743, 1, 1);
+			eq.depop();
 		elseif e.self:GetNPCTypeID() == 118331 and item_lib.check_turn_in(e.self, e.trade, {item1 = 1741}) then -- Shorn Head of Narandi
 			e.self:Emote(string.format("unhooks a glowing earring from Narandi's shorn head, 'Hmm, this looks like something special. Take it, %s, you've earned it! Be well.'",e.other:GetCleanName()));
 			quest_reward(e.self, e.other, 1744, 1, 1);
+			eq.depop();
 		elseif e.self:GetNPCTypeID() == 118337 and item_lib.check_turn_in(e.self, e.trade, {item1 = 1741}) then -- Shorn Head of Narandi
 			e.self:Emote("picks up a stick and hits the back of the dismembered head with all his might, knocking one of it's eyes out of the socket, 'Bastard killed my brother! Hope his ghost felt that one!'");
 			quest_reward(e.self, e.other, 1745, 1, 1);
+			eq.depop();
 		elseif e.self:GetNPCTypeID() == 118329 and item_lib.check_turn_in(e.self, e.trade, {item1 = 1741}) then -- Shorn Head of Narandi
 			e.self:Emote("pries a crown from the head of Narandi, 'The halls of Thurgadin will echo with praises to you for as long as we grace the face of this land. May this crown serve you well. Honor through battle!'");
 			quest_reward(e.self, e.other, 1746, 1, 1);
+			eq.depop();
 		end
 	end
 	
@@ -104,8 +113,8 @@ end
 
 function FinalStage(e)
 	stage = 5;
-	local Aldikar = eq.get_entity_list():GetMobByNpcTypeID(118351):CastToNPC();
 	Aldikar:Shout("Outlander! You've done it! The Kromrif invasion has been frustrated! Bring me the head of Narandi and your Hero's ring.");
+	eq.set_timer("WarEnd", 1200000, Aldikar);
 end
 
 function ScoutTrade(e)
@@ -115,6 +124,7 @@ function ScoutTrade(e)
 		eq.signal(118351, 61, 1000);
 		stage = 1;
 		e.self:Say(string.format("At yer service, %s. Remember now, before issuing me an order ya must disengage from any combat and be sure yer speakin to me. I advise yo to avoid combat at all costs, your leadership is crucial.",e.other:GetCleanName()));
+		quester = e.other:GetID();
 	end
 end
 
@@ -131,68 +141,12 @@ function WarTrade(e)
 		e.self:Emote("unsheathes a knife and shaves the beard from Narandi's face and returns the head to you, 'The Dain will require the beard for his trophy room, please accept this ring on his behalf. May it's effect aid you as you have aided us. Be certain to present the ring to the Dain when you're in town. If you remain an ally he will be most gracious, but be warned, if you fall from his good graces he will keep the ring.'");
 		quest_reward(e.self, e.other, 30385, 10, 2);
 		e.self:Say("Show the head to the surviving heroes quickly, we must report to the Dain and tend to the wounded.");
+		quester = e.other:GetID();
+		eq.stop_timer("WarEnd");
 		eq.set_timer("WarEnd", 300000);
 	end
 
 	item_lib.return_items(e.self, e.other, e.trade);
-end
-
-function Conversation()
-	local Badain = eq.get_entity_list():GetMobByNpcTypeID(118352):CastToNPC();
-	local Aldikar = eq.get_entity_list():GetMobByNpcTypeID(118351):CastToNPC();
-	local Garadain = eq.get_entity_list():GetMobByNpcTypeID(118334):CastToNPC();
-	local Dobbin = eq.get_entity_list():GetMobByNpcTypeID(118332):CastToNPC();
-	local Kargin = eq.get_entity_list():GetMobByNpcTypeID(118337):CastToNPC();
-	local Churn = eq.get_entity_list():GetMobByNpcTypeID(118329):CastToNPC();
-	local Corbin = eq.get_entity_list():GetMobByNpcTypeID(118331):CastToNPC();
-	Kargin:Emote("'s stomach growls loudly.");
-	ThreadManager:Wait(1);
-	Garadain:Say("With all due respect, Seneschal, I feel my men are best suited for the eastern post. If the outlander has rounded up enough soldiers to hold 'em off from the south then they'll definitely test us in the gorge. We'll be needin' a solid defense there.");
-	ThreadManager:Wait(1);
-	Aldikar:Say("Very well, Garadain, the eastern post is yours. I'll place Kargin and his bowmen on the hill to the west, and Churn, you'll station your troops up near the caves just past them.");
-	ThreadManager:Wait(1);
-	Garadain:Emote("bows and departs to the east.");
-	Garadain:Depop();
-	eq.signal(118351, 57, 1000);
-	ThreadManager:Wait(1);
-	Churn:Say("Understood sir.");
-	Churn:Emote("turns to walk west.");
-	Churn:Depop();
-	eq.signal(118351, 58, 1000);
-	ThreadManager:Wait(1);
-	Kargin:Emote("nods quietly and slinks away.");
-	Kargin:Depop();
-	eq.signal(118351, 60, 1000);
-	ThreadManager:Wait(1);
-	Badain:Say("Excuse me, Seneschal Aldikar, you instructed me to report to you when the outlander returned.");
-	ThreadManager:Wait(1);
-	Aldikar:Say("Perfect timing outlander, please be seated and listen carefully. Badain, yer dismissed.");
-	ThreadManager:Wait(1);
-	Badain:Say("Sir, yessir!");
-	Badain:Depop(true);
-	ThreadManager:Wait(1);
-	Aldikar:Say("We knew the day might come when the Kromrif would discover the location of our beloved city. It was only prudent for there to be a plan for such a circumstance. In light of recent developments, however, our plans have been adjusted. Outlander, the Dain has appointed you to lead our armies in defense of Thurgadin.");
-	ThreadManager:Wait(1);
-	Aldikar:Say("I will stand here with a handful of men as a final line of defense. Should I fall, all will be lost. You will have these men and their soldiers to command. Use them wisely, you will be richly rewarded if your forces are able to keep them alive.");
-	ThreadManager:Wait(1);
-	Aldikar:Say("Garadain will post his men in the gorge to the east. Churn and his men will await your command in the caves to the west. Dobbin will have his forces at the ready in the clearing directly south of here near the towers. If any Kromrif make it to his vicinity he and his men will attack with or without your command.");
-	ThreadManager:Wait(1);
-	Dobbin:Emote("salutes and marches southward.");
-	Dobbin:Depop();
-	eq.signal(118351, 56, 1000);
-	ThreadManager:Wait(1);
-	Aldikar:Say("Lastly, Corbin will hide his men in the worm caves to the south, call on him for a surprise attack. Remember where these men are stationed, outlander. Should they call out for help you may wish to send some of your people to aid them.");
-	ThreadManager:Wait(1);
-	Corbin:Emote("runs off unceremoniously.");
-	Corbin:Depop();
-	eq.signal(118351, 59, 1000);
-	ThreadManager:Wait(1);
-	Aldikar:Say("The leader of this invasion is a powerful Kromrif named Narandi. Rumor has it that he is more powerful than any ten of his peers. He must fall. When he is slain you must show his head and your ring to me.");
-	ThreadManager:Wait(1);
-	Aldikar:Say("Scout Zrelik here will follow you and serve as your herald. He will relay your orders to the troops. Show me your ring now to verify your identity and I will give you the orders to memorize.");
-	-- spawn Zrelik and advance stage
-	eq.unique_spawn(118354, 0, 0, -110, -545, 77, 223);
-	stage = 0
 end
 
 function ConversationStart()
@@ -208,40 +162,122 @@ function ConversationStart()
 	
 end
 
+function Conversation()
+	local Badain = eq.get_entity_list():GetMobByNpcTypeID(118352):CastToNPC();
+	local Garadain = eq.get_entity_list():GetMobByNpcTypeID(118334):CastToNPC();
+	local Dobbin = eq.get_entity_list():GetMobByNpcTypeID(118332):CastToNPC();
+	local Kargin = eq.get_entity_list():GetMobByNpcTypeID(118337):CastToNPC();
+	local Churn = eq.get_entity_list():GetMobByNpcTypeID(118329):CastToNPC();
+	local Corbin = eq.get_entity_list():GetMobByNpcTypeID(118331):CastToNPC();
+	Kargin:Emote("'s stomach growls loudly.");
+	ThreadManager:Wait(5);
+	Garadain:Say("With all due respect, Seneschal, I feel my men are best suited for the eastern post. If the outlander has rounded up enough soldiers to hold 'em off from the south then they'll definitely test us in the gorge. We'll be needin' a solid defense there.");
+	ThreadManager:Wait(30);
+	Aldikar:Say("Very well, Garadain, the eastern post is yours. I'll place Kargin and his bowmen on the hill to the west, and Churn, you'll station your troops up near the caves just past them.");
+	ThreadManager:Wait(10);
+	Garadain:Emote("bows and departs to the east.");
+	Garadain:Depop();
+	eq.signal(118351, 57, 1000);
+	ThreadManager:Wait(10);
+	Churn:Say("Understood sir.");
+	Churn:Emote("turns to walk west.");
+	Churn:Depop();
+	eq.signal(118351, 58, 1000);
+	ThreadManager:Wait(10);
+	Kargin:Emote("nods quietly and slinks away.");
+	Kargin:Depop();
+	eq.signal(118351, 60, 1000);
+	ThreadManager:Wait(10);
+	Badain:Say("Excuse me, Seneschal Aldikar, you instructed me to report to you when the outlander returned.");
+	ThreadManager:Wait(15);
+	Aldikar:Say("Perfect timing outlander, please be seated and listen carefully. Badain, yer dismissed.");
+	ThreadManager:Wait(5);
+	Badain:Say("Sir, yessir!");
+	Badain:Depop(true);
+	ThreadManager:Wait(15);
+	Aldikar:Say("We knew the day might come when the Kromrif would discover the location of our beloved city. It was only prudent for there to be a plan for such a circumstance. In light of recent developments, however, our plans have been adjusted. Outlander, the Dain has appointed you to lead our armies in defense of Thurgadin.");
+	ThreadManager:Wait(30);
+	Aldikar:Say("I will stand here with a handful of men as a final line of defense. Should I fall, all will be lost. You will have these men and their soldiers to command. Use them wisely, you will be richly rewarded if your forces are able to keep them alive.");
+	ThreadManager:Wait(30);
+	Aldikar:Say("Garadain will post his men in the gorge to the east. Churn and his men will await your command in the caves to the west. Dobbin will have his forces at the ready in the clearing directly south of here near the towers. If any Kromrif make it to his vicinity he and his men will attack with or without your command.");
+	ThreadManager:Wait(15);
+	Dobbin:Emote("salutes and marches southward.");
+	Dobbin:Depop();
+	eq.signal(118351, 56, 1000);
+	ThreadManager:Wait(15);
+	Aldikar:Say("Lastly, Corbin will hide his men in the worm caves to the south, call on him for a surprise attack. Remember where these men are stationed, outlander. Should they call out for help you may wish to send some of your people to aid them.");
+	ThreadManager:Wait(10);
+	Corbin:Emote("runs off unceremoniously.");
+	Corbin:Depop();
+	eq.signal(118351, 59, 1000);
+	ThreadManager:Wait(15);
+	Aldikar:Say("The leader of this invasion is a powerful Kromrif named Narandi. Rumor has it that he is more powerful than any ten of his peers. He must fall. When he is slain you must show his head and your ring to me.");
+	ThreadManager:Wait(15);
+	Aldikar:Say("Scout Zrelik here will follow you and serve as your herald. He will relay your orders to the troops. Show me your ring now to verify your identity and I will give you the orders to memorize.");
+	-- spawn Zrelik and advance stage
+	eq.unique_spawn(118354, 0, 0, -110, -545, 77, 223);
+	stage = 0
+	eq.set_timer("handin1", 6000000, Aldikar);
+end
+
+function ShoutingMatch1()
+	eq.unique_spawn(118345, 0, 0, -5000, -5000, 0, 0);
+	local Narandi = eq.get_entity_list():GetMobByNpcTypeID(118345):CastToNPC();
+	Narandi:SetInvul(true);
+	
+	Aldikar:Shout("Good citizens of Thurgadin, hear me! Our city, our people, our very lives are in danger this day. The Kromrif are at this very moment marching towards us in an offensive they hope will bring about our demise... ");
+	ThreadManager:Wait(30);
+	Aldikar:Shout("I hereby command, by authority of Dain Frostreaver the Fourth, that all able bodied Coldain fight to the death in defense of our land. Children, disabled citzens, and unseasoned travellers are advised to evacuate immediately!");
+	ThreadManager:Wait(30);
+	Aldikar:Shout("My fellow soldiers, take heart! For we are not alone in this endeavor. One among us, an outlander, has earned the title Hero of the Dain for valiant service to our people. This newcomer has brought with him allies that will fight alongside you to help bring about our victory.");
+	ThreadManager:Wait(30);
+	Aldikar:Shout("My friends... Brell did not place us here so many centuries ago to be slaughtered by these heathens. Nor did our forefather, Colin Dain, sacrifice himself simply to have us fail here now. Through these events we were brought to this day to test our strength and our faith.");
+	ThreadManager:Wait(30);
+	Aldikar:Shout("Will we be shackled together to slave away in Kromrif mines or will we stand united and feed these beasts Coldain blades? By Brell I promise you, 'It is better to die on our feet than to live on our knees!'");
+	ThreadManager:Wait(30);
+	Aldikar:Shout("TROOPS, TAKE YOUR POSITIONS!!");
+	ThreadManager:Wait(30);
+	Narandi:Shout("No need to pray to your little God stumpymen, you'll be meeting him in person soon enough!");
+	ThreadManager:Wait(30);
+	Aldikar:Shout("You'll be begging Brell for forgiveness by the day's end, vile beast!");
+	ThreadManager:Wait(30);
+	Narandi:Shout("Kromrif! Form up! Dispatch these tiny fools and destroy Thurgadin. Theres a keg of ice mead waiting for every man back at home.");
+	Narandi:Depop();
+	GiantSpawn();
+end
+
 function ShoutingMatch2()
-	local Aldikar = eq.get_entity_list():GetMobByNpcTypeID(118351):CastToNPC();
 	eq.unique_spawn(118345, 0, 0, -5000, -5000, 0, 0);
 	local Narandi = eq.get_entity_list():GetMobByNpcTypeID(118345):CastToNPC();
 	Narandi:SetInvul(true);
 	
 	Aldikar:Shout("Outlander, our scouts report no more Kromrif units on the way - for the time being. Resurrect your fallen and heal your wounded. I have a feeling we haven't seen the last of them. ");
-	ThreadManager:Wait(1);
+	ThreadManager:Wait(60);
 	Narandi:Shout("Interlopers! You've chosen the wrong side in this war. My warriors will succeed where the young recruits have failed. You shall suffer the same fate as the pathetic vermin you serve. Your heads shall be perched upon our spears along with those of your Coldain friends!");
-	ThreadManager:Wait(1);
+	ThreadManager:Wait(60);
 	Aldikar:Shout("Pay no attention to his babbling, outlander. It is our destiny to emerge victorious. Prepare your army for glorious battle!");
-	ThreadManager:Wait(1);
+	ThreadManager:Wait(60);
 	Narandi:Shout("My warriors approach, I offer you one final opportunity to bow before the might of Rallos Zek. Throw down your weapons and surrender. You will live out your lives in relative peace, rightfully serving your Kromrif masters.");
-	ThreadManager:Wait(1);
+	ThreadManager:Wait(60);
 	Aldikar:Shout("Enough! Show yourself coward! Your blasphemous words shall be etched upon your spacious brow. All will mock you for generations to come. Your own god will forsake you when he witnesses your defeat here today!");
-	ThreadManager:Wait(1);
+	ThreadManager:Wait(300);
 	Narandi:Shout("Warriors! Charge through these pompous fools. Any you manage to capture shall become your personal slaves. The outlanders and the Seneschal must die! Bring me their heads!");
 	Narandi:Depop();
 end
 
 function ShoutingMatch3()
-	local Aldikar = eq.get_entity_list():GetMobByNpcTypeID(118351):CastToNPC();
 	eq.unique_spawn(118345, 0, 0, -5000, -5000, 0, 0);
 	local Narandi = eq.get_entity_list():GetMobByNpcTypeID(118345):CastToNPC();
 	Narandi:SetInvul(true);
 	
 	Aldikar:Shout("Well fought, friends! May the piles of Kromrif corpses strike fear in the hearts of our overgrown enemies.");
-	ThreadManager:Wait(1);
+	ThreadManager:Wait(60);
 	Narandi:Shout("Silence fool! Speak not of our fallen. They who die honorably in combat earn an eternal rest in the company of our greatest heroes... even Rallos Zek himself!");
-	ThreadManager:Wait(1);
+	ThreadManager:Wait(60);
 	Aldikar:Shout("It is your misguided beliefs that made this war necessary. Now you feel the sting of your errors. Return to Kael and preach the doctrine of Brell Serilis in hopes that your people may someday be spared.");
-	ThreadManager:Wait(1);
+	ThreadManager:Wait(60);
 	Narandi:Shout("Enough chatter. Our veterans approach now to finish you. You have been tested and your weaknesses have been assessed. Bid farewell to your dear Thurgadin, those of you who are fortunate enough to survive the slaughter shall make a new home in the Kromrif slave pens!");
-	ThreadManager:Wait(1);
+	ThreadManager:Wait(480);
 	Narandi:Shout("Veterans! Be sure that this time we allow none of the stumpymen to escape to create yet another city. This shall be our final war with these unworthy beings.");
 	Narandi:Depop();
 end
@@ -252,6 +288,7 @@ function PreSetup()
 	Badain:MoveTo(-110, -545, 77, 223, true);
 	-- Seneschal Aldikar pop
 	eq.unique_spawn(118351, 0, 0, -125, -530, 77, 90);
+	Aldikar = eq.get_entity_list():GetMobByNpcTypeID(118351):CastToNPC();
 	-- 5 dwarf hero spawns
 	eq.signal(118351, 51);
 	eq.signal(118351, 52);
@@ -261,7 +298,6 @@ function PreSetup()
 end
 
 function PostSetup()
-	local Aldikar = eq.get_entity_list():GetMobByNpcTypeID(118351):CastToNPC();
 	Aldikar:MoveTo(-125, -530, 77, 90, true);
 	
 	-- repop surviving heroes at thurg valley
@@ -287,47 +323,17 @@ function PostSetup()
 	end
 end
 
-function ShoutingMatch1()
-	local Aldikar = eq.get_entity_list():GetMobByNpcTypeID(118351):CastToNPC();
-	eq.unique_spawn(118345, 0, 0, -5000, -5000, 0, 0);
-	local Narandi = eq.get_entity_list():GetMobByNpcTypeID(118345):CastToNPC();
-	Narandi:SetInvul(true);
-	
-	Aldikar:Shout("Good citizens of Thurgadin, hear me! Our city, our people, our very lives are in danger this day. The Kromrif are at this very moment marching towards us in an offensive they hope will bring about our demise... ");
-	ThreadManager:Wait(1);
-	Aldikar:Shout("I hereby command, by authority of Dain Frostreaver the Fourth, that all able bodied Coldain fight to the death in defense of our land. Children, disabled citzens, and unseasoned travellers are advised to evacuate immediately!");
-	ThreadManager:Wait(1);
-	Aldikar:Shout("My fellow soldiers, take heart! For we are not alone in this endeavor. One among us, an outlander, has earned the title Hero of the Dain for valiant service to our people. This newcomer has brought with him allies that will fight alongside you to help bring about our victory.");
-	ThreadManager:Wait(1);
-	Aldikar:Shout("My friends... Brell did not place us here so many centuries ago to be slaughtered by these heathens. Nor did our forefather, Colin Dain, sacrifice himself simply to have us fail here now. Through these events we were brought to this day to test our strength and our faith.");
-	ThreadManager:Wait(1);
-	Aldikar:Shout("Will we be shackled together to slave away in Kromrif mines or will we stand united and feed these beasts Coldain blades? By Brell I promise you, 'It is better to die on our feet than to live on our knees!'");
-	ThreadManager:Wait(1);
-	Aldikar:Shout("TROOPS, TAKE YOUR POSITIONS!!");
-	ThreadManager:Wait(1);
-	Narandi:Shout("No need to pray to your little God stumpymen, you'll be meeting him in person soon enough!");
-	ThreadManager:Wait(1);
-	Aldikar:Shout("You'll be begging Brell for forgiveness by the day's end, vile beast!");
-	ThreadManager:Wait(1);
-	Narandi:Shout("Kromrif! Form up! Dispatch these tiny fools and destroy Thurgadin. Theres a keg of ice mead waiting for every man back at home.");
-	Narandi:Depop();
-	GiantSpawn();
-end
-
 function GiantSpawn()
-	-- local spawn_time = 300000 - math.random(300000); -- base time till next wave
-	local spawn_time = 10000 - math.random(10000);
+	local spawn_time = 315000 - math.random(300000); -- base time till next wave
 
 	if stage == 1 and boss_count == 0 and miss_count == 0 then -- checks for first execution
 		eq.signal(118351, 50, 1000);
 		spawn_time = 1000; -- shorter time for first wave
 	end
 	
-	local Aldikar = eq.get_entity_list():GetMobByNpcTypeID(118351);
 	if boss_count >= 4 then
 		if stage < 3 then
-			-- spawn_time = 420000; -- longer pause before new stage
-			spawn_time = 20000;
+			spawn_time = 420000; -- longer pause before new stage
 			boss_count = 0;
 			miss_count = 0;
 			stage = stage + 1;
@@ -335,8 +341,7 @@ function GiantSpawn()
 		elseif stage == 3 then
 			stage = 4
 			next_spawn = { [118345] = 1 };
-			-- eq.set_timer("Narandi", 300000, Aldikar);
-			eq.set_timer("Narandi", 3000, Aldikar);
+			eq.set_timer("Narandi", 120000, Aldikar);
 			return
 		end
 	end
@@ -344,7 +349,7 @@ function GiantSpawn()
 	local boss;
 	local prc = 25; -- pseudorandom constant (25 is ~50% chance)
 	local boss_chance = math.random(100);
-	if boss_chance < prc * (miss_count + 1) then
+	if boss_chance <= prc * (miss_count + 1) then
 		boss = 1;
 		boss_count = boss_count + 1;
 		miss_count = 0;
@@ -354,33 +359,23 @@ function GiantSpawn()
 	end
 	
 	if stage == 1 then
-		-- next_spawn = { [118340] = 10, [118338] = boss };
-		next_spawn = { [118340] = 2, [118338] = boss };
+		next_spawn = { [118340] = 10, [118338] = boss };
 	elseif stage == 2 then
-		-- spawn_time = spawn_time + 120000;
-		spawn_time = spawn_time + 2000;
-		-- next_spawn = { [118344] = 8, [118346] = 2, [118339] = boss };
-		next_spawn = { [118344] = 2, [118346] = 1, [118339] = boss };
+		spawn_time = spawn_time + 120000;
+		next_spawn = { [118344] = 8, [118346] = 2, [118339] = boss };
 	elseif stage == 3 then
-		-- spawn_time = spawn_time + 240000;
-		spawn_time = spawn_time + 4000;
-		-- next_spawn = { [118342] = 8, [118335] = 2, [118343] = boss };
-		next_spawn = { [118342] = 2, [118335] = 1, [118343] = boss };
+		spawn_time = spawn_time + 240000;
+		next_spawn = { [118342] = 8, [118335] = 2, [118343] = boss };
 	end
 	
 	local spawn_loc = eq.ChooseRandom(1,2,3,4,5);
 	eq.set_timer("Spawn" .. spawn_loc, spawn_time, Aldikar);
 	
-	eq.zone_emote(1, "Timer launched: Spawn" .. spawn_loc);
-	eq.zone_emote(1, "Timer length is " .. spawn_time);
-	eq.zone_emote(1, "Boss count is " .. boss_count);
-	
-	
 end
 
 function ScoutMove(e)
 	local pos = { e.other:GetX(), e.other:GetY(), e.other:GetZ(), 0.5 };
-	if stage > 0 then
+	if stage > 0 and e.other:GetID() == quester then
 		if(e.message:findi("Dobbin assist me!")) then
 			call_dwarves(pos, 6);
 			e.self:Say("Dobbin is on his way!");
@@ -518,9 +513,13 @@ function WarEnd(end_type)
 	eq.depop_zone(false);
 	eq.repop_zone();
 	if end_type < 1 then
-		eq.zone_emote(1, "WAR FAIL");
+		spawn_Mobs(118342, -130, -250, 100, -130, -20, 100, 100, 6, 0);
+		spawn_Mobs(118342, -70, -250, 100, -80, -20, 100, 160, 6, 0);
+		eq.spawn2(118343, 0, 0, -90, 5, 98, 192);
+		eq.spawn2(118343, 0, 0, -135, 5, 98, 64);
+		eq.set_global("RingTen","FAIL",7,"H24");
 	end
-	-- eq.unload_encounter("RingTen");
+	eq.signal(118361, 101);
 end
 
 function WarTimers(e)
@@ -564,11 +563,11 @@ function WarTimers(e)
 		PostSetup();
 		spawn_helper(next_spawn, 10, 1, 1, 10, 192);
 		e.self:Shout("Outlander! Narandi is plotting his retreat! Don't let him escape alive!");
-		eq.set_timer("NarDepop", 600000);
+		eq.set_timer("NarDepop", 1800000);
 	elseif e.timer == "handin1" then
 		eq.stop_timer("handin1");
 		if stage < 1 then
-			e.self:Say("Outlander, the enemy approaches. If you do not hand Zrelik the orders you will not be able to command the Coldain armies. You have one minute remaining.");
+			e.self:Say("Outlander, the enemy approaches. Proceed or we will have to carry on without your help! You have one minute remaining.");
 			eq.set_timer("handin2", 60000);
 		end
 	elseif e.timer == "handin2" then
@@ -589,9 +588,6 @@ function WarTimers(e)
 	elseif e.timer == "WarEnd" then
 		eq.stop_timer("WarEnd");
 		WarEnd(1);
-	elseif e.timer == "Door" then
-		eq.stop_timer("Door");
-		WarEnd(0);
 	end
 end
 
@@ -657,11 +653,6 @@ end
 function AllWaypoint(e)
 	if is_in(e.self:GetNPCTypeID(), Giants) then
 		e.self:SetRunning(true);
-		if e.self:GetY() > 45 and e.self:GetX() > -1000 then
-			local Aldikar = eq.get_entity_list():GetMobByNpcTypeID(118351):CastToNPC();
-			Aldikar:Shout("The gates of Thurgadin are breached! Retreat!");
-			WarEnd(1)
-		end
 	end
 	
 	entity_data[e.self:GetID()]['wp'] = entity_data[e.self:GetID()]['wp'] + 1;
@@ -722,9 +713,9 @@ function spawn_helper(npcs, path, col, row, spacing, heading)
 end
 
 function spawn_Mobs(npcId, startX, startY, startZ, endX, endY, endZ, heading, numMobs, grid)
-	local xDiff = round((startX - endX) / numMobs, 2) * -1;
-	local yDiff = round((startY - endY) / numMobs, 2) * -1;
-	local zDiff = round((startZ - endZ) / numMobs, 2) * -1;
+	local xDiff = round((startX - endX) / numMobs, 0) * -1;
+	local yDiff = round((startY - endY) / numMobs, 0) * -1;
+	local zDiff = round((startZ - endZ) / numMobs, 0) * -1;
 	
 	for i = 0, numMobs-1 do
 		eq.spawn2(npcId, grid, 0, startX + (xDiff*i), startY + (yDiff*i), startZ + (zDiff*i), heading);
@@ -733,11 +724,9 @@ end
 
 function spawn_Mobs_tables(npcs, locs, columns, rows, spacing, heading)
 	-- npcs is a table of format { [npcID] = number_to_spawn }
-	-- eq.zone_emote(13, 'SPAWN ENTERED');
 	local startX = locs[1] - (rows / 2) * spacing;
 	local startY = locs[2] - (columns / 2) * spacing;
 	local startZ = locs[3];
-	-- eq.zone_emote(13, 'LOCS ACQUIRED');
 	
 	-- iterate over whole table to get all keys
 	local keyset = {};
@@ -746,7 +735,6 @@ function spawn_Mobs_tables(npcs, locs, columns, rows, spacing, heading)
 			table.insert(keyset, k)
 		end
 	end
-	-- eq.zone_emote(13, 'KEYSET GENERATED');
 	
 	local empty = false;
 	for j = 0, rows-1 do
@@ -762,7 +750,6 @@ function spawn_Mobs_tables(npcs, locs, columns, rows, spacing, heading)
 			local k = math.random(#keyset);
 			local new_npc = keyset[k];
 			eq.spawn2(new_npc, 0, 0, startX + spacing*j, startY + spacing*i, startZ, heading);
-			-- eq.zone_emote(13, 'SPAWNED:' .. new_npc);
 			npcs[keyset[k]] = npcs[keyset[k]] - 1;
 			if npcs[keyset[k]] == 0 then
 				table.remove(keyset, k)
