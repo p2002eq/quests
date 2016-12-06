@@ -47,17 +47,21 @@ function event_trade(e)
 		e.other:Faction(67, 100); --Dain
 		e.other:Faction(179, -100); --King Tormax
 		e.other:SummonItem(30502); --Tri-Plated Golden Hackle Hammer
-	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 1465}) and (e.other:GetFaction(e.self == 1))) then --Must be ally
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 1465}) and (e.other:GetFaction(e.self) == 1)) then --Must be ally
 		e.self:Say("My good "..e.other:GetName()..", you have served me well. You have flushed out all who sought to oppose me and my people. I am afraid I need to call upon you and your friends one final time. The dissention and treason ran deeper than I had anticipated. Our population has been cleansed, but we lost a full third of our army to the poisonous words of those rebels. In retaliation for your deeds, the Kromrif have made plans to attack us in this, our weakest hour. Can I count on your help outlander?");
 		e.other:SummonItem(1465); --Dirk of the Dain
-	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 1199})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 1199} or {item1 = 8895})) then
 		e.self:Say("Ah "..e.other:GetName()..". I was hoping to see you. We require your skilled hand. The Armory is overtaxed preparing armor for the war we are preparing to wage on the Kromzek. We need you to help by creating some Field Plate for a mission that is near to execution. Go see Loremaster Solstrin in the Hall of Ancestors, give him these orders. He holds the lore recorded on how to make the field plate. Return to me when you have completed a Standard Issue Kit.");
-		e.other:SummonItem(8895); --Runed Prayer Prayer Shawl (Dain approved)
+		e.other:SummonItem(1199); --Runed Prayer Prayer Shawl (Dain approved)
 		e.other:SummonItem(8896); --Royal Coldain Orders
 	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 8886})) then	
 		e.self:Say("Excellent work "..e.other:GetName()..". If I didn't know I would assume this was made by our most skilled artisans.  You must hurry, General Bragmur has formed camp in Iceclad. Take the kit to the General, he had to drudge forward without any armor. His [mission] must be a success if we hope to successfully defend Thurgadin against the Giants.");
 		e.other:SummonItem(8898); --Approved Issue Kit
 		e.other:SummonItem(8897); --Expedition Orders
+	elseif item_lib.check_turn_in(e.self, e.trade, {item1 = 30385}) and e.other:GetFaction(e.self) == 1 then -- 10th ring
+		e.self:Say(e.other:GetName()..", your deeds have changed the fate of my people forever. Not since the sacrifice of Colin Dain himself has anyone so selflessly risked so much for our well being. Accept this blessing as a token of my gratitude.");
+		e.other:SummonItem(30385);
+		e.other:SummonItem(1747, 1); --Protection of the Dain
 	end
 	item_lib.return_items(e.self, e.other, e.trade)	
 		
