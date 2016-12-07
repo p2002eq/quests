@@ -49,7 +49,7 @@ function event_trade(e)
 		e.other:SummonItem(30502); --Tri-Plated Golden Hackle Hammer
 	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 1465}) and (e.other:GetFaction(e.self) == 1)) then --Must be ally
 		e.self:Say("My good "..e.other:GetName()..", you have served me well. You have flushed out all who sought to oppose me and my people. I am afraid I need to call upon you and your friends one final time. The dissention and treason ran deeper than I had anticipated. Our population has been cleansed, but we lost a full third of our army to the poisonous words of those rebels. In retaliation for your deeds, the Kromrif have made plans to attack us in this, our weakest hour. Can I count on your help outlander?");
-		e.other:SummonItem(1465); --Dirk of the Dain
+		e.other:SummonItem(1567); --Declaration of War
 	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 1199} or {item1 = 8895})) then
 		e.self:Say("Ah "..e.other:GetName()..". I was hoping to see you. We require your skilled hand. The Armory is overtaxed preparing armor for the war we are preparing to wage on the Kromzek. We need you to help by creating some Field Plate for a mission that is near to execution. Go see Loremaster Solstrin in the Hall of Ancestors, give him these orders. He holds the lore recorded on how to make the field plate. Return to me when you have completed a Standard Issue Kit.");
 		e.other:SummonItem(1199); --Runed Prayer Prayer Shawl (Dain approved)
