@@ -37,3 +37,12 @@ function sum(t) -- helper function to sum array (wtf? why does lua not have this
 
     return sum
 end
+
+function event_enter_zone(e)
+	local qglobals = eq.get_qglobals(e.self);
+	if qglobals['RingTen'] == "FAIL" then
+		eq.depop_zone(false);
+	else
+		eq.repop_zone();
+	end
+end
