@@ -33,7 +33,7 @@ function event_trade(e)
 			e.other:SummonItem(29647);	--Clawed Griffin Sword
 		end
 	else
-		if(item_lib.check_turn_in(e.self, e.trade, {{item1 = 30516} or {item1= 29647} or {item1 = 29645} or {item1 = 29648}})) then --Higher than Kindly
+		if item_lib.check_turn_in(e.self, e.trade, {item1 = 30516}) or item_lib.check_turn_in(e.self, e.trade, {item1 = 29647}) or item_lib.check_turn_in(e.self, e.trade, {item1 = 29645}) or item_lib.check_turn_in(e.self, e.trade, {item1 = 29648}) then --Higher than Kindly
 			e.self:Say("I do not know you well enough to entrust you with such an item, yet.");
 			item_lib.return_items(e.self, e.other, e.trade);	
 		end
