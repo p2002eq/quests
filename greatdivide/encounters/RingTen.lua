@@ -260,7 +260,7 @@ function ShoutingMatch2()
 	Narandi:Shout("My warriors approach, I offer you one final opportunity to bow before the might of Rallos Zek. Throw down your weapons and surrender. You will live out your lives in relative peace, rightfully serving your Kromrif masters.");
 	ThreadManager:Wait(60);
 	Aldikar:Shout("Enough! Show yourself coward! Your blasphemous words shall be etched upon your spacious brow. All will mock you for generations to come. Your own god will forsake you when he witnesses your defeat here today!");
-	ThreadManager:Wait(300);
+	ThreadManager:Wait(270);
 	Narandi:Shout("Warriors! Charge through these pompous fools. Any you manage to capture shall become your personal slaves. The outlanders and the Seneschal must die! Bring me their heads!");
 	Narandi:Depop();
 end
@@ -277,7 +277,7 @@ function ShoutingMatch3()
 	Aldikar:Shout("It is your misguided beliefs that made this war necessary. Now you feel the sting of your errors. Return to Kael and preach the doctrine of Brell Serilis in hopes that your people may someday be spared.");
 	ThreadManager:Wait(60);
 	Narandi:Shout("Enough chatter. Our veterans approach now to finish you. You have been tested and your weaknesses have been assessed. Bid farewell to your dear Thurgadin, those of you who are fortunate enough to survive the slaughter shall make a new home in the Kromrif slave pens!");
-	ThreadManager:Wait(480);
+	ThreadManager:Wait(420);
 	Narandi:Shout("Veterans! Be sure that this time we allow none of the stumpymen to escape to create yet another city. This shall be our final war with these unworthy beings.");
 	Narandi:Depop();
 end
@@ -324,7 +324,7 @@ function PostSetup()
 end
 
 function GiantSpawn()
-	local spawn_time = 315000 - math.random(300000); -- base time till next wave
+	local spawn_time = 315000 - math.random(285000); -- base time till next wave
 
 	if stage == 1 and boss_count == 0 and miss_count == 0 then -- checks for first execution
 		eq.signal(118351, 50, 1000);
@@ -361,10 +361,10 @@ function GiantSpawn()
 	if stage == 1 then
 		next_spawn = { [118340] = 10, [118338] = boss };
 	elseif stage == 2 then
-		spawn_time = spawn_time + 120000;
+		spawn_time = spawn_time + 90000;
 		next_spawn = { [118344] = 8, [118346] = 2, [118339] = boss };
 	elseif stage == 3 then
-		spawn_time = spawn_time + 240000;
+		spawn_time = spawn_time + 180000;
 		next_spawn = { [118342] = 8, [118335] = 2, [118343] = boss };
 	end
 	
@@ -598,22 +598,28 @@ function AllSpawn(e)
 	if NpcID == 118351 then
 		eq.set_timer("TMHB", 100);
 		eq.set_timer("RingTenHB", 5000);
-	-- check for NPCs that match list of giants and set their runspeed to SoW
 	end
 	
+	-- check for NPCs that match list of giants and set their runspeed to SoW
 	if is_in(NpcID, Giants) or NpcID == 118345 then
 		e.self:ModifyNPCStat("runspeed","1.875");
+		
 	-- permaroot the permarooted mobs
 	elseif is_in(NpcID, Statics) then
 		e.self:ModifyNPCStat("runspeed","0");
 		if NpcID ~= 118341 then
 			e.self:AddItem(30149, 0, true)
 		end
+
 	-- check for NPCs that match list of Dwarves and heroes and set them to run
-	elseif is_in(NpcID, Dwarves) then
+	elseif is_in(NpcID, table_concat(Dwarves, Heroes)) then
 		e.self:SetRunning(true);
-	elseif is_in(NpcID, Heroes) then
-		e.self:SetRunning(true);
+	
+	-- else depop anything that not on the list except pets
+	else
+		if not e.self:IsPet() then
+			e.self:Depop();
+		end
 	end
 end
 
@@ -621,10 +627,31 @@ function AllSignal(e)
 	if e.signal >= 0 and e.signal <= 20 and not entity_data[e.self:GetID()] then
 		-- sets paths for any naive NPCs (NPCs with set paths are unaffected)
 		entity_data[e.self:GetID()] = load_entity_data(PathInfo[e.signal], e.self:GetX(), e.self:GetY(), e.signal);
-		-- e.self:Shout("My groupID is: " .. entity_data[e.self:GetID()]['groupID'])
 	elseif e.signal >= 50 and e.signal <= 70 then
 		group_num = e.signal - 50;
 		GroupSpawn(group_num);
+	-- gm control
+	elseif e.self:GetNPCTypeID() == 118351 and e.signal > 500 then
+		eq.stop_all_timers();
+		eq.set_timer("TMHB", 100);
+		eq.set_timer("RingTenHB", 5000);
+		eq.zone_emote(1, "Urged on by a higher power, the giants regroup and change their tactics.");
+		
+		if e.signal == 1000 then
+			stage = 1;
+			boss_count = 0;
+		elseif e.signal == 2000 then
+			stage = 2;
+			boss_count = 0;
+		elseif e.signal == 3000 then
+			stage = 3;
+			boss_count = 0;
+		elseif e.signal == 4000 then
+			stage = 3;
+			boss_count = 4;
+		end
+		miss_count = 0;
+		GiantSpawn();
 	end
 	
 	issue_move(e.self:GetID(), e.self:GetNPCTypeID());
@@ -770,8 +797,8 @@ function depop_except(except)
 	if (npc_list ~= nil) then
 		for npc in npc_list.entries do
 			if (exclude_npc_list[npc:GetNPCTypeID()] == nil) then
-				-- npc.valid will be true if the NPC is actually spawned
-				if (npc.valid) then
+				-- npc.valid will be true if the NPC is actually spawned - also skips pets
+				if npc.valid and not npc:IsPet() then
 					npc:Depop()
 				end
 			end
