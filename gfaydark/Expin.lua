@@ -21,9 +21,6 @@ function event_trade(e)
 		end
 		e.other:Faction(283,15); -- Scouts of Tunare
 		e.other:QuestReward(e.self,0,2,0,0,0,800); -- 10% of level 3 experience.  Newbie quest, being a bit generous compared to the guidelines.
-	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 16390})) then -- Crumpled Piece of Paper
-		e.self:Say("Ahhh! You found it! Here let me make you a copy and put this in a secure spot so I don't lose it again.");
-		e.other:QuestReward(e.self,0,0,0,0,24098,5061818); -- Remiss Sketch
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
