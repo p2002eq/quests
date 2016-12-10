@@ -35,7 +35,7 @@ function event_spawn(e)
 end
 
 function event_timer(e)
-    if (e.timer == "Depop") then
+    if (e.timer == "depop") then
         eq.depop();
     end
 end

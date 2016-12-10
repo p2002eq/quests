@@ -33,11 +33,12 @@ function event_trade(e)
 			e.other:SummonItem(29647);	--Clawed Griffin Sword
 		end
 	else
-		if item_lib.check_turn_in(e.self, e.trade, {item1 = 30516}) or item_lib.check_turn_in(e.self, e.trade, {item1 = 29647}) or item_lib.check_turn_in(e.self, e.trade, {item1 = 29645}) or item_lib.check_turn_in(e.self, e.trade, {item1 = 29648}) then --Higher than Kindly
+		local traded_item = e.trade['item1']:GetID();
+		if item_lib.check_turn_in(e.self, e.trade, {item1 = 30516}, true) or item_lib.check_turn_in(e.self, e.trade, {item1 = 29647}) or item_lib.check_turn_in(e.self, e.trade, {item1 = 29645}) or item_lib.check_turn_in(e.self, e.trade, {item1 = 29648}) then --Higher than Kindly
 			e.self:Say("I do not know you well enough to entrust you with such an item, yet.");
-			item_lib.return_items(e.self, e.other, e.trade);	
+			e.other:SummonItem(traded_item);
 		end
 	end
-	item_lib.return_items(e.self, e.other, e.trade)
-			
+	
+	item_lib.return_items(e.self, e.other, e.trade)	
 end
