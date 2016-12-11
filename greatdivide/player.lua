@@ -1,5 +1,4 @@
 function event_enter_zone(e)
-	eq.set_timer("spires",10000);
 	local discs = require('disciplines');
 	discs:update_discs(e, e.self:GetLevel());
 end
