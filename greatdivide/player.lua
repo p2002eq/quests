@@ -10,7 +10,7 @@ function event_level_up(e)
 end
 
 function event_say(e)
-	elseif e.self:Admin() > 100 then
+	if e.self:Admin() > 100 then
 		if(e.message:findi("stage1")) then
 			eq.signal(118351, 1000);
 		elseif(e.message:findi("stage2")) then
