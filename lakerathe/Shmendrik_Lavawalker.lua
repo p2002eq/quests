@@ -1,4 +1,5 @@
 -- EPIC CLERIC
+local player;
 
 function event_say(e)
 	if(e.message:findi("hail")) then
@@ -14,6 +15,7 @@ function event_trade(e)
 			e.self:Emote("shoves the crown into a scorch marked leather satchel and cackles uncontrollably as madness twists his features and flames dance in his eyes. 'You, " .. e.other:GetName() .. ", have reduced the Riptides into chaos! Without a king to keep them in control they will ravage the settlements surrounding this lake! After the slaughter I shall return and easily burn the remainder of the villages and fishing shanties to the ground! None shall escape the fires of the Tyrant!!'");
 			e.other:QuestReward(e.self,0,0,0,0,28045); -- Oil of Fennin Ro
 			eq.unique_spawn(51138,32,0,160,3630.3,51,192.4);
+			player = e.other;
 		end
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
