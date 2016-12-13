@@ -20,37 +20,47 @@ function event_waypoint_depart(e)
 		e.self:Emote("sniffs the ground and growls.");
 		icefang = 2
 	elseif (e.wp == 22 and icefang == 2) then
-		eq.set_timer("icefang", 6000000); -- 10 min reset timer
-		eq.load_encounter("RingSix");
+		eq.set_timer("depop", 600000); -- 10 min reset timer
+		spawn_orcs()
 		icefang = 3
 	elseif (e.wp == 23 and icefang == 3) then 
 		if(eq.get_entity_list():IsMobSpawnedByNpcTypeID(116596)) then
 			eq.attack_npc_type(116596);
 		end
-		icefang = 0
 	end
 
 end
 
 function event_timer(e)
-	if (e.timer == "icefang") then
-		eq.stop_timer("icefang");
-		eq.unload_encounter("RingSix");
-		eq.depop_all(116587);
-		eq.depop_all(116596);
+	if (e.timer == "depop") then
 		--text made up
 		e.self:Emote("blends into the snowy landscape and disappears from sight.");
-		icefang = 0
+		cleanup();
 		eq.depop_with_timer();
 	end
 end
 
 function event_death_complete(e)
-    eq.stop_timer("icefang");
-    eq.unload_encounter("RingSix");
-    eq.depop_all(116596);
-    eq.depop_all(116587);
-	icefang = 0
+    cleanup();
 end
 
+function cleanup()
+	eq.stop_timer("icefang");
+	eq.depop_all(116587);
+	eq.depop_all(116596);
+	icefang = 0;
+end
+
+function spawn_orcs()
+	eq.spawn2(116596, 0, 0, -4446, -3350, 150, 74); --Poxbreath
+	--always spawn at least 2	
+	eq.spawn2(116587, 0, 0, -4398, -3354, 150, 191);
+	eq.spawn2(116587, 0, 0, -4420, -3378, 150, 254);
+	
+	if (oracleSpawns == 3) then	
+		eq.spawn2(116587, 0, 0, -4423, -3332, 150, 131);
+	elseif (oracleSpawns == 4) then
+		eq.spawn2(116587, 0, 0, -4404, -3373, 150, 226);
+	end
+end
 

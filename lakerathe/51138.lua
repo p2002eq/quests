@@ -23,10 +23,11 @@ function event_trade(e)
 end
 
 function event_timer(e)
-	if(e.timer == "dialogue" && eq.get_entity_list():IsMobSpawnedByNpcTypeID(51012)) then
+	if(e.timer == "dialogue" and eq.get_entity_list():IsMobSpawnedByNpcTypeID(51012)) then
+		eq.stop_timer("dialogue");
 		e.self:Shout("Enough!! Your existence has come to an end!");
 		eq.signal(51012,1,2000);
-	elseif(e.timer == "depop")
+	elseif(e.timer == "depop") then
 		eq.depop()
 	end
 end

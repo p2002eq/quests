@@ -1,5 +1,4 @@
 function event_enter_zone(e)
-	eq.set_timer("spires",10000);
 	local discs = require('disciplines');
 	discs:update_discs(e, e.self:GetLevel());
 end
@@ -10,7 +9,7 @@ function event_level_up(e)
 end
 
 function event_say(e)
-	elseif e.self:Admin() > 100 then
+	if e.self:Admin() > 100 then
 		if(e.message:findi("stage1")) then
 			eq.signal(118351, 1000);
 		elseif(e.message:findi("stage2")) then
