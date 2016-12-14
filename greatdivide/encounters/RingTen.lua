@@ -108,7 +108,7 @@ function quest_reward(e_self, e_other, item, xp_mult, fac_mult)
 	e_other:Faction(188, -fhit); --Kromrif
 	e_other:Faction(189, -fhit); --Kromzek
 	e_other:SummonItem(1741); -- Shorn head
-	e_other:QuestReward(e_self, 0, 0, 0, 0, item, 400000 * xp_mult); -- reward item
+	e_other:QuestReward(e_self, 0, 0, 0, 0, item, 100000 * xp_mult); -- reward item
 end
 
 function FinalStage(e)
@@ -324,7 +324,7 @@ function PostSetup()
 end
 
 function GiantSpawn()
-	local spawn_time = 315000 - math.random(285000); -- base time till next wave
+	local spawn_time = 300000 - math.random(285000); -- base time till next wave
 
 	if stage == 1 and boss_count == 0 and miss_count == 0 then -- checks for first execution
 		eq.signal(118351, 50, 1000);
@@ -361,10 +361,10 @@ function GiantSpawn()
 	if stage == 1 then
 		next_spawn = { [118340] = 10, [118338] = boss };
 	elseif stage == 2 then
-		spawn_time = spawn_time + 90000;
+		spawn_time = spawn_time + 60000;
 		next_spawn = { [118344] = 8, [118346] = 2, [118339] = boss };
 	elseif stage == 3 then
-		spawn_time = spawn_time + 180000;
+		spawn_time = spawn_time + 120000;
 		next_spawn = { [118342] = 8, [118335] = 2, [118343] = boss };
 	end
 	
@@ -510,8 +510,9 @@ end
 
 function WarEnd(end_type)
 	-- endtypes: 0 - Loss (thurg dies, giants pop), 1 - Win (simple zone repop)
-	eq.depop_zone(false);
-	eq.repop_zone();
+	local depop_control = 118361;
+	eq.unique_spawn(depop_control, 0, 0, -5000, -5000, 0, 0);
+	local controller = eq.get_entity_list():GetMobByNpcTypeID(depop_control):CastToNPC();
 	if end_type < 1 then
 		spawn_Mobs(118342, -130, -250, 100, -130, -20, 100, 100, 6, 0);
 		spawn_Mobs(118342, -70, -250, 100, -80, -20, 100, 160, 6, 0);
@@ -519,7 +520,7 @@ function WarEnd(end_type)
 		eq.spawn2(118343, 0, 0, -135, 5, 98, 64);
 		eq.set_global("RingTen","FAIL",7,"H24");
 	end
-	eq.signal(118361, 101);
+	eq.set_timer("depop", 1000, controller);
 end
 
 function WarTimers(e)
@@ -588,6 +589,8 @@ function WarTimers(e)
 	elseif e.timer == "WarEnd" then
 		eq.stop_timer("WarEnd");
 		WarEnd(1);
+	else
+		eq.depop(tonumber(e.timer));
 	end
 end
 
@@ -618,7 +621,7 @@ function AllSpawn(e)
 	-- else depop anything that not on the list except pets
 	else
 		if not e.self:IsPet() then
-			e.self:Depop();
+			eq.set_timer(tostring(NpcID), 1000, Aldikar);
 		end
 	end
 end
@@ -789,7 +792,8 @@ function spawn_Mobs_tables(npcs, locs, columns, rows, spacing, heading)
 
 end
 
-function depop_except(except)
+function depop_except(except, timer)
+	timer = timer or false;
 	-- grab the entity list
 	local entity_list = eq.get_entity_list();
 	local npc_list = entity_list:GetNPCList();
@@ -799,7 +803,11 @@ function depop_except(except)
 			if (exclude_npc_list[npc:GetNPCTypeID()] == nil) then
 				-- npc.valid will be true if the NPC is actually spawned - also skips pets
 				if npc.valid and not npc:IsPet() then
-					npc:Depop()
+					if timer then
+						npc:Depop(true)
+					else
+						npc:Depop()
+					end
 				end
 			end
 		end
