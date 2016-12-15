@@ -511,7 +511,7 @@ end
 function WarEnd(end_type)
 	-- endtypes: 0 - Loss (thurg dies, giants pop), 1 - Win (simple zone repop)
 	eq.repop_zone();
-	local controller = eq.unique_spawn(95177, 0, 0, -5000, -5000, 0, 0); -- 118361
+	local controller = eq.unique_spawn(118361, 0, 0, -5000, -5000, 0, 0);
 	if end_type < 1 then
 		spawn_Mobs(118342, -130, -250, 100, -130, -20, 100, 100, 6, 0);
 		spawn_Mobs(118342, -70, -250, 100, -80, -20, 100, 160, 6, 0);
