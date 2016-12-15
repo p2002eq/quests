@@ -1,5 +1,9 @@
 local war_started = false
 
+function event_spawn(e)
+	war_started = false
+end
+
 function event_say(e)
 	if(e.message:findi("hail")) then
 		e.self:Say("Hail, outlander. Unless ye have orders from the Dain, leave me be. I must man my post.");
@@ -9,7 +13,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 30369, item2= 1567})) and not war_started then -- 9th ring and declaration of war
+	if not war_started and item_lib.check_turn_in(e.self, e.trade, {item1 = 30369, item2= 1567}) then -- 9th ring and declaration of war
 		e.other:AddEXP(20000);
 		e.other:SummonItem(30369);
 		e.self:Say(string.format("I'll be right with you, %s.",e.other:GetCleanName()));
