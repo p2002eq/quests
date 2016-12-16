@@ -1,12 +1,12 @@
 
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Hello! I'm Grunch and I have presents that I stole from Santa! They're in my special bag! Are you [naughty]? If you help me sow a little mayhem, you can have one!");
+		e.self:Say("Hello! I'm Grinch and I have presents that I stole from Santa! They're in my special bag! Are you [naughty]? If you help me sow a little mayhem, you can have one!");
 	elseif(e.message:findi("naughty")) then
 		e.self:Emote("cackles wildly.");
-		e.self:Say("Prove to me you are one of the naughty ones! Bring me the foot bone of a Halfling, a gnome kabob, Brownie parts, and the flesh of a high elf, and you will get one of my [presents].");
+		e.self:Say("Prove to me you are one of the naughty ones! Bring me the matted hide of a Halfling, a gnome kabob, Brownie parts, and the blood of a human, and you will get one of my [presents].");
 	elseif(e.message:findi("presents")) then
-		e.self:Say("Oh what wondrous bounties I have from extraordinary adventuring weapons to exotic foods. And if you are extra special, you might be granted something rare to this world!");
+		e.self:Say("I stole all the good presents! They're all in my bag! HAHAHAHA! Quick quick!");
 	end
 end
 
@@ -14,11 +14,16 @@ function event_trade(e)
 	local qglobals = eq.get_qglobals(e.self, e.other);
 	local item_lib = require("items");
 	
-	if qglobals["naughty"] == nil and item_lib.check_turn_in(e.self, e.trade, {item1 = 16183, item2= 13365, item3 = 13466, item4 = 16579}) then
-		e.self:Emote("howls with laughter.");
-		e.self:Say("Wonderful! Wonderful! Reach into my bag and grab what you can! I'll need another laugh tomorrow, so do come back!");
-		rewards(e);
-		eq.set_global("naughty", "done", 1, "M1");
+	if qglobals["naughty"] == nil then
+		if item_lib.check_turn_in(e.self, e.trade, {item1 = 22572, item2= 22514, item3 = 13466, item4 = 16579}) then
+			e.self:Emote("howls with laughter.");
+			e.self:Say("Wonderful! Wonderful! Reach into my bag and grab what you can! I'll need another laugh tomorrow, so do come back!");
+			rewards(e);
+			e.self:SpellFinished(eq.ChooseRandom(119, 30, 214, 206), e.other);
+			eq.set_global("naughty", "done", 1, "M1");
+		end
+	else
+		e.self:Say("You can't have another yet! Come back later!");
 	end
 	
 	item_lib.return_items(e.self, e.other, e.trade);
@@ -26,6 +31,8 @@ end
 
 function rewards(ev)
 	local item_pick = math.random(1000);
+	
+	eq.world_emote(15, ev.other:GetCleanName() .. " can take new form!");
 	
 	if item_pick < 150 then -- 15%
 		ev.other:SummonItem(13032, 20); -- stack of short beer
@@ -38,7 +45,7 @@ function rewards(ev)
 	elseif item_pick < 790 then -- 9%
 		ev.other:SummonItem(32241); -- living coal
 	elseif item_pick < 880 then -- 9%
-		ev.other:SummonItem(14523); -- slime filled potion
+		ev.other:SummonItem(14523, 1); -- slime filled potion
 	elseif item_pick < 970 then -- 9%
 		ev.other:SummonItem(10081); -- midnight mallet
 	elseif item_pick < 996 then -- 2.6%

@@ -13,11 +13,16 @@ function event_trade(e)
 	local qglobals = eq.get_qglobals(e.self, e.other);
 	local item_lib = require("items");
 	
-	if qglobals.nice == nil and item_lib.check_turn_in(e.self, e.trade, {item1 = 34027, item2= 34028,item3 = 34029, item4 = 22291}) then
-		e.self:Emote("smiles broadly.");
-		e.self:Say("Santa would be proud of what you have done for these people. Happy Holidays!  Enjoy your gift! Come back tomorrow for another!");
-		rewards(e);
-		eq.set_global("nice", "done", 1, "M1");
+	if qglobals.nice == nil then
+		if item_lib.check_turn_in(e.self, e.trade, {item1 = 34027, item2= 34028,item3 = 34029, item4 = 22291}) then
+			e.self:Emote("smiles broadly.");
+			e.self:Say("Santa would be proud of what you have done for these people. Happy Holidays!  Enjoy your gift! Come back tomorrow for another!");
+			rewards(e);
+			e.self:SpellFinished(eq.ChooseRandom(119, 30, 214, 206), e.other);
+			eq.set_global("nice", "done", 1, "M1");
+		end
+	else
+		e.self:Say("You can't have another yet! Come back later!");
 	end
 	
 	item_lib.return_items(e.self, e.other, e.trade);
@@ -35,13 +40,13 @@ function rewards(ev)
 	elseif item_pick < 600 then -- 20%
 		ev.other:SummonItem(9758); -- qeynos afternoon tea
 	elseif item_pick < 699 then -- 9.9%
-		ev.other:SummonItem(14534); -- blood of wolf
+		ev.other:SummonItem(14534, 10); -- blood of wolf
 	elseif item_pick < 798 then -- 9.9%
-		ev.other:SummonItem(14896); -- great concentration
+		ev.other:SummonItem(14896, 10); -- great concentration
 	elseif item_pick < 897 then -- 9.9%
-		ev.other:SummonItem(19078); -- cloudy potion
+		ev.other:SummonItem(19078, 10); -- cloudy potion
 	elseif item_pick < 996 then -- 9.9%
-		ev.other:SummonItem(14329); -- thick amber potion
+		ev.other:SummonItem(14329, 1); -- thick amber potion
 	elseif item_pick > 995 then -- 0.4%
 		local tbl = {}; -- 31853 (high elf), 31854 (half elf), 31859 (halfling), 31860 (wood elf), 31863 (gnome)
 		if ev.other:GetRace() ~= 5 then
