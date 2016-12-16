@@ -14,12 +14,12 @@ function event_trade(e)
 	local item_lib = require("items");
 	
 	if qglobals.nice == nil then
-		if item_lib.check_turn_in(e.self, e.trade, {item1 = 34027, item2= 34028,item3 = 34029, item4 = 22291}) then
+		if item_lib.check_turn_in(e.self, e.trade, {item1 = 34027, item2 = 34028, item3 = 34029, item4 = 22291}) then
 			e.self:Emote("smiles broadly.");
 			e.self:Say("Santa would be proud of what you have done for these people. Happy Holidays!  Enjoy your gift! Come back tomorrow for another!");
 			rewards(e);
 			e.self:SpellFinished(eq.ChooseRandom(119, 30, 214, 206), e.other);
-			eq.set_global("nice", "done", 1, "M1");
+			eq.set_global("nice", "done", 1, "H23");
 		end
 	else
 		e.self:Say("You can't have another yet! Come back later!");
@@ -32,7 +32,7 @@ function rewards(ev)
 	local item_pick = math.random(1000);
 	
 	if item_pick < 100 then -- 10%
-		ev.other:SummonItem(eq.ChooseRandom(16877, 16878, 16879, 16880)); -- gnomish fireworks
+		ev.other:SummonItem(eq.ChooseRandom(16877, 16878, 16879, 16880), 1); -- gnomish fireworks
 	elseif item_pick < 200 then -- 10%
 		ev.other:SummonItem(13035); -- elven wine
 	elseif item_pick < 400 then -- 20%
@@ -61,6 +61,7 @@ function rewards(ev)
 		if ev.other:GetRace() ~= 12 then
 			table.insert(tbl, 31863);
 		end
+		eq.world_emote(15, ev.other:GetCleanName() .. " can take new form!");
 		ev.other:SummonItem(tbl[math.random(#tbl)]); -- illusion items
 	end
 	
