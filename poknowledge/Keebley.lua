@@ -56,7 +56,7 @@ function rewards(ev)
 		if ev.other:GetRace() ~= 12 then
 			table.insert(tbl, 31863);
 		end
-		ev.other:SummonItem(tbl[math.random(#tbl)];); -- illusion items
+		ev.other:SummonItem(tbl[math.random(#tbl)]); -- illusion items
 	end
 	
 end

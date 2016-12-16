@@ -1,13 +1,13 @@
 
 function event_say(e)
-		if(e.message:findi("hail")) then
-			e.self:Say("Hello! I'm Neebly and I have presents that I stole from Santa! They're in my special bag! Are you [naughty]? If you help me sow a little mayhem, you can have one!");
-		elseif(e.message:findi("naughty")) then
-			e.self:Emote("cackles wildly.");
-			e.self:Say("Prove to me you are one of the naughty ones! Bring me the foot bone of a Halfling, a gnome kabob, Brownie parts, and the flesh of a high elf, and you will get one of my [presents].");
-		elseif(e.message:findi("presents")) then
-			e.self:Say("Oh what wondrous bounties I have from extraordinary adventuring weapons to exotic foods. And if you are extra special, you might be granted something rare to this world!");
-		end
+	if(e.message:findi("hail")) then
+		e.self:Say("Hello! I'm Grunch and I have presents that I stole from Santa! They're in my special bag! Are you [naughty]? If you help me sow a little mayhem, you can have one!");
+	elseif(e.message:findi("naughty")) then
+		e.self:Emote("cackles wildly.");
+		e.self:Say("Prove to me you are one of the naughty ones! Bring me the foot bone of a Halfling, a gnome kabob, Brownie parts, and the flesh of a high elf, and you will get one of my [presents].");
+	elseif(e.message:findi("presents")) then
+		e.self:Say("Oh what wondrous bounties I have from extraordinary adventuring weapons to exotic foods. And if you are extra special, you might be granted something rare to this world!");
+	end
 end
 
 function event_trade(e)
@@ -57,7 +57,7 @@ function rewards(ev)
 		if ev.other:GetRace() ~= 128 then
 			table.insert(tbl, 31862);
 		end
-		ev.other:SummonItem(tbl[math.random(#tbl)];); -- illusion items
+		ev.other:SummonItem(tbl[math.random(#tbl)]); -- illusion items
 	end
 	
 end
