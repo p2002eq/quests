@@ -50,5 +50,11 @@ function event_trade(e)
 			eq.depop_with_timer();		
 		end
 	end
+	
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 13007})) then
+		e.self:Say("Thank you kind stranger! Make haste lest you wish to suffer my fate!");
+		e.other:SummonItem(34027);
+	end
+	
 	item_lib.return_items(e.self, e.other, e.trade);
 end

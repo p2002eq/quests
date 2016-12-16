@@ -13,7 +13,7 @@ function event_trade(e)
 		e.self:Say("Mmm. Ruby!! Me thank's you! Here take this, me got it off dead someone who try take my collection. Me think's this valuable thing..");
 		local item_random = math.random(100);
 		if item_random < 10 then
-			e.other:SummonItem(10082, 5); -- Ivandyr's Hoop
+			e.other:SummonItem(10082, 6); -- Ivandyr's Hoop
 		elseif item_random < 50 then
 			e.other:SummonItem(10080); -- Brutechopper
 		else

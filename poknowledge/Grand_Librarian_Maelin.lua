@@ -1,15 +1,9 @@
+--[[
 function event_say(e)
 	local qglobals = eq.get_qglobals(e.other);
 
 	if(
-	tonumber(qglobals.pop_poj_mavuin)						== 1 and tonumber(qglobals.pop_tactics_ralloz)			== 1 and tonumber(qglobals.pop_hoh_faye)			== 1 and
-	tonumber(qglobals.pop_poj_tribunal)						== 1 and tonumber(qglobals.pop_pos_askr_the_lost)		== 3 and tonumber(qglobals.pop_hoh_trell)			== 1 and
-	tonumber(qglobals.pop_pon_hedge_jezith)					== 1 and tonumber(qglobals.pop_pos_askr_the_lost_final)	== 1 and tonumber(qglobals.pop_hoh_garn)			== 1 and
-	tonumber(qglobals.pop_pon_construct)					== 1 and tonumber(qglobals.pop_pov_aerin_dar)			== 1 and tonumber(qglobals.pop_hohb_marr)			== 1 and
-	tonumber(qglobals.pop_ponb_terris)						== 1 and tonumber(qglobals.pop_poj_valor_storms)		== 1 and tonumber(qglobals.pop_pot_shadyglade)		== 1 and
-	tonumber(qglobals.pop_ponb_poxbourne)					== 1 and tonumber(qglobals.pop_cod_preflag)				== 1 and tonumber(qglobals.pop_pot_saryrn)			== 1 and
-	tonumber(qglobals.pop_pod_grimmus_planar_projection)	== 1 and tonumber(qglobals.pop_cod_bertox)				== 1 and tonumber(qglobals.pop_pot_saryrn_final)	== 1 and
-	tonumber(qglobals.pop_pod_elder_fuirstel)				== 1 and tonumber(qglobals.pop_cod_final)				== 1 and tonumber(qglobals.pop_bot_agnarr)			== 1)then -- Elemental Pre-Flagging
+	tonumber(qglobals.pop_poj_mavuin) == 1 and tonumber(qglobals.pop_tactics_ralloz) == 1 and tonumber(qglobals.pop_hoh_faye) == 1 and tonumber(qglobals.pop_poj_tribunal) == 1 and tonumber(qglobals.pop_pos_askr_the_lost) == 3 and tonumber(qglobals.pop_hoh_trell) == 1 and	tonumber(qglobals.pop_pon_hedge_jezith) == 1 and tonumber(qglobals.pop_pos_askr_the_lost_final)	== 1 and tonumber(qglobals.pop_hoh_garn) == 1 and tonumber(qglobals.pop_pon_construct) == 1 and tonumber(qglobals.pop_pov_aerin_dar) == 1 and tonumber(qglobals.pop_hohb_marr) == 1 and tonumber(qglobals.pop_ponb_terris) == 1 and tonumber(qglobals.pop_poj_valor_storms) == 1 and tonumber(qglobals.pop_pot_shadyglade) == 1 and	tonumber(qglobals.pop_ponb_poxbourne) == 1 and tonumber(qglobals.pop_cod_preflag) == 1 and tonumber(qglobals.pop_pot_saryrn) == 1 and tonumber(qglobals.pop_pod_grimmus_planar_projection) == 1 and tonumber(qglobals.pop_cod_bertox) == 1 and tonumber(qglobals.pop_pot_saryrn_final) == 1 and	tonumber(qglobals.pop_pod_elder_fuirstel) == 1 and tonumber(qglobals.pop_cod_final) == 1 and tonumber(qglobals.pop_bot_agnarr) == 1)then -- Elemental Pre-Flagging
 
 		if(e.message:findi("Hail")) then
 			e.self:Say("'Welcome back my friends. I assure you that I have been studying the Cipher of Druzzil very diligently. Did you happen to find any lore or information that I could look at?'");
@@ -43,13 +37,14 @@ function event_say(e)
 	qglobals.pop_poi_dragon			= nil; qglobals.pop_cod_preflag						= nil; qglobals.pop_sol_ro_arlyxir		= nil;
 
 end
-
+]]
 function event_trade(e)
 	local item_lib = require("items");
-	item_lib.return_items(e.self, e.other, e.trade)
+	
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 13017})) then
+		e.self:Say("Thank you traveler. I appreciate having pie this time of year. I can never get away to enjoy such things.");
+		e.other:SummonItem(22291);
+	end
+	
+	item_lib.return_items(e.self, e.other, e.trade);
 end
-
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------
