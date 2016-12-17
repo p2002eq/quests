@@ -2,6 +2,10 @@
 
 local route_end = false;
 
+function event_spawn(e)
+	route_end = false
+end
+
 function event_say(e)
 	if (e.message:findi("hail")) then
 		e.self:Say("Hello stranger, I am Boridain, master hunter of the Coldain. Glad to meet you.");
@@ -34,7 +38,7 @@ function event_waypoint_arrive(e)
 		e.self:Emote("yawns.");
 		e.self:Say("All this tracking is makin me mighty sleepy. Time for a little nap. You keep a lookout.");
 		e.self:SetAppearance(3);
-	elseif(e.wp == 18) then
+	elseif e.wp == 18 and not route_end then
 		route_end = true;
 		e.self:Say("Who am I kidding, I'm no hunter. I'll never be a hunter. I may as well give up and become a miner like dad.");
 		e.self:SetAppearance(1);
