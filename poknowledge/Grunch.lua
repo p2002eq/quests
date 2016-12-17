@@ -43,7 +43,7 @@ function rewards(ev)
 	elseif item_pick < 790 then -- 9%
 		ev.other:SummonItem(32241); -- living coal
 	elseif item_pick < 880 then -- 9%
-		ev.other:SummonItem(14523, 1); -- slime filled potion
+		ev.other:SummonItem(28045, 4); -- oil of fennin ro
 	elseif item_pick < 970 then -- 9%
 		ev.other:SummonItem(10081, 5); -- midnight mallet
 	elseif item_pick < 996 then -- 2.6%

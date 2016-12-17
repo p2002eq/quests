@@ -46,7 +46,7 @@ function rewards(ev)
 	elseif item_pick < 897 then -- 9.9%
 		ev.other:SummonItem(19078, 10); -- cloudy potion
 	elseif item_pick < 996 then -- 9.9%
-		ev.other:SummonItem(14329, 1); -- thick amber potion
+		ev.other:SummonItem(14523, 1); -- slime filled potion
 	elseif item_pick > 995 then -- 0.4%
 		local tbl = {}; -- 31853 (high elf), 31854 (half elf), 31859 (halfling), 31860 (wood elf), 31863 (gnome)
 		if ev.other:GetRace() ~= 5 then
