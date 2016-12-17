@@ -47,7 +47,7 @@ function rewards(ev)
 	elseif item_pick < 970 then -- 9%
 		ev.other:SummonItem(10081); -- midnight mallet
 	elseif item_pick < 996 then -- 2.6%
-		ev.other:SummonItem(11175); -- can o whoop ass
+		ev.other:SummonItem(11175, 1); -- can o whoop ass
 	elseif item_pick > 995 then -- 0.4%
 		local tbl = {}; -- 31851 (ogre), 31855 (erudite), 31857 (dark elf), 31861 (troll), 31862 (iksar)
 		if ev.other:GetRace() ~= 10 then
