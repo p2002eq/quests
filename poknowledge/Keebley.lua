@@ -34,7 +34,7 @@ function rewards(ev)
 	if item_pick < 100 then -- 10%
 		ev.other:SummonItem(eq.ChooseRandom(16877, 16878, 16879, 16880), 1); -- gnomish fireworks
 	elseif item_pick < 200 then -- 10%
-		ev.other:SummonItem(13035); -- elven wine
+		ev.other:SummonItem(13035, 10); -- elven wine
 	elseif item_pick < 400 then -- 20%
 		ev.other:SummonItem(9662); -- misty thicket picnic
 	elseif item_pick < 600 then -- 20%

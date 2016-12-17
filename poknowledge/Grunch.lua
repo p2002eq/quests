@@ -45,7 +45,7 @@ function rewards(ev)
 	elseif item_pick < 880 then -- 9%
 		ev.other:SummonItem(14523, 1); -- slime filled potion
 	elseif item_pick < 970 then -- 9%
-		ev.other:SummonItem(10081); -- midnight mallet
+		ev.other:SummonItem(10081, 5); -- midnight mallet
 	elseif item_pick < 996 then -- 2.6%
 		ev.other:SummonItem(11175, 1); -- can o whoop ass
 	elseif item_pick > 995 then -- 0.4%
