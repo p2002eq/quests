@@ -9,7 +9,8 @@ function event_trade(e)
 	
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 24996})) then
 		e.other:QuestReward(e.self,0,0,0,0,24997,100000);
-		eq.unique_spawn(91096,0,0,e.self:GetX(),e.self:GetY(),e.self:GetZ(),e.self:GetHeading());
+		local new_npc = eq.unique_spawn(91096,0,0,e.self:GetX(),e.self:GetY(),e.self:GetZ(),e.self:GetHeading());
+		new_npc:AddToHateList(e.other, 1);
 		eq.depop_with_timer();
 	end
 	
