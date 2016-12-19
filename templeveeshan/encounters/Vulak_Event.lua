@@ -108,7 +108,7 @@ function event_timer(e)
         eq.stop_timer(e.timer)
         eq.set_timer("wave7", 600000); -- timer to start wave 7
 		eq.spawn2(124317,0,0,xloc2,yloc2,zloc2,hloc2); -- splits like the horses in Sky
-		eq.spawn2(124324,0,0,xloc3,yloc3,yloc3,yloc3); -- splits like the horses in Sky
+		eq.spawn2(124324,0,0,xloc3,yloc3,zloc3,hloc3); -- splits like the horses in Sky
     elseif(e.timer == "wave7") then
         wave = wave + 1; -- wave = 7
         eq.stop_timer(e.timer)
