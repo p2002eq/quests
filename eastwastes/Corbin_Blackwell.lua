@@ -24,14 +24,14 @@ function event_waypoint_arrive(e) -- this deviates slightly from the original ve
 end
 
 function event_combat(e)
-	e.self:Say("I'll hack at your knees 'til you fall down! Out of love for the Dain, for the glory of the crown!");
-	
+	if e.joined then
+		e.self:Say("I'll hack at your knees 'til you fall down! Out of love for the Dain, for the glory of the crown!");
+	end
 end
 
 function event_spawn(e)
     e.self:AssignWaypoints(276);
     e.self:Say("I thought I was a dwarfskin rug there for a minute! Thank Brell for your help stranger! Now cover me while I make good my escape. I am weakened and cannot endure much more.");
- --   e.self:SetRunning(true);
 end
 
 function event_timer(e)
