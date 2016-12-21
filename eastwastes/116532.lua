@@ -1,8 +1,6 @@
 
 function event_spawn(e)
 	eq.set_timer("depop", 600000);
-	e.self:SetRunning(true);
-	eq.move_to(-372, -2655, 178, 45, true);
 end
 
 function event_timer(e)

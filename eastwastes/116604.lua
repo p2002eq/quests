@@ -1,12 +1,15 @@
 
 function event_spawn(e)
 	eq.set_timer("depop", 600000);
-	e.self:SetRunning(true);
-	eq.move_to(-372, -2655, 178, 45, true);
 end
 
 function event_timer(e)
 	if e.timer == "depop" then
+		eq.signal(116005, 99);
 		eq.depop();
 	end
+end
+
+function event_death_complete(e)
+	eq.signal(116005, 99);
 end

@@ -5,7 +5,8 @@ function event_spawn(e)
 end
 
 function event_death_complete(e)
-	eq.unique_spawn(91090,0,0,e.self:GetX(),e.self:GetY(),e.self:GetZ(),e.self:GetHeading()); -- Zordakalicus_Ragefire
+	local new_npc = eq.unique_spawn(91090,0,0,e.self:GetX(),e.self:GetY(),e.self:GetZ(),e.self:GetHeading()); -- Zordakalicus_Ragefire
+	new_npc:AddToHateList(e.other, 1);
 end
 
 function event_timer(e)
