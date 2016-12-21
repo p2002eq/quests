@@ -16,5 +16,5 @@ function event_trade(e)
         eq.spawn2(116119, 0,0,86,216,32,190.7);
     end
 	
-	
+	item_lib.return_items(e.self, e.other, e.trade);
 end

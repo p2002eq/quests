@@ -9,9 +9,6 @@ function event_trade(e)
 		e.other:Faction(188, -12); -- -Kromrif
 		e.other:Faction(189, -2); -- -Kromzek
 		e.other:AddEXP(10000);
-		if (eq.get_entity_list():GetMobByNpcTypeID(116084) == false) then
-			eq.spawn2(116084,0,0,-390,-2713,179.48,19.4);
-		end
 	    spawn_Mobs();
 		eq.depop_with_timer();
     end
@@ -19,6 +16,8 @@ function event_trade(e)
 end
 
 function spawn_Mobs()
+
+	if not eq.get_entity_list():IsMobSpawnedByNpcTypeID(116084) then eq.spawn2(116084,0,0,-390,-2713,179.48,19.4) end
 
 	eq.depop_with_timer(116165);
 	eq.signal(116084, 10);   

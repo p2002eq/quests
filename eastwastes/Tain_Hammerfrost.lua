@@ -28,7 +28,8 @@ function event_trade(e)
 	local item_lib = require('items');
 
 	if item_lib.check_turn_in(e.self, e.trade, {item1 = 30139}) then
-
+		e.self:Say("The bloody Kromrif ambushed me! I escaped, but I am near death. They'll be tracking me down to finish me off at any moment. Without [help], I'm as good as dead.");
+	
 	elseif item_lib.check_turn_in(e.self, e.trade, {item1 =  30138}) then
 		e.self:SetAppearance(0);
 		e.self:Say("I will report your selfless actions when I return to Thurgadin. Take this for your troubles, friend. I hope you find it useful. Fare thee well.");
@@ -39,6 +40,8 @@ function event_trade(e)
 		e.other:QuestReward(e.self, 0,0,0,0, 30140, 80000);
 		eq.depop_with_timer();
 	end
+	
+	item_lib.return_items(e.self, e.other, e.trade);
 end
 
 function event_timer(e)

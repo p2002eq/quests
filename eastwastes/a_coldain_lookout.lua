@@ -19,7 +19,8 @@ function event_trade(e)
 		e.other:Faction(188, -12);
 		e.other:Faction(189, -2);	
 	end
-
+	
+	item_lib.return_items(e.self, e.other, e.trade);
 end
 
 function event_signal(e)
