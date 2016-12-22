@@ -12,6 +12,8 @@ function event_signal(e)
 		eq.set_global("keeper","1",3,"H2");
 		-- supposed to be 60-85 minute timer
 		eq.set_timer("87",math.random(1500000) + 3600000);
+	elseif e.signal == 3 then -- spawn for island 2 boss
+		eq.spawn2(71058,0,0,-531,-214,-322,128);
 	end
 end
 

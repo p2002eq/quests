@@ -1,10 +1,16 @@
 -- shardwurm broodmother Kromriff Military Leggings and Coldain Military Wristguard quests
 -- gloabl flag for which quest chain to follow
-local quest_chain = "None"
+local quest_chain = "None";
 -- tracks first arrival at waypoint1 to prevent repeat triggering
-local arrived_first = false
+local arrived_first = false;
 -- tracks first arrival at waypoint2 to prevent repeat triggering
-local arrived_second = false
+local arrived_second = false;
+
+function event_spawn(e)
+	quest_chain = "None";
+	arrived_first = false;
+	arrived_second = false;
+end
 
 function event_trade(e)
 	local item_lib = require("items");
