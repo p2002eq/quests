@@ -11,11 +11,12 @@ function event_trade(e)
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 24872, item2 = 24872, item3 = 24872, item4 = 24872})) then
 		e.self:Say("So you proved to be of value after all, take this for your work. Don't let it go to your head.");
 		e.other:QuestReward(e.self,0,0,0,0,24877,25000);
-		e.other:Faction(189,10); -- #kromzek
-		e.other:Faction(188,10); -- #kromrif
-		e.other:Faction(179,10); -- #king tormax
-		e.other:Faction(42,10);  -- #CoV
+		e.other:Faction(188,15); -- #Kromrif
+		e.other:Faction(189,10); -- #Kromzek
+		e.other:Faction(179,5); -- #Tormax
+		e.other:Faction(42,-10);  -- #CoV
 	end
+	
 	item_lib.return_items(e.self, e.other, e.trade)
 end
 
