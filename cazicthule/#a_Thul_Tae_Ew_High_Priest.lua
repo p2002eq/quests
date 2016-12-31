@@ -1,6 +1,4 @@
-local entid1;
-local mob1;
-local mob1attack;
+-- Thul Tae Ew High Priest trigger for Ring of Fear encounter in Cazic Thule
 
 function event_spawn(e)
 	eq.unique_spawn(48057, 0, 0, 590, 1070, -93.2, 0);
