@@ -269,7 +269,7 @@ function ShoutingMatch2()
 	Narandi:Shout("My warriors approach, I offer you one final opportunity to bow before the might of Rallos Zek. Throw down your weapons and surrender. You will live out your lives in relative peace, rightfully serving your Kromrif masters.");
 	ThreadManager:Wait(60);
 	Aldikar:Shout("Enough! Show yourself coward! Your blasphemous words shall be etched upon your spacious brow. All will mock you for generations to come. Your own god will forsake you when he witnesses your defeat here today!");
-	ThreadManager:Wait(270);
+	ThreadManager:Wait(240);
 	Narandi:Shout("Warriors! Charge through these pompous fools. Any you manage to capture shall become your personal slaves. The outlanders and the Seneschal must die! Bring me their heads!");
 	Narandi:Depop();
 end
@@ -286,7 +286,7 @@ function ShoutingMatch3()
 	Aldikar:Shout("It is your misguided beliefs that made this war necessary. Now you feel the sting of your errors. Return to Kael and preach the doctrine of Brell Serilis in hopes that your people may someday be spared.");
 	ThreadManager:Wait(60);
 	Narandi:Shout("Enough chatter. Our veterans approach now to finish you. You have been tested and your weaknesses have been assessed. Bid farewell to your dear Thurgadin, those of you who are fortunate enough to survive the slaughter shall make a new home in the Kromrif slave pens!");
-	ThreadManager:Wait(420);
+	ThreadManager:Wait(360);
 	Narandi:Shout("Veterans! Be sure that this time we allow none of the stumpymen to escape to create yet another city. This shall be our final war with these unworthy beings.");
 	Narandi:Depop();
 end
