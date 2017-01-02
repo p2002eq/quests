@@ -1,5 +1,10 @@
 -- 15044 - Althele at #loc -1592, -3657, -17 - to start corruptor/reaver spawns for fleshbound tome
 local count = 0;
+
+function event_spawn(e)
+	count = 0;
+end
+
 function event_say(e)
 	if(e.message:findi("hail")) then
 		e.self:Say("Hello, friend. Beautiful is what I would call such a day normally but lately? I sense that something is [out of balance].'");
