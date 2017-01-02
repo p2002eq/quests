@@ -63,6 +63,15 @@ function event_encounter_load(e)
 	eq.register_npc_event("RingTen", Event.trade, 118337, Trades);
 	eq.register_npc_event("RingTen", Event.trade, 118329, Trades);
 	
+	-- reset all variables
+	stage = -1;
+	entity_data = {};
+	Aldikar = nil;
+	quester = nil;
+	next_spawn = {};
+	boss_count = 0;
+	miss_count = 0;
+	
 	-- set up paths as soon as encounter loads
 	PathInfo = load_paths();
 	-- spawns circle of dwarves to start war
