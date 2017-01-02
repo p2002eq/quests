@@ -41,7 +41,7 @@ function event_signal(e)
 			e.self:Say("Great mother of life and father of sky, growth and spirit, Tunare and Karana. Innoruuk once again schemes and we have failed in our duties to protect our land. We give our powers in sacrifice for your help. Heed our call and send us your wisdom.");
 			eq.set_timer("emotes",20000);
 			eq.set_timer("attack",60000);
-			eq.set_timer("depop",600000);	
+			eq.set_timer("depop",900000);	
 		end
 	end
 end
