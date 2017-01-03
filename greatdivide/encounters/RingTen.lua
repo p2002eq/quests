@@ -163,7 +163,7 @@ function Conversation()
 	eq.unique_spawn(118354, 0, 0, -110, -545, 77, 223);
 	eq.signal(118354, 100);
 	eq.signal(118351, 100);
-	eq.set_timer("handin1", 6000000, Aldikar);
+	eq.set_timer("handin1", 600000, Aldikar);
 end
 
 function ShoutingMatch1()

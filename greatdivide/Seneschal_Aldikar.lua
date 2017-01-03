@@ -25,12 +25,12 @@ function event_trade(e)
 		e.self:Emote("unsheathes a knife and shaves the beard from Narandi's face and returns the head to you, 'The Dain will require the beard for his trophy room, please accept this ring on his behalf. May it's effect aid you as you have aided us. Be certain to present the ring to the Dain when you're in town. If you remain an ally he will be most gracious, but be warned, if you fall from his good graces he will keep the ring.'");
 		e.self:Say("Show the head to the surviving heroes quickly, we must report to the Dain and tend to the wounded.");
 		
-		e_other:Faction(49, 50); --Coldain
-		e_other:Faction(67, 20); --Dain
-		e_other:Faction(188, -80); --Kromrif
-		e_other:Faction(189, -40); --Kromzek
-		e_other:SummonItem(1741); -- Shorn head
-		e_other:QuestReward(e_self, 0, 0, 0, 0, 30385, 1000000); -- 10th ring and big exp hit!
+		e.other:Faction(49, 50); --Coldain
+		e.other:Faction(67, 20); --Dain
+		e.other:Faction(188, -80); --Kromrif
+		e.other:Faction(189, -40); --Kromzek
+		e.other:SummonItem(1741); -- Shorn head
+		e.other:QuestReward(e.self, 0, 0, 0, 0, 30385, 1000000); -- 10th ring and big exp hit!
 		
 		eq.stop_timer("WarEnd");
 		eq.set_timer("WarEnd", 300000); -- timer action in encounter
