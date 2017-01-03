@@ -39,9 +39,10 @@ function sum(t) -- helper function to sum array (wtf? why does lua not have this
 end
 
 function event_enter_zone(e)
-	-- depop zone with timers if ring war has recently been failed when someone zones in
 	local qglobals = eq.get_qglobals(e.self);
 	if qglobals['RingTen'] == "FAIL" then
-		eq.depop_zone(true);
+		eq.depop_zone(false);
+	elseif not eq.get_entity_list():IsMobSpawnedByNpcTypeID(115135) and not eq.get_entity_list():IsMobSpawnedByNpcTypeID(115136) then -- limit repops to scenarios where expected mobs aren't up
+		eq.repop_zone();
 	end
 end
