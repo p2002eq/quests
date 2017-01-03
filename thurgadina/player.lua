@@ -42,7 +42,7 @@ function event_enter_zone(e)
 	local qglobals = eq.get_qglobals(e.self);
 	if qglobals['RingTen'] == "FAIL" then
 		eq.depop_zone(false);
-	else
+	elseif not eq.get_entity_list():IsMobSpawnedByNpcTypeID(115135) and not eq.get_entity_list():IsMobSpawnedByNpcTypeID(115136) then -- limit repops to scenarios where expected mobs aren't up
 		eq.repop_zone();
 	end
 end

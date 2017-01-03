@@ -78,9 +78,3 @@ function event_trade(e)
 		
 end
 
-function event_timer(e)
-	if e.timer == "depop"
-		eq.stop_timer("depop");
-		eq.depop();
-	end
-end

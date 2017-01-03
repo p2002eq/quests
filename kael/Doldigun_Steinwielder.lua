@@ -1,8 +1,13 @@
+function event_spawn(e)
+	eq.set_timer("depop", 600000);
+end
+
 function start_cycle(e)
 	e.self:Emote("calls for help and scurries off.");
 	eq.spawn2(113626,28,0,1130.3,-933.2,-125.6,126.6);
 	eq.spawn2(113633,29,0,1130.3,-749.6,-125.6,126.6);
-	eq.depop_with_timer();
+	eq.stop_timer("depop");
+	eq.depop();
 end
 
 function event_combat(e)
@@ -16,4 +21,11 @@ function event_trade(e)
         start_cycle(e);
 	end
 	item_lib.return_items(e.self, e.other, e.trade);
+end
+
+function event_timer(e)
+	if e.timer == "depop" then
+		eq.stop_timer("depop");
+		eq.depop();
+	end
 end

@@ -1,5 +1,10 @@
 -- 15044 - Althele at #loc -1592, -3657, -17 - to start corruptor/reaver spawns for fleshbound tome
 local count = 0;
+
+function event_spawn(e)
+	count = 0;
+end
+
 function event_say(e)
 	if(e.message:findi("hail")) then
 		e.self:Say("Hello, friend. Beautiful is what I would call such a day normally but lately? I sense that something is [out of balance].'");
@@ -36,7 +41,7 @@ function event_signal(e)
 			e.self:Say("Great mother of life and father of sky, growth and spirit, Tunare and Karana. Innoruuk once again schemes and we have failed in our duties to protect our land. We give our powers in sacrifice for your help. Heed our call and send us your wisdom.");
 			eq.set_timer("emotes",20000);
 			eq.set_timer("attack",60000);
-			eq.set_timer("depop",600000);	
+			eq.set_timer("depop",900000);	
 		end
 	end
 end

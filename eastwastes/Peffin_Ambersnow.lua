@@ -20,6 +20,6 @@ function event_trade(e)
 		eq.spawn2(116182,0,0,3355,-1625,163.8,36.9);
 		e.self:Emote("yells for assistance");
 		eq.unique_spawn(116606,0,0,3419.4,-1739.7,143.9,191.5);
-		eq.depop();
+		eq.depop_with_timer();
 	end
 end
