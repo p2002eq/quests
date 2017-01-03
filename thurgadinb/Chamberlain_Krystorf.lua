@@ -28,11 +28,12 @@ function event_trade(e)
 		e.other:SummonItem(29062)
 	elseif item_lib.check_turn_in(e.self, e.trade,{item1 = 1199}) or  item_lib.check_turn_in(e.self, e.trade, {item1 = 8895}) then	
 		--can be either shawl
-		if(eq.get_entity_list():IsMobSpawnedByNpcTypeID(129003)) then --Check if the Dain is up
+		if eq.get_entity_list():IsMobSpawnedByNpcTypeID(129003) or eq.get_entity_list():IsMobSpawnedByNpcTypeID(129103) then --Check if the Dain is up
 			e.self:Say("The Dain has been waiting for you, show your shawl to him."); --Text made up
 		else -- Dain is not up
 			e.self:Say("Here comes the Dain! Perhaps you could show your shawl to him now."); --Text made up
-			eq.unique_spawn(129003, 0, 0, 4.0, 690.0, 68.38, 128.0);
+			local dain = eq.unique_spawn(129103, 0, 0, 4.0, 690.0, 68.38, 128.0);
+			eq.set_timer("depop", 1800000, dain);
 		end
 		e.other:SummonItem(8895);
 	end
