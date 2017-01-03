@@ -25,7 +25,6 @@ local entity_data = {};
 
 -- tracks specific entities
 local Aldikar;
-local quester;
 
 -- tracks data for next spawn round
 local next_spawn = {};
@@ -44,30 +43,22 @@ function event_encounter_load(e)
 	
 	-- triggers for the NPC coordinating the event
 	eq.register_npc_event("RingTen", Event.timer, 118351, WarTimers);
-	eq.register_npc_event("RingTen", Event.trade, 118351, WarTrade);
 	eq.register_npc_event("RingTen", Event.death_complete, 118351, WarDeath);
 	
 	-- Zrelik the Scout coordination
-	eq.register_npc_event("RingTen", Event.trade, 118354, ScoutTrade);
 	eq.register_npc_event("RingTen", Event.say, 118354, ScoutMove);
 	
 	-- Conversation coordination
 	eq.register_npc_event("RingTen", Event.waypoint_arrive, 118352, ConversationStart);
 	eq.register_npc_event("RingTen", Event.waypoint_arrive, 118351, ConversationStart);
 	
-	-- War win monitor & rewards
+	-- War win monitor
 	eq.register_npc_event("RingTen", Event.death_complete, 118345, FinalStage);
-	eq.register_npc_event("RingTen", Event.trade, 118334, Trades);
-	eq.register_npc_event("RingTen", Event.trade, 118332, Trades);
-	eq.register_npc_event("RingTen", Event.trade, 118331, Trades);
-	eq.register_npc_event("RingTen", Event.trade, 118337, Trades);
-	eq.register_npc_event("RingTen", Event.trade, 118329, Trades);
 	
 	-- reset all variables
 	stage = -1;
 	entity_data = {};
 	Aldikar = nil;
-	quester = nil;
 	next_spawn = {};
 	boss_count = 0;
 	miss_count = 0;
@@ -80,82 +71,28 @@ function event_encounter_load(e)
 	-- note that NPCs that require a path need to be created by a trigger (timer, say, etc)
 end
 
-function Trades(e)
-	local item_lib = require("items");
-	
-	if stage > 4 and e.other:GetID() == quester then
-		if e.self:GetNPCTypeID() == 118334 and item_lib.check_turn_in(e.self, e.trade, {item1 = 1741}) then -- Shorn Head of Narandi
-			e.self:Emote(string.format("removes a choker from the severed head and returns both items to you, 'Congratulations on your victory, %s. I couldn't have done a better job myself. May Brell protect and watch over you and your friends. Farewell.'",e.other:GetCleanName()));
-			quest_reward(e.self, e.other, 1742, 1, 1);
-			eq.depop();
-		elseif e.self:GetNPCTypeID() == 118332 and item_lib.check_turn_in(e.self, e.trade, {item1 = 1741}) then -- Shorn Head of Narandi
-			e.self:Emote("takes a facemask from the head of the giant, 'We shall always be in your debt, outlander. Take this mask, may it protect you from those who would seek to do you harm.'");
-			quest_reward(e.self, e.other, 1743, 1, 1);
-			eq.depop();
-		elseif e.self:GetNPCTypeID() == 118331 and item_lib.check_turn_in(e.self, e.trade, {item1 = 1741}) then -- Shorn Head of Narandi
-			e.self:Emote(string.format("unhooks a glowing earring from Narandi's shorn head, 'Hmm, this looks like something special. Take it, %s, you've earned it! Be well.'",e.other:GetCleanName()));
-			quest_reward(e.self, e.other, 1744, 1, 1);
-			eq.depop();
-		elseif e.self:GetNPCTypeID() == 118337 and item_lib.check_turn_in(e.self, e.trade, {item1 = 1741}) then -- Shorn Head of Narandi
-			e.self:Emote("picks up a stick and hits the back of the dismembered head with all his might, knocking one of it's eyes out of the socket, 'Bastard killed my brother! Hope his ghost felt that one!'");
-			quest_reward(e.self, e.other, 1745, 1, 1);
-			eq.depop();
-		elseif e.self:GetNPCTypeID() == 118329 and item_lib.check_turn_in(e.self, e.trade, {item1 = 1741}) then -- Shorn Head of Narandi
-			e.self:Emote("pries a crown from the head of Narandi, 'The halls of Thurgadin will echo with praises to you for as long as we grace the face of this land. May this crown serve you well. Honor through battle!'");
-			quest_reward(e.self, e.other, 1746, 1, 1);
-			eq.depop();
-		end
-	end
-	
-	item_lib.return_items(e.self, e.other, e.trade);
-end
-
-function quest_reward(e_self, e_other, item, xp_mult, fac_mult)
-	local fhit = fac_mult * 25;
-	e_other:Faction(49, fhit); --Coldain
-	e_other:Faction(67, fhit); --Dain
-	e_other:Faction(188, -fhit); --Kromrif
-	e_other:Faction(189, -fhit); --Kromzek
-	e_other:SummonItem(1741); -- Shorn head
-	e_other:QuestReward(e_self, 0, 0, 0, 0, item, 100000 * xp_mult); -- reward item
-end
-
 function FinalStage(e)
 	stage = 5;
 	Aldikar:Shout("Outlander! You've done it! The Kromrif invasion has been frustrated! Bring me the head of Narandi and your Hero's ring.");
 	eq.set_timer("WarEnd", 1200000, Aldikar);
-end
-
-function ScoutTrade(e)
-	local item_lib = require("items");
+	eq.signal(118351, 105);
 	
-	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 18511})) and stage == 0 then -- Orders of Engagement
-		eq.signal(118351, 61, 1000);
-		stage = 1;
-		e.self:Say(string.format("At yer service, %s. Remember now, before issuing me an order ya must disengage from any combat and be sure yer speakin to me. I advise yo to avoid combat at all costs, your leadership is crucial.",e.other:GetCleanName()));
-		quester = e.other:GetID();
+	local ent_list = eq.get_entity_list()
+	if ent_list:IsMobSpawnedByNpcTypeID(118329) then
+		eq.signal(118329, 105);
 	end
-end
-
-function WarTrade(e)
-	local item_lib = require("items");
-	
-	if stage == 0 and item_lib.check_turn_in(e.self, e.trade, {item1 = 30369}) then -- 9th ring
-		e.other:AddEXP(20000);
-		e.other:SummonItem(18511);
-		e.other:SummonItem(30369);
-		e.self:Say(string.format("Commit these orders to memory, %s, have them ready to speak at a moment's notice. Tell your soldiers to prepare themselves. When the orders are handed to Zrelik we will take up our positions.",e.other:GetCleanName()));
-		eq.set_timer("handin1", 300000);
-	elseif stage > 4 and item_lib.check_turn_in(e.self, e.trade, {item1 = 30369, item2 = 1739}) then -- Narandi's Head and 9th ring
-		e.self:Emote("unsheathes a knife and shaves the beard from Narandi's face and returns the head to you, 'The Dain will require the beard for his trophy room, please accept this ring on his behalf. May it's effect aid you as you have aided us. Be certain to present the ring to the Dain when you're in town. If you remain an ally he will be most gracious, but be warned, if you fall from his good graces he will keep the ring.'");
-		quest_reward(e.self, e.other, 30385, 10, 2);
-		e.self:Say("Show the head to the surviving heroes quickly, we must report to the Dain and tend to the wounded.");
-		quester = e.other:GetID();
-		eq.stop_timer("WarEnd");
-		eq.set_timer("WarEnd", 300000);
+	if ent_list:IsMobSpawnedByNpcTypeID(118331) then
+		eq.signal(118331, 105);
 	end
-
-	item_lib.return_items(e.self, e.other, e.trade);
+	if ent_list:IsMobSpawnedByNpcTypeID(118332) then
+		eq.signal(118332, 105);
+	end
+	if ent_list:IsMobSpawnedByNpcTypeID(118334) then
+		eq.signal(118334, 105);
+	end
+	if ent_list:IsMobSpawnedByNpcTypeID(118337) then
+		eq.signal(118337, 105);
+	end
 end
 
 function ConversationStart()
@@ -225,7 +162,8 @@ function Conversation()
 	Aldikar:Say("Scout Zrelik here will follow you and serve as your herald. He will relay your orders to the troops. Show me your ring now to verify your identity and I will give you the orders to memorize.");
 	-- spawn Zrelik and advance stage
 	eq.unique_spawn(118354, 0, 0, -110, -545, 77, 223);
-	stage = 0
+	stage = 0;
+	eq.signal(118354, 100);
 	eq.set_timer("handin1", 6000000, Aldikar);
 end
 
@@ -384,7 +322,7 @@ end
 
 function ScoutMove(e)
 	local pos = { e.other:GetX(), e.other:GetY(), e.other:GetZ(), 0.5 };
-	if stage > 0 and e.other:GetID() == quester then
+	if stage > 0 then
 		if(e.message:findi("Dobbin assist me!")) then
 			call_dwarves(pos, 6);
 			e.self:Say("Dobbin is on his way!");
@@ -639,9 +577,11 @@ function AllSignal(e)
 	if e.signal >= 0 and e.signal <= 20 and not entity_data[e.self:GetID()] then
 		-- sets paths for any naive NPCs (NPCs with set paths are unaffected)
 		entity_data[e.self:GetID()] = load_entity_data(PathInfo[e.signal], e.self:GetX(), e.self:GetY(), e.signal);
-	elseif e.signal >= 50 and e.signal <= 70 then
+	elseif e.self:GetNPCTypeID() == 118351 and e.signal >= 50 and e.signal <= 70 then
 		group_num = e.signal - 50;
 		GroupSpawn(group_num);
+	elseif e.self:GetNPCTypeID() == 118351 and e.signal > 100 and e.signal <= 105 then
+		stage = e.signal - 100;
 	-- gm control
 	elseif e.self:GetNPCTypeID() == 118351 and e.signal > 500 then
 		eq.stop_all_timers();
