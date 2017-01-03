@@ -459,10 +459,26 @@ function WarEnd(end_type)
 	eq.repop_zone();
 	local controller = eq.unique_spawn(118361, 0, 0, -5000, -5000, 0, 0);
 	if end_type < 1 then
-		spawn_Mobs(118342, -130, -250, 100, -130, -20, 100, 100, 6, 0);
-		spawn_Mobs(118342, -70, -250, 100, -80, -20, 100, 160, 6, 0);
-		eq.spawn2(118343, 0, 0, -90, 5, 98, 192);
-		eq.spawn2(118343, 0, 0, -135, 5, 98, 64);
+		local defeat_mobs = {};
+		table.insert(defeat_mobs, eq.spawn2(118342, 0, 0, -130, -250, 100, 100));
+		table.insert(defeat_mobs, eq.spawn2(118342, 0, 0, -130, -212, 100, 100));
+		table.insert(defeat_mobs, eq.spawn2(118342, 0, 0, -130, -174, 100, 100));
+		table.insert(defeat_mobs, eq.spawn2(118342, 0, 0, -130, -136, 100, 100));
+		table.insert(defeat_mobs, eq.spawn2(118342, 0, 0, -130, -98, 100, 100));
+		table.insert(defeat_mobs, eq.spawn2(118342, 0, 0, -130, -60, 100, 100));
+		table.insert(defeat_mobs, eq.spawn2(118342, 0, 0, -70, -250, 100, 160));
+		table.insert(defeat_mobs, eq.spawn2(118342, 0, 0, -72, -212, 100, 160));
+		table.insert(defeat_mobs, eq.spawn2(118342, 0, 0, -74, -174, 100, 160));
+		table.insert(defeat_mobs, eq.spawn2(118342, 0, 0, -76, -136, 100, 160));
+		table.insert(defeat_mobs, eq.spawn2(118342, 0, 0, -78, -98, 100, 160));
+		table.insert(defeat_mobs, eq.spawn2(118342, 0, 0, -80, -60, 100, 160));
+		table.insert(defeat_mobs, eq.spawn2(118343, 0, 0, -90, 5, 98, 192));
+		table.insert(defeat_mobs, eq.spawn2(118343, 0, 0, -135, 5, 98, 64));
+
+		for _, v in ipairs(defeat_mobs) do
+			eq.set_timer("depop", 86400000, v);
+		end
+		
 		eq.set_global("RingTen","FAIL",7,"H24");
 	end
 	
