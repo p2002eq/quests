@@ -72,7 +72,6 @@ function event_encounter_load(e)
 end
 
 function FinalStage(e)
-	stage = 5;
 	Aldikar:Shout("Outlander! You've done it! The Kromrif invasion has been frustrated! Bring me the head of Narandi and your Hero's ring.");
 	eq.set_timer("WarEnd", 1200000, Aldikar);
 	eq.signal(118351, 105);
@@ -162,8 +161,8 @@ function Conversation()
 	Aldikar:Say("Scout Zrelik here will follow you and serve as your herald. He will relay your orders to the troops. Show me your ring now to verify your identity and I will give you the orders to memorize.");
 	-- spawn Zrelik and advance stage
 	eq.unique_spawn(118354, 0, 0, -110, -545, 77, 223);
-	stage = 0;
 	eq.signal(118354, 100);
+	eq.signal(118351, 100);
 	eq.set_timer("handin1", 6000000, Aldikar);
 end
 
