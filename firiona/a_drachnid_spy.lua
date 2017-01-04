@@ -8,7 +8,7 @@ function event_say(e)
 end
 
 function event_death_complete(e)
-	eq.signal(84319,1);
+	eq.signal(84401,1);
 end
 
 function event_trade(e)

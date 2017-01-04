@@ -11,7 +11,7 @@ end
 
 function event_signal(e)
 	if(e.signal == 1) then
-		eq.spawn2(84401,0,0,e.self:GetX(),e.self:GetY(),e.self:GetZ(),e.self:GetHeading());
+		eq.spawn2(84404,0,0,e.self:GetX(),e.self:GetY(),e.self:GetZ(),e.self:GetHeading());
 		eq.depop();
 	end
 end
