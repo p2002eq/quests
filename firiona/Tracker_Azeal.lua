@@ -5,7 +5,7 @@
 -- Issue with the timer, so to get this working just moved the quest turn in to this NPC, since the other NPC (Tracker_Azeal_) wasn't spawning correctly.
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Emote("test looks over at you and gives you an awkward smile, then quickly looks away. You notice he isn't like most of the elves you've seen. You can't quite put your finger on it, but for one thing he smells like he hasn't bathed in weeks.");
+		e.self:Emote("looks over at you and gives you an awkward smile, then quickly looks away. You notice he isn't like most of the elves you've seen. You can't quite put your finger on it, but for one thing he smells like he hasn't bathed in weeks.");
 	end
 end
 
