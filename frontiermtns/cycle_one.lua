@@ -16,9 +16,9 @@ function event_spawn(e)
 	        elseif(trigger == 2) then  -- giant trigger
 		        local getnewloc = eq.ChooseRandom(1,2);
 	                if(getnewloc == 1) then
-		                newx = 2803;
-		                newy = 1827;
-		                newz = 99;
+		                newx = 2879;
+		                newy = 1870;
+		                newz = 152;
 	                elseif(getnewloc == 2) then
 		                newx = 3416;
 		                newy = 2013;
