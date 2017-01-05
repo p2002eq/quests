@@ -1,7 +1,7 @@
 -- Avatar of Fear for Ring of Fear in CT
 
--- Amy, EE, TT, spider, Gorgon, gorilla
-mobs = { 48390, 48391, 48392, 48354, 48382, 48383 }
+-- Amy, TT, spider, Gorgon, gorilla
+mobs = { 48390, 48392, 48354, 48382, 48383 }
 
 function event_spawn(e)
 	inactive(e.self);
