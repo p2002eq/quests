@@ -1,9 +1,5 @@
 -- Thul Tae Ew High Priest trigger for Ring of Fear encounter in Cazic Thule
 
--- 48001 Justicar
--- 48388 Standing #Tahia (has lua)
--- 48057 Laying Tahia (no lua)
-
 function event_spawn(e)
 	e.self:ModifyNPCStat("runspeed","0");
 	tahia = eq.unique_spawn(48057, 0, 0, 587, 1090, -98, 0):GetID();

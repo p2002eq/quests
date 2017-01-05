@@ -18,13 +18,13 @@ end
 
 function Talking(e)
 	e.self:Say("Brave adventurers, I am Tahia Felwah, and I owe you my life. I was to be a sacrifice to the faceless. Listen to my words carefully, there isn't much time now.");
-	-- ThreadManager:Wait(15);
+	ThreadManager:Wait(15);
 	eq.zone_emote(1,"The walls of the temple begin to crack as the ground beneath your feet shakes violently");
 	e.self:Say("You have interrupted a complicated ritual and soon the rift to the Faceless will become unstable. I must collect three runes of the Faceless for my research. I have been appointed to uncover the source of these lizards' newfound power. If I fail, their kind will surely spread across the land and threaten the balance of Norrath.");
-	-- ThreadManager:Wait(15);
+	ThreadManager:Wait(15);
 	e.self:Say("This failed ritual presents a unique opportunity to gather the runes I desperately need. Recover the runes from the fallen minions of the faceless. When your need is greatest, hand me a rune and I will replenish you and your companions.");
 	eq.move_to(590, 1020, -95, 0, true);
-	-- ThreadManager:Wait(15);
+	ThreadManager:Wait(15);
 	eq.zone_emote(1,"An unstable rift glows, and dissipates.");
 	eq.zone_emote(1,"A piercing, disembodied scream echos from deep within the temple. Your body begins to tremble uncontrollably with fear.");
 	eq.unique_spawn(48381, 0, 0, 587, 1090, -98, 0);
@@ -44,14 +44,5 @@ function event_trade(e)
 	
 	if rune_total >= 3 then
 		eq.depop();
-	end
-end
-
-function event_signal(e)
-	if (e.signal == 1) then
-		local npc_list = { 48354, 48382, 48383, 48384, 48385, 48386, 48381, 48388};
-		for k,v in pairs(npc_list) do
-			eq.depop_all(v);
-		end
 	end
 end

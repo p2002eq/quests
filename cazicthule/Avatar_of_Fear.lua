@@ -19,7 +19,7 @@ function event_waypoint_arrive(e)
 			e.self:SpellFinished(2128, e.self);
 			spawn_wave();		
 		elseif wave == 6 then
-			e.self:Shout("In the name of the fearful one, prepare yourself! I shall rend your minds with fright, dread, and terror!");
+			e.self:Shout("In the name of the fearful one, prepare yourselves! I shall rend your minds with fright, dread, and terror!");
 			inactive(eq.unique_spawn(48384, 0, 0, 651, 1130, -90, 170)); -- Dread
 			inactive(eq.unique_spawn(48385, 0, 0, 523, 1130, -90, 85)); -- Fright
 			inactive(eq.unique_spawn(48386, 0, 0, 595, 1005, -90, 0)); -- Terror
@@ -34,7 +34,9 @@ function event_waypoint_arrive(e)
 			e.self:Shout("In the name of the fearful one, I call forth from the abyss... TERROR!");
 			active(eq.get_entity_list():GetMobByNpcTypeID(48386)); -- activate Terror
 		elseif wave == 25 then
+			e.self:Shout("In the name of the fearful one, face the wrath of FEAR itself!");
 			active(e.self);
+			e.self:ModifyNPCStat("runspeed","1.5");
 			eq.set_timer("depop", 1800000);
 		end
 		
