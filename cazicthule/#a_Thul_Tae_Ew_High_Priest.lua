@@ -14,6 +14,14 @@ function event_spawn(e)
 	end
 end
 
+function event_hate_list(e)
+	if e.joined then
+		eq.get_entity_list():GetMobByNpcTypeID(48378):AddToHateList(e.other, 1);
+		eq.get_entity_list():GetMobByNpcTypeID(48379):AddToHateList(e.other, 1);
+		eq.get_entity_list():GetMobByNpcTypeID(48380):AddToHateList(e.other, 1);
+	end
+end
+
 function event_timer(e)
 	if e.timer == "guards" then
 		if e.self:IsEngaged() then
