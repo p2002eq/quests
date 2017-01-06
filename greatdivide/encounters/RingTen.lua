@@ -274,7 +274,6 @@ end
 function AddBoss(e)
 	if (stage == 1 and e.self:GetNPCTypeID() == 118338) or (stage == 2 and e.self:GetNPCTypeID() == 118339) or (stage == 3 and e.self:GetNPCTypeID() == 118343) then
 		boss_count = boss_count + 1;
-		eq.zone_emote(1, "Boss count is " .. boss_count);
 	end
 	
 	if boss_count == 4 then
