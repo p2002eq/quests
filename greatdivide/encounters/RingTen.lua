@@ -65,6 +65,7 @@ function event_encounter_load(e)
 	next_spawn = {};
 	boss_count = 0;
 	miss_count = 0;
+	first = true;
 	
 	-- set up paths as soon as encounter loads
 	PathInfo = load_paths();
@@ -190,6 +191,7 @@ function ShoutingMatch1()
 	ThreadManager:Wait(30);
 	Narandi:Shout("Kromrif! Form up! Dispatch these tiny fools and destroy Thurgadin. Theres a keg of ice mead waiting for every man back at home.");
 	Narandi:Depop();
+	eq.signal(118351, 50, 1000);
 	GiantSpawn();
 end
 
@@ -289,9 +291,9 @@ function GiantSpawn()
 	-- local spawn_time = 300000 - math.random(285000); -- base time till next wave
 	local spawn_time = 30000 - math.random(28500);
 
-	if stage == 1 and boss_count == 0 and miss_count == 0 then -- checks for first execution
-		eq.signal(118351, 50, 1000);
+	if first then -- checks for first execution
 		spawn_time = 1000; -- shorter time for first wave
+		first = false;
 	end
 	
 	if boss_count >= 4 then
