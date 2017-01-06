@@ -158,7 +158,6 @@ function Conversation()
 	Aldikar:Say("The leader of this invasion is a powerful Kromrif named Narandi. Rumor has it that he is more powerful than any ten of his peers. He must fall. When he is slain you must show his head and your ring to me.");
 	ThreadManager:Wait(15);
 	Aldikar:Say("Scout Zrelik here will follow you and serve as your herald. He will relay your orders to the troops. Show me your ring now to verify your identity and I will give you the orders to memorize.");
-	-- spawn Zrelik and advance stage
 	eq.unique_spawn(118354, 0, 0, -110, -545, 77, 223);
 	eq.signal(118354, 100);
 	eq.signal(118351, 100);
@@ -340,26 +339,28 @@ end
 
 function ScoutMove(e)
 	local pos = { e.other:GetX(), e.other:GetY(), e.other:GetZ(), 0.5 };
-	if stage > 0 then
-		if(e.message:findi("Dobbin assist me!")) then
+	if stage > 0 and not first then
+		if(e.message:findi("Dobbin assist me")) then
 			call_dwarves(pos, 6);
 			e.self:Say("Dobbin is on his way!");
-		elseif(e.message:findi("Garadain to my side!")) then
+		elseif(e.message:findi("Garadain to my side")) then
 			call_dwarves(pos, 7);
 			e.self:Say("Garadain is on his way!");
-		elseif(e.message:findi("Churn protect me!")) then
+		elseif(e.message:findi("Churn protect me")) then
 			call_dwarves(pos, 8);
-			e.self:Say("Churn is on his way!");	
+			e.self:Say("Churn is on his way");	
 		elseif(e.message:findi("Corbin, attack!")) then
 			call_dwarves(pos, 9);
 			e.self:Say("Corbin is on his way!");
-		elseif(e.message:findi("For the Dain, attack!")) then
+		elseif(e.message:findi("For the Dain, attack")) then
 			call_dwarves({ pos[1], pos[2], pos[3], pos[4] }, 6);
 			call_dwarves({ pos[1] - 22.5, pos[2] + 20, pos[3], pos[4] }, 7);
 			call_dwarves({ pos[1] + 22.5, pos[2] + 20, pos[3], pos[4] }, 8);
 			call_dwarves({ pos[1], pos[2] - 20, pos[3], pos[4] }, 9);
 			e.self:Say("The commanders are on their way!");
 		end
+	else
+		e.self:Say("Our troops are not yet ready! Please wait for the battle to be joined to give your orders!");
 	end
 end
 
