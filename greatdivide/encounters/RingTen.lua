@@ -287,8 +287,7 @@ function AddBoss(e)
 end
 
 function GiantSpawn()
-	-- local spawn_time = 300000 - math.random(285000); -- base time till next wave
-	local spawn_time = 30000 - math.random(28500);
+	local spawn_time = 300000 - math.random(285000); -- base time till next wave
 
 	if first then -- checks for first execution
 		spawn_time = 1000; -- shorter time for first wave
@@ -297,8 +296,7 @@ function GiantSpawn()
 	
 	if boss_count >= 4 then
 		if stage < 3 then
-			-- spawn_time = 360000; -- longer pause before new stage
-			spawn_time = 36000;
+			spawn_time = 360000; -- longer pause before new stage
 			boss_count = 0;
 			miss_count = 0;
 			stage = stage + 1;
