@@ -53,6 +53,7 @@ end
 
 function event_timer(e)
 	if(e.timer == "depop") then
+		eq.stop_timer("depop");
 		e.self:Say("Our time has run out. You have failed.");
 		eq.depop_with_timer();
 		eq.delete_global("invest_badge");
