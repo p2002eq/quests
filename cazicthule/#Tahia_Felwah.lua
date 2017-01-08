@@ -36,7 +36,8 @@ function event_trade(e)
 	local item_lib = require("items");
 	
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 8234})) then
-		e.other:SpellFinished(2698,e.other,0,0);	-- instant casts it from turn in player because her aoe cast won't land on players.
+		e.other:SpellFinished(2697,e.other);
+		e.other:SpellFinished(2698,e.other);	-- instant casts it from turn in player because her aoe cast won't land on players.
 		rune_total = rune_total + 1;
 	end
 	
