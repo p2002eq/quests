@@ -75,7 +75,7 @@ function active(mob)
 end
 
 function cleanup()
-	local npc_list = { 48390, 48391, 48392, 48354, 48382, 48383, 48384, 48385, 48386, 48388, 48378, 48379, 48380};
+	local npc_list = { 48390, 48392, 48354, 48382, 48383, 48384, 48385, 48386, 48388, 48378, 48379, 48380};
 	for _,v in pairs(npc_list) do
 		eq.depop_all(v);
 	end
