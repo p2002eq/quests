@@ -2,7 +2,7 @@
 
 function event_spawn(e)
 	e.self:ModifyNPCStat("runspeed","0");
-	tahia = eq.unique_spawn(48057, 0, 0, 587, 1090, -98, 0):SetAppearance(3);
+	eq.unique_spawn(48057, 0, 0, 587, 1090, -98, 0):SetAppearance(3);
 	justicars = {};
 	table.insert(justicars, eq.spawn2(48001, 0, 0, 587, 1055, -95, 0):GetID());
 	table.insert(justicars, eq.spawn2(48001, 0, 0, 587, 1128, -95, 128):GetID());
@@ -49,7 +49,7 @@ end
 
 function event_death_complete(e)
 	e.self:Shout("Oh facelesss one, I have fallen! Pleasse avenge the death of your faithful ssservant!");
-	tahia:Depop();
+	eq.get_entity_list():GetMobByNpcTypeID(48057):Depop();
 	local ents = eq.get_entity_list();
 	for _, v in ipairs(justicars) do
 		local self = ents:GetMob(v);

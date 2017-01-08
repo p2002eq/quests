@@ -13,12 +13,8 @@ function event_spawn(e)
 end
 
 function event_waypoint_arrive(e)
-	if e.wp == 1 then
-		if wave % 6 > 0.1 then
-			e.self:Shout("In the name of the faceless, I command you, the minions of fear, ARISE!");
-			e.self:SpellFinished(2128, e.self);
-			spawn_wave();		
-		elseif wave == 6 then
+	if e.wp == 1 then	
+		if wave == 6 then
 			e.self:Shout("In the name of the fearful one, prepare yourselves! I shall rend your minds with fright, dread, and terror!");
 			inactive(eq.unique_spawn(48384, 0, 0, 651, 1130, -90, 170)); -- Dread
 			inactive(eq.unique_spawn(48385, 0, 0, 523, 1130, -90, 85)); -- Fright
@@ -38,6 +34,10 @@ function event_waypoint_arrive(e)
 			active(e.self);
 			e.self:ModifyNPCStat("runspeed","1.5");
 			eq.set_timer("depop", 1800000);
+		else
+			e.self:Shout("In the name of the faceless, I command you, the minions of fear, ARISE!");
+			e.self:SpellFinished(2128, e.self);
+			spawn_wave();	
 		end
 		
 		wave = wave + 1;
