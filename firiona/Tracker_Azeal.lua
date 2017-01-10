@@ -5,7 +5,7 @@
 -- Issue with the timer, so to get this working just moved the quest turn in to this NPC, since the other NPC (Tracker_Azeal_) wasn't spawning correctly.
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Emote("test looks over at you and gives you an awkward smile, then quickly looks away. You notice he isn't like most of the elves you've seen. You can't quite put your finger on it, but for one thing he smells like he hasn't bathed in weeks.");
+		e.self:Emote("looks over at you and gives you an awkward smile, then quickly looks away. You notice he isn't like most of the elves you've seen. You can't quite put your finger on it, but for one thing he smells like he hasn't bathed in weeks.");
 	end
 end
 
@@ -25,9 +25,9 @@ function event_trade(e)
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 12691})) then --Test of Betrayal (Greenmist Quest 5/8)
 		e.self:Emote("begins to pull his face off.. it is a disguise!! 'Aha!! You have made it!! I cannot see well in this disguise, but I thought I smelled you. I have [news of the Charasis tome].'");
 		e.other:Ding();
-		eq.spawn2(84404,0,0,e.self:GetX(),e.self:GetY(),e.self:GetZ(),e.self:GetHeading());
+		eq.spawn2(84412,0,0,e.self:GetX(),e.self:GetY(),e.self:GetZ(),e.self:GetHeading());
 		eq.spawn2(84392,0,0,-1822,617,142.5,103);
-		eq.depop();
+		eq.depop_with_timer();
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end

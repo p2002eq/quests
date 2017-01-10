@@ -26,38 +26,30 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(e.other:GetFaction(e.self) == 1) then
-	    if(item_lib.check_turn_in(e.self, e.trade, {item1 = 31262,item2 = 31261,item3 = 31263,item4 = 31260})) then
-	        e.self:Emote("looks happy as she hands you the reward.");
-		    e.other:Faction(42,75); --# claws of veeshan
-		    e.other:Faction(362,75); --# yelinak
-		    e.other:Faction(189,-100); --# zek
-		    e.other:QuestReward(e.self,0,0,0,0,31463,200000);
-	    elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 31267,item2 = 31266,item3 = 31265,item4 = 31264})) then
-	        e.self:Emote("looks happy as she hands you the reward.");
-		    e.other:Faction(42,75); --# claws of veeshan
-		    e.other:Faction(362,75); --# yelinak
-		    e.other:Faction(189,-100); --# zek
-	        e.other:QuestReward(e.self,0,0,0,0,31464,200000);
-	    elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 31259,item2 = 31270,item3 = 31253,item4 = 31250})) then
-	        e.self:Emote("looks happy as she hands you the reward.");
-		    e.other:Faction(42,75); --# claws of veeshan
-		    e.other:Faction(362,75); --# yelinak
-		    e.other:Faction(189,-100); --# zek
-		    e.other:QuestReward(e.self,0,0,0,0,31460,200000);
-	    elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 31251,item2 = 31269,item3 = 31252,item4 = 31254})) then
-	        e.self:Emote("looks happy as she hands you the reward.");
-		    e.other:Faction(42,75); --# claws of veeshan
-		    e.other:Faction(362,75); --# yelinak
-		    e.other:Faction(189,-100); --# zek
-		    e.other:QuestReward(e.self,0,0,0,0,31461,200000);
-	    elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 31257,item2 = 31268,item3 = 31256,item4 = 31255})) then
-	        e.self:Emote("looks happy as she hands you the reward.");
-		    e.other:Faction(42,75); --# claws of veeshan
-		    e.other:Faction(362,75); --# yelinak
-		    e.other:Faction(189,-100); --# zek
-		    e.other:QuestReward(e.self,0,0,0,0,31462,200000);
-	   end
+	
+	if(e.other:GetFaction(e.self) <= 1) then
+		if(item_lib.check_turn_in(e.self, e.trade, {item1 = 31262,item2 = 31261,item3 = 31263,item4 = 31260})) then
+			give_reward(e.self, e.other, 31463);
+		elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 31267,item2 = 31266,item3 = 31265,item4 = 31264})) then
+			give_reward(e.self, e.other, 31464);
+		elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 31259,item2 = 31270,item3 = 31253,item4 = 31250})) then
+			give_reward(e.self, e.other, 31460);
+		elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 31251,item2 = 31269,item3 = 31252,item4 = 31254})) then
+			give_reward(e.self, e.other, 31461);
+		elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 31257,item2 = 31268,item3 = 31256,item4 = 31255})) then
+			give_reward(e.self, e.other, 31462);
+		end
+	else
+		e.self:Say("I do not know you well enough to entrust you with such an item, yet.");
 	end
+	
 	item_lib.return_items(e.self, e.other, e.trade)
+end
+
+function give_reward(self, other, item)
+	self:Emote("looks happy as she hands you the reward.");
+	other:Faction(42,50); -- CoV
+	other:Faction(362,25); -- Yeli
+	other:Faction(189,-100); -- Kromzek
+	other:QuestReward(self,0,0,0,0,item,200000);
 end

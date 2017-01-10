@@ -1,8 +1,11 @@
-function event_signal(e)
-	if(e.signal == 1) then --Night
-		eq.move_to(6,777,66,128,1);
-	elseif(e.signal == 2) then --Day
-		eq.move_to(4,690,69,128,1);
+function event_spawn(e)
+	eq.set_timer("depop", 1800000);
+end
+
+function event_timer(e)
+	if e.timer == "depop" then
+		eq.stop_timer("depop");
+		eq.depop();
 	end
 end
 
@@ -76,11 +79,4 @@ function event_trade(e)
 	
 	item_lib.return_items(e.self, e.other, e.trade)	
 		
-end
-
-function event_timer(e)
-	if e.timer == "depop"
-		eq.stop_timer("depop");
-		eq.depop();
-	end
 end

@@ -16,15 +16,25 @@ function event_death_complete(e)
 	if (total <= 1 and not eq.get_entity_list():IsMobSpawnedByNpcTypeID(90194) and not eq.get_entity_list():IsMobSpawnedByNpcTypeID(90196)) then
 		eq.unique_spawn(90194,0,0,e.self:GetX(),e.self:GetY(),e.self:GetZ(),e.self:GetHeading());
 	elseif (chance_spawn <= 25) then
-		eq.spawn2(90175,0,0,e.self:GetX(),e.self:GetY(),e.self:GetZ()+10,e.self:GetHeading()); -- shadow
+		local shadow = eq.spawn2(90175,0,0,e.self:GetX(),e.self:GetY(),e.self:GetZ()+10,e.self:GetHeading()); -- shadow
+		eq.set_timer("depop", 1800000, shadow);
 	elseif (chance_spawn <= 50 and not eq.get_entity_list():IsMobSpawnedByNpcTypeID(90193)) then
-		eq.unique_spawn(90193,0,0,e.self:GetX(),e.self:GetY(),e.self:GetZ(),e.self:GetHeading()); -- Ghiosk if he's not up
+		local ghiosk = eq.unique_spawn(90193,0,0,e.self:GetX(),e.self:GetY(),e.self:GetZ(),e.self:GetHeading()); -- Ghiosk if he's not up
+		eq.set_timer("depop", 1800000, ghiosk);
 	else
-		eq.spawn2(90005,0,0,e.self:GetX(),e.self:GetY(),e.self:GetZ(),e.self:GetHeading()); -- reaver otherwise
+		local reaver = eq.spawn2(90005,0,0,e.self:GetX(),e.self:GetY(),e.self:GetZ(),e.self:GetHeading()); -- reaver otherwise
+		eq.set_timer("depop", 1800000, reaver); -- sets timer on spawned reavers only!
 	end
 end
 
 function event_trade(e)
 	local item_lib = require("items");
 	item_lib.return_items(e.self, e.other, e.trade);
+end
+
+function event_timer(e)
+	if e.timer == "depop" then
+		eq.stop_timer("depop");
+		eq.depop();
+	end
 end

@@ -52,6 +52,9 @@ function event_encounter_load(e)
 	eq.register_npc_event("RingTen", Event.waypoint_arrive, 118352, ConversationStart);
 	eq.register_npc_event("RingTen", Event.waypoint_arrive, 118351, ConversationStart);
 	
+	-- Boss counter
+	eq.register_npc_event("RingTen", Event.death_complete, -1, AddBoss);
+	
 	-- War win monitor
 	eq.register_npc_event("RingTen", Event.death_complete, 118345, FinalStage);
 	
@@ -62,6 +65,7 @@ function event_encounter_load(e)
 	next_spawn = {};
 	boss_count = 0;
 	miss_count = 0;
+	first = true;
 	
 	-- set up paths as soon as encounter loads
 	PathInfo = load_paths();
@@ -122,16 +126,13 @@ function Conversation()
 	ThreadManager:Wait(10);
 	Garadain:Emote("bows and departs to the east.");
 	Garadain:Depop();
-	eq.signal(118351, 57, 1000);
 	ThreadManager:Wait(10);
 	Churn:Say("Understood sir.");
 	Churn:Emote("turns to walk west.");
 	Churn:Depop();
-	eq.signal(118351, 58, 1000);
 	ThreadManager:Wait(10);
 	Kargin:Emote("nods quietly and slinks away.");
 	Kargin:Depop();
-	eq.signal(118351, 60, 1000);
 	ThreadManager:Wait(10);
 	Badain:Say("Excuse me, Seneschal Aldikar, you instructed me to report to you when the outlander returned.");
 	ThreadManager:Wait(15);
@@ -148,18 +149,15 @@ function Conversation()
 	ThreadManager:Wait(15);
 	Dobbin:Emote("salutes and marches southward.");
 	Dobbin:Depop();
-	eq.signal(118351, 56, 1000);
 	ThreadManager:Wait(15);
 	Aldikar:Say("Lastly, Corbin will hide his men in the worm caves to the south, call on him for a surprise attack. Remember where these men are stationed, outlander. Should they call out for help you may wish to send some of your people to aid them.");
 	ThreadManager:Wait(10);
 	Corbin:Emote("runs off unceremoniously.");
 	Corbin:Depop();
-	eq.signal(118351, 59, 1000);
 	ThreadManager:Wait(15);
 	Aldikar:Say("The leader of this invasion is a powerful Kromrif named Narandi. Rumor has it that he is more powerful than any ten of his peers. He must fall. When he is slain you must show his head and your ring to me.");
 	ThreadManager:Wait(15);
 	Aldikar:Say("Scout Zrelik here will follow you and serve as your herald. He will relay your orders to the troops. Show me your ring now to verify your identity and I will give you the orders to memorize.");
-	-- spawn Zrelik and advance stage
 	eq.unique_spawn(118354, 0, 0, -110, -545, 77, 223);
 	eq.signal(118354, 100);
 	eq.signal(118351, 100);
@@ -182,6 +180,9 @@ function ShoutingMatch1()
 	Aldikar:Shout("Will we be shackled together to slave away in Kromrif mines or will we stand united and feed these beasts Coldain blades? By Brell I promise you, 'It is better to die on our feet than to live on our knees!'");
 	ThreadManager:Wait(30);
 	Aldikar:Shout("TROOPS, TAKE YOUR POSITIONS!!");
+	for i = 56, 60 do
+		eq.signal(118351, i, 1000);
+	end
 	ThreadManager:Wait(30);
 	Narandi:Shout("No need to pray to your little God stumpymen, you'll be meeting him in person soon enough!");
 	ThreadManager:Wait(30);
@@ -189,6 +190,7 @@ function ShoutingMatch1()
 	ThreadManager:Wait(30);
 	Narandi:Shout("Kromrif! Form up! Dispatch these tiny fools and destroy Thurgadin. Theres a keg of ice mead waiting for every man back at home.");
 	Narandi:Depop();
+	eq.signal(118351, 50, 1000);
 	GiantSpawn();
 end
 
@@ -206,7 +208,7 @@ function ShoutingMatch2()
 	Narandi:Shout("My warriors approach, I offer you one final opportunity to bow before the might of Rallos Zek. Throw down your weapons and surrender. You will live out your lives in relative peace, rightfully serving your Kromrif masters.");
 	ThreadManager:Wait(60);
 	Aldikar:Shout("Enough! Show yourself coward! Your blasphemous words shall be etched upon your spacious brow. All will mock you for generations to come. Your own god will forsake you when he witnesses your defeat here today!");
-	ThreadManager:Wait(240);
+	ThreadManager:Wait(180);
 	Narandi:Shout("Warriors! Charge through these pompous fools. Any you manage to capture shall become your personal slaves. The outlanders and the Seneschal must die! Bring me their heads!");
 	Narandi:Depop();
 end
@@ -223,7 +225,7 @@ function ShoutingMatch3()
 	Aldikar:Shout("It is your misguided beliefs that made this war necessary. Now you feel the sting of your errors. Return to Kael and preach the doctrine of Brell Serilis in hopes that your people may someday be spared.");
 	ThreadManager:Wait(60);
 	Narandi:Shout("Enough chatter. Our veterans approach now to finish you. You have been tested and your weaknesses have been assessed. Bid farewell to your dear Thurgadin, those of you who are fortunate enough to survive the slaughter shall make a new home in the Kromrif slave pens!");
-	ThreadManager:Wait(360);
+	ThreadManager:Wait(300);
 	Narandi:Shout("Veterans! Be sure that this time we allow none of the stumpymen to escape to create yet another city. This shall be our final war with these unworthy beings.");
 	Narandi:Depop();
 end
@@ -269,17 +271,31 @@ function PostSetup()
 	end
 end
 
+function AddBoss(e)
+	if (stage == 1 and e.self:GetNPCTypeID() == 118338) or (stage == 2 and e.self:GetNPCTypeID() == 118339) or (stage == 3 and e.self:GetNPCTypeID() == 118343) then
+		boss_count = boss_count + 1;
+	end
+	
+	if boss_count == 4 then
+		for i = 1, 5 do
+			eq.stop_timer("Spawn" .. i, Aldikar);
+		end
+		
+		GiantSpawn();
+	end
+end
+
 function GiantSpawn()
 	local spawn_time = 300000 - math.random(285000); -- base time till next wave
 
-	if stage == 1 and boss_count == 0 and miss_count == 0 then -- checks for first execution
-		eq.signal(118351, 50, 1000);
+	if first then -- checks for first execution
 		spawn_time = 1000; -- shorter time for first wave
+		first = false;
 	end
 	
 	if boss_count >= 4 then
 		if stage < 3 then
-			spawn_time = 420000; -- longer pause before new stage
+			spawn_time = 360000; -- longer pause before new stage
 			boss_count = 0;
 			miss_count = 0;
 			stage = stage + 1;
@@ -297,7 +313,6 @@ function GiantSpawn()
 	local boss_chance = math.random(100);
 	if boss_chance <= prc * (miss_count + 1) then
 		boss = 1;
-		boss_count = boss_count + 1;
 		miss_count = 0;
 	else
 		boss = 0;
@@ -321,26 +336,28 @@ end
 
 function ScoutMove(e)
 	local pos = { e.other:GetX(), e.other:GetY(), e.other:GetZ(), 0.5 };
-	if stage > 0 then
-		if(e.message:findi("Dobbin assist me!")) then
+	if stage > 0 and not first then
+		if(e.message:findi("Dobbin assist me")) then
 			call_dwarves(pos, 6);
 			e.self:Say("Dobbin is on his way!");
-		elseif(e.message:findi("Garadain to my side!")) then
+		elseif(e.message:findi("Garadain to my side")) then
 			call_dwarves(pos, 7);
 			e.self:Say("Garadain is on his way!");
-		elseif(e.message:findi("Churn protect me!")) then
+		elseif(e.message:findi("Churn protect me")) then
 			call_dwarves(pos, 8);
-			e.self:Say("Churn is on his way!");	
+			e.self:Say("Churn is on his way");	
 		elseif(e.message:findi("Corbin, attack!")) then
 			call_dwarves(pos, 9);
 			e.self:Say("Corbin is on his way!");
-		elseif(e.message:findi("For the Dain, attack!")) then
+		elseif(e.message:findi("For the Dain, attack")) then
 			call_dwarves({ pos[1], pos[2], pos[3], pos[4] }, 6);
 			call_dwarves({ pos[1] - 22.5, pos[2] + 20, pos[3], pos[4] }, 7);
 			call_dwarves({ pos[1] + 22.5, pos[2] + 20, pos[3], pos[4] }, 8);
 			call_dwarves({ pos[1], pos[2] - 20, pos[3], pos[4] }, 9);
 			e.self:Say("The commanders are on their way!");
 		end
+	else
+		e.self:Say("Our troops are not yet ready! Please wait for the battle to be joined to give your orders!");
 	end
 end
 
