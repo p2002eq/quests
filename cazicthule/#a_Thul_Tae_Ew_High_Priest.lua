@@ -3,10 +3,10 @@
 function event_spawn(e)
 	e.self:ModifyNPCStat("runspeed","0");
 	eq.unique_spawn(48057, 0, 0, 587, 1090, -98, 0):SetAppearance(3); -- Tahia
-	eq.spawn2(48001, 0, 0, 587, 1055, -95, 0):SetBodyType(11, true); -- Justicars
-	eq.spawn2(48001, 0, 0, 587, 1128, -95, 128):SetBodyType(11, true);
-	eq.spawn2(48001, 0, 0, 550, 1090, -95, 64):SetBodyType(11, true);
-	eq.spawn2(48001, 0, 0, 625, 1090, -95, 192):SetBodyType(11, true);
+	inactive(eq.spawn2(48001, 0, 0, 587, 1055, -95, 0)); -- Justicars
+	inactive(eq.spawn2(48001, 0, 0, 587, 1128, -95, 128));
+	inactive(eq.spawn2(48001, 0, 0, 550, 1090, -95, 64));
+	inactive(eq.spawn2(48001, 0, 0, 625, 1090, -95, 192));
 end
 
 function event_combat(e)
@@ -47,4 +47,9 @@ function event_death_complete(e)
 	eq.signal(48001, 99); -- blow up Justicars
 	eq.get_entity_list():GetMobByNpcTypeID(48057):Depop(); -- depop laying Tahia
 	eq.unique_spawn(48388, 0, 0, 587, 1090, -98, 0); -- spawn standing Tahia
+end
+
+function inactive(mob)
+	mob:SetBodyType(11, true);
+	mob:SetSpecialAbility(24, 1);
 end

@@ -5,7 +5,7 @@ mobs = { 48390, 48392, 48354, 48382, 48383 }
 
 function event_spawn(e)
 	inactive(e.self);
-	e.self:ModifyNPCStat("runspeed","0.35");
+	e.self:ModifyNPCStat("runspeed","0.4");
 	eq.start(150);
 	e.self:SpellFinished(2128, e.self);
 	e.self:Shout("Minions of fear hear me now! The temple of the great Cazic Thule has been defiled. I summon you to assist me in its cleansing!");
