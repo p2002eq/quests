@@ -6,7 +6,8 @@ local dragons = {124008, 124074, 124076, 124077, 124103, 124289};
 function event_encounter_load(e)
 	-- start event in 1 minute
 	wave = 0;
-	eq.set_timer("start", 60000); -- timer to start wave 1
+	-- eq.set_timer("start", 60000); -- timer to start wave 1
+	eq.set_timer("start", 1000);
 	
 	eq.register_player_event("Vulak_Event", Event.death_complete, CarrionCheck);
 	eq.register_npc_event("Vulak_Event", Event.death, -1, SplitterCheck);
@@ -22,10 +23,10 @@ function GMControl(e)
 		if(e.message:findi("help")) then
 			e.self:Message(6, "To control the event, say 'wave#' where # is the number of the wave to which you want to set the event. Note that this doesn't change the timer, but the event will continue normally from this point. i.e. setting the event to wave10 will cause wave11 to spawn at the next expiration of the timer.")
 		elseif(e.message:findi("wave")) then
-			local wave_num = string.match(e.message, '%d+');
+			local wave_num = tonumber(string.sub(e.message, string.find(e.message, '%d+')));
 			if wave_num >= 1 and wave_num < 17 then
 				wave = wave_num;
-				e.self:Message(6, "Wave set to number" .. wave_num);
+				e.self:Message(6, "Wave set to number " .. wave_num);
 			else
 				e.self:Message(6, "Wave number not valid, try again.");
 			end
@@ -202,7 +203,7 @@ end
 
 function CarrionCheck(e)
 	-- spawn carrion drake upon death of a player in specific waves
-	if wave == 2 or wave == 4 or wave == 7 or wave == 10 or wave == 11 or wave == 12 then
+	if wave == 2 or wave == 4 or wave == 7 or wave == 10 or wave == 11 or wave == 13 then
 		if e.self:CalculateDistance(-739, 518, 120) <= 300 then -- 300 distance from Vulak spawn
 			eq.spawn2(124315,0,0,e.self:GetX(),e.self:GetY(),e.self:GetZ(),0);
 		end
@@ -223,19 +224,19 @@ function SplitterCheck(e)
 	-- split drakes depending on what wave we are on
 	if wave == 6 or wave == 15 then
 		if e.self:GetNPCTypeID() == 124326 then
-			spawn_mob(124317, math.random(1, 5));
-			spawn_mob(124317, math.random(1, 5));
+			spawn_mob(124317, math.random(5));
+			spawn_mob(124317, math.random(5));
 		elseif e.self:GetNPCTypeID() == 124317 then
-			spawn_mob(124324, math.random(1, 5));
-			spawn_mob(124324, math.random(1, 5));
+			spawn_mob(124324, math.random(5));
+			spawn_mob(124324, math.random(5));
 		elseif e.self:GetNPCTypeID() == 124324 then
-			spawn_mob(124328, math.random(1, 5));
+			spawn_mob(124328, math.random(5));
 		end
 	elseif wave == 14 then
 		if e.self:GetNPCTypeID() == 124324 then
-			spawn_mob(124317, math.random(1, 5));
+			spawn_mob(124317, math.random(5));
 		elseif e.self:GetNPCTypeID() == 124317 then
-			spawn_mob(124326, math.random(1, 5))
+			spawn_mob(124326, math.random(5))
 		end
 	end
 end
@@ -277,7 +278,7 @@ function player_check()
 	return false; -- if nothing checks out, returns false
 end
 
-function Cleanup(success)
+function Cleanup()
 	-- depop vulak and move any summoned dragons back to their bind.
 	for _, dragon in ipairs(dragons) do
 		local mob = eq.get_entity_list():GetMobByNpcTypeID(dragon);
