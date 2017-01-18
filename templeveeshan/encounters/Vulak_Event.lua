@@ -18,7 +18,7 @@ function event_encounter_load(e)
 end
 
 function GMControl(e)
-	if e.self:Admin() > 100 and player:CalculateDistance(-739, 518, 120) <= 300 then
+	if e.self:Admin() > 100 and e.self:CalculateDistance(-739, 518, 120) <= 300 then
 		if(e.message:findi("help")) then
 			e.self:Message(6, "To control the event, say 'wave#' where # is the number of the wave to which you want to set the event. Note that this doesn't change the timer, but the event will continue normally from this point. i.e. setting the event to wave10 will cause wave11 to spawn at the next expiration of the timer.")
 		elseif(e.message:findi("wave")) then
