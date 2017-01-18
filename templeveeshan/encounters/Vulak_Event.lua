@@ -13,6 +13,24 @@ function event_encounter_load(e)
 	
 	eq.register_npc_event("Vulak_Event", Event.spawn, 124323, DragonCall);
 	eq.register_npc_event("Vulak_Event", Event.death_complete, 124323, Cleanup);
+	
+	eq.register_player_event("Vulak_Event", Event.say, GMControl);
+end
+
+function GMControl(e)
+	if e.self:Admin() > 100 and player:CalculateDistance(-739, 518, 120) <= 300 then
+		if(e.message:findi("help")) then
+			e.self:Message(6, "To control the event, say 'wave#' where # is the number of the wave to which you want to set the event. Note that this doesn't change the timer, but the event will continue normally from this point. i.e. setting the event to wave10 will cause wave11 to spawn at the next expiration of the timer.")
+		elseif(e.message:findi("wave")) then
+			local wave_num = string.match(e.message, "(%d+)")
+			if wave_num >= 1 and wave_num < 17 then
+				wave = wave_num;
+				e.self:Message(6, "Wave set to number" .. wave_num);
+			else
+				e.self:Message(6, "Wave number not valid, try again.");
+			end
+		end
+	end
 end
 
 function event_timer(e)
@@ -42,7 +60,8 @@ function event_timer(e)
 		spawn_mob(124059, 3);
 		spawn_hatchlings();	-- random hatchlings
 		
-		eq.set_timer("waves", 540000); -- timer for future waves
+		-- eq.set_timer("waves", 540000); -- timer for future waves
+		eq.set_timer("waves", 60000); -- testing timer
 		eq.set_timer("playercheck", 60000); -- checks for players every minute
 		
 	elseif e.timer == "waves" then
