@@ -5,6 +5,7 @@ local dragons = {124008, 124074, 124076, 124077, 124103, 124289};
 
 function event_encounter_load(e)
 	wave = 0;
+	carrion = false;
 	
 	-- start event in 1 minute
 	wave_timer = 540000;
@@ -98,6 +99,7 @@ function event_timer(e)
 		spawn_mob(124059, 2);
 		spawn_mob(124059, 3);
 		spawn_hatchlings();	-- random hatchlings
+		carrion = false;
 		
 		eq.set_timer("waves", wave_timer); -- timer for future waves
 		eq.set_timer("playercheck", 60000); -- checks for players every minute
@@ -110,6 +112,7 @@ function event_timer(e)
 			-- wave 2 spawns (flurry + hatchlings) # carrion active
 			spawn_mob(124314, 1);
 			spawn_hatchlings();
+			carrion = true;
 			
 		elseif wave == 2 then
 			wave = 3;
@@ -120,12 +123,14 @@ function event_timer(e)
 			spawn_mob(124059, 2);
 			spawn_mob(124059, 3);
 			spawn_hatchlings();
+			carrion = false;
 			
 		elseif wave == 3 then
 			wave = 4;
 			
 			-- wave 4 spawns (Zruk the Lifestealer) # carrion active
 			spawn_mob(124316, 4);
+			carrion = true;
 			
 		elseif wave == 4 then
 			wave = 5;
@@ -137,6 +142,7 @@ function event_timer(e)
 			spawn_mob(124059, 3);
 			spawn_mob(124059, 5);
 			spawn_hatchlings();
+			carrion = false;
 		
 		elseif wave == 5 then
 			wave = 6;
@@ -144,6 +150,7 @@ function event_timer(e)
 			-- wave 6 spawns (2x splitters @ 11 mobs each)
 			spawn_mob(124326, 1);
 			spawn_mob(124326, 4);
+			carrion = false;
 			
 		elseif wave == 6 then
 			wave = 7;
@@ -152,6 +159,7 @@ function event_timer(e)
 			spawn_mob(124314, 1);
 			spawn_mob(124314, 2);
 			spawn_mob(124314, 3);
+			carrion = true;
 			
 		elseif wave == 7 then
 			wave = 8;
@@ -159,6 +167,7 @@ function event_timer(e)
 			-- wave 8 spawns (Rathek the Tigerclaw with pet)
 			spawn_mob(124318, 5);
 			spawn_mob(124319, 5, true);
+			carrion = false;
 			
 		elseif wave == 8 then
 			wave = 9;
@@ -167,6 +176,7 @@ function event_timer(e)
 			for i = 1, 5 do
 				spawn_mob(124320, i);
 			end
+			carrion = false;
 			
 		elseif wave == 9 then
 			wave = 10;
@@ -175,6 +185,7 @@ function event_timer(e)
 			spawn_mob(124081, 4);
 			spawn_mob(124314, 2);
 			spawn_mob(124314, 3);
+			carrion = true;
 			
 		elseif wave == 10 then
 			wave = 11;
@@ -183,12 +194,14 @@ function event_timer(e)
 			spawn_mob(124314, 1);
 			spawn_mob(124320, 2);
 			spawn_mob(124320, 3);
+			carrion = true;
 			
 		elseif wave == 11 then
 			wave = 12;
 			
 			-- wave 12 spawns (Vethrol the Skycaller)
 			spawn_mob(124321, 5);
+			carrion = false;
 			
 		elseif wave == 12 then
 			wave = 13;
@@ -197,6 +210,7 @@ function event_timer(e)
 			spawn_mob(124314, 1);
 			spawn_mob(124314, 2);
 			spawn_mob(124314, 3);
+			carrion = true;
 			
 		elseif wave == 13 then
 			wave = 14;
@@ -205,6 +219,7 @@ function event_timer(e)
 			spawn_mob(124329, 1);
 			spawn_mob(124329, 2);
 			spawn_mob(124329, 3);
+			carrion = false;
 			
 		elseif wave == 14 then
 			wave = 15;
@@ -212,12 +227,14 @@ function event_timer(e)
 			-- wave 15 spawns (2x splitters @ 11 mobs each)
 			spawn_mob(124326, 2);
 			spawn_mob(124326, 3);
+			carrion = false;
 			
 		elseif wave == 15 then
 			wave = 16;
 			
 			-- wave 16 spawns (The Herald of Vulak'Aerr)
 			spawn_mob(124322, 5);
+			carrion = false;
 			
 		elseif wave == 16 then
 			eq.stop_timer(e.timer);
@@ -225,6 +242,7 @@ function event_timer(e)
 			
 			-- VULAK spawns
 			spawn_mob(124323, 5);
+			carrion = false;
 			eq.set_timer("depop", 3600000);
 		end
 	elseif e.timer == "playercheck" then
@@ -241,10 +259,8 @@ end
 
 function CarrionCheck(e)
 	-- spawn carrion drake upon death of a player in specific waves
-	if wave == 2 or wave == 4 or wave == 7 or wave == 10 or wave == 11 or wave == 13 then
-		if e.self:CastToMob():CalculateDistance(-739, 518, 120) <= 300 then -- 300 distance from Vulak spawn
-			eq.spawn2(124315,0,0,e.self:GetX(),e.self:GetY(),e.self:GetZ(),0);
-		end
+	if carrion and e.self:CalculateDistance(-739, 518, 120) <= 300 then -- 300 distance from Vulak spawn
+		eq.spawn2(124315,0,0,e.self:GetX(),e.self:GetY(),e.self:GetZ(),0);
 	end
 end
 
@@ -259,7 +275,7 @@ function DragonCall(e)
 end
 
 function SplitterCheck(e)
-	-- split drakes depending on what wave we are on
+	-- split drakes depending on type
 	if e.self:GetNPCTypeID() == 124326 then
 		spawn_mob(124317, math.random(5));
 		spawn_mob(124317, math.random(5));
