@@ -4,10 +4,11 @@
 local dragons = {124008, 124074, 124076, 124077, 124103, 124289};
 
 function event_encounter_load(e)
-	-- start event in 1 minute
 	wave = 0;
-	-- eq.set_timer("start", 60000); -- timer to start wave 1
-	eq.set_timer("start", 1000);
+	
+	-- start event in 1 minute
+	wave_timer = 540000;
+	eq.set_timer("start", 60000); -- timer to start wave 1
 	
 	-- triggers for carrion drake spawns and splitters
 	eq.register_player_event("Vulak_Event", Event.death_complete, CarrionCheck);
@@ -30,22 +31,50 @@ end
 function GMControl(e)
 	if e.self:Admin() > 100 and e.self:CalculateDistance(-739, 518, 120) <= 300 then
 		if(e.message:findi("help")) then
-			e.self:Message(6, "To control the event, say 'wave#' where # is the number of the wave to which you want to set the event. Note that this doesn't change the timer, but the event will continue normally from this point. i.e. setting the event to wave10 will cause wave11 to spawn at the next expiration of the timer.")
+			e.self:Message(6, "To check current wave number and current wave timer, say 'status'.");
+			e.self:Message(6, "To adjust the current wave count, say 'wave #' where # is the number of the wave to which you want to set the event. Note that this doesn't change the timer, but the event will continue normally from this point. i.e. setting the event to wave10 will cause wave11 to spawn at the next expiration of the timer.");
+			e.self:Message(6, "To adjust the current wave timer, say 'timer #' where # is the length of each wave in seconds. This DOES reset the timer. e.g. if you say 'timer 120', the timer will be reset to 120 seconds - the next wave will spawn in 2 minutes, and a new wave will spawn every 2 minutes after that. This does not affect event reset timers.");
 		elseif(e.message:findi("wave")) then
-			local wave_num = tonumber(string.sub(e.message, string.find(e.message, '%d+')));
-			if wave_num >= 1 and wave_num < 17 then
-				wave = wave_num;
-				e.self:Message(6, "Wave set to number " .. wave_num);
+			if wave >= 1 then
+				local wave_num = tonumber(string.sub(e.message, string.find(e.message, '%d+')));
+				if wave_num >= 1 and wave_num < 17 then
+					wave = wave_num;
+					e.self:Message(6, string.format("Wave set to number %s. Wave timer currently at %s seconds.", wave_num, wave_timer/1000));
+				else
+					e.self:Message(6, "Wave number not valid, try again.");
+				end
 			else
-				e.self:Message(6, "Wave number not valid, try again.");
+				e.self:Message(6, "Please wait until the event starts to change waves.");
 			end
+		elseif(e.message:findi("timer")) then
+			if wave >= 1 then
+				local temp_time = tonumber(string.sub(e.message, string.find(e.message, '%d+')));
+				if temp_time > 0 and temp_time < 3600 then
+					wave_timer = temp_time*1000;
+					e.self:Message(6, string.format("Wave timer set to %s seconds. Currently on wave %s.", wave_timer/1000, wave));
+				else
+					e.self:Message(6, "Timer length not valid, try again.");
+				end
+			else
+				e.self:Message(6, "Please wait until the event starts to reset the timer.");
+			end
+		elseif(e.message:findi("status")) then
+			e.self:Message(6, string.format("Wave timer is %s seconds. Currently on wave %s.", wave_timer/1000, wave));
 		end
 	end
 end
 
 function event_timer(e)
-	if e.timer == "start" then
+	if e.timer == "hb" then
+		-- the only reason this is necessary is I can't seem to figure out how to set event timers from inside the GMControl function!
+		if old_timer ~= wave_timer then
+			eq.stop_timer("waves");
+			eq.set_timer("waves", wave_timer);
+			old_timer = wave_timer;
+		end
+	elseif e.timer == "start" then
 		eq.stop_timer(e.timer);
+		old_timer = wave_timer;
 		wave = 1;
 		
 		eq.spawn2(124325,0,0,-719,1019,121.5,122);	-- spawn dt destroyers
@@ -70,9 +99,9 @@ function event_timer(e)
 		spawn_mob(124059, 3);
 		spawn_hatchlings();	-- random hatchlings
 		
-		-- eq.set_timer("waves", 540000); -- timer for future waves
-		eq.set_timer("waves", 60000); -- testing timer
+		eq.set_timer("waves", wave_timer); -- timer for future waves
 		eq.set_timer("playercheck", 60000); -- checks for players every minute
+		eq.set_timer("hb", 1000); -- heartbeat timer
 		
 	elseif e.timer == "waves" then
 		if wave == 1 then
