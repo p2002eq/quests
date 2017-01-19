@@ -11,7 +11,7 @@ function event_encounter_load(e)
 	eq.set_timer("start", 60000); -- timer to start wave 1
 	
 	-- triggers for carrion drake spawns and splitters
-	eq.register_player_event("Vulak_Event", Event.death_complete, CarrionCheck);
+	eq.register_player_event("Vulak_Event", Event.death, CarrionCheck);
 	eq.register_npc_event("Vulak_Event", Event.death, -1, SplitterCheck);
 	
 	-- triggers on spawn and death of Vulak
@@ -202,9 +202,9 @@ function event_timer(e)
 			wave = 14;
 			
 			-- wave 14 spawns (3 splitters @ 3 mobs each)
-			spawn_mob(124324, 1);
-			spawn_mob(124324, 2);
-			spawn_mob(124324, 3);
+			spawn_mob(124329, 1);
+			spawn_mob(124329, 2);
+			spawn_mob(124329, 3);
 			
 		elseif wave == 14 then
 			wave = 15;
@@ -242,7 +242,7 @@ end
 function CarrionCheck(e)
 	-- spawn carrion drake upon death of a player in specific waves
 	if wave == 2 or wave == 4 or wave == 7 or wave == 10 or wave == 11 or wave == 13 then
-		if e.self:CalculateDistance(-739, 518, 120) <= 300 then -- 300 distance from Vulak spawn
+		if e.self:CastToMob():CalculateDistance(-739, 518, 120) <= 300 then -- 300 distance from Vulak spawn
 			eq.spawn2(124315,0,0,e.self:GetX(),e.self:GetY(),e.self:GetZ(),0);
 		end
 	end
@@ -260,22 +260,16 @@ end
 
 function SplitterCheck(e)
 	-- split drakes depending on what wave we are on
-	if wave == 6 or wave == 15 then
-		if e.self:GetNPCTypeID() == 124326 then
-			spawn_mob(124317, math.random(5));
-			spawn_mob(124317, math.random(5));
-		elseif e.self:GetNPCTypeID() == 124317 then
-			spawn_mob(124324, math.random(5));
-			spawn_mob(124324, math.random(5));
-		elseif e.self:GetNPCTypeID() == 124324 then
-			spawn_mob(124328, math.random(5));
-		end
-	elseif wave == 14 then
-		if e.self:GetNPCTypeID() == 124324 then
-			spawn_mob(124317, math.random(5));
-		elseif e.self:GetNPCTypeID() == 124317 then
-			spawn_mob(124326, math.random(5))
-		end
+	if e.self:GetNPCTypeID() == 124326 then
+		spawn_mob(124317, math.random(5));
+		spawn_mob(124317, math.random(5));
+	elseif e.self:GetNPCTypeID() == 124317 then
+		spawn_mob(124324, math.random(5));
+		spawn_mob(124324, math.random(5));
+	elseif e.self:GetNPCTypeID() == 124329 then
+		spawn_mob(124324, math.random(5));
+	elseif e.self:GetNPCTypeID() == 124324 then
+		spawn_mob(124328, math.random(5));
 	end
 end
 
