@@ -78,9 +78,9 @@ function event_timer(e)
 		old_timer = wave_timer;
 		wave = 1;
 		
-		eq.spawn2(124325,0,0,-719,1019,121.5,122);	-- spawn dt destroyers
-		eq.spawn2(124325,0,0,-740,1020,121.5,122);
-		eq.spawn2(124325,0,0,-760,1020,121.5,122);
+		eq.spawn2(124325,0,0,-710,920,121.5,122);	-- spawn dt destroyers
+		eq.spawn2(124325,0,0,-740,920,121.5,122);
+		eq.spawn2(124325,0,0,-770,920,121.5,122);
 		
 		local npcs = {124284,124157,176010};		-- despawn guardians
 		local npc_list = eq.get_entity_list():GetNPCList();
@@ -330,6 +330,8 @@ end
 
 function Cleanup()
 	-- depop vulak and move any summoned dragons back to their bind.
+	eq.depop_all(124325);
+	eq.depop(124323);
 	for _, dragon in ipairs(dragons) do
 		if eq.get_entity_list():IsMobSpawnedByNpcTypeID(dragon) then
 			local mob = eq.get_entity_list():GetMobByNpcTypeID(dragon);
@@ -354,8 +356,6 @@ function Cleanup()
 			end
 		end
 	end
-	eq.depop_all(124325);
-	eq.depop(124323);
 end
 
 function BossHeal()
