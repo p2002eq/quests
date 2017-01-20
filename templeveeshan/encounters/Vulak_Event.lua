@@ -109,7 +109,7 @@ function event_timer(e)
 		carrion = false;
 		
 		eq.set_timer("waves", wave_timer); -- timer for future waves
-		eq.set_timer("playercheck", 60000); -- checks for players every minute
+		eq.set_timer("playercheck", 30000); -- checks for players every 30 seconds
 		eq.set_timer("hb", 1000); -- heartbeat timer
 		
 	elseif e.timer == "waves" then
@@ -258,10 +258,9 @@ function event_timer(e)
 			eq.set_timer("depop", 1000);
 		end
 	elseif e.timer == "depop" then
-		eq.zone_emote(1, "depop timer expired");
 		eq.stop_timer(e.timer);
 		eq.get_entity_list():GetSpawnByID(354475):Repop();
-		cleanup();
+		cleanup(e);
 	end
     
 end
@@ -335,7 +334,7 @@ function player_check()
 	return false; -- if nothing checks out, returns false
 end
 
-function cleanup()
+function cleanup(e)
 	-- depop event mobs and move any summoned dragons back to their spawn
 	for _, mob in ipairs(event_mobs) do
 		eq.depop_all(mob);
