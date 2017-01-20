@@ -3,7 +3,7 @@
 
 -- please add summon dragon NPCIDs to dragons table and any mobs used in the event to the event_mobs table
 local dragons = {124008, 124074, 124076, 124077, 124103, 124289};
-local event_mobs = { 124314, 124326, 124318, 124319, 124320, 124321, 124329, 124322, 124323, 124316, 124081, 124059, 124317, 124324, 124328, 124315, 124325 };
+local event_mobs = { 124314, 124326, 124318, 124319, 124320, 124321, 124329, 124322, 124323, 124316, 124081, 124059, 124317, 124324, 124328, 124315, 124325, 124312 };
 
 function event_encounter_load(e)
 	wave = 0;
@@ -257,6 +257,9 @@ function event_timer(e)
 		eq.stop_timer(e.timer);
 		eq.get_entity_list():GetSpawnByID(354475):Repop();
 		cleanup();
+	elseif e.timer == "unload" then
+		eq.stop_timer(e.timer);
+		eq.unload_encounter("Vulak_Event");
 	end
     
 end
@@ -364,7 +367,7 @@ function cleanup()
 		end
 	end
 	eq.zone_emote(1, "unloading encounter");
-	eq.unload_encounter("Vulak_Event");
+	eq.set_timer("unload", 10000);
 end
 
 function BossHeal()
