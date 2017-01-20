@@ -18,9 +18,12 @@ function event_encounter_load(e)
 	eq.register_player_event("Vulak_Event", Event.death, CarrionCheck);
 	eq.register_npc_event("Vulak_Event", Event.death, -1, SplitterCheck);
 	
-	-- triggers on spawn and death of Vulak
+	-- triggers on spawn of Vulak
 	eq.register_npc_event("Vulak_Event", Event.spawn, 124323, DragonCall);
+	
+	-- triggers for event end/reset
 	eq.register_npc_event("Vulak_Event", Event.death_complete, 124323, cleanup);
+	eq.register_npc_event("Vulak_Event", Event.spawn, 124000, cleanup);
 	
 	-- triggers for heals upon death of minibosses
 	eq.register_npc_event("Vulak_Event", Event.death_complete, 124316, BossHeal);
@@ -70,13 +73,11 @@ end
 
 function event_timer(e)
 	if e.timer == "hb" then
-		-- the only reason this is necessary is I can't seem to figure out how to set event timers from inside the GMControl function!
-		if old_timer ~= wave_timer then
+		if old_timer ~= wave_timer then -- the only reason this is necessary is I can't seem to figure out how to set event timers from inside the GMControl function!
 			eq.stop_timer("waves");
 			eq.set_timer("waves", wave_timer);
 			old_timer = wave_timer;
-		end
-		if unload then
+		elseif unload then -- putting event unloading on a separate trigger since it seems to be clobbering execution of lines before it
 			eq.stop_timer(e.timer);
 			eq.unload_encounter("Vulak_Event");
 		end
@@ -260,7 +261,6 @@ function event_timer(e)
 	elseif e.timer == "depop" then
 		eq.stop_timer(e.timer);
 		eq.get_entity_list():GetSpawnByID(354475):Repop();
-		cleanup(eq.get_entity_list():GetMobByNpcTypeID(124000));
 	end
     
 end
@@ -334,7 +334,7 @@ function player_check()
 	return false; -- if nothing checks out, returns false
 end
 
-function cleanup()
+function cleanup(e)
 	-- depop event mobs and move any summoned dragons back to their spawn
 	for _, mob in ipairs(event_mobs) do
 		eq.depop_all(mob);
