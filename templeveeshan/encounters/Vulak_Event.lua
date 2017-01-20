@@ -260,7 +260,7 @@ function event_timer(e)
 	elseif e.timer == "depop" then
 		eq.stop_timer(e.timer);
 		eq.get_entity_list():GetSpawnByID(354475):Repop();
-		cleanup(e);
+		cleanup(eq.get_entity_list():GetMobByNpcTypeID(124000));
 	end
     
 end
@@ -334,7 +334,7 @@ function player_check()
 	return false; -- if nothing checks out, returns false
 end
 
-function cleanup(e)
+function cleanup()
 	-- depop event mobs and move any summoned dragons back to their spawn
 	for _, mob in ipairs(event_mobs) do
 		eq.depop_all(mob);
