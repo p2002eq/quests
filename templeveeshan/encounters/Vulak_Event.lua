@@ -1,7 +1,9 @@
 -- Vulak ring event in NTOV
 -- By Taian and Kalaylus
 
+-- please add summon dragon NPCIDs to dragons table and any mobs used in the event to the event_mobs table
 local dragons = {124008, 124074, 124076, 124077, 124103, 124289};
+local event_mobs = { 124314, 124326, 124318, 124319, 124320, 124321, 124329, 124322, 124323, 124316, 124081, 124059, 124317, 124324, 124328, 124315, 124325 };
 
 function event_encounter_load(e)
 	wave = 0;
@@ -329,9 +331,11 @@ function player_check()
 end
 
 function Cleanup()
-	-- depop vulak and move any summoned dragons back to their bind.
-	eq.depop_all(124325);
-	eq.depop(124323);
+	-- depop event mobs and move any summoned dragons back to their spawn
+	for _, mob in ipairs(event_mobs) do
+		eq.depop_all(mob);
+	end
+
 	for _, dragon in ipairs(dragons) do
 		if eq.get_entity_list():IsMobSpawnedByNpcTypeID(dragon) then
 			local mob = eq.get_entity_list():GetMobByNpcTypeID(dragon);
