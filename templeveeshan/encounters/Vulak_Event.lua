@@ -247,9 +247,11 @@ function event_timer(e)
 		end
 	elseif e.timer == "playercheck" then
 		if not player_check() then
+			eq.stop_timer(e.timer);
 			eq.set_timer("depop", 1000);
 		end
 	elseif e.timer == "depop" then
+		eq.stop_timer(e.timer);
 		Cleanup();
 		eq.get_entity_list():GetSpawnByID(354475):Repop();
 		eq.unload_encounter("Vulak_Event");
@@ -352,8 +354,8 @@ function Cleanup()
 			end
 		end
 	end
-	eq.depop(124323);
 	eq.depop_all(124325);
+	eq.depop(124323);
 end
 
 function BossHeal()
