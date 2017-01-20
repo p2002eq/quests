@@ -2,7 +2,7 @@
 -- By Taian and Kalaylus
 
 -- please add summon dragon NPCIDs to dragons table and any mobs used in the event to the event_mobs table
-local dragons = {124008, 124074, 124076, 124077, 124103, 124289};
+local dragons = { 124010, 124008, 124074, 124076, 124077, 124103, 124289};
 local event_mobs = { 124314, 124326, 124318, 124319, 124320, 124321, 124329, 124322, 124323, 124316, 124081, 124059, 124317, 124324, 124328, 124315, 124325, 124312 };
 
 function event_encounter_load(e)
@@ -22,8 +22,8 @@ function event_encounter_load(e)
 	eq.register_npc_event("Vulak_Event", Event.spawn, 124323, DragonCall);
 	
 	-- triggers for event end/reset
-	eq.register_npc_event("Vulak_Event", Event.death_complete, 124323, cleanup);
-	eq.register_npc_event("Vulak_Event", Event.spawn, 124000, cleanup);
+	eq.register_npc_event("Vulak_Event", Event.death_complete, 124323, Cleanup);
+	eq.register_npc_event("Vulak_Event", Event.spawn, 124000, Cleanup);
 	
 	-- triggers for heals upon death of minibosses
 	eq.register_npc_event("Vulak_Event", Event.death_complete, 124316, BossHeal);
@@ -33,42 +33,6 @@ function event_encounter_load(e)
 	
 	-- GM control of event
 	eq.register_player_event("Vulak_Event", Event.say, GMControl);
-end
-
-function GMControl(e)
-	if e.self:Admin() > 100 and e.self:CalculateDistance(-739, 518, 120) <= 300 then
-		if(e.message:findi("help")) then
-			e.self:Message(6, "To check current wave number and current wave timer, say 'status'.");
-			e.self:Message(6, "To adjust the current wave count, say 'wave #' where # is the number of the wave to which you want to set the event. Note that this doesn't change the timer, but the event will continue normally from this point. i.e. setting the event to wave10 will cause wave11 to spawn at the next expiration of the timer.");
-			e.self:Message(6, "To adjust the current wave timer, say 'timer #' where # is the length of each wave in seconds. This DOES reset the timer. e.g. if you say 'timer 120', the timer will be reset to 120 seconds - the next wave will spawn in 2 minutes, and a new wave will spawn every 2 minutes after that. This does not affect event reset timers.");
-		elseif(e.message:findi("wave")) then
-			if wave >= 1 then
-				local wave_num = tonumber(string.sub(e.message, string.find(e.message, '%d+')));
-				if wave_num >= 1 and wave_num < 17 then
-					wave = wave_num;
-					e.self:Message(6, string.format("Wave set to number %s. Wave timer currently at %s seconds.", wave_num, wave_timer/1000));
-				else
-					e.self:Message(6, "Wave number not valid, try again.");
-				end
-			else
-				e.self:Message(6, "Please wait until the event starts to change waves.");
-			end
-		elseif(e.message:findi("timer")) then
-			if wave >= 1 then
-				local temp_time = tonumber(string.sub(e.message, string.find(e.message, '%d+')));
-				if temp_time > 0 and temp_time < 3600 then
-					wave_timer = temp_time*1000;
-					e.self:Message(6, string.format("Wave timer set to %s seconds. Currently on wave %s.", wave_timer/1000, wave));
-				else
-					e.self:Message(6, "Timer length not valid, try again.");
-				end
-			else
-				e.self:Message(6, "Please wait until the event starts to reset the timer.");
-			end
-		elseif(e.message:findi("status")) then
-			e.self:Message(6, string.format("Wave timer is %s seconds. Currently on wave %s.", wave_timer/1000, wave));
-		end
-	end
 end
 
 function event_timer(e)
@@ -86,17 +50,17 @@ function event_timer(e)
 		old_timer = wave_timer;
 		wave = 1;
 		
-		eq.spawn2(124325,0,0,-710,920,121.5,122);	-- spawn dt destroyers
-		eq.spawn2(124325,0,0,-740,920,121.5,122);
-		eq.spawn2(124325,0,0,-770,920,121.5,122);
+		eq.spawn2(124325,0,0,-710,940,121.5,122);	-- spawn dt destroyers
+		eq.spawn2(124325,0,0,-740,940,121.5,122);
+		eq.spawn2(124325,0,0,-770,940,121.5,122);
 		
-		local npcs = {124284,124157,176010};		-- despawn guardians
+		local npcs = {124284, 124157};		-- despawn guardians
 		local npc_list = eq.get_entity_list():GetNPCList();
 		if(npc_list ~= nil) then
 			for npc in npc_list.entries do
 				for i = 1, #npcs do			
 					if(npc:GetNPCTypeID() == npcs[i]) then
-						npc:Depop(true);
+						npc:Depop();
 					end
 				end
 			end
@@ -297,6 +261,50 @@ function SplitterCheck(e)
 	end
 end
 
+function Cleanup(e)
+	-- depop event mobs and move any summoned dragons back to their spawn
+	for _, mob in ipairs(event_mobs) do
+		eq.depop_all(mob);
+	end
+
+	for _, dragon in ipairs(dragons) do
+		if eq.get_entity_list():IsMobSpawnedByNpcTypeID(dragon) then
+			local mob = eq.get_entity_list():GetMobByNpcTypeID(dragon);
+			if (dragon == 124010) then 
+				mob:CastToNPC():GMMove(-781, 208, 98.7, 130.5);
+			elseif (dragon == 124008) then
+				mob:CastToNPC():GMMove(-1266,-49, 90, 40.8);
+			elseif (dragon == 124074) then
+				mob:CastToNPC():GMMove(-1699, 197, 80, 8.1);
+			elseif (dragon == 124076) then
+				mob:CastToNPC():GMMove(-1643, 1622, 190, 160);
+			elseif (dragon == 124077) then
+				mob:CastToNPC():GMMove(-150, 974, 130, 181.5);
+			elseif (dragon == 124103) then
+				mob:CastToNPC():GMMove(-123, 738, 66, 36.7);
+			elseif (dragon == 124289) then
+				mob:CastToNPC():GMMove(-60, -285, 25, 255);
+			end
+		end
+	end
+	
+	unload = true;
+end
+
+function BossHeal()
+	local player_list = eq.get_entity_list():GetClientList();
+	local aoeSpells = true;
+	if(player_list ~= nil) then
+		for player in player_list.entries do	
+			if(aoeSpells and player:Class() ~= "Bard" and player:CalculateDistance(e.self:GetX(), e.self:GetY(), e.self:GetZ()) <= 100) then
+				player:SpellFinished(2698,player,0,0);
+				player:SpellFinished(2697,player,0,0);
+				aoeSpells = false;
+			end
+		end
+	end
+end
+
 function spawn_hatchlings()
     local spawnNum = 4;
     for i = 1, spawnNum do
@@ -334,50 +342,38 @@ function player_check()
 	return false; -- if nothing checks out, returns false
 end
 
-function cleanup(e)
-	-- depop event mobs and move any summoned dragons back to their spawn
-	for _, mob in ipairs(event_mobs) do
-		eq.depop_all(mob);
-	end
-
-	for _, dragon in ipairs(dragons) do
-		if eq.get_entity_list():IsMobSpawnedByNpcTypeID(dragon) then
-			local mob = eq.get_entity_list():GetMobByNpcTypeID(dragon);
-			if (dragon == 124010) then
-				mob:CastToNPC():GMMove(-781, 208, 98.7, 130.5);
-			elseif (dragon == 124008) then
-				mob:CastToNPC():GMMove(-1266,-49, 90, 40.8);
-			elseif (dragon == 124011) then
-				mob:CastToNPC():GMMove(-1362, 218, 134, 220);
-			elseif (dragon == 124074) then
-				mob:CastToNPC():GMMove(-1699, 197, 80, 8.1);
-			elseif (dragon == 124072) then
-				mob:CastToNPC():GMMove(-1760, 1604, 190, 73.4);
-			elseif (dragon == 124076) then
-				mob:CastToNPC():GMMove(-1643, 1622, 190, 160);
-			elseif (dragon == 124077) then
-				mob:CastToNPC():GMMove(-150, 974, 130, 181.5);
-			elseif (dragon == 124103) then
-				mob:CastToNPC():GMMove(-123, 738, 66, 36.7);
-			elseif (dragon == 124289) then
-				mob:CastToNPC():GMMove(-60, -285, 25, 255);
+function GMControl(e)
+	if e.self:Admin() > 100 and e.self:CalculateDistance(-739, 518, 120) <= 300 then
+		if(e.message:findi("help")) then
+			e.self:Message(6, "To check current wave number and current wave timer, say 'status'.");
+			e.self:Message(6, "To adjust the current wave count, say 'wave #' where # is the number of the wave to which you want to set the event. Note that this doesn't change the timer, but the event will continue normally from this point. i.e. setting the event to wave10 will cause wave11 to spawn at the next expiration of the timer.");
+			e.self:Message(6, "To adjust the current wave timer, say 'timer #' where # is the length of each wave in seconds. This DOES reset the timer. e.g. if you say 'timer 120', the timer will be reset to 120 seconds - the next wave will spawn in 2 minutes, and a new wave will spawn every 2 minutes after that. This does not affect event reset timers.");
+		elseif(e.message:findi("wave")) then
+			if wave >= 1 then
+				local wave_num = tonumber(string.sub(e.message, string.find(e.message, '%d+')));
+				if wave_num >= 1 and wave_num < 17 then
+					wave = wave_num;
+					e.self:Message(6, string.format("Wave set to number %s. Wave timer currently at %s seconds.", wave_num, wave_timer/1000));
+				else
+					e.self:Message(6, "Wave number not valid, try again.");
+				end
+			else
+				e.self:Message(6, "Please wait until the event starts to change waves.");
 			end
-		end
-	end
-	
-	unload = true;
-end
-
-function BossHeal()
-	local player_list = eq.get_entity_list():GetClientList();
-	local aoeSpells = true;
-	if(player_list ~= nil) then
-		for player in player_list.entries do	
-			if(aoeSpells and player:Class() ~= "Bard" and player:CalculateDistance(e.self:GetX(), e.self:GetY(), e.self:GetZ()) <= 100) then
-				player:SpellFinished(2698,player,0,0);
-				player:SpellFinished(2697,player,0,0);
-				aoeSpells = false;
+		elseif(e.message:findi("timer")) then
+			if wave >= 1 then
+				local temp_time = tonumber(string.sub(e.message, string.find(e.message, '%d+')));
+				if temp_time > 0 and temp_time < 3600 then
+					wave_timer = temp_time*1000;
+					e.self:Message(6, string.format("Wave timer set to %s seconds. Currently on wave %s.", wave_timer/1000, wave));
+				else
+					e.self:Message(6, "Timer length not valid, try again.");
+				end
+			else
+				e.self:Message(6, "Please wait until the event starts to reset the timer.");
 			end
+		elseif(e.message:findi("status")) then
+			e.self:Message(6, string.format("Wave timer is %s seconds. Currently on wave %s.", wave_timer/1000, wave));
 		end
 	end
 end
