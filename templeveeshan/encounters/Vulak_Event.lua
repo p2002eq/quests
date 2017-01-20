@@ -8,6 +8,7 @@ local event_mobs = { 124314, 124326, 124318, 124319, 124320, 124321, 124329, 124
 function event_encounter_load(e)
 	wave = 0;
 	carrion = false;
+	unload = false;
 	
 	-- start event in 1 minute
 	wave_timer = 540000;
@@ -74,6 +75,10 @@ function event_timer(e)
 			eq.stop_timer("waves");
 			eq.set_timer("waves", wave_timer);
 			old_timer = wave_timer;
+		end
+		if unload then
+			eq.stop_timer(e.timer);
+			eq.unload_encounter("Vulak_Event");
 		end
 	elseif e.timer == "start" then
 		eq.stop_timer(e.timer);
@@ -257,9 +262,6 @@ function event_timer(e)
 		eq.stop_timer(e.timer);
 		eq.get_entity_list():GetSpawnByID(354475):Repop();
 		cleanup();
-	elseif e.timer == "unload" then
-		eq.stop_timer(e.timer);
-		eq.unload_encounter("Vulak_Event");
 	end
     
 end
@@ -334,17 +336,14 @@ function player_check()
 end
 
 function cleanup()
-	eq.zone_emote(1, "cleanup called");
 	-- depop event mobs and move any summoned dragons back to their spawn
 	for _, mob in ipairs(event_mobs) do
-		eq.zone_emote(1, "trying to depop: " .. mob);
 		eq.depop_all(mob);
 	end
 
 	for _, dragon in ipairs(dragons) do
 		if eq.get_entity_list():IsMobSpawnedByNpcTypeID(dragon) then
 			local mob = eq.get_entity_list():GetMobByNpcTypeID(dragon);
-			eq.zone_emote(1, "trying to send back: " .. dragon);
 			if (dragon == 124010) then
 				mob:CastToNPC():GMMove(-781, 208, 98.7, 130.5);
 			elseif (dragon == 124008) then
@@ -366,8 +365,8 @@ function cleanup()
 			end
 		end
 	end
-	eq.zone_emote(1, "unloading encounter");
-	eq.set_timer("unload", 10000);
+	
+	unload = true;
 end
 
 function BossHeal()
