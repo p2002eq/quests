@@ -331,8 +331,8 @@ end
 function Cleanup()
 	-- depop vulak and move any summoned dragons back to their bind.
 	for _, dragon in ipairs(dragons) do
-		local mob = eq.get_entity_list():GetMobByNpcTypeID(dragon);
-		if(mob) then
+		if eq.get_entity_list():IsMobSpawnedByNpcTypeID(dragon) then
+			local mob = eq.get_entity_list():GetMobByNpcTypeID(dragon);
 			if (dragon == 124010) then
 				mob:CastToNPC():GMMove(-781, 208, 98.7, 130.5);
 			elseif (dragon == 124008) then
