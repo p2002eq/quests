@@ -53,18 +53,6 @@ function event_timer(e)
 		eq.spawn2(124325,0,0,-710,940,121.5,122);	-- spawn dt destroyers
 		eq.spawn2(124325,0,0,-740,940,121.5,122);
 		eq.spawn2(124325,0,0,-770,940,121.5,122);
-		
-		local npcs = {124284, 124157};		-- despawn guardians
-		local npc_list = eq.get_entity_list():GetNPCList();
-		if(npc_list ~= nil) then
-			for npc in npc_list.entries do
-				for i = 1, #npcs do			
-					if(npc:GetNPCTypeID() == npcs[i]) then
-						npc:Depop();
-					end
-				end
-			end
-		end
 
 		-- wave 1 spawns (wurm + 2 drakes + hatchlings)
 		spawn_mob(124081, 4);
