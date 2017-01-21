@@ -1,30 +1,30 @@
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self.Say("Another traveler to our fair city of Katta Castellum, you be careful now.");
+		e.self:Say("Another traveler to our fair city of Katta Castellum, you be careful now.");
 	end
 	if(e.message:findi("what armor")) then
-		e.self.Say("Yes I am one of the keepers of the soldier's armor. The pieces I have are the helm, breastplate, vambraces, greaves, pauldrons, bracer, and boots. Eandalion keeps the other pieces just ask him about armor.");
+		e.self:Say("Yes I am one of the keepers of the soldier's armor. The pieces I have are the helm, breastplate, vambraces, greaves, pauldrons, bracer, and boots. Eandalion keeps the other pieces just ask him about armor.");
 	end
 	if(e.message:findi("what boots")) then
-		e.self.Say("For the boots you will have to bring to me a cloud jewel, a mark of the martial, and a hope ruby.");
+		e.self:Say("For the boots you will have to bring to me a cloud jewel, a mark of the martial, and a hope ruby.");
 	end
 	if(e.message:findi("what bracer")) then
-		e.self.Say("For the bracer you will have to bring to me a star jewel, a mark of the siege, and a blue egg.");
+		e.self:Say("For the bracer you will have to bring to me a star jewel, a mark of the siege, and a blue egg.");
 	end
 	if(e.message:findi("what breastplate")) then
-		e.self.Say("For the breastplate you will have to bring to me a meteor jewel, a mark of war, a weathered yew wand, and some dew of dawn.");
+		e.self:Say("For the breastplate you will have to bring to me a meteor jewel, a mark of war, a weathered yew wand, and some dew of dawn.");
 	end
 	if(e.message:findi("what greaves")) then
-		e.self.Say("For the greaves you will have to bring to me a sun jewel, a mark of archery, a golden torch, and a small meteor fragment.");
+		e.self:Say("For the greaves you will have to bring to me a sun jewel, a mark of archery, a golden torch, and a small meteor fragment.");
 	end
 	if(e.message:findi("what helm")) then
-		e.self.Say("For the helm you will have to bring to me a sky jewel, a mark of battle, some petrified toes, and a fire blossom.");
+		e.self:Say("For the helm you will have to bring to me a sky jewel, a mark of battle, some petrified toes, and a fire blossom.");
 	end
 	if(e.message:findi("what pauldrons")) then
-		e.self.Say("For the pauldrons you will have to bring to me a moon jewel, a mark of swordsmanship, and a water blossom.");
+		e.self:Say("For the pauldrons you will have to bring to me a moon jewel, a mark of swordsmanship, and a water blossom.");
 	end
 	if(e.message:findi("vambraces")) then
-		e.self.Say("For the vambraces you will have to bring to me an astral jewel, a mark of arms, a small sponge, and a scorched rock.");
+		e.self:Say("For the vambraces you will have to bring to me an astral jewel, a mark of arms, a small sponge, and a scorched rock.");
 	end
 end
 function event_trade(e)

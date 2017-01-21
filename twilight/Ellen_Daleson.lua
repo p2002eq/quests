@@ -1,6 +1,6 @@
 function event_say(e)
 	if(e.message:findi("Hail")) then
-		e.self.Say("Oh hello there, I'm in charge of the docks here and wife to Alton.");
+		e.self:Say("Oh hello there, I'm in charge of the docks here and wife to Alton.");
 	end
 	if(e.message:findi("ranger")) then
 	if(e.message:findi("armor")) then
