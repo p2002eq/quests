@@ -1,15 +1,9 @@
 function event_spawn(e)
-    eq.set_timer("spawn", 5)
-end
-
-function event_timer(e)
-    if (e.timer == 'spawn') then
-        xloc = e.self:GetX();
-        yloc = e.self:GetY();
-        zloc = e.self:GetZ();
-        eq.enable_proximity_say();
-        eq.set_proximity(xloc - 30, xloc + 30, yloc - 30, yloc + 30);
-    end
+	xloc = e.self:GetX();
+	yloc = e.self:GetY();
+	zloc = e.self:GetZ();
+	eq.enable_proximity_say();
+	eq.set_proximity(xloc - 30, xloc + 30, yloc - 30, yloc + 30);
 end
 
 function event_proximity_say(e)

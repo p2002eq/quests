@@ -44,6 +44,7 @@ function event_trade(e)
 	item_lib.return_items(e.self, e.other, e.trade)
 	
 	if rune_total >= 3 then
+		e.self:Say("Thank you adventurers! My task is complete!");
 		eq.depop();
 	end
 end

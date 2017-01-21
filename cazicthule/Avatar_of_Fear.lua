@@ -5,7 +5,7 @@ mobs = { 48390, 48392, 48354, 48382, 48383 }
 
 function event_spawn(e)
 	inactive(e.self);
-	e.self:ModifyNPCStat("runspeed","0.35");
+	e.self:ModifyNPCStat("runspeed","0.4");
 	eq.start(150);
 	e.self:SpellFinished(2128, e.self);
 	e.self:Shout("Minions of fear hear me now! The temple of the great Cazic Thule has been defiled. I summon you to assist me in its cleansing!");
@@ -36,7 +36,6 @@ function event_waypoint_arrive(e)
 			eq.set_timer("depop", 1800000);
 		else
 			e.self:Shout("In the name of the faceless, I command you, the minions of fear, ARISE!");
-			e.self:SpellFinished(2128, e.self);
 			spawn_wave();	
 		end
 		
@@ -54,7 +53,6 @@ end
 
 function spawn_wave()
 	local this_mob = mobs[math.random(#mobs)];
-	-- eq.zone_emote(1, "this mob is " .. this_mob);
 	for i=1,math.random(3,6) do
 		eq.spawn2(this_mob, 0, 0, math.random(520, 655), math.random(1050, 1135), -90, math.random(255));
 	end
