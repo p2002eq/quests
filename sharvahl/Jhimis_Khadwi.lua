@@ -8,10 +8,10 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 5580, item2 = 6181, item3 = 6181})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 5580, item2 = 6181, item3 = 6181})) then -- Cloak of the Khati Sha Apprentice & 2x Small Owlbear Claw
 		e.self:Say("'These claws are very nice! Don't you think they will make splendid earrings? Of course you do! Well, she'd better like them after all of the trouble I had to go through to get them. Here are your dowels. If you need more, I'll have a new crate of them tomorrow. Take care and enjoy... Thank you for shopping with Jhimis!");
-		e.other:SummonItem(5580);
-		e.other:QuestReward(e.self,0,0,0,0,6138);
+		e.other:SummonItem(5580); -- Cloak of the Khati Sha Apprentice
+		e.other:QuestReward(e.self,0,0,0,0,6138); -- Sinew Stretching Dowels
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
