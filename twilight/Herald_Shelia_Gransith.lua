@@ -1,36 +1,36 @@
 function event_say(e)
 	if(e.message:findi("Hail")) then
-		e.self.Say("Welcome to the Twilight Sea!  This is the docking entrance to Katta Castellum. $name. Tell me do you know any songs?");
+		e.self:Say("Welcome to the Twilight Sea!  This is the docking entrance to Katta Castellum. $name. Tell me do you know any songs?");
 	end
 	if(e.message:findi("i know some songs")) then
-		e.self.Say("Ah you do. You don't happen to be a bard do you?");
+		e.self:Say("Ah you do. You don't happen to be a bard do you?");
 	end
 	if(e.message:findi("i am a bard")) then
-		e.self.Say("Great. I have just what you need. Would you like to earn some armor?");
+		e.self:Say("Great. I have just what you need. Would you like to earn some armor?");
 	end
 	if(e.message:findi("i would like to earn some armor")) then
-		e.self.Say("I thought so I have a [helm], [breastplate], [vambraces], [greaves], [pauldrons], [bracer], and [boots]. For the rest speak to Brolan over there about armor.");
+		e.self:Say("I thought so I have a [helm], [breastplate], [vambraces], [greaves], [pauldrons], [bracer], and [boots]. For the rest speak to Brolan over there about armor.");
 	end
 	if(e.message:findi("what breastplate")) then
-		e.self.Say("For the breastplate you must bring me an astral jewel. a mark of music. a diamond studded medal. and a glorious flower.");
+		e.self:Say("For the breastplate you must bring me an astral jewel. a mark of music. a diamond studded medal. and a glorious flower.");
 	end
 	if(e.message:findi("what vambracers")) then
-		e.self.Say("For the vambraces you must bring me a sun jewel. a mark of entertainment. a sapphire studded medal. and velvet sleeves.");
+		e.self:Say("For the vambraces you must bring me a sun jewel. a mark of entertainment. a sapphire studded medal. and velvet sleeves.");
 	end
 	if(e.message:findi("what greaves")) then
-		e.self.Say("For the greaves you must bring me a moon jewel. a mark of the drum. an emerald studded medal. and memory crystal.");
+		e.self:Say("For the greaves you must bring me a moon jewel. a mark of the drum. an emerald studded medal. and memory crystal.");
 	end
 	if(e.message:findi("what pauldrons")) then
-		e.self.Say("For the pauldrons you must bring me a star jewel. a mark of the mandolin. and an opal studded medal.");
+		e.self:Say("For the pauldrons you must bring me a star jewel. a mark of the mandolin. and an opal studded medal.");
 	end
 	if(e.message:findi("what bracer")) then
-		e.self.Say("For the bracer you must bring me a cloud jewel. a mark of song. and a pearl studded medal.");
+		e.self:Say("For the bracer you must bring me a cloud jewel. a mark of song. and a pearl studded medal.");
 	end
 	if(e.message:findi("what boots")) then
-		e.self.Say("For the boots you must bring me a sky jewel. a mark of poetry. and a star ruby studded medal.");
+		e.self:Say("For the boots you must bring me a sky jewel. a mark of poetry. and a star ruby studded medal.");
 	end
 	if(e.message:findi("helm")) then
-		e.self.Say("For the helm you must bring me a meteor jewel, a mark of rhythm, a ruby studded medal, and a fancy necklace.");
+		e.self:Say("For the helm you must bring me a meteor jewel, a mark of rhythm, a ruby studded medal, and a fancy necklace.");
 	end
 end
 function event_trade(e)

@@ -1,38 +1,38 @@
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self.Say("Who are you?! Why are you on MY island?! If you have [business] with me then speak! Otherwise, leave at once.");
+		e.self:Say("Who are you?! Why are you on MY island?! If you have [business] with me then speak! Otherwise, leave at once.");
 	end
 	if(e.message:findi("business")) then
-		e.self.Say("I'll only deal with a wizard! And you look like no real [wizard] I've ever met!");
+		e.self:Say("I'll only deal with a wizard! And you look like no real [wizard] I've ever met!");
 	end
 	if(e.message:findi("wizard")) then
-		e.self.Say("Your a wizard you say? Hrmph! If so, let's see you prove it to me. I need some item's collected for my research. In return, I will give you some [armor] I have laying around.");
+		e.self:Say("Your a wizard you say? Hrmph! If so, let's see you prove it to me. I need some item's collected for my research. In return, I will give you some [armor] I have laying around.");
 	end
 	if(e.message:findi("armor")) then
-		e.self.Say("I have a [bracer], [cap], [pants], [robe], [sandals], [shawl], and [sleeves]. I gave some of the other ones to Trizpo if you desire those as well, oh great 'wizard'");
+		e.self:Say("I have a [bracer], [cap], [pants], [robe], [sandals], [shawl], and [sleeves]. I gave some of the other ones to Trizpo if you desire those as well, oh great 'wizard'");
 	end
-		e.self.Emote("laughs extremely loud");
+		e.self:Emote("laughs extremely loud");
 	end
 	if(e.message:findi("bracer")) then
-		e.self.Say("For the bracer bring me a Cloud Jewel, Mark of Potency and a Book of Applied Magic.");
+		e.self:Say("For the bracer bring me a Cloud Jewel, Mark of Potency and a Book of Applied Magic.");
 	end
 	if(e.message:findi("cap")) then
-		e.self.Say("For the cap bring me a Meteor Jewel, Mark of Explosion, Explosive Dust and a Book of Wizardry.");
+		e.self:Say("For the cap bring me a Meteor Jewel, Mark of Explosion, Explosive Dust and a Book of Wizardry.");
 	end
 	if(e.message:findi("pants")) then
-		e.self.Say("For the Pants bring me a Moon Jewel, Gilded Branch, Fiery Sand and Mark of Energy. ");
+		e.self:Say("For the Pants bring me a Moon Jewel, Gilded Branch, Fiery Sand and Mark of Energy. ");
 	end
 	if(e.message:findi("robe")) then
-		e.self.Say("A great robe if you bring me an astral jewel, Mark of Sorcery, Book of Sorcery and Globe of Power.");
+		e.self:Say("A great robe if you bring me an astral jewel, Mark of Sorcery, Book of Sorcery and Globe of Power.");
 	end
 	if(e.message:findi("sandals")) then
-		e.self.Say("I can give you a beautiful pair of sandals for a sky jewel, Mark of Intensity, and Sun Stained Steel Rod.");
+		e.self:Say("I can give you a beautiful pair of sandals for a sky jewel, Mark of Intensity, and Sun Stained Steel Rod.");
 	end
 	if(e.message:findi("shawl")) then
-		e.self.Say("For the shawl bring me a Star Jewel, Mark of Force, and Tro Jeg Toes.");
+		e.self:Say("For the shawl bring me a Star Jewel, Mark of Force, and Tro Jeg Toes.");
 	end
 	if(e.message:findi("sleeves")) then
-		e.self.Say("For the sleeves bring me a Sun Jewel, Mark of Implosion, Grub Worm Guts and a Fiery Heart.");
+		e.self:Say("For the sleeves bring me a Sun Jewel, Mark of Implosion, Grub Worm Guts and a Fiery Heart.");
 	end
 end
 function event_trade(e)

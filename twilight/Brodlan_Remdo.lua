@@ -1,36 +1,36 @@
 function event_say(e)
 	if(e.message:findi("Hail")) then
-		e.self.Say("Why hello. I'm in charge of the fishing operations here on Jern's Isle.  [Fish] are my area of expertise.'");
+		e.self:Say("Why hello. I'm in charge of the fishing operations here on Jern's Isle.  [Fish] are my area of expertise.'");
 	end
 	if(e.message:findi("what fish")) then
-		e.self.Say("We have fish come in here all the time. Sometimes we catch an [oddity] now and again.");
+		e.self:Say("We have fish come in here all the time. Sometimes we catch an [oddity] now and again.");
 	end
 	if(e.message:findi("what oddity")) then
-		e.self.Say("Once we pulled up this ancient chest filled with this [dark plate armor].");
+		e.self:Say("Once we pulled up this ancient chest filled with this [dark plate armor].");
 	end
 	if(e.message:findi("what dark plate armor")) then
-		e.self.Say("Looked the like kind of armor a dark knight would wear. if ya want it I'm sure we could arrange a [trade] of some sort.");
+		e.self:Say("Looked the like kind of armor a dark knight would wear. if ya want it I'm sure we could arrange a [trade] of some sort.");
 	end
 	if(e.message:findi("what trade")) then
-		e.self.Say("Since Trevor and I are the ones that found it we split it between ourselves. I have a [helm], [breastplate], [vambraces], [greaves], [pauldrons], [bracer], and [boots]. Ask Trevor about the rest of the armor.");
+		e.self:Say("Since Trevor and I are the ones that found it we split it between ourselves. I have a [helm], [breastplate], [vambraces], [greaves], [pauldrons], [bracer], and [boots]. Ask Trevor about the rest of the armor.");
 	end
 	if(e.message:findi("what breastplate")) then
-		e.self.Say("For the darkened knight's breastplate fetch me a cloud jewel. a mark of fear. a delicate glass sculpture. and a painted ornament.");
+		e.self:Say("For the darkened knight's breastplate fetch me a cloud jewel. a mark of fear. a delicate glass sculpture. and a painted ornament.");
 	end
 	if(e.message:findi("what vambracers")) then
-		e.self.Say("For the darkened knight's vambraces fetch me a sky jewel. a mark of terror. a runed ornamental mace. and an ancient tablet.");
+		e.self:Say("For the darkened knight's vambraces fetch me a sky jewel. a mark of terror. a runed ornamental mace. and an ancient tablet.");
 	end
 	if(e.message:findi("what greaves")) then
-		e.self.Say("For the darkened knight's greaves fetch me a meteor jewel. a mark of dread. the King's Tome. and a polished ivory idol.");
+		e.self:Say("For the darkened knight's greaves fetch me a meteor jewel. a mark of dread. the King's Tome. and a polished ivory idol.");
 	end
 	if(e.message:findi("what pauldrons")) then
-		e.self.Say("For the darkened knight's pauldrons fetch me an astral jewel. a mark of hatred. and an ancient petrified tulip.");
+		e.self:Say("For the darkened knight's pauldrons fetch me an astral jewel. a mark of hatred. and an ancient petrified tulip.");
 	end
 	if(e.message:findi("what bracer")) then
-		e.self.Say("For the darkened knight's bracer fetch me a sun jewel. a mark of intimidation. and a small rough marble figurine.");
+		e.self:Say("For the darkened knight's bracer fetch me a sun jewel. a mark of intimidation. and a small rough marble figurine.");
 	end
 	if(e.message:findi("what boots")) then
-		e.self.Say("For the darkened knight's boots fetch me a moon jewel. a mark of horror. and a fanged talisman.");
+		e.self:Say("For the darkened knight's boots fetch me a moon jewel. a mark of horror. and a fanged talisman.");
 	end
 end
 function event_trade(e)

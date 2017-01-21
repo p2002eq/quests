@@ -1,27 +1,27 @@
 function event_say(e)
 	if(e.message:findi("what boots")) then
-		e.self.Say("If you want the Boots of Concealment go gather for me a meteor jewel, a mark of silence, and an engraved fire emerald statuette.");
+		e.self:Say("If you want the Boots of Concealment go gather for me a meteor jewel, a mark of silence, and an engraved fire emerald statuette.");
 	end
 	if(e.message:findi("what bracer")) then
-		e.self.Say("If you want the Bracer of Concealment go gather for me a sky jewel, a mark of cunning, and an engraved black diamond statuette.");
+		e.self:Say("If you want the Bracer of Concealment go gather for me a sky jewel, a mark of cunning, and an engraved black diamond statuette.");
 	end
 	if(e.message:findi("what tunic")) then
-		e.self.Say("If you want the Tunic of Concealment go gather for me a sun jewel, a mark of stealth, an engraved diamond statuette, and a tethered leash.");
+		e.self:Say("If you want the Tunic of Concealment go gather for me a sun jewel, a mark of stealth, an engraved diamond statuette, and a tethered leash.");
 	end
 	if(e.message:findi("what greaves")) then
-		e.self.Say("If you want the Greaves of Concealment go gather for me a star jewel, a mark of burglary, an engraved ruby statuette, and a small brass figurine.");
+		e.self:Say("If you want the Greaves of Concealment go gather for me a star jewel, a mark of burglary, an engraved ruby statuette, and a small brass figurine.");
 	end
 	if(e.message:findi("what deals")) then
-		e.self.Say("Ah $nameyou fancy yerself to be a rogue.  Well I can cut ya a deal on some armor if you be wantin' some.");
+		e.self:Say("Ah $nameyou fancy yerself to be a rogue.  Well I can cut ya a deal on some armor if you be wantin' some.");
 	end
 	if(e.message:findi("what coif")) then
-		e.self.Say("If you want the Coif of Concealment go gather for me an astral jewel, a mark of thievery, an engraved sapphire statuette, and a brass linked chain.");
+		e.self:Say("If you want the Coif of Concealment go gather for me an astral jewel, a mark of thievery, an engraved sapphire statuette, and a brass linked chain.");
 	end
 	if(e.message:findi("what mantle")) then
-		e.self.Say("If you want the Mantle of Concealment go gather for me a cloud jewel, a mark of forgery, and an engraved star sapphire statuette.");
+		e.self:Say("If you want the Mantle of Concealment go gather for me a cloud jewel, a mark of forgery, and an engraved star sapphire statuette.");
 	end
 	if(e.message:findi("vambraces")) then
-		e.self.Say("If you want the Vambraces of Concealment go gather for me a moon jewel, a mark of robbery, an engraved emerald statuette, and a half melted blade.");
+		e.self:Say("If you want the Vambraces of Concealment go gather for me a moon jewel, a mark of robbery, an engraved emerald statuette, and a half melted blade.");
 	end
 end
 function event_trade(e)

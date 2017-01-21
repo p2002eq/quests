@@ -1,30 +1,30 @@
 function event_say(e)
 	if(e.message:findi("Hail")) then
-		e.self.Say("Hi there. who are you?  What are you doing here? Oh I'm one of Vornol's four apprentices.  I specialize in the element of earth.'");
+		e.self:Say("Hi there. who are you?  What are you doing here? Oh I'm one of Vornol's four apprentices.  I specialize in the element of earth.'");
 	end
 	if(e.message:findi("Gazoon sent me")) then
-		e.self.Say("Oh you've been to see Gazoon on his island. Yep he gave me some of his fancy finger waggler armor, are ya a wizard?");
+		e.self:Say("Oh you've been to see Gazoon on his island. Yep he gave me some of his fancy finger waggler armor, are ya a wizard?");
 	end
 	if(e.message:findi("wizard")) then
-		e.self.Say("Cool then you'll probably be wanting the [mask], [cloak], [gloves], [choker], [belt] and [staff] I have.");
+		e.self:Say("Cool then you'll probably be wanting the [mask], [cloak], [gloves], [choker], [belt] and [staff] I have.");
 	end
 	if(e.message:findi("mask")) then
-		e.self.Say("For the mask you'll have to get me a meteor jewel, a mark of potential, and an iron tipped wand.");
+		e.self:Say("For the mask you'll have to get me a meteor jewel, a mark of potential, and an iron tipped wand.");
 	end
 	if(e.message:findi("cloak")) then
-		e.self.Say("For the cloak you'll have to get me an astral jewel, a mark of temper, a vial of firewater, and some iced nectar.");
+		e.self:Say("For the cloak you'll have to get me an astral jewel, a mark of temper, a vial of firewater, and some iced nectar.");
 	end
 	if(e.message:findi("gloves")) then
-		e.self.Say("For the gloves you'll have to get me a sun jewel, a mark of might, and a book of solutions.");
+		e.self:Say("For the gloves you'll have to get me a sun jewel, a mark of might, and a book of solutions.");
 	end
 	if(e.message:findi("choker")) then
-		e.self.Say("For the choker you'll have to get me a moon jewel, a mark of destruction, and a stick of mastery.");
+		e.self:Say("For the choker you'll have to get me a moon jewel, a mark of destruction, and a stick of mastery.");
 	end
 	if(e.message:findi("belt")) then
-		e.self.Say("For the belt you'll have to get me a star jewel, a mark of thaumaturgy, a loop of energy, and a small magnifying lens.");
+		e.self:Say("For the belt you'll have to get me a star jewel, a mark of thaumaturgy, a loop of energy, and a small magnifying lens.");
 	end
 	if(e.message:findi("staff")) then
-		e.self.Say("For the staff you'll have to get me a cloud jewel, a mark of detonation, opaque glasses, and a pyro wand.");
+		e.self:Say("For the staff you'll have to get me a cloud jewel, a mark of detonation, opaque glasses, and a pyro wand.");
 	end
 end
 function event_trade(e)
