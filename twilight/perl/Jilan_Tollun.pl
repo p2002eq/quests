@@ -40,8 +40,7 @@ quest::say("For the veil you must bring me a sun jewel, a mark of the tiger, and
 
 }
 
-sub EVENT_ITEM
-{
+sub EVENT_ITEM{
 
 if (plugin::check_handin(\%itemcount, 4492 => 1, 5949 => 1, 5948 => 1,  5950 => 1)){
 quest::summonitem(3996); #turnin message?
