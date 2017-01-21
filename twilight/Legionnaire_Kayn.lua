@@ -1,26 +1,26 @@
 function event_say(e)
-	if(e.message:findi("None")) then
+	if(e.message:findi("Hail")) then
 		e.self.Say("You must have been speaking to Derron, a mightier cleric ye couldnt find. Except for Donal the Wise of course. So tell me are ye also a cleric like Derron?");
 	end
-	if(e.message:findi("None")) then
+	if(e.message:findi("I am a cleric")) then
 		e.self.Say("Ah then you must want the mask, cloak, gauntlets, talisman, girdle, and hammer that I be holdin'.");
 	end
-	if(e.message:findi("None")) then
+	if(e.message:findi("cloak")) then
 		e.self.Say("To get the cloak you must bring me a sky jewel, a mark of credence, a light etched fire opal, and a polished stone statuette.");
 	end
-	if(e.message:findi("None")) then
+	if(e.message:findi("gauntlets")) then
 		e.self.Say("To get the gauntlets you must bring me a meteor jewel, a mark of piety, and a light etched opal.");
 	end
-	if(e.message:findi("None")) then
+	if(e.message:findi("girdle")) then
 		e.self.Say("To get the girdle you must bring me a sun jewel, a mark of grace, a light etched diamond, and a dark eyed iris.");
 	end
-	if(e.message:findi("None")) then
+	if(e.message:findi("hammer")) then
 		e.self.Say("To get the hammer you must bring me a moon jewel, a mark of salvation, a light etched emerald, and the writ of distance.");
 	end
-	if(e.message:findi("None")) then
+	if(e.message:findi("mask")) then
 		e.self.Say("To get the mask you must bring me a cloud jewel, a mark of hope, and a light etched star ruby.");
 	end
-	if(e.message:findi("None")) then
+	if(e.message:findi("talisman")) then
 		e.self.Say("To get the talisman you must bring me an astral jewel, a mark of affirmation, and a light etched peridot.");
 	end
 end

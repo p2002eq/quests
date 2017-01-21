@@ -1,25 +1,25 @@
 function event_say(e)
-	if(e.message:findi("None")) then
+	if(e.message:findi("hail")) then
 		e.self.Emote("pauses for a second staring off into the distance. 'Ah welcome friend. I am Vornol, a summoner of sorts, and master of this tower.'");
 	end
 		e.self.Say("Most excellent what I have is some armor, if you will do few errands for me it is yours. The pieces I have are the cap, robe, sleeves, pants, shawl, and bracer. My apprentice, the lady Galdara, has the rest. Just ask her about armor and she will tell you what you need to do.");
 	end
-	if(e.message:findi("None")) then
+	if(e.message:findi("cap")) then
 		e.self.Say("For the cap you will have to bring back to me a sun jewel, a fire idol, a fire marked scroll and a runed ring of fire.");
 	end
-	if(e.message:findi("None")) then
+	if(e.message:findi("robe")) then
 		e.self.Say("For the robe you will have to bring back to me a moon jewel, a vial of purified fire, a vial of purified water, and a vial of purified air.");
 	end
-	if(e.message:findi("None")) then
+	if(e.message:findi("sleeves")) then
 		e.self.Say("For the sleeves you will have to bring back to me a star jewel, an air idol, an air marked scroll and a runed ring of air.");
 	end
-	if(e.message:findi("None")) then
+	if(e.message:findi("pants")) then
 		e.self.Say("For the pants you will have to bring back to me a cloud jewel, an earth idol, an earth marked scroll, and a runed ring of earth.");
 	end
-	if(e.message:findi("None")) then
+	if(e.message:findi("shawl")) then
 		e.self.Say("For the shawl you will have to bring back to me a sky jewel, a talisman of burning earth, and a vial of purified earth.");
 	end
-	if(e.message:findi("None")) then
+	if(e.message:findi("bracer")) then
 		e.self.Say("For the bracer you will have to bring back to me a meteor jewel, talisman of moisture, and a vial of aqua waters.");
 	end
 end

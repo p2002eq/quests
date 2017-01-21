@@ -1,29 +1,29 @@
 function event_say(e)
-	if(e.message:findi("None")) then
+	if(e.message:findi("Hail")) then
 		e.self.Say("Well met friend lovely day isn't it?");
 	end
-	if(e.message:findi("None")) then
+	if(e.message:findi("What armor")) then
 		e.self.Say("Yes Shelia told me I may have some people asking me about the armor I have. Are ya a bard?");
 	end
-	if(e.message:findi("None")) then
+	if(e.message:findi("I am a bard.")) then
 		e.self.Say("Good, I have a [mask], [cloak], [gauntlets], [gorget], [girdle], and a [sword].");
 	end
-	if(e.message:findi("None")) then
+	if(e.message:findi("cloak")) then
 		e.self.Say("For the cloak you must gather these things. An Astral jewel, a mark of melody, an onyx studded medal, and a porous rock.");
 	end
-	if(e.message:findi("None")) then
+	if(e.message:findi("gauntlets")) then
 		e.self.Say("For the gauntlets you must gather these things. A sun jewel, a mark of anthems, and a fire emerald studded medal.");
 	end
-	if(e.message:findi("None")) then
+	if(e.message:findi("girdle")) then
 		e.self.Say("For the girdle you must gather these things. A star jewel, a mark of composition, a peridot studded medal, and a seared brand.");
 	end
-	if(e.message:findi("None")) then
+	if(e.message:findi("gorget")) then
 		e.self.Say("For the gorget you must gather these things a moon jewel, a mark of psalms, and a black pearl studded medal.");
 	end
-	if(e.message:findi("None")) then
+	if(e.message:findi("mask")) then
 		e.self.Say("For the mask you must gather these things a meteor jewel, a mark of tenor, and a star sapphire studded medal.");
 	end
-	if(e.message:findi("None")) then
+	if(e.message:findi("sword")) then
 		e.self.Say("For the sword you must gather these things a cloud jewel, a mark of chants, a red stone idol, and a moonstone studded medal.");
 	end
 end

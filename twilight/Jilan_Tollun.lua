@@ -1,29 +1,29 @@
 function event_say(e)
-	if(e.message:findi("None")) then
+	if(e.message:findi("Hail")) then
 		e.self.Say("Hello there. please leave me alone I would like some peace and quiet.'");
 	end
-	if(e.message:findi("None")) then
+	if(e.message:findi("armor")) then
 		e.self.Say("amben must have told you about the old beastlord we came upon. So tell me are you a worthy beastlord?");
 	end
-	if(e.message:findi("None")) then
+	if(e.message:findi("worthy beastlord")) then
 		e.self.Say("Then you must want the armor I have. I have the veil, cape, gloves, talisman, belt, and claws.");
 	end
-	if(e.message:findi("None")) then
+	if(e.message:findi("belt")) then
 		e.self.Say("For the belt you must bring me a sky jewel, a mark of the wolf, an embedded steel figurine, and ancient wrappings.");
 	end
-	if(e.message:findi("None")) then
+	if(e.message:findi("cape")) then
 		e.self.Say("For the cape you must bring me a moon jewel, a mark of the panther, an iridescent crystal, and an embedded bronze figurine.");
 	end
-	if(e.message:findi("None")) then
+	if(e.message:findi("claw")) then
 		e.self.Say("For the claws you must bring me a meteor jewel, a mark of the bestial, an embedded adamantium figurine, and a roaring idol.");
 	end
-	if(e.message:findi("None")) then
+	if(e.message:findi("glove")) then
 		e.self.Say("For the gloves you must bring me a star jewel, a mark of the alligator, and embedded electrum figurine.");
 	end
-	if(e.message:findi("None")) then
+	if(e.message:findi("talisman")) then
 		e.self.Say("For the talisman you must bring me a cloud jewel, a mark of the shark, and an embedded silver figurine. ");
 	end
-	if(e.message:findi("None")) then
+	if(e.message:findi("veil")) then
 		e.self.Say("For the veil you must bring me a sun jewel, a mark of the tiger, and an embedded wooden figurine.");
 	end
 end

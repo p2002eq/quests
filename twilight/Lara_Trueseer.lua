@@ -1,29 +1,29 @@
 function event_say(e)
-	if(e.message:findi("None")) then
+	if(e.message:findi("Hail")) then
 		e.self.Say("Hey there!");
 	end
-	if(e.message:findi("None")) then
+	if(e.message:findi("armor")) then
 		e.self.Emote("Lara Trueseer grimaces in pain. 'The visions are so strong they hurt...please make them stop..'");
 	end
-	if(e.message:findi("None")) then
+	if(e.message:findi("I am an enchanter")) then
 		e.self.Say("Very good. I have a cap, robe, sleeves, pants, shawl, and bracer. My friend Xavier has the rest just ask him about armor. ");
 	end
-	if(e.message:findi("None")) then
+	if(e.message:findi("cap")) then
 		e.self.Say("For the cap I will need an astral jewel, a golden flower, a grail of enchantment, and a mark of beauty.");
 	end
-	if(e.message:findi("None")) then
+	if(e.message:findi("robe")) then
 		e.self.Say("For the robe I will need a sun jewel, the eye of the enraptured, a mark of affection, and a book of inspiration.");
 	end
-	if(e.message:findi("None")) then
+	if(e.message:findi("sleeves")) then
 		e.self.Say("For the sleeves I will need a moon jewel, a page of prose, a mark of reality, and a truncated ring.");
 	end
-	if(e.message:findi("None")) then
+	if(e.message:findi("pants")) then
 		e.self.Say("For the pants I will need a star jewel, a mark of passion, an adamantium quill, and pristine shik-nar claws.");
 	end
-	if(e.message:findi("None")) then
+	if(e.message:findi("shawl")) then
 		e.self.Say("For the shawl I will need a cloud jewel, a mark of understanding, and a hope emerald.");
 	end
-	if(e.message:findi("None")) then
+	if(e.message:findi("bracer")) then
 		e.self.Say("For the bracer I will need a sky jewel, a mark of elegance, and a hope sapphire.");
 	end
 end

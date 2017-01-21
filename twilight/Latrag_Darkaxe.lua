@@ -1,35 +1,35 @@
 function event_say(e)
-	if(e.message:findi("None")) then
+	if(e.message:findi("Hail")) then
 		e.self.Say("Har there lad! Ye be sure 'nuff to tell em all that Brewmaster Latrag is [retiring].");
 	end
-	if(e.message:findi("None")) then
+	if(e.message:findi("retiring")) then
 		e.self.Say("Ya got that right. I'm goin' to concentrate more on me devotion to Brell as a [holy knight]!");
 	end
-	if(e.message:findi("None")) then
+	if(e.message:findi("holy knoght")) then
 		e.self.Say("I be a paladin of Brell thar Daias . Might ye be a [paladin] yerself?");
 	end
-	if(e.message:findi("None")) then
+	if(e.message:findi("paladin")) then
 		e.self.Say("That's good. Ya know I have some armor ye might be interested in.");
 	end
-	if(e.message:findi("None")) then
+	if(e.message:findi("what armor")) then
 		e.self.Say("Yar! I have me a [helm], [breastplate], [vambraces], [greaves], [pauldrons], and a [bracer]. If ye want the rest talk to the mighty holy warrior Trallen over there about armor.");
 	end
-	if(e.message:findi("None")) then
+	if(e.message:findi("what breastplate")) then
 		e.self.Say("For the breastplate ye gotta bring me a star jewel, a mark of courage, a white marble bowl, and a jagged reed.");
 	end
-	if(e.message:findi("None")) then
+	if(e.message:findi("what vambracers")) then
 		e.self.Say("For the vambraces ye gotta bring me a cloud jewel, a mark of righteousness, a runed card, and a pristine ebony idol");
 	end
-	if(e.message:findi("None")) then
+	if(e.message:findi("what greaves")) then
 		e.self.Say("For the greaves ye gotta bring me a sky jewel, a mark of bravery, a sunflower fruit, and a weathered bundle of wood");
 	end
-	if(e.message:findi("None")) then
+	if(e.message:findi("what pauldrons")) then
 		e.self.Say("For the pauldrons ye gotta bring me a meteor jewel, a mark of daring, and a life gem.");
 	end
-	if(e.message:findi("None")) then
+	if(e.message:findi("what bracer")) then
 		e.self.Say("For the bracer ye gotta bring me an astral jewel, a mark of reliance, and some blessed water");
 	end
-	if(e.message:findi("None")) then
+	if(e.message:findi("what helm")) then
 		e.self.Say("For the helm ye gotta bring me a moon jewel, a mark of valor, a withered branch, and a pale pearl.");
 	end
 end

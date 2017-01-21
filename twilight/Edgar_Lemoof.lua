@@ -1,29 +1,29 @@
 function event_say(e)
-	if(e.message:findi("None")) then
+	if(e.message:findi("Hail")) then
 		e.self.Say("Hiya, I be a fishin', what ya need somethin?");
 	end
-	if(e.message:findi("None")) then
+	if(e.message:findi("armor")) then
 		e.self.Say("Oh ya want some of the druid equipment that Rilla and I make?");
 	end
-	if(e.message:findi("None")) then
+	if(e.message:findi("I am a druid")) then
 		e.self.Say("I can make ya a mask, cloak, gloves, talisman, belt, and a crook. Just ask about each one and I'll tell ya what ya need to bring so I can make it.");
 	end
-	if(e.message:findi("None")) then
+	if(e.message:findi("mask")) then
 		e.self.Say("'For the earth blessed mask you need to bring me a moon jewel, a mark of storms, and an etched fire opal of nature.");
 	end
-	if(e.message:findi("None")) then
+	if(e.message:findi("cloak")) then
 		e.self.Say("For the earth blessed cloak you need to bring me a star jewel, a mark of the earth, an etched peridot of nature, and a tablet of wolves.");
 	end
-	if(e.message:findi("None")) then
+	if(e.message:findi("gloves")) then
 		e.self.Say("'For the earth blessed gloves you need to bring me a cloud jewel, a mark of blossoms, and an etched pearl of nature.");
 	end
-	if(e.message:findi("None")) then
+	if(e.message:findi("talisman")) then
 		e.self.Say("For the earth blessed talisman you need to bring me a sky jewel, a mark of rain, and an etched opal of nature.");
 	end
-	if(e.message:findi("None")) then
+	if(e.message:findi("belt")) then
 		e.self.Say("For the earth blessed belt you need to bring me a meteor jewel, a mark of flora, an etched onyx of nature, and an ancient writ of nature.");
 	end
-	if(e.message:findi("None")) then
+	if(e.message:findi("crook")) then
 		e.self.Say("For the earth blessed crook you need to bring me an astral jewel, mark of fauna, an etched fire emerald of nautre, and a vial of moon dew.");
 	end
 end

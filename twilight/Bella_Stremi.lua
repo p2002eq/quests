@@ -1,29 +1,29 @@
 function event_say(e)
-	if(e.message:findi("None")) then
+	if(e.message:findi("hail")) then
 		e.self.Say("Ah hello and welcome $name. tis a pleasure to see some new faces.  I have the finest wares to be found. be sure to check them out. Are ya by chance a [necromancer]");
 	end
-	if(e.message:findi("None")) then
+	if(e.message:findi("necromancer")) then
 		e.self.Say("I have a cap, robes, sleeves, pants, shawl, bracer, and sandals for a necromancer. Frantip has the rest just ask him about armor and I'm sure he'll help you. Which are you interested in?");
 	end
-	if(e.message:findi("None")) then
+	if(e.message:findi("cap")) then
 		e.self.Say("For the cap of pestilence you'll have to bring me a sky jewel, an aged gold coin, a dark gem, and a priceless book.");
 	end
-	if(e.message:findi("None")) then
+	if(e.message:findi("robe")) then
 		e.self.Say("For the robe of pestilence you'll have to bring me a meteor jewel, a miniature armband, a mark of fortune, and a sun wraith eye.");
 	end
-	if(e.message:findi("None")) then
+	if(e.message:findi("sleeves")) then
 		e.self.Say("For the sleeves of pestilence you'll have to bring me an astral jewel, a petrified totem, a frozen hailstone, and a glowing crystal.");
 	end
-	if(e.message:findi("None")) then
+	if(e.message:findi("pants")) then
 		e.self.Say("For the pants of pestilence you'll have to bring me a sun jewel, a divining rod, an aged platinum symbol, and a silver sign.");
 	end
-	if(e.message:findi("None")) then
+	if(e.message:findi("shawl")) then
 		e.self.Say("For the shawl of pestilence you'll have to bring me a moon jewel an ancient fossil, and some wrought iron shavings.");
 	end
-	if(e.message:findi("None")) then
+	if(e.message:findi("bracer")) then
 		e.self.Say("For the bracer of pestilence you'll have to bring me a star jewel, a granite idol, and an ancient silver coin.");
 	end
-	if(e.message:findi("None")) then
+	if(e.message:findi("sandals")) then
 		e.self.Say("For the sandals of pestilence you'll have to bring me a cloud jewel, a blackened ornament, and a snake scale sceptre.");
 	end
 end

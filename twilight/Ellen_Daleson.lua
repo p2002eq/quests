@@ -1,15 +1,15 @@
 function event_say(e)
-	if(e.message:findi("None")) then
+	if(e.message:findi("Hail")) then
 		e.self.Say("Oh hello there, I'm in charge of the docks here and wife to Alton.");
 	end
-	if(e.message:findi("None")) then
-	if(e.message:findi("None")) then
-	if(e.message:findi("None")) then
-	if(e.message:findi("None")) then
-	if(e.message:findi("None")) then
-	if(e.message:findi("None")) then
-	if(e.message:findi("None")) then
-	if(e.message:findi("None")) then
+	if(e.message:findi("ranger")) then
+	if(e.message:findi("armor")) then
+	if(e.message:findi("belt")) then
+	if(e.message:findi("cape")) then
+	if(e.message:findi("choker")) then
+	if(e.message:findi("gauntlets")) then
+	if(e.message:findi("mantle")) then
+	if(e.message:findi("mask")) then
 end
 function event_trade(e)
 local item_lib = require('items');

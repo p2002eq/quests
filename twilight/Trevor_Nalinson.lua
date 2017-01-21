@@ -1,26 +1,26 @@
 function event_say(e)
-	if(e.message:findi("None")) then
+	if(e.message:findi("Hail")) then
 		e.self.Say("Can't ya see I'm busy working.  Leave me be.");
 	end
-	if(e.message:findi("None")) then
+	if(e.message:findi("what armor")) then
 		e.self.Say("Bah, Brodlan should know better than opening his big mouth. Anyway this looks like armor for a dark knight if ye want to trade for it.");
 	end
-	if(e.message:findi("None")) then
+	if(e.message:findi("what trade")) then
 		e.self.Say("Good ya want to trade. I have the mask, cloak, gauntlets, gorget, girdle, and mace. Just tell me what piece you want to trade for and Ill tell ya what I want.");
 	end
-	if(e.message:findi("None")) then
+	if(e.message:findi("cloak")) then
 		e.self.Say("For the darkened knight's cloak you'll have to bring me a cloud jewel, a mark of twisted souls, a chilled brazier, and a gem of blue skies.");
 	end
-	if(e.message:findi("None")) then
+	if(e.message:findi("gauntlets")) then
 		e.self.Say("For the darkened knight's gauntlets you'll have bring me a sky jewel, a mark of fright, and a true silver idol");
 	end
-	if(e.message:findi("None")) then
+	if(e.message:findi("girdle")) then
 		e.self.Say("For the darkened knight's girdle you'll have to bring me an astral jewel, a mark of gloom, some gilded beads, and an etched tablet.");
 	end
-	if(e.message:findi("None")) then
+	if(e.message:findi("girdle")) then
 		e.self.Say("For the darkened knigh's gorget you'll have to bring me a meteor jewel, a mark of darkness, a runed stone brazier.");
 	end
-	if(e.message:findi("None")) then
+	if(e.message:findi("mace")) then
 		e.self.Say("For the darkened knight's mace you'll have to bring me a sun jewel, a mark of night, a beaded circlet, and a heating stone.");
 	end
 end
