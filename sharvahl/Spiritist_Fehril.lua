@@ -8,10 +8,14 @@
 ---- 8 = Cloak of the Dar Khura Recruit
 
 function event_say(e)
+	fac = e.other:GetFaction(e.self);
+
 	if(e.message:findi("Hail")) then
 		e.self:Say("Well hello... How may I help you?");
 	elseif(e.message:findi("Merchant Ayyad")) then
 		e.self:Say("You can find Merchant Ayyad in 'The Merchants' Quarter which lies in the middle of the city just east of the Royal Palace.");
+	elseif(e.message:findi("love potion")) and (fac <= 4) then -- Behari is Missing Quest
+		e.self:Say("Hmmm, while I dabble in the art of potions mixing myself, I am no scholar in the field. Perhaps Spiritist Ragnar would be of more assistance to you.");
 	end
 end
 

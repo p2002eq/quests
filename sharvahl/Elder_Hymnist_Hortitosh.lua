@@ -25,7 +25,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 18324})) then -- Kalilaa Diary
-		e.self:Say("Thanks, " .. e.other:GetName() .. "!  That is a wonderful story of inspiration.");
+		e.self:Emote("Elder Hymnist Hortitosh opens the diary and reads. Before long he is utterly engrossed in the story of purest love that you have given him, and it begins. You are something less than fully aware of what happens next, the wind whistles and you could swear that the room fills with light though you could not prove it. A moment later, a sense of completeness has filled you. All you know for sure is that Hortitosh stands before you, fully spent, and you hold in your hand what could only be an essence of sonnet. ");
 		e.other:QuestReward(e.self,0,0,0,0,5991); -- Essence of Sonnet
 	end
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 18552})) then -- Hymnist Guild Summons
@@ -40,7 +40,7 @@ function event_trade(e)
 		eq.set_global("Shar_Vahl_Cit","7",5,"F");
 		e.other:QuestReward(e.self,0,0,0,0,2878,100); -- Initiate's Cloak of Shar Vahl
 	end
-	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 3920})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 3920})) then -- Case of Guard Uniforms
 		e.self:Say("These are finely crafted indeed, " .. e.other:GetName() .. ". Merchant Fahaar told me you were quite the prodigy, but don't tell him I told you that. Take this receipt and show it to Fahaar and tell him the king is quite pleased with both your work, and his teaching!");
 		e.other:QuestReward(e.self,0,0,0,0,3921,1000); -- Order Receipt
 	end
