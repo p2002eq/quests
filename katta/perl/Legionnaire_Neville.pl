@@ -4,15 +4,11 @@ sub EVENT_SAY  {
 
 if($text=~/Hail/i){
    quest::emote("coughs a bit and looks up at you with tired, bleary eyes,");
-   quest::say("Ugh, I have not had such a cold as this since I was a boy. I have heard of a
-[tea-maker] in the city of the Vah Shir that makes a stamina enhancing tea. I would like to try
-some and see if it might help.");
+   quest::say("Ugh, I have not had such a cold as this since I was a boy. I have heard of a [tea-maker] in the city of the Vah Shir that makes a stamina enhancing tea. I would like to try some and see if it might help.");
 }
 
 if($text=~/tea maker/i){
-   quest::say("ACHOO! Excuse me. It was some kind of root tea... saucy greyroot... sparkly
- greenroot... something like that I think. The brewer's name was... Adam... Lama... Oh I just cannot
- think straight.");
+   quest::say("ACHOO! Excuse me. It was some kind of root tea... saucy greyroot... sparkly greenroot... something like that I think. The brewer's name was... Adam... Lama... Oh I just cannot think straight.");
 }
 }
 

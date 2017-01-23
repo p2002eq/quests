@@ -1,2 +1,5 @@
-.idea/
-zzConvert/
+# Conversion
+Convert/
+
+# PHPStorm
+.idea/*

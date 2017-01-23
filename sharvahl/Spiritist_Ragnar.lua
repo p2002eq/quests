@@ -1,18 +1,24 @@
 --Hand in For Whiptail Poison Glands
 function event_say(e)
+	fac = e.other:GetFaction(e.self);
+
 	if(e.message:findi("Hail")) then
 		e.self:Say("Well hello... How may I help you?");
 	elseif(e.message:findi("love potion")) then
-		e.self:Say("Love potion? Never been done and not worth the risk to try after what happened to Kanaad. ");
+		e.self:Say("Love potion? Never been done and not worth the risk to try after [what happened to Kanaad]. ");
 	elseif(e.message:findi("what happened to Kanaad")) then
-		e.self:Say("Old Kanaad taught me a lot of what I know- he was about the greatest potions expert in the city back then. He started gathering legends and lore about some infamous love potion. Not some silly thing to make the girl of your dreams fall in love mind you- this fabled tonic was intended to be shared only between two who had found true love. If their feelings were strong enough it would... well, that was part of the problem, no one knew what it was supposed to do. Kanaad learned of some crazy human in the mountains that had supposedly figured out the secret to the potion. The results were not what anyone had hoped for.");
-	elseif(e.message:findi("what were the results")) then
-		e.self:Emote("shuffles a bit uncomfortably, considering whether or not he should be telling you this");
-		e.self:Say("This is not something that I would normally talk about, but Soroush came by and told me that you are on the trail of Behari- if this will help you find him, then I will tell you all that I know... Kanaad had a time getting the ingredients and was only to make just a very little bit. He sat down with his love, alone in a room and intended to share the elixir. Well, that was the last anyone saw of her, and he was manic, out of his mind... The mixture had driven him from his senses and he snapped. It took quite a bit to restrain him and figure out what to do next.");
-	elseif(e.message:findi("what happened next")) then
+		e.self:Say("Old Kanaad taught me a lot of what I know- he was about the greatest potions expert in the city back then. He started gathering legends and lore about some infamous love potion. Not some silly thing to make the girl of your dreams fall in love mind you- this fabled tonic was intended to be shared only between two who had found true love. If their feelings were strong enough it would... well, that was part of the problem, no one knew what it was supposed to do. Kanaad learned of some crazy human in the mountains that had supposedly figured out the secret to the potion. The [results] were not what anyone had hoped for.");
+	elseif(e.message:findi("results")) then
+		if (fac <= 4) then
+			e.self:Emote("shuffles a bit uncomfortably, considering whether or not he should be telling you this");
+			e.self:Say("This is not something that I would normally talk about, but Soroush came by and told me that you are on the trail of Behari- if this will help you find him, then I will tell you all that I know... Kanaad had a time getting the ingredients and was only to make just a very little bit. He sat down with his love, alone in a room and intended to share the elixir. Well, that was the last anyone saw of her, and he was manic, out of his mind... The mixture had driven him from his senses and he snapped. It took quite a bit to restrain him and figure out what to do [next].");
+		else
+			e.self:Say("'I am sorry, but I am right in the middle or something.");
+		end
+	elseif(e.message:findi("next")) and (fac <= 4) then
 		e.self:Emote("considers you for a moment and, as though reminding himself that you are trustworthy, continues");
 		e.self:Say("Well what we learned was that not only did the mixture drive the drinker mad, but it was incredibly addictive as well- a horrible combination. All that we could do was give him a controlled intake of the potion for his addiction and try to treat his dementia. With his returning sanity came the realization of what he had done to his love. It was the most harrowing thing I have ever seen someone go through in all of my life... He is better now, but has never quite been the same and rarely speaks to strangers. Give him this and you should at least get a chance to explain.");
-		e.other:SummonItem(5990);
+		e.other:SummonItem(5990); -- Kanaad's Supplies
 	end
 end
 
