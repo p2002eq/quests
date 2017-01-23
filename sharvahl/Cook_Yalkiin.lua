@@ -24,7 +24,7 @@ function event_trade(e)
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 10391})) then -- Full Mesh Bag
 		e.self:Emote("tosses the bag in a pile with several others and hands you your payment.");
 		e.self:Say("'Thank you very much,' he says. 'The more of these that I can gather, the better. I always seem to be low.");
-		e.other:QuestReward(e.self,0,0,6,0,0,1000); -- Exp Only
+		e.other:QuestReward(e.self,0,0,6,0,eq.ChooseRandom(2752,2754,2758,30581,30578),1000); -- Random -- Tattered Hopperhide Gorget, Tattered Hopperhide Shoulderpads, Tattered Hopperhide Wristbands, Wooden Practice Spear or Wooden Practice Warhammer
 	end
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 5559})) then -- Meal Voucher
 		e.self:Say("I'd love to fill this order, but we're out of the meat that he likes. We've been very busy today, so I doubt that any of us will be able to get out to gather more of it. If you could go out and grab us a few slabs, we could not only fill the order, I could put some away for anyone else that may come through today. This sounds like a perfect task for a young Taruun recruit. Fill this bag with the fatty meat from a young Owlbear and bring it back to me right away. I'll get Joharr's sandwiches as soon as you return with the meat.");
