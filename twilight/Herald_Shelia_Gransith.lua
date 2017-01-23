@@ -1,6 +1,6 @@
 function event_say(e)
 	if(e.message:findi("Hail")) then
-		e.self:Say("Welcome to the Twilight Sea!  This is the docking entrance to Katta Castellum. $name. Tell me do you know any songs?");
+		e.self:Say("Welcome to the Twilight Sea!  This is the docking entrance to Katta Castellum. ".. e.other:GetName() .. ". Tell me do you know any songs?");
 	end
 	if(e.message:findi("i know some songs")) then
 		e.self:Say("Ah you do. You don't happen to be a bard do you?");
@@ -34,8 +34,9 @@ function event_say(e)
 	end
 end
 function event_trade(e)
-local item_lib = require('items');
-	if (item_lib.check_turn_in(e.self, e.trade, {item1 = 5347, item2 = 4492, 		e.other:SummonItem(3909);
+	local item_lib = require('items');
+	if (item_lib.check_turn_in(e.self, e.trade, {item1 = 5347, item2 = 4492, item3 = 534})) then
+		e.other:SummonItem(3909);
 		e.self:Emote("sings loudly as she hands you your reward");
 		e.self:Say("here, you have earned this");
 		e.other:AddEXP(50000);

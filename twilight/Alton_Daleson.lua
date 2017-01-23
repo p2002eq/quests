@@ -31,7 +31,7 @@ function event_say(e)
 	end
 end
 function event_trade(e)
-local item_lib = require('items');
+	local item_lib = require('items');
 	if (item_lib.check_turn_in(e.self, e.trade, {item1 = 5852, item2 = 5853, item3 = 5851, item4 = 4488})) then
 		e.self:Emote("smiles.");
 		e.self:Say("Here is what I promised, ".. e.other:GetName() .. ".");

@@ -31,7 +31,7 @@ function event_say(e)
 	end
 end
 function event_trade(e)
-local item_lib = require('items');
+	local item_lib = require('items');
 	if (item_lib.check_turn_in(e.self, e.trade, {item1 = 4488, item2 = 5921, item3 = 5927, item4 = 5928})) then
 		e.other:SummonItem(3985);
 	end
@@ -41,7 +41,8 @@ local item_lib = require('items');
 	if (item_lib.check_turn_in(e.self, e.trade, {item1 = 4490, item2 = 5925, item3 = 5924, item4 = 5926})) then
 		e.other:SummonItem(3987);
 	end
-	if (item_lib.check_turn_in(e.self, e.trade, {item1 = 4491, item2 = 5930, item3 = 5931, 		e.other:SummonItem(3988);
+	if (item_lib.check_turn_in(e.self, e.trade, {item1 = 4491, item2 = 5930, item3 = 5931, item4 = 5932})) then
+		e.other:SummonItem(3988);
 	end
 	if (item_lib.check_turn_in(e.self, e.trade, {item1 = 4492, item2 = 5933, item3 = 5934})) then
 		e.other:SummonItem(3989);

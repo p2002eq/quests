@@ -1,7 +1,6 @@
 function event_say(e)
 	if(e.message:findi("hail")) then
 		e.self:Emote("pauses for a second staring off into the distance. 'Ah welcome friend. I am Vornol, a summoner of sorts, and master of this tower.'");
-	end
 		e.self:Say("Most excellent what I have is some armor, if you will do few errands for me it is yours. The pieces I have are the cap, robe, sleeves, pants, shawl, and bracer. My apprentice, the lady Galdara, has the rest. Just ask her about armor and she will tell you what you need to do.");
 	end
 	if(e.message:findi("cap")) then
@@ -24,7 +23,7 @@ function event_say(e)
 	end
 end
 function event_trade(e)
-local item_lib = require('items');
+	local item_lib = require('items');
 	if (item_lib.check_turn_in(e.self, e.trade, {item1 = 4488, item2 = 4495, item3 = 4496, item4 = 4497})) then
 		e.other:SummonItem(3684);
 		e.other:AddEXP(10000);

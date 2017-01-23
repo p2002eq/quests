@@ -28,7 +28,7 @@ function event_say(e)
 	end
 end
 function event_trade(e)
-local item_lib = require('items');
+	local item_lib = require('items');
 	if (item_lib.check_turn_in(e.self, e.trade, {item1 = 4494, item2 = 5287, item3 = 5288})) then
 		e.other:SummonItem(3795);
 	end

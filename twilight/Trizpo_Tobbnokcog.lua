@@ -28,7 +28,7 @@ function event_say(e)
 	end
 end
 function event_trade(e)
-local item_lib = require('items');
+	local item_lib = require('items');
 	if (item_lib.check_turn_in(e.self, e.trade, {item1 = 4736, item2 = 4735, item3 = 4738, item4 = 4490})) then
 		e.other:SummonItem(3721);
 		e.self:Say("Ah! Now I can return to my studies!");

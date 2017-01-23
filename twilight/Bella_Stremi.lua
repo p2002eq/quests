@@ -1,6 +1,6 @@
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Ah hello and welcome $name. tis a pleasure to see some new faces.  I have the finest wares to be found. be sure to check them out. Are ya by chance a [necromancer]");
+		e.self:Say("Ah hello and welcome ".. e.other:GetName() .. ". tis a pleasure to see some new faces.  I have the finest wares to be found. be sure to check them out. Are ya by chance a [necromancer]");
 	end
 	if(e.message:findi("necromancer")) then
 		e.self:Say("I have a cap, robes, sleeves, pants, shawl, bracer, and sandals for a necromancer. Frantip has the rest just ask him about armor and I'm sure he'll help you. Which are you interested in?");
@@ -28,7 +28,7 @@ function event_say(e)
 	end
 end
 function event_trade(e)
-local item_lib = require('items');
+	local item_lib = require('items');
 	if (item_lib.check_turn_in(e.self, e.trade, {item1 = 4492, item2 = 4741, item3 = 4742, item4 = 4743})) then
 		e.other:SummonItem(3723);
 		e.other:AddEXP(10000);

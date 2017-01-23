@@ -10,7 +10,6 @@ function event_say(e)
 	end
 	if(e.message:findi("armor")) then
 		e.self:Say("I have a [bracer], [cap], [pants], [robe], [sandals], [shawl], and [sleeves]. I gave some of the other ones to Trizpo if you desire those as well, oh great 'wizard'");
-	end
 		e.self:Emote("laughs extremely loud");
 	end
 	if(e.message:findi("bracer")) then
@@ -36,7 +35,7 @@ function event_say(e)
 	end
 end
 function event_trade(e)
-local item_lib = require('items');
+	local item_lib = require('items');
 	if (item_lib.check_turn_in(e.self, e.trade, {item1 = 4724, item2 = 4491, item3 = 4723})) then
 		e.other:SummonItem(3715);
 		e.self:Say("This doesn't in any way make you a real wizard. Merely an apprentice.");

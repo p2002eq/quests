@@ -1,6 +1,6 @@
 function event_say(e)
 	if(e.message:findi("Hail")) then
-		e.self:Say("Greetings and well met $name. Don't listen to ol' Latrag over there he'll never stop brewin' the best durn ale to be found.");
+		e.self:Say("Greetings and well met ".. e.other:GetName() .. ". Don't listen to ol' Latrag over there he'll never stop brewin' the best durn ale to be found.");
 	end
 	if(e.message:findi("what boots")) then
 		e.self:Say("For the boots yer gonna have to get me a sun jewel. a mark of destiny. and a fleshy vine.");
@@ -9,7 +9,7 @@ function event_say(e)
 		e.self:Say("Latrag is goin' on 'bout his armor again isn't he. Well friend be ye a paladin?");
 	end
 	if(e.message:findi("i am a paladin")) then
-		e.self:Say("Of course ya are $name. why would have ya asked me about the armor if ye wasn't eh. I have the [boots], [mask], [cloak], [gauntlets], [gorget], [girdle], and a [sword]. Which do ye want?");
+		e.self:Say("Of course ya are ".. e.other:GetName() .. ". why would have ya asked me about the armor if ye wasn't eh. I have the [boots], [mask], [cloak], [gauntlets], [gorget], [girdle], and a [sword]. Which do ye want?");
 	end
 	if(e.message:findi("what mask")) then
 		e.self:Say("For the mask yer gonna have to get me a moon jewel. a mark of blessings. and some crystallized dew.");
@@ -31,7 +31,7 @@ function event_say(e)
 	end
 end
 function event_trade(e)
-local item_lib = require('items');
+	local item_lib = require('items');
 	if (item_lib.check_turn_in(e.self, e.trade, {item2 = 5904, item3 = 5905})) then
 		e.other:SummonItem(3978);
 	end

@@ -25,7 +25,7 @@ function event_say(e)
 	end
 end
 function event_trade(e)
-local item_lib = require('items');
+	local item_lib = require('items');
 	if (item_lib.check_turn_in(e.self, e.trade, {item1 = 5194, item2 = 5192, item3 = 5193, item4 = 4488})) then
 		e.other:SummonItem(3775);
 		e.other:AddEXP(10000);
