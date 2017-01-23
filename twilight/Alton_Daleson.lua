@@ -6,7 +6,7 @@ function event_say(e)
 		e.self:Say("His armor has also been in the family for generations, if ye be a [ranger] I don't have much use for it running this inn. I'll just need something in return for it.");
 	end
 	if(e.message:findi("ranger")) then
-		e.self:Say("Excellent! If you are interested I have the Woodsman's [Helm], Woodsmand's [Mail], Woodsman's [Vambraces], Woodsman's [Greaves], Woodsman's [Bracer], Woodsman's [Boots], and the Woodsman's [Axe]. If youa re interested in the rest of his armor you'll have to ask my wife Ellen, she'll have some errands you can run for her.");
+		e.self:Say("Excellent! If you are interested I have the Woodsman's [Helm], Woodsmand's [Mail], Woodsman's [Vambraces], Woodsman's [Greaves], Woodsman's [Bracer], Woodsman's [Boots], and the Woodsman's [Axe]. If you are interested in the rest of his armor you'll have to ask my wife Ellen, she'll have some errands you can run for her.");
 	end
 	if(e.message:findi("axe")) then
 		e.self:Say("If you want the Woodsman's Axe you will have to aquire these items: a sun jewel, a mark of the naturalist, some ancient pottery, and a fossilized skull.");
