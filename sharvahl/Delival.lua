@@ -1,3 +1,4 @@
+-- NPCID 155340
 function event_spawn(e)
 	e.self:Say("Well thank heavens you're finally home, perhaps I should think twice before sending you out alone next time, little one.  Thank you so much for bringing her back, my friend.  Looks like she managed to talk you into carrying the buttons for her as well.");
 	eq.set_timer("depop",300000);
@@ -16,17 +17,17 @@ end
 function event_say(e)
 	if(e.message:findi("tuck")) then
 		e.self:Say("Thank you again, have been a great help.  Here is her favorite blanket, just give it to her and she should be fine.  G'night Shainai.");
-		e.other:QuestReward(e.self,0,0,0,0,4478);
+		e.other:QuestReward(e.self,0,0,0,0,4478); -- Shainais Blanket
 	end
 end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 4460})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 4460})) then -- Shainais Bag
 		e.self:Say("Well I wish there was more I could do to repay you. Take this old compass and what change I can spare with my most sincere thanks. Now off to bed Shainai, you have had a busy day.");
-		e.other:Faction(132,4); --Guardian of Shar Vahl
-		eq.signal(155339,1,10);
-		e.other:QuestReward(e.self,12,9,0,0,12000,100);
+		e.other:Faction(132,4); -- Guardian of Shar Vahl
+		eq.signal(155339,1,10); -- Shainai
+		e.other:QuestReward(e.self,12,9,0,0,12000,100); -- Compass
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end

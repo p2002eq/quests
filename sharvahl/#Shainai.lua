@@ -1,3 +1,4 @@
+-- NPCID 155311
 function event_waypoint_arrive(e)
 	if(e.wp == 17) then
 		e.self:Emote("stops skipping and looks around, 'Uh oh'");
@@ -21,11 +22,11 @@ function event_waypoint_arrive(e)
 end
 
 function event_spawn(e)
-	eq.signal(155041,2,10);
+	eq.signal(155041,2,10); -- #Delival
 end
 
 function event_say(e)
-	local a = 155339;
+	local a = 155339; -- Shainai
 	if((e.wp < 17) and (e.message:findi("Hail"))) then
 		e.self:Say("Hello, my name is Shainai and I am on a very important mission for my Daddy. He ran out of buttons for the officers' clothes so I have to get him more. I am an excellent helper.");
 	end
@@ -37,7 +38,7 @@ function event_say(e)
 	end
 	if(((e.wp > 16) and (e.wp < 61)) and (e.message:findi("follow"))) then
 		e.self:Say("You will?!? Oh good, now I won't be so lonesome. Here hold my bag of buttons if you please, my arms are tired. Ready? Follow me now, I know the way.  'Shainai pauses and looks around, ' Hmmmm...");
-		e.other:QuestReward(e.self,0,0,0,0,4460);
+		e.other:QuestReward(e.self,0,0,0,0,4460); -- Shainais Bag
 	end
 	if(((e.wp > 16) and (e.wp < 27)) and (e.message:findi("follow"))) then
 		eq.spawn2(a,29,0,401,135,-188,0);
