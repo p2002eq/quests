@@ -19,7 +19,7 @@ function event_trade(e)
 		e.self:Emote("looks at each piece of meat before wrapping them in a spiced cloth.");
 		e.self:Say("These look like good cuts of meat. I hope that this will suffice as payment,");
 		e.self:Emote("says as he stacks the wrapped meat on the counter.");
-		e.other:QuestReward(e.self,0,0,4,0,eq.ChooseRandom(30580,30577),1000); -- 50/50 -- Wooden Practice Dagger or Wooden Practice Two Handed Hammer
+		e.other:QuestReward(e.self,0,0,4,0,eq.ChooseRandom(30580,30577,30579,30572),1000); -- Random -- Wooden Practice Dagger, Wooden Practice Two Handed Hammer, Wooden Practice Flail or Wooden Practice Short Sword
 	end
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 10391})) then -- Full Mesh Bag
 		e.self:Emote("tosses the bag in a pile with several others and hands you your payment.");
