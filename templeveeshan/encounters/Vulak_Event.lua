@@ -294,7 +294,7 @@ function BossHeal()
 end
 
 function spawn_hatchlings()
-    local spawnNum = 4;
+    local spawnNum = math.random(3,6);
     for i = 1, spawnNum do
 		spawn_mob(124312, 5, true);
     end
