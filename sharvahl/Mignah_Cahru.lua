@@ -1,5 +1,4 @@
 function event_say(e)
-
 	if(e.message:findi("Hail")) then
 		e.self:Say("Hello. " .. e.other:GetName() .. ". I am Mignah. a humble acrylia specialist. If you have a form of acrylia that merchants will not buy please hand it to me and I will pay you whatever it may be worth.");
 	elseif(e.message:findi("acrylia slate")) then

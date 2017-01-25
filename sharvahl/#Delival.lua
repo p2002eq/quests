@@ -1,3 +1,4 @@
+-- NPCID 155041
 function event_spawn(e)
 	eq.enable_spawn2(32803);
 	eq.set_timer("worry",120000);
@@ -14,7 +15,7 @@ end
 
 function event_signal(e)
 	if(e.signal==1) then
-		eq.spawn2(155340,0,0,e.self:GetX(),e.self:GetY(),e.self:GetZ(),e.self:GetHeading());
+		eq.spawn2(155340,0,0,e.self:GetX(),e.self:GetY(),e.self:GetZ(),e.self:GetHeading()); -- Delival
 		eq.depop_with_timer();
 	end
 	if(e.signal==2) then
@@ -36,7 +37,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 4460})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 4460})) then -- Shainais Bag
 		e.self:Emote("looks at what you handed him as his face turns to rage, 'What is... this... this is the box I sent Shainai out with!  Where is she?  What have you done?  You stole from my little girl!!  Maybe worst!!!!!'");
 		e.other:Faction(132,-1); --Guardian of Shar Vahl
 	end
