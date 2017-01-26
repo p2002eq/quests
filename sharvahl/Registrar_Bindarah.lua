@@ -32,16 +32,16 @@ function event_trade(e)
 		e.self:Say("Young " .. e.other:GetName() .. ", I will be happy to process your registration for you. While I etch your name on our people's book of records I will require you to run a couple of errands. Take this certificate to the tax collector and obtain his seal. While you're out doing that, have Mignah create your personal Acrylia slate for you. Bring both the seal and the slate to me as soon as you can.");
 		eq.set_global("Shar_Vahl_Cit","2",5,"F");
 		e.other:QuestReward(e.self,0,0,0,0,2874,500); -- Certificate of Taxability
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 2875, item2 = 2876})) then -- Stamped Certificate of Taxability & Acrylia Slate
+		e.self:Say("Ahh, there you are. I was about to send someone looking for you. Everything seems to be in order here, only one task remains. You must gain audience with the king and swear fealty to his highness by handing him this document. Return to me when this is done.");
+		eq.set_global("Shar_Vahl_Cit","4",5,"F");
+		e.other:QuestReward(e.self,0,0,0,0,18299,500); -- Note to King Raja
 	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 2875})) then -- Stamped Certificate of Taxability
 		e.self:Say("This item, by iteself, means nothing to me.");
 		e.other:SummonItem(2875) -- Return Stamped Certificate of Taxability
 	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 2876})) then -- Acrylia Slate
 		e.self:Say("This item, by iteself, means nothing to me.");
 		e.other:SummonItem(2876) -- Return Acrylia Slate
-	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 2875, item2 = 2876})) then -- Stamped Certificate of Taxability & Acrylia Slate
-		e.self:Say("Ahh, there you are. I was about to send someone looking for you. Everything seems to be in order here, only one task remains. You must gain audience with the king and swear fealty to his highness by handing him this document. Return to me when this is done.");
-		eq.set_global("Shar_Vahl_Cit","4",5,"F");
-		e.other:QuestReward(e.self,0,0,0,0,18299,500); -- Note to King Raja
 	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 18304})) then -- Note from King Raja
 		e.self:Say("Well done, " .. e.other:GetName() .. ", I am honored to be the first to welcome you to citizenship of Shar Vahl! May you serve our society as well as it serves you. Return to your guildmaster and present both the slate and the application to him. The acrylia slate shall henceforth serve as proof of your citizenship.");
 		e.other:SummonItem(2877); -- Acrylia Slate of Shar Vahl
