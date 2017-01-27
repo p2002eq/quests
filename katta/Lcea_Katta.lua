@@ -1,6 +1,6 @@
 
 function event_say(e)
-	if e.message:findi(arx key) then
+	if e.message:findi("arx key") then
 		e.self:Say("The Arx Key, yes. I have read the compiled reports that have been brought to us and it seems to gain access to Arx Seru you need four shards, one from each Praesertum leader. When the time is ready each leader inserts their shard into the door of Arx Seru at the same time, and they are transported within the building. We need you to retrieve the four shards. When you have done so seek out Elnerick Augustleaf, and tell him that you serve Katta. His powers over the arcane are great and I believe he can form the shards into a single master key. Once you have received the Arx Key, place the seal given to you by Elnerick and your Runed earring in this jewel box and give it to me. I eagerly await your return.");
 		e.other:SummonItem(17613); -- 17613  Lcea's Jewel Box (container 2 slots)
 	end
