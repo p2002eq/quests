@@ -1,3 +1,4 @@
+---- Quest:Saurek Claws
 function event_say(e)
 	if(e.message:findi("hail")) then
 		e.self:Say("Have you come for training young one?  The way of the Beastlord teaches many things about the forces of nature.  The [forces] in the thicket are very interesting.");
