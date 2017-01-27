@@ -15,7 +15,7 @@ function event_trade(e)
 		e.other:Faction(52,100); -- concillium universus
 		e.other:Faction(284,-10); -- seru
 		e.other:Faction(142,-50); -- heart of seru
-		e.other:AddExp(500000);
+		e.other:AddEXP(500000);
 		
 	elseif item_lib.check_turn_in(e.self, e.trade, { item1 = 29860, item2 = 7810 }) then
 		e.self:Say("This is astounding, I find myself at a loss for words. You have done Katta a great justice, Sanctus Seru will never be the same now that the truth is known. Their leader has fallen.");
@@ -23,7 +23,7 @@ function event_trade(e)
 		e.other:Faction(52,200); -- concillium universus
 		e.other:Faction(284,-20); -- seru
 		e.other:Faction(142,-100); -- heart of seru
-		e.other:AddExp(500000);
+		e.other:AddEXP(500000);
 	end
 
 	item_lib.return_items(e.self, e.other, e.trade); -- return unused items

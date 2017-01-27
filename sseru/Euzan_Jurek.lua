@@ -25,7 +25,7 @@ function event_trade(e)
 		e.self:Say("By now you must realize that we need to avoid the question because of whom we are. Seru is not the Noble Paladin this city would have you believe. You see they teach that Katta feared Seru and that he had faked his own poisoning so they could pin the blame on Seru. The next thing that I ask of you, I ask because you can travel without question from one city to another. Go to Katta and give this report to Tilbok Furrunner. Tell him we are successfully rooted within Sanctus Seru and await any commands.");
 		e.other:SummonItem(29858); -- 29858  Etched Earring of Veracity
 		e.other:SummonItem(29891); -- 29891  Report to Tilbok
-		e.other:AddExp(30000);
+		e.other:AddEXP(30000);
 		e.other:Faction(96,-1); -- Eye of Seru
 		e.other:Faction(139,-7); -- Hand of Seru
 		e.other:Faction(284,-1); -- Seru

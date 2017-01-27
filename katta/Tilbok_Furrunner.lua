@@ -40,7 +40,7 @@ function event_trade(e)
 		e.other:Faction(139,-5); -- Hand of Seru
 		e.other:Faction(96,-1); -- Eye of Seru
 		e.other:Faction(138,-1); -- Hand Legionnaries
-		e.other:AddExp(100000);
+		e.other:AddEXP(100000);
 		
 	elseif (item_lib.check_turn_in(e.self, e.trade, { item1 = 29858, item2 = 29889 })) then -- Etched Earring of Veracity and Full Satchel
 		e.self:Say("According to these reports Seru resides in a building called the Arx Seru. It is the large complex in the center of the four Praesertum Consillium. We must take [action] now. Do not underestimate the power of Sanctus Seru for what they do they feel is right.");
@@ -54,7 +54,7 @@ function event_trade(e)
 		e.other:Faction(139,-10); -- Hand of Seru
 		e.other:Faction(96,-2); -- Eye of Seru
 		e.other:Faction(138,-2); -- Hand Legionnaries
-		e.other:AddExp(200000);
+		e.other:AddEXP(200000);
 		eq.set_global("EarringVeracity3","1",1,"F"); -- Used with Lcea Katta
 		
 	elseif (item_lib.check_turn_in(e.self, e.trade, { item1 = 29844 })) then -- Dossier: Case 3463827
@@ -69,7 +69,7 @@ function event_trade(e)
 		e.other:Faction(139,-50); -- Hand of Seru
 		e.other:Faction(96,-50); -- Eye of Seru
 		e.other:Faction(138,-50); -- Hand Legionnaries
-		e.other:AddExp(50000);
+		e.other:AddEXP(50000);
 	end
 
 	item_lib.return_items(e.self, e.other, e.trade);

@@ -17,7 +17,7 @@ function event_trade(e)
 	-- Bark potion x2, spring crystal x1, harvest crystal x1
 	if (item_lib.check_turn_in(e.self, e.trade, { item1 = 14519, item2 = 14519, item3 = 14512, item4 = 14511 })) then
 		e.self:Say("This is great! We can treat our injured and have something to eat for weeks. I can vaguely recall Bregun heading towards the Lair of the Netherbians. You might ask a guard there if they have seen him.");
-		e.other:AddExp(40000);
+		e.other:AddEXP(40000);
 	end
 	
 	item_lib.return_items(e.self, e.other, e.trade);
