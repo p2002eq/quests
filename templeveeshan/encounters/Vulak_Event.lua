@@ -341,7 +341,7 @@ function GMControl(e)
 				local wave_num = tonumber(string.sub(e.message, string.find(e.message, '%d+')));
 				if wave_num > 1 and wave_num <= 17 then
 					wave = wave_num - 1;
-					e.self:Message(6, string.format("Wave set to number %s. Wave timer currently at %s seconds.", wave_num, wave_timer/1000));
+					e.self:Message(6, string.format("Next wave set to number %s. Wave timer currently at %s seconds.", wave + 1, wave_timer/1000));
 				else
 					e.self:Message(6, "Wave number not valid, try again.");
 				end
@@ -353,7 +353,7 @@ function GMControl(e)
 				local temp_time = tonumber(string.sub(e.message, string.find(e.message, '%d+')));
 				if temp_time > 0 and temp_time < 3600 then
 					wave_timer = temp_time*1000;
-					e.self:Message(6, string.format("Wave timer set to %s seconds. Currently on wave %s.", wave_timer/1000, wave));
+					e.self:Message(6, string.format("Wave timer set to %s seconds. Next wave is wave %s.", wave_timer/1000, wave + 1));
 				else
 					e.self:Message(6, "Timer length not valid, try again.");
 				end
@@ -361,7 +361,7 @@ function GMControl(e)
 				e.self:Message(6, "Please wait until the event starts to reset the timer.");
 			end
 		elseif(e.message:findi("status")) then
-			e.self:Message(6, string.format("Wave timer is %s seconds. Currently on wave %s.", wave_timer/1000, wave));
+			e.self:Message(6, string.format("Wave timer is %s seconds. Next wave is wave %s.", wave_timer/1000, wave + 1));
 		end
 	end
 end
