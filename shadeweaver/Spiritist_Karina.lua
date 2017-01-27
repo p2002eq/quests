@@ -62,6 +62,12 @@ function event_trade(e)
 		e.self:Say("I can sense the mark of the [Loda Kai] within these jawbones. This is a horror, for Loda Kai was once a member of my people. I do not know how he came about these strange magical forces but it can not be good news. Please wear these sleeves for protection. This new discovery worries me deeply.");
 		e.other:Faction(132,5); -- Guardians of Shar Vahl
 		e.other:QuestReward(e.self,0,0,0,0,30877,1000); -- Rebirth Leather Sleeves
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 30874, item2 = 30874, item3 = 30874, item4 = 30874})) then -- 4x A Rotting Jawbone
+		e.other:Faction(132,5); -- Guardians of Shar Vahl
+		e.other:QuestReward(e.self,0,0,0,0,30880,1000); -- Rebirth Leather Leggings
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 30871, item2 = 30871, item3 = 30871, item4 = 30871})) then -- 4x A Shattered Jawbone
+		e.other:Faction(132,5); -- Guardians of Shar Vahl
+		e.other:QuestReward(e.self,0,0,0,0,30881,1000); -- Rebirth Leather Boots
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
