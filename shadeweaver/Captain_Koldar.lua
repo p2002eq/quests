@@ -47,8 +47,8 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 30616, item2 = 30616, item3 = 30616, item4 = 30616})) then
-		e.self:Say("Well done, hunter."); --generic reward text
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 30616, item2 = 30616, item3 = 30616, item4 = 30616})) then -- 4x Bloody Shak Dratha Heart
+		e.self:Say("Blasted! Took you long enough. Look! They've already brought in more troops. We have a city to protect here. Now patch yourself up and get back to it.' Koldar hands " .. e.other:GetName() .. " a handful of bandages");
 		e.other:SummonItem(13009,5);
 		e.other:QuestReward(e.self,0,0,0,0,13009,2000);
 	end
