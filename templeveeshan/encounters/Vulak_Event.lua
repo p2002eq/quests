@@ -334,13 +334,13 @@ function GMControl(e)
 	if e.self:Admin() > 100 and e.self:CalculateDistance(-739, 518, 120) <= 300 then
 		if(e.message:findi("help")) then
 			e.self:Message(6, "To check current wave number and current wave timer, say 'status'.");
-			e.self:Message(6, "To adjust the current wave count, say 'wave #' where # is the number of the wave to which you want to set the event. Note that this doesn't change the timer, but the event will continue normally from this point. i.e. setting the event to wave10 will cause wave11 to spawn at the next expiration of the timer.");
+			e.self:Message(6, "To adjust the current wave count, say 'wave #' where # is the number of the next wave to spawn. Note that this doesn't change the timer, but the event will continue normally from this point. i.e. saying 'wave 10' will spawn wave 10 when the timer expires.");
 			e.self:Message(6, "To adjust the current wave timer, say 'timer #' where # is the length of each wave in seconds. This DOES reset the timer. e.g. if you say 'timer 120', the timer will be reset to 120 seconds - the next wave will spawn in 2 minutes, and a new wave will spawn every 2 minutes after that. This does not affect event reset timers.");
 		elseif(e.message:findi("wave")) then
 			if wave >= 1 then
 				local wave_num = tonumber(string.sub(e.message, string.find(e.message, '%d+')));
-				if wave_num >= 1 and wave_num < 17 then
-					wave = wave_num;
+				if wave_num > 1 and wave_num <= 17 then
+					wave = wave_num - 1;
 					e.self:Message(6, string.format("Wave set to number %s. Wave timer currently at %s seconds.", wave_num, wave_timer/1000));
 				else
 					e.self:Message(6, "Wave number not valid, try again.");
