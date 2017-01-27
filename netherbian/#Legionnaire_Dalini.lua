@@ -5,7 +5,7 @@
 
 
 function event_say(e)
-	if e.message:findi(Bregun Dorey) then
+	if e.message:findi("Bregun Dorey") then
 		e.self:Say("Yeah maybe I know Bregun. You know, I sure am thirsty with all this guard work I am doing. I know what I want, some Dawnshroud Cider! Yeah, go fetch me a cider and we will see if I remember anything when you get back.");
 	end
 end
