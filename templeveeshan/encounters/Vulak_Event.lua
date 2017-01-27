@@ -279,7 +279,7 @@ function Cleanup(e)
 	unload = true;
 end
 
-function BossHeal()
+function BossHeal(e)
 	local player_list = eq.get_entity_list():GetClientList();
 	local aoeSpells = true;
 	if(player_list ~= nil) then
