@@ -24,7 +24,7 @@ function event_trade(e)
 		e.other:QuestReward(e.self,0,0,0,0,6148,1000); -- Khala Dun Hilt Piece
 	end
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 5557, item2 = 6158})) then -- Cloak of the Khala Dun Apprentice & Sonic Wolf Bane Dagger
-		e.self:Say("You have done well --name.  Wear this cloak with pride and enjoy the benefits of being a Khala Dun Journeyman.");
+		e.self:Say("You have done well " .. e.other:GetName() .. ".  Wear this cloak with pride and enjoy the benefits of being a Khala Dun Journeyman.");
 		e.other:SummonItem(6222); -- Cloak of the Khala Dun Journeyman
 		e.other:QuestReward(e.self,0,0,0,0,6158,10000); -- Sonic Wolf Bane Dagger
 	end
