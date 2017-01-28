@@ -40,7 +40,7 @@ function event_trade(e)
 	end
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 3489, item2 = 3494, item3 = 3499, item4 = 2878})) then -- Hopperhide Buckler, Hopperhide Treatment, Ayyads seal & Initiate's Cloak of Shar Vahl
 		e.self:Say("Well done you " .. e.other:GetName() .. ", your deeds will not go unnoticed. You will now be known throughout the land as an official recruit of the revered Dar Khura. As your status improves so will the rewards for your service. Here is your treated buckler, your new cloak, and a spell I trust you will find a use for. Show your buckler to Fharra Cawfeet and she will continue your training.");
-		e.self:Emote("shouts, 'My fellow Vah Shir, I present to you the newest recruit to the sacred Dar Khura. " .. e.other:GetName() .. " has shown great potential in the service of our sect. Please join me in thanking this citizen for service to our people!'");
+		e.self:Shout("My fellow Vah Shir, I present to you the newest recruit to the sacred Dar Khura. " .. e.other:GetName() .. " has shown great potential in the service of our sect. Please join me in thanking this citizen for service to our people!");
 		e.other:SummonItem(3495); -- Treated Hopperhide Buckler
 		e.other:SummonItem(3496); -- Cloak of the Dar Khura Recruit
 		eq.set_global("Shar_Vahl_Cit","8",5,"F");
