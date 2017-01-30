@@ -17,7 +17,7 @@ function event_trade(e)
 	end
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 5536})) then -- Jar of Tonic
 		e.self:Emote("perks up when you hand her the jar. 'Many thanks,' she exlaims, as she digs in her medicine bag.");
-		e.self:Say("Your assistance is greatly appreciated. Please take this tincture. It will help to strengthen your buckler. Mydi Darjik can help you apply it. She is a friend and a wonderful alchemist. Tell her that you need her to [treat] your buckler. Take care, " .. e.other:GetName() .. "!");
+		e.self:Say("Your assistance is greatly appreciated. Please take this tincture. It will help to strengthen your buckler. Mydi Darjik can help you apply it. She is a friend and a wonderful alchemist. Tell her that you need her to treat your buckler. Take care, " .. e.other:GetName() .. "!");
 		e.other:QuestReward(e.self,0,0,0,0,5537); -- Strong Smelling Tincture
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
