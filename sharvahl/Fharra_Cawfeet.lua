@@ -11,7 +11,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 3495})) then -- Treated Hopperhide Buckler
-		e.self:Emote("looks like she has been awake for many hours. She looks up and says 'Are you here to assist me with these sick citizens? I was told that a few of our newest Dar Khura recruits might be coming to aid me. I could definitly use the help. Here, take the jar while I explain. Were you told about the [tasks] that I need help with?' The room is filled with the smell of aromatic herbs and the sweat of the feverish.");
+		e.self:Emote("looks like she has been awake for many hours. She looks up and says 'Are you here to assist me with these sick citizens? I was told that a few of our newest Dar Khura recruits might be coming to aid me. I could definitly use the help. Here, take the jar while I explain. Were you [told] about the tasks that I need help with?' The room is filled with the smell of aromatic herbs and the sweat of the feverish.");
 		e.other:SummonItem(3495); -- Treated Hopperhide Buckler
 		e.other:QuestReward(e.self,0,0,0,0,17077); -- Blackened Clay Jar
 	end
