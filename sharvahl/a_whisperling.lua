@@ -4,6 +4,6 @@ function event_signal(e)
     end
     if(e.signal == 2) then
         e.self:Say("Then we thank you. We will lure it here. But beware, it uses our cousins strength to protect itself.");
---        eq.spawn2(155,0,0,e.self:GetX(),e.self:GetY(),e.self:GetZ(),e.self:GetHeading()):AddToHateList(e.other,1); -- Need to Create "A frost covered hopling" to spawn
+        eq.spawn2(155422,0,0,e.self:GetX(),e.self:GetY(),e.self:GetZ(),e.self:GetHeading()):AddToHateList(e.other,1);
     end
 end
