@@ -27,7 +27,6 @@ end
 
 function event_trade(e)
 	local item_lib=require("items");
-
 	if (item_lib.check_turn_in(e.self, e.trade, { item1 = 29891 })) then -- Report to Tilbok
 		e.self:Emote("reads through the report, hands you a small satchel then starts to explain. 'Finally, news from Euzan. I knew that it would take a long time to get planted within Seru, but I still worried about their mission constantly. This report shows that you have earned trust from Euzan, so I in turn will show the same trust. Euzan and Torsten were placed in the city for information. They are deep undercover and risk their life everyday. Every person in that city is ingrained with the [purpose] of either destroying Katta or converting his people.'");
 		e.other:SummonItem(17121); -- Report Satchel
@@ -41,7 +40,6 @@ function event_trade(e)
 		e.other:Faction(96,-1); -- Eye of Seru
 		e.other:Faction(138,-1); -- Hand Legionnaries
 		e.other:AddEXP(100000);
-		
 	elseif (item_lib.check_turn_in(e.self, e.trade, { item1 = 29858, item2 = 29889 })) then -- Etched Earring of Veracity and Full Satchel
 		e.self:Say("According to these reports Seru resides in a building called the Arx Seru. It is the large complex in the center of the four Praesertum Consillium. We must take [action] now. Do not underestimate the power of Sanctus Seru for what they do they feel is right.");
 		e.other:SummonItem(29859); -- Runed Earring of Veracity
@@ -56,7 +54,6 @@ function event_trade(e)
 		e.other:Faction(138,-2); -- Hand Legionnaries
 		e.other:AddEXP(200000);
 		eq.set_global("EarringVeracity3","1",1,"F"); -- Used with Lcea Katta
-		
 	elseif (item_lib.check_turn_in(e.self, e.trade, { item1 = 29844 })) then -- Dossier: Case 3463827
 		e.self:Emote("reads through the dossier and then looks at you, eyebrow raised curiously, 'look at the mess you have gotten yourself in the middle of,' he says with a chuckle, while beginning to jot a note. 'Here take this and...' he stops midsentence. 'I guess I haven't even given you the chance to say whether or not you want to help. Would you like to see this through to the end?'");
 		e.other:SummonItem(29845); -- Field Orders
@@ -70,9 +67,9 @@ function event_trade(e)
 		e.other:Faction(96,-50); -- Eye of Seru
 		e.other:Faction(138,-50); -- Hand Legionnaries
 		e.other:AddEXP(50000);
+	elseif (item_lib.check_turn_in(e.self, e.trade, { item1 = 5105 })) then -- Mask of Espionage
+		e.self:Say("I see you've spoken with Condor, and no doubt he told you I can recharge this for you. Well, it's true, but don't go around telling everyone. It's not something I like to make public, you know. Keep up the good work, though, we all appreciate it around here.");
+		e.other:QuestReward(e.self,0,0,0,0,5105); -- Returned/Recharged Mask of Espionage
 	end
-
 	item_lib.return_items(e.self, e.other, e.trade);
 end
-
- -- EndFile: katta\Tilbok_Furrunner.pl (160149)

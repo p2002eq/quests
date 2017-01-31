@@ -27,7 +27,7 @@ function event_trade(e)
         e.other:Faction(284,-5); -- Seru
         e.other:Faction(96,-5); -- Eye of Seru
         e.other:Faction(138,-5); -- Hand Legionnaries
-        e.other:QuestReward(e.self,0,0,0,0,0,10000); -- Reflective Combine Claymore
+        e.other:QuestReward(e.self,0,0,0,0,0,10000); -- Exp
     end
     item_lib.return_items(e.self, e.other, e.trade)
 end
