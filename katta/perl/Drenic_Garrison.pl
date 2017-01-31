@@ -51,8 +51,3 @@ sub EVENT_ITEM {
   quest::faction(138,-10); # -Hand Legionnaries
  }
 }
-
-
-#Quest: Counteragents (Submitted By: Senzo)
-#Quest: Undead Snake Organs (Submitted By: Senzo)
-#Quest: Vampyre Ash & Blood (Submitted By: Senzo)
