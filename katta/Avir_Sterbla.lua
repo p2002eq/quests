@@ -20,6 +20,17 @@ function event_trade(e)
         e.other:Faction(138,-1); -- Hand Legionnaries
         e.other:SummonItem(10015, 8); --
         e.other:QuestReward(e.self,0,0,0,0,0,10000); --
+    elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 2693, item2 = 2693, item3 = 2693, item4 = 2693})) then -- 4x Vampyre Blood
+        e.self:Emote("Thank you " .. e.other:GetName() .. "! These samples will be put to good use I assure you. The Coterie will not stand much longer against the forces of Katta Castellum.");
+        e.other:Faction(206,3); -- Magus Conlegium
+        e.other:Faction(168,1); -- Katta Castellum Citizens
+        e.other:Faction(350,1); -- Validus Custodus
+        e.other:Faction(284,-1); -- Seru
+        e.other:Faction(139,-1); -- Hand of Seru
+        e.other:Faction(96,-1); -- Eye of Seru
+        e.other:Faction(138,-1); -- Hand Legionnaries
+        e.other:SummonItem(10015, 8); --
+        e.other:QuestReward(e.self,0,0,0,0,0,10000); --
     end
     item_lib.return_items(e.self, e.other, e.trade)
 end
