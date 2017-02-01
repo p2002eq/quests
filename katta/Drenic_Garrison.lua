@@ -1,4 +1,4 @@
----- Quest: Counteragents & Undead Snake Organs
+---- Quest: Counteragents & Undead Snake Organs & Vampyre Ash & Blood
 function event_say(e)
     if(e.message:findi("Hail")) then
         e.self:Say("Greetings! I am Drenic Garrison, Governor of Science here in Katta Castellum. I am currently involved in several scientific endeavors with the other governors and am in need of assistance supplying my researchers with the proper [materials and samples] for their studies.");
