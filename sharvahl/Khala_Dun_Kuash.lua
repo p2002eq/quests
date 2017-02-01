@@ -27,7 +27,8 @@ function event_trade(e)
 	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 5557, item2 = 6185, item3 = 6186})) then -- Cloak of the Khala Dun Apprentice, Sonic Wolf Bane Claw (Primary) & Sonic Wolf Bane Claw (Secondary)
 		e.self:Say("You have done well " .. e.other:GetName() .. ".  Wear this cloak with pride and enjoy the benefits of being a Khala Dun Journeyman.");
 		e.other:SummonItem(6222); -- Cloak of the Khala Dun Journeyman
-		e.other:QuestReward(e.self,0,0,0,0,6158,10000); -- Sonic Wolf Bane Dagger
+		e.other:SummonItem(6185); -- Sonic Wolf Bane Claw (Primary)
+		e.other:QuestReward(e.self,0,0,0,0,6186,10000); -- Sonic Wolf Bane Claw (Secondary)
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
