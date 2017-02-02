@@ -1,5 +1,9 @@
 function event_say(e)
-	if(e.message:findi("fasteners")) then
+	if(e.message:findi("hail")) then
+		e.self:Say("Ale you say? No ale here friend, I am a blacksmith. You'll have to speak loud and clearly by the way, I don't hear so well since the [incident]. Show me your slate if you're looking for work.");
+	elseif(e.message:findi("incident")) then
+		e.self:Say("I was quite a homely yet sensitive lad, bad combination. As I was growing up I was teased mercilessly. In an effort to block out the ridicule I habitually placed my fingers into my ears. My claws must have done some kind of permanent damage.");
+	elseif(e.message:findi("fasteners")) then
 		e.self:Say("Ah, Poren must have sent you. May I inspect your slate first?"); --Still need real text
 	end
 end
