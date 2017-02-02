@@ -23,7 +23,7 @@ function event_trade(e)
         e.other:Faction(138,-5); -- Hand Legionnaries
         e.other:QuestReward(e.self,0,0,0,0,7361,10000); -- Enchanted Record of Events
         eq.spawn2(160482,0,0,-97,-822,11,0); -- Autarkic Lord Sfarosh
-        eq.signal(160482,1,1000); -- Autarkic Lord Sfarosh
+        eq.signal(160482,1,10000); -- Autarkic Lord Sfarosh
     end
     item_lib.return_items(e.self, e.other, e.trade)
 end
