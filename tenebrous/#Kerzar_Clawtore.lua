@@ -1,6 +1,7 @@
 ---- Quest:Vampyre Troubles
 function event_spawn(e)
     eq.set_timer("Kerzar2", 100000)
+    e.self:SetAppearance(2);
     e.self:Emote("crouches to the ground cowering. 'Enough, you have proven your might. I will talk! Just cease your assault!  'What knowledge do I have that the Validus Custodus is so eager to obtain? If you spare me I assure you I will answer truthfully.'");
 end
 

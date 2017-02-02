@@ -26,11 +26,12 @@ end
 
 function event_hp(e)
     if (e.hp_event == 15) then
-        e.self:SetAppearance(3);
+        e.self:SetAppearance(2);
         e.self:SetInvul(true)
         e.self:WipeHateList();
         eq.set_timer("kerzar_fight_over", 300000);
         eq.spawn2(172188,0,0,e.self:GetX(),e.self:GetY(),e.self:GetZ(),e.self:GetHeading());
+        eq.depop();
     end
 end
 
