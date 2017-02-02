@@ -20,7 +20,7 @@ function call_zone_to_assist(e_other)
 		for npc in npc_list.entries do
 			if (exclude_npc_list[npc:GetNPCTypeID()] == nil) then
 				-- npc.valid will be true if the NPC is actually spawned
-				if (npc.valid) then
+				if npc.valid and not npc:IsPet() then
 					npc:AddToHateList(e_other,1);
 					if (show_debug) then e_other:Message(4,"NPCID: " .. npc:GetNPCTypeID() .. " is valid, adding hate on " .. npc:GetName() .. "."); end
 				else
