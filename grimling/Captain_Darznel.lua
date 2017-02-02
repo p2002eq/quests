@@ -15,7 +15,7 @@ function event_trade(e)
         e.self:Say("'Let's see, yes... yes... It looks like you signed everything in the correct spot. That can only mean that you're not only brave, but you have some wits as well. If you have all of your teeth and can stand on one leg until the count of five, I think we can make use of you.");
         e.self:Say("Take this Polished Acrylia Sphere and give it to Scout Husman. He's been leading raiding parties against the grunt camps. Adventures are great, but we need a real soldier to assist him this time. Perhaps we will get better results with your help.");
         e.self:Say("After you complete that raid, please go with Scouts Danarin and Derrin. Once you secure those camps, bring me any grimling intelligence reports or documents that you may have found. Place the documents and your Garrison Cloak in this bag and bring them back to me. Complete this task and you may even get a promotion.");
-        e.other:SummonItem(3681): -- Polished Acrylia Sphere
+        e.other:SummonItem(3681); -- Polished Acrylia Sphere
         e.other:QuestReward(e.self,0,0,0,0,4397,10000); -- Soldiers Chest
     end
     if(item_lib.check_turn_in(e.self, e.trade, {item1 = 8475})) then -- Soldier's chest
