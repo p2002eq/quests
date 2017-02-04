@@ -1,7 +1,7 @@
 ---- Quest:Vampyre Troubles
 function event_say(e)
     if(e.message:findi("hail")) then
-        e.self:Say("Well met brave " .. e.other:GetRace() .. ". I am Lathin Firetree, Governor of Wizardry here at the Magus Conlegium. I have an abundance of research and experimentation to attend to so unless you have an issue of importance to present or are going to assist me with the research I must get back to my studies.");
+        e.self:Say("Well met brave " .. e.other:Race() .. ". I am Lathin Firetree, Governor of Wizardry here at the Magus Conlegium. I have an abundance of research and experimentation to attend to so unless you have an issue of importance to present or are going to assist me with the research I must get back to my studies.");
     end
 end
 
