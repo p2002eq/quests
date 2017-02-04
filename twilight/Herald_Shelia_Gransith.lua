@@ -38,7 +38,7 @@ function event_trade(e)
 		e.self:Emote("sings loudly as she hands you your reward");
 		e.self:Say("Thank you. May your voice be ever true.");
 		e.other:QuestReward(e.self,0,0,0,0,3898,10000); --
-	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 5431, item2 = 5340, item3 = 5342, item4 = 4489})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 5341, item2 = 5340, item3 = 5342, item4 = 4489})) then
 		e.self:Emote("sings loudly as she hands you your reward");
 		e.self:Say("Thank you. May your voice be ever true.");
 		e.other:QuestReward(e.self,0,0,0,0,3900,10000); --
