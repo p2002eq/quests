@@ -40,7 +40,7 @@ function event_trade(e)
 	elseif (item_lib.check_turn_in(e.self, e.trade, {item1 = 4494, item2 = 5689, item3 = 5687, item4 = 5688})) then -- Astral Jewel, Cat Skin Pouch, Mark of Oceans & Pouch of Fire Stones
 		e.self:Emote("smiles.");
 		e.self:Say("Here is what I promised, ".. e.other:GetName() .. ".");
-		e.other:QuestReward(e.self,0,0,0,0,3955,25000); -- Woodsmans Gauntlets
+		e.other:QuestReward(e.self,0,0,0,0,3949,25000); -- Woodsmans Gauntlets
 	elseif (item_lib.check_turn_in(e.self, e.trade, {item1 = 4491, item2 = 5679, item3 = 5678, item4 = 5680})) then -- Cloud Jewel, Frost Covered Leaf, Mark of Leaves & Sea Grass
 		e.self:Emote("smiles.");
 		e.self:Say("Here is what I promised, ".. e.other:GetName() .. ".");
