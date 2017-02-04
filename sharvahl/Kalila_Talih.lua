@@ -4,14 +4,13 @@ function event_say(e)
 		e.self:Emote("looks up from her teary handkerchief, the deepest sadness visible in her eyes");
 		e.self:Say("I am very sorry, but I am not very good company at the moment. I fear my [love] will never return.");
 	elseif(e.message:findi("love")) then
-		e.self:Say("Kalila Talih ,");
 		e.self:Emote("recalling joyful memories that bring sadness to her eyes, chokes on her words,");
 		e.self:Say("It is not easy for me to talk about, perhaps someday... I began writing of us, thinking that it would help lift my sinking heart, but I could not finish even that.' As she speaks, she lazily flips through her diary where a [story] of true love has been recorded. ");
 	elseif(e.message:findi("story")) then
 		if(fac <= 4) then
 			e.self:Emote("considers you for a moment, 'I do not suppose I could ever bear to finish it. It is a story I wish had a happy ending, but I do not have it in my heart to create such a thing. If you would like to read it, I suppose you may. It is probably best that I try to distance myself from this experience,' she says half-heartedly. ");
 			e.other:SummonItem(18324);
-		else
+		elseif (fac > 4) then
 			e.say:Say("You need to prove your dedication to our cause before I can discuss such matters with you.");
 		end
 	elseif (e.message:findi("love potion")) and (fac <= 4) then

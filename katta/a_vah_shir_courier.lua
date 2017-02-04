@@ -58,4 +58,3 @@ function event_signal(e)
         eq.resume();
     end
 end
----- TODO add logic for annimations, emotes then path to destination.
