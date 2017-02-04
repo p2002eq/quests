@@ -55,11 +55,11 @@ function event_trade(e)
         e.other:Faction(284,-30); -- Seru
         e.other:Faction(142,-30); -- Heart of Seru
         eq.set_global("ready_for_ashes","1",0,"F"); -- Set Ashes = 1
-        e.other:QuestReward(e.self,0,0,0,0,0,10000); --
+        e.other:QuestReward(e.self,0,0,0,0,7394,10000); -- Magus Conlegium Token
     elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 29899})) then -- Arbogasts Holy Water
         e.self:Emote("looks at you and smiles despite the fact that you have splashed water all over him- he does not appear to be burning at all.  'Oh, excuse me.  You seem to have spilled your water, here have some of mine my friend.  Good day to you, " .. e.other:GetName() .. ",' he says.");
         e.other:QuestReward(e.self,0,0,0,0,29898,10000); -- Phenics Water
-    elseif(eq.get_qglobals()["ready_for_ashes"] == 1) and (item_lib.check_turn_in(e.self, e.trade, {item1 = 7397, item2 = 31757, item3 = 7394})) then -- Vampyre Volatilis Ashes, Katta Castellum Badge of Service & Magus Conlegium Token
+    elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 7397, item2 = 31757, item3 = 7394}) and tonumber(qglobals.ready_for_ashes) == 1) then -- Vampyre Volatilis Ashes, Katta Castellum Badge of Service & Magus Conlegium Token
         e.self:Say("You have done a great service for Katta Castellum and the Loyalist Empire. I award you for your honorable Services. Know that you will be remembered for your deeds.");
         e.other:Faction(52,10); -- Concillium Universus
         e.other:Faction(284,-30); -- Seru

@@ -16,7 +16,7 @@ function event_trade(e)
         e.other:Faction(139,-5); -- Hand of Seru
         e.other:Faction(96,-5); -- Eye of Seru
         e.other:Faction(138,-5); -- Hand Legionnaries
-        e.other:QuestReward(e.self,0,0,0,0,7394,1000000); -- Magus Conlegium Token
+        e.other:QuestReward(e.self,0,0,0,0,7361,1000000); -- Enchanted Record of Events
     end
     item_lib.return_items(e.self, e.other, e.trade)
 end
