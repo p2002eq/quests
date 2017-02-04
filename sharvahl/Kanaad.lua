@@ -32,7 +32,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 5990})) then -- Kanaad's Supplies
-		e.other:Faction(520,900); -- Kanaad
+		e.other:Faction(520,1500); -- Kanaad
 		e.self:Emote("Kanaad rummages through the box,");
 		e.self:Say("let's see, some lucerne, the leaves I had needed and... What is this? A note form Ragnar...' He mumbles a bit to himself, 'I see, you are looking for this boy and Ragnar thinks I can help. Good lad that Ragnar. I am not much for story telling these days, but I suppose you want to know about Hoober.");
 	end

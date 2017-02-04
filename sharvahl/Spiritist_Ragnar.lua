@@ -1,7 +1,6 @@
 --Hand in For Whiptail Poison Glands
 function event_say(e)
 	fac = e.other:GetFaction(e.self);
-
 	if(e.message:findi("Hail")) then
 		e.self:Say("Well hello... How may I help you?");
 	elseif(e.message:findi("love potion")) then
