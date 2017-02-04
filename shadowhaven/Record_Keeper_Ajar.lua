@@ -1,7 +1,7 @@
 ---- Quest:Vampyre Troubles
 function event_say(e)
     if(e.message:findi("hail")) then
-        e.self:Say("Greetings friend " .. e.other:GetRace() .. "! I'm afraid I am quite busy with all the transactions that occur and shipments that come and go from the city but if you have an official request form for some information from our library of records I will gladly assist you.");
+        e.self:Say("Greetings friend " .. e.other:Race() .. "! I'm afraid I am quite busy with all the transactions that occur and shipments that come and go from the city but if you have an official request form for some information from our library of records I will gladly assist you.");
     end
 end
 
