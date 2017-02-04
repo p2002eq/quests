@@ -1,7 +1,7 @@
 ---- Quest:Vampyre Troubles
 function event_combat(e)
     if(e.joined == true) then
-        e.say:Self("You have trespassed where you are not welcome! Prepare to face your punishment!");
+        e.self:Say("You have trespassed where you are not welcome! Prepare to face your punishment!");
     end
 end
 
