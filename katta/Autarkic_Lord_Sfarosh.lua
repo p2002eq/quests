@@ -33,6 +33,6 @@ function event_signal(e)
         eq.spawn2(160486,0,0,-25,-762,4,160);
         eq.spawn2(160486,0,0,-164,-760,4,96);
         eq.spawn2(160486,0,0,-30,-901,4,224);
-        eq:depop();
+        eq.depop();
     end
 end
