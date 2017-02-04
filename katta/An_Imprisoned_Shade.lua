@@ -2,7 +2,7 @@
 function event_spawn(e)
     eq.set_timer("shade_fight", 600000); -- 10 minutes to kill
     local qglobals = eq.get_qglobals();
-    eq.attack(qglobals.autarkic_combat);
+    eq.attack(qglobals.kshade_combat);
 end
 
 function event_timer(e)

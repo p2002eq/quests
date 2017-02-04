@@ -9,6 +9,6 @@ function event_signal(e)
     if(e.signal == 1) then
         e.self:Say("What is all that noise!?"); -- adlib
         local qglobals = eq.get_qglobals();
-        eq.attack(qglobals.autarkic_combat);
+        eq.attack(qglobals.kshade_combat);
     end
 end
