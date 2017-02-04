@@ -10,7 +10,7 @@ function event_say(e)
 		e.self:Say("I thought so I have a [helm], [breastplate], [vambraces], [greaves], [pauldrons], [bracer], and [boots]. For the rest speak to Brolan over there about armor.");
 	elseif(e.message:findi("breastplate")) then
 		e.self:Say("For the breastplate you must bring me an astral jewel, a mark of music, a diamond studded medal, and a glorious flower.");
-	elseif(e.message:findi("vambracers")) then
+	elseif(e.message:findi("vambraces")) then
 		e.self:Say("For the vambraces you must bring me a sun jewel, a mark of entertainment, a sapphire studded medal, and velvet sleeves.");
 	elseif(e.message:findi("greaves")) then
 		e.self:Say("For the greaves you must bring me a moon jewel, a mark of the drum, an emerald studded medal, and memory crystal.");
