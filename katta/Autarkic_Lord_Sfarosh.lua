@@ -11,6 +11,7 @@ function event_trade(e)
 end
 
 function event_signal(e)
+    local qglobals = eq.get_qglobals(e.self,e.other);
     if(e.signal == 1) then
         e.self:Say("Meddling fleshlings! Why have you pulled back to this forsaken castellum? Do you fear that I will seek vengeance on Nathyn Illuminious and the city that shelters him for my years of captivity here? Or do you seek something more dangerous, knowledge of the dark path of shadows?");
         eq.signal(160484,1,20000); -- #Incantator Jak Masric
@@ -29,11 +30,11 @@ function event_signal(e)
         eq.signal(160483,3,5000); -- #Praecantor Selis Dawneyes
     elseif(e.signal == 6) then
         e.self:Say("Attempt to slay me if you so desire, and if you succeed it matters not. I will return as I am a creature of shadows and shadows never die, merely slumber!");
-        eq.spawn2(160481,0,0,e.self:GetX(),e.self:GetY(),e.self:GetZ(),e.self:GetHeading()); -- #Autarkic_Lord_Sfarosh
+        eq.spawn2(160481,0,0,e.self:GetX(),e.self:GetY(),e.self:GetZ(),e.self:GetHeading())AddToHateList(qglobals.autarkic_combat,1); -- #Autarkic_Lord_Sfarosh
         eq.attack(e.other:GetName());
-        eq.spawn2(160486,0,0,-25,-762,4,160); -- an autarkic umbrage shade
-        eq.spawn2(160486,0,0,-164,-760,4,96); -- an autarkic umbrage shade
-        eq.spawn2(160486,0,0,-30,-901,4,224); -- an autarkic umbrage shade
+        eq.spawn2(160486,0,0,-25,-762,4,160)AddToHateList(qglobals.autarkic_combat,1); -- an autarkic umbrage shade
+        eq.spawn2(160486,0,0,-164,-760,4,96)AddToHateList(qglobals.autarkic_combat,1); -- an autarkic umbrage shade
+        eq.spawn2(160486,0,0,-30,-901,4,224)AddToHateList(qglobals.autarkic_combat,1); -- an autarkic umbrage shade
         eq:depop();
     end
 end
