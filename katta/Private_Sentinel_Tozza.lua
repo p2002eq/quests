@@ -8,5 +8,7 @@ end
 function event_signal(e)
     if(e.signal == 1) then
         e.self:Say("Fool!! You know not what you have released upon us!! Nathyn will have your heads for this!!");
+        local qglobals = eq.get_qglobals();
+        eq.attack(qglobals.autarkic_combat);
     end
 end
