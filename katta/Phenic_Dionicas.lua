@@ -24,6 +24,7 @@ function event_say(e)
 end
 
 function event_trade(e)
+    local qglobals = eq.get_qglobals(e.self,e.other);
     local item_lib = require("items");
     if(item_lib.check_turn_in(e.self, e.trade, {item1 = 18330})) then -- Water-stained note
         e.self:Say("I was afraid of this. I do not know how much Halle managed to tell you, but we have had our suspicions about one of the Legionnaires ever since she overheard him talking in his sleep. She was meant to get close to him, I guess she found something out... I should have been more careful!  Take this to Governor Markil, it concerns his men and I've no doubt he can handle it. Thank you much for your help.");
