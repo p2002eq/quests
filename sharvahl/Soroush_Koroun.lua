@@ -11,7 +11,7 @@ function event_say(e)
 		if(fac <= 4) then
 			e.self:Say("I never mentioned this to Kalila, I thought it would hurt her more than it would help, but when I bumped into Behari just before he disappeared, he was going on and on about a [love potion] of some sort. He was very excited, said he thought it would be the perfect gift for Kalila on their wedding night, so you see why I never mentioned it. Anyway, he said that he had just gathered all of the ingredients and was heading back out of Katta.");
 		else
-			e.say:Say("I am not sure that I should discuss this matter any further, I hope that you understand.");
+			e.self:Say("I am not sure that I should discuss this matter any further, I hope that you understand.");
 		end
 		elseif(e.message:findi("love potion")) then
 		e.self:Say("Hmmm, while I dabble in the art of potions mixing myself, I am no scholar in the field. Perhaps Spiritist Ragnar would be of more assistance to you.");

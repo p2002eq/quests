@@ -9,7 +9,7 @@
 function event_say(e)
 	local qglobals = eq.get_qglobals(e.self,e.other);
 	if(e.message:findi("hail")) then
-		e.self:Say("Hail. are you here to assist with something specific or just looking for work.");
+		e.self:Say("Hail. are you here to assist with something specific or just looking for work?");
 	elseif(e.message:findi("application") and tonumber(qglobals.Shar_Vahl_Cit) == 1) then
 		e.self:Say("Luckily for you someone found it.");
 		e.other:SummonItem(2873); -- Application for Citizenship

@@ -1,6 +1,5 @@
 function event_say(e)
 	fac = e.other:GetFaction(e.self);
-
 	if(e.message:findi("Hail")) then
 		e.self:Emote("looks at you wearily and fails to respond as though he simply lacks the energy.");
 	elseif(e.message:findi("love potion")) then
@@ -34,7 +33,7 @@ function event_trade(e)
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 5990})) then -- Kanaad's Supplies
 		e.other:Faction(520,1500); -- Kanaad
 		e.self:Emote("Kanaad rummages through the box,");
-		e.self:Say("let's see, some lucerne, the leaves I had needed and... What is this? A note form Ragnar...' He mumbles a bit to himself, 'I see, you are looking for this boy and Ragnar thinks I can help. Good lad that Ragnar. I am not much for story telling these days, but I suppose you want to know about Hoober.");
+		e.self:Say("let's see, some lucerne, the leaves I had needed and... What is this? A note form Ragnar...' He mumbles a bit to himself, 'I see, you are looking for this boy and Ragnar thinks I can help. Good lad that Ragnar. I am not much for story telling these days, but I suppose you [want to know about Hoober].");
 	end
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 5991, item2 = 5992, item3 = 5993})) then -- Essence of Sonnet, Drop of Moonlight & Luclin Clover
 		e.self:Say("Thanks for gathering the supplies.  Here is your potion!");
@@ -42,8 +41,3 @@ function event_trade(e)
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------
