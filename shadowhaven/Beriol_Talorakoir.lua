@@ -18,8 +18,8 @@ function event_trade(e)
     local item_lib = require("items");
     if(item_lib.check_turn_in(e.self, e.trade, {item1 = 4770})) then -- Book of Ancient Scribings
         e.self:Emote("This is exactly the research book that I was in need of. I am very thankful for you getting these for me. Should you ever feel up to it again in the future Dersino always is getting new books in that could be very helpful in my studies. Again, I thank you and wish you the best of luck.");
-        e.other:Faction(153,10); -- house of midst
-        e.other:Faction(338,10); -- traders of the haven
+        e.other:Faction(153,25); -- house of midst
+        e.other:Faction(338,2); -- traders of the haven
         e.other:QuestReward(e.self,0,0,0,0,0,2500); -- Exp
     end
     item_lib.return_items(e.self, e.other, e.trade)
