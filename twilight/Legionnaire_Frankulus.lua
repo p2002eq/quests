@@ -41,11 +41,11 @@ function event_trade(e)
 	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 4492, item2 = 5480, item3 = 5481, item4 = 5482})) then
 		e.self:Emote("smiles.");
 		e.self:Say("Here is what I promised, ".. e.other:GetName() .. ".");
-		e.other:QuestReward(e.self,0,0,0,0,3788,10000); --
+		e.other:QuestReward(e.self,0,0,0,0,3933,10000); --
 	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 4489, item2 = 5492, item3 = 5493})) then
 		e.self:Emote("smiles.");
 		e.self:Say("Here is what I promised, ".. e.other:GetName() .. ".");
-		e.other:QuestReward(e.self,0,0,0,0,3933,10000); --
+		e.other:QuestReward(e.self,0,0,0,0,3937,10000); --
 	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 4494, item2 = 5486, item3 = 5487, item4 = 5488})) then
 		e.self:Emote("smiles.");
 		e.self:Say("Here is what I promised, ".. e.other:GetName() .. ".");
