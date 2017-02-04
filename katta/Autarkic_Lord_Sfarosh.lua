@@ -30,9 +30,9 @@ function event_signal(e)
     elseif(e.signal == 6) then
         e.self:Say("Attempt to slay me if you so desire, and if you succeed it matters not. I will return as I am a creature of shadows and shadows never die, merely slumber!");
         eq.spawn2(160481,0,0,e.self:GetX(),e.self:GetY(),e.self:GetZ(),e.self:GetHeading()); -- #Autarkic_Lord_Sfarosh
-        eq.spawn2(160486,0,0,-25,-762,4,160):AddToHateList(qglobals.autarkic_combat,1);
-        eq.spawn2(160486,0,0,-164,-760,4,96):AddToHateList(qglobals.autarkic_combat,1);
-        eq.spawn2(160486,0,0,-30,-901,4,224):AddToHateList(qglobals.autarkic_combat,1);
+        eq.spawn2(160486,0,0,-25,-762,4,160);
+        eq.spawn2(160486,0,0,-164,-760,4,96);
+        eq.spawn2(160486,0,0,-30,-901,4,224);
         eq:depop();
     end
 end
