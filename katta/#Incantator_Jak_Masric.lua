@@ -19,6 +19,6 @@ function event_signal(e)
         eq.signal(160482,5,15000); -- Autarkic Lord Sfarosh
     elseif(e.signal == 3) then
         e.self:Say("Eliminate the shades! Selis and I will get Ajeea to safety and concentrate on a ward to prevent any further intrusion and stifle the shades power! Seek me out and bring me the robes of these shades when they have been slain so that we may research placing a more permanent ward against such creatures on the Conlegium.");
-        eq.signal(160482,6,15000); -- Autarkic Lord Sfarosh
+        eq.signal(160482,6,20000); -- Autarkic Lord Sfarosh
     end
 end

@@ -19,11 +19,11 @@ function event_signal(e)
         eq.signal(160483,1,20000); -- #Praecantor Selis Dawneyes
     elseif(e.signal == 3) then
         e.self:Say("I am amazed at how little you fleshlings know of what occurs within the very walls of your own castellum. It is known by my Order that Akhevan blood has strange mutagenic effects on the bodies of non-akheves if introduced to their circulatory systems. The process by which the Shadow Tegi are infused with the blood is quite complicated and painful but I would deduce that a vampyre like Valdanov merely had to ingest the blood for the mutagenic agents to effect his physiology, causing the permenent change into what I believe you call a Vampyre Volatilis. I have no dealings with Valdanov since his mutation as I was imprisoned in Nathyns mansion until freed by these foolish fleshings.");
-        eq.signal(160485,1,20000); -- #Theurgus Ajeea Polaja
+        eq.signal(160485,1,30000); -- #Theurgus Ajeea Polaja
     elseif(e.signal == 4) then
         e.self:Say("I was paying a visit to Valdanov with more Akhevan blood, not knowing he had already been banished by Nathyn from Katta Castellum for becoming the monster that he became. I must admit, Nathyn is a powerful and cunning creature. He was prepared for my arrival, captured me with his sorceries, and imprisoned me in that enchanted chest. I was not offered an explanation, nor do I know how he discovered my dealings with Valdanov, I assume he obtained that knowledge from questioning Valdanov about his mutation.");
         e.self:Say("It seems some allies are arriving! Foolish fleshlings, run while you have the chance!");
-        eq.signal(160485,2,20000); -- #Theurgus Ajeea Polaja
+        eq.signal(160485,2,30000); -- #Theurgus Ajeea Polaja
     elseif(e.signal == 5) then
         e.self:Say("Your feeble fleshling magic has failed you! Your souls shall be slaves of the Order of Autarkic Umbrage!");
         eq.signal(160483,3,10000); -- #Praecantor Selis Dawneyes

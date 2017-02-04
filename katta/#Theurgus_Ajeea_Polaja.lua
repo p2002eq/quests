@@ -22,7 +22,7 @@ function event_trade(e)
         e.other:Faction(96,-5); -- Eye of Seru
         e.other:Faction(138,-5); -- Hand Legionnaries
         e.other:QuestReward(e.self,0,0,0,0,0,10000); -- exp
-        eq.set_global("autarkic_combat",e.other:GetName(),3,"M10");
+        eq.set_global("autarkic_combat",e.other:GetName(),3,"M15");
         eq.spawn2(160482,0,0,-97,-822,11,0); -- Autarkic Lord Sfarosh
         eq.signal(160482,1,10000); -- Autarkic Lord Sfarosh
     end
