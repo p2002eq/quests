@@ -1,17 +1,17 @@
 ---- Twilight Armor - Monk
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Are you the [Monk] that was sent?");
+		e.self:Say("Are you the [monk] that was sent?");
 	elseif(e.message:findi("monk")) then
-		e.self:Say("'The armor that I have to reward you is a [headband], [gi], [arm wraps], [leggings], [shawl], [wrist wraps], and [sandals]. My friend and guard Allise has the rest if you wish to speak with her, just ask about armor.");
+		e.self:Say("'The armor that I have to reward you is a [headband], [gi], [arm wraps], [leggings], [shawl], [wrist wraps], and [sandals]. My friend and guard Allise has the rest. If you wish to speak with her, just ask about the armor.");
 	elseif(e.message:findi("headband")) then
 		e.self:Say("For the headband you must retrieve for me a sun jewel, a mark of peace, an oblong clay bowl, and a great gem.");
-	elseif(e.message:findi("gi")) then
-		e.self:Say("For the gi you must retrieve for me a moon jewel, a mark of tranquility, sharpened rock hopper claws, and some etched steel shavings.");
 	elseif(e.message:findi("arm wraps")) then
 		e.self:Say("For the arm wraps you must retrieve for me a star jewel, a mark of harmony, a triple beaded circlet, and some fresh spring water.");
 	elseif(e.message:findi("leggings")) then
 		e.self:Say("For the leggings you must retrieve for me a cloud jewel, a mark of meditation, Ralcom's Writ, and a jar of ointment.");
+	elseif(e.message:findi("gi")) then
+		e.self:Say("For the gi you must retrieve for me a moon jewel, a mark of tranquility, sharpened rock hopper claws, and some etched steel shavings.");
 	elseif(e.message:findi("shawl")) then
 		e.self:Say("For the shawl you must retrieve for me a sky jewel, a mark of unity and a pewter figurine.");
 	elseif(e.message:findi("wrist wraps")) then
