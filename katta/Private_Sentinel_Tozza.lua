@@ -6,9 +6,9 @@ function event_combat(e)
 end
 
 function event_signal(e)
+    local qglobals = eq.get_qglobals();
     if(e.signal == 1) then
         e.self:Say("Fool!! You know not what you have released upon us!! Nathyn will have your heads for this!!");
-        local qglobals = eq.get_qglobals();
         eq.attack(qglobals.kshade_combat);
     end
 end
