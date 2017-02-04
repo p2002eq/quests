@@ -11,9 +11,9 @@ function event_say(e)
 			e.self:Emote("considers you for a moment, 'I do not suppose I could ever bear to finish it. It is a story I wish had a happy ending, but I do not have it in my heart to create such a thing. If you would like to read it, I suppose you may. It is probably best that I try to distance myself from this experience,' she says half-heartedly. ");
 			e.other:SummonItem(18324);
 		elseif (fac > 4) then
-			e.say:Say("You need to prove your dedication to our cause before I can discuss such matters with you.");
+			e.self:Say("You need to prove your dedication to our cause before I can discuss such matters with you.");
 		end
-	elseif (e.message:findi("love potion")) and (fac <= 4) then
+	elseif (e.message:findi("love potion")) then
 		e.self:Say("'I have no idea what he meant by a 'love potion.' I have never even heard of such a thing, it just isn't my field, I am afraid. Maybe one of the spiritists knows something about it. I doubt that it will do anything to help you track down Behari, but I wish you luck my friend.");
 	end
 end
