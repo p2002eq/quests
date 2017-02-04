@@ -8,10 +8,12 @@ end
 function event_trade(e)
     local item_lib = require("items");
     if(item_lib.check_turn_in(e.self, e.trade, {item1 = 31756})) then -- Orders for Legionnaire Falion
-        e.self:Emote("  " .. e.other:GetName() .. "  ");
+        e.self:Emote("A Vah Shir vampyre!! Isn't that disturbing! How are you supposed to spot its pale skin under all that fur! Come to think of it I've heard that a strange Vah Shir has occasionally been spotted heading towards the villages of the Coterie of the Eternal Night here in the Tenebrous Mountains. This may be the Vah Shir you are seeking. I will be sure to question any arriving travelers if they have spotted him.");
         e.other:Faction(206,3); -- Magus Conlegium
         e.other:Faction(168,1); -- Katta Castellum Citizens
         e.other:Faction(350,1); -- Validus Custodus
+        e.other:Faction(228,-1); -- Nathyn Illuminious
+        e.other:Faction(55,-1); -- Coterie of the Eternal Night
         e.other:Faction(284,-1); -- Seru
         e.other:Faction(139,-1); -- Hand of Seru
         e.other:Faction(96,-1); -- Eye of Seru
