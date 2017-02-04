@@ -90,7 +90,7 @@ function event_trade(e)
 		e.other:Faction(132,10); -- Guardians of Shar Vahl
 		e.other:QuestReward(e.self,0,0,0,0,29820,500); -- Luclinite Mallet
 	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 29820, item2 = 29823, item3 = 29823, item4 = 29823})) then -- Luclinite Mallet and 3x Humming Orb
-		e.self:Emote("looks genuinely pleased with your craftsmanship. He sets down one of the orbs onto a special anvil and swings your mallet high in the air crashing it down on the orb causing it to shatter with a terrible shriek. He repeats this action with each of the remaining orbs and hands you back the now humming mallet. 'Here, " .. e.other:GetName() .. ", this mallet will enable you to combine shadow with sound. Smith wisely and be careful what you create with it,' Barkhem pauses, looking quite serious, 'it is very powerful. You'll be able to make Shadowscream steel with it.'");
+		e.self:Emote("looks genuinely pleased with your craftsmanship. He sets down one of the orbs onto a special anvil and swings your mallet high in the air crashing it down on the orb causing it to shatter with a terrible shriek. He repeats this action with each of the remaining orbs and hands you back the now humming mallet. 'Here, " .. e.other:GetName() .. ", this mallet will enable you to combine shadow with sound. Smith wisely and be careful what you create with it,' Barkhem pauses, looking quite serious, 'it is very powerful. You'll be able to make [Shadowscream steel] with it.'");
 		e.other:Faction(132,10); -- Guardians of Shar Vahl
 		e.other:QuestReward(e.self,0,0,0,0,29824,500); -- Humming Luclinite Mallet
 	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 29826})) then -- Rakutahs Seal
