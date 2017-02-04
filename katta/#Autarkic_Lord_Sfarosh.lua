@@ -2,7 +2,7 @@
 function event_spawn(e)
     local qglobals = eq.get_qglobals();
     eq.set_timer("Sfarosh",740000);
-    eq.attack(qglobals.kshade_combat);
+    eq.attack(qglobals.autarkic_combat);
 end
 
 function event_timer(e)

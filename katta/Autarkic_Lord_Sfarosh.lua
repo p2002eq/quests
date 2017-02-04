@@ -26,7 +26,7 @@ function event_signal(e)
         eq.signal(160485,2,20000); -- #Theurgus Ajeea Polaja
     elseif(e.signal == 5) then
         e.self:Say("Your feeble fleshling magic has failed you! Your souls shall be slaves of the Order of Autarkic Umbrage!");
-        eq.signal(160483,3,5000); -- #Praecantor Selis Dawneyes
+        eq.signal(160483,3,10000); -- #Praecantor Selis Dawneyes
     elseif(e.signal == 6) then
         e.self:Say("Attempt to slay me if you so desire, and if you succeed it matters not. I will return as I am a creature of shadows and shadows never die, merely slumber!");
         eq.spawn2(160481,0,0,e.self:GetX(),e.self:GetY(),e.self:GetZ(),e.self:GetHeading()); -- #Autarkic_Lord_Sfarosh

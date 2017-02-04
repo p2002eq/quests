@@ -8,7 +8,7 @@ end
 function event_trade(e)
     local item_lib = require("items");
     if(item_lib.check_turn_in(e.self, e.trade, {item1 = 7270, item2 = 7169})) then -- Instructions for Lathin Firetree & Autarkic Shade Lord Belt
-        e.self:Emote("Phenic wishes me to summon the Shade that is the owner of this belt for questioning. That is quite a dangerous request but it is not uncommon of Phenic to be a risk taker when it comes to his plots against the Coterie of the Eternal Night. Take this sketch and find a skilled potter to craft you a likeness of a shade from a large block of clay as a focus item for the ritual. When you have the unfired figurine fire it in a kiln with this special glaze on a High Quality Firing Sheet and return to me.");
+        e.self:Say("Phenic wishes me to summon the Shade that is the owner of this belt for questioning. That is quite a dangerous request but it is not uncommon of Phenic to be a risk taker when it comes to his plots against the Coterie of the Eternal Night. Take this sketch and find a skilled potter to craft you a likeness of a shade from a large block of clay as a focus item for the ritual. When you have the unfired figurine fire it in a kiln with this special glaze on a High Quality Firing Sheet and return to me.");
         e.other:Faction(206,5); -- Magus Conlegium
         e.other:Faction(168,5); -- Katta Castellum Citizens
         e.other:Faction(350,5); -- Validus Custodus
