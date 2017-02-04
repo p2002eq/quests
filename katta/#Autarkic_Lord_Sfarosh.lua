@@ -1,6 +1,8 @@
 ---- Quest:Vampyre Troubles
 function event_spawn(e)
-    eq.set_timer("Sfarosh",740000);
+    local qglobals = eq.get_qglobals();
+    eq.set_timer("shade",740000);
+    eq.attack(qglobals.autarkic_combat);
 end
 
 function event_timer(e)
