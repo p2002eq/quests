@@ -35,16 +35,31 @@ function event_trade(e)
         eq.spawn2(160477,22,0,-60.64,-0.86,4.06,60); -- A Vah Shir courier
         eq.signal(160024,1,1); -- Centurion Manik
         eq.signal(160081,1,1); -- Centurion Regorator
-        eq.signal(160081,1,1); -- Centurion Regorator
-        eq.signal(160477,1,1); -- a vah shir courier
+        eq.signal(160477,1,700000); -- a vah shir courier
         e.other:Faction(132,5); -- Guardians of Shar Vahl
         e.other:QuestReward(e.self,0,0,0,0,0,1500); -- exp
+    elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 31839})) then -- Resealed Runed Iron Bound Chest
+        e.self:Say("It appears this situation is much more dire than we had first presumed. It would be unsafe to send this crate within the walls of Shar Vahl should another innocent be possessed and the tormented Vah Shir be resurrected once more. I shall scribe a note explaining the occurrences for you to deliver along with the crate to Spiritualist Roleko at the Vah Shir outpost in Grimling Forest");
+        event_emote(e,"The runes inscribed on the chest and iron bands begin to softly glow with a golden light.");
+        e.self:Say("I will keep it safe until the courier arrives.");
+        eq.spawn2(160477,22,0,-60.64,-0.86,4.06,60); -- A Vah Shir courier
+        e.other:SummonItem(31841); -- Roshawnas Report of Occurrences
+        e.other:Faction(132,5); -- Guardians of Shar Vahl
+        e.other:QuestReward(e.self,0,0,0,0,31839,2000); -- Resealed Runed Iron Bound Chest
     end
     item_lib.return_items(e.self, e.other, e.trade)
 end
 
 function event_signal(e)
     if(e.signal == 1) then
+        e.self:Say("I hope your journey back to Shar Vahl is less eventful. Please make haste the spiritualists must receive this crate as soon as possible");
+        eq.signal(160477,1,1000);  -- a vah shir courier
+    elseif(e.signal == 2) then
+        e.self:Shout("Stop him! Stop the courier!");
+        e.self:Say("An evil spirit has possessed him!");
+        e.self:Say("He must not escape with those skulls!");
+        e.self:Say("Catch him and bring back that crate of skulls!");
+    elseif(e.signal == 3) then
         eq.spawn2(160476,0,0,-4.00,-36.31,4.06,10);  -- a_reanimated_vah_shir -N
         eq.spawn2(160476,0,0,-4.00,32.89,4.06,125);  -- a_reanimated_vah_shir -S
         eq.spawn2(160476,0,0,-44.76,-0.14,4.06,60);  -- a_reanimated_vah_shir -E
