@@ -3,8 +3,8 @@ function event_say(e)
 	if(e.message:findi("Hail")) then
 		e.self:Say("Hey there!");
 	elseif(e.message:findi("armor")) then
-		e.self:Say("Oh, youve decided your going to help Lara out with her visions? If so I can reward you with armor if you happen to be an [enchanter].");
-	elseif(e.message:findi("I am an enchanter")) then
+		e.self:Say("Oh, you've decided you're going to help Lara out with her visions? If so I can reward you with armor if you happen to be an [enchanter].");
+	elseif(e.message:findi("enchanter")) then
 		e.self:Say("I have the [sandals], [mask], [cloak], [gloves], [choker], [belt], and [staff].");
 	elseif(e.message:findi("sandals")) then
 		e.self:Say("For the sandals you must get for me a meteor jewel, a mark of refinement, and a hope onyx.");
@@ -48,7 +48,7 @@ function event_trade(e)
 		e.self:Emote("smiles.");
 		e.self:Say("Here is what I promised, ".. e.other:GetName() .. ".");
 		e.other:QuestReward(e.self,0,0,0,0,3708,10000); --
-	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 4491, item2 = 4706, item3 = 4707, item4 = 4708})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 4492, item2 = 4706, item3 = 4707, item4 = 4708})) then
 		e.self:Emote("smiles.");
 		e.self:Say("Here is what I promised, ".. e.other:GetName() .. ".");
 		e.other:QuestReward(e.self,0,0,0,0,3709,10000); --

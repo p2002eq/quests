@@ -1,11 +1,11 @@
 ---- Twilight Armor - Enchanter
 function event_say(e)
 	if(e.message:findi("Hail")) then
-		e.self:Say("Hey there!");
+		e.self:Emote("grimaces in pain. 'The [visions] are so strong they hurt...please make them stop.'");
 	elseif(e.message:findi("armor")) then
-		e.self:Emote("Lara Trueseer grimaces in pain. 'The visions are so strong they hurt...please make them stop..'");
-	elseif(e.message:findi("I am an enchanter")) then
-		e.self:Say("Very good. I have a [cap], [robe], [sleeves], [pants], [shawl], and [bracer]. My friend Xavier has the rest just ask him about armor.");
+		e.self:Emote("I...can't describe them, they are too disturbing. I think I have enough strength to assist a fellow [enchanter], are you one?");
+	elseif(e.message:findi("enchanter")) then
+		e.self:Say("Very good. I have a [cap], [robe], [sleeves], [pants], [shawl], and [bracer]. My friend Xavier has the rest just ask him about the armor.");
 	elseif(e.message:findi("cap")) then
 		e.self:Say("For the cap I will need an astral jewel, a golden flower, a grail of enchantment, and a mark of beauty.");
 	elseif(e.message:findi("robe")) then
