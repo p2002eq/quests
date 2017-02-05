@@ -1,9 +1,9 @@
 ---- Twilight Armor - Shaman
 function event_say(e)
 	if(e.message:findi("Hail")) then
-		e.self:Say("Sarah Jelnen closes her eyes and sighs wistfully as if remembering some long forgotten bittersweet memory. 'Hafron must have told you about our dearly missed friend Hadon. Very well, are you a [shaman]?");
+		e.self:Emote("closes her eyes and sighs wistfully as if remembering some long forgotten bittersweet memory. 'Hafron must have told you about our dearly missed friend Hadon. Very well, are you a [shaman]?");
 	elseif(e.message:findi("shaman")) then
-		e.self:Say("Aye you have the look of one who communes with spirits. The pieces that I have are the [mask], [cloak], [gauntlets], [talisman], [girdle] and [spear].");
+		e.self:Say("Aye, you have the look of one who communes with spirits. The pieces that I have are the [mask], [cloak], [gauntlets], [talisman], [girdle] and [spear].");
 	elseif(e.message:findi("cloak")) then
 		e.self:Say("For the cloak you must get me a cloud jewel, mark of auspice, an avatar's tome, and a rockhopper spirit fetish.");
 	elseif(e.message:findi("gauntlets")) then
@@ -24,11 +24,11 @@ function event_trade(e)
 		e.self:Emote("smiles.");
 		e.self:Say("Here is what I promised, ".. e.other:GetName() .. ".");
 		e.other:QuestReward(e.self,0,0,0,0,3757,10000); --
-	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 4992, item2 = 4951, item3 = 4952})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 4492, item2 = 4951, item3 = 4952})) then
 		e.self:Emote("smiles.");
 		e.self:Say("Here is what I promised, ".. e.other:GetName() .. ".");
 		e.other:QuestReward(e.self,0,0,0,0,3758,10000); --
-	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 4994, item2 = 4955, item3 = 4956, item4 = 4957})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 4494, item2 = 4955, item3 = 4956, item4 = 4957})) then
 		e.self:Emote("smiles.");
 		e.self:Say("Here is what I promised, ".. e.other:GetName() .. ".");
 		e.other:QuestReward(e.self,0,0,0,0,3760,10000); --
@@ -36,11 +36,11 @@ function event_trade(e)
 		e.self:Emote("smiles.");
 		e.self:Say("Here is what I promised, ".. e.other:GetName() .. ".");
 		e.other:QuestReward(e.self,0,0,0,0,3756,10000); --
-	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 4488, item2 = 4959, item3 = 4960})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 4488, item2 = 4959, item3 = 4960, item4 = 4958})) then
 		e.self:Emote("smiles.");
 		e.self:Say("Here is what I promised, ".. e.other:GetName() .. ".");
 		e.other:QuestReward(e.self,0,0,0,0,3761,10000); --
-	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 4494, item2 = 4953, item3 = 4954})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 4493, item2 = 4953, item3 = 4954})) then
 		e.self:Emote("smiles.");
 		e.self:Say("Here is what I promised, ".. e.other:GetName() .. ".");
 		e.other:QuestReward(e.self,0,0,0,0,3759,10000); --

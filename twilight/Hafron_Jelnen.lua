@@ -3,7 +3,7 @@ function event_say(e)
 	if(e.message:findi("Hail")) then
 		e.self:Say("Hail and well met friend.  I'm one of master Vornol's four apprentices.  I am being trained to be an expert on all things dealing with the element of fire.'");
 	elseif(e.message:findi("armor")) then
-		e.self:Say("This armor is indeed mighty if you wish to have it you must do some tasks for me. I have the [coif], [mail], [vambraces], [greaves], [pauldrons], [bracer], and [boots]. My sister, Sarah, has the rest just ask her about armor and she will help you.");
+		e.self:Say("This armor is indeed mighty. If you wish to have it, you must do some tasks for me. I have the [coif], [mail], [vambraces], [greaves], [pauldrons], [bracer], and [boots]. My sister, Sarah, has the rest. Just ask her about armor and she will help you.");
 	elseif(e.message:findi("boots")) then
 		e.self:Say("To get the boots you must fetch for me a moon jewel, a mark of the seer, and a hewed augury stone.");
 	elseif(e.message:findi("bracer")) then
@@ -34,11 +34,11 @@ function event_trade(e)
 		e.self:Emote("smiles.");
 		e.self:Say("Here is what I promised, ".. e.other:GetName() .. ".");
 		e.other:QuestReward(e.self,0,0,0,0,3749,10000); --
-	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 4494, item2 = 4929, item3 = 4930, item4 = 4931})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 4493, item2 = 4929, item3 = 4930, item4 = 4931})) then
 		e.self:Emote("smiles.");
 		e.self:Say("Here is what I promised, ".. e.other:GetName() .. ".");
 		e.other:QuestReward(e.self,0,0,0,0,3752,10000); --
-	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 4491, item2 = 4908, item4 = 4910})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 4491, item2 = 4908, item3 = 4909, item4 = 4910})) then
 		e.self:Emote("smiles.");
 		e.self:Say("Here is what I promised, ".. e.other:GetName() .. ".");
 		e.other:QuestReward(e.self,0,0,0,0,3750,10000); --
