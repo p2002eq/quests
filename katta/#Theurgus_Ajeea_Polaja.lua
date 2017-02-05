@@ -13,7 +13,7 @@ end
 function event_trade(e)
     local item_lib = require("items");
     if(item_lib.check_turn_in(e.self, e.trade, {item1 = 7779})) then -- Shade Summoning Figurine
-        e.self:Emote("Perfect. We shall begin the summoning and questioning. This enchanted scroll will magically scribe all that transpires within its radius of perception. Take it to Magistrate Phenic after the summoning and questioning are completed.");
+        e.self:Say("Perfect. We shall begin the summoning and questioning. This enchanted scroll will magically scribe all that transpires within its radius of perception. Take it to Magistrate Phenic after the summoning and questioning are completed.");
         e.other:Faction(206,5); -- Magus Conlegium
         e.other:Faction(168,5); -- Katta Castellum Citizens
         e.other:Faction(350,5); -- Validus Custodus

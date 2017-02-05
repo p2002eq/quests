@@ -18,7 +18,7 @@ function event_signal(e)
         e.self:Say("Ajeea! What's happened?! I sense there are dark powers at work here!");
         eq.signal(160484,2,15000); -- #Incantator Jak Masric
     elseif(e.signal == 3) then
-        e.self:Say("rushes to Ajeea, lifts her comotose body with a magical force and they both vanish in a flash of light.");
+        e.self:Emote("rushes to Ajeea, lifts her comotose body with a magical force and they both vanish in a flash of light.");
         eq.signal(160485,3,10000); -- #Theurgus Ajeea Polaja
     end
 end
