@@ -1,4 +1,4 @@
----- Quest:Daksins' Vampyre Antidote
+---- Quest:Daksins' Vampyre Antidote & Zimloro's Potion Quest
 function event_say(e)
     if(e.message:findi("hail")) then
         e.self:Say("Oi there, " .. e.other:GetName() .. ". If you are lookin for a potion or an antidote I got just what the doctor ordered. Step right up! I also have many other special potions but sadly I do not have the correct [components] for them.");
@@ -16,8 +16,8 @@ function event_trade(e)
     local item_lib = require("items");
     if(item_lib.check_turn_in(e.self, e.trade, {item1 = 4759})) then -- Antidote Ingredients
         e.self:Say("You did it, " .. e.other:GetName() .. "! Finally I can finish these potions that I have been working on for such a long time. I will surely tell all of my friends of your willingness to help me!");
-        e.other:Faction(154,10); -- house of stout
-        e.other:Faction(338,10); -- traders of the haven
+        e.other:Faction(154,5); -- house of stout
+        e.other:Faction(338,1); -- traders of the haven
         e.other:QuestReward(e.self,0,0,0,0,0,0); --
     elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 4765})) then -- Antidote Supplies
         e.self:Emote("Ah, of course, the antidote supplies I have been waiting for from Daksins. I hope he is ok, we all told him it was not wise to go out to the cursed mountains alone. I thank you for bringing me these supplies because Daksins was unable too. There have been many reports lately of people receiving the disease carried by the beasts you encountered. Should you come across these extracts in the future bring them to me if you like. Thank you again, your actions will not go unnoticed.");
