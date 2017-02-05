@@ -3,7 +3,7 @@ function event_say(e)
 	if(e.message:findi("Hail")) then
 		e.self:Emote("grimaces in pain. 'The [visions] are so strong they hurt...please make them stop.'");
 	elseif(e.message:findi("visions")) then
-		e.self:Emote("I...can't describe them, they are too disturbing. I think I have enough strength to assist a fellow [enchanter], are you one?");
+		e.self:Say("I...can't describe them, they are too disturbing. I think I have enough strength to assist a fellow [enchanter], are you one?");
 	elseif(e.message:findi("enchanter")) then
 		e.self:Say("Very good. I have a [cap], [robe], [sleeves], [pants], [shawl], and [bracer]. My friend Xavier has the rest just ask him about the armor.");
 	elseif(e.message:findi("cap")) then
