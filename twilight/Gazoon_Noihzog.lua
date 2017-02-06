@@ -5,7 +5,7 @@ function event_say(e)
 	elseif(e.message:findi("business")) then
 		e.self:Say("I'll only deal with a wizard! And you look like no real [wizard] I've ever met!");
 	elseif(e.message:findi("wizard")) then
-		e.self:Say("Your a wizard you say? Hrmph! If so, let's see you prove it to me. I need some item's collected for my research. In return, I will give you some [armor] I have laying around.");
+		e.self:Say("You're a wizard you say? Hrmph! If so, let's see you prove it to me. I need some items collected for my research. In return, I will give you some [armor] I have laying around.");
 	elseif(e.message:findi("armor")) then
 		e.self:Say("I have a [bracer], [cap], [pants], [robe], [sandals], [shawl], and [sleeves]. I gave some of the other ones to Trizpo if you desire those as well, oh great 'wizard'");
 		e.self:Emote("laughs extremely loud");
