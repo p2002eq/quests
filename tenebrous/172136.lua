@@ -6,7 +6,7 @@ end
 
 function event_signal(e)
     if(e.signal == 1) then
-        count = count + 1;
+        killcount = killcount + 1;
         if(count == 8) then
             eq.signal(172136,1,1); -- #invis_johanius_one
             eq.depop();
