@@ -14,9 +14,8 @@ function event_combat(e)
 			eq.spawn2(179354,0,0,-1771,1126,18.2,82); -- Xin`Xakri
 			eq.spawn2(179353,0,0,-1769,1035,18.2,45); -- Xin`Xakru
 			adds = 1;
-		end
-	end
-	if(e.joined == false) then
+			end
+	elseif(e.joined == false) then
 		adds = 0
 		eq.set_timer("shei_despawn", 1800000);
 		cleanup()
@@ -25,8 +24,8 @@ end
 
 function event_timer(e)
 	if (e.timer == "shei_despawn") then
-		eq.depop();
 		cleanup()
+		eq.depop();
 	end
 	eq.stop_timer(e.timer)
 end
@@ -44,9 +43,16 @@ function event_death_complete(e)
 	cleanup()
 end
 
+--function cleanup()
+--	eq.signal(179352,1,1); -- Xin`Xokra
+--	eq.signal(179355,1,1); -- Xin`Xakre
+--	eq.signal(179354,1,1); -- Xin`Xakri
+--	eq.signal(179353,1,1); -- Xin`Xakru
+--end
+
 function cleanup()
-	eq.signal(179352,1,1); -- Xin`Xokra
-	eq.signal(179355,1,1); -- Xin`Xakre
-	eq.signal(179354,1,1); -- Xin`Xakri
-	eq.signal(179353,1,1); -- Xin`Xakru
+	local npc_list = { 179352, 179355, 179354, 179353};
+	for _,v in pairs(npc_list) do
+		eq.depop_all(v);
+	end
 end
