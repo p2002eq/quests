@@ -9,9 +9,3 @@ function event_slay(e)
     -- local h = e.self:GetHeading();
     eq.spawn2(a,0,0,e.self:GetX(),e.self:GetY(),e.self:GetZ(),e.self:GetHeading());
 end
-
-function event_signal(e)
-    if(e.signal == 1) then
-        eq.depop();
-    end
-end
