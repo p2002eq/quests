@@ -1,5 +1,9 @@
  -- Bregun Dorey is spawned in Netherbian when you give a dawnshroud cinder to legionnaire Dalini
 
+function event_spawn(e)
+	eq.set_timer('depop', 1800000);
+end
+ 
 function event_say(e)
 	if e.message:findi("hail") then
 		e.self:Say("Trog trog trog trog?");
@@ -32,4 +36,9 @@ function event_trade(e)
 	item_lib.return_items(e.self, e.other, e.trade);
 end
 
-
+function event_timer(e)
+	if e.timer == 'depop' then
+		eq.stop_timer(e.timer);
+		eq.depop();
+	end
+end
