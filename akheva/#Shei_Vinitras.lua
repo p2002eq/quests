@@ -4,7 +4,7 @@ local adds;
 
 function event_spawn(e)
 	adds = 0;
-    eq.set_timer("shei_despawn1", 3600000);
+    eq.set_timer("shei_despawn1", 3600000); -- 1 hour total spawn time
 end
 
 function event_combat(e)
@@ -17,8 +17,9 @@ function event_combat(e)
 			adds = 1;
         end
         eq.stop_timer("shei_despawn2");
+        eq.stop_timer("shei_despawn3");
 	elseif(e.joined == false) then
-		eq.set_timer("shei_despawn2", 60000);
+		eq.set_timer("shei_despawn2", 300000); -- 5 Minute add despawn (Soft Reset)
 	end
 end
 
@@ -26,10 +27,10 @@ function event_timer(e)
 	if (e.timer == "shei_despawn") then
 		cleanup()
 		eq.depop();
-    elseif (e.timer == "shei_despawn2") then
+    elseif (e.timer == "shei_despawn2") then -- Despawn Adds and set hard despawn timer.
         adds = 0
         cleanup()
-        eq.set_timer("shei_despawn3", 1800000);
+        eq.set_timer("shei_despawn3", 1800000); -- Hard Despawn (Game Over)
     elseif (e.timer == "shei_despawn3") then
         cleanup()
         eq.depop();
