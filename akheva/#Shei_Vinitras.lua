@@ -9,16 +9,15 @@ end
 
 function event_combat(e)
 	if(e.joined == true) then
-        eq.stop_timer("shei_despawn2");
 		if(adds == 0) then
 			eq.spawn2(179357,0,0,-1714,1128,19.7,128); -- #Xin`Xokra
 			eq.spawn2(179360,0,0,-1715,1034,19.7,0); -- #Xin`Xakre
 			eq.spawn2(179359,0,0,-1771,1126,18.2,82); -- #Xin`Xakri
 			eq.spawn2(179358,0,0,-1769,1035,18.2,45); -- #Xin`Xakru
 			adds = 1;
-			end
+        end
+        eq.stop_timer("shei_despawn2");
 	elseif(e.joined == false) then
-		adds = 0
 		eq.set_timer("shei_despawn2", 60000);
 	end
 end
@@ -28,6 +27,7 @@ function event_timer(e)
 		cleanup()
 		eq.depop();
     elseif (e.timer == "shei_despawn2") then
+        adds = 0
         cleanup()
         eq.set_timer("shei_despawn3", 1800000);
     elseif (e.timer == "shei_despawn3") then
