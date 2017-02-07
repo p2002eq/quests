@@ -9,6 +9,7 @@ end
 
 function event_combat(e)
 	if(e.joined == true) then
+        eq.stop_timer("shei_despawn2");
 		if(adds == 0) then
 			eq.spawn2(179357,0,0,-1714,1128,19.7,128); -- #Xin`Xokra
 			eq.spawn2(179360,0,0,-1715,1034,19.7,0); -- #Xin`Xakre
