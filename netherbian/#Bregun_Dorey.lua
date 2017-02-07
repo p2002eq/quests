@@ -1,17 +1,17 @@
  -- Bregun Dorey is spawned in Netherbian when you give a dawnshroud cinder to legionnaire Dalini
 
 function event_say(e)
-	if e.message:findi(hail) then
+	if e.message:findi("hail") then
 		e.self:Say("Trog trog trog trog?");
-	elseif e.message:findi(trog) then
+	elseif e.message:findi("trog") then
 		e.self:Say("Ha! What are you talking about?! Strange thing you are. Wait a minute, come closer. Are you [from Norrath]?");
-	elseif e.message:findi(from norrath) then
+	elseif e.message:findi("norrath") then
 		e.self:Say("I thought so, your armor looks to be made from things found not here. Have you heard of [Rivervale]?");
-	elseif e.message:findi(Rivervale) then
+	elseif e.message:findi("Rivervale") then
 		e.self:Say("[Good].");
-	elseif e.message:findi(good) then
+	elseif e.message:findi("good") then
 		e.self:Say("Yeah good! Trog trog trog trog! Hahaha! These Troglodytes don't know of Rivervale. They just run around the cave all day doing Troglodyte things. Hahaha! Trog trog trog. So what was I speaking of.. Oh Bixies! So, are there [bixies around Rivervale]?");
-	elseif e.message:findi(bixies around rivervale) then
+	elseif e.message:findi("bixies") then
 		e.self:Say("There are Bixies! THERE ARE BIXIES! This is great. You should hunt some Bixies, and get some Bixie parts. Then you can make me some Bixie Crunchies! Ooooh, Crunchies. I want to try the Crunchies. I think you should bring me four Crunchies!");
 	end
 end
