@@ -76,26 +76,32 @@ function spawn_waves(caller)
 		-- pick mob identity
 		local mob = 0;
 		mob_picker = math.random(1000);
-		if mob_picker <= 250 then
+		if mob_picker <= 225 then
 			mob = 157071; -- fungusbeast
-		elseif mob_picker <= 500 then
+		elseif mob_picker <= 450 then
 			mob = 157121; -- fungusfiend
-		elseif mob_picker <= 720 then
+		elseif mob_picker <= 655 then
 			mob = 157122; -- fungus healer
-		elseif mob_picker <= 940 then
+		elseif mob_picker <= 865 then
 			mob = 157123; -- fungus priest
-		elseif mob_picker <= 950 then
+		elseif mob_picker <= 880 then
+			mob = 157116; -- Chakizno
+		elseif mob_picker <= 895 then
+			mob = 157125; -- Turchako
+		elseif mob_picker <= 910 then
 			mob = 157117; -- Chakiza
-		elseif mob_picker <= 960 then
+		elseif mob_picker <= 925 then
 			mob = 157118; -- Chakno
+		elseif mob_picker <= 940 then
+			mob = 157115; -- Chakta
+		elseif mob_picker <= 955 then
+			mob = 157120; -- Tochaka
 		elseif mob_picker <= 970 then
-			mob = 157119; -- Katcha
-		elseif mob_picker <= 980 then
-			-- CURRENTLY MISSING - mob = XXXXXX; -- Takacha
-		elseif mob_picker <= 990 then
+			mob = 157127; -- Takacha
+		elseif mob_picker <= 985 then
 			mob = 157124; -- Tiako
 		elseif mob_picker <= 1000 then
-			-- CURRENTLY MISSING - mob = XXXXXX; -- Tuchako
+			mob = 157128; -- Tuchako
 		end
 		eq.spawn2(mob, 0, 0, locs[1], locs[2], locs[3], 0):CastToNPC():MoveTo(-1098, 866, -332, 0, true);
 	end
