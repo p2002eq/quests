@@ -11,7 +11,6 @@ function event_say(e)
 		elseif (e.message:findi("assist")) then	
 			e.self:Say("Rally together a band of adventurers and track down and slay the elder dragons of this continent. For each head you return to me I will impart a gift to you.");
 		end
-
 	else
 		e.self:Say("Your loyalty to our ideals has yet to be proven.");
 	end
@@ -39,8 +38,9 @@ function event_trade(e)
 			e.other:Faction(42, -60); --CoV
 			e.other:AddEXP(100);
 		end
-	
 	else
 		e.self:Say("I will do nothing to aid the likes of you.");
 	end
+	
+	item_lib.return_items(e.self, e.other, e.trade);
 end
