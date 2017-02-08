@@ -27,6 +27,7 @@ function event_trade(e)
 		e.self:Say("Ah hum!");
 		e.self:Say("Give this charm to Torsten as a present from his old friend.");
 		e.other:SummonItem(29852); -- bixie charm
+		eq.depop();
 	elseif (item_lib.check_turn_in(e.self, e.trade, { item1 = 29853 })) then -- sealed note to bregun
 		e.self:Say("Hahaha! Silly Torsten. Always snooping over my shoulder. Well I have nothing to lose... Take this to him, it's directions on how to find the Journal I kept. I hid it where no one would look! Haha! Trog trog trog!");
 		e.other:SummonItem(29854); -- bregun's directions
