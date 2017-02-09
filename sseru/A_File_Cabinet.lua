@@ -6,7 +6,9 @@ function event_trade(e)
 		if (item_lib.check_turn_in(e.self, e.trade, { item1 = 29855 })) then -- 29855 :  Replacement Records
 			e.other:SummonItem(29856); -- 29856  Original Records
 			e.self:Emote("slams shut after you take the original records out.");
-			eq.spawn2(159798,0,0,-760,-768,122,175):AddToHateList(e.other, 1);
+			guard = eq.spawn2(159798,0,0,-760,-768,122,175);
+			guard:Say('Hey! What are you doing in there?!');
+			guard:AddToHateList(e.other, 1);
 		end
 		
 		item_lib.return_items(e.self, e.other, e.trade); -- returns only if you have faction
