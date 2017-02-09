@@ -55,6 +55,7 @@ end
 
 function event_death_complete(e)
 	cleanup();
+	eq.clear_proximity();
 end
 
 function spawn_wave(wave_type)
@@ -77,11 +78,14 @@ function spawn_wave(wave_type)
 end
 
 function cleanup()
-	eq.stop_all_timers();
-	wave = 0;
 	for _, mob in ipairs(event_mobs) do
 		eq.depop_all(mob);
 	end
+	
+	eq.stop_all_timers();
+	wave = 0;
+	eq.set_proximity(e.self:GetX()-50,e.self:GetX()+50,e.self:GetY()-50,e.self:GetY()+50);
+
 end
 
 function player_check()
