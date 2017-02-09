@@ -18,7 +18,7 @@ end
 
 function event_timer(e)
 	if e.timer == 'HB' then
-		if player_check() then
+		if not player_check() then
 			cleanup();
 			setup();
 		end
