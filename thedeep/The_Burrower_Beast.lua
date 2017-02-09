@@ -5,7 +5,7 @@ locs = {{1700, 1850}, {200, 350}, -55};
 event_mobs = { 164130, 164132, 164133, 164129, 164128, 164131, 164127, 164134 };
 
 function event_spawn(e)
-	setup();
+	setup(e);
 end
 
 function event_enter(e)
@@ -83,10 +83,10 @@ function cleanup()
 	end
 end
 
-function setup()
+function setup(ev)
 	eq.stop_all_timers();
 	wave = 0;
-	eq.set_proximity(e.self:GetX()-50,e.self:GetX()+50,e.self:GetY()-50,e.self:GetY()+50);
+	eq.set_proximity(ev.self:GetX()-50,ev.self:GetX()+50,ev.self:GetY()-100,ev.self:GetY()+100);
 end
 
 function player_check()
