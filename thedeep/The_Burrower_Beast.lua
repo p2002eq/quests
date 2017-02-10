@@ -1,7 +1,7 @@
 -- The Burrower Beast event
 -- The Burrower Beast (164098), A rock burrower (164130), A stone carver (164133), A spiny rock burrower (164132), A core burrower (164129), A parasite larva (164128/164131), A massive burrower (164134), A burrower parasite (164127)
 
-locs = {{1700, 1850}, {200, 350}, -55};
+locs = {{1700, 1850}, {200, 350}, -35};
 event_mobs = { 164130, 164132, 164133, 164129, 164128, 164131, 164127, 164134 };
 
 function event_spawn(e)
@@ -47,7 +47,7 @@ function event_timer(e)
 			spawn_wave(3);
 		elseif wave == 9 then -- skips wave == 8 to create 10-minute pause
 			e.self:Emote('begins to tunnel into the ground below it. As it digs, its flesh splits revealing an enormous parasite!');
-			spawn_wave(4);
+			wave_final(e);
 		end
 		eq.stop_timer(e.timer);
 		eq.set_timer('wave', 300 * 1000);
@@ -68,13 +68,15 @@ function spawn_wave(wave_type)
 			eq.spawn2(164129, 0, 0, math.random(locs[1][1], locs[1][2]), math.random(locs[2][1], locs[2][2]), locs[3], math.random(255));
 		end
 	elseif wave_type == 3 then
-		eq.spawn2(164128, 0, 0, 1787, -10, -70, 0);
-		eq.spawn2(164131, 0, 0, 1767, -30, -70, 0);
-	elseif wave_type == 4 then
-		eq.spawn2(164127, 0, 0, e.self:GetX(), e.self:GetY(), e.self:GetZ(), 0);
-		eq.stop_all_timers();
-		eq.depop_with_timer();
+		eq.spawn2(164128, 0, 0, 1800, 75, -65, 0);
+		eq.spawn2(164131, 0, 0, 1775, 75, -65, 0);
 	end
+end
+
+function wave_final(ev)
+	eq.spawn2(164127, 0, 0, ev.self:GetX(), ev.self:GetY(), ev.self:GetZ(), 0);
+	eq.stop_all_timers();
+	eq.depop_with_timer();
 end
 
 function cleanup()
