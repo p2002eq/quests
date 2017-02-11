@@ -48,11 +48,13 @@ function event_death_complete(e)
 		eq.zone_emote(1, 'Enabled');
 	else
 		eq.zone_emote(1, 'Disabled');
+	end
 	fbs:Enable();
 	if fbs:Enabled() then
 		eq.zone_emote(1, 'Enabled');
 	else
 		eq.zone_emote(1, 'Disabled');
+	end
 	-- fbs:SetRespawnTimer(10 * 1000);
 	eq.stop_timer('aggro_guards');
 end
