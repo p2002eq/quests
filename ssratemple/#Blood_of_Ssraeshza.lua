@@ -38,8 +38,8 @@ function event_death_complete(e)
 	eq.signal(162504, 99);
 	-- enable fake blood spawn point
 	local fbs = eq.get_entity_list():GetSpawnByID(368757);
-	fbs:Enable();
-	fbs:SetRespawnTimer(10 * 1000);
+	fbs:Repop();
+	-- fbs:SetRespawnTimer(10 * 1000);
 	eq.stop_timer('aggro_guards');
 end
 
