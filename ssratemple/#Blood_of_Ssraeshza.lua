@@ -14,6 +14,8 @@ function event_spawn(e)
 	else
 		eq.zone_emote(1, 'Disabled');
 	end
+	eq.zone_emote(1, 'timer is ' .. fbs:RespawnTimer());
+	eq.zone_emote(1, 'NPC is ' .. fbs:CurrentNPCID());
 	eq.get_entity_list():GetSpawnByID(368757):Disable();
 	
 	-- deactivate Emp if he is active for some reason
@@ -49,12 +51,16 @@ function event_death_complete(e)
 	else
 		eq.zone_emote(1, 'Disabled');
 	end
+	eq.zone_emote(1, 'timer is ' .. fbs:RespawnTimer());
+	eq.zone_emote(1, 'NPC is ' .. fbs:CurrentNPCID());
 	fbs:Enable();
 	if fbs:Enabled() then
 		eq.zone_emote(1, 'Enabled');
 	else
 		eq.zone_emote(1, 'Disabled');
 	end
+	eq.zone_emote(1, 'timer is ' .. fbs:RespawnTimer());
+	eq.zone_emote(1, 'NPC is ' .. fbs:CurrentNPCID());
 	-- fbs:SetRespawnTimer(10 * 1000);
 	eq.stop_timer('aggro_guards');
 end
