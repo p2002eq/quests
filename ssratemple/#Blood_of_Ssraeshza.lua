@@ -8,6 +8,12 @@ function event_spawn(e)
 	if eq.get_entity_list():IsMobSpawnedByNpcTypeID(162515) then
 		eq.set_timer('depop_golem', 500);
 	end
+	local fbs = eq.get_entity_list():GetSpawnByID(368757);
+	if fbs:Enabled() then
+		eq.zone_emote(1, 'Enabled');
+	else
+		eq.zone_emote(1, 'Disabled');
+	end
 	eq.get_entity_list():GetSpawnByID(368757):Disable();
 	
 	-- deactivate Emp if he is active for some reason
@@ -38,7 +44,15 @@ function event_death_complete(e)
 	eq.signal(162504, 99);
 	-- enable fake blood spawn point
 	local fbs = eq.get_entity_list():GetSpawnByID(368757);
-	fbs:Repop();
+	if fbs:Enabled() then
+		eq.zone_emote(1, 'Enabled');
+	else
+		eq.zone_emote(1, 'Disabled');
+	fbs:Enable();
+	if fbs:Enabled() then
+		eq.zone_emote(1, 'Enabled');
+	else
+		eq.zone_emote(1, 'Disabled');
 	-- fbs:SetRespawnTimer(10 * 1000);
 	eq.stop_timer('aggro_guards');
 end
