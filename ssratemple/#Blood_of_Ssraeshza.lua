@@ -28,6 +28,7 @@ function event_timer(e)
 	if e.timer == 'aggro_guards' then
 		aggro_guards(e.self:GetHateTop());
 	elseif e.timer == 'depop_golem' then
+		eq.stop_timer(e.timer);
 		eq.depop_with_timer(162515);
 	end
 end
@@ -37,6 +38,7 @@ function event_death_complete(e)
 	eq.signal(162504, 99);
 	-- enable fake blood spawn point - 1 hour respawn on this spawn point functions as 1-hour timer for Emp
 	-- eq.get_entity_list():GetSpawnByID(368757):Enable();
+	eq.stop_timer('aggro_guards');
 end
 
 function aggro_guards(mob)

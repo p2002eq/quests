@@ -24,6 +24,7 @@ function event_death_complete(e)
 	eq.spawn2(162491, 0, 0, 799, -333, 405, 190);
 	eq.spawn2(162491, 0, 0, 828, -381, 405, 190);
 	eq.spawn2(162491, 0, 0, 908, -384, 405, 190);
+	eq.stop_timer('aggro_guards');
 end
 
 function event_slay(e)

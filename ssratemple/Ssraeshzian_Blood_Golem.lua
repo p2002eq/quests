@@ -28,6 +28,7 @@ function event_timer(e)
 	if e.timer == 'aggro_guards' then
 		aggro_guards(e.self:GetHateTop());
 	elseif e.timer == 'depop_golem' then
+		eq.stop_timer(e.timer);
 		eq.depop_with_timer();
 	end
 end
@@ -35,6 +36,7 @@ end
 function event_death_complete(e)
 	-- activate emp
 	eq.signal(162504, 99);
+	eq.stop_timer('aggro_guards');
 end
 
 function aggro_guards(mob)
