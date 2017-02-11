@@ -6,7 +6,7 @@ guard_list = { 162123, 162124, 162125, 162126, 162127, 162128, 162129, 162130 };
 function event_spawn(e) 
 	-- depop and deactivate itself if it pops for some reason while real Blood is active
 	if eq.get_entity_list():GetNPCByNPCTypeID(162189) ~= nil then
-		eq.depop();
+		eq.depop_with_timer();
 		-- eq.get_entity_list():GetSpawnByID(368757):Disable();
 	end
 	
