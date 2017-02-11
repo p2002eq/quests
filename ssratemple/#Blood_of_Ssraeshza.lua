@@ -61,6 +61,8 @@ function event_death_complete(e)
 	end
 	eq.zone_emote(1, 'timer is ' .. fbs:RespawnTimer());
 	eq.zone_emote(1, 'NPC is ' .. fbs:CurrentNPCID());
+	fbs:Repop();
+	fbs:Reset();
 	-- fbs:SetRespawnTimer(10 * 1000);
 	eq.stop_timer('aggro_guards');
 end
