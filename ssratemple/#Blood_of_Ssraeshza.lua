@@ -5,9 +5,9 @@ guard_list = { 162123, 162124, 162125, 162126, 162127, 162128, 162129, 162130 }
 
 function event_spawn(e) 
 	-- depop and deactivate Ssraeshzian Blood Golem on pop
-	-- if eq.get_entity_list():GetNPCByNPCTypeID(162515) ~= nil then
-		-- eq.depop(162515);
-	-- end
+	if eq.get_entity_list():GetNPCByNPCTypeID(162515) ~= nil then
+		eq.depop(162515);
+	end
 	-- eq.get_entity_list():GetSpawnByID(368757):Disable();
 	
 	-- deactivate Emp if he is active for some reason
