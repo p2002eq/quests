@@ -27,6 +27,8 @@ end
 function event_timer(e)
 	if e.timer == 'aggro_guards' then
 		aggro_guards(e.self:GetHateTop());
+	elseif e.timer == 'depop_golem' then
+		eq.depop_with_timer();
 	end
 end
 
