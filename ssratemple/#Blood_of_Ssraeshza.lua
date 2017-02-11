@@ -8,7 +8,7 @@ function event_spawn(e)
 	if eq.get_entity_list():IsMobSpawnedByNpcTypeID(162515) then
 		eq.set_timer('depop_golem', 500);
 	end
-	-- eq.get_entity_list():GetSpawnByID(368757):Disable();
+	eq.get_entity_list():GetSpawnByID(368757):Disable();
 	
 	-- deactivate Emp if he is active for some reason
 	eq.signal(162504, 10); 
@@ -36,8 +36,8 @@ end
 function event_death_complete(e)
 	-- activate emp
 	eq.signal(162504, 99);
-	-- enable fake blood spawn point - 1 hour respawn on this spawn point functions as 1-hour timer for Emp
-	-- eq.get_entity_list():GetSpawnByID(368757):Enable();
+	-- enable fake blood spawn point
+	eq.get_entity_list():GetSpawnByID(368757):Enable();
 	eq.stop_timer('aggro_guards');
 end
 
