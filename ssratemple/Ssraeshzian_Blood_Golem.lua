@@ -34,9 +34,9 @@ function event_timer(e)
 end
 
 function event_death_complete(e)
+	eq.stop_timer('aggro_guards');
 	-- activate emp
 	eq.signal(162504, 99);
-	eq.stop_timer('aggro_guards');
 end
 
 function aggro_guards(mob)

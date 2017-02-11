@@ -8,14 +8,6 @@ function event_spawn(e)
 	if eq.get_entity_list():IsMobSpawnedByNpcTypeID(162515) then
 		eq.set_timer('depop_golem', 500);
 	end
-	local fbs = eq.get_entity_list():GetSpawnByID(368757);
-	if fbs:Enabled() then
-		eq.zone_emote(1, 'Enabled');
-	else
-		eq.zone_emote(1, 'Disabled');
-	end
-	eq.zone_emote(1, 'timer is ' .. fbs:RespawnTimer());
-	eq.zone_emote(1, 'NPC is ' .. fbs:CurrentNPCID());
 	eq.get_entity_list():GetSpawnByID(368757):Disable();
 	
 	-- deactivate Emp if he is active for some reason
@@ -42,29 +34,13 @@ function event_timer(e)
 end
 
 function event_death_complete(e)
+	eq.stop_timer('aggro_guards');
 	-- activate emp
 	eq.signal(162504, 99);
 	-- enable fake blood spawn point
 	local fbs = eq.get_entity_list():GetSpawnByID(368757);
-	if fbs:Enabled() then
-		eq.zone_emote(1, 'Enabled');
-	else
-		eq.zone_emote(1, 'Disabled');
-	end
-	eq.zone_emote(1, 'timer is ' .. fbs:RespawnTimer());
-	eq.zone_emote(1, 'NPC is ' .. fbs:CurrentNPCID());
 	fbs:Enable();
-	if fbs:Enabled() then
-		eq.zone_emote(1, 'Enabled');
-	else
-		eq.zone_emote(1, 'Disabled');
-	end
-	eq.zone_emote(1, 'timer is ' .. fbs:RespawnTimer());
-	eq.zone_emote(1, 'NPC is ' .. fbs:CurrentNPCID());
-	fbs:Repop();
 	fbs:Reset();
-	-- fbs:SetRespawnTimer(10 * 1000);
-	eq.stop_timer('aggro_guards');
 end
 
 function aggro_guards(mob)
