@@ -37,7 +37,9 @@ function event_death_complete(e)
 	-- activate emp
 	eq.signal(162504, 99);
 	-- enable fake blood spawn point
-	eq.get_entity_list():GetSpawnByID(368757):Enable();
+	local fbs = eq.get_entity_list():GetSpawnByID(368757);
+	fbs:Enable();
+	fbs:SetRespawnTimer(10 * 1000);
 	eq.stop_timer('aggro_guards');
 end
 
