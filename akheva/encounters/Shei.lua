@@ -24,7 +24,7 @@ function event_encounter_load(e)
 end
 
 function AddRespawn(e)
-	eq.unique_spawn(e.self:GetNPCTypeID(),0,0,e.self:GetX(),e.self:GetY(),e.self:GetZ(),e.self:GetHeading());
+	eq.spawn2(e.self:GetNPCTypeID(),0,0,e.self:GetX(),e.self:GetY(),e.self:GetZ(),e.self:GetHeading());
 end
 
 function SheiDeath(e)
