@@ -29,11 +29,11 @@ end
 
 function SheiDeath(e)
 	cleanup();
-	eq.unload_encounter("Shei");
+	eq.signal(e.other, 99);
 end
 
 function AddsonKill(e)
-	if e.other:IsClient() then -- not sure why this is necessary, but otherwise will occasionally spawn adds when an event mob dies
+	if e.other:IsClient() or e.other:IsPet() then -- not sure why this is necessary, but otherwise will occasionally spawn adds when an event mob dies
 		local mob = eq.ChooseRandom(unpack(secondary_adds));
 		eq.spawn2(mob,0,0,e.other:GetX(),e.other:GetY(),e.other:GetZ(),e.other:GetHeading());
 	end
@@ -47,13 +47,14 @@ function SheiTimer(e)
 		cleanup();
 	elseif e.timer == "shei_despawn_full" then
 		eq.stop_timer(e.timer);
-		SheiDeath(e);
 		e.self:Depop();
+		SheiDeath(e);
 	end
 end
 
 function SheiSpawn(e)
-	eq.set_timer("shei_despawn_full", 60 * 60 * 1000); -- 1 hour total uptime
+	-- eq.set_timer("shei_despawn_full", 60 * 60 * 1000); -- 1 hour total uptime
+	eq.set_timer("shei_despawn_full", 10 * 60 * 1000); -- set for testing
 end
 
 function SheiCombat(e)
