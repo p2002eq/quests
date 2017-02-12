@@ -1,5 +1,19 @@
 -- A Dark Master, part of doomshade trigger
 
+function event_spawn(e)
+	eq.set_timer('chant', 60 * 1000);
+end
+
+function event_timer(e)
+	if e.timer == 'chant' then
+		local qglobals = eq.get_qglobals(e.self);
+		if qglobals['Doomshade'] == nil and qglobals['dark_chant'] == nil then
+			eq.zone_emote(1, 'An unearthly wail fills the air as the Dark Masters begin chanting for the coming of doom.');
+			eq.set_global("dark_chant","chanted",3,"M5");
+		end
+	end
+end
+
 function event_death_complete(e)
     -- count Dark Masters (note that it counts itself as well)
 	local npc_list = eq.get_entity_list():GetNPCList();
