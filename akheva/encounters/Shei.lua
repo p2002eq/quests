@@ -42,8 +42,8 @@ function SheiCombat(e)
 			eq.unique_spawn(179359,0,0,-1771,1126,18.2,82); -- #Xin`Xakri
 			eq.unique_spawn(179360,0,0,-1715,1034,19.7,0); -- #Xin`Xakre
 		end
-		shei_dt(e.self);
-		eq.set_timer("shei_dt", 2 * 60 * 1000);
+		
+		eq.set_timer("shei_dt", 10 * 1000);
 		eq.stop_timer("shei_despawn_adds");
 	else
 		eq.stop_timer("shei_dt");
@@ -62,13 +62,13 @@ function SheiSpawn(e)
 end
 
 function SheiTimer(e)
+	eq.stop_timer(e.timer);
 	if e.timer == "shei_dt" then
 		shei_dt(e.self);
+		eq.set_timer("shei_dt", 2 * 60 * 1000);
 	elseif e.timer == "shei_despawn_adds" then
-		eq.stop_timer(e.timer);
 		cleanup();
 	elseif e.timer == "shei_despawn_full" then
-		eq.stop_timer(e.timer);
 		e.self:Depop();
 		SheiDeath(e);
 	end
