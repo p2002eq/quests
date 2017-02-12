@@ -64,7 +64,7 @@ end
 function SheiTimer(e)
 	eq.stop_timer(e.timer);
 	if e.timer == "shei_dt" then
-		shei_dt(e.self);
+		e.self:SpellFinished(2859,e.self:GetHateTop());
 		eq.set_timer("shei_dt", 2 * 60 * 1000);
 	elseif e.timer == "shei_despawn_adds" then
 		cleanup();
@@ -75,7 +75,7 @@ function SheiTimer(e)
 end
 
 function cleanup()
-	eq.stop_all_timers()
+	eq.stop_all_timers();
 	
 	for _,v in pairs(primary_adds) do
 		eq.depop_all(v);
@@ -84,8 +84,4 @@ function cleanup()
 	for _,v in pairs(secondary_adds) do
 		eq.depop_all(v);
 	end
-end
-
-function shei_dt(shei)
-	shei:SpellFinished(2859,shei:GetHateTop());
 end
