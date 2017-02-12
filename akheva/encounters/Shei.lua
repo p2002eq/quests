@@ -27,34 +27,11 @@ function AddRespawn(e)
 	eq.spawn2(e.self:GetNPCTypeID(),0,0,e.self:GetX(),e.self:GetY(),e.self:GetZ(),e.self:GetHeading());
 end
 
-function SheiDeath(e)
-	cleanup();
-	eq.signal(e.other, 99);
-end
-
 function AddsonKill(e)
 	if e.other:IsClient() or e.other:IsPet() then -- not sure why this is necessary, but otherwise will occasionally spawn adds when an event mob dies
 		local mob = eq.ChooseRandom(unpack(secondary_adds));
 		eq.spawn2(mob,0,0,e.other:GetX(),e.other:GetY(),e.other:GetZ(),e.other:GetHeading());
 	end
-end
-
-function SheiTimer(e)
-	if e.timer == "shei_dt" then
-		shei_dt(e.self);
-	elseif e.timer == "shei_despawn_adds" then
-		eq.stop_timer(e.timer);
-		cleanup();
-	elseif e.timer == "shei_despawn_full" then
-		eq.stop_timer(e.timer);
-		e.self:Depop();
-		SheiDeath(e);
-	end
-end
-
-function SheiSpawn(e)
-	-- eq.set_timer("shei_despawn_full", 60 * 60 * 1000); -- 1 hour total uptime
-	eq.set_timer("shei_despawn_full", 10 * 60 * 1000); -- set for testing
 end
 
 function SheiCombat(e)
@@ -74,11 +51,32 @@ function SheiCombat(e)
 	end
 end
 
-function shei_dt(shei)
-	shei:SpellFinished(2859,shei:GetHateTop());
+function SheiDeath(e)
+	cleanup();
+	eq.signal(e.other, 99);
+end
+
+function SheiSpawn(e)
+	-- eq.set_timer("shei_despawn_full", 60 * 60 * 1000); -- 1 hour total uptime
+	eq.set_timer("shei_despawn_full", 5 * 60 * 1000); -- set for testing
+end
+
+function SheiTimer(e)
+	if e.timer == "shei_dt" then
+		shei_dt(e.self);
+	elseif e.timer == "shei_despawn_adds" then
+		eq.stop_timer(e.timer);
+		cleanup();
+	elseif e.timer == "shei_despawn_full" then
+		eq.stop_timer(e.timer);
+		e.self:Depop();
+		SheiDeath(e);
+	end
 end
 
 function cleanup()
+	eq.stop_all_timers()
+	
 	for _,v in pairs(primary_adds) do
 		eq.depop_all(v);
 	end
@@ -86,4 +84,8 @@ function cleanup()
 	for _,v in pairs(secondary_adds) do
 		eq.depop_all(v);
 	end
+end
+
+function shei_dt(shei)
+	shei:SpellFinished(2859,shei:GetHateTop());
 end
