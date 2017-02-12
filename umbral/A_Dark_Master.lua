@@ -15,14 +15,14 @@ function event_timer(e)
 end
 
 function event_death_complete(e)
-	if eq.get_entity_list:IsMobSpawnedByNpcTypeID(176042) then
+	if eq.get_entity_list():IsMobSpawnedByNpcTypeID(176042) then
 		e.self:Shout('My bretheren live!');
 	else
 		e.self:Shout('I was the last of my kind!');
 	end
 	-- if this is the last Dark Master and Doomshade lockout is not set, spawn Doomshade and set lockout
 	local qglobals = eq.get_qglobals(e.self);
-	if not eq.get_entity_list:IsMobSpawnedByNpcTypeID(176042) and qglobals['Doomshade'] == nil then
+	if not eq.get_entity_list():IsMobSpawnedByNpcTypeID(176042) and qglobals['Doomshade'] == nil then
 		lockout = "H" .. (59 + math.random(25));
 		-- eq.set_global("Doomshade","lockout",3,lockout);
 		eq.set_global("Doomshade","lockout",3,"M2");
