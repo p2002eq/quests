@@ -29,27 +29,26 @@ end
 
 function SheiDeath(e)
 	cleanup();
-	eq.set_timer("shei_unload", 1000);
+	eq.unload_encounter("Shei");
 end
 
 function AddsonKill(e)
-	local mob = eq.ChooseRandom(unpack(secondary_adds));
-	eq.spawn2(mob,0,0,e.other:GetX(),e.other:GetY(),e.other:GetZ(),e.other:GetHeading());
+	if e.other:IsClient() then -- not sure why this is necessary, but otherwise will occasionally spawn adds when an event mob dies
+		local mob = eq.ChooseRandom(unpack(secondary_adds));
+		eq.spawn2(mob,0,0,e.other:GetX(),e.other:GetY(),e.other:GetZ(),e.other:GetHeading());
+	end
 end
 
 function SheiTimer(e)
 	if e.timer == "shei_dt" then
 		shei_dt(e.self);
-	elseif e.timer == "shei_despawn_full" then
-		eq.stop_timer(e.timer);
-		cleanup();
-		e.self:Depop();
 	elseif e.timer == "shei_despawn_adds" then
 		eq.stop_timer(e.timer);
 		cleanup();
-	elseif e.timer == "shei_unload" then
+	elseif e.timer == "shei_despawn_full" then
 		eq.stop_timer(e.timer);
-		eq.unload_encounter("Shei");
+		SheiDeath(e);
+		e.self:Depop();
 	end
 end
 
