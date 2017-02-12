@@ -29,8 +29,8 @@ function event_death_complete(e)
 end
 
 function event_cast_begin(e)
-	if e.spell == 982 then
-		e.self:Shout(e.self:GetHateTop():GetName() .. "!!!")
+	if e.spell:GetID() == 982 then
+		e.self:Shout(e.self:GetHateTop():GetName() .. "!!!");
 	end
 end
 
