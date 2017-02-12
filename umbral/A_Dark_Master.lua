@@ -24,6 +24,7 @@ function event_death_complete(e)
         end
     end
 	
+	e.self:Shout('Number of Dark Masters: ' .. total);
 	-- if this is the last Dark Master and Doomshade lockout is not set, spawn Doomshade and set lockout
 	local qglobals = eq.get_qglobals(e.self);
 	if total <= 1 and qglobals['Doomshade'] == nil then
