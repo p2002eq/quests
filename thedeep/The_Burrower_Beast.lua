@@ -20,7 +20,7 @@ function event_timer(e)
 	if e.timer == 'HB' then
 		if not player_check() then
 			cleanup();
-			setup();
+			setup(e);
 		end
 	elseif e.timer == 'wave' then
 		wave = wave + 1;
@@ -54,10 +54,6 @@ function event_timer(e)
 	end
 end
 
-function event_death_complete(e)
-	cleanup();
-end
-
 function spawn_wave(wave_type)
 	if wave_type == 1 then
 		for i=1, 12 do
@@ -68,8 +64,8 @@ function spawn_wave(wave_type)
 			eq.spawn2(164129, 0, 0, math.random(locs[1][1], locs[1][2]), math.random(locs[2][1], locs[2][2]), locs[3], math.random(255));
 		end
 	elseif wave_type == 3 then
-		eq.spawn2(164128, 0, 0, 1800, 75, -65, 0);
-		eq.spawn2(164131, 0, 0, 1775, 75, -65, 0);
+		eq.spawn2(164128, 0, 0, e.self:GetX()+10, e.self:GetY()+25, -70, 0);
+		eq.spawn2(164131, 0, 0, e.self:GetX()-10, e.self:GetY()+25, -70, 0);
 	end
 end
 
@@ -88,7 +84,7 @@ end
 function setup(ev)
 	eq.stop_all_timers();
 	wave = 0;
-	eq.set_proximity(ev.self:GetX()-50,ev.self:GetX()+50,ev.self:GetY()-100,ev.self:GetY()+100);
+	eq.set_proximity(ev.self:GetX()-50,ev.self:GetX()+50,ev.self:GetY()-100,ev.self:GetY()+150);
 end
 
 function player_check()
@@ -96,7 +92,7 @@ function player_check()
 	local player_list = eq.get_entity_list():GetClientList();
 	if(player_list ~= nil) then
 		for player in player_list.entries do
-			if player:GetX() > 1680 and player:GetX() < 1900 and player:GetY() > -150 and player:GetY() < 420 and not player:GetFeigned() then
+			if player:GetX() > 1650 and player:GetX() < 1860 and player:GetY() > 150 and player:GetY() < 360 and not player:GetFeigned() then
 				return true; -- if player in event area and not FD
 			end
 		end
