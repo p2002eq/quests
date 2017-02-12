@@ -64,8 +64,8 @@ function spawn_wave(wave_type)
 			eq.spawn2(164129, 0, 0, math.random(locs[1][1], locs[1][2]), math.random(locs[2][1], locs[2][2]), locs[3], math.random(255));
 		end
 	elseif wave_type == 3 then
-		eq.spawn2(164128, 0, 0, e.self:GetX()+10, e.self:GetY()+25, -70, 0);
-		eq.spawn2(164131, 0, 0, e.self:GetX()-10, e.self:GetY()+25, -70, 0);
+		eq.spawn2(164128, 0, 0, 1792, 5, -70, 0);
+		eq.spawn2(164131, 0, 0, 1767, 5, -70, 0);
 	end
 end
 
