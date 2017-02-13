@@ -27,3 +27,18 @@ function eq.ClassType(class)
 	
 	return "other";
 end
+
+-- This is a function to produce a local emote, using similar syntax to zone_emote from lua_general.
+-- Expected data types - locs: table in { x, y, z } format, color: int, radius: int, message: string.
+-- Does not return any values.
+function eq.local_emote(locs, color, radius, message)
+
+	local player_list = eq.get_entity_list():GetClientList();
+	if(player_list ~= nil) then
+		for player in player_list.entries do	
+			if(player:CalculateDistance(locs[1], locs[2], locs[3]) <= radius) then
+				player:Message(color, message)
+			end
+		end
+	end
+end
