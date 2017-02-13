@@ -53,7 +53,7 @@ end
 function event_signal(e)
     if(e.signal == 1) then
         e.self:Say("I hope your journey back to Shar Vahl is less eventful. Please make haste the spiritualists must receive this crate as soon as possible");
-        eq.signal(160477,1,5000);  -- a vah shir courier
+        eq.signal(160477,1,10000);  -- a vah shir courier
     elseif(e.signal == 2) then
         e.self:Shout("Stop him! Stop the courier!");
         e.self:Say("An evil spirit has possessed him!");
