@@ -5,8 +5,6 @@ function event_spawn(e)
 end
 
 function event_enter(e)
-	e.self:Attack(e.other);
-	e.self:Attack(e.other);
-	e.self:Attack(e.other);
-	e.self:Attack(e.other);
+	e.self:Say('I see you, ' .. e.other:GetName());
+	e.other:SpellFinished(905, e.other);
 end
