@@ -14,6 +14,7 @@ function event_signal(e)
 		else
 			signal_total = signal_total + signal;
 		end
+		eq.zone_emote(1, 'Total is ' .. signal_total)
 		
 		if signal_total == 1023 then
 			if qglobals['cursed_progress'] == nil then
