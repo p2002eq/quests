@@ -6,6 +6,8 @@ function event_spawn(e)
 		eq.set_timer('depop', 500);
 	end
 	eq.get_entity_list():GetSpawnByID(368763):Disable();
+	
+	eq.delete_global('cursed_progress'); -- resets cursed cycle
 end
 
 function event_timer(e)
