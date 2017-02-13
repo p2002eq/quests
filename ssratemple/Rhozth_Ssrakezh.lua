@@ -2,7 +2,8 @@
 
 function event_spawn(e) 
 	-- depop and deactivate it spawn if it tried to spawn while cursed lockout is on or while real Rhozth is active or
-	if eq.get_entity_list():IsMobSpawnedByNpcTypeID(162258) or eq.get_qglobals(e.self)['cursed_progress'] > 2 then
+	local cursed = eq.get_qglobals(e.self)['cursed_progress'] or 0
+	if eq.get_entity_list():IsMobSpawnedByNpcTypeID(162258) or cursed > 2 then
 		eq.set_timer('depop', 500);
 		eq.get_entity_list():GetSpawnByID(368763):Disable();
 	end

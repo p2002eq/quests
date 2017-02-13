@@ -6,7 +6,7 @@ end
 
 function event_signal(e)
 	-- bitwise signal values for the 10 kills
-	if signal < 10000 then
+	if e.signal < 10000 then
 		local qglobals = eq.get_qglobals(e.self);
 		if qglobals['cursed'] == nil then
 			signal_total = signal;
