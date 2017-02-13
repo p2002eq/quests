@@ -31,7 +31,7 @@ end
 
 function event_signal(e)
 	if(e.signal == 1) then
-		e.self:Emote("Kalila Talih chuckles in spite of herself between sobs,");
+		e.self:Emote("chuckles in spite of herself between sobs,");
 		e.self:Say("You do love to tell that story, father, don't you?' she says with a smile. Jalil, though relieved that his daughter can still find something to smile about, has the look of a man that might prefer that she found something else to smile about. He says nothing, but grins sheepishly. ");
 		eq.signal(155083,1,1); -- Jalil_Talih
 	end

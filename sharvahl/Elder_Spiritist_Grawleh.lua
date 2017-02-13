@@ -1,4 +1,4 @@
----- Changes by Kagehi.
+ ---- Changes by Kagehi.
 ---- Shar_Vahl_Cit tracks the steps you take to gain your initiate cloak.
 ---- Since we don't want to hand people things that they can't normally get, or
 ---- stuff they haven't earned, we need to track which stage in the quest they
