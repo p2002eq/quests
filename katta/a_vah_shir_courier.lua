@@ -9,7 +9,7 @@ function event_emote(e,message)
     if(player_list ~= nil) then
         for player in player_list.entries do
             if(player:CalculateDistance(e.self:GetX(), e.self:GetY(), e.self:GetZ()) <= 200) then
-                player:Message(12,message) -- Yellow
+                player:Message(15,message) -- Yellow
             end
         end
     end
@@ -47,7 +47,7 @@ function event_waypoint_arrive(e)
         eq.pause(60);
         e.self:DoAnim(36);
         e.self:Say("Sorry for the delay mistress, I ran into a spot of trouble on the way here. I am prepared to deliver your crate to the spiritualists back home.");
-        e.self:CastSpell(278,e.other:GetID(),0,1);
+        e.self:SetRunning(true)
         eq.signal(160126,1,10000); -- Roshawwna_Rhorer
     elseif(e.wp==9) then
         courier_waypoint = e.wp
