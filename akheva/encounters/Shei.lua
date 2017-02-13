@@ -51,7 +51,7 @@ end
 function AddRespawn(e)
 	local id = e.self:GetNPCTypeID()
 	local loc = primary_adds[id]
-	eq.unique_spawn(id,0,0,loc[1],loc[2],loc[3],loc[4]);
+	eq.spawn2(id,0,0,loc[1],loc[2],loc[3],loc[4]);
 end
 
 function AddsonKill(e)
