@@ -1,10 +1,11 @@
 -- A massive burrower for The Burrower Beast event
 
 function event_spawn(e)
-	eq.set_proximity(e.self:GetX()-50,e.self:GetX()+50,e.self:GetY()-50,e.self:GetY()+50);
+	eq.set_timer('reset', 1000)
 end
 
-function event_enter(e)
-	e.self:Say('I see you, ' .. e.other:GetName());
-	e.other:SpellFinished(905, e.other);
+function event_timer(e)
+	if e.timer == 'reset' then
+		e.self:WipeHateList();
+	end
 end
