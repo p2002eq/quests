@@ -9,7 +9,6 @@ function event_encounter_load(e)
 	wave = 0;
 	carrion = false;
 	unload = false;
-	splitter_spawn = {};
 	
 	-- start event in 1 minute
 	wave_timer = 540000;
@@ -38,10 +37,6 @@ end
 
 function event_timer(e)
 	if e.timer == "hb" then
-		while #splitter_spawn > 0 do
-			spawn_mob(table.remove(splitter_spawn), math.random(5));
-		end
-		
 		if old_timer ~= wave_timer then -- the only reason this is necessary is I can't seem to figure out how to set event timers from inside the GMControl function!
 			eq.stop_timer("waves");
 			eq.set_timer("waves", wave_timer);
@@ -242,15 +237,15 @@ end
 function SplitterCheck(e)
 	-- split drakes depending on type
 	if e.self:GetNPCTypeID() == 124326 then
-		table.insert(splitter_spawn, 124317);
-		table.insert(splitter_spawn, 124317);
+		spawn_mob(124317, math.random(5));
+		spawn_mob(124317, math.random(5));
 	elseif e.self:GetNPCTypeID() == 124317 then
-		table.insert(splitter_spawn, 124324);
-		table.insert(splitter_spawn, 124324);
+		spawn_mob(124324, math.random(5));
+		spawn_mob(124324, math.random(5));
 	elseif e.self:GetNPCTypeID() == 124329 then
-		table.insert(splitter_spawn, 124324);
+		spawn_mob(124324, math.random(5));
 	elseif e.self:GetNPCTypeID() == 124324 then
-		table.insert(splitter_spawn, 124328);
+		spawn_mob(124328, math.random(5));
 	end
 end
 
@@ -285,13 +280,14 @@ function Cleanup(e)
 end
 
 function BossHeal(e)
-	-- checks for players
 	local player_list = eq.get_entity_list():GetClientList();
+	local aoeSpells = true;
 	if(player_list ~= nil) then
-		for player in player_list.entries do
-			if player:CalculateDistance(-739, 518, 120) <= 300 then
-				player:SpellFinished(999,player,0,0);
-				player:SpellFinished(1469,player,0,0);
+		for player in player_list.entries do	
+			if(aoeSpells and player:Class() ~= "Bard" and player:CalculateDistance(e.self:GetX(), e.self:GetY(), e.self:GetZ()) <= 100) then
+				player:SpellFinished(2698,player,0,0);
+				player:SpellFinished(2697,player,0,0);
+				aoeSpells = false;
 			end
 		end
 	end
