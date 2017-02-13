@@ -1,4 +1,4 @@
--- A massive burrower for The Burrower Beast event
+-- a massive burrower (164134) for The Burrower Beast event
 
 function event_spawn(e)
 	eq.set_timer('reset', 1000)
