@@ -1,11 +1,35 @@
--- Event controller in Ssra
+-- Event controller (162266) in Ssra
 
 function event_spawn(e)
-	deactivate(e.self);
+	reset();
 end
 
-function deactivate(mob)
-	mob:SetBodyType(11, true);
-	mob:SetSpecialAbility(24, 1);
-	mob:WipeHateList();
+function event_signal(e)
+	-- bitwise signal values for the 10 kills
+	if signal < 10000 then
+		local qglobals = eq.get_qglobals(e.self);
+		if qglobals['cursed'] == nil then
+			signal_total = signal;
+			eq.set_global('cursed', 'started', 2, 'H1');
+		else
+			signal_total = signal_total + signal;
+		end
+		
+		if signal_total == 1023 then
+			if qglobals['cursed_progress'] == nil then
+				eq.unique_spawn(162505, 0, 0, -38, -10, -222); -- spawn glyphed
+				reset();
+			elseif qglobals['cursed_progress'] < 3 then
+				eq.unique_spawn(162508, 0, 0, -38, -10, -222); -- spawn runed
+				reset();
+			else
+				reset();
+			end
+		end
+	end		
+end
+
+function reset()
+	signal_total = 0;
+	eq.delete_global('cursed');
 end
