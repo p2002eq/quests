@@ -9,7 +9,7 @@ function event_signal(e)
 	if e.signal < 10000 then
 		local qglobals = eq.get_qglobals(e.self);
 		if qglobals['cursed'] == nil then
-			signal_total = signal;
+			signal_total = e.signal;
 			eq.set_global('cursed', 'started', 2, 'H1');
 		else
 			signal_total = signal_total + signal;
