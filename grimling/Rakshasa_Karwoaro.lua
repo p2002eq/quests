@@ -6,11 +6,13 @@ end
 
 function event_death_complete(e)
     e.self:Say("I shall have my revenge! I swear it!!");
+    eq.set_global("Rakshasa","1",2,"M30");
 end
 
 function event_timer(e)
     if (e.timer == "Rakshasa") then
         eq.depop();
+        eq.set_global("Rakshasa","1",2,"M30");
     end
     eq.stop_timer(e.timer)
 end
