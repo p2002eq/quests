@@ -8,7 +8,7 @@ function event_say(e)
 	elseif e.message:findi("crusaders of prophecy") then
 		e.self:Say("The prophecy will come to pass at last. Take my knowledge... the knowledge of our lord. I will not last much longer. This sickness will kill me like the others. There is one other who can help you. He claims to know some weakness of these creatures, seek him at the smelting furnaces near the mines. Now I must tell you the secret of the key.");
 	elseif e.message:findi("secret of the key") then
-		e.self:Say("There is a pouch to be found. It was specially made and requires three separate components to function. Seek out the Idol of Zazuzh and the Ring of Zeruzsh. These items are kept by the Emperor's must loyal Taskmasters. Place with them the Ssreashzian Insignia. This item will be much harder to acquire. I am sure you will be successful... our lord walks with you. Please be swift.");
+		e.self:Say("There is a pouch to be found. It was specially made and requires three separate components to function. Seek out the Idol of Zazuzh and the Ring of Zeruzsh. These items are kept by the Emperor's most loyal Taskmasters. Place with them the Ssreashzian Insignia. This item will be much harder to acquire. I am sure you will be successful... our lord walks with you. Please be swift.");
 	end
 end
 
