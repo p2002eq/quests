@@ -15,8 +15,8 @@ function event_encounter_load(e)
 	eq.set_timer("start", 60000); -- timer to start wave 1
 	
 	-- triggers for carrion drake spawns and splitters
-	eq.register_player_event("Vulak_Event", Event.death, CarrionCheck);
-	eq.register_npc_event("Vulak_Event", Event.death, -1, SplitterCheck);
+	eq.register_player_event("Vulak_Event", Event.death_complete, CarrionCheck);
+	eq.register_npc_event("Vulak_Event", Event.death_complete, -1, SplitterCheck);
 	
 	-- triggers on spawn of Vulak
 	eq.register_npc_event("Vulak_Event", Event.spawn, 124323, DragonCall);
@@ -280,14 +280,12 @@ function Cleanup(e)
 end
 
 function BossHeal(e)
-	local player_list = eq.get_entity_list():GetClientList();
-	local aoeSpells = true;
-	if(player_list ~= nil) then
-		for player in player_list.entries do	
-			if(aoeSpells and player:Class() ~= "Bard" and player:CalculateDistance(e.self:GetX(), e.self:GetY(), e.self:GetZ()) <= 100) then
-				player:SpellFinished(2698,player,0,0);
-				player:SpellFinished(2697,player,0,0);
-				aoeSpells = false;
+    local player_list = eq.get_entity_list():GetClientList();
+    if(player_list ~= nil) then
+        for player in player_list.entries do
+            if player:CalculateDistance(-739, 518, 120) <= 300 then
+                player:SpellFinished(999,player,0,0);
+                player:SpellFinished(1469,player,0,0);
 			end
 		end
 	end
