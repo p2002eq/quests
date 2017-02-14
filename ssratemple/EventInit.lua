@@ -64,7 +64,7 @@ function event_say(e)
 			else
 				glyphed,exiled,cursed = "UNKNOWN","UNKNOWN","UNKNOWN"
 			end
-			e.other:Message(1, 'Trigger mob timer is %s. Glyphed is %s. Exiled is %s. Cursed is %s.', timer, glyphed, exiled, cursed)
+			e.other:Message(1, string.format('Trigger mob timer is %s. Glyphed is %s. Exiled is %s. Cursed is %s.', timer, glyphed, exiled, cursed))
 		elseif(e.message:findi("Cursed")) then
 			eq.set_global('cursed_progress', '2', 2, 'D8')
 			e.other:Message(1, "Cursed spawn reset.")
