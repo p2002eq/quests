@@ -1,10 +1,10 @@
 ---- Quest:Assassins in Katta & Saumeem's Assistance
 function event_say(e)
     if(e.message:findi("Hail")) then
-        e.self:Say("Hail Loramin, it is a pleasure to meet you. As the Governor of Defense for Katta Castellum it is my duty to ensure the safety of the city from outside enemies. At present the most imminent threat to the safety of our citizens is the Coterie of the Eternal Night and their [assassins]. There are other matters of defense as well however that you may be of [assistance] in dealing with.");
+        e.self:Say("Hail " .. e.other:GetName() .. ", it is a pleasure to meet you. As the Governor of Defense for Katta Castellum it is my duty to ensure the safety of the city from outside enemies. At present the most imminent threat to the safety of our citizens is the Coterie of the Eternal Night and their [assassins]. There are other matters of defense as well however that you may be of [assistance] in dealing with.");
     elseif(e.message:findi("assassins")) then
         e.self:Say("The Coterie of the Eternal Night has trained several of their members to infiltrate the defenses of Katta Castellum and capture or kill citizens of our great city. Few of these assassins are successful at breaching the gate but the ones that do succeed tend to hide in shadowy corners waiting for an opportune moment to emerge and attack their victims. Should you discover one of these undead assassins slay it immediately. Kill four such assassins and deliver their Coterie Assassin [Garrotes] to me and you shall by honored by the Validus Custodus.");
-    elseif(e.message:findi("Garottes")) then
+    elseif(e.message:findi("Garrotes")) then
         e.self:Say("I require four of the Coterie Assassin Garottes in order to grant you the honor you strive for.");
     elseif(e.message:findi("coterie infiltrators")) then
         e.self:Say("They are undead Illusionists capable of disguising themselves as mortals. The signs of an infiltrator are often difficult to spot but should you identify an infiltrator within the city and slay it, bring me the creatures fangs, a Gem of Condensed Flame and your Reflective Claymore and I shall bestow upon you a greater reward.");
