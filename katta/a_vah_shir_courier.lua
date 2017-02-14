@@ -43,7 +43,7 @@ function event_emote(e,message)
 end
 
 function event_waypoint_arrive(e)
-    if(e.wp==6) then
+    if(e.wp==4) then
         eq.get_entity_list():GetDoorsByID(8767):ForceOpen(e.self)
     elseif(e.wp==6) then
         eq.pause(60);
