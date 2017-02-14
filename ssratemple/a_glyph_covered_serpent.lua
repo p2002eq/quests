@@ -3,12 +3,13 @@
 
 function event_spawn(e)
 	total_time = 0
-	eq.start_timer('incr', 10 * 1000)
+	eq.set_timer('incr', 10 * 1000)
 end
 
 function event_timer(e)
 	if e.timer == 'incr' and not e.self:IsEngaged() then
 		total_time = total_time + 1
+		eq.zone_emote(1, string.format("Time elapsed: %s seconds", total_time * 10))
 		if total_time >= 180 then
 			eq.stop_timer(e.timer)
 			eq.depop()

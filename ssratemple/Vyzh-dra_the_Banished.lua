@@ -3,7 +3,7 @@
 
 function event_spawn(e)
 	total_time = 0
-	eq.start_timer('incr', 10 * 1000)
+	eq.set_timer('incr', 10 * 1000)
 end
 
 function event_timer(e)
