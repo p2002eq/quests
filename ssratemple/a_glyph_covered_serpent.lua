@@ -20,6 +20,6 @@ end
 function event_death_complete(e)
 	eq.stop_all_timers()
 	e.self:Emote("'s corpse rips in two, revealing a greater terror!")
-	eq.set_global('cursed_progress', '1', 3, 'D7')
+	eq.set_global('cursed_progress', '1', 3, 'D8')
 	eq.unique_spawn(162506, 0, 0 , -38, -10, -222) -- spawn Vyzh`dra the Exiled
 end

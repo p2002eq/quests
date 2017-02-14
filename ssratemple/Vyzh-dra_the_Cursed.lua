@@ -26,6 +26,6 @@ end
 function event_death_complete(e)
 	eq.stop_all_timers()
 	e.self:Emote("'s corpse crashes to the ground. A horrific sound fills the room, but vanishes as quickly as it came.")
-	eq.set_global('cursed_progress', '3', 3, 'D7')
+	eq.set_global('cursed_progress', '3', 3, 'D8')
 end
 

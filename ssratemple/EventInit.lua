@@ -10,16 +10,16 @@ function event_signal(e)
 		local qglobals = eq.get_qglobals(e.self);
 		if qglobals['cursed'] == nil then
 			signal_total = e.signal;
-			eq.set_global('cursed', 'started', 2, 'M10');
+			eq.set_global('cursed', 'started', 2, 'H1');
 		else
 			signal_total = signal_total + e.signal;
 		end
 		
 		if signal_total == 1023 then
 			if qglobals['cursed_progress'] == nil then
-				eq.set_timer('glyphed', math.random(5) * 1000)
+				eq.set_timer('glyphed', math.random(300) * 1000)
 			elseif tonumber(qglobals['cursed_progress']) < 3 then
-				eq.set_timer('runed', math.random(5) * 1000)
+				eq.set_timer('runed', math.random(300) * 1000)
 			else
 				reset();
 			end
@@ -40,5 +40,48 @@ function event_timer(e)
 	elseif e.timer == 'runed' then
 		eq.unique_spawn(162508, 0, 0, -38, -10, -222); -- spawn runed
 		reset();
+	end
+end
+
+function event_say(e)
+	if e.other:Admin() > 100 then
+		if(e.message:findi("hail")) then
+			e.other:Message(1, string.format('Hello %s, would you like [help] with the Cursed cycle?', e.other:GetName()))
+		elseif(e.message:findi("help")) then
+			e.other:Message("You can check the [status] of the cycle, set cycle to [Cursed] available only, set cycle to [Exiled] + Cursed available, set cycle to [Glyphed] + Exiled + Cursed available, set cycle to all [disabled], or [respawn] trigger mobs (also restarts trigger timer).")
+		elseif(e.message:findi("status")) then
+			local qglobals = eq.get_qglobals(e.self);
+			local timer = (qglobals['cursed'] == nil and 'stopped' or 'running')
+			local glyphed, exiled, cursed
+			if qglobals['cursed_progress'] == nil then
+				glyphed,exiled,cursed = "UP","UP","UP"
+			elseif tonumber(qglobals['cursed_progress']) == 1 then
+				glyphed,exiled,cursed = "DOWN","UP","UP"
+			elseif tonumber(qglobals['cursed_progress']) == 2 then
+				glyphed,exiled,cursed = "DOWN","DOWN","UP"
+			elseif tonumber(qglobals['cursed_progress']) == 3 then
+				glyphed,exiled,cursed = "DOWN","DOWN","DOWN"
+			else
+				glyphed,exiled,cursed = "UNKNOWN","UNKNOWN","UNKNOWN"
+			end
+			e.other:Message(1, 'Trigger mob timer is %s. Glyphed is %s. Exiled is %s. Cursed is %s.', timer, glyphed, exiled, cursed)
+		elseif(e.message:findi("Cursed")) then
+			eq.set_global('cursed_progress', '2', 2, 'D8')
+		elseif(e.message:findi("Exiled")) then
+			eq.set_global('cursed_progress', '2', 1, 'D8')
+		elseif(e.message:findi("Glyphed")) then
+			eq.delete_global('cursed_progress')
+		elseif(e.message:findi("disabled")) then
+			eq.set_global('cursed_progress', '2', 3, 'D8')
+		elseif(e.message:findi("respawn")) then
+			reset()
+			local trigger_spawns = { 352960, 368763, 352956, 353147, 353037, 353035, 352958, 352957, 352955, 352952 }
+			for _,spawnid in pairs(trigger_spawns) do
+				local spawn = eq.get_entity_list():GetSpawnByID(spawnid);
+				spawn:Enable();
+				spawn:Repop();
+				spawn:Reset();
+			end
+		end
 	end
 end
