@@ -1,10 +1,9 @@
---  Rakshasa Skulls
---  Needs to be set to accept Globals.
-
+--  Quest:Rakshasa Skulls
 function event_say(e)
+	local qglobals = eq.get_qglobals(e.self,e.other);
 	if(e.message:findi("Hail")) then
 		e.self:Say("Things slip my mind easily these days. Are you here for something specific or are you a one of our new recruits?");
-	elseif(tonumber(qglobals.Rakshasa) == 1 and e.message:findi("components")) then --global check replace
+	elseif(tonumber(qglobals.Rakshasa) == 1 and e.message:findi("components")) then
 		e.self:Say("The legends instruct that the ritual requires an Amulet of Golden Rays crafted by a worshiper of the sun, Charcoal that burns with a Black Flame, and the Brain of a creature that can Leech the Thoughts of others. If you manage to procure these items please take them with the instructions I have provided to Spiritualist Roleko at the Grimling Forest Outpost. The Rakshasa shall be summoned and slain there away from the citizens of Shar Vahl.");
 		e.other:SummonItem(10915); -- Rakshasa Materialization Ritual
 	end
@@ -20,8 +19,3 @@ function event_trade(e)
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------

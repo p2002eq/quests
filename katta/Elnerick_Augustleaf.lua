@@ -1,9 +1,9 @@
 
 function event_say(e)
 	if eq.get_qglobals()["EarringVeracity3"] == 1 then -- if player did 3rd earring...
-		if e.message:findi(hail) then
+		if e.message:findi("hail") then
 			e.self:Say(string.format("Greetings %s. I am Magistrate Elnerick Augustleaf of Katta Castellum and the Loyalist Empire. If it is arcane knowledge that you seek you have come to an excellent place to study. Not only do we have wondrous magical resources available at the Magus Conlegium but the teachings of Tsaph Katta are well known to all of our citizens and aid in preparing the mind for the freedom of thought and mental and emotional discipline needed to become a great wizard.", e.other:GetName()));
-		elseif e.message:findi(serve katta) then
+		elseif e.message:findi("serve katta") then
 			e.self:Say("Ah, I was told you would come. I hope that you have retrieved the shards from each Praesertum Leader? Please show them to me.");
 		end
 	end

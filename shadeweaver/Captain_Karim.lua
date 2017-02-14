@@ -47,10 +47,9 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 30835, item2 = 30835, item3 = 30835, item4 = 30835})) then -- 4x Gor Taku Earthcaller's Stone
+		e.self:Say("You have helped the cause! I hope this coin will help you."); -- adlib
+		e.other:QuestReward(e.self,0,4,2,5,0,1000); -- Exp and Coin
+	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------

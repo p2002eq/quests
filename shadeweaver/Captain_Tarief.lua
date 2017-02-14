@@ -1,4 +1,4 @@
--- Saurek Scales
+---- Quest:Saurek Scales
 local count = 0;
 function event_spawn(e)
 	eq.set_timer("tarief",180000);
@@ -48,18 +48,23 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 30861, item2 = 30861, item3 = 30861, item4 = 30861})) then --Saurek Hopper Scales
-		e.self:Say("Excellent work, " .. e.other:GetName() .. ". Please take this as a reward."); --generic text
-		e.other:Faction(132,10); --Guardians of Shar Vahl
-		e.other:QuestReward(e.self,0,0,0,0,30870,2500); --Hunting Leather Boots
-	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 30862, item2 = 30862, item3 = 30862, item4 = 30862})) then --Saurek Darkclaw Scales
-		e.self:Say("Excellent work, " .. e.other:GetName() .. ". Please take this as a reward."); --generic text
-		e.other:Faction(132,10); --Guardians of Shar Vahl
-		e.other:QuestReward(e.self,0,0,0,0,30867,2500); --Hunting Leather Bracer
-	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 30863, item2 = 30863, item3 = 30863, item4 = 30863})) then --Saurek Shredder Scales
-		e.self:Say("Excellent work, " .. e.other:GetName() .. ". Please take this as a reward."); --generic text
-		e.other:Faction(132,10); --Guardians of Shar Vahl
-		e.other:QuestReward(e.self,0,0,0,0,30866,2500); --Hunting Leather Sleeves
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 30861, item2 = 30861, item3 = 30861, item4 = 30861})) then -- 4x Saurek Hopper Scales
+		e.self:Say("What have we here? Aha! Look here everyone. Hazan has returned victorious! Well done. You are entitled to the reward for slaying the Saurek Hoppers. I hope all my trainees turn out as skilled as you. Perhaps you should consider hunting more difficult prey from now on.");
+		e.self:Emote("hands " .. e.other:GetName() .. " a pair of masterfully tailored hunting boots.");
+		e.other:Faction(132,1); -- Guardians of Shar Vahl
+		e.other:QuestReward(e.self,0,0,0,0,30870,2500); -- Hunting Leather Boots
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 30862, item2 = 30862, item3 = 30862, item4 = 30862})) then -- 4x Saurek Darkclaw Scales
+		e.self:Say("So the hunter returns victorious. Well done! You have earned yourself a hunting bracer to protect you from the claws of the hoppers. I am sure many of your companions will revel in the feast you are able to provide them with the meat you have collected.");
+		e.other:Faction(132,1); -- Guardians of Shar Vahl
+		e.other:QuestReward(e.self,0,0,0,0,30867,2500); -- Hunting Leather Bracer
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 30863, item2 = 30863, item3 = 30863, item4 = 30863})) then -- 4x Saurek Shredder Scales
+		e.self:Say("Perhaps the true shredder was you this time around " .. e.other:GetName() .. ", He chuckles, 'Well done, you have earned the reward.' Tarief hands Hazan a pair of masterfully tailored hunting sleeves. 'Be sure to have your battle wounds tended to. I am sure you have many scars to show from hunting those shredders.");
+		e.other:Faction(132,1); -- Guardians of Shar Vahl
+		e.other:QuestReward(e.self,0,0,0,0,30866,2500); -- Hunting Leather Sleeves
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 30863, item2 = 30863, item3 = 30863, item4 = 30863})) then -- 4x Saurek Shredder Scales
+		e.self:Emote("is clearly beside himself with disbelief. 'I never imagined it could be done, " .. e.other:GetName() .. ". You've managed to survive, and indeed, emerge victorious, against the dreaded saurek deathmaw! Many of them.' Tarief hands " .. e.other:GetName() .. " a pair of masterfully tailored hunting leather leggings. 'Wear these with pride. I know that Torin, wherever he is, is thankful that you avenged his death");
+		e.other:Faction(132,1); -- Guardians of Shar Vahl
+		e.other:QuestReward(e.self,0,0,0,0,34032,2500); -- Hunting Leather Leggings
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end

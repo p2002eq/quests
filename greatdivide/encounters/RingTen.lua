@@ -58,6 +58,9 @@ function event_encounter_load(e)
 	-- War win monitor
 	eq.register_npc_event("RingTen", Event.death_complete, 118345, FinalStage);
 	
+	-- GM control of event
+	eq.register_player_event("RingTen", Event.say, GMControl);
+	
 	-- reset all variables
 	stage = -1;
 	entity_data = {};
@@ -661,6 +664,22 @@ function AllCombat(e)
 		end
 		
 		issue_move(e.self:GetID(), e.self:GetNPCTypeID())
+	end
+end
+
+function GMControl(e)
+	if e.self:Admin() > 100 then
+		if(e.message:findi("help")) then
+			e.self:Message(1, 'This is a simple control script - at any point after giants start spawning, say [stage1] to reset event to start of first set of waves, [stage2] to reset event to start of second set of waves, [stage3] to reset event to start of third set of waves, or [Narandi] to skip directly to Narandi.')
+		elseif(e.message:findi("stage1")) then
+			eq.signal(118351, 1000);
+		elseif(e.message:findi("stage2")) then
+			eq.signal(118351, 2000);
+		elseif(e.message:findi("stage3")) then
+			eq.signal(118351, 3000);
+		elseif(e.message:findi("narandi")) then
+			eq.signal(118351, 4000);
+		end
 	end
 end
 

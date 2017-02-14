@@ -1,3 +1,4 @@
+---- Quest:Saurek Claws
 function event_say(e)
 	if(e.message:findi("hail")) then
 		e.self:Say("Welcome " .. e.other:GetName() .. "! Have you been sent to speak with me by [Captain Alim]?");
@@ -10,9 +11,9 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 7807, item2 = 7807, item3 = 7807, item4 = 30579})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 7807, item2 = 7807, item3 = 7807, item4 = 30579})) then -- 3x Firefall Saurek Claw & Wooden Practice Flail
 		e.self:Emote("takes the flail and starts placing the claws into it forming a formidable looking weapon. 'This seems a good weapon indeed. Here, you can take it for helping to test my theory of weapon crafting. Safe travels to you friend.'");
-		e.other:QuestReward(e.self,0,0,0,0,7813);
+		e.other:QuestReward(e.self,0,0,0,0,7813); -- Firefall Claw Club
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end

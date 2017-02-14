@@ -20,7 +20,7 @@ function event_trade(e)
         e.other:Faction(138,-10); -- Hand Legionnaries
         e.other:Faction(139,-10); -- Hand of Seru
         e.other:Faction(284,-10); -- Seru
-        e.other:QuestReward(e.self,0,0,0,0,31775,2000); -- Jabbars seal
+        e.other:QuestReward(e.self,0,0,0,0,0,2000);
     end
     item_lib.return_items(e.self, e.other, e.trade)
 end

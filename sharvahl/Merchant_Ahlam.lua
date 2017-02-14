@@ -17,6 +17,7 @@ function event_trade(e)
 	local item_lib = require("items");
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 2877})) then -- Acrylia Slate of Shar Vahl
 		e.self:Say("Ah good I was hoping you'd be along soon. I need you to collect some Gravel tea leaves from below the city. I need these leaves to make some tea for the guards under the arena. I need 10 of these leaves to brew enough tea for the guards. Take this pouch and fill it with leaves and return it to me.");
+		e.other:SummonItem(2877); -- Acrylia Slate of Shar Vahl
 		e.other:QuestReward(e.self,0,0,0,0,17098); -- An Empty Pouch
 	end
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 31764})) then -- Pouch of Gravel tea leaves

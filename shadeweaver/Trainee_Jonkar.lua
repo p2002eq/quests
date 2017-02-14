@@ -1,7 +1,8 @@
+---- Quest:Saurek Scales
 function event_say(e)
 	if(e.message:findi("Hail")) then
 		e.self:Say("Well met " .. e.other:GetName() .. ". Pay close attention to Captain Tarief's words of advice. It takes a skillful hunter to kill a Saurek [Darkclaw]. His advice could mean the difference between life and death.");
-	elseif(e.message:findi("what darkclaw?")) then
+	elseif(e.message:findi("darkclaw")) then
 		e.self:Say("The darkclaws are nasty beasts. Their claws are much thicker than the smaller saureks. Tarief has offered a reward to any that return with four of their scales to him. Don't get any ideas now. That reward is mine. I assure you.");
 	end
 end

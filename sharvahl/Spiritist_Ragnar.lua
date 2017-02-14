@@ -1,7 +1,6 @@
 --Hand in For Whiptail Poison Glands
 function event_say(e)
 	fac = e.other:GetFaction(e.self);
-
 	if(e.message:findi("Hail")) then
 		e.self:Say("Well hello... How may I help you?");
 	elseif(e.message:findi("love potion")) then
@@ -56,6 +55,10 @@ function event_trade(e)
 		e.self:Say("Nicely done " .. e.other:GetName() .. ". This anchor should be sufficient to keep Siver bound to this realm for a while. She is strong enough to blind your enemies with a bright flash of light now, all you have to do is call on her spirit. I still cannot make complete sense of her thoughts. I think she is trying to tell me of another whisperling entrapped within the crater. Keep an eye open for the whisperling Scorpialis.");
 		e.self:Say("In the meantime, you can seek out a shield made of Xakra. Xakra made of the ethereal fabric of the spirit realm. I know the Shak Dratha within the thicket are weavers of this rare form of shadow silk. Such a shield can help us strengthen the anchor, making it easier for Siver to aid you. It will also improve her health greatly. She has been through a lot and is in rather poor condition as it stands now.");
 		e.other:QuestReward(e.self,0,0,0,0,30966); -- Frostweavers Shield
+	-- elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 30962})) then -- A Frosted Bag
+	--	e.self:Say("Eh? What have we here?'' Ragnar examines the frosted claw carefully. He closes his eyes and begins to chant while holding the claw cupped between his hands. As he opens his eyes he nods at you and begins to speak. ''You have done well to bring her here Astrall. This is a whisperling, her name is Siver. She is very young, so it is hard for me to understand her. From what I gather, she has an important task to fulfill, but I am still unsure what that task may be. Please take her with you for now, I think that is her wish. Perhaps Grawleh will be able to assist us further, and maybe even find a more suitable anchor for her. I think it would be wise to show her to him.");
+	--	e.other:QuestReward(e.self,0,0,0,0,30963,1000); -- Claw of Frost
+	---- Conflicting information found on this step.
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end

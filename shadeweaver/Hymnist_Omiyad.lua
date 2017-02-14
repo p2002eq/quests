@@ -1,3 +1,4 @@
+---- Quest:Talisman of the Flame
 function event_say(e)
 	if(e.message:findi("hail")) then
 		e.self:Say("Greetings young one, have a seat by the fire.  You will notice the dance being preformed.  This is much more than just a dance though.  It is a ritual that we preform to [purge] the evil spirits that are plaguing the thicket.");
@@ -11,11 +12,11 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 31289, item2 = 31289, item3 = 31289, item4 = 31289})) then --Handin: Loda Kai Remains
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 31289, item2 = 31289, item3 = 31289, item4 = 31289})) then -- 4x Loda Kai Remains
 		e.self:Emote("takes the remains and throws them into the fire, flames blaze immediatey with a sicky hue.");
 		e.self:Say("You have preformed a great service by helping destroy some of the wretched Lodi Kai. Take this small talisman, it is worn by the dancers here. Take it with you and feel free to do a dance whenever you like, haha!");
-		e.other:Faction(132,10); -- +Guardians of Shar Vahl
-		e.other:QuestReward(e.self,0,0,0,0,7498,250);
+		e.other:Faction(132,10); -- Guardians of Shar Vahl
+		e.other:QuestReward(e.self,0,0,0,0,7498,250); -- Talisman of the Flame
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end

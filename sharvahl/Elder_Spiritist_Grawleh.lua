@@ -1,4 +1,4 @@
----- Changes by Kagehi.
+ ---- Changes by Kagehi.
 ---- Shar_Vahl_Cit tracks the steps you take to gain your initiate cloak.
 ---- Since we don't want to hand people things that they can't normally get, or
 ---- stuff they haven't earned, we need to track which stage in the quest they
@@ -7,16 +7,16 @@
 ---- and 7 = Initiate's Cloak.
 
 function event_say(e)
-	fac = e.other:GetFaction(e.self);
 	local qglobals = eq.get_qglobals(e.self,e.other);
-
-	if(e.message:findi("application") and tonumber(qglobals.Shar_Vahl_Cit) == 1) then
+	if(e.message:findi("Hail")) then
+		e.self:Say("Present your acrylia slate to spiritist Fehril and he will guide you through your early training. May the strongest of our ancestral spirits be your inspiration. ");
+	elseif(e.message:findi("application") and tonumber(qglobals.Shar_Vahl_Cit) == 1) then
 		e.self:Say("Luckily for you someone found it.");
 		e.other:SummonItem(2873); -- Application for Citizenship
 	elseif(e.message:findi("cloak") and tonumber(qglobals.Shar_Vahl_Cit) == 7) then
 		e.self:Say("Someone found a grimling wearing this in the pit. Try not to lose it this time.");
 		e.other:SummonItem(2878); -- Initiate's Cloak of Shar Vahl
-	elseif(e.message:findi("love potion")) and (fac <= 4) then -- Behari is Missing Quest
+	elseif(e.message:findi("love potion"))  then -- Behari is Missing Quest
 		e.self:Say("Love potion? Sounds intriguing but not familiar, I am afraid I cannot help you. However, if I were looking for information about potions and the alchemical arts, I would see Spiritist Ragnar. He has a shop just outside of the palace.");
 	end
 end
@@ -47,8 +47,3 @@ function event_trade(e)
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------

@@ -15,8 +15,8 @@ function event_encounter_load(e)
 	eq.set_timer("start", 60000); -- timer to start wave 1
 	
 	-- triggers for carrion drake spawns and splitters
-	eq.register_player_event("Vulak_Event", Event.death, CarrionCheck);
-	eq.register_npc_event("Vulak_Event", Event.death, -1, SplitterCheck);
+	eq.register_player_event("Vulak_Event", Event.death_complete, CarrionCheck);
+	eq.register_npc_event("Vulak_Event", Event.death_complete, -1, SplitterCheck);
 	
 	-- triggers on spawn of Vulak
 	eq.register_npc_event("Vulak_Event", Event.spawn, 124323, DragonCall);
@@ -279,15 +279,13 @@ function Cleanup(e)
 	unload = true;
 end
 
-function BossHeal()
-	local player_list = eq.get_entity_list():GetClientList();
-	local aoeSpells = true;
-	if(player_list ~= nil) then
-		for player in player_list.entries do	
-			if(aoeSpells and player:Class() ~= "Bard" and player:CalculateDistance(e.self:GetX(), e.self:GetY(), e.self:GetZ()) <= 100) then
-				player:SpellFinished(2698,player,0,0);
-				player:SpellFinished(2697,player,0,0);
-				aoeSpells = false;
+function BossHeal(e)
+    local player_list = eq.get_entity_list():GetClientList();
+    if(player_list ~= nil) then
+        for player in player_list.entries do
+            if player:CalculateDistance(-739, 518, 120) <= 300 then
+                player:SpellFinished(999,player,0,0);
+                player:SpellFinished(1469,player,0,0);
 			end
 		end
 	end
@@ -334,14 +332,14 @@ function GMControl(e)
 	if e.self:Admin() > 100 and e.self:CalculateDistance(-739, 518, 120) <= 300 then
 		if(e.message:findi("help")) then
 			e.self:Message(6, "To check current wave number and current wave timer, say 'status'.");
-			e.self:Message(6, "To adjust the current wave count, say 'wave #' where # is the number of the wave to which you want to set the event. Note that this doesn't change the timer, but the event will continue normally from this point. i.e. setting the event to wave10 will cause wave11 to spawn at the next expiration of the timer.");
+			e.self:Message(6, "To adjust the current wave count, say 'wave #' where # is the number of the next wave to spawn. Note that this doesn't change the timer, but the event will continue normally from this point. i.e. saying 'wave 10' will spawn wave 10 when the timer expires.");
 			e.self:Message(6, "To adjust the current wave timer, say 'timer #' where # is the length of each wave in seconds. This DOES reset the timer. e.g. if you say 'timer 120', the timer will be reset to 120 seconds - the next wave will spawn in 2 minutes, and a new wave will spawn every 2 minutes after that. This does not affect event reset timers.");
 		elseif(e.message:findi("wave")) then
 			if wave >= 1 then
 				local wave_num = tonumber(string.sub(e.message, string.find(e.message, '%d+')));
-				if wave_num >= 1 and wave_num < 17 then
-					wave = wave_num;
-					e.self:Message(6, string.format("Wave set to number %s. Wave timer currently at %s seconds.", wave_num, wave_timer/1000));
+				if wave_num > 1 and wave_num <= 17 then
+					wave = wave_num - 1;
+					e.self:Message(6, string.format("Next wave set to number %s. Wave timer currently at %s seconds.", wave + 1, wave_timer/1000));
 				else
 					e.self:Message(6, "Wave number not valid, try again.");
 				end
@@ -353,7 +351,7 @@ function GMControl(e)
 				local temp_time = tonumber(string.sub(e.message, string.find(e.message, '%d+')));
 				if temp_time > 0 and temp_time < 3600 then
 					wave_timer = temp_time*1000;
-					e.self:Message(6, string.format("Wave timer set to %s seconds. Currently on wave %s.", wave_timer/1000, wave));
+					e.self:Message(6, string.format("Wave timer set to %s seconds. Next wave is wave %s.", wave_timer/1000, wave + 1));
 				else
 					e.self:Message(6, "Timer length not valid, try again.");
 				end
@@ -361,7 +359,7 @@ function GMControl(e)
 				e.self:Message(6, "Please wait until the event starts to reset the timer.");
 			end
 		elseif(e.message:findi("status")) then
-			e.self:Message(6, string.format("Wave timer is %s seconds. Currently on wave %s.", wave_timer/1000, wave));
+			e.self:Message(6, string.format("Wave timer is %s seconds. Next wave is wave %s.", wave_timer/1000, wave + 1));
 		end
 	end
 end

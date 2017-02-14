@@ -1,6 +1,6 @@
 
 function event_say(e)
-	if e.message:findi(arx key) then
+	if e.message:findi("arx key") then
 		e.self:Say("The Arx Key, yes. I have read the compiled reports that have been brought to us and it seems to gain access to Arx Seru you need four shards, one from each Praesertum leader. When the time is ready each leader inserts their shard into the door of Arx Seru at the same time, and they are transported within the building. We need you to retrieve the four shards. When you have done so seek out Elnerick Augustleaf, and tell him that you serve Katta. His powers over the arcane are great and I believe he can form the shards into a single master key. Once you have received the Arx Key, place the seal given to you by Elnerick and your Runed earring in this jewel box and give it to me. I eagerly await your return.");
 		e.other:SummonItem(17613); -- 17613  Lcea's Jewel Box (container 2 slots)
 	end
@@ -15,7 +15,7 @@ function event_trade(e)
 		e.other:Faction(52,100); -- concillium universus
 		e.other:Faction(284,-10); -- seru
 		e.other:Faction(142,-50); -- heart of seru
-		e.other:AddExp(500000);
+		e.other:AddEXP(500000);
 		
 	elseif item_lib.check_turn_in(e.self, e.trade, { item1 = 29860, item2 = 7810 }) then
 		e.self:Say("This is astounding, I find myself at a loss for words. You have done Katta a great justice, Sanctus Seru will never be the same now that the truth is known. Their leader has fallen.");
@@ -23,7 +23,7 @@ function event_trade(e)
 		e.other:Faction(52,200); -- concillium universus
 		e.other:Faction(284,-20); -- seru
 		e.other:Faction(142,-100); -- heart of seru
-		e.other:AddExp(500000);
+		e.other:AddEXP(500000);
 	end
 
 	item_lib.return_items(e.self, e.other, e.trade); -- return unused items

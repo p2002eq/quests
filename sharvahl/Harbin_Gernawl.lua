@@ -20,6 +20,7 @@ function event_trade(e)
 	end
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 3460, item2 = 3464, item3 = 2878, item4 = 3456})) then -- Initiate Seal of the Taruun, Seal of Rytan, Initiate's Cloak of Shar Vahl & Buckler of the Beetle
 		e.self:Say("Your hard work is pleasing to the Taruun, " .. e.other:GetName() .. ", which now accepts you as an official recruit. Wear this cloak with pride. Your buckler has been treated with a special epoxy and should protect you more effectively now. Show the buckler to Taruun Joharr and he will continue to guide you on your sacred path. I sense a strong spirit in you, young one. May it guide you to greatness!");
+		e.self:Shout("Citizens of glorious Shar Vahl, lend me your ears. On this day your fellow citizen, " .. e.other:GetName() .. ", has become an official recruit of the Taruun. He has pledged an oath to hone his skills to perfection that he may better serve us all. Please join me now in celebrating his commitment to the mighty Vah Shir!");
 		e.other:SummonItem(3466); -- Hardened Buckler of the Beetle
 		e.other:QuestReward(e.self,0,0,0,0,3465); -- Cloak of the Taruun Recruit
 	end

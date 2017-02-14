@@ -42,8 +42,6 @@ function event_trade(e)
             e.other:Faction(KROMZEK, 20);
             e.other:Faction(CoV, -30);
 		end
-    else
-	    item_lib.return_items(e.self, e.other, e.trade)	
 	end
 
 	item_lib.return_items(e.self, e.other, e.trade)	

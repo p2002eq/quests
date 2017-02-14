@@ -28,6 +28,12 @@ function event_death_complete(e)
 	eq.spawn2(a,0,0,e.self:GetX(),e.self:GetY(),e.self:GetZ(),e.self:GetHeading());
 end
 
+function event_cast_begin(e)
+	if e.spell:ID() == 982 then
+		e.self:Shout(string.format("%s!", string.upper(e.self:GetHateTop():GetName())));
+	end
+end
+
 --Submitted by: Jim Mills (Gilmore Girls`Is`Awesome`XOXO)
 -------------------------------------------------------------------------------------------------
 -- Converted to .lua using MATLAB converter written by Stryd

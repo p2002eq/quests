@@ -9,15 +9,9 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 30618, item2 = 30618, item3 = 30618, item4 = 30618})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 30618, item2 = 30618, item3 = 30618, item4 = 30618})) then -- 4x A Stinking Pile of Refuse
 		e.self:Say("Thank you friend, you have done an excellent service for our city. Take this and may it help you on your endeavors.");
-		e.other:QuestReward(e.self,7,0,0,0,17890,10000);
+		e.other:QuestReward(e.self,7,0,0,0,17890,2000); -- Scavengers Satchel
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
---Revised by DeSelminator
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------

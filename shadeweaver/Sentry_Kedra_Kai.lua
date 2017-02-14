@@ -1,3 +1,4 @@
+---- Quest:Insect Carapace Shields
 function event_say(e)
 	if(e.message:findi("hail")) then
 		e.self:Say("Well met wanderer. Pay heed to the road you chose to travel on, for there are many [hazards] you may come across no matter which direction you chose.");
@@ -10,6 +11,10 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 10646, item2 = 10645, item3 = 10644, item4 = 10647})) then -- Grime Tunneler Carapace, Muck Digger Carapace, Mud Burrower Carapace & Sediment Delver Carapace
+		e.self:Say("YI see that you have survived in Paludal and you have returned to me with the carapaces. Take this shield and use it in battle young adventurer.");
+		e.other:QuestReward(e.self,0,0,0,0,34031,1000); -- Paludal Carapace Shield
+	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
 

@@ -1,3 +1,4 @@
+---- Quest:Key to Vex Thal
 function event_say(e)
 	if(e.message:findi("hail")) then
 		e.self:Emote("'s voice invades your mind, drawing images of past present and future together into a perverse harmony. Some images you recognize as your own, but the others seem to be coming from the spirit's own [memories].");
@@ -15,17 +16,11 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 10294})) then
-		e.self:Emote(" begins to quiver and shake. The formless entity appears to grow and shrink in complete disregard to natural laws. The light in the temple around you appears to slowly dim until you are surrounded by an impenetrable cloak of shadows. Fear grips your heart as your vision slowly adapts to accommodate the low light. When you can finally make out the figure before you, you find yourself silently praying for the darkness to return.");
-		eq.spawn2(179144,0,0,e.self:GetX(),e.self:GetY(),e.self:GetZ(),0);
-		e.other:AddEXP(10000);
-		e.other:Ding();
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 10294})) then -- Summoned: Wisp Stone
+		e.self:Emote("begins to quiver and shake. The formless entity appears to grow and shrink in complete disregard to natural laws. The light in the temple around you appears to slowly dim until you are surrounded by an impenetrable cloak of shadows. Fear grips your heart as your vision slowly adapts to accommodate the low light. When you can finally make out the figure before you, you find yourself silently praying for the darkness to return.");
+		eq.spawn2(179351,0,0,e.self:GetX(),e.self:GetY(),e.self:GetZ(),0); -- The Spirit of Akelha`Ra
+		e.other:QuestReward(e.self,0,0,0,0,0,10000); --
 		eq.depop();
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------

@@ -30,7 +30,7 @@ function event_trade(e)
 		e.self:Say("So you're Barkhem's newest student are you? I may not have taken your word for it, but craftsmanship this fine could only be from a student of our Master Smith. Take this and fill it with Shadowscream steel boots. I need 6 pairs to outfit some of my hunters. When you've finished, return the box to me.");
 		e.other:QuestReward(e.self,0,0,0,0,17499); -- Boot Case
 	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 29825})) then -- Shadowscream Boot Case
-		e.self:Emote("inspects the boots for a moment and looks you square in the eyes. 'This is excellent work, " .. e.other:GetName() .. ", you do not disappoint! Would that you could outfit all of my hunters with these boots, but I must not keep your talents all to myself. Take some change for your troubles and this seal back to Barkhem - let him know that I am very impressed with his new protege.'");
+		e.self:Emote("inspects the boots for a moment and looks you square in the eyes. 'This is excellent work, " .. e.other:GetName() .. ", you do not disappoint! Wish that you could outfit all of my hunters with these boots, but I must not keep your talents all to myself. Take some change for your troubles and this seal back to Barkhem - let him know that I am very impressed with his new protege.'");
 		e.other:Faction(132,10); -- Guardians of Shar Vahl
 		e.other:QuestReward(e.self,0,0,0,0,29826,500); --Rakutah's Seal
 	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 2897})) then -- Notarized Application

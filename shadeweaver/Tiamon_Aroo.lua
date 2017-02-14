@@ -1,6 +1,8 @@
--- Claw Needle
+---- Claw Needle
 function event_say(e)
 	if(e.message:findi("hail")) then
+		e.self:Say("Greetings, Lenins. Watch where you step for the [needle clawed hoppers] are just about everywhere!");
+	elseif(e.message:findi("needle clawed hoppers")) then
 		e.self:Say("Those wretched vermin swarm to our city and trade routes in search of the refuse left by careless travelers who pass through these parts. They are just about useless and their stench brings bile to my throat. I would have set out to poison the whole lot of them if it was not for their unique [claws].");
 	elseif(e.message:findi("claws")) then
 		e.self:Say("The claws of the hoppers act as a [spirit anchor]. They are specialized in tearing into the fiber of the shadow beings that roam the thicket. I find these claws useful in binding the silk fashioned by the [shadeweavers].");
@@ -15,9 +17,9 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 30601, item2 = 30601, item3 = 30601, item4 = 30601})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 30601, item2 = 30601, item3 = 30601, item4 = 30601})) then -- 4x A Needle Thin Claw
 		e.self:Say("Well done! You have brought me plenty of claws. I have enough now to make a needle for you. May it serve you well.");
-		e.other:QuestReward(e.self,0,0,0,0,30617,750);
+		e.other:QuestReward(e.self,0,0,0,0,30617,750); -- A Claw Needle
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
