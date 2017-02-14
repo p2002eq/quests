@@ -15,14 +15,14 @@ end
 
 function event_signal(e)
     if(e.signal == 1) then
-        e.self:Say("catches on slowly, 'ahhh, roight! Good show, Tack! D'ye think 'e would go te that kinda [trouble] fer us?'");
+        e.self:Emote("catches on slowly, 'ahhh, roight! Good show, Tack! D'ye think 'e would go te that kinda [trouble] fer us?'");
     end
 end
 
 function event_trade(e)
     local item_lib = require("items");
     if(item_lib.check_turn_in(e.self, e.trade, {item1 = 19967})) then -- Underfoot Brown
-        e.self:Say("takes a wee sip and smacks his lips together, proclaiming, 'Ahhh, a finer stout has never passed my lips, ' before draining the mug in one gulp. 'Yer a saint amongst us, I say. Feel free to keep 'em coming, " .. e.other:GetName() .. "!'");
+        e.self:Emote("takes a wee sip and smacks his lips together, proclaiming, 'Ahhh, a finer stout has never passed my lips, ' before draining the mug in one gulp. 'Yer a saint amongst us, I say. Feel free to keep 'em coming, " .. e.other:GetName() .. "!'");
         e.other:Faction(168,5); -- Katta Castellum Citizens
         e.other:Faction(350,5); -- Validus Custodus
         e.other:Faction(206,5); -- Magus Conlegium

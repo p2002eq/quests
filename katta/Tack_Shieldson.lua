@@ -5,7 +5,7 @@ function event_signal(e)
     elseif(e.signal == 2) then
         e.self:Say("Yar, Rowle. So whadda ye say, friend? We stand around drinkin' water on duty all day, and that ain't no life fer a dwarf. Now we bin hearin' bout all these new ales and suchnot comin' up from Norrath. Ye think ye might be so kind as to [share a pint] and raise our spirits?");
     elseif(e.signal == 3) then
-        e.self:MoveTo(-1559.2,-234.9,-266.7);
+        e.self:MoveTo(-1559.2,-234.9,-266.7,79,true);
         e.self:DoAnim(1);
         e.self:Say("'Shhhhhh!!' He runs over and kicks Rowle in the kneecap and chuckles under his beard in your direction. Speaking under his breath to Rowle, 'Don' be such an idjit, now this lad came all the way from Norrath, why not try some of the fabled ales we'd heard our pappy's talkin' of?'");
         eq.signal(160207,1,1);
@@ -16,8 +16,8 @@ end
 
 function event_trade(e)
     local item_lib = require("items");
-    if(item_lib.check_turn_in(e.self, e.trade, {item1 = 19967})) then -- Underfoot Brown
-        e.self:Say("gingerly takes the boot from you, handling it as though it were a fine porcelain. With a look of thanks to you he slowly lifts it to his lips and suddenly tips it back to empty it in one gulp, frothing his beard in the process. 'Yar! That's the ticket! Damn fine stuff that is, just like me uncle always said. A service to the Validus Custodus have ye done, my friend... And I'd be happy to assist ye in that service again sometime. HAR!'");
+    if(item_lib.check_turn_in(e.self, e.trade, {item1 = 19188})) then -- Boot Beer
+        e.self:Emote("gingerly takes the boot from you, handling it as though it were a fine porcelain. With a look of thanks to you he slowly lifts it to his lips and suddenly tips it back to empty it in one gulp, frothing his beard in the process. 'Yar! That's the ticket! Damn fine stuff that is, just like me uncle always said. A service to the Validus Custodus have ye done, my friend... And I'd be happy to assist ye in that service again sometime. HAR!'");
         e.other:Faction(168,5); -- Katta Castellum Citizens
         e.other:Faction(350,5); -- Validus Custodus
         e.other:Faction(206,5); -- Magus Conlegium
