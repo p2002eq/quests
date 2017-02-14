@@ -19,7 +19,7 @@ end
 function event_death_complete(e)
 	eq.stop_all_timers()
 	local qglobals = eq.get_qglobals(e.self);
-	if qglobals['cursed_progress'] == 1 then
+	if tonumber(qglobals['cursed_progress']) == 1 then
 		eq.unique_spawn(162506, 0, 0 , -38, -10, -222) -- spawn Vyzh`dra the Exiled if he hasn't been killed in this cycle
 	elseif qglobals['cursed_progress'] < 3 then
 		eq.unique_spawn(162510, 0, 0 , -38, -10, -222) -- spawn Vyzh`dra the Banished if Exiled has been killed

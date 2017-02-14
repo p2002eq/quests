@@ -21,7 +21,7 @@ function event_signal(e)
 				eq.zone_emote(1, 'GLYPHED SPAWNED')
 				eq.unique_spawn(162505, 0, 0, -38, -10, -222); -- spawn glyphed
 				reset();
-			elseif qglobals['cursed_progress'] < 3 then
+			elseif tonumber(qglobals['cursed_progress']) < 3 then
 				eq.zone_emote(1, 'GLYPHED SPAWNED')
 				eq.unique_spawn(162508, 0, 0, -38, -10, -222); -- spawn runed
 				reset();

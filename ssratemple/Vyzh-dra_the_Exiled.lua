@@ -18,6 +18,6 @@ end
 
 function event_death_complete(e)
 	eq.stop_all_timers()
-	eq.set_global('cursed_progress', 2, 3, 'D7')
+	eq.set_global('cursed_progress', '2', 3, 'D7')
 	eq.unique_spawn(162507, 0, 0 , -38, -10, -222) -- spawn Vyzh`dra the Cursed
 end

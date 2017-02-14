@@ -19,7 +19,7 @@ end
 function event_death_complete(e)
 	eq.stop_all_timers()
 	local qglobals = eq.get_qglobals(e.self);
-	if qglobals['cursed_progress'] == 2 then
+	if tonumber(qglobals['cursed_progress']) == 2 then
 		eq.unique_spawn(162507, 0, 0 , -38, -10, -222) -- spawn Vyzh`dra the Cursed
 	else
 	end
