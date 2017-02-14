@@ -18,6 +18,7 @@ end
 
 function event_death_complete(e)
 	eq.stop_all_timers()
+	e.self:Emote("'s corpse rips in two, revealing a greater terror!")
 	local qglobals = eq.get_qglobals(e.self);
 	if tonumber(qglobals['cursed_progress']) == 1 then
 		eq.unique_spawn(162506, 0, 0 , -38, -10, -222) -- spawn Vyzh`dra the Exiled if he hasn't been killed in this cycle
