@@ -2,6 +2,7 @@
 -- the script counts up increments of 10 seconds that are spent out of combat to reach the 30-min 'unengaged' time limit
 
 function event_spawn(e)
+	eq.zone_emote(1, 'An odd smell of ozone permeates the air as a great serpent rises.')
 	total_time = 0
 	eq.set_timer('incr', 10 * 1000)
 end
