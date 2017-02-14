@@ -9,7 +9,7 @@ function event_say(e)
     elseif(e.message:findi("coterie infiltrators")) then
         e.self:Say("They are undead Illusionists capable of disguising themselves as mortals. The signs of an infiltrator are often difficult to spot but should you identify an infiltrator within the city and slay it, bring me the creatures fangs, a Gem of Condensed Flame and your Reflective Claymore and I shall bestow upon you a greater reward.");
     elseif(e.message:findi("assistance")) then
-        e.self:Say("Ah... Im glad that you have asked. There is a special matter that may benefit from your skills as an adventurer. I would love to explain the matter in full detail, but Im afraid that I am not your best source of information at this juncture. The matter was delegated to Kellari Autumnfall. Seek her out and see if she requires your assistance. She is looking into a matter of grave importance. Tell her that I [sent] you, should she ask. Be well and good luck with it.");
+        e.self:Say("Ah... Im glad that you have asked. There is a special matter that may benefit from your skills as an adventurer. I would love to explain the matter in full detail, but Im afraid that I am not your best source of information at this juncture. The matter was delegated to Kellari Autumnfall. Seek her out and see if she requires your assistance. She is looking into a matter of grave importance. Tell her that I sent you, should she ask. Be well and good luck with it.");
     end
 end
 
