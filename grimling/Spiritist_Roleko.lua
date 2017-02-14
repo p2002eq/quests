@@ -8,7 +8,7 @@ end
 function event_trade(e)
     local qglobals = eq.get_qglobals(e.self,e.other);
     local item_lib = require("items");
-    if(item_lib.check_turn_in(e.self, e.trade, {item1 = 31839, item2 = 31841}) and tonumber(qglobals.Rakshasa) ~= 1) then -- Resealed Runed Iron Bound Chest & Roshawnas Report of Occurrences
+    if(item_lib.check_turn_in(e.self, e.trade, {item1 = 31839, item2 = 31841})) then -- Resealed Runed Iron Bound Chest & Roshawnas Report of Occurrences
         e.self:Say("It was wise of Roshawna to send you to me instead of risk bringing something so tainted by the dark spirits within the walls of Shar Vahl.");
         e.self:Say("I shall begin the ritual immediately.");
         e.self:Say("What is that?! Look! There is a grimling heading this way followed by what appear to be grimling undead. Defend me while I perform the ritual.");
@@ -22,7 +22,7 @@ function event_trade(e)
         e.self:Say("I am grateful for your assistance. I will be able to complete the rest of the ritual without danger now that the spirits in the skulls have been calmed. Please take this report of occurrences to Scribe Cholsa in Shar Vahl.");
         e.other:Faction(68,10); -- Dar Khura
         e.other:QuestReward(e.self,0,0,0,0,31849,10000); -- Rolekos Report of Occurrences
-    elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 10777, item2 = 10778, item3 = 10779, item4 = 10915})) then -- Amulet of Golden Rays, Black Flame Charcoal, Thought Leech Brain & Rakshasa Materialization Ritual
+    elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 10777, item2 = 10778, item3 = 10779, item4 = 10915}) and tonumber(qglobals.Rakshasa) ~= 1) then -- Amulet of Golden Rays, Black Flame Charcoal, Thought Leech Brain & Rakshasa Materialization Ritual
         e.self:Emote("prepares the ritual components according to the ritual instructions.");
         e.self:Say("I will need to maintain my concentration to keep the Rakshasa from escaping back into the spirit realm. If you kill him while he is materialized he will be slain and his body will remain material. Bring me the head of the Rakshasa when he is slain.");
         e.other:Faction(68,10); -- Dar Khura
