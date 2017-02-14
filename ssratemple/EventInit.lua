@@ -48,7 +48,7 @@ function event_say(e)
 		if(e.message:findi("hail")) then
 			e.other:Message(1, string.format('Hello %s, would you like [help] with the Cursed cycle?', e.other:GetName()))
 		elseif(e.message:findi("help")) then
-			e.other:Message("You can check the [status] of the cycle, set cycle to [Cursed] available only, set cycle to [Exiled] + Cursed available, set cycle to [Glyphed] + Exiled + Cursed available, set cycle to all [disabled], or [respawn] trigger mobs (also restarts trigger timer).")
+			e.other:Message(1, "You can check the [status] of the cycle, set cycle to [Cursed] available only, set cycle to [Exiled] + Cursed available, set cycle to [Glyphed] + Exiled + Cursed available, set cycle to all [disabled], or [respawn] trigger mobs (also restarts trigger timer).")
 		elseif(e.message:findi("status")) then
 			local qglobals = eq.get_qglobals(e.self);
 			local timer = (qglobals['cursed'] == nil and 'stopped' or 'running')
@@ -67,12 +67,16 @@ function event_say(e)
 			e.other:Message(1, 'Trigger mob timer is %s. Glyphed is %s. Exiled is %s. Cursed is %s.', timer, glyphed, exiled, cursed)
 		elseif(e.message:findi("Cursed")) then
 			eq.set_global('cursed_progress', '2', 2, 'D8')
+			e.other:Message(1, "Cursed spawn reset.")
 		elseif(e.message:findi("Exiled")) then
 			eq.set_global('cursed_progress', '2', 1, 'D8')
+			e.other:Message(1, "Exiled spawn reset.")
 		elseif(e.message:findi("Glyphed")) then
 			eq.delete_global('cursed_progress')
+			e.other:Message(1, "Full cycle reset.")
 		elseif(e.message:findi("disabled")) then
 			eq.set_global('cursed_progress', '2', 3, 'D8')
+			e.other:Message(1, "Full cycle disabled.")
 		elseif(e.message:findi("respawn")) then
 			reset()
 			local trigger_spawns = { 352960, 368763, 352956, 353147, 353037, 353035, 352958, 352957, 352955, 352952 }
@@ -82,6 +86,7 @@ function event_say(e)
 				spawn:Repop();
 				spawn:Reset();
 			end
+			e.other:Message(1, "Cycle triggers respawned and reset.")
 		end
 	end
 end
