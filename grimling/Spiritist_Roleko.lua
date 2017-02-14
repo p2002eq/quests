@@ -8,7 +8,7 @@ end
 function event_trade(e)
     local qglobals = eq.get_qglobals(e.self,e.other);
     local item_lib = require("items");
-    if(item_lib.check_turn_in(e.self, e.trade, {item1 = 31839, item2 = 31841}) and tonumber(qglobals.Rakshasa) < 1) then -- Resealed Runed Iron Bound Chest & Roshawnas Report of Occurrences
+    if(item_lib.check_turn_in(e.self, e.trade, {item1 = 31839, item2 = 31841}) and tonumber(qglobals.Rakshasa) ~= 1) then -- Resealed Runed Iron Bound Chest & Roshawnas Report of Occurrences
         e.self:Say("It was wise of Roshawna to send you to me instead of risk bringing something so tainted by the dark spirits within the walls of Shar Vahl.");
         e.self:Say("I shall begin the ritual immediately.");
         e.self:Say("What is that?! Look! There is a grimling heading this way followed by what appear to be grimling undead. Defend me while I perform the ritual.");
