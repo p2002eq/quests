@@ -5,7 +5,7 @@ function event_signal(e)
     elseif(e.signal == 2) then
         e.self:Say("Yar, Rowle. So whadda ye say, friend? We stand around drinkin' water on duty all day, and that ain't no life fer a dwarf. Now we bin hearin' bout all these new ales and suchnot comin' up from Norrath. Ye think ye might be so kind as to [share a pint] and raise our spirits?");
     elseif(e.signal == 3) then
-        e.self:MoveTo(-1559.2,-234.9,-266.7,79,true);
+        e.self:MoveTo(-1558.10,-228.92,-268.12,126.6,true);
         e.self:DoAnim(1);
         e.self:Say("'Shhhhhh!!' He runs over and kicks Rowle in the kneecap and chuckles under his beard in your direction. Speaking under his breath to Rowle, 'Don' be such an idjit, now this lad came all the way from Norrath, why not try some of the fabled ales we'd heard our pappy's talkin' of?'");
         eq.signal(160207,1,1);
