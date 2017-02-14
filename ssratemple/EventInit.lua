@@ -84,7 +84,6 @@ function event_say(e)
 				local spawn = eq.get_entity_list():GetSpawnByID(spawnid);
 				spawn:Enable();
 				spawn:Repop();
-				spawn:Reset();
 			end
 			e.other:Message(1, "Cycle triggers respawned and reset.")
 		end
