@@ -33,6 +33,7 @@ function reset()
 end
 
 function event_timer(e)
+	eq.stop_timer(e.timer)
 	if e.timer == 'glyphed' then
 		eq.unique_spawn(162505, 0, 0, -38, -10, -222); -- spawn glyphed
 		reset();
