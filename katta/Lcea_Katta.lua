@@ -9,7 +9,7 @@ end
 function event_trade(e)
 	local item_lib=require("items");
 	
-	if eq.get_qglobals()["EarringVeracity3"] == 1 and item_lib.check_turn_in(e.self, e.trade, { item1 = 7000 }) then -- if player completed Runed Earring of Veracity... and Lcea's Jewel Box
+	if eq.get_qglobals()["EarringVeracity3"] ~= nil and item_lib.check_turn_in(e.self, e.trade, { item1 = 7000 }) then -- if player completed Runed Earring of Veracity... and Lcea's Jewel Box
 		e.self:Say("Amazing! I had no doubt in your loyalty to Katta but I underestimated your ability to actually acomplish getting the Arx Key. Now that you have this key you must know what I ask of you next. Seru must be defeated, if there will ever be peace in Katta and truth spread among the people of  Sanctus Seru. Destroy this vile betrayer, bring me his head, and your Signet Earring. Go now before they have time to retaliate your previous attacks!");
 		e.other:SummonItem(29860); -- 29860  Signet Earring of Veracity
 		e.other:Faction(52,100); -- concillium universus
@@ -29,5 +29,5 @@ function event_trade(e)
 	item_lib.return_items(e.self, e.other, e.trade); -- return unused items
 end
 
- -- End of File, Zone:katta  NPC:160375 -- Lcea_Katta
+ -- End of File, Zone:katta -- Lcea_Katta
 

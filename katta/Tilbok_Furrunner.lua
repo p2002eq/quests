@@ -1,4 +1,3 @@
- -- BeginFile: katta\Tilbok_Furrunner.pl
  -- Quests for Katta Castellum - Tilbok Furrunner: Runed Earring of Veracity, Signet Earring of Veracity and Traitor to the Validus Custodus
 
 function event_say(e)
