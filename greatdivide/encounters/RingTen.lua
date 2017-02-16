@@ -296,7 +296,7 @@ function GiantSpawn()
 		first = false;
 	end
 	
-	if boss_count >= 4 then
+	if boss_count == 4 then
 		if stage < 3 then
 			spawn_time = 360000; -- longer pause before new stage
 			boss_count = 0;
