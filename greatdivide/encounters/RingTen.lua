@@ -617,28 +617,6 @@ function AllSignal(e)
 		GroupSpawn(group_num);
 	elseif e.self:GetNPCTypeID() == 118351 and e.signal > 100 and e.signal <= 105 then
 		stage = e.signal - 100;
-	-- gm control
-	elseif e.self:GetNPCTypeID() == 118351 and e.signal > 500 then
-		eq.stop_all_timers();
-		eq.set_timer("TMHB", 100);
-		eq.set_timer("RingTenHB", 5000);
-		eq.zone_emote(1, "Urged on by a higher power, the giants regroup and change their tactics.");
-		
-		if e.signal == 1000 then
-			stage = 1;
-			boss_count = 0;
-		elseif e.signal == 2000 then
-			stage = 2;
-			boss_count = 0;
-		elseif e.signal == 3000 then
-			stage = 3;
-			boss_count = 0;
-		elseif e.signal == 4000 then
-			stage = 3;
-			boss_count = 4;
-		end
-		miss_count = 0;
-		GiantSpawn();
 	end
 	
 	issue_move(e.self:GetID(), e.self:GetNPCTypeID());
@@ -670,17 +648,35 @@ end
 function GMControl(e)
 	if e.self:Admin() > 100 then
 		if(e.message:findi("help")) then
-			e.self:Message(1, 'This is a simple control script - at any point after giants start spawning, say [stage1] to reset event to start of first set of waves, [stage2] to reset event to start of second set of waves, [stage3] to reset event to start of third set of waves, or [Narandi] to skip directly to Narandi.')
-		elseif(e.message:findi("stage1")) then
-			eq.signal(118351, 1000);
-		elseif(e.message:findi("stage2")) then
-			eq.signal(118351, 2000);
-		elseif(e.message:findi("stage3")) then
-			eq.signal(118351, 3000);
-		elseif(e.message:findi("narandi")) then
-			eq.signal(118351, 4000);
+			e.self:Message(1, 'This is a simple control script - at any point after giants start spawning, say [stage1] to reset event to start of first set of waves, [stage2] to reset event to start of second set of waves, [stage3] to reset event to start of third set of waves, or [Narandi] to start Narandi timer directly.')
+		elseif e.message:findi("stage") then
+			if stage > 0 then
+				local stage_num = tonumber(string.sub(e.message, string.find(e.message, '%d+')));
+				stage_set(stage_num);
+				e.self:Message(1, 'Stage set.')
+			else
+				e.self:Message(1, 'Please wait to set stage.')
+			end
 		end
 	end
+end
+
+function stage_set(target)
+	eq.stop_all_timers();
+	eq.set_timer("TMHB", 100);
+	eq.set_timer("RingTenHB", 5000);
+	eq.zone_emote(1, "Urged on by a higher power, the giants regroup and change their tactics.");
+	
+	if target < 4 then
+		stage = target;
+		boss_count = 0;
+	elseif target == 4 then
+		stage = 3;
+		boss_count = 4;
+	end
+	
+	miss_count = 0;
+	GiantSpawn();
 end
 
 function AllWaypoint(e)
