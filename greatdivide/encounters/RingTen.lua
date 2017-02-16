@@ -58,8 +58,8 @@ function event_encounter_load(e)
 	-- War win monitor
 	eq.register_npc_event("RingTen", Event.death_complete, 118345, FinalStage);
 	
-	-- GM control of event
-	eq.register_player_event("RingTen", Event.say, GMControl);
+	-- GM control of event (DISABLED)
+	-- eq.register_player_event("RingTen", Event.say, GMControl);
 	
 	-- reset all variables
 	stage = -1;

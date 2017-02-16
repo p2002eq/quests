@@ -31,8 +31,8 @@ function event_encounter_load(e)
 	eq.register_npc_event("Vulak_Event", Event.death_complete, 124321, BossHeal);
 	eq.register_npc_event("Vulak_Event", Event.death_complete, 124322, BossHeal);
 	
-	-- GM control of event
-	eq.register_player_event("Vulak_Event", Event.say, GMControl);
+	-- GM control of event (DISABLED)
+	-- eq.register_player_event("Vulak_Event", Event.say, GMControl);
 end
 
 function event_timer(e)
