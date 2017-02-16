@@ -8,9 +8,9 @@ function event_say(e)
 		if(fac <= 3) then
 			e.self:Say("I will try not to repeat what Ragnar has already told you.' After taking a deep breath, clearly taxed by the memories, he continues, 'My research had brought me to Katta Castellum. After a long day's work I took a seat at the end of the bar in a local pub. Trying to get my mind off of potions for a while, I overheard a story about a crazy man roaming Tenebrous Mountains. Everyone seemed to know him as Hoober the Delirious. Seems he had become something of a local legend for his very odd habit of asking people to gather some rather obscure [ingredients] in exchange for a very rare reward.");
 		else
-			e.self:Say("You need to prove your dedication to our cause before i can discuss such matters with you.");
+			e.self:Say("You need to prove your dedication to our cause before I can discuss such matters with you.");
 		end
-	elseif(e.message:findi("what ingredients")) and (fac <= 3) then
+	elseif(e.message:findi("ingredients")) and (fac <= 3) then
 		e.self:Say("The promise of true love and everlasting happiness can make even the most scarce ingredients seem trivial. People laughed him off as a lunatic and after finally meeting Hoober I could easily tell why, but his story piqued my interest given my current... project. I asked the fellows to repeat the ingredients this man requested, but they were drinking rather heavily and had paid little attention in the first place. They were very vague, but what they could remember sounded very similar to a partial recipe I had found a record of earlier that very day. Against my better judgement I sought out this wanderer and we had a most interesting [conversation].");
 	elseif(e.message:findi("conversation")) and (fac <= 3) then
 		e.self:Emote("gently closes his eyes and paints a picture in his mind");
@@ -36,7 +36,7 @@ function event_trade(e)
 		e.self:Say("let's see, some lucerne, the leaves I had needed and... What is this? A note form Ragnar...' He mumbles a bit to himself, 'I see, you are looking for this boy and Ragnar thinks I can help. Good lad that Ragnar. I am not much for story telling these days, but I suppose you [want to know about Hoober].");
 	end
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 5991, item2 = 5992, item3 = 5993})) then -- Essence of Sonnet, Drop of Moonlight & Luclin Clover
-		e.self:Say("Thanks for gathering the supplies.  Here is your potion!");
+		e.self:Emote("looks through your ingredients, inspecting them closely, 'Well done, that was fast. I must say that I am surprised that you managed to get them at all. I have my part prepared so... here goes.' He places the ingredients in a medicine bag, brow furrowed in concentration and slowly extracts a foul gray liquid into a vial. 'Yes, that's the stuff. Now take it please and go,' he says with a shudder and turns to leave. ");
 		e.other:QuestReward(e.self,0,0,0,0,5994); -- Elixir of Obsession
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
