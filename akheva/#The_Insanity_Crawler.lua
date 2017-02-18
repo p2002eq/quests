@@ -7,11 +7,15 @@ end
 
 function event_slay(e)
 	if e.other:IsClient() or e.other:IsPet() then -- not sure why this is necessary, but otherwise will occasionally spawn adds when an event mob dies
-		eq.spawn2(179346,0,0,e.other:GetX() - 10,e.other:GetY(),e.other:GetZ(),e.other:GetHeading());
-		eq.spawn2(179346,0,0,e.other:GetX() + 10,e.other:GetY(),e.other:GetZ(),e.other:GetHeading());
-		eq.spawn2(179346,0,0,e.other:GetX(),e.other:GetY() - 10,e.other:GetZ(),e.other:GetHeading());
-		eq.spawn2(179346,0,0,e.other:GetX(),e.other:GetY() + 10,e.other:GetZ(),e.other:GetHeading());
-		eq.spawn2(179346,0,0,e.other:GetX(),e.other:GetY(),e.other:GetZ(),e.other:GetHeading());
+		local x = e.other:GetX();
+		local y = e.other:GetY();
+		local z = e.other:GetZ();
+		local h = e.other:GetHeading();
+		eq.spawn2(179346,0,0, x, y, z, h);
+		eq.spawn2(179346,0,0, x - 10, y, z, h);
+		eq.spawn2(179346,0,0, x + 10, y, z, h);
+		eq.spawn2(179346,0,0, x, y - 10, z, h);
+		eq.spawn2(179346,0,0, x, y + 10, z, h);
 	end
 end
 
