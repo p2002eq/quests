@@ -18,7 +18,6 @@ function event_trade(e)
 	local item_lib = require("items");
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 9963})) then -- Essence Emerald
 		e.self:Emote("laughs quietly as the energy of the gem is absorbed into her being. She begins to chant in what you presume to be Akhevan. She suddenly cries out in pain and her image begins to flicker. She looks at " .. e.other:GetName() .. " directly in the eyes and says, 'Vyanemis Tuis, use my gift wisely.' She disappears into the black marble leaving only a dark scepter frame lying on the floor. " .. e.other:GetName() .. " picks it up.");
-		e.other:SummonItem(17323);
 		e.other:QuestReward(e.self,0,0,0,0,17323,20000); -- Shadowed Scepter Frame
 		eq.depop();
 	end
