@@ -1,21 +1,23 @@
--- #Theodore_Exantham in south karana
+---- Quest:Interrogator's Badge (Badge #2)
+
 function event_spawn(e)
-	eq.signal(14050,1,5000);
+	eq.signal(14050,1,5000); -- an_interrogator
 end
 
 function event_signal(e)
 	if(e.signal == 1) then
+		e.self:Say("I think you've been breathing the air in the Northern Plains of Karana for too long. I will most certainly not tell you anything about their whereabouts, much less lead you right to them. You are not right in the head.");
 		eq.move_to(-2750,-5465,00,192,true);
-		eq.signal(14050,2,5000);
+		eq.signal(14050,2,5000); -- an_interrogator
 	elseif(e.signal == 2) then
 		e.self:Say("What a joke! I'm not telling you a thing. You don't look like you could scare a moss snake. I'm not afraid of you!");
-		eq.signal(14050,3,5000);
+		eq.signal(14050,3,5000); -- an_interrogator
 	elseif(e.signal == 3) then
 		e.self:Emote("reels back, his eyes wide with shock. 'Ow,' he says nervously.");
-		eq.signal(14050,4,5000);
+		eq.signal(14050,4,5000); -- an_interrogator
 	elseif(e.signal == 4) then
 		e.self:Emote("winces and says, 'Oh. Yeah right. Like I'm afraid of that moron or something.' Theodore glances nervously over at you");
-		eq.signal(14050,5,5000);
+		eq.signal(14050,5,5000); -- an_interrogator
 	elseif(e.signal == 5) then
 		e.self:Emote("gulps nervously");
 	elseif(e.signal == 6) then
@@ -24,7 +26,7 @@ function event_signal(e)
 		-- eq.signal(14050,7,5000);  this call for an interrogator to continue its waypoint.   the eq.resume() or e.self:ResumeWandering() currently isn't working as intended.
 	elseif(e.signal == 7) then
 		e.self:Say("There... They are hiding out just down the hill here... Now release me!");
-		eq.signal(14050,8,5000);
+		eq.signal(14050,8,5000); -- an_interrogator
 	end
 end
 
@@ -39,7 +41,7 @@ function event_timer(e)
 		e.self:Say("Sweet father of rot, alright already! Stop hitting me and tell me what you want me to do!");
 		eq.stop_timer("defeat");
 		e.self:WipeHateList();
-		eq.signal(14050,6,5000); 
+		eq.signal(14050,6,5000);  -- an_interrogator
 	end
 end
 
@@ -50,9 +52,8 @@ function event_trade(e)
 
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 2344}) and (xloc == -3098 and yloc == -5872)) then -- confession document
 		e.self:Emote("makes a big X at the bottom of the document and hands it back saying, 'A bunch of worthless thugs is all you folks are!'");
-		e.other:SummonItem(2395); -- Theodore's Confession
-		e.other:Ding();
-		eq.signal(14050,9,5000); 
+		e.other:QuestReward(e.self,0,0,0,0,2395,1000); -- Theodore's Confession
+		eq.signal(14050,9,5000);  -- an_interrogator
 		eq.depop();
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
