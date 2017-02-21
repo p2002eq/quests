@@ -1,4 +1,14 @@
 ---- Quest:Investigators Badge (Badge #1)
+-- QGlobal Helpers for Badge Quest #1 (qeynos_badge1)
+-- 1 = Received Investigator's Briefing
+-- 2 = First Suspect
+-- 3 = Rileys Confession
+-- 4 = Summoned Guard for Riley
+-- 5 = Willies Confession
+-- 6 = Summoned Guard for Willie
+-- 7 = Have the Investigators Badge
+-- Failure of the an_investigator section will reset you back to QGlobal 1 so you can restart the escort portion
+
 function event_spawn(e)
 	eq.set_timer("depop",1800000);
 end

@@ -1,4 +1,14 @@
 ---- Quest:Investigators Badge (Badge #1)
+-- QGlobal Helpers for Badge Quest #1 (qeynos_badge1)
+-- 1 = Received Investigator's Briefing
+-- 2 = First Suspect
+-- 3 = Rileys Confession
+-- 4 = Summoned Guard for Riley
+-- 5 = Willies Confession
+-- 6 = Summoned Guard for Willie
+-- 7 = Have the Investigators Badge
+-- Failure of the an_investigator section will reset you back to QGlobal 1 so you can restart the escort portion
+
 function event_spawn(e)
 	eq.set_timer("depop",1800000);
 end
@@ -15,7 +25,7 @@ function event_trade(e)
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 2344})) then  -- Confession Document
 		e.self:Say("Here's your confession.  I hope you choke on it!");
 		e.other:SummonItem(2394); -- Willies Confession
-		eq.set_global("invest_badge","third_suspect",3,"F");
+		eq.set_global("qeynos_badge1","5",5,"F"); -- Badge Globals
 		eq.unique_spawn(1197,0,0,55,-341,-16,0); -- #Donally_Stultz
 		eq.set_timer("depop",300000);  -- reset time for guard to escort him before depopping
 	end
