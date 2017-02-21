@@ -1,4 +1,4 @@
----- Quest:Investigators Badge (Badge #1) & Interrogator's Badge (Badge #2)
+---- Quest:Investigators Badge (Badge #1)
 -- QGlobal Helpers for Badge Quest #1 (qeynos_badge1)
 -- 1 = Received Investigator's Briefing
 -- 2 = First Suspect
@@ -8,6 +8,16 @@
 -- 6 = Summoned Guard for Willie
 -- 7 = Have the Investigators Badge
 -- Failure of the an_investigator section will reset you back to QGlobal 1 so you can restart the escort portion
+
+---- Quest:Interrogator's Badge (Badge #2)
+-- QGlobal Helpers for Badge Quest #2 (qeynos_badge2)
+-- 1 = Started Badge Quest #2 (Completed Quest #1 and turned in badge)
+-- 2 = Handed an_interrogator the Briefing
+-- 3 = Defeated Theodore
+-- 4 = Spawned Morley and Markus
+-- 5 = Theodores Confession
+-- 6 = have the Interrogators Badge
+-- Death of the an_investigator section will reset you back to QGlobal 1 so you can restart the escort portion
 
 function event_say(e)
 	local qglobals = eq.get_qglobals(e.self,e.other);
@@ -43,9 +53,11 @@ function event_say(e)
 		e.self:Say("There is a guard by the name of Robbie Shilster that patrols the Northern Plains of Karana. He is allied with our enemies and completely corrupt. He is flagrant in his trafficking of contraband goods. His orders are to guard the great wooden bridge to stave off the insect swarms. But our investigators report that he simply stands to the side and watches as the swarm rolls through. You are to execute this man for his treason and bring me his helm. Then, we will talk.");
 	elseif(e.message:findi("advance further") and tonumber(qglobals.qeynos_badge1) == 1) then
 		e.self:Say("At this point, I am mainly in need of loyal and trustworthy investigators. I must first gather information on who these people are and exactly how far their influences stretch. However, once I begin to implement the next phase of this operation, you may be able to assist us once again if you prove to be talented enough. For now, simply continue to observe and report.");
+	elseif(e.message:findi("advance further") and tonumber(qglobals.qeynos_badge1) == 7) then
+		e.self:Say("Interested in advancing further are you? Excellent, we are ready to begin the next phase of our operation. We have gathered a great deal of information as a result of the latest series of arrests. What we require most now are [interrogators] that are able to pry the information we require out those less then willing to talk.");
 	elseif(e.message:findi("advance further") and e.other:HasItem(2386) == true) then
 		e.self:Say("Interested in advancing further are you? Excellent, we are ready to begin the next phase of our operation. We have gathered a great deal of information as a result of the latest series of arrests. We do require [interrogators] that are able to pry the information we require out those less than willing to talk. Also, Velarte Selire at the Temple of Life is looking for help with his [research]. You may wish to talk with him.");
-	elseif(e.message:findi("interrogators") and e.other:HasItem(2386) == true) then
+	elseif(e.message:findi("interrogators") and tonumber(qglobals.qeynos_badge1) == 7) then
 		e.self:Say("If you are interested in joining the ranks of our interrogators and helping Qeynos further as we bring these fiends and murderers to justice, turn in your investigator's Badge and I will give you the briefing document you need. I already know I can trust my investigators, so there is no need to further test you.");
 	end
 end

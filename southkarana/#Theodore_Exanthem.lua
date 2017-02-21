@@ -1,4 +1,12 @@
 ---- Quest:Interrogator's Badge (Badge #2)
+-- QGlobal Helpers for Badge Quest #2 (qeynos_badge2)
+-- 1 = Started Badge Quest #2 (Completed Quest #1 and turned in badge)
+-- 2 = Handed an_interrogator the Briefing
+-- 3 = Defeated Theodore
+-- 4 = Spawned Morley and Markus
+-- 5 = Theodores Confession
+-- 6 = have the Interrogators Badge
+-- Death of the an_investigator section will reset you back to QGlobal 1 so you can restart the escort portion
 
 function event_spawn(e)
 	eq.signal(14050,1,5000); -- an_interrogator
@@ -42,17 +50,17 @@ function event_timer(e)
 		eq.stop_timer("defeat");
 		e.self:WipeHateList();
 		eq.signal(14050,6,5000);  -- an_interrogator
+        eq.set_global("qeynos_badge2","3",5,"F"); -- Badge Globals
 	end
 end
 
 function event_trade(e)
-	local xloc = e.self:GetX();
-	local yloc = e.self:GetY();
+    local qglobals = eq.get_qglobals(e.self,e.other);
 	local item_lib = require("items");
-
-	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 2344}) and (xloc == -3098 and yloc == -5872)) then -- confession document
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 2344}) and tonumber(qglobals.qeynos_badge2) == 4) then -- confession document
 		e.self:Emote("makes a big X at the bottom of the document and hands it back saying, 'A bunch of worthless thugs is all you folks are!'");
 		e.other:QuestReward(e.self,0,0,0,0,2395,1000); -- Theodore's Confession
+        eq.set_global("qeynos_badge2","5",5,"F"); -- Badge Globals
 		eq.signal(14050,9,5000);  -- an_interrogator
 		eq.depop();
 	end

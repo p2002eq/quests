@@ -1,4 +1,12 @@
 ---- Quest:Interrogator's Badge (Badge #2)
+-- QGlobal Helpers for Badge Quest #2 (qeynos_badge2)
+-- 1 = Started Badge Quest #2 (Completed Quest #1 and turned in badge)
+-- 2 = Handed an_interrogator the Briefing
+-- 3 = Defeated Theodore
+-- 4 = Spawned Morley and Markus
+-- 5 = Theodores Confession
+-- 6 = have the Interrogators Badge
+-- Death of the an_investigator section will reset you back to QGlobal 1 so you can restart the escort portion
 
 local brief; -- Dialog delay
 local name; -- Name of quest starter
@@ -10,9 +18,11 @@ function event_trade(e)
 		eq.set_timer("brief",10000);
 		name = e.other:GetName();
 		brief = 0;
+		eq.set_global("qeynos_badge2","2",5,"F"); -- Badge Globals
 		e.other:QuestReward(e.self,0,0,0,0,2344,1000); -- Confession Document
 	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 2390,item2 = 2391,item3 = 2395})) then -- Head of Markus Cachexia, Head of Morley Murrain, Theodore's Confession
 		e.self:Say("Excellent work, you did just fine today. You'll make a fine interrogator. Talk to Vegalys about advancing further.");
+		eq.set_global("qeynos_badge2","6",5,"F"); -- Badge Globals
 		e.other:QuestReward(e.self,0,0,0,0,2387,5000); -- Interrogators Badge
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
@@ -57,6 +67,7 @@ function event_waypoint_arrive(e)
 		eq.spawn2(14140,0,0,-3333,-6055,0,0); -- skeletal_servant
 		eq.spawn2(14148,0,0,-3306,-6056,0,66); -- Ghoul
 		eq.signal(14146,7,2000); -- #Theodore_Exanthem
+		eq.set_global("qeynos_badge2","4",5,"F"); -- Badge Globals
 	end
 end
 
@@ -87,4 +98,8 @@ function event_signal(e)
 		e.self:Say(string.format("You are on your own for now, %s. You know what to do -- return to me when the deed is done.",name));
 		eq.depop_with_timer();
 	end
+end
+
+function event_death_complete(e)
+	eq.set_global("qeynos_badge2","1",5,"F"); -- Badge Globals
 end
