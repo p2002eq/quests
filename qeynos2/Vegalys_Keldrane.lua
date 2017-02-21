@@ -1,6 +1,4 @@
--- BeginFile qeynos2\Vegalys_Keldrane.lua (2051)
--- Quest file for North Qeynos - Vegalys Keldrane: Investigators Badge (Badge #1)
-
+---- Quest:Investigators Badge (Badge #1) & Interrogator's Badge (Badge #2)
 function event_say(e)
 	if(e.message:findi("hail")) then
 		e.self:Say("Greetings to you, citizen. By order of the Council of Qeynos I have been given the duty of apprehending the individuals [responsible] for unleashing this terrible plague upon the people and the lands of Antonius Bayle. The more I look into this matter, the more I come to find that this will be no easy task.");
@@ -46,22 +44,16 @@ function event_trade(e)
 
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 2173})) then -- Cracked Corrupt Guard Helm
 		e.self:Say("Thank you for bringing this person to justice. Please read this manual very, VERY carefully. Commit it to memory. We do everything strictly by the book. We are a people of law and order and I simply won't tolerate a breach of protocol. Investigators are expected to accurately report findings, are authorized to issue warrants and to notarize official documents for all lands under the jurisdiction of Antonius Bayle and the council. I sincerely hope you can earn your Investigator's Badge.");
-		e.other:SummonItem(18289); -- Investigator's Briefing
-		e.other:Ding();
-		e.other:Faction(9,10,0); -- Antonius Bayle
-		e.other:Faction(135,10,0); -- Guards of Qeynos
-		e.other:Faction(273,-10,0); -- Ring of Scale
-		e.other:Faction(164,-10,0); -- Kane Bayle
-		e.other:Faction(217,10,0); -- Merchants of Qeynos
-		e.other:AddEXP(2000);
+		e.other:Faction(9,1); -- Antonius Bayle
+		e.other:Faction(135,1); -- Guards of Qeynos
+		e.other:Faction(273,-1); -- Ring of Scale
+		e.other:Faction(164,-1); -- Kane Bayle
+		e.other:Faction(217,1); -- Merchants of Qeynos
+		e.other:QuestReward(e.self,0,0,0,0,18289,2000); -- Investigator's Briefing
 	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 2386})) then -- Investigator's Badge
 		e.self:Say("Very well, here is the briefing document. Please read it very carefully. I wish you luck friend, this mission could prove to be dangerous.");
-		e.other:SummonItem(18292); -- Interrogator's Briefing
-		e.other:Ding();
-		e.other:AddEXP(2000);
+		e.other:QuestReward(e.self,0,0,0,0,18292,2000); -- Interrogator's Briefing
 	end
 	
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
--- EndFile qeynos2\Vegalys_Keldrane.lua (2051)
