@@ -2,7 +2,6 @@
 -- the script counts up increments of 10 seconds that are spent out of combat to reach the 20-min 'unengaged' time limit
 
 function event_spawn(e)
-	e.self:Shout("I cannot die! I am the only true god!")
 	total_time = 0
 	eq.set_timer('incr', 10 * 1000)
 end
@@ -19,7 +18,13 @@ end
 
 function event_slay(e)
 	if e.other:IsClient() then
-		e.self:Say("Tell your gods that I will be coming for them next!")
+		e.self:Say('Tell your gods that I will be coming for them next!')
+	end
+end
+
+function event_combat(e)
+	if e.joined then
+		e.self:Shout("I cannot die! I am the only true god!")
 	end
 end
 
