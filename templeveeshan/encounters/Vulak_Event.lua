@@ -15,7 +15,7 @@ function event_encounter_load(e)
 	eq.set_timer("start", 60000); -- timer to start wave 1
 	
 	-- triggers for carrion drake spawns and splitters
-	eq.register_player_event("Vulak_Event", Event.death_complete, CarrionCheck);
+	eq.register_player_event("Vulak_Event", Event.death, CarrionCheck);
 	eq.register_npc_event("Vulak_Event", Event.death_complete, -1, SplitterCheck);
 	
 	-- triggers on spawn of Vulak
