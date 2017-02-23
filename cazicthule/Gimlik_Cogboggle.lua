@@ -1,11 +1,11 @@
-local encount1 = false;          -- have to keep track incase he hits same waypoint again
-local encount2 = false;
-local encount3 = false;
-local encount4 = false;
-local event = false;
+-- Gimlik Cogboggle for CT 'gnome walk'
 
 function event_spawn(e)
-    event = false;
+	encount1 = false;          -- have to keep track incase he hits same waypoint again
+	encount2 = false;
+	encount3 = false;
+	encount4 = false;
+	event = false;
 end
 
 function event_waypoint_arrive(e)
