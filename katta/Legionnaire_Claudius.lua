@@ -22,32 +22,32 @@ function event_trade(e)
 		
 		e.self:SetAppearance(0);
 		e.self:CastToNPC():AssignWaypoints(30)
-		eq.set_timer('prox', 10 * 1000)
+		-- eq.set_timer('prox', 10 * 1000)
     end
     item_lib.return_items(e.self, e.other, e.trade)
 end
 
-function event_timer(e)
-	if e.timer == 'prox' then
-		player_check(e.self:CastToNPC())
-	end
-end
+-- function event_timer(e)
+	-- if e.timer == 'prox' then
+		-- player_check(e.self:CastToNPC())
+	-- end
+-- end
 
-function player_check(npc)
-	-- checks for players
-	local player_list = eq.get_entity_list():GetClientList();
-	local br = false;
-	if(player_list ~= nil) then
-		for player in player_list.entries do
-			if player:CalculateDistance(npc:GetX(), npc:GetY(), npc:GetZ()) <= 50 and not player:GetFeigned() then
-				npc:StopWandering()
-				br = true
-				break
-			end
-		end
-	end
+-- function player_check(npc)
+	-- -- checks for players
+	-- local player_list = eq.get_entity_list():GetClientList();
+	-- local br = false;
+	-- if(player_list ~= nil) then
+		-- for player in player_list.entries do
+			-- if player:CalculateDistance(npc:GetX(), npc:GetY(), npc:GetZ()) <= 50 and not player:GetFeigned() then
+				-- npc:StopWandering()
+				-- br = true
+				-- break
+			-- end
+		-- end
+	-- end
 	
-	if not br then
-		npc:ResumeWandering()
-	end
-end
+	-- if not br then
+		-- npc:ResumeWandering()
+	-- end
+-- end
