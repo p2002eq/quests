@@ -11,14 +11,14 @@ function event_say(e)
 		e.self:Say("You must go see Lcea. She was Tsaph Katta's closest advisor. This matter has escalated greatly and must be placed in her hands. Ask her about the [Arx Key] she will no doubt ask in your service retrieving it. I salute your service to the city and wish you well.");
 	elseif e.message:findi("praesertum") then -- This text is from where?
 		e.self:Say("The four Praesertum can be found in the center of the city. Each has their own building, easily identified by the symbol above the main entrance. Stay clear of the Arx Seru, the central building. This is the resting place of Seru, who does not allow anyone but the Praesertum to disturb him. To venture inside is death for all that are not invited.");
-	elseif e.message:findi("who is Seru") then
+	elseif e.message:findi("Seru") then
 		e.self:Say("Seru is the genius behind the Combine Empire. A man of unfailing honor and honesty, he devised the Inquisition, to root out unclean elements in the Empire. His saddest day was when he discovered that Katta himself was a traitor. When confronted with proof of his treachery, Katta feigned his own murder, and fled to Luclin. Seru had no choice but to amass an expedition and follow after him.");
-	elseif e.message:findi("i will help") then
+	elseif e.message:findi("help") then
 		e.self:Say(string.format("Excellent. Find Claudius and give that to him- it's gibberish but he and his new friends won't know that now will they? We have been watching someone named Vahn enter the city under the guise of a trader. We know he works for Seru, but we were not sure what he was doing here, so we let him be- trouble was he kept giving us the slip passing through the tunnels. Looks now like we may have found a connection. The plan sounds complicated and I don't want to confuse you, but if you stick with me it will all go just fine. You with me so far, %s?", e.other:GetName()));
-		e.other:SummonItem(29846); -- Recording Stone
-	elseif e.message:findi("i am with you") then
+	elseif e.message:findi("with you") then
 		e.self:Say(string.format("OK, now you follow Claudius but not so closely that he can see you. Keep this stone on you, it is imbued with the power to record anything spoken within a certain distance and will be a great asset to us when this is all said and done. If Claudius does meet up with Vahn, I want you to walk right up to him and say, 'traitor to the Validus Custodus' and do it quickly- they won't give you much time. That should rattle him a bit and it will be the signal for my men to come in and take care of them. After the arrest, just give that recording stone to Condor. Best of luck to you, %s.", e.other:GetName()));
-	elseif e.message:findi("Where is claudius") then
+		e.other:SummonItem(29846); -- Recording Stone
+	elseif e.message:findi("claudius") then
 		e.self:Say("Claudius is a bit of a lazy sod anyway. If he ain't asleep in a bunk downstairs right now, you can bet your undergarments he will be soon.");
 	end
 end
@@ -56,15 +56,15 @@ function event_trade(e)
 	elseif (item_lib.check_turn_in(e.self, e.trade, { item1 = 29844 })) then -- Dossier: Case 3463827
 		e.self:Emote("reads through the dossier and then looks at you, eyebrow raised curiously, 'look at the mess you have gotten yourself in the middle of,' he says with a chuckle, while beginning to jot a note. 'Here take this and...' he stops midsentence. 'I guess I haven't even given you the chance to say whether or not you want to help. Would you like to see this through to the end?'");
 		e.other:SummonItem(29845); -- Field Orders
-		e.other:Faction(350,20); -- Validus Custodus
-		e.other:Faction(168,20); -- Katta Castellum Citizens
-		e.other:Faction(206,20); -- Magus Conlegium
-		e.other:Faction(228,-50); -- Nathyn Illuminious
-		e.other:Faction(55,-50); -- Coterie of the Eternal Night
-		e.other:Faction(284,-50); -- Seru
-		e.other:Faction(139,-50); -- Hand of Seru
-		e.other:Faction(96,-50); -- Eye of Seru
-		e.other:Faction(138,-50); -- Hand Legionnaries
+		e.other:Faction(350,2); -- Validus Custodus
+		e.other:Faction(168,1); -- Katta Castellum Citizens
+		e.other:Faction(206,1); -- Magus Conlegium
+		e.other:Faction(228,-1); -- Nathyn Illuminious
+		e.other:Faction(55,-1); -- Coterie of the Eternal Night
+		e.other:Faction(284,-1); -- Seru
+		e.other:Faction(139,-1); -- Hand of Seru
+		e.other:Faction(96,-1); -- Eye of Seru
+		e.other:Faction(138,-1); -- Hand Legionnaries
 		e.other:AddEXP(50000);
 	elseif (item_lib.check_turn_in(e.self, e.trade, { item1 = 5105 })) then -- Mask of Espionage
 		e.self:Say("I see you've spoken with Condor, and no doubt he told you I can recharge this for you. Well, it's true, but don't go around telling everyone. It's not something I like to make public, you know. Keep up the good work, though, we all appreciate it around here.");
