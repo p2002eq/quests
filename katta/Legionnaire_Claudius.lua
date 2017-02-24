@@ -20,8 +20,8 @@ function event_trade(e)
         e.other:Faction(96,-1); -- Eye of Seru
         e.other:Faction(138,-1); -- Hand Legionnaries
 		
-		e.self:SetAppearance(1);
-		eq.start(30);
+		e.self:SetAppearance(0);
+		e.self:CastToNPC():AssignWaypoints(30)
 		eq.set_timer('prox', 10 * 1000)
     end
     item_lib.return_items(e.self, e.other, e.trade)
