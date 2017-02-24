@@ -21,7 +21,6 @@ function event_trade(e)
         e.other:Faction(138,-1); -- Hand Legionnaries
 		
 		e.self:SetAppearance(0);
-		e.self:ModifyNPCStat("runspeed","1.325")
 		e.self:AssignWaypoints(30)
 		-- eq.set_timer('prox', 10 * 1000)
     end
