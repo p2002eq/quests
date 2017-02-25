@@ -57,14 +57,9 @@ function player_check(npc)
 	if(player_list ~= nil) then
 		for player in player_list.entries do
 			local dist = player:CalculateDistance(npc:GetX(), npc:GetY(), npc:GetZ())
-			if ((dist < 50) or (dist < 150 and not npc:BehindMob(player))) and not player:GetFeigned() then
-				npc:PauseWandering(10 * 1000)
-				npc:Emote('glances about suspiciously and hesitates.')
-				if player:BehindMob(npc, player:GetX(), player:GetY()) then
-					npc:Say('Behind true - ' .. player:GetName())
-				else
-					npc:Say('Behind false - ' .. player:GetName())
-				end
+			if ((dist < 50) or (dist < 150 and not player:BehindMob(npc, player:GetX(), player:GetY()) and npc:CheckLoS(player))) and not player:GetFeigned() then
+				npc:PauseWandering(5 * 1000)
+				if math.random(10) == 10 then npc:Emote('glances about suspiciously and hesitates.') end
 				br = true
 				break
 			end
