@@ -1,10 +1,13 @@
 ---- Quest:Traitor to the Validus Custodus
 
+function event_spawn(e)
+	ready = 0
+end
+
 function event_say(e)
-	ready = false
-    if(e.message:findi("hail")) then
+    if(e.message:findi("hail")) and ready == 0 then
         e.self:Say("ZZZzzzzzzzzzzz")
-	elseif e.message:findi("traitor to the Validus Custodus") and ready then
+	elseif e.message:findi("traitor to the Validus Custodus") and ready > 1 then
 		eq.unique_spawn(160494, 0, 0, -830, -214, -267, 128):AddToHateList(e.self, 1)
     end
 end
@@ -23,6 +26,7 @@ function event_trade(e)
         e.other:Faction(96,-1); -- Eye of Seru
         e.other:Faction(138,-1); -- Hand Legionnaries
 		
+		ready = 1
 		e.self:SetAppearance(0);
 		e.self:AssignWaypoints(30)
 		-- eq.set_timer('prox', 10 * 1000)
@@ -31,34 +35,36 @@ function event_trade(e)
 end
 
 function event_waypoint_arrive(e)
-	if e.wp == 27 then
+	if e.wp == 28 then
 		eq.unique_spawn(160487, 0, 0, -822, -296, -267, 128)
-		ready = true
+		ready = 2
 		eq.set_timer('depop', 20 * 60 * 1000)
 	end
 end
 
--- function event_timer(e)
-	-- if e.timer == 'prox' then
-		-- player_check(e.self:CastToNPC())
-	-- end
--- end
+function event_timer(e)
+	if e.timer == 'prox' then
+		player_check(e.self:CastToNPC())
+	elseif e.timer == 'depop' then
+		eq.depop_with_timer()
+	end
+end
 
--- function player_check(npc)
-	-- -- checks for players
-	-- local player_list = eq.get_entity_list():GetClientList();
-	-- local br = false;
-	-- if(player_list ~= nil) then
-		-- for player in player_list.entries do
-			-- if player:CalculateDistance(npc:GetX(), npc:GetY(), npc:GetZ()) <= 50 and not player:GetFeigned() then
-				-- npc:StopWandering()
-				-- br = true
-				-- break
-			-- end
-		-- end
-	-- end
+function player_check(npc)
+	-- checks for players
+	local player_list = eq.get_entity_list():GetClientList();
+	local br = false;
+	if(player_list ~= nil) then
+		for player in player_list.entries do
+			if player:CalculateDistance(npc:GetX(), npc:GetY(), npc:GetZ()) <= 50 and not player:GetFeigned() then
+				npc:StopWandering()
+				br = true
+				break
+			end
+		end
+	end
 	
-	-- if not br then
-		-- npc:ResumeWandering()
-	-- end
--- end
+	if not br then
+		npc:ResumeWandering()
+	end
+end
