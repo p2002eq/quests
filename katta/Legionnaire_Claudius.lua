@@ -60,7 +60,7 @@ function player_check(npc)
 			if ((dist < 50) or (dist < 150 and not npc:BehindMob(player))) and not player:GetFeigned() then
 				npc:PauseWandering(10 * 1000)
 				npc:Emote('glances about suspiciously and hesitates.')
-				if npc:BehindMob(player) then
+				if npc:BehindMob(npc, player:GetX(), player:GetY()) then
 					npc:Say('Behind true')
 				else
 					npc:Say('Behind false')
