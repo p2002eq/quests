@@ -29,7 +29,7 @@ function event_trade(e)
 		ready = 1
 		e.self:SetAppearance(0);
 		e.self:AssignWaypoints(30)
-		eq.set_timer('prox', 10 * 1000)
+		eq.set_timer('prox', 5 * 1000)
     end
     item_lib.return_items(e.self, e.other, e.trade)
 end
@@ -56,9 +56,15 @@ function player_check(npc)
 	local br = false;
 	if(player_list ~= nil) then
 		for player in player_list.entries do
-			if player:CalculateDistance(npc:GetX(), npc:GetY(), npc:GetZ()) <= 100 and not player:GetFeigned() then
+			local dist = player:CalculateDistance(npc:GetX(), npc:GetY(), npc:GetZ())
+			if (dist < 50) or (dist < 150 and not npc:IsBehind(player)) and not player:GetFeigned() and then
 				npc:PauseWandering(10 * 1000)
-				npc:Emote('stops and glances about suspiciously.')
+				npc:Emote('glances about suspiciously and hesitates.')
+				if npc:IsBehind(player) then
+					npc:Say('IsBehind true')
+				else
+					npc:Say('IsBehind false')
+				end
 				br = true
 				break
 			end
