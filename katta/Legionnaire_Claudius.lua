@@ -1,8 +1,11 @@
 ---- Quest:Traitor to the Validus Custodus
 
 function event_say(e)
+	ready = false
     if(e.message:findi("hail")) then
-        e.self:Say("ZZZzzzzzzzzzzz");
+        e.self:Say("ZZZzzzzzzzzzzz")
+	elseif e.message:findi("traitor to the Validus Custodus") and ready then
+		eq.unique_spawn(160494, 0, 0, -830, -214, -267, 128):AddToHateList(e.self, 1)
     end
 end
 
@@ -25,6 +28,14 @@ function event_trade(e)
 		-- eq.set_timer('prox', 10 * 1000)
     end
     item_lib.return_items(e.self, e.other, e.trade)
+end
+
+function event_waypoint_arrive(e)
+	if e.wp == 27 then
+		eq.unique_spawn(160487, 0, 0, -822, -296, -267, 128)
+		ready = true
+		eq.set_timer('depop', 20 * 60 * 1000)
+	end
 end
 
 -- function event_timer(e)
