@@ -8,7 +8,25 @@ function event_say(e)
     if(e.message:findi("hail")) and ready == 0 then
         e.self:Say("ZZZzzzzzzzzzzz")
 	elseif e.message:findi("traitor to the Validus Custodus") and ready > 1 then
-		eq.unique_spawn(160494, 0, 0, -830, -214, -267, 128):AddToHateList(e.self, 1)
+		e.self:Say('I have been discovered! You should have left well enough alone!!!')
+		local vahn = eq.get_entity_list():GetMobByNpcTypeID(160487)
+		local condor = eq.unique_spawn(160494, 0, 0, -838, -401, -267, 6)
+		local lego1 = eq.spawn2(160495, 0, 0, -816, -210, -267, 132)
+		local lego2 = eq.spawn2(160496, 0, 0, -828, -185, -267, 127)
+		local lego3 = eq.spawn2(160497, 0, 0, -842, -200, -267, 130)
+		
+		condor:AddToHateList(e.self, 10)
+		condor:AddToHateList(vahn, 1)
+		
+		lego1:AddToHateList(e.self, 1)
+		lego1:AddToHateList(vahn, 10)
+		lego2:AddToHateList(e.self, 1)
+		lego2:AddToHateList(vahn, 10)
+		lego3:AddToHateList(e.self, 1)
+		lego3:AddToHateList(vahn, 10)
+		
+		e.self:AddToHateList(e.other, 1)
+		vahn:AddToHateList(e.other, 1)
     end
 end
 
