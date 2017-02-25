@@ -25,7 +25,10 @@ function event_say(e)
 		lego3:AddToHateList(e.self, 1)
 		lego3:AddToHateList(vahn, 10)
 		
+		e.self:AddToHateList(condor, 10)
 		e.self:AddToHateList(e.other, 1)
+		
+		vahn:AddToHateList(lego1, 10)
 		vahn:AddToHateList(e.other, 1)
     end
 end
@@ -56,7 +59,8 @@ function event_waypoint_arrive(e)
 	if e.wp == 28 then
 		eq.unique_spawn(160487, 0, 0, -822, -296, -267, 128)
 		ready = 2
-		eq.set_timer('depop', 20 * 60 * 1000)
+		eq.stop_timer('prox')
+		eq.set_timer('depop', 30 * 60 * 1000)
 	end
 end
 
@@ -64,6 +68,7 @@ function event_timer(e)
 	if e.timer == 'prox' then
 		player_check(e.self:CastToNPC())
 	elseif e.timer == 'depop' then
+		eq.stop_timer(e.timer)
 		eq.depop_with_timer()
 	end
 end
