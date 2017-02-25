@@ -68,15 +68,19 @@ function event_say(e)
 		elseif(e.message:findi("Cursed")) then
 			eq.set_global('cursed_progress', '2', 3, 'D8')
 			e.other:Message(1, "Cursed spawn reset.")
+			eq.debug(string.format('Cursed event - %s reset Cursed.', e.self:GetName()))
 		elseif(e.message:findi("Exiled")) then
 			eq.set_global('cursed_progress', '1', 3, 'D8')
 			e.other:Message(1, "Exiled spawn reset.")
+			eq.debug(string.format('Cursed event - %s reset Exiled.', e.self:GetName()))
 		elseif(e.message:findi("Glyphed")) then
 			eq.delete_global('cursed_progress')
 			e.other:Message(1, "Full cycle reset.")
+			eq.debug(string.format('Cursed event - %s reset Glyphed.', e.self:GetName()))
 		elseif(e.message:findi("disabled")) then
 			eq.set_global('cursed_progress', '3', 3, 'D8')
 			e.other:Message(1, "Full cycle disabled.")
+			eq.debug(string.format('Cursed event - %s disabled cycle.', e.self:GetName()))
 		elseif(e.message:findi("respawn")) then
 			reset()
 			local trigger_spawns = { 352960, 368763, 352956, 353147, 353037, 353035, 352958, 352957, 352955, 352952 }
@@ -86,6 +90,7 @@ function event_say(e)
 				spawn:Repop();
 			end
 			e.other:Message(1, "Cycle triggers respawned and reset.")
+			eq.debug(string.format('Cursed event - %s reset trigger mobs.', e.self:GetName()))
 		end
 	end
 end

@@ -654,6 +654,15 @@ function GMControl(e)
 				local stage_num = tonumber(string.sub(e.message, string.find(e.message, '%d+')));
 				stage_set(stage_num);
 				e.self:Message(1, 'Stage set.')
+				eq.debug(string.format('Ring10 event - %s set war to stage %s', e.self:GetName(), stage_num))
+			else
+				e.self:Message(1, 'Please wait to set stage.')
+			end
+		elseif e.message:findi("narandi") then
+			if stage > 0 then
+				stage_set(4);
+				e.self:Message(1, 'Stage set.')
+				eq.debug(string.format('Ring10 event - %s set war to Narandi', e.self:GetName()))
 			else
 				e.self:Message(1, 'Please wait to set stage.')
 			end
