@@ -57,7 +57,7 @@ function player_check(npc)
 	if(player_list ~= nil) then
 		for player in player_list.entries do
 			if player:CalculateDistance(npc:GetX(), npc:GetY(), npc:GetZ()) <= 100 and not player:GetFeigned() then
-				npc:StopWandering()
+				npc:PauseWandering(10 * 1000)
 				npc:Emote('stops and glances about suspiciously.')
 				br = true
 				break
