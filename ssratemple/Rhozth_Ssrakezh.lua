@@ -5,7 +5,6 @@ function event_spawn(e)
 	local cursed = tonumber(eq.get_qglobals(e.self)['cursed_progress']) or 0
 	if eq.get_entity_list():IsMobSpawnedByNpcTypeID(162258) or cursed > 2 then
 		eq.set_timer('depop', 500);
-		eq.get_entity_list():GetSpawnByID(368763):Disable();
 	end
 end
 
@@ -16,6 +15,7 @@ end
 function event_timer(e)
 	if e.timer == 'depop' then
 		eq.stop_timer(e.timer);
-		eq.depop_with_timer();
+		eq.get_entity_list():GetSpawnByID(368763):Disable();
+		-- eq.depop();
 	end
 end
