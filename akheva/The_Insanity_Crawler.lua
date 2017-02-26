@@ -11,7 +11,6 @@ function event_slay(e)
 		local y = e.other:GetY();
 		local z = e.other:GetZ();
 		local h = e.other:GetHeading();
-		eq.spawn2(179346,0,0, x, y, z, h);
 		eq.spawn2(179346,0,0, x - 10, y, z, h);
 		eq.spawn2(179346,0,0, x + 10, y, z, h);
 		eq.spawn2(179346,0,0, x, y - 10, z, h);
