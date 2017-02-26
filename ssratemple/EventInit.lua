@@ -90,6 +90,7 @@ function event_say(e)
 					spawn = entlist:GetSpawnByID(spawnid);
 					spawn:Enable();
 					spawn:Repop();
+				end
 			end
 			e.other:Message(1, "Cycle triggers respawned and reset.")
 			eq.debug(string.format('Cursed event - %s reset trigger mobs.', e.self:GetName()))
