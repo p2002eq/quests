@@ -82,13 +82,14 @@ function event_say(e)
 			e.other:Message(1, "Full cycle disabled.")
 			eq.debug(string.format('Cursed event - %s disabled cycle.', e.self:GetName()))
 		elseif(e.message:findi("respawn")) then
-			reset()
-			local trigger_spawns = { 352960, 368763, 352956, 353147, 353037, 353035, 352958, 352957, 352955, 352952 }
-			for _,spawnid in pairs(trigger_spawns) do
-				local spawn = eq.get_entity_list():GetSpawnByID(spawnid);
-				spawn:ForceDespawn();
-				spawn:Enable();
-				spawn:Repop();
+			signal_total = 0;
+			local trigger_spawns = {[162023]=352956, [162059]=352952, [162060]=352955, [162011]=352957, [162012]=352958, [162021]=353035, [162024]=353037, [162013]=353147, [162089]=352960, [162509]=368763}
+			for mobid,spawnid in pairs(trigger_spawns) do
+				local entlist = eq.get_entity_list()
+				if not entlist:IsMobSpawnedByNpcTypeID(mobid) then
+					spawn = entlist:GetSpawnByID(spawnid);
+					spawn:Enable();
+					spawn:Repop();
 			end
 			e.other:Message(1, "Cycle triggers respawned and reset.")
 			eq.debug(string.format('Cursed event - %s reset trigger mobs.', e.self:GetName()))
