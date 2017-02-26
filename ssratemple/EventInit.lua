@@ -86,11 +86,9 @@ function event_say(e)
 			local trigger_spawns = { 352960, 368763, 352956, 353147, 353037, 353035, 352958, 352957, 352955, 352952 }
 			for _,spawnid in pairs(trigger_spawns) do
 				local spawn = eq.get_entity_list():GetSpawnByID(spawnid);
-				if spawn ~= nil then
-					spawn:Disable();
-					spawn:Enable();
-					spawn:Repop();
-				end
+				spawn:ForceDespawn();
+				spawn:Enable();
+				spawn:Repop();
 			end
 			e.other:Message(1, "Cycle triggers respawned and reset.")
 			eq.debug(string.format('Cursed event - %s reset trigger mobs.', e.self:GetName()))
