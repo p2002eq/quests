@@ -5,7 +5,6 @@ function event_spawn(e)
 	if eq.get_entity_list():IsMobSpawnedByNpcTypeID(162509) then
 		eq.set_timer('depop', 500);
 	end
-	eq.get_entity_list():GetSpawnByID(368763):Disable();
 	
 	eq.delete_global('cursed_progress'); -- resets cursed cycle
 end
@@ -13,7 +12,7 @@ end
 function event_timer(e)
 	if e.timer == 'depop' then
 		eq.stop_timer(e.timer);
-		eq.depop_with_timer(162509);
+		eq.get_entity_list():GetSpawnByID(368763):Disable();
 	end
 end
 
