@@ -12,13 +12,11 @@ end
 function event_timer(e)
 	if e.timer == 'depop' then
 		eq.stop_timer(e.timer);
-		eq.get_entity_list():GetSpawnByID(368763):Disable();
+		eq.spawn_condition('ssratemple', 0, 10, 1)
 	end
 end
 
 function event_death_complete(e)
 	eq.signal(162266, 512);
-	local fake_spawn = eq.get_entity_list():GetSpawnByID(368763);
-	fake_spawn:Enable();
-	fake_spawn:Reset();
+	eq.spawn_condition('ssratemple', 0, 10, 2)
 end

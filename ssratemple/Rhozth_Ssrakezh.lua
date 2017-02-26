@@ -15,7 +15,6 @@ end
 function event_timer(e)
 	if e.timer == 'depop' then
 		eq.stop_timer(e.timer);
-		eq.get_entity_list():GetSpawnByID(368763):Disable();
-		-- eq.depop();
+		eq.spawn_condition('ssratemple', 0, 10, 2)
 	end
 end
