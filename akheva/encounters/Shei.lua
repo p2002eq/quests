@@ -76,8 +76,7 @@ function SheiCombat(e)
 			eq.set_timer('aggro_guards', 30 * 1000);
 		end
 	else
-		-- eq.set_timer("shei_despawn_adds", 5 * 60 * 1000); -- 5 Minute add despawn (Soft Reset)
-		eq.set_timer("shei_despawn_adds", 1 * 60 * 1000); -- set for testing
+		eq.set_timer("shei_despawn_adds", 5 * 60 * 1000); -- 5 Minute add despawn (Soft Reset)
 		eq.stop_timer("shei_dt");
 	end
 end
@@ -92,8 +91,7 @@ function RealSheiDeath(e)
 end
 
 function RealSheiSpawn(e)
-	-- eq.set_timer("shei_despawn_full", 60 * 60 * 1000); -- 1 hour total uptime
-	eq.set_timer("shei_despawn_full", 5 * 60 * 1000); -- set for testing
+	eq.set_timer("shei_despawn_full", 60 * 60 * 1000); -- 1 hour total uptime
 end
 
 function SheiTimer(e)
