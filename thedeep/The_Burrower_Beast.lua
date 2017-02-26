@@ -59,7 +59,7 @@ function spawn_wave(wave_type)
 			repeat
 				local xloc = math.random(1700, 1850)
 				local yloc = math.random(200, 350)
-			until not (xloc > 1740 and xloc < 1800 and yloc > 235 and ylox < 300)
+			until not (xloc > 1740 and xloc < 1800 and yloc > 235 and yloc < 300)
 			eq.spawn2(event_mobs[math.random(3)], 0, 0, xloc, yloc, -60, math.random(255));
 		end
 	elseif wave_type == 2 then
@@ -67,7 +67,7 @@ function spawn_wave(wave_type)
 			repeat
 				local xloc = math.random(1700, 1850)
 				local yloc = math.random(200, 350)
-			until not (xloc > 1740 and xloc < 1800 and yloc > 235 and ylox < 300)
+			until not (xloc > 1740 and xloc < 1800 and yloc > 235 and yloc < 300)
 			eq.spawn2(164129, 0, 0, xloc, yloc, -60, math.random(255));
 		end
 	elseif wave_type == 3 then
