@@ -1,5 +1,9 @@
 -- Tawro Icequake (176006) in Umbral
 
+function event_spawn(e)
+	eq.depop_all(176214)
+end
+
 function event_death_complete(e)
 	local x = e.self:GetSpawnPointX()
 	local y = e.self:GetSpawnPointY()
