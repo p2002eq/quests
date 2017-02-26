@@ -58,13 +58,13 @@ function spawn_wave(wave_type)
 		for i=1, 12 do
 			local xloc = eq.ChooseRandom(math.random(1700, 1740), math.random(1800, 1850))
 			local yloc = math.random(200, 350)
-			eq.spawn2(event_mobs[math.random(3)], 0, 0, xloc, yloc, -35, math.random(255));
+			eq.spawn2(event_mobs[math.random(3)], 0, 0, xloc, yloc, -60, math.random(255));
 		end
 	elseif wave_type == 2 then
 		for i=1, 6 do
 			local xloc = eq.ChooseRandom(math.random(1700, 1740), math.random(1800, 1850))
 			local yloc = math.random(200, 350)
-			eq.spawn2(164129, 0, 0, xloc, yloc, -35, math.random(255));
+			eq.spawn2(164129, 0, 0, xloc, yloc, -60, math.random(255));
 		end
 	elseif wave_type == 3 then
 		eq.spawn2(164128, 0, 0, 1792, 5, -70, 0);
