@@ -3,17 +3,17 @@
 burrower_cycle = { 154097, 154365, 154364, 154366, 154367, 154368, 154369 };
 
 function event_spawn(e)
-	mob_check();
+	mob_check(e);
 	eq.set_timer('cycle', 60 * 1000);
 end
 
 function event_timer(e)
 	if e.timer == 'cycle' then
-		mob_check();
+		mob_check(e);
 	end
 end
 
-function mob_check()
+function mob_check(e)
 	local qglobals = eq.get_qglobals(e.self);
 	local timer = qglobals['restless_timer'];
 	local cycle = qglobals['restless_progress'];
