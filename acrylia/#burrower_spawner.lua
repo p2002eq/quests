@@ -34,10 +34,13 @@ function mob_check(e)
 			else
 				eq.set_global('restless_timer', 'started', 2, 'F')
 			end
-			
-			eq.set_timer('mob_spawn', 1000)
-			cleanup();
 		end
+	end
+	
+	local spawn_num = tonumber(eq.get_qglobals(e.self)['restless_progress']);
+	if not eq.get_entity_list():IsMobSpawnedByNpcTypeID(burrower_cycle[spawn_num]) then
+		eq.set_timer('mob_spawn', 1000)
+		cleanup();
 	end
 end
 
