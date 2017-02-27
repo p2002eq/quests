@@ -10,6 +10,10 @@ end
 function event_timer(e)
 	if e.timer == 'cycle' then
 		mob_check(e);
+	elseif e.timer == 'mob_spawn' then
+		eq.stop_timer(e.timer)
+		local spawn_num = tonumber(eq.get_qglobals(e.self)['restless_progress']);
+		eq.unique_spawn(burrower_cycle[spawn_num], 0, 0, -684, -299, -88, 188);
 	end
 end
 
@@ -21,18 +25,18 @@ function mob_check(e)
 		if cycle == nil then
 			eq.set_global('restless_progress', '1', 2, 'F');
 			eq.set_global('restless_timer', 'started', 2, 'M1'); -- 'H24')
-			cleanup();
-			eq.unique_spawn(burrower_cycle[1], 0, 0, -684, -299, -88, 188);
 		elseif cycle ~= nil then
 			local next_cycle = tonumber(cycle) + 1;
 			eq.set_global('restless_progress', tostring(next_cycle), 2, 'F');
-			cleanup();
-			eq.unique_spawn(burrower_cycle[next_cycle], 0, 0, -684, -299, -88, 188);
+
 			if next_cycle < 7 then
 				eq.set_global('restless_timer', 'started', 2, 'M1') -- 'H24')
 			else
 				eq.set_global('restless_timer', 'started', 2, 'F')
 			end
+			
+			eq.set_timer('mob_spawn', 1000)
+			cleanup();
 		end
 	end
 end
