@@ -4,12 +4,13 @@ burrower_cycle = { 154097, 154365, 154364, 154366, 154367, 154368, 154369 };
 
 function event_spawn(e)
 	mob_check(e);
-	eq.set_timer('cycle', 60 * 1000);
+	eq.set_timer('cycle', 20 * 1000);
 end
 
 function event_timer(e)
 	if e.timer == 'cycle' then
 		mob_check(e);
+		
 	elseif e.timer == 'mob_spawn' then
 		eq.stop_timer(e.timer)
 		local spawn_num = tonumber(eq.get_qglobals(e.self)['restless_progress']);
@@ -21,10 +22,13 @@ function mob_check(e)
 	local qglobals = eq.get_qglobals(e.self);
 	local timer = qglobals['restless_timer'];
 	local cycle = qglobals['restless_progress'];
+	e.self:Shout('Timer is ' .. timer .. 'and cycle is ' .. cycle); -- DEBUGGING
+	
 	if timer == nil then
 		if cycle == nil then
 			eq.set_global('restless_progress', '1', 2, 'F');
 			eq.set_global('restless_timer', 'started', 2, 'M1'); -- 'H24')
+			
 		elseif cycle ~= nil then
 			local next_cycle = tonumber(cycle) + 1;
 			eq.set_global('restless_progress', tostring(next_cycle), 2, 'F');
