@@ -1,5 +1,7 @@
 -- Fugus grove 'Calling beasties' north cavern event caller
 
+event_mobs = { 157121, 157122, 157123, 157115, 157116, 157117, 157118, 157120, 157124, 157125, 157127, 157128, 157129 }
+
 function event_spawn(e)
 	started = false;
 	wave_counter = 0;
@@ -28,7 +30,7 @@ function event_trade(e)
 		spawn_timer = 120;
 		start_event(e);
 		
-	elseif item_lib.check_turn_in(e.self, e.trade, {item1 = 28703}) then -- North Caller Contract
+	elseif started and item_lib.check_turn_in(e.self, e.trade, {item1 = 28703}) then -- North Caller Contract
 		e.self:Emote("grunts and says, 'Oook! Tanks fer da werk, I see ya later!' before vanishing into the tunnel.");
 		eq.stop_all_timers();
 		eq.depop_with_timer();
@@ -63,6 +65,14 @@ function event_waypoint_arrive(e)
 	end
 end
 
+function event_death_complete(e)
+	eq.stop_all_timers()
+	
+	for _,v in pairs(event_mobs) do
+		eq.depop_all(v);
+	end
+end
+
 function spawn_waves(caller)
 	caller:Emote("moans and waves his arms, then shouts 'Graka! Mootogo Ta Naga!'");
 	for i=1,3 do
@@ -77,7 +87,7 @@ function spawn_waves(caller)
 		local mob = 0;
 		mob_picker = math.random(1000);
 		if mob_picker <= 225 then
-			mob = 157071; -- fungusbeast
+			mob = 157129; -- fungusbeast
 		elseif mob_picker <= 450 then
 			mob = 157121; -- fungusfiend
 		elseif mob_picker <= 655 then
