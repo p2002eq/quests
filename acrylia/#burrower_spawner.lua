@@ -21,7 +21,7 @@ end
 function debug_shout(mob, in1, in2)
 	if in1 == nil then in1 = 'nil' end
 	if in2 == nil then in2 = 'nil' end
-	mob:Shout('Timer is ' .. in1 .. 'and cycle is ' .. in2); -- DEBUGGING
+	mob:Shout('Timer is ' .. in1 .. ' and cycle is ' .. in2); -- DEBUGGING
 end
 
 function mob_check(e)
@@ -47,8 +47,8 @@ function mob_check(e)
 		end
 	end
 	
-	local spawn_num = tonumber(eq.get_qglobals(e.self)['restless_progress']);
-	if not eq.get_entity_list():IsMobSpawnedByNpcTypeID(burrower_cycle[spawn_num]) then
+	local cycle_progress = eq.get_qglobals(e.self)['restless_progress'];
+	if cycle_progress ~= nil and not eq.get_entity_list():IsMobSpawnedByNpcTypeID(burrower_cycle[tonumber(cycle_progress)]) then
 		eq.set_timer('mob_spawn', 1000)
 		cleanup();
 	end
