@@ -18,11 +18,17 @@ function event_timer(e)
 	end
 end
 
+function debug_shout(mob, in1, in2)
+	if in1 == nil then in1 = 'nil' end
+	if in2 == nil then in2 = 'nil' end
+	mob:Shout('Timer is ' .. in1 .. 'and cycle is ' .. in2); -- DEBUGGING
+end
+
 function mob_check(e)
 	local qglobals = eq.get_qglobals(e.self);
 	local timer = qglobals['restless_timer'];
 	local cycle = qglobals['restless_progress'];
-	e.self:Shout('Timer is ' .. timer .. 'and cycle is ' .. cycle); -- DEBUGGING
+	debug_shout(e.self, timer, cycle);
 	
 	if timer == nil then
 		if cycle == nil then
