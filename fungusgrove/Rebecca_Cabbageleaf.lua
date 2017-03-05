@@ -19,12 +19,12 @@ function event_trade(e)
 	if item_lib.check_turn_in(e.self, e.trade, { item1 = 5761, item2 = 5762, item3 = 5766 }) then -- turn in for spell only
 		e.self:Emote("smiles warmly, 'Brilliant, you've brought me some more supplies! Here, please take this last copy I've made. I'd planned to use it for myself, but I'll let you use it so you don't have to wait for me to make a new one. I do hope you enjoy it!'");
 		e.other:SummonItem(9722); -- Spell: Protection of the Cabbage
-	elseif (item_lib.check_turn_in(e.self, e.trade, { item1 = 9721 })) then -- Earring of the Solstice
-		e.self:Say("Here you are friend, Xanthe's Earring of Nature. I'll see that your old earring goes to someone who can make better use of it. Safe travels, friend!");
-		e.other:SummonItem(28771); -- Xanthe's Earring of Nature
-	elseif (item_lib.check_turn_in(e.self, e.trade, { item1 = 28771 })) then -- Xanthe's Earring of Nature
+	elseif (item_lib.check_turn_in(e.self, e.trade, { item1 = 9721 })) then -- Xanthe's Earring of Nature
 		e.self:Say("Here you are friend, an earring of the Solstice. I'll see that your old earring goes to a druid who can make better use of it. Safe travels, friend!");
-		e.other:SummonItem(9721); -- Earring of the Solstice
+		e.other:SummonItem(28771); -- Earring of the Solstice
+	elseif (item_lib.check_turn_in(e.self, e.trade, { item1 = 28771 })) then -- Earring of the Solstice
+		e.self:Say("Here you are friend, Xanthe's Earring of Nature. I'll see that your old earring goes to someone who can make better use of it. Safe travels, friend!");
+		e.other:SummonItem(9721); -- Xanthe's Earring of Nature
 	end
 
 	item_lib.return_items(e.self, e.other, e.trade);
