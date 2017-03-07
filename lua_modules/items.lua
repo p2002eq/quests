@@ -1,8 +1,12 @@
 local items = {}
 
 function items.check_turn_in(npc, trade, trade_check, keepitems)
-    --create trade_return table == trade
-    --shallow copy
+    
+    -- reject trade if npc is engaged
+	if npc:IsEngaged() then return false end
+	
+	--create trade_return table == trade
+	--shallow copy
     local trade_return = {};
     for key, value in pairs(trade) do
         trade_return[key] = value;

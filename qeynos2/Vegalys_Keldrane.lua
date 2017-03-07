@@ -1,7 +1,26 @@
--- BeginFile qeynos2\Vegalys_Keldrane.lua (2051)
--- Quest file for North Qeynos - Vegalys Keldrane: Investigators Badge (Badge #1)
+---- Quest:Investigators Badge (Badge #1)
+-- QGlobal Helpers for Badge Quest #1 (qeynos_badge1)
+-- 1 = Received Investigator's Briefing
+-- 2 = First Suspect
+-- 3 = Rileys Confession
+-- 4 = Summoned Guard for Riley
+-- 5 = Willies Confession
+-- 6 = Summoned Guard for Willie
+-- 7 = Have the Investigators Badge
+-- Failure of the an_investigator section will reset you back to QGlobal 1 so you can restart the escort portion
+
+---- Quest:Interrogator's Badge (Badge #2)
+-- QGlobal Helpers for Badge Quest #2 (qeynos_badge2)
+-- 1 = Started Badge Quest #2 (Completed Quest #1 and turned in badge)
+-- 2 = Handed an_interrogator the Briefing
+-- 3 = Defeated Theodore
+-- 4 = Spawned Morley and Markus
+-- 5 = Theodores Confession
+-- 6 = have the Interrogators Badge
+-- Death of the an_investigator section will reset you back to QGlobal 1 so you can restart the escort portion
 
 function event_say(e)
+	local qglobals = eq.get_qglobals(e.self,e.other);
 	if(e.message:findi("hail")) then
 		e.self:Say("Greetings to you, citizen. By order of the Council of Qeynos I have been given the duty of apprehending the individuals [responsible] for unleashing this terrible plague upon the people and the lands of Antonius Bayle. The more I look into this matter, the more I come to find that this will be no easy task.");
 	elseif(e.message:findi("responsible")) then
@@ -32,36 +51,35 @@ function event_say(e)
 		e.self:Say(string.format("Very well then, %s. We will not allow just anyone to wear the official Investigator's Badge and please forgive me. . . But it is hard to tell where one's loyalties lie these days. If you are truly [serious] then there is a duty you must perform first to show you are on the side of Antonius Bayle, the council and the good people Qeynos.",e.other:GetName()));
 	elseif(e.message:findi("serious")) then
 		e.self:Say("There is a guard by the name of Robbie Shilster that patrols the Northern Plains of Karana. He is allied with our enemies and completely corrupt. He is flagrant in his trafficking of contraband goods. His orders are to guard the great wooden bridge to stave off the insect swarms. But our investigators report that he simply stands to the side and watches as the swarm rolls through. You are to execute this man for his treason and bring me his helm. Then, we will talk.");
-	elseif(e.message:findi("advance further") and e.other:HasItem(18289) == true) then
+    elseif(e.message:findi("advance further") and tonumber(qglobals.qeynos_badge2) == 6) then
+        e.self:Say("Interested in advancing further are you? Excellent, we are ready to begin the next phase of our operation. We have gathered a great deal of information as a result of the latest series of arrests. We do require [interrogators] that are able to pry the information we require out those less than willing to talk. Also, Velarte Selire at the Temple of Life is looking for help with his [research]. You may wish to talk with him.");
+    elseif(e.message:findi("advance further") and tonumber(qglobals.qeynos_badge1) == 7) then
+        e.self:Say("Interested in advancing further are you? Excellent, we are ready to begin the next phase of our operation. We have gathered a great deal of information as a result of the latest series of arrests. What we require most now are [interrogators] that are able to pry the information we require out those less then willing to talk.");
+    elseif(e.message:findi("advance further") and tonumber(qglobals.qeynos_badge1) == 1) then
 		e.self:Say("At this point, I am mainly in need of loyal and trustworthy investigators. I must first gather information on who these people are and exactly how far their influences stretch. However, once I begin to implement the next phase of this operation, you may be able to assist us once again if you prove to be talented enough. For now, simply continue to observe and report.");
-	elseif(e.message:findi("advance further") and e.other:HasItem(2386) == true) then
-		e.self:Say("Interested in advancing further are you? Excellent, we are ready to begin the next phase of our operation. We have gathered a great deal of information as a result of the latest series of arrests. We do require [interrogators] that are able to pry the information we require out those less than willing to talk. Also, Velarte Selire at the Temple of Life is looking for help with his [research]. You may wish to talk with him.");
-	elseif(e.message:findi("interrogators") and e.other:HasItem(2386) == true) then
+	elseif(e.message:findi("interrogators") and tonumber(qglobals.qeynos_badge1) == 7) then
 		e.self:Say("If you are interested in joining the ranks of our interrogators and helping Qeynos further as we bring these fiends and murderers to justice, turn in your investigator's Badge and I will give you the briefing document you need. I already know I can trust my investigators, so there is no need to further test you.");
+    elseif(e.message:findi("research") and tonumber(qglobals.qeynos_badge2) == 6) then
+        e.self:Say("Excellent! The more I learn from my investigators the more I find that these Bloodsabers have stretched their tendrils of influence all throughout our beloved city. Nevertheless, we are committed to exposing these fiends once and for all. Perhaps you would like to become an [investigator]?");
 	end
 end
 
 function event_trade(e)
 	local item_lib = require("items");
-
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 2173})) then -- Cracked Corrupt Guard Helm
 		e.self:Say("Thank you for bringing this person to justice. Please read this manual very, VERY carefully. Commit it to memory. We do everything strictly by the book. We are a people of law and order and I simply won't tolerate a breach of protocol. Investigators are expected to accurately report findings, are authorized to issue warrants and to notarize official documents for all lands under the jurisdiction of Antonius Bayle and the council. I sincerely hope you can earn your Investigator's Badge.");
-		e.other:SummonItem(18289); -- Investigator's Briefing
-		e.other:Ding();
-		e.other:Faction(9,10,0); -- Antonius Bayle
-		e.other:Faction(135,10,0); -- Guards of Qeynos
-		e.other:Faction(273,-10,0); -- Ring of Scale
-		e.other:Faction(164,-10,0); -- Kane Bayle
-		e.other:Faction(217,10,0); -- Merchants of Qeynos
-		e.other:AddEXP(2000);
+		e.other:Faction(9,1); -- Antonius Bayle
+		e.other:Faction(135,1); -- Guards of Qeynos
+		e.other:Faction(273,-1); -- Ring of Scale
+		e.other:Faction(164,-1); -- Kane Bayle
+		e.other:Faction(217,1); -- Merchants of Qeynos
+		eq.set_global("qeynos_badge1","1",5,"F"); -- Badge Globals
+		e.other:QuestReward(e.self,0,0,0,0,18289,2000); -- Investigator's Briefing
 	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 2386})) then -- Investigator's Badge
 		e.self:Say("Very well, here is the briefing document. Please read it very carefully. I wish you luck friend, this mission could prove to be dangerous.");
-		e.other:SummonItem(18292); -- Interrogator's Briefing
-		e.other:Ding();
-		e.other:AddEXP(2000);
+		eq.set_global("qeynos_badge2","1",5,"F"); -- Badge Globals
+		e.other:QuestReward(e.self,0,0,0,0,18292,2000); -- Interrogator's Briefing
 	end
 	
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
--- EndFile qeynos2\Vegalys_Keldrane.lua (2051)

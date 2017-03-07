@@ -56,6 +56,7 @@ end
 
 function AddsonKill(e)
 	if e.other:IsClient() or e.other:IsPet() then -- not sure why this is necessary, but otherwise will occasionally spawn adds when an event mob dies
+		e.self:Emote('strikes through the chest of the corpse, rending the soul from the flesh and animating it into an undead servant.')
 		local mob = eq.ChooseRandom(unpack(secondary_adds));
 		eq.spawn2(mob,0,0,e.other:GetX(),e.other:GetY(),e.other:GetZ(),e.other:GetHeading());
 	end
@@ -63,17 +64,19 @@ end
 
 function SheiCombat(e)
 	if e.joined then
+		e.self:Say('Sivuelaeus Rulour ans Rashan!')
 		if not eq.get_entity_list():IsMobSpawnedByNpcTypeID(179357) then
 			for id,loc in pairs(primary_adds) do
 				eq.unique_spawn(id,0,0,loc[1],loc[2],loc[3],loc[4]);
 			end
 		end
-		
 		eq.stop_timer("shei_despawn_adds");
-		if e.self:GetNPCTypeID() == 179032 then eq.set_timer("shei_dt", math.random(30) * 1000) end
+		if e.self:GetNPCTypeID() == 179032 then
+			eq.set_timer("shei_dt", math.random(30) * 1000)
+			eq.set_timer('aggro_guards', 30 * 1000);
+		end
 	else
-		-- eq.set_timer("shei_despawn_adds", 5 * 60 * 1000); -- 5 Minute add despawn (Soft Reset)
-		eq.set_timer("shei_despawn_adds", 1 * 60 * 1000); -- set for testing
+		eq.set_timer("shei_despawn_adds", 5 * 60 * 1000); -- 5 Minute add despawn (Soft Reset)
 		eq.stop_timer("shei_dt");
 	end
 end
@@ -88,20 +91,31 @@ function RealSheiDeath(e)
 end
 
 function RealSheiSpawn(e)
-	-- eq.set_timer("shei_despawn_full", 60 * 60 * 1000); -- 1 hour total uptime
-	eq.set_timer("shei_despawn_full", 5 * 60 * 1000); -- set for testing
+	eq.set_timer("shei_despawn_full", 60 * 60 * 1000); -- 1 hour total uptime
 end
 
 function SheiTimer(e)
 	eq.stop_timer(e.timer);
 	if e.timer == "shei_dt" then
-		e.self:SpellFinished(2859,e.self:GetHateTop());
+		e.self:SpellFinished(2859,e.self:GetTarget());
 		eq.set_timer("shei_dt", 2 * 60 * 1000);
+	elseif e.timer == 'aggro_guards' then
+		aggro_guards(e.self:GetTarget());
+		eq.set_timer("aggro_guards", 30 * 1000);
 	elseif e.timer == "shei_despawn_adds" then
 		cleanup();
 	elseif e.timer == "shei_despawn_full" then
 		e.self:Depop();
 		RealSheiDeath(e);
+	end
+end
+
+function aggro_guards(mob)
+	for guard,_ in pairs(primary_adds) do
+		local guard_mob = eq.get_entity_list():GetNPCByNPCTypeID(guard);
+		if guard_mob ~= nil then
+			guard_mob:AddToHateList(mob);
+		end
 	end
 end
 

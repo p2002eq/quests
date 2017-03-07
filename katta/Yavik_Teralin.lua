@@ -1,6 +1,6 @@
 ---- Quest:The Conspiracists: Arbogast and Miller
 function event_spawn(e)
-    eq.set_timer("Yavik", 45);
+    eq.set_timer("Yavik", 45000);
 end
 
 function event_say(e)
@@ -31,8 +31,8 @@ end
 function event_timer(e)
     if (e.timer == "Yavik") then
         e.self:Say("You ever communed with a tree?  Most people just walk right past them and don't take the time to stop and really appreciate what that tree means.");
-        eq.signal(160225,1,150); -- Danika Farcloud
-        eq.set_timer("Yavik", 10000)
+        eq.signal(160225,1,10000); -- Danika Farcloud
+        eq.set_timer("Yavik", 200000)
     end
 end
 

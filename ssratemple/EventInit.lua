@@ -8,9 +8,9 @@ function event_signal(e)
 	-- bitwise signal values for the 10 kills
 	if e.signal < 10000 then
 		local qglobals = eq.get_qglobals(e.self);
-		if qglobals['cursed'] == nil then
+		if qglobals['cursed_trigger'] == nil then
 			signal_total = e.signal;
-			eq.set_global('cursed', 'started', 2, 'H1');
+			eq.set_global('cursed_trigger', 'started', 2, 'H1');
 		else
 			signal_total = signal_total + e.signal;
 		end
@@ -29,7 +29,7 @@ end
 
 function reset()
 	signal_total = 0;
-	eq.delete_global('cursed');
+	eq.delete_global('cursed_trigger');
 end
 
 function event_timer(e)
@@ -51,7 +51,7 @@ function event_say(e)
 			e.other:Message(1, "You can check the [status] of the cycle, set cycle to [Cursed] available only, set cycle to [Exiled] + Cursed available, set cycle to [Glyphed] + Exiled + Cursed available, set cycle to all [disabled], or [respawn] trigger mobs (also restarts trigger timer).")
 		elseif(e.message:findi("status")) then
 			local qglobals = eq.get_qglobals(e.self);
-			local timer = (qglobals['cursed'] == nil and 'stopped' or 'running')
+			local timer = (qglobals['cursed_trigger'] == nil and 'stopped' or 'running')
 			local glyphed, exiled, cursed
 			if qglobals['cursed_progress'] == nil then
 				glyphed,exiled,cursed = "UP","UP","UP"
@@ -66,26 +66,30 @@ function event_say(e)
 			end
 			e.other:Message(1, string.format('Trigger mob timer is %s. Glyphed is %s. Exiled is %s. Cursed is %s.', timer, glyphed, exiled, cursed))
 		elseif(e.message:findi("Cursed")) then
-			eq.set_global('cursed_progress', '2', 2, 'D8')
+			eq.set_global('cursed_progress', '2', 3, 'D8')
 			e.other:Message(1, "Cursed spawn reset.")
+			eq.debug(string.format('Cursed event - %s reset Cursed.', e.self:GetName()))
 		elseif(e.message:findi("Exiled")) then
-			eq.set_global('cursed_progress', '2', 1, 'D8')
+			eq.set_global('cursed_progress', '1', 3, 'D8')
 			e.other:Message(1, "Exiled spawn reset.")
+			eq.debug(string.format('Cursed event - %s reset Exiled.', e.self:GetName()))
 		elseif(e.message:findi("Glyphed")) then
 			eq.delete_global('cursed_progress')
 			e.other:Message(1, "Full cycle reset.")
+			eq.debug(string.format('Cursed event - %s reset Glyphed.', e.self:GetName()))
 		elseif(e.message:findi("disabled")) then
-			eq.set_global('cursed_progress', '2', 3, 'D8')
+			eq.set_global('cursed_progress', '3', 3, 'D8')
 			e.other:Message(1, "Full cycle disabled.")
+			eq.debug(string.format('Cursed event - %s disabled cycle.', e.self:GetName()))
 		elseif(e.message:findi("respawn")) then
 			reset()
-			local trigger_spawns = { 352960, 368763, 352956, 353147, 353037, 353035, 352958, 352957, 352955, 352952 }
-			for _,spawnid in pairs(trigger_spawns) do
-				local spawn = eq.get_entity_list():GetSpawnByID(spawnid);
-				spawn:Enable();
-				spawn:Repop();
+			local trigger_spawns = {[162023]=352956, [162059]=352952, [162060]=352955, [162011]=352957, [162012]=352958, [162021]=353035, [162024]=353037, [162013]=353147, [162089]=352960, [162509]=368763}
+			for mobid,spawnid in pairs(trigger_spawns) do
+				local entlist = eq.get_entity_list()
+				if not entlist:IsMobSpawnedByNpcTypeID(mobid) then entlist:GetSpawnByID(spawnid):Repop() end
 			end
 			e.other:Message(1, "Cycle triggers respawned and reset.")
+			eq.debug(string.format('Cursed event - %s reset trigger mobs.', e.self:GetName()))
 		end
 	end
 end

@@ -1,7 +1,6 @@
 -- The Burrower Beast event
 -- The Burrower Beast (164098), A rock burrower (164130), A stone carver (164133), A spiny rock burrower (164132), A core burrower (164129), A parasite larva (164128/164131), A massive burrower (164134), A burrower parasite (164127)
 
-locs = {{1700, 1850}, {200, 350}, -35};
 event_mobs = { 164130, 164132, 164133, 164129, 164128, 164131, 164127, 164134 };
 
 function event_spawn(e)
@@ -57,11 +56,21 @@ end
 function spawn_wave(wave_type)
 	if wave_type == 1 then
 		for i=1, 12 do
-			eq.spawn2(event_mobs[math.random(3)], 0, 0, math.random(locs[1][1], locs[1][2]), math.random(locs[2][1], locs[2][2]), locs[3], math.random(255));
+			local xloc, yloc;
+			repeat
+				xloc = math.random(1700, 1850)
+				yloc = math.random(200, 350)
+			until not (xloc > 1740 and xloc < 1800 and yloc > 235 and yloc < 300)
+			eq.spawn2(event_mobs[math.random(3)], 0, 0, xloc, yloc, -60, math.random(255));
 		end
 	elseif wave_type == 2 then
 		for i=1, 6 do
-			eq.spawn2(164129, 0, 0, math.random(locs[1][1], locs[1][2]), math.random(locs[2][1], locs[2][2]), locs[3], math.random(255));
+			local xloc, yloc;
+			repeat
+				xloc = math.random(1700, 1850)
+				yloc = math.random(200, 350)
+			until not (xloc > 1740 and xloc < 1800 and yloc > 235 and yloc < 300)
+			eq.spawn2(164129, 0, 0, xloc, yloc, -60, math.random(255));
 		end
 	elseif wave_type == 3 then
 		eq.spawn2(164128, 0, 0, 1792, 5, -70, 0);

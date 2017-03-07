@@ -1,3 +1,14 @@
+---- Quest:Investigators Badge (Badge #1)
+-- QGlobal Helpers for Badge Quest #1 (qeynos_badge1)
+-- 1 = Received Investigator's Briefing
+-- 2 = First Suspect
+-- 3 = Rileys Confession
+-- 4 = Summoned Guard for Riley
+-- 5 = Willies Confession
+-- 6 = Summoned Guard for Willie
+-- 7 = Have the Investigators Badge
+-- Failure of the an_investigator section will reset you back to QGlobal 1 so you can restart the escort portion
+
 function event_spawn(e)
 	eq.set_timer("depop",1800000);
 end
@@ -10,10 +21,10 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 2344})) then
-		e.other:SummonItem(2369);
-		eq.set_global("invest_badge","second_suspect",3,"F");
-		eq.unique_spawn(1201,0,0,-414,-11,-25,0);
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 2344})) then -- Confession Document
+		e.other:SummonItem(2369); -- Rileys Confession
+		eq.unique_spawn(1201,0,0,-414,-11,-25,0); -- #Willie_Garrote
+		eq.set_global("qeynos_badge1","3",5,"F"); -- Badge Globals
 	end
 	item_lib.return_items(e.self, e.other, e.trade, e.text)
 end

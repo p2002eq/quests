@@ -17,6 +17,12 @@ function event_timer(e)
 	end
 end
 
+function event_combat(e)
+	if e.joined then
+		e.self:Emote("roars and attacks!")
+	end
+end
+
 function event_death_complete(e)
 	eq.stop_all_timers()
 	e.self:Emote("'s corpse rips in two, revealing a greater terror!")

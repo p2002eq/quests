@@ -16,6 +16,18 @@ function event_timer(e)
 	end
 end
 
+function event_slay(e)
+	if e.other:IsClient() then
+		e.self:Say('Remove that waste of flesh from my sight!')
+	end
+end
+
+function event_combat(e)
+	if e.joined then
+		e.self:Shout('Bow before your only god! I will tear all others from the heavens!')
+	end
+end
+
 function event_death_complete(e)
 	eq.stop_all_timers()
 	e.self:Emote("'s corpse falls to the ground as new energy fills the room!")

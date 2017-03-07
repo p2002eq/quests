@@ -2,6 +2,8 @@ local timerUp = false;      -- Determines if AOW despawn timer is up.
 local inCombat = false;
 
 function event_spawn(e)
+	timerUp = false;      -- Determines if AOW despawn timer is up.
+	inCombat = false;
 	e.self:Shout("Who dares defile my temple?! Come forth and face me!");
 	eq.set_timer("AOW",3600000);   -- 1 hour
 	--eq.set_timer("AOW",300000);   -- 1 minute for testing.

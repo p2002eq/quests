@@ -15,7 +15,7 @@ function event_encounter_load(e)
 	eq.set_timer("start", 60000); -- timer to start wave 1
 	
 	-- triggers for carrion drake spawns and splitters
-	eq.register_player_event("Vulak_Event", Event.death_complete, CarrionCheck);
+	eq.register_player_event("Vulak_Event", Event.death, CarrionCheck);
 	eq.register_npc_event("Vulak_Event", Event.death_complete, -1, SplitterCheck);
 	
 	-- triggers on spawn of Vulak
@@ -340,6 +340,7 @@ function GMControl(e)
 				if wave_num > 1 and wave_num <= 17 then
 					wave = wave_num - 1;
 					e.self:Message(6, string.format("Next wave set to number %s. Wave timer currently at %s seconds.", wave + 1, wave_timer/1000));
+					eq.debug(string.format('Vulak event - %s set wave to %s', e.self:GetName(), wave_num))
 				else
 					e.self:Message(6, "Wave number not valid, try again.");
 				end
@@ -352,6 +353,7 @@ function GMControl(e)
 				if temp_time > 0 and temp_time < 3600 then
 					wave_timer = temp_time*1000;
 					e.self:Message(6, string.format("Wave timer set to %s seconds. Next wave is wave %s.", wave_timer/1000, wave + 1));
+					eq.debug(string.format('Vulak event - %s set timer to %s seconds', e.self:GetName(), temp_time))
 				else
 					e.self:Message(6, "Timer length not valid, try again.");
 				end
