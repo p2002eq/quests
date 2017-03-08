@@ -9,7 +9,7 @@ end
 function event_trade(e)
 
 	local item_lib = require('items');
-	local qglobals = eq.get_qglobals(e.other);
+	local qglobals = eq.get_qglobals(e.self, e.other);
 
 	if item_lib.check_turn_in(e.self, e.trade, {item1 = 1725}) then
 		e.self:Say("Hmmm, not sure why you're giving me all this. <cough> 50 pieces <cough> of platinum <cough> Whew, wow, I may be coming down with <cough> and the note <cough> something.");
