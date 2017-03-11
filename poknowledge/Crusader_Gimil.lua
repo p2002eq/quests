@@ -1,7 +1,7 @@
 --Paladin Tomes/Planar Armor Exchange
 function event_say(e)
 	if(e.message:findi("Hail")) then
-		e.self:Say("kneels low before " .. e.other:GetName() .. ", offering a humble gesture of respect and greetings. 'The light of Selia embraces thee, my friend. If you reside in our midst in searching for knowledge and guidance, then know that we are your servants in that quest. Should you be a paladin, and your object of faith is of no consequence in this matter, then my services are humbly at your disposal should you need or wish them.'");
+		e.self:Emote("kneels low before " .. e.other:GetName() .. ", offering a humble gesture of respect and greetings. 'The light of Selia embraces thee, my friend. If you reside in our midst in searching for knowledge and guidance, then know that we are your servants in that quest. Should you be a paladin, and your object of faith is of no consequence in this matter, then my services are humbly at your disposal should you need or wish them.'");
 	end
 end
 
