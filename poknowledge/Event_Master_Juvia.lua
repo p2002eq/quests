@@ -13,7 +13,7 @@ function event_trade(e)
 		if e.other:GetSkill(55) > 50 then
 			e.self:Say("You did a fine job. This will surely catch me something big. Here, take this seal and best of luck on your quest!");
 			e.other:QuestReward(e.self,0,0,0,0,34043); -- Juvia's Seal 
-		elseif
+		else
 			e.self:Say('Are you sure no one else made that for you? Go back and practice some more to show me that you can make it yourself.');
 			e.other:SummonItem(22726); -- returns Shimmering Gossamer Circle Fly
 		end

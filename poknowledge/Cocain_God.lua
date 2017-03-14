@@ -1,7 +1,7 @@
 -- Cocain_God (202344) in PoK for anniversary quest!
 
 rewards = {[10] = 31851, [5] = 31853, [3] = 31855, [7] = 31854, [6] = 31857, [11] = 31859, [4] = 31860, [9] = 31861, [12] = 31863, [128] = 31862}
-race_pool = {3, 4, 5, 6, 7, 9, 10, 11, 12, 128)
+race_pool = {3, 4, 5, 6, 7, 9, 10, 11, 12, 128}
 
 function event_say(e)
 	local qglobals = eq.get_qglobals(e.self, e.other);

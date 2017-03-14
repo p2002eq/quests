@@ -13,7 +13,7 @@ function event_trade(e)
 		if e.other:GetSkill(65) > 50 then
 			e.self:Say("Yeah, this will hit the spot, here is my seal, I think you will find it comes in handy.");
 			e.other:QuestReward(e.self,0,0,0,0,34046); -- Thaco's Seal 
-		elseif
+		else
 			e.self:Say('Are you sure no one else made that for you? Go back and practice some more to show me that you can make it yourself.');
 			e.other:SummonItem(19186); -- returns Othmir Beach Wine
 		end

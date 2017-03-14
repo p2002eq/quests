@@ -13,7 +13,7 @@ function event_trade(e)
 		if e.other:GetSkill(60) > 50 then
 			e.self:Say("This smells like what Mama used to make, It better taste like it! Here's the seal. Go and let me eat in peace.");
 			e.other:QuestReward(e.self,0,0,0,0,34044); -- Boragar's Seal 
-		elseif
+		else
 			e.self:Say('Are you sure no one else made that for you? Go back and practice some more to show me that you can make it yourself.');
 			e.other:SummonItem(20398); -- returns Blackened Panther
 		end
