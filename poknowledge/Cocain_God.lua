@@ -61,12 +61,8 @@ function pick_reward(player)
 	local race = player:GetRace();
 	
 	repeat
-		reward_race = pick_race();
-	until reward_race =~ race and not e.other:HasItem(rewards(reward_race))
+		reward_race = eq.ChooseRandom(unpack(race_pool));
+	until reward_race ~= race and not e.other:HasItem(rewards(reward_race))
 
 	return rewards(reward_race)
-end
-
-function pick_race()
-	return eq.ChooseRandom(unpack(race_pool))
 end
