@@ -44,7 +44,7 @@ function event_trade(e)
 			e.other:SummonItem(31961) -- P2002's Rod of Infinite Glory  returned
 			e.other:QuestReward(e.self,0,0,0,0,pick_reward(e.other)) -- random(ish) mask
 			eq.set_global("Anniversary2", "rewardYear1", 5, "F")
-		elseif item_lib.check_turn_in(e.self, e.trade, {item1 = 34050}) -- P2002's Rod of Sustained Glory (2-year item)
+		elseif item_lib.check_turn_in(e.self, e.trade, {item1 = 34050}) then -- P2002's Rod of Sustained Glory (2-year item)
 			e.self:Say("Looks like you're an old timer! Thank you. Let me find you something nice!")
 			e.other:SummonItem(34050) -- P2002's Rod of Sustained Glory   returned
 			e.other:QuestReward(e.self,0,0,0,0,pick_reward(e.other)) -- random(ish) mask
