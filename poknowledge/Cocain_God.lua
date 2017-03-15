@@ -75,7 +75,7 @@ function pick_reward(player)
 end
 
 function good_item(client, item_race)
-	if player:GetRace() == item_race then
+	if client:GetRace() == item_race then
 		return false
 	elseif client:HasItem(rewards[reward_race]) then
 		return false
