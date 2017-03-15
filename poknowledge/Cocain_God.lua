@@ -58,11 +58,44 @@ function event_trade(e)
 end
 
 function pick_reward(player)
-	local race = player:GetRace();
+	local counter = 0;
+	local reward_race;
 	
 	repeat
 		reward_race = eq.ChooseRandom(unpack(race_pool));
-	until reward_race ~= race and not e.other:HasItem(rewards(reward_race))
+		counter = counter + 1;
+		if counter >= 100 then break end -- in case we can't find a good item for someone!
+	until good_item(player, reward_race)
+	
+	if counter < 100 then
+		return rewards[reward_race]
+	else
+		return 0
+	end
+end
 
-	return rewards(reward_race)
+function good_item(client, item_race)
+	if player:GetRace() == item_race then
+		return false
+	elseif client:HasItem(rewards[reward_race]) then
+		return false
+	elseif item_race == 6 and (client:HasItem(2469) or client:HasItem(2472)) then -- dark elf and clickies
+		return false
+	elseif item_race == 5 and (client:HasItem(2475) or client:HasItem(5713)) then -- high elf and clickies
+		return false
+	elseif item_race == 3 and client:HasItem(2738) then -- erudite and clickies
+		return false
+	elseif item_race == 7 and client:HasItem(8096) then -- half-elf and clickies
+		return false
+	elseif item_race == 11 and client:HasItem(5796) then -- halfling and clickies
+		return false
+	elseif item_race == 4 and client:HasItem(11277) then -- wood elf and clickies
+		return false
+	elseif item_race == 12 and client:HasItem(1135) then -- gnome and clickies
+		return false
+	elseif item_race == 128 and client:HasItem(2741) then -- iksar and clickies
+		return false
+	else
+		return true
+	end
 end
