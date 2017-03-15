@@ -17,10 +17,10 @@ function event_say(e)
 			e.self:Say("Well, well, well. Another year and you are here. You wish something great from me, your great God?  It's going take a lot to get me to give you these cool new items. Take this box and go speak with the others.  If they give their approval then I might share this stuff with you....or death touch you.... I'm still deciding on your mortal existence. Fill this box with their seals of approval, combine it, and show me what you make from it. Hurry, I’m not going to wait round all day!");
 			if e.other:HasItem(31961) then
 				e.other:SummonItem(34051)
-				eq.set_global("Anniversary2", "track1", 5, "F")
+				eq.set_global("Anniversary2", "track2", 5, "F")
 			else
 				e.other:SummonItem(34049)
-				eq.set_global("Anniversary2", "track2", 5, "F")
+				eq.set_global("Anniversary2", "track1", 5, "F")
 			end
 		elseif hails == 1 then
 			e.self:Say("Well??? Do you have something to show me?");
