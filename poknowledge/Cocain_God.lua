@@ -15,11 +15,12 @@ function event_say(e)
 		eq.set_global("hails", tostring(hails), 0, "M5")
 		if hails == 1 and qglobals["Anniversary2"] == nil then
 			e.self:Say("Well, well, well. Another year and you are here. You wish something great from me, your great God?  It's going take a lot to get me to give you these cool new items. Take this box and go speak with the others.  If they give their approval then I might share this stuff with you....or death touch you.... I'm still deciding on your mortal existence. Fill this box with their seals of approval, combine it, and show me what you make from it. Hurry, I’m not going to wait round all day!");
-			eq.set_global("Anniversary2", "started", 5, "F")
 			if e.other:HasItem(31961) then
 				e.other:SummonItem(34051)
+				eq.set_global("Anniversary2", "track1", 5, "F")
 			else
 				e.other:SummonItem(34049)
+				eq.set_global("Anniversary2", "track2", 5, "F")
 			end
 		elseif hails == 1 then
 			e.self:Say("Well??? Do you have something to show me?");
@@ -38,18 +39,16 @@ function event_trade(e)
 	local item_lib = require("items");
 	local qglobals = eq.get_qglobals(e.self, e.other);
 	
-	if qglobals["Anniversary2"] == "started" then
-		if qglobals["Anniversary"] == nil and item_lib.check_turn_in(e.self, e.trade, {item1 = 31961}) then -- P2002's Rod of Infinite Glory (1-year item)
-			e.self:Say("Yes, you've done well. Here is your reward for help all of us!")
-			e.other:SummonItem(31961) -- P2002's Rod of Infinite Glory  returned
-			e.other:QuestReward(e.self,0,0,0,0,pick_reward(e.other)) -- random(ish) mask
-			eq.set_global("Anniversary2", "rewardYear1", 5, "F")
-		elseif item_lib.check_turn_in(e.self, e.trade, {item1 = 34050}) then -- P2002's Rod of Sustained Glory (2-year item)
-			e.self:Say("Looks like you're an old timer! Thank you. Let me find you something nice!")
-			e.other:SummonItem(34050) -- P2002's Rod of Sustained Glory   returned
-			e.other:QuestReward(e.self,0,0,0,0,pick_reward(e.other)) -- random(ish) mask
-			eq.set_global("Anniversary2", "rewardYear2", 5, "F")
-		end
+	if qglobals["Anniversary2"] == "track1" and item_lib.check_turn_in(e.self, e.trade, {item1 = 31961}) then -- P2002's Rod of Infinite Glory (1-year item)
+		e.self:Say("Yes, you've done well. Here is your reward for help all of us!")
+		e.other:SummonItem(31961) -- P2002's Rod of Infinite Glory  returned
+		e.other:QuestReward(e.self,0,0,0,0,pick_reward(e.other)) -- random(ish) mask
+		eq.set_global("Anniversary2", "rewardYear1", 5, "F")
+	elseif qglobals["Anniversary2"] == "track2" and item_lib.check_turn_in(e.self, e.trade, {item1 = 34050}) then -- P2002's Rod of Sustained Glory (2-year item)
+		e.self:Say("Looks like you're an old timer! Thank you. Let me find you something nice!")
+		e.other:SummonItem(34050) -- P2002's Rod of Sustained Glory   returned
+		e.other:QuestReward(e.self,0,0,0,0,pick_reward(e.other)) -- random(ish) mask
+		eq.set_global("Anniversary2", "rewardYear2", 5, "F")
 	elseif qglobals["Anniversary2"] == "rewardYear1" or qglobals["Anniversary2"] == "rewardYear1" then
 		e.self:Say("You can't bribe me! You already got your reward!")
 	end
