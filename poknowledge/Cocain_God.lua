@@ -39,7 +39,7 @@ function event_trade(e)
 	local qglobals = eq.get_qglobals(e.self, e.other);
 	
 	if qglobals["Anniversary2"] == "started" then
-		if qglobals["Anniversary"] ~= nil and item_lib.check_turn_in(e.self, e.trade, {item1 = 31961}) then -- P2002's Rod of Infinite Glory (1-year item)
+		if qglobals["Anniversary"] == nil and item_lib.check_turn_in(e.self, e.trade, {item1 = 31961}) then -- P2002's Rod of Infinite Glory (1-year item)
 			e.self:Say("Yes, you've done well. Here is your reward for help all of us!")
 			e.other:SummonItem(31961) -- P2002's Rod of Infinite Glory  returned
 			e.other:QuestReward(e.self,0,0,0,0,pick_reward(e.other)) -- random(ish) mask
