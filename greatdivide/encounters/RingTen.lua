@@ -542,6 +542,7 @@ function WarTimers(e)
 	elseif e.timer == "Narandi" then
 		eq.stop_timer("Narandi");
 		local combo = table_concat(Heroes, Giants);
+		table.insert(combo, 118345);
 		depop_except(combo);
 		PostSetup();
 		spawn_helper(next_spawn, 10, 1, 1, 10, 192);

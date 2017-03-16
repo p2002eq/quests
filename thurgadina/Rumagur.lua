@@ -3,7 +3,7 @@ function event_signal(e)
 		e.self:Say("Hey Fronden, I want a double of whatever you've been serving him!");
 		eq.signal(115013, 1, 9000)
 	elseif (e.signal == 2) then
-		e.self:SetRunning(1);
+		e.self:SetRunning(true);
 		eq.start(7);
 	elseif (e.signal == 3) then
 		e.self:Say("Aye Sara, much better indeed. With the help of good Fronden here I think I've finally figured out what was causing the alarming condition under me left arm. I must admit it was givin me quite a scare for a while, not to mention the pain was drivin me to drink.");
@@ -31,7 +31,7 @@ end
 
 function event_waypoint_arrive(e)
 	if (e.wp == 4) then
-		e.self:SetRunning(0);
+		e.self:SetRunning(false);
 	elseif (e.wp == 9) then
 		eq.stop();	
 	end

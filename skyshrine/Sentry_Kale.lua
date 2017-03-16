@@ -1,11 +1,11 @@
-local friendofthekin = false -- sets which quest he hands out. Currently set to hand out both rewards at all times, which is consistent with Alla posts from the era
+-- Sentry Kale in Skyshrine for Hammerfal and Dragon Tooth Choker
 
-function event_death_complete(e) -- this seems a little silly, but I can't seem to get this flag to reset on repop other than using this way - Kalaylus
+function event_spawn(e) -- sets which quest he starts. Currently set to hand out both rewards at all times, which is consistent with Alla posts from the era
 	friendofthekin = false
 	end
 
 function event_say(e)
-	if (e.other:GetFaction(e.self) <= 2) then --Warmly or lower
+	if (e.other:GetFaction(e.self) <= 2) then -- Warmly or lower
 		if(e.message:findi("hail") and friendofthekin) then
 			e.self:Say("Ah, outsiders, I have heard word of your travel here.  Perhaps you wish to become a friend of the kin?");
 		elseif(e.message:findi("friend of the kin") and friendofthekin) then
@@ -35,8 +35,10 @@ function event_trade(e)
 			e.other:Faction(362, 10); --Yelinak
 			e.other:Faction(42, 10); --CoV
 			e.other:Faction(189, -30); --Kromzek
-			friendofthekin = true
-			e.other:QuestReward(e.self, math.random(10),math.random(10),math.random(10),math.random(10), 1727, 12500); --Bracer of Hammerfal
+			friendofthekin = true;
+			local reward = 0;
+			if math.random(10) > 5 then reward = 1727 end
+			e.other:QuestReward(e.self, math.random(10),math.random(10),math.random(10),math.random(10), reward, 12500); --Bracer of Hammerfal
 			
 		elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 29065})) then
 			e.self:Say("You have shown us yet again your loyalty to our people. Please accept this token of our gratitude.");
