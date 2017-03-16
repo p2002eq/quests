@@ -2,7 +2,7 @@
 
 function event_say(e)
 	if e.message:findi("hail") then
-		e.self:Say("A lot of quests to fix, I don't have time to go out and get that Giant Scarab Brain I need for tonight's soup. If you can go find me a fresh one while I keep working, I will give you my seal.  I am sure you will find a way to use it.");
+		e.self:Say("A lot of quests to fix, so I don't have time to go out and get that Giant Scarab Brain I need for tonight's soup. If you can go find me a fresh one while I keep working, I will give you my seal.  I am sure you will find a way to use it.");
 	end
 end
 

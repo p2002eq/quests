@@ -10,7 +10,7 @@ function event_trade(e)
 	local item_lib = require("items");
 	
 	if item_lib.check_turn_in(e.self, e.trade, {item1 = 13716}) then -- Kerran Doll 
-		e.self:Say("Excellent! Here's my seal, don't tell them I secretly love cats.")
+		e.self:Say("Excellent! Here's my seal, but don't tell them I secretly love cats.")
 		e.other:QuestReward(e.self,0,0,0,0,34042) -- Taian's Seal
 	end
 	

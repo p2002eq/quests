@@ -2,7 +2,7 @@
 
 function event_say(e)
 	if e.message:findi("hail") then
-		e.self:Say("I have fixed many issues in this world and its making me hungry. I'm craving some Blackened Panther. Make me some and I will give you this seal. Make sure to get your skill high enough so you don't mess it up, I will know if you cooked it yourself!");
+		e.self:Say("I have fixed many issues in this world and it's making me hungry. I'm craving some Blackened Panther. Make me some and I will give you this seal. Make sure to getyour skill high enough so you don't mess it up.  I will know if you cooked it yourself!");
 	end
 end
 
@@ -11,7 +11,7 @@ function event_trade(e)
 	
 	if item_lib.check_turn_in(e.self, e.trade, {item1 = 20398}) then -- Blackened Panther
 		if e.other:GetSkill(60) > 50 then
-			e.self:Say("This smells like what Mama used to make, It better taste like it! Here's the seal. Go and let me eat in peace.");
+			e.self:Say("This smells like what Mama used to make, and it better taste like it! Here's the seal. Go and let me eat in peace.");
 			e.other:QuestReward(e.self,0,0,0,0,34044); -- Boragar's Seal 
 		else
 			e.self:Say('Are you sure no one else made that for you? Go back and practice some more to show me that you can make it yourself.');

@@ -13,8 +13,10 @@ function event_say(e)
 	if e.message:findi("hail") then
 		hails = hails + 1;
 		eq.set_global("hails", tostring(hails), 0, "M5")
-		if hails == 1 and qglobals["Anniversary2"] == nil then
-			e.self:Say("Well, well, well. Another year and you are here. You wish something great from me, your great God?  It's going take a lot to get me to give you these cool new items. Take this box and go speak with the others.  If they give their approval then I might share this stuff with you....or death touch you.... I'm still deciding on your mortal existence. Fill this box with their seals of approval, combine it, and show me what you make from it. Hurry, I’m not going to wait round all day!");
+		if qglobals["Anniversary2"] == "rewardYear1" or qglobals["Anniversary2"] == "rewardYear1" then
+			e.self:Say("Looks like you already got a reward this year. Move along and enjoy!");
+		elseif hails == 1 and qglobals["Anniversary2"] == nil then
+			e.self:Say("Well, well, well. Another year and you are here. You wish something great from me, your great God?  It's going take a lot to get me to give you these cool new items. Take this box and go speak with the others.  If they give their approval then I might share this stuff with you....or death touch you.... I'm still deciding on your mortal existence. Fill this box with their seals of approval, combine it, and show me what you make from it. Don't bug me, that's the only one you are getting, so be careful with it. Now hurry, I'm not going to wait around all day!");
 			if e.other:HasItem(31961) then
 				e.other:SummonItem(34051)
 				eq.set_global("Anniversary2", "track2", 5, "F")
