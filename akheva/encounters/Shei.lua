@@ -38,7 +38,7 @@ function event_encounter_load(e)
 	eq.register_npc_event("Shei", Event.death_complete, 179359, AddRespawn);
 	eq.register_npc_event("Shei", Event.death_complete, 179360, AddRespawn);
 	
-	eq.register_client_event("Shei", Event.say, Response);
+	eq.register_player_event("Vulak_Event", Event.say, Response);
 end
 
 function Response(e)
@@ -93,8 +93,8 @@ function FakeSheiDeath(e)
 end
 
 function RealSheiDeath()
-	eq.set_timer('cleanup', 60 * 1000);
-	eq.set_timer('unload', 60 * 1000);
+	eq.set_timer('cleanup', 20 * 1000);
+	eq.set_timer('unload', 20 * 1000);
 end
 
 function RealSheiSpawn(e)
