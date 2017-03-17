@@ -38,7 +38,7 @@ function event_encounter_load(e)
 	eq.register_npc_event("Shei", Event.death_complete, 179359, AddRespawn);
 	eq.register_npc_event("Shei", Event.death_complete, 179360, AddRespawn);
 	
-	eq.register_player_event("Vulak_Event", Event.say, Response);
+	eq.register_player_event("Shei", Event.say, Response);
 end
 
 function Response(e)
@@ -89,7 +89,7 @@ function SheiCombat(e)
 			eq.set_timer('aggro_guards', 30 * 1000);
 		end
 	else
-		eq.set_timer("shei_despawn_adds", 15 * 60 * 1000); -- 15 Minute add despawn (Soft Reset)
+		switch = 'AddDepop'; -- 15 Minute add despawn (Soft Reset)
 		eq.stop_timer("shei_dt");
 	end
 end
@@ -99,8 +99,7 @@ function FakeSheiDeath(e)
 end
 
 function RealSheiDeath()
-	eq.set_timer('cleanup', 20 * 1000);
-	eq.set_timer('unload', 20 * 1000);
+	switch = 'SheiDead';
 end
 
 function RealSheiSpawn(e)
