@@ -37,14 +37,21 @@ function event_encounter_load(e)
 	eq.register_npc_event("Shei", Event.death_complete, 179358, AddRespawn);
 	eq.register_npc_event("Shei", Event.death_complete, 179359, AddRespawn);
 	eq.register_npc_event("Shei", Event.death_complete, 179360, AddRespawn);
+	
+	eq.register_client_event("Shei", Event.say, Response);
+end
+
+function Response(e)
+	eq.message('HELLO!');
 end
 
 function event_timer(e)
-	if e.timer == 'hb' then
-		if unload then
-			eq.stop_all_timers();
-			eq.unload_encounter("Shei");
-		end
+	eq.stop_timer(e.timer);
+	if e.timer == 'unload' then
+		eq.stop_all_timers();
+		eq.unload_encounter("Shei");
+	elseif e.timer == 'cleanup' then
+		cleanup();
 	end
 end
 
@@ -76,7 +83,7 @@ function SheiCombat(e)
 			eq.set_timer('aggro_guards', 30 * 1000);
 		end
 	else
-		eq.set_timer("shei_despawn_adds", 5 * 60 * 1000); -- 5 Minute add despawn (Soft Reset)
+		eq.set_timer("shei_despawn_adds", 15 * 60 * 1000); -- 15 Minute add despawn (Soft Reset)
 		eq.stop_timer("shei_dt");
 	end
 end
@@ -85,9 +92,9 @@ function FakeSheiDeath(e)
 	eq.unique_spawn(179032, 0, 0, -1736, 1082, 22.6, 64);
 end
 
-function RealSheiDeath(e)
-	cleanup();
-	unload = true
+function RealSheiDeath()
+	eq.set_timer('cleanup', 60 * 1000);
+	eq.set_timer('unload', 60 * 1000);
 end
 
 function RealSheiSpawn(e)
@@ -106,7 +113,7 @@ function SheiTimer(e)
 		cleanup();
 	elseif e.timer == "shei_despawn_full" then
 		e.self:Depop();
-		RealSheiDeath(e);
+		RealSheiDeath();
 	end
 end
 
