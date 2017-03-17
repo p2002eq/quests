@@ -11,7 +11,7 @@ secondary_adds = { 179352, 179353, 179354, 179355 };
 
 function event_encounter_load(e)
 	eq.set_timer("hb", 60 * 1000);
-	unload = false;
+	switch = off;
 
 	eq.register_npc_event("Shei", Event.combat, 179349, SheiCombat);
 	eq.register_npc_event("Shei", Event.timer, 179349, SheiTimer);
@@ -42,16 +42,22 @@ function event_encounter_load(e)
 end
 
 function Response(e)
-	eq.message('HELLO!');
+	e.self:Message(6, "EVENT IS ACTIVE"); 
 end
 
 function event_timer(e)
-	eq.stop_timer(e.timer);
-	if e.timer == 'unload' then
-		eq.stop_all_timers();
-		eq.unload_encounter("Shei");
+	if e.timer == 'hb' then
+		if switch == 'AddDepop' then
+			eq.set_timer('cleanup', 30 * 1000)
+		elseif switch == 'SheiDead' then
+			eq.set_timer('cleanup', 30 * 1000)
+		elseif switch == 'unload' then 
+			eq.stop_all_timers();
+			eq.unload_encounter("Shei");
+		end
 	elseif e.timer == 'cleanup' then
 		cleanup();
+		if switch == 'SheiDead' then switch = unload; end
 	end
 end
 
