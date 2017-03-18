@@ -12,7 +12,7 @@ end
 
 function event_trade(e)
     local item_lib = require("items");
-    if(item_lib.check_turn_in(e.self, e.trade, {item1 = 7779})) then -- Shade Summoning Figurine
+    if(item_lib.check_turn_in(e.self, e.trade, {item1 = 7779}) and tonumber(qglobals.autarkic_event) ~= 1) then -- Shade Summoning Figurine
         e.self:Say("Perfect. We shall begin the summoning and questioning. This enchanted scroll will magically scribe all that transpires within its radius of perception. Take it to Magistrate Phenic after the summoning and questioning are completed.");
         e.other:Faction(206,5); -- Magus Conlegium
         e.other:Faction(168,5); -- Katta Castellum Citizens
@@ -22,6 +22,7 @@ function event_trade(e)
         e.other:Faction(96,-5); -- Eye of Seru
         e.other:Faction(138,-5); -- Hand Legionnaries
         e.other:QuestReward(e.self,0,0,0,0,0,10000); -- exp
+        eq.set_global("autarkic_event","1",2,"M30"); -- 30 Minute Event Cooldown
         eq.set_global("autarkic_combat",e.other:GetName(),3,"M15");
         eq.spawn2(160482,0,0,-97,-822,11,0); -- Autarkic Lord Sfarosh
         eq.signal(160482,1,10000); -- Autarkic Lord Sfarosh
