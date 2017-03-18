@@ -1,8 +1,8 @@
 ---- Quest:Bronus' Amulet
 function event_say(e)
     if(e.message:findi("hail")) then
-        e.self:Say("Hello, you look like a battleworn traveller. Have you heard of the place where [grieg] resides?");
-    elseif(e.message:findi("grieg")) then
+        e.self:Say("Hello, you look like a battleworn traveller. Have you heard of the place where [Grieg] resides?");
+    elseif(e.message:findi("Grieg")) then
         e.self:Say("Aye, Grieg Veneficus. We do not know much about this madman, only where his [stronghold] is. One of my friends from the Eye was sent there to investigate it, but he has not returned. It has been quite some time and I am very worried about him.");
     elseif(e.message:findi("stronghold")) then
         e.self:Say("Grieg's End is what it has become to be known as. Some reports have come back that this place is cursed with foul visages. Any entering will surely loose their minds. I.. I would go but you see I am desperately busy here in the city doing..uh..many important things! You look like you could help, will you [travel] to Grieg's End and look for my friend?");
