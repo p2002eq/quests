@@ -11,9 +11,9 @@ function event_say(e)
     elseif(e.message:findi("friend")) then
         e.self:Say("Yaeorat is who I speak of, he is a very trusted and old friend of mine that is a very powerful and skillfull enchanter. Will you bring to him the [Gemmed sword hilt]? I feel that if anyone will be able to identify this it will be Yaeorat.");
     elseif(e.message:findi("gemmed sword hilt")) then
-        e.self:Say("That is great to hear, $name, here is the hilt. Please go see Yaeorat at once and bring me news about the magic that surrounds this sword hilt good or bad.");
+        e.self:Say("That is great to hear, " .. e.other:GetName() .. ", here is the hilt. Please go see Yaeorat at once and bring me news about the magic that surrounds this sword hilt good or bad.");
         e.other:SummonItem(4762); -- Gemmed Sword Hilt
-        eq.set_global("swordhilt",1,5,"D1");
+        eq.set_global("swordhilt","1",5,"D1");
     end
 end
 
@@ -26,7 +26,7 @@ function event_trade(e)
         e.other:Faction(140,25); -- haven defenders
         e.other:Faction(338,2); -- traders of the haven
         e.other:QuestReward(e.self,0,0,0,0,0,5000); -- EXP and Faction
-        eq.set_global("swordhilt",0,5,"D1");
+        eq.set_global("swordhilt","0",5,"D1");
     end
     item_lib.return_items(e.self, e.other, e.trade)
 end
