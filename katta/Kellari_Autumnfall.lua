@@ -17,7 +17,7 @@ end
 function event_trade(e)
     local item_lib = require("items");
     if(item_lib.check_turn_in(e.self, e.trade, {item1 = 3870})) then -- Completed Specimen Kit
-        e.self:Emote("looks at   " .. e.other:GetName() .. "  the various trays in the kit and turns pale, even for her normal complexion.  She looks at you and says, 'This is much worse than we thought.  We assumed that this was caused by someone from within our ranks, but I would never have thought that [Colain] was involved");
+        e.self:Emote("looks at " .. e.other:GetName() .. " the various trays in the kit and turns pale, even for her normal complexion.  She looks at you and says, 'This is much worse than we thought.  We assumed that this was caused by someone from within our ranks, but I would never have thought that [Colain] was involved");
         e.other:QuestReward(e.self,7,12,13,5,3872,1000); -- Note from Kellari
     end
     item_lib.return_items(e.self, e.other, e.trade)
