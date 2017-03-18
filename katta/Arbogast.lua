@@ -17,7 +17,7 @@ function event_say(e)
     elseif(e.message:findi("exist")) then
         e.self:Say("You are beginning to see the truest truths as the only true truths now, are you not? That large blue orb that hangs in the Luclin sky from time to time is nothing more than an overgrown comet. What appear to be land masses and other geological features are in actuality powerful illusions cast upon the comet by Tsaph Katta himself so that panic does not spread amongst the ignorant masses. I am not one to spread conjecture, but it is possible that Katta's astronomers have discovered that the comet is hurtling slowly toward Luclin and will destroy all life on the planet, so you can see why he would want to keep the truth about the [Exodus] from his journal.");
     elseif(e.message:findi("exodus")) then
-        e.self:Say("'The Exodus is the single biggest lie propagated onto the people of Katta Castellum in the known history of the intelligent races. Hogwash I tell you.");
+        e.self:Say("The Exodus is the single biggest lie propagated onto the people of Katta Castellum in the known history of the intelligent races. Hogwash I tell you.");
         eq.signal(160478,5,2500); -- Miller
     end
 end
@@ -41,7 +41,7 @@ function event_trade(e)
         e.self:Say("Oh, would you look at that?");
         eq.signal(160478,6,5000); -- Miller
         e.other:Faction(333,10); -- The Truth
-        e.other:QuestReward(e.self,0,0,0,0,17516,100000); -- Silver Wrapping Paper
+        e.other:QuestReward(e.self,0,0,0,0,0,100000); -- Exp / Faction
     end
     item_lib.return_items(e.self, e.other, e.trade)
 end
