@@ -10,7 +10,7 @@ primary_adds = {
 secondary_adds = { 179352, 179353, 179354, 179355 };
 
 function event_encounter_load(e)
-	eq.set_timer("hb", 60 * 1000);
+	eq.set_timer("hb", 10 * 1000);
 
 	eq.register_npc_event("Shei", Event.combat, 179349, SheiCombat);
 	eq.register_npc_event("Shei", Event.timer, 179349, SheiTimer);
@@ -46,11 +46,13 @@ function event_timer(e)
 	if e.timer == 'hb' then
 		local ent_list = eq.get_entity_list();
 		if not ent_list:IsMobSpawnedByNpcTypeID(179032) and not ent_list:IsMobSpawnedByNpcTypeID(179349) then
-			eq.set_timer("DepopAdds", 60 * 1000);
-			end
-	elseif e.timer == "DepopAdds" then
-		eq.stop_timer(e.timer);
+			eq.set_timer("EndEncounter", 20 * 1000);
+		end
+	elseif e.timer == "EndEncounter" then
+		eq.stop_all_timers();
 		cleanup();
+		eq.set_timer("Unload", 20 * 1000);
+	elseif e.timer == "Unload" then
 		eq.unload_encounter("Shei");
 	end
 end
@@ -82,7 +84,10 @@ function SheiCombat(e)
 			eq.set_timer('aggro_guards', 30 * 1000);
 		end
 	else
-		eq.stop_timer("shei_dt");
+		if e.self:GetNPCTypeID() == 179032 then
+			eq.stop_timer("shei_dt");
+			eq.stop_timer('aggro_guards');
+		end
 	end
 end
 
