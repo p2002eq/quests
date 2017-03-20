@@ -44,16 +44,20 @@ end
 
 function event_timer(e)
 	if e.timer == 'hb' then
+		eq.zone_emote(1, 'HB trigger');
 		local ent_list = eq.get_entity_list();
 		if not ent_list:IsMobSpawnedByNpcTypeID(179032) and not ent_list:IsMobSpawnedByNpcTypeID(179349) then
 			eq.set_timer("EndEncounter", 20 * 1000);
 			eq.stop_timer(e.timer);
+			eq.zone_emote(1, 'EndEncounter SET');
 		end
 	elseif e.timer == "EndEncounter" then
+		eq.zone_emote(1, 'EndEncounter trigger');
 		eq.stop_timer(e.timer);
 		cleanup();
 		eq.set_timer("Unload", 20 * 1000);
 	elseif e.timer == "Unload" then
+		eq.zone_emote(1, 'Unload trigger');
 		eq.stop_timer(e.timer);
 		eq.unload_encounter("Shei");
 	end
@@ -121,6 +125,7 @@ function aggro_guards(mob)
 end
 
 function cleanup()
+	eq.zone_emote(1, 'CLEANUP trigger');
 	
 	for v,_ in pairs(primary_adds) do
 		eq.depop_all(v);
