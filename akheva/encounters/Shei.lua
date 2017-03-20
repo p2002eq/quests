@@ -47,33 +47,28 @@ function event_timer(e)
 		eq.zone_emote(1, 'HB trigger');
 		local ent_list = eq.get_entity_list();
 		if not ent_list:IsMobSpawnedByNpcTypeID(179032) and not ent_list:IsMobSpawnedByNpcTypeID(179349) then
-			eq.set_timer("EndEncounter", 20 * 1000);
 			eq.stop_timer(e.timer);
-			eq.zone_emote(1, 'EndEncounter SET');
+			eq.zone_emote(1, 'EndEncounter');
+			eq.unload_encounter("Shei");
 		end
-	elseif e.timer == "EndEncounter" then
-		eq.zone_emote(1, 'EndEncounter trigger');
-		eq.stop_timer(e.timer);
-		cleanup();
-		eq.set_timer("Unload", 20 * 1000);
-	elseif e.timer == "Unload" then
-		eq.zone_emote(1, 'Unload trigger');
-		eq.stop_timer(e.timer);
-		eq.unload_encounter("Shei");
 	end
 end
 
 function AddRespawn(e)
 	local id = e.self:GetNPCTypeID()
 	local loc = primary_adds[id]
-	eq.spawn2(id,0,0,loc[1],loc[2],loc[3],loc[4]);
+	local newadd = eq.spawn2(id,0,0,loc[1],loc[2],loc[3],loc[4]);
+	--eq.set_timer('depop', 90 * 60 * 1000, newadd);
+	eq.set_timer('depop', 30 * 1000, newadd);
 end
 
 function AddsonKill(e)
 	if e.other:IsClient() or e.other:IsPet() then -- not sure why this is necessary, but otherwise will occasionally spawn adds when an event mob dies
 		e.self:Emote('strikes through the chest of the corpse, rending the soul from the flesh and animating it into an undead servant.')
 		local mob = eq.ChooseRandom(unpack(secondary_adds));
-		eq.spawn2(mob,0,0,e.other:GetX(),e.other:GetY(),e.other:GetZ(),e.other:GetHeading());
+		local newadd = eq.spawn2(mob,0,0,e.other:GetX(),e.other:GetY(),e.other:GetZ(),e.other:GetHeading());
+		--eq.set_timer('depop', 90 * 60 * 1000, newadd);
+		eq.set_timer('depop', 30 * 1000, newadd);
 	end
 end
 
@@ -82,7 +77,9 @@ function SheiCombat(e)
 		e.self:Say('Sivuelaeus Rulour ans Rashan!');
 		if not eq.get_entity_list():IsMobSpawnedByNpcTypeID(179357) then
 			for id,loc in pairs(primary_adds) do
-				eq.unique_spawn(id,0,0,loc[1],loc[2],loc[3],loc[4]);
+				local newadd = eq.unique_spawn(id,0,0,loc[1],loc[2],loc[3],loc[4]);
+					--eq.set_timer('depop', 90 * 60 * 1000, newadd);
+					eq.set_timer('depop', 30 * 1000, newadd);
 			end
 		end
 		if e.self:GetNPCTypeID() == 179032 then
