@@ -12,11 +12,11 @@ end
 function event_waypoint_arrive(e)
     if (e.wp == 10 and tracker < 1) then     -- encounter1
         tracker = 1;
-		e.self:Say("My map is paying off. This mask is just where they said it would be. Just give me a minute to scribble this down and we'll continue. Please continue to scan the room. I'll feel much better if you're eaten first... err... if you watch my back.");
+		e.self:Say("Well look at this thing! A splendid example of a Tae Ew sacrificial death mask or something. At first glance, this thing looked like beautifully carved wood, but alas it is just skin.");
 		eq.set_timer('adds', math.random(30) * 1000);
 	elseif (e.wp == 23 and tracker < 2) then     -- encounter2
 		tracker = 2;
-		e.self:Say("Well look at this thing! A splendid example of a Tae Ew sacrificial death mask or something. At first glance, this thing looked like beautifully carved wood, but alas it is just skin.");
+		e.self:Say("My map is paying off. This mask is just where they said it would be. Just give me a minute to scribble this down and we'll continue. Please continue to scan the room. I'll feel much better if you're eaten first... err... if you watch my back.");
         eq.set_timer('adds', math.random(30) * 1000);
 	elseif (e.wp == 37 and  tracker < 3) then     -- encounter3
 		tracker = 3;
@@ -72,8 +72,8 @@ end
 function spawn_adds(e_self)
 	local spawnNum = math.random(2,4);
 	for i = 1, spawnNum do
-		local xoff = eq.ChooseRandom(5, -5)
-		local yoff = eq.ChooseRandom(5, -5)
-		eq.spawn2(48073, 0, 0, e_self:GetX()+xoff, e_self:GetY()+yoff, e_self:GetZ(), 256-e_self:GetHeading());
+		local xoff = math.random(-5, 5);
+		local yoff = math.random(-5, 5);
+		eq.spawn2(48397, 0, 0, e_self:GetX()+xoff, e_self:GetY()+yoff, e_self:GetZ(), 256-e_self:GetHeading());
 	end
 end
