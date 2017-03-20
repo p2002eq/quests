@@ -47,12 +47,14 @@ function event_timer(e)
 		local ent_list = eq.get_entity_list();
 		if not ent_list:IsMobSpawnedByNpcTypeID(179032) and not ent_list:IsMobSpawnedByNpcTypeID(179349) then
 			eq.set_timer("EndEncounter", 20 * 1000);
+			eq.stop_timer(e.timer);
 		end
 	elseif e.timer == "EndEncounter" then
-		eq.stop_all_timers();
+		eq.stop_timer(e.timer);
 		cleanup();
 		eq.set_timer("Unload", 20 * 1000);
 	elseif e.timer == "Unload" then
+		eq.stop_timer(e.timer);
 		eq.unload_encounter("Shei");
 	end
 end
