@@ -10,7 +10,7 @@ primary_adds = {
 secondary_adds = { 179352, 179353, 179354, 179355 };
 
 function event_encounter_load(e)
-	eq.set_timer("hb", 10 * 1000);
+	eq.set_timer("hb", 60 * 1000);
 
 	eq.register_npc_event("Shei", Event.combat, 179349, SheiCombat);
 	eq.register_npc_event("Shei", Event.timer, 179349, SheiTimer);
@@ -34,12 +34,6 @@ function event_encounter_load(e)
 	eq.register_npc_event("Shei", Event.death_complete, 179358, AddRespawn);
 	eq.register_npc_event("Shei", Event.death_complete, 179359, AddRespawn);
 	eq.register_npc_event("Shei", Event.death_complete, 179360, AddRespawn);
-	
-	eq.register_player_event("Shei", Event.say, Response);
-end
-
-function Response(e)
-	e.self:Message(6, "EVENT IS ACTIVE"); 
 end
 
 function event_timer(e)
@@ -58,8 +52,7 @@ function AddRespawn(e)
 	local id = e.self:GetNPCTypeID()
 	local loc = primary_adds[id]
 	local newadd = eq.spawn2(id,0,0,loc[1],loc[2],loc[3],loc[4]);
-	--eq.set_timer('depop', 90 * 60 * 1000, newadd);
-	eq.set_timer('depop', 30 * 1000, newadd);
+	eq.set_timer('depop', 120 * 60 * 1000, newadd);
 end
 
 function AddsonKill(e)
@@ -67,8 +60,7 @@ function AddsonKill(e)
 		e.self:Emote('strikes through the chest of the corpse, rending the soul from the flesh and animating it into an undead servant.')
 		local mob = eq.ChooseRandom(unpack(secondary_adds));
 		local newadd = eq.spawn2(mob,0,0,e.other:GetX(),e.other:GetY(),e.other:GetZ(),e.other:GetHeading());
-		--eq.set_timer('depop', 90 * 60 * 1000, newadd);
-		eq.set_timer('depop', 30 * 1000, newadd);
+		eq.set_timer('depop', 120 * 60 * 1000, newadd);
 	end
 end
 
@@ -78,8 +70,7 @@ function SheiCombat(e)
 		if not eq.get_entity_list():IsMobSpawnedByNpcTypeID(179357) then
 			for id,loc in pairs(primary_adds) do
 				local newadd = eq.unique_spawn(id,0,0,loc[1],loc[2],loc[3],loc[4]);
-					--eq.set_timer('depop', 90 * 60 * 1000, newadd);
-					eq.set_timer('depop', 30 * 1000, newadd);
+				eq.set_timer('depop', 120 * 60 * 1000, newadd);
 			end
 		end
 		if e.self:GetNPCTypeID() == 179032 then
@@ -117,22 +108,6 @@ function aggro_guards(mob)
 		local guard_mob = eq.get_entity_list():GetNPCByNPCTypeID(guard);
 		if guard_mob ~= nil then
 			guard_mob:AddToHateList(mob);
-		end
-	end
-end
-
-function cleanup()
-	eq.zone_emote(1, 'CLEANUP trigger');
-	
-	for v,_ in pairs(primary_adds) do
-		while eq.get_entity_list():IsMobSpawnedByNpcTypeID(v) do
-			eq.get_entity_list():GetMobByNpcTypeID(v):Depop();
-		end
-	end
-	
-	for _,v in pairs(secondary_adds) do
-		while eq.get_entity_list():IsMobSpawnedByNpcTypeID(v) do
-			eq.get_entity_list():GetMobByNpcTypeID(v):Depop();
 		end
 	end
 end
