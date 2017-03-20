@@ -74,6 +74,6 @@ function spawn_adds(e_self)
 	for i = 1, spawnNum do
 		local xoff = eq.ChooseRandom(5, -5)
 		local yoff = eq.ChooseRandom(5, -5)
-		spawn_mob(48073, 0, 0, e_self:GetX()+xoff, e_self:GetY()+yoff, e_self:GetZ(), 256-e_self:GetHeading());
+		eq.spawn2(48073, 0, 0, e_self:GetX()+xoff, e_self:GetY()+yoff, e_self:GetZ(), 256-e_self:GetHeading());
 	end
 end
