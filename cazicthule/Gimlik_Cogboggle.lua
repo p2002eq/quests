@@ -39,7 +39,8 @@ end
 
 function event_timer(e)
 	if e.timer == 'adds' then
-		spawn_adds(e.self)
+		eq.stop_timer(e.timer);
+		spawn_adds(e.self);
 	end
 end
 
