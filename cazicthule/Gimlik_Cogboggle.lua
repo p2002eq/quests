@@ -1,59 +1,3 @@
--- Gimlik Cogboggle for CT 'gnome walk'
-
-function event_spawn(e)
-	encount1 = false;          -- have to keep track to amke sure mobs only spawn to outbound trip
-	encount2 = false;
-	encount3 = false;
-	encount4 = false;
-	trade = false;
-	event = false;
-end
-
-function event_waypoint_arrive(e)
-    if (e.wp == 12 and encount1 == false) then     -- encounter1
-        encount1 = true;
-		e.self:Say("My map is paying off. This mask is just where they said it would be. Just give me a minute to scribble this down and we'll continue. Please continue to scan the room. I'll feel much better if you're eaten first... err... if you watch my back.");
-		eq.set_timer('adds', math.random(60) * 1000);
-	elseif (e.wp == 21 and encount2 == false) then     -- encounter2
-		encount2 = true;
-		e.self:Say("Well, that was a nice little trek. Take a breather while I note this area in my journal. I know that you must be tired. I haven't seen a head as large as yours in quite some time. Lean it against the wall or something. We'll need to leave in a moment.");
-        eq.set_timer('adds', math.random(60) * 1000);
-	elseif (e.wp == 30 and encount3 == false) then     -- encounter3
-		encount3 = true;
-		e.self:Say("Oh joy, there's nothing down this hallway. That will teach me to follow you again. Let me look at my map and see if I can undo your handy work. One moment please. Shheeesh!")
-        eq.set_timer('adds', math.random(60) * 1000);
-	elseif (e.wp == 52 and encount4 == false) then     -- encounter4
-		encount4 = true;
-        eq.spawn2(48377, 0, 0, e.self:GetX()+5, e.self:GetY()+5, e.self:GetZ(), 256-e.self:GetHeading());
-		e.self:Say("Ack ack ack! Eat them not me!");
-	elseif (e.wp == 0 and encount4 == true) then	-- returned to start
-		eq.stop();
-		e.self:Say("Well, here we are. See, you didn't even have to break a sweat. I'm all ready to... hmm... wait, I seem to have dropped my favorite quill. Did you pick it up by chance? I'll add a little something to your payment if you did.");
-		trade = true;
-		eq.set_timer('depop', 20 * 60 * 1000);
-    end
-end
-
-function event_timer(e)
-	if e.timer == 'depop' then
-		eq.depop_with_timer()
-	elseif e.timer == 'adds' then
-		spawn_adds(e.self)
-	end
-end
-
-function event_trade(e)
-	local item_lib = require("items");
-	
-	if trade and item_lib.check_turn_in(e.self, e.trade, {item1 = 8723}) then
-		e.self:Emote("begins to cast a spell. Gimlik says, 'Well, you've got a good eye on you for being so daft. Thank you for returning my quill. Take care!' Gimlik gates.")
-		e.other:QuestReward(e.self,0,0,0,math.random(50),eq.ChooseRandom(8730,8728,8727,8729,8726),250000) -- random chance for reward out of the 5 items.
-		eq.depop_with_timer()
-	end
-	
-	item_lib.return_items(e.self, e.other, e.trade);
-end
-
 function event_say(e)
 	if not event then
 		if e.message:findi("hail") then
@@ -63,14 +7,5 @@ function event_say(e)
 			e.self:AssignWaypoints(112);
 			e.self:Say("Well look at you! You see, you're off to a great start! Now, just follow me and yell out if something stabs you or maims you in anyway. Never fear, I've memorized gate and have complete confidence in your ability to fend off danger for at least five seconds. Follow me... follow me.");
 		end
-	end
-end
-
-function spawn_adds(e_self)
-	local spawnNum = math.random(2,4);
-	for i = 1, spawnNum do
-		local xoff = eq.ChooseRandom(5, -5)
-		local yoff = eq.ChooseRandom(5, -5)
-		spawn_mob(48073, 0, 0, e_self:GetX()+xoff, e_self:GetY()+yoff, e_self:GetZ(), 256-e_self:GetHeading());
 	end
 end
