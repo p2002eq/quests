@@ -11,16 +11,13 @@ secondary_adds = { 179352, 179353, 179354, 179355 };
 
 function event_encounter_load(e)
 	eq.set_timer("hb", 60 * 1000);
-	switch = 'off';
 
 	eq.register_npc_event("Shei", Event.combat, 179349, SheiCombat);
 	eq.register_npc_event("Shei", Event.timer, 179349, SheiTimer);
 	eq.register_npc_event("Shei", Event.death_complete, 179349, FakeSheiDeath);
 	
-	eq.register_npc_event("Shei", Event.spawn, 179032, RealSheiSpawn);
 	eq.register_npc_event("Shei", Event.combat, 179032, SheiCombat);
 	eq.register_npc_event("Shei", Event.timer, 179032, SheiTimer);
-	eq.register_npc_event("Shei", Event.death_complete, 179032, RealSheiDeath);
 	
 	eq.register_npc_event("Shei", Event.slay, 179032, AddsonKill);
 	eq.register_npc_event("Shei", Event.slay, 179349, AddsonKill);
@@ -47,23 +44,14 @@ end
 
 function event_timer(e)
 	if e.timer == 'hb' then
-		if switch == 'AddDepop' then
-			eq.set_timer('AddDepop', 30 * 1000)
-			switch = 'off'
-		elseif switch == 'SheiDead' then
-			eq.set_timer('SheiDead', 30 * 1000)
-			switch = 'off'
-		elseif switch == 'unload' then 
-			eq.stop_all_timers();
-			eq.unload_encounter("Shei");
-		end
-	elseif e.timer == 'SheiDead' then
-		eq.stop_timer(e.timer)
+		local ent_list = eq.get_entity_list();
+		if not ent_list:IsMobSpawnedByNpcTypeID(179032) and not IsMobSpawnedByNpcTypeID(179349) then
+			eq.set_timer("DepopAdds", 60 * 1000);
+			end
+	elseif e.timer == "DepopAdds" then
+		eq.stop_timer(e.timer);
 		cleanup();
-		switch = unload;
-	elseif e.timer == 'AddsDepop' then
-		eq.stop_timer(e.timer)
-		cleanup();
+		eq.unload_encounter("Shei");
 	end
 end
 
@@ -83,32 +71,23 @@ end
 
 function SheiCombat(e)
 	if e.joined then
-		e.self:Say('Sivuelaeus Rulour ans Rashan!')
+		e.self:Say('Sivuelaeus Rulour ans Rashan!');
 		if not eq.get_entity_list():IsMobSpawnedByNpcTypeID(179357) then
 			for id,loc in pairs(primary_adds) do
 				eq.unique_spawn(id,0,0,loc[1],loc[2],loc[3],loc[4]);
 			end
 		end
-		eq.stop_timer("shei_despawn_adds");
 		if e.self:GetNPCTypeID() == 179032 then
 			eq.set_timer("shei_dt", math.random(30) * 1000)
 			eq.set_timer('aggro_guards', 30 * 1000);
 		end
 	else
-		switch = 'AddDepop'; -- 15 Minute add despawn (Soft Reset)
 		eq.stop_timer("shei_dt");
 	end
 end
 
 function FakeSheiDeath(e)
 	eq.unique_spawn(179032, 0, 0, -1736, 1082, 22.6, 64);
-end
-
-function RealSheiDeath()
-	switch = 'SheiDead';
-end
-
-function RealSheiSpawn(e)
 	eq.set_timer("shei_despawn_full", 60 * 60 * 1000); -- 1 hour total uptime
 end
 
@@ -120,11 +99,8 @@ function SheiTimer(e)
 	elseif e.timer == 'aggro_guards' then
 		aggro_guards(e.self:GetTarget());
 		eq.set_timer("aggro_guards", 30 * 1000);
-	elseif e.timer == "shei_despawn_adds" then
-		cleanup();
 	elseif e.timer == "shei_despawn_full" then
 		e.self:Depop();
-		RealSheiDeath();
 	end
 end
 
