@@ -32,7 +32,6 @@ function event_waypoint_arrive(e)
 		e.self:Say("Ack ack ack! Eat them not me!");
 	elseif (e.wp == 76 and tracker == 5) then	-- returned to pyramid
 		e.self:Say("Well, here we are. See, you didn't even have to break a sweat. I'm all ready to... hmm... wait, I seem to have dropped my favorite quill. Did you pick it up by chance? I'll add a little something to your payment if you did.");
-		event = false;
 		trade = true;
     end
 end
@@ -48,9 +47,9 @@ function event_trade(e)
 	local item_lib = require("items");
 	
 	if trade and item_lib.check_turn_in(e.self, e.trade, {item1 = 8723}) then
-		e.self:Emote("begins to cast a spell. Gimlik says, 'Well, you've got a good eye on you for being so daft. Thank you for returning my quill. Take care!' Gimlik gates.")
-		e.other:QuestReward(e.self,0,0,0,math.random(50),eq.ChooseRandom(8730,8728,8727,8729,8726),250000) -- random chance for reward out of the 5 items.
-		eq.depop_with_timer()
+		e.other:QuestReward(e.self,0,0,0,math.random(50),eq.ChooseRandom(8730,8728,8727,8729,8726),250000); -- random chance for reward out of the 5 items.
+		e.self:Emote("begins to cast a spell. Gimlik says, 'Well, you've got a good eye on you for being so daft. Thank you for returning my quill. Take care!' Gimlik gates.");
+		eq.depop_with_timer();
 	end
 	
 	item_lib.return_items(e.self, e.other, e.trade);
@@ -71,7 +70,7 @@ function event_say(e)
 end
 
 function spawn_adds(e_self)
-	local spawnNum = math.random(2,4);
+	local spawnNum = math.random(2, 4);
 	for i = 1, spawnNum do
 		local xoff = math.random(-5, 5);
 		local yoff = math.random(-5, 5);
