@@ -14,19 +14,19 @@ function event_waypoint_arrive(e)
         tracker = 1;
 		e.self:Say("Well look at this thing! A splendid example of a Tae Ew sacrificial death mask or something. At first glance, this thing looked like beautifully carved wood, but alas it is just skin.");
 		eq.set_timer('adds', math.random(30) * 1000);
-	elseif (e.wp == 23 and tracker < 2) then     -- encounter2
+	elseif (e.wp == 23 and tracker == 1) then     -- encounter2
 		tracker = 2;
 		e.self:Say("My map is paying off. This mask is just where they said it would be. Just give me a minute to scribble this down and we'll continue. Please continue to scan the room. I'll feel much better if you're eaten first... err... if you watch my back.");
         eq.set_timer('adds', math.random(30) * 1000);
-	elseif (e.wp == 37 and  tracker < 3) then     -- encounter3
+	elseif (e.wp == 37 and  tracker == 2) then     -- encounter3
 		tracker = 3;
 		e.self:Say("Well, that was a nice little trek. Take a breather while I note this area in my journal. I know that you must be tired. I haven't seen a head as large as yours in quite some time. Lean it against the wall or something. We'll need to leave in a moment.")
         eq.set_timer('adds', math.random(30) * 1000);
-	elseif (e.wp == 50 and  tracker < 4) then     -- encounter4
+	elseif (e.wp == 50 and  tracker == 3) then     -- encounter4
 		tracker = 4;
 		e.self:Say("Oh joy, there's nothing down this hallway. That will teach me to follow you again. Let me look at my map and see if I can undo your handy work. One moment please. Shheeesh!")
         eq.set_timer('adds', math.random(30) * 1000);
-	elseif (e.wp == 67 and tracker < 5) then     -- BOSS
+	elseif (e.wp == 67 and tracker == 4) then     -- BOSS
 		tracker = 5;
         eq.spawn2(48377, 0, 0, e.self:GetX()+5, e.self:GetY()+5, e.self:GetZ(), 256-e.self:GetHeading());
 		e.self:Say("Ack ack ack! Eat them not me!");
@@ -66,7 +66,15 @@ function event_say(e)
 			event = true;
 			trade = false;
 		end
+	elseif trade then
+		e.self:Say("Well? Did you manage to find my quill?");
+	else
+		e.self:Say("Can't you see I'm busy right now!?");
 	end
+end
+
+function event_death_complete(e)
+	if tracker < 2 then eq.get_entity_list():GetSpawnByID(326935):Repop(); end
 end
 
 function spawn_adds(e_self)
