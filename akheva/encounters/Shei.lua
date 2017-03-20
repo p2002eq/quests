@@ -128,10 +128,14 @@ function cleanup()
 	eq.zone_emote(1, 'CLEANUP trigger');
 	
 	for v,_ in pairs(primary_adds) do
-		eq.depop_all(v);
+		while eq.get_entity_list():IsMobSpawnedByNpcTypeID(v) do
+			eq.get_entity_list():GetMobByNpcTypeID(v):Depop();
+		end
 	end
 	
 	for _,v in pairs(secondary_adds) do
-		eq.depop_all(v);
+		while eq.get_entity_list():IsMobSpawnedByNpcTypeID(v) do
+			eq.get_entity_list():GetMobByNpcTypeID(v):Depop();
+		end
 	end
 end
