@@ -45,7 +45,7 @@ end
 function event_timer(e)
 	if e.timer == 'hb' then
 		local ent_list = eq.get_entity_list();
-		if not ent_list:IsMobSpawnedByNpcTypeID(179032) and not IsMobSpawnedByNpcTypeID(179349) then
+		if not ent_list:IsMobSpawnedByNpcTypeID(179032) and not ent_list:IsMobSpawnedByNpcTypeID(179349) then
 			eq.set_timer("DepopAdds", 60 * 1000);
 			end
 	elseif e.timer == "DepopAdds" then
