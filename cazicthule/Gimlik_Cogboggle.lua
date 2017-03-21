@@ -30,7 +30,7 @@ function event_waypoint_arrive(e)
 		tracker = 5;
         local boss = eq.spawn2(48377, 0, 0, e.self:GetX()+5, e.self:GetY()+5, e.self:GetZ(), 0);
 		this_spawn:AddToHateList(eq.get_entity_list():GetMobByNpcTypeID(48040), 1);
-		this_spawn:SetTimer('depop', 10 * 1000);
+		eq.set_timer('depop', 10 * 1000, this_spawn);
 		e.self:Say("Ack ack ack! Eat them not me!");
 	elseif (e.wp == 76 and tracker == 5) then	-- returned to pyramid
 		e.self:Say("Well, here we are. See, you didn't even have to break a sweat. I'm all ready to... hmm... wait, I seem to have dropped my favorite quill. Did you pick it up by chance? I'll add a little something to your payment if you did.");
@@ -90,6 +90,6 @@ function spawn_adds(e_self)
 		local yloc = e_self:GetY() + math.random(-5, 5);
 		local this_spawn = eq.spawn2(spawnID, 0, 0, xloc, yloc, e_self:GetZ(), 0);
 		this_spawn:AddToHateList(gnome, 1);
-		this_spawn:SetTimer('depop', 10 * 1000);
+		eq.set_timer('depop', 10 * 1000, this_spawn);
 	end
 end
