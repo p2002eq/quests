@@ -1,4 +1,3 @@
-local qglobal_name = "CircletFalinkan";
 function event_say(e)
     if(e.other:GetFaction(e.self) == 1) then
         if(e.message:findi("hail")) then
@@ -22,17 +21,14 @@ end
 function event_trade(e)
     local qglobals = eq.get_qglobals(e.self, e.other);
     local item_lib = require("items");
-
-    if(e.other:GetFaction(e.self) <= 1) and (qglobals["CircletFalinkan"] == "2") then -- Must be ally
+    if(e.other:GetFaction(e.self) <= 1 and tonumber(qglobals.CircletFalinkan) == 2) then -- Must be ally
         if(item_lib.check_turn_in(e.self, e.trade, {item1 = 1866})) then
-            e.other:Faction(362, 10); --Yelinak
-            e.other:Faction(42, 10); --CoV
-            e.other:Faction(189, -30); --Kromzek
-            e.other:QuestReward(e.self, 0,0,0,0, 1867, 100000);
-            eq.delete_global(gqlobal_name);
+            e.other:Faction(362,10); --Yelinak
+            e.other:Faction(42,10); --CoV
+            e.other:Faction(189,-30); --Kromzek
+            e.other:QuestReward(e.self,0,0,0,0,1867,100000);
+            eq.set_global("CircletFalinkan", "0", 5, "F") -- Hack fix for delete global crashing zone, but it works.
         end
     end
-
     item_lib.return_items(e.self, e.other, e.trade);
-        
 end

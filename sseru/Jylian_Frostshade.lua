@@ -15,6 +15,12 @@ function event_trade(e)
     local item_lib = require("items");
     if(item_lib.check_turn_in(e.self, e.trade, {item1 = 29865})) then -- Ethereal Drape
         e.self:Emote("delicately removes one of the embroidered symbols from the fading robe. Jylian then begins to weave spells to the robe until it becomes fully materialized. 'These robes have unusual symbols all about them. I must study this symbol in greater deatail. Here you can have this robe, I have placed an enchantment on it to keep it from fading from this plane of existence any further. Your service to Seru is appreciated. Now go, I need silence to concentrate.'");
+        e.other:Faction(37,10); -- Citizens of Seru
+        e.other:Faction(139,1); -- Hand of Seru
+        e.other:Faction(142,1); -- Heart of Seru
+        e.other:Faction(96,1); -- Eye of Seru
+        e.other:Faction(298,1); -- Shoulders of Seru
+        e.other:Faction(168,-5); -- Katta Castellum Citizens
         e.other:QuestReward(e.self,0,0,0,0,29890,1000); -- Frayed Ethereal Drape
     end
     item_lib.return_items(e.self, e.other, e.trade)

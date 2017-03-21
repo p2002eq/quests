@@ -1,7 +1,7 @@
 ---- Quest:Pyrrhotite Experiments
 function event_say(e)
     if(e.message:findi("Hail")) then
-        e.self:Say("startles and gazes up at you. 'Careful, careful... I am nearly out of [pyrrhotite].'");
+        e.self:Emote("startles and gazes up at you. 'Careful, careful... I am nearly out of [pyrrhotite].'");
     elseif(e.message:findi("pyrrhotite")) then
         e.self:Say("Pyrrhotite is the name of this ore I have my hands on here. Ye see, I may still look an able-bodied dwarf, full o' spit and fire, but the time is coming where'n I may lose a step or two and they will take me off post- I want to be prepared for that time. I have been doing some [experiments] on this piece of rock, trying to have something to bring to Toktonn and maybe secure a job in ore studies for meself after retirin' from the Validus Custodus.");
     elseif(e.message:findi("experiments")) then

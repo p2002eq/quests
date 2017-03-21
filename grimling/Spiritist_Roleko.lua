@@ -13,6 +13,7 @@ function event_trade(e)
         e.self:Say("I shall begin the ritual immediately.");
         e.self:Say("What is that?! Look! There is a grimling heading this way followed by what appear to be grimling undead. Defend me while I perform the ritual.");
         e.self:Say("Defend me while I perform the ritual!");
+        eq.set_global("grimling_combat",e.other:GetName(),3,"M5");
         eq.spawn2(167685,0,0,-975.17,-825.20,6.74,260); -- A possesed griming
         eq.spawn2(167687,0,0,-958.44,-834.88,6.74,260); -- A Reanmiated Grimling
         eq.spawn2(167687,0,0,-979.17,-839.41,1.14,260); -- A Reanmiated Grimling
@@ -26,6 +27,7 @@ function event_trade(e)
         e.self:Emote("prepares the ritual components according to the ritual instructions.");
         e.self:Say("I will need to maintain my concentration to keep the Rakshasa from escaping back into the spirit realm. If you kill him while he is materialized he will be slain and his body will remain material. Bring me the head of the Rakshasa when he is slain.");
         e.other:Faction(68,10); -- Dar Khura
+        eq.set_global("Rakshasa_combat",e.other:GetName(),3,"M5");
         eq.spawn2(167713,0,0,-975.17,-825.20,6.74,20); -- Rakshasa Karwoaro
         e.other:QuestReward(e.self,0,0,0,0,0,15000); --
     elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 10916})) then -- Head of the Rakshasa

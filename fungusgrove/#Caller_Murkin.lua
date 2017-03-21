@@ -5,6 +5,7 @@ event_mobs = { 157121, 157122, 157123, 157115, 157116, 157117, 157118, 157120, 1
 function event_spawn(e)
 	started = false;
 	wave_counter = 0;
+	total_waves = 0;
 end
 
 function event_say(e)
@@ -32,9 +33,11 @@ function event_trade(e)
 		
 	elseif started and item_lib.check_turn_in(e.self, e.trade, {item1 = 28703}) then -- North Caller Contract
 		e.self:Emote("grunts and says, 'Oook! Tanks fer da werk, I see ya later!' before vanishing into the tunnel.");
+		local exp_reward = total_waves * 50000;
+		local cash_reward = total_waves * 10;
+		e.other:QuestReward(e.self, math.random(50), math.random(50), math.random(50), cash_reward, 0, exp_reward);
 		eq.stop_all_timers();
 		eq.depop_with_timer();
-		e.other:QuestReward(e.self, math.random(50), math.random(40), math.random(30), math.random(20), 0, 500000);
 	end
 	
 	item_lib.return_items(e.self, e.other, e.trade);
@@ -116,6 +119,7 @@ function spawn_waves(caller)
 		eq.spawn2(mob, 0, 0, locs[1], locs[2], locs[3], 0):CastToNPC():MoveTo(-1098, 866, -332, 0, true);
 	end
 	wave_counter = wave_counter + 1;
+	total_waves = total_waves + 1;
 end
 
 function start_event(e)

@@ -1,3 +1,5 @@
+-- The_Spirit_of_Akelha`Ra (179351) for VT key
+
 function event_say(e)
 	if(e.message:findi("hail")) then
 		e.self:Emote("'s hollow eyes look up at you. You have the distinct impression that she can see right into the darkest shadows of your soul. She opens her mouth to speak but the sounds you hear come from inside your mind. 'Greetings mortal, thank you for releasing me from my [tormented prison].");

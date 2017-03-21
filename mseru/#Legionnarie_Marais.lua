@@ -4,7 +4,7 @@ end
 
 function event_say(e)
     if(e.message:findi("Hail")) then
-        e.self:Say("Corporal Donfeld?");
+        e.self:Emote("looks up wearily, 'Corporal Donfeld?'");
     end
 end
 
