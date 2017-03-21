@@ -42,6 +42,8 @@ function event_timer(e)
 	if e.timer == 'adds' then
 		eq.stop_timer(e.timer);
 		spawn_adds(e.self);
+	elseif e.timer == 'depop' then
+		e.self:Say('DEPOP TIMER TRIGGERED');
 	end
 end
 
