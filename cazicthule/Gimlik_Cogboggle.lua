@@ -78,11 +78,12 @@ function event_death_complete(e)
 end
 
 function spawn_adds(e_self)
+	local gnome = eq.get_entity_list():GetMobByNpcTypeID(48040);
 	local spawnNum = math.random(2, 4);
 	for i = 1, spawnNum do
-		local spawnID = eq.ChooseRandom(48397, 48058, 48116);
+		local spawnID = eq.ChooseRandom(48397, 48058, 48058, 48116);
 		local xoff = math.random(-5, 5);
 		local yoff = math.random(-5, 5);
-		eq.spawn2(spawnID, 0, 0, e_self:GetX()+xoff, e_self:GetY()+yoff, e_self:GetZ(), 256-e_self:GetHeading());
+		eq.spawn2(spawnID, 0, 0, e_self:GetX()+xoff, e_self:GetY()+yoff, e_self:GetZ(), 256-e_self:GetHeading()):AddToHateList(gnome, 1);
 	end
 end
