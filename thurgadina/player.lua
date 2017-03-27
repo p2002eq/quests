@@ -1,7 +1,7 @@
 prayers = {0, 0, 0} -- array to hold prayer checks
 
 function event_say(e)
-	if(e.message:findi("Oh Brell, Thank you for protecting me and seeing me through my trials. Forgive me for the things I think and say and do that displease you. Please reveal to me your will and bless me with the patience and obedience to do that which you desire. Amen.")) then	-- prayer
+	if(e.message:findi("Please reveal to me your will and bless me with the patience and obedience to do that which you desire")) then	-- prayer
 		myX = e.self:GetX()
 		myY = e.self:GetY()
 		if(between(myX, 793, 802) and between(myY, -295, -285)) then -- check for prayer in location 1
