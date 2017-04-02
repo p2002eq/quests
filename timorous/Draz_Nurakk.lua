@@ -1,3 +1,5 @@
+-- Draz_Nurakk (#####) for BST epic
+
 function event_death_complete(e)
 	eq.spawn2(96322,0,0,1988,-9203,10,0);
 	eq.spawn2(96322,0,0,1995,-9219,10,0);
@@ -12,7 +14,3 @@ function event_trade(e)
 	item_lib.return_items(e.self, e.other, e.trade)
 end
 
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------
