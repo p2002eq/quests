@@ -1,4 +1,4 @@
--- Scout_Vyrak in EJ for BST Epic
+-- Scout_Vyrak (94246) in EJ for BST Epic
 
 function event_say(e)
 	if(e.message:findi("hail")) then
@@ -16,12 +16,13 @@ function event_trade(e)
 		local spawnz = -45;
 		
 		eq.local_emote({ spawnx, spawny, spawnz }, 1, 500, "You hear a massive creature roar as if awakened from a deep sleep.")
-		-- eq.spawn2(94126,0,0,spawnx,spawny,spawnz,0); -- The Spirit of Rage (NEEDS ADDED, NEEDS LOCATION CHECK)
+		eq.spawn2(94247,0,0,spawnx,spawny,spawnz,0); -- The_Spirit_of_Rage
 
 	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 9038})) then -- Totem of the Gorilla
 		e.self:Say("Excellent work, " .. e.other:GetName() .. "! Judging by the speed with which it altered that spirit, this totem must be extremely powerful. I've wrapped it, so you should be safe from its magic. Just be sure to keep it in the case. Once you have all of the totems, seal the case and make your way back to Shar Vahl. They will be waiting for you there. I'll continue to look for the person that perpetrated this vile act.");
-		e.other:SummonItem(9031);
+		e.other:SummonItem(9031); -- Returns Official Seal of the Khati Sha
 		e.other:QuestReward(e.self,0,0,0,0,9039); -- Wrapped Gorilla Totem
+		eq.depop_with_timer();
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end

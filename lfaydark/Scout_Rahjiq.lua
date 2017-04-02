@@ -19,8 +19,9 @@ function event_trade(e)
 		
 	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 9034})) then -- Totem of the Wolf
 		e.self:Emote("wraps the totem and returns it with the seal you gave him and says, 'That spirit was very powerful. I'm glad that you were able to release it. Please keep this totem safe until you can return to Shar Vahl. Once you collect all of the totems, seal the box and return it to your master. May the spirits watch over you!'");
-		e.other:SummonItem(9031);
+		e.other:SummonItem(9031); -- Returns Official Seal of the Khati Sha
 		e.other:QuestReward(e.self,0,0,0,0,9035); -- Wrapped Wolf Totem
+		eq.depop_with_timer();
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
