@@ -27,10 +27,14 @@ function event_trade(e)
 		e.self:Say("Thank you, young courier. I will not need anything more from you at this time. We have a great deal of research to do and absolutely no time to complete said studies. Did the Historian tell you anything? Matters are bad enough without rumors floating about in the shadows. Speak up... did you hear anything about our situation?");
 	
 	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 4393})) then -- Copper Medal of War
-		e.self:Say("You have returned at a most opportune time, " .. e.other:GetName() .. ". If this medal is indicative of your abilities in combat, I may be able to find a slight amount of hope soon. We have learned answers for many of the questions that we had prior to your last visit. Please take this seal and this container. Place them somewhere safe, while I gather the information that we've accumulated so far. Let me know when you have the seal packed and are ready to be briefed. Should you ever lose it, just ask for another.");
-		e.other:SummonItem(17361);
-		e.other:QuestReward(e.self,0,0,0,0,9031); -- Official Seal of the Khati Sha
-		eq.set_global("bstepic","1",5,"F"); -- bstepic 1 indicates totems started
+		if e.other:GetClass() == 15 then
+			e.self:Say("You have returned at a most opportune time, " .. e.other:GetName() .. ". If this medal is indicative of your abilities in combat, I may be able to find a slight amount of hope soon. We have learned answers for many of the questions that we had prior to your last visit. Please take this seal and this container. Place them somewhere safe, while I gather the information that we've accumulated so far. Let me know when you have the seal packed and are ready to be briefed. Should you ever lose it, just ask for another.");
+			e.other:SummonItem(17361);
+			e.other:QuestReward(e.self,0,0,0,0,9031); -- Official Seal of the Khati Sha
+			eq.set_global("bstepic","1",5,"F"); -- bstepic 1 indicates totems started
+		else
+			e.self:Say("Thank you, " .. e.other:GetName() .. ". Your bravery in combat is noted, but you lack an understanding of the spirits. I cannot trust you with matters of the Khati Sha."
+		end
 	
 	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 9044})) then -- Sealed Box of Totems (result of quest with scouts)
 		e.self:Say("I have received word from several of our scouts indicating your impending arrival. We are all very pleased that you were able to release all of the spirits before any true harm could manifest itself. Your efforts have not only restored balance to the spirit realm, they seem to have also acted to hinder any other plans our antagonist may have had... for the time being.");
@@ -51,15 +55,16 @@ function event_trade(e)
 		e.other:SummonItem(9057); -- Khati Sha Seal of War
 		e.other:QuestReward(e.self,0,0,0,0,17362); -- Acrylia Gilded Box
 	
-	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 9060})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 9060})) then -- Sealed Gilded Wooden Chest
 		e.self:Emote("opens the container and looks at its contents");
 		e.self:Say("" .. e.other:GetName() .. ", you have saved the balance of the spirit realm. Your selflessness has made an impression that will last well beyond the effects of your recent deeds. The inhabitants of this realm are all in your debt. Your efforts to restore balance in the material realm have been worth more than we can reward you for.");
 		e.self:Shout("Citizens of Shar Vahl, please take the time to acknowledge the efforts of a true champion and hero to our people. " .. e.other:GetName() .. " has worked valiantly with great personal risk, to restore balance to our realm. We, the Khati Sha of Shar Vahl, feel that only a spirit as strong as " .. e.other:GetName() .. " can be entrusted with the Claws of the Savage Spirit. Please take this time to give " .. e.other:GetName() .. " your thanks and respect.");
-		e.other:SummonItem(8495);
-		e.other:QuestReward(e.self,0,0,0,0,8496);
+		eq.zone_emote(1, "A glorious cheer rises from the streets of Shar Vahl to greet the city's newest hero.");
+		e.other:SummonItem(8495); -- Claw of the Savage Spirit 1
+		e.other:QuestReward(e.self,0,0,0,0,8496,10000000); -- Claw of the Savage Spirit 2 + big XP hit!
+		qglobals["bstepic"] = nil;
 	end
 	
 	item_lib.return_items(e.self, e.other, e.trade);
-	qglobals["bstepic"] = nil;
 end
 
