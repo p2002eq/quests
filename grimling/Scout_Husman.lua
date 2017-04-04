@@ -19,7 +19,7 @@ function event_say(e)
 end
 
 function event_waypoint_arrive(e)
-    if e.wp == 13 then
+    if e.wp >= 13 and not at_camp then
         at_camp = true;
         e.self:Say("Here we are, at their primary camp to the direct North of our outpost. It is up to you to clear the camp of these worrisome Grimlings so we can help to push them back into those wretched mines. They'll likely use the hills behind those huts as cover for their casters, but be sure to clear out those in the huts first, as they will no doubt be more trouble than you are expecting. Also, watch out for any officers, as they can cause more problems still if you're not careful. When you are [ready to start], let me know and I will let you loose to wreak havoc on the Grimlings of that camp.");
     end
