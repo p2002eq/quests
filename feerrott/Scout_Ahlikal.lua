@@ -15,7 +15,7 @@ function event_trade(e)
 		local spawny = 1065;
 		local spawnz = -2;
 		
-		eq.local_emote({ e.self:GetX(), e.self:GetY(), e.self:GetZ }, 1, 200, "A large yellow spider drifts down from the jungle canopy. Perhaps it senses the proximity of its next meal.")
+		eq.local_emote({ e.self:GetX(), e.self:GetY(), e.self:GetZ() }, 1, 200, "A large yellow spider drifts down from the jungle canopy. Perhaps it senses the proximity of its next meal.")
 		eq.spawn2(47205,0,0,spawnx,spawny,spawnz,0); -- The_Spirit_of_Decay
 		
 	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 9032})) then -- Totem of the Spider

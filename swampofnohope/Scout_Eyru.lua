@@ -15,10 +15,9 @@ function event_trade(e)
 		local spawny = -3001;
 		local spawnz = -28;
 		
-		eq.local_emote({ e.self:GetX(), e.self:GetY(), e.self:GetZ }, 1, 200, "A giant reptile roars, as it sinks below the surface of the pond. It appears that is senses your approach.")
+		eq.local_emote({ e.self:GetX(), e.self:GetY(), e.self:GetZ() }, 1, 200, "A giant reptile roars, as it sinks below the surface of the pond. It appears that is senses your approach.")
 		eq.spawn2(83476,0,0,spawnx,spawny,spawnz,0); -- The_Spirit_of_Sorrow
-	end
-	
+		
 	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 9042})) then -- Totem of the Alligator
 		e.self:Say("Splendid job, " .. e.other:GetName() .. ". This wrapping should help to shield you from any of the negative properties that may be manifested in the totem. You should be fine if you keep it in the box that you were given. Once you collect all of the totems, please seal the box and return it to Shar Vahl. Be careful to protect the totems during the course of your travels. The balance of power in several realms is reliant on your ability to fulfill this mission. Please do not fail us.");
 		e.other:SummonItem(9031); -- Returns Official Seal of the Khati Sha

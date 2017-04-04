@@ -14,7 +14,7 @@ function event_trade(e)
 		local spawny = 700;
 		local spawnz = -38;
 		
-		eq.local_emote({ e.self:GetX(), e.self:GetY(), e.self:GetZ }, 1, 200, "A large creature growls from deep within its icy lair.")
+		eq.local_emote({ e.self:GetX(), e.self:GetY(), e.self:GetZ() }, 1, 200, "A large creature growls from deep within its icy lair.")
 		eq.spawn2(73107,0,0,spawnx,spawny,spawnz,0); -- The_Icebound_Spirit
 
 	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 9036})) then -- Totem of the Ice Bear
