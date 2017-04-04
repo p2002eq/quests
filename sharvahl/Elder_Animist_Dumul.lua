@@ -33,7 +33,7 @@ function event_trade(e)
 			e.other:QuestReward(e.self,0,0,0,0,9031); -- Official Seal of the Khati Sha
 			eq.set_global("bstepic","1",5,"F"); -- bstepic 1 indicates totems started
 		else
-			e.self:Say("Thank you, " .. e.other:GetName() .. ". Your bravery in combat is noted, but you lack an understanding of the spirits. I cannot trust you with matters of the Khati Sha."
+			e.self:Say("Thank you, " .. e.other:GetName() .. ". Your bravery in combat is noted, but you lack an understanding of the spirits. I cannot trust you with matters of the Khati Sha.")
 		end
 	
 	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 9044})) then -- Sealed Box of Totems (result of quest with scouts)
