@@ -1,6 +1,8 @@
+-- Elder_Animist_Dumul (155040) in Shar Vhal for BST epic
+
 function event_say(e)
 	local qglobals = eq.get_qglobals(e.self,e.other);
-	if tonumber(qglobals.bstepic) > 0 then
+	if qglobals.bstepic ~= nil and tonumber(qglobals.bstepic) > 0 then
 		if e.message:findi("ready") then
 			e.self:Say("As you may have gathered during our first meeting, we have been dealing with a situation that differs from any that we have dealt with in the past. We dismissed the situation as improbable at first, but unfortunately we have just attained certain proof. Our scouts have found that an individual has discovered a means of manipulating elder spirits. These spirits have a great deal of power over their natural environments. This person has used some new magic to take that power for himself.");
 		elseif e.message:findi("new magic") then
