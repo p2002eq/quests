@@ -14,7 +14,7 @@ function event_trade(e)
 		local spawny = 3325;
 		local spawnz = 1340;
 		
-		eq.local_emote({ spawnx, spawny, spawnz }, 1, 500, "Something glows brightly from high above the falls.")
+		eq.local_emote({ e.self:GetX(), e.self:GetY(), e.self:GetZ }, 1, 200, "Something glows brightly from high above the falls.")
 		eq.spawn2(100501,0,0,spawnx,spawny,spawnz,0); -- The_Spirit_of_Torment
 
 	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 9040})) then -- Totem of the Watcher

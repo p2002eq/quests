@@ -30,7 +30,7 @@ function event_trade(e)
 	
 	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 4393})) then -- Copper Medal of War
 		if e.other:GetClass() == 15 then
-			e.self:Say("You have returned at a most opportune time, " .. e.other:GetName() .. ". If this medal is indicative of your abilities in combat, I may be able to find a slight amount of hope soon. We have learned answers for many of the questions that we had prior to your last visit. Please take this seal and this container. Place them somewhere safe, while I gather the information that we've accumulated so far. Let me know when you have the seal packed and are ready to be briefed. Should you ever lose it, just ask for another.");
+			e.self:Say("You have returned at a most opportune time, " .. e.other:GetName() .. ". If this medal is indicative of your abilities in combat, I may be able to find a slight amount of hope soon. We have learned answers for many of the questions that we had prior to your last visit. Please take this seal and this container. Place them somewhere safe, while I gather the information that we've accumulated so far. Let me know when you have the seal packed and are [ready to be briefed]. Should you ever lose it, just ask for another.");
 			e.other:SummonItem(17361);
 			e.other:QuestReward(e.self,0,0,0,0,9031); -- Official Seal of the Khati Sha
 			eq.set_global("bstepic","1",5,"F"); -- bstepic 1 indicates totems started

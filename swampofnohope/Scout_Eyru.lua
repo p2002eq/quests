@@ -15,7 +15,7 @@ function event_trade(e)
 		local spawny = -3001;
 		local spawnz = -28;
 		
-		eq.local_emote({ spawnx, spawny, spawnz }, 1, 500, "A giant reptile roars, as it sinks below the surface of the pond. It appears that is senses your approach.")
+		eq.local_emote({ e.self:GetX(), e.self:GetY(), e.self:GetZ }, 1, 200, "A giant reptile roars, as it sinks below the surface of the pond. It appears that is senses your approach.")
 		eq.spawn2(83476,0,0,spawnx,spawny,spawnz,0); -- The_Spirit_of_Sorrow
 	end
 	

@@ -14,7 +14,7 @@ function event_trade(e)
 		local spawny = -337;
 		local spawnz = 0;
 		
-		eq.local_emote({ spawnx, spawny, spawnz }, 1, 500, "The air before the large monolith grows solid, as misty tendrils wrap together in the shape of a large wolf.")
+		eq.local_emote({ e.self:GetX(), e.self:GetY(), e.self:GetZ }, 1, 200, "The air before the large monolith grows solid, as misty tendrils wrap together in the shape of a large wolf.")
 		eq.spawn2(57119,0,0,spawnx,spawny,spawnz,0); -- #The_Spirit_of_Malevolence
 		
 	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 9034})) then -- Totem of the Wolf
