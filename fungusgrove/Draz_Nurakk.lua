@@ -10,3 +10,11 @@ function event_timer(e)
 		eq.depop()
 	end
 end
+
+function event_combat(e)
+	local entlist = eq.get_entity_list();
+	if e.joined and entlist:IsMobSpawnedByNpcTypeID(157140) then
+		e.self:Say("Aid me, my pet!");
+		entlist:GetNPCByNPCTypeID(157140):AddToHateList(e.self:GetTarget(), 1);
+	end
+end
