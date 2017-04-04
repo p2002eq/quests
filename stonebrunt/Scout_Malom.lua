@@ -10,9 +10,9 @@ function event_trade(e)
 	local item_lib = require("items");
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 9031})) then -- Official Seal of the Khati Sha
 		e.self:Say("Thank you for coming. I am surprised that you were able to find me. I barely know where I am at this point. I followed the vile beast that has been corrupting the spirits, but he eluded me after I followed him to that ridge up there. Fortunately, the spirit that you seek has remained at the site of its transformation. Use levitation to work your way up the falls and return to me with the totem that you will acquire from releasing the spirit.");
-		local spawnx = -3711;
-		local spawny = 3325;
-		local spawnz = 1340;
+		local spawnx = -3601;
+		local spawny = 4381;
+		local spawnz = 2180;
 		
 		eq.local_emote({ e.self:GetX(), e.self:GetY(), e.self:GetZ() }, 1, 200, "Something glows brightly from high above the falls.")
 		eq.spawn2(100501,0,0,spawnx,spawny,spawnz,0); -- The_Spirit_of_Torment
