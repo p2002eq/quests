@@ -33,6 +33,7 @@ function mob_check(e_self)
 	if(npc_list ~= nil) then
 		for npc in npc_list.entries do
 			if npc:CalculateDistance(x, y, z) <= 200 then
+				e_self:Say("I found " .. npc:GetName());
 				return true; -- if npc within 200
 			end
 		end
