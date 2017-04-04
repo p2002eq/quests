@@ -32,8 +32,7 @@ function mob_check(e_self)
 	local npc_list = eq.get_entity_list():GetNPCList();
 	if(npc_list ~= nil) then
 		for npc in npc_list.entries do
-			if npc:CalculateDistance(x, y, z) <= 200 then
-				e_self:Say("I found " .. npc:GetName());
+			if npc:CalculateDistance(x, y, z) <= 200 and npc:GetNPCTypeID() ~= 167716 then
 				return true; -- if npc within 200
 			end
 		end
