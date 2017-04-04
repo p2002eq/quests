@@ -9,9 +9,7 @@ function event_timer(e)
 	if e.timer == 'depop' then
 		eq.depop()
 	elseif e.timer == 'pet' then
-		local target = e.self:GetHateTop()
-		e.self:Say("My target is " .. target:GetName());
-		eq.get_entity_list():GetMobByNpcTypeID(157140):AddToHateList(target);
+		eq.get_entity_list():GetMobByNpcTypeID(157140):AddToHateList(e.self:GetHateTop());
 	end
 end
 
