@@ -1,4 +1,4 @@
--- #Caller_Murkin (157004) in Fungus grove 'Calling beasties' north cavern event caller
+-- #Caller_Torgal (157003) in Fungus grove 'Calling beasties' east cavern event caller
 
 event_mobs = { 157121, 157122, 157123, 157115, 157116, 157117, 157118, 157120, 157124, 157125, 157127, 157128, 157129 }
 
@@ -31,7 +31,7 @@ function event_trade(e)
 		spawn_timer = 120;
 		start_event(e);
 		
-	elseif started and item_lib.check_turn_in(e.self, e.trade, {item1 = 28703}) then -- North Caller Contract
+	elseif started and item_lib.check_turn_in(e.self, e.trade, {item1 = 28705}) then -- East Caller Contract
 		e.self:Emote("grunts and says, 'Oook! Tanks fer da werk, I see ya later!' before vanishing into the tunnel.");
 		local exp_reward = total_waves * 50000;
 		local cash_reward = total_waves * 10;
@@ -46,7 +46,7 @@ end
 function event_timer(e)
 	if e.timer == 'start_walk' then
 		eq.stop_timer(e.timer);
-		eq.start(1000);
+		eq.start(471009);
 	elseif e.timer == 'waves' then
 		spawn_waves(e.self);
 		if wave_counter == 1 then -- resets regular wave spacing
@@ -82,9 +82,9 @@ function spawn_waves(caller)
 		-- pick whether mob will spawn outside or inside the cave
 		local locs = {};
 		if math.random(1,2) > 1.5 then
-			locs = { math.random(-1115, -1080), math.random(1000, 1075), -380 };
+			locs = { math.random(-1570, -1480), math.random(575, 610), -380 };
 		else
-			locs = { math.random(-1180, -1050), math.random(660, 745), -330 };
+			locs = { math.random(-1243, -1218), math.random(570, 665), -330 };
 		end
 		-- pick mob identity
 		local mob = 0;
@@ -124,7 +124,7 @@ end
 
 function start_event(e)
 	e.self:Say("Aieee! Beastie huntin' fer us! Le's go! You give me back da contrac when you had nuff beasties, yub. Me quit then, an' call no more beasties. I wait a minute so you make ready. Then ya follow me, and I take ya to da cave where we find beasties...");
-	e.other:SummonItem(28703); -- North Caller Contract
+	e.other:SummonItem(28705); -- East Caller Contract
 	eq.set_timer('start_walk', 60000);
 	started = true;
 end
