@@ -116,7 +116,7 @@ function spawn_waves(caller)
 		elseif mob_picker <= 1000 then
 			mob = 157128; -- Tuchako
 		end
-		eq.spawn2(mob, 0, 0, locs[1], locs[2], locs[3], 0):CastToNPC():MoveTo(-1098, 866, -332, 0, true);
+		eq.spawn2(mob, 0, 0, locs[1], locs[2], locs[3], 0):CastToNPC():MoveTo(-1364, 596, -333, 0, true);
 	end
 	wave_counter = wave_counter + 1;
 	total_waves = total_waves + 1;
