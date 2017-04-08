@@ -84,7 +84,7 @@ function spawn_waves(caller)
 		if math.random(1,2) > 1.5 then
 			locs = { math.random(-1175, -1140), math.random(173, 265), -380 };
 		else
-			locs = { math.random(-1205, -1155), math.random(560, 510), -330 };
+			locs = { math.random(-1205, -1155), math.random(510, 560), -330 };
 		end
 		-- pick mob identity
 		local mob = 0;
