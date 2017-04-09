@@ -2,3 +2,7 @@
 
 camps = { "North", "East", "South", "Vah Shir" };
 races = { "Owlbears", "Sonic Wolves", "Grimlings", "Vah Shir" };
+
+function event_spawn(e)
+    eq.spawn_condition(hollowshade, 0, 7, 1);
+end
