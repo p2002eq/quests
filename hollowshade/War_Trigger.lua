@@ -3,8 +3,12 @@
 camps = { "North", "East", "South", "Vah Shir" };
 races = { "Owlbears", "Sonic Wolves", "Grimlings", "Vah Shir" };
 
+--function event_spawn(e)
+--   eq.set_timer('reset', 5 * 1000);
+--end
+
 function event_spawn(e)
-    eq.set_timer('reset', 5 * 1000);
+    eq.spawn_condition(hollowshade, 0, 7, 1);
 end
 
 function event_timer(e)
