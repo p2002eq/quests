@@ -16,14 +16,27 @@ end
 
 function event_timer(e)
     eq.stop_timer(e.timer);
-    if e.timer == 'reset' then
+	
+	if e.timer == 'check_attack' then
+		if not check_attackers() then -- no attackers left alive
+			attack_cycle();
+		else
+			eq.set_timer('check_attack', 60 * 1000);
+		end
+		
+    elseif e.timer == 'reset' then
         reset_zone();
-    elseif e.timer == 'next_attack' and not attack_in_progress then
+		
+    elseif e.timer == 'next_attack' then
+		-- attack timer - determines a random camp and gets the race - if a boss has died recently, that overwrites the randomly generated camp
         local camp = math.random(1,3);
-        initiate_attack(camp, determine_race(camp)) -- tries to execute an attack
+		if dead_boss ~= 0 then local camp = math.floor(dead_boss / 3); end
+		local race = determine_race(camp);
+        initiate_attack(camp, race) -- tries to execute an attack
+		
     elseif e.timer == 'current_attack' then
-        attack_cleanup();
-        eq.set_timer('next_attack', 15 * 60 * 1000);
+		attack_cycle();
+		
     elseif e.timer == 'war_win' then
         local win_race = 10 + determine_race(1);
         conditions[win_race] = 1;
@@ -31,26 +44,32 @@ function event_timer(e)
 end
 
 function event_signal(e)
-    if e.signal < 10 and not attack_in_progress then -- attack trigger signal
+    if e.signal < 10 then -- keeps track of what bosses die... last boss to die before an attack designates what camp gets attacked
         -- signals here mapped in the same way as conditions - 1 is north bear, 2 is north wolf, 3 is north grim, 4 is east bear, etc
-        local camp = math.floor(e.signal / 3);
-        local race = parse(e.signal);
-        
-        eq.stop_timer('next_attack');
-        initiate_attack(camp, race) -- tries to execute an attack
+        dead_boss = e.signal;
+		
+		if not event_started then eq.set_timer('next_attack', 60 * 1000); end -- if the war isn't started, let's get it going!
+		
     elseif e.signal > 10 and e.signal < 35 then -- takeover signals
         -- signals here are coded as (camp)(race) - camp is 1/2/3 for north/east/south and race is 1/2/3 for bear/wolf/grim
-        eq.stop_timer('current_attack');
-        eq.set_timer('next_attack', 15 * 60 * 1000);
         takeover(math.floor(e.signal / 10), e.signal % 10);
-        attack_cleanup();
+        attack_cycle();
+		
     elseif e.signal == 101 then -- if any of the vah shirs in the fort spawn during occupation for any reason, they will be sent to ZL
         if conditions[11] == 1 or conditions[12] == 1 or conditions[13] == 1 then
             clear_fort();
         end
+		
     elseif e.signal == 1000 then -- zone reset signal (random short timer for zone reset)
         eq.set_timer('reset', math.random(5) * 60 * 1000);        
     end
+end
+
+function attack_cycle()
+	eq.stop_timer('current_attack');
+	eq.stop_timer('check_attack');
+	attack_cleanup();
+	eq.set_timer('next_attack', 10 * 60 * 1000);
 end
 
 function initiate_attack(tar, race)
@@ -59,8 +78,9 @@ function initiate_attack(tar, race)
             process_attack(tar+i, tar);
             process_emote(determine_race(tar+i), tar, race);
             event_started = true;
-            attack_in_progress = true;
+			dead_boss = 0;
             eq.set_timer('current_attack', 10 * 60 * 1000) -- 10 minute limit on attack duration
+			eq.set_timer('check_attack', 60 * 1000) -- checks on attackers every minute to make sure they're not dead!
             return true
         end
     end
@@ -114,10 +134,21 @@ end
 
 function check_war_win()
     if determine_race(1) == determine_race(2) and determine_race(2) == determine_race(3) then
-        attack_in_progress = true; -- 'attack' on fort ongoing. Note that this will not get reset until the zone reset (killing named while fort occupied does nothing)
+        eq.stop_all_timers(); -- no more attacks until reset
         eq.set_timer('war_win', math.random(1,5) * 60 * 1000 );
         clear_fort();
     end
+end
+
+function check_attackers()
+	local ent_list = eq.get_entity_list();
+	for _, v in pairs(attackers) do
+		if ent_list:IsMobSpawnedByNpcTypeID(attackers[1]) then
+			return true
+		end
+	end
+	
+	return false
 end
 
 function clear_fort()
@@ -146,7 +177,6 @@ function determine_race(camp)
 end
 
 function attack_cleanup()
-    attack_in_progress = false;
     for _, v in pairs(attackers) do
         eq.depop_all(v)
     end
@@ -159,8 +189,8 @@ function reset_zone()
     -- conditions 1/2/3 are north camp (bear, wolf, grim), 4/5/6 are east camp, 7/8/9 are south camp, 10 is ???, 11/12/13 are fort - starting config is bears north, wolves east, grims south
     conditions = { 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0 };
     process_cond(conditions);
-    attack_in_progress = false;
     event_started = false;
+	dead_boss = 0;
     
     for _, v in pairs(cats) do -- return vah shir to the fort
         eq.signal(v, 100);
