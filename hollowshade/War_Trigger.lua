@@ -85,15 +85,14 @@ function process_attack(atk_camp, def_camp)
     
     -- loop to spawn attackers
     local grid = paths[atk_camp][def_camp];
-    local atk_list;
     for i=1,5 do
-        table.insert(atk_list, eq.spawn2(attackers[atk_race], grid, 0, locs[atk_camp][i][1], locs[atk_camp][i][2], locs[atk_camp][i][3], locs[atk_camp][i][4]))
+        eq.spawn2(attackers[atk_race], grid, 0, locs[atk_camp][i][1], locs[atk_camp][i][2], locs[atk_camp][i][3], locs[atk_camp][i][4])
     end
     
     -- check whether to spawn defenders and do it if necessary
     if determine_race(6-atk_camp+def_camp) ~= def_race then
         for i=1,5 do
-            table.insert(def_list, eq.spawn2(defenders[def_race], 0, 0, locs[def_camp][i][1], locs[def_camp][i][2], locs[def_camp][i][3], locs[def_camp][i][4]))
+            eq.spawn2(defenders[def_race], 0, 0, locs[def_camp][i][1], locs[def_camp][i][2], locs[def_camp][i][3], locs[def_camp][i][4])
         end
     end
     -- return atk_list, def_list -- returns tables of attacker and defender mobs
