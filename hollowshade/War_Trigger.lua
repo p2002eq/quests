@@ -30,7 +30,7 @@ function event_timer(e)
     elseif e.timer == 'next_attack' then
 		-- attack timer - determines a random camp and gets the race - if a boss has died recently, that overwrites the randomly generated camp
         local camp = math.random(1,3);
-		if dead_boss ~= 0 then local camp = math.floor(dead_boss / 3); end
+		if dead_boss ~= 0 then camp = math.floor(dead_boss / 3); end
 		local race = determine_race(camp);
         initiate_attack(camp, race) -- tries to execute an attack
 		
