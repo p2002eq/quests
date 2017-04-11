@@ -60,7 +60,7 @@ function event_signal(e)
             clear_fort();
         end
 		
-    elseif e.signal == 1000 then -- zone reset signal (random short timer for zone reset)
+    elseif e.signal == 1000 then -- zone reset signal (random timer for zone reset)
         eq.set_timer('reset', math.random(5) * 60 * 1000);        
     end
 end
@@ -69,7 +69,7 @@ function attack_cycle()
 	eq.stop_timer('current_attack');
 	eq.stop_timer('check_attack');
 	attack_cleanup();
-	eq.set_timer('next_attack', 10 * 60 * 1000);
+	eq.set_timer('next_attack', math.random(5) * 60 * 1000);
 end
 
 function initiate_attack(tar, race)
@@ -79,7 +79,7 @@ function initiate_attack(tar, race)
             process_emote(determine_race(tar+i), tar, race);
             event_started = true;
 			dead_boss = 0;
-            eq.set_timer('current_attack', 10 * 60 * 1000) -- 10 minute limit on attack duration
+            eq.set_timer('current_attack', 15 * 60 * 1000) -- 15 minute limit on attack duration
 			eq.set_timer('check_attack', 60 * 1000) -- checks on attackers every minute to make sure they're not dead!
             return true
         end
@@ -135,7 +135,7 @@ end
 function check_war_win()
     if determine_race(1) == determine_race(2) and determine_race(2) == determine_race(3) then
         eq.stop_all_timers(); -- no more attacks until reset
-        eq.set_timer('war_win', math.random(1,5) * 60 * 1000 );
+        eq.set_timer('war_win', math.random(5) * 60 * 1000 );
         clear_fort();
     end
 end
