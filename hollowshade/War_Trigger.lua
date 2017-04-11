@@ -147,10 +147,10 @@ end
 
 function attack_cleanup()
     attack_in_progress = false;
-    for _, v in attackers do
+    for _, v in pairs(attackers) do
         eq.depop_all(v)
     end
-    for _, v in defenders do
+    for _, v in pairs(defenders) do
         eq.depop_all(v)
     end
 end
