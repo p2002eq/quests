@@ -5,12 +5,13 @@ camps = { "north", "east", "south" };
 -- race 1 is bears, race 2 is wolves, race 3 is grimlings
 races = { "Owlbears", "Sonic Wolves", "Grimlings" };
 
+conditions = { 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0 };
 attackers = { 166279, 166280, 166281 };
 defenders = { 166282, 166283, 166284 };
 cats = { 166078, 166079, 166081, 166082, 166083, 166084 };
 
 function event_spawn(e)
-    eq.set_timer('reset', 1000);
+    reset_zone();
 end
 
 function event_timer(e)
