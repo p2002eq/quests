@@ -15,6 +15,7 @@ function event_spawn(e)
 end
 
 function event_timer(e)
+	eq.zone_emote(15, "Signal is " .. e.timer);
     eq.stop_timer(e.timer);
 	
 	if e.timer == 'check_attack' then
@@ -44,9 +45,10 @@ function event_timer(e)
 end
 
 function event_signal(e)
+	eq.zone_emote(15, "Signal is " .. e.signal);
     if e.signal < 10 then -- keeps track of what bosses die... last boss to die before an attack designates what camp gets attacked
         -- signals here mapped in the same way as conditions - 1 is north bear, 2 is north wolf, 3 is north grim, 4 is east bear, etc
-        dead_boss = e.signal;
+		dead_boss = e.signal;
 		
 		if not event_started then eq.set_timer('next_attack', 60 * 1000); end -- if the war isn't started, let's get it going!
 		
@@ -76,6 +78,7 @@ function initiate_attack(tar, race)
     for i=1,2 do
         if race ~= determine_race(tar+i) then
             process_attack(tar+i, tar);
+			eq.zone_emote(15, "Attack initiated: camp " .. tar+i .. ' attacking camp ' .. tar);
             process_emote(determine_race(tar+i), tar, race);
             event_started = true;
 			dead_boss = 0;
