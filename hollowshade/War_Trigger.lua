@@ -146,7 +146,7 @@ end
 function check_attackers()
 	local ent_list = eq.get_entity_list();
 	for _, v in pairs(attackers) do
-		if ent_list:IsMobSpawnedByNpcTypeID(attackers[1]) then
+		if ent_list:IsMobSpawnedByNpcTypeID(v) then
 			return true
 		end
 	end
