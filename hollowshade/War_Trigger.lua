@@ -69,6 +69,8 @@ function initiate_attack(tar, race)
 end
 
 function process_attack(atk_camp, def_camp)
+	atk_camp = parse(atk_camp);
+	def_camp = parse(def_camp);
 	local locs = {};
 	-- north camp
 	locs[1] = { [1] = {1103,2134,137,182}; [2] = {1137,2109,143,178}; [3] = {1129,2166,143,187}; [4] = {1175,2175,170,172}; [5] = {1185,2121,167,180} };
@@ -77,9 +79,9 @@ function process_attack(atk_camp, def_camp)
     -- south camp
 	locs[3] = { [1] = {-621,-2753,55,252}; [2] = {-602,-2764,60,242}; [3] = {-633,-2773,60,239}; [4] = {-644,-2794,68,254}; [5] = {-591,-2794,69,252} };
         
-    local atk_race = determine_race(atk_camp)
-    local def_race = determine_race(def_camp)
-    local paths = { [1] = {101, 102, 103}, [2] = {201, 202, 203}, [3] = {301, 302, 303} }; -- 101, 202, 303 aren't real paths... should not occur!
+    local atk_race = determine_race(atk_camp);
+    local def_race = determine_race(def_camp);
+    local paths = { [1] = {101, 102, 103}; [2] = {201, 202, 203}; [3] = {301, 302, 303} }; -- 101, 202, 303 aren't real paths... should not occur!
     
     -- loop to spawn attackers
     local grid = paths[atk_camp][def_camp];
