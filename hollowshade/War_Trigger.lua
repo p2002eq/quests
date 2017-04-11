@@ -15,7 +15,7 @@ function event_spawn(e)
 end
 
 function event_timer(e)
-	eq.zone_emote(15, "Signal is " .. e.timer);
+	eq.zone_emote(15, "Timer expired: " .. e.timer);
     eq.stop_timer(e.timer);
 	
 	if e.timer == 'check_attack' then
@@ -31,7 +31,7 @@ function event_timer(e)
     elseif e.timer == 'next_attack' then
 		-- attack timer - determines a random camp and gets the race - if a boss has died recently, that overwrites the randomly generated camp
         local camp = math.random(1,3);
-		if dead_boss ~= 0 then camp = math.floor(dead_boss / 3); end
+		if dead_boss ~= 0 then camp = math.floor( (dead_boss-1)/3 + 1); end
 		local race = determine_race(camp);
         initiate_attack(camp, race) -- tries to execute an attack
 		
@@ -45,7 +45,7 @@ function event_timer(e)
 end
 
 function event_signal(e)
-	eq.zone_emote(15, "Signal is " .. e.signal);
+	eq.zone_emote(15, "Signal found: " .. e.signal);
     if e.signal < 10 then -- keeps track of what bosses die... last boss to die before an attack designates what camp gets attacked
         -- signals here mapped in the same way as conditions - 1 is north bear, 2 is north wolf, 3 is north grim, 4 is east bear, etc
 		dead_boss = e.signal;
