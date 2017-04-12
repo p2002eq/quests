@@ -77,8 +77,8 @@ end
 function initiate_attack(tar, race)
     for i=1,2 do
         if race ~= determine_race(tar+i) then
-            process_attack(tar+i, tar);
 			eq.zone_emote(15, "Attack initiated: camp " .. tar+i .. ' attacking camp ' .. tar);
+            process_attack(tar+i, tar);
             process_emote(determine_race(tar+i), tar, race);
             event_started = true;
 			dead_boss = 0;
@@ -91,9 +91,9 @@ function initiate_attack(tar, race)
     return false -- returns false if no attack happened (all camps are same race)
 end
 
-function process_attack(atk_camp, def_camp)
-	atk_camp = parse(atk_camp);
-	def_camp = parse(def_camp);
+function process_attack(ac, dc)
+	atk_camp = parse(ac);
+	def_camp = parse(dc);
 	local locs = {};
 	-- north camp
 	locs[1] = { [1] = {1103,2134,137,182}; [2] = {1137,2109,143,178}; [3] = {1129,2166,143,187}; [4] = {1175,2175,170,172}; [5] = {1185,2121,167,180} };
@@ -113,7 +113,7 @@ function process_attack(atk_camp, def_camp)
     end
     
     -- check whether to spawn defenders and do it if necessary
-    if determine_race(6-atk_camp+def_camp) ~= def_race then
+    if determine_race(6-atk_camp-def_camp) ~= def_race then
         for i=1,5 do
             eq.spawn2(defenders[def_race], 0, 0, locs[def_camp][i][1], locs[def_camp][i][2], locs[def_camp][i][3], locs[def_camp][i][4])
         end
