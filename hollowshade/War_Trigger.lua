@@ -198,6 +198,8 @@ function reset_zone()
     for _, v in pairs(cats) do -- return vah shir to the fort
         eq.signal(v, 100);
     end
+	
+	takeover(1, 2);
 end
 
 function process_cond(cond_array)
