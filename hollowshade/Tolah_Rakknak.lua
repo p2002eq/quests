@@ -25,7 +25,7 @@ function event_waypoint_arrive(e)
     if e.wp >= 5 and e.self:GetGrid() == 99 then -- reached safe spot at ZL, set up in position
         eq.stop();
         e.self:SetRunning(false);
-        eq.move_to(2650, 1255, 143.12, 180, true);
+        eq.move_to(2686.5, 1285.5, 142, 160, true);
     elseif e.wp >= 5 and e.self:GetGrid() == 100 then -- return trip finished, set up at spawn point
         eq.stop();
         eq.move_to(e.self:GetSpawnPointX(), e.self:GetSpawnPointY(), e.self:GetSpawnPointZ(), e.self:GetSpawnPointH(), true);

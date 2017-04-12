@@ -8,7 +8,7 @@ races = { "Owlbears", "Sonic Wolves", "Grimlings" };
 conditions = { 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0 };
 attackers = { 166279, 166280, 166281 };
 defenders = { 166282, 166283, 166284 };
-cats = { 166078, 166079, 166081, 166082, 166083, 166084 };
+cats = { 166078, 166079, 166080, 166081, 166082, 166083, 166084 };
 
 function event_spawn(e)
     reset_zone();
@@ -41,6 +41,7 @@ function event_timer(e)
     elseif e.timer == 'war_win' then
         local win_race = 10 + determine_race(1);
         conditions[win_race] = 1;
+		process_cond(conditions);
     end
 end
 
@@ -65,7 +66,7 @@ function event_signal(e)
             clear_fort();
         end
 	
-	elseif e.signal == 999 and not players then -- player zoned in after idle trigger, reset the attack cycle
+	elseif e.signal == 999 and not players and event_started then -- player zoned in after idle trigger, reset the attack cycle
 		players = true;
 		attack_cycle();
     elseif e.signal == 1000 then -- zone reset signal (random timer for zone reset)
@@ -226,7 +227,9 @@ function reset_zone()
         eq.signal(v, 100);
     end
 	
-	takeover(1, 2);
+	-- TESTING
+	clear_fort();
+	eq.set_timer('war_win', 20 * 1000 );
 end
 
 function process_cond(cond_array)
