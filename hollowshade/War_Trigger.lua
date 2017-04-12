@@ -124,7 +124,7 @@ end
 function takeover(camp, race) -- triggered if attackers reach the end of their path before end of the attack timer
     local off = (parse(camp) - 1) * 3; -- offset is 0 for north, 3 for east, 6 for south
     for i=1,3 do
-        if conditions[off+i] == race then
+        if off + i == race then
             conditions[off+i] = 1
         else
             conditions[off+i] = 0
