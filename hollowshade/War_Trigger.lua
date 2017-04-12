@@ -15,7 +15,6 @@ function event_spawn(e)
 end
 
 function event_timer(e)
-	eq.zone_emote(15, "Timer expired: " .. e.timer);
     eq.stop_timer(e.timer);
 	
 	if e.timer == 'check_attack' then
@@ -46,7 +45,6 @@ function event_timer(e)
 end
 
 function event_signal(e)
-	eq.zone_emote(15, "Signal found: " .. e.signal);
     if e.signal < 10 then -- keeps track of what bosses die... last boss to die before an attack designates what camp gets attacked
         -- signals here mapped in the same way as conditions - 1 is north bear, 2 is north wolf, 3 is north grim, 4 is east bear, etc
 		dead_boss = e.signal;
@@ -101,7 +99,6 @@ end
 function initiate_attack(tar, race)
     for i=1,2 do
         if race ~= determine_race(tar+i) then
-			eq.zone_emote(15, "Attack initiated: camp " .. tar+i .. ' attacking camp ' .. tar);
             process_attack(tar+i, tar);
             process_emote(determine_race(tar+i), tar, race);
             event_started = true;
@@ -226,10 +223,6 @@ function reset_zone()
     for _, v in pairs(cats) do -- return vah shir to the fort
         eq.signal(v, 100);
     end
-	
-	-- TESTING
-	clear_fort();
-	eq.set_timer('war_win', 20 * 1000 );
 end
 
 function process_cond(cond_array)
