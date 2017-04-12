@@ -25,7 +25,7 @@ function event_timer(e)
 			eq.set_timer('check_attack', 60 * 1000);
 		end
 		
-    elseif e.timer == 'reset' then
+    elseif e.timer == 'reset' or e.timer == 'idle_reset' then
         reset_zone();
 		
     elseif e.timer == 'next_attack' then
@@ -52,6 +52,9 @@ function event_signal(e)
 		
 		if not event_started then eq.set_timer('next_attack', 60 * 1000); end -- if the war isn't started, let's get it going!
 		
+		eq.stop_timer('idle_reset');
+		eq.set_timer('idle_reset', 48 * 60 * 60 * 1000) -- 48 hour idle timer if nobody doing anything with the war
+		
     elseif e.signal > 10 and e.signal < 35 then -- takeover signals
         -- signals here are coded as (camp)(race) - camp is 1/2/3 for north/east/south and race is 1/2/3 for bear/wolf/grim
         takeover(math.floor(e.signal / 10), e.signal % 10);
@@ -61,7 +64,10 @@ function event_signal(e)
         if conditions[11] == 1 or conditions[12] == 1 or conditions[13] == 1 then
             clear_fort();
         end
-		
+	
+	elseif e.signal == 999 and not players then -- player zoned in after idle trigger, reset the attack cycle
+		players = true;
+		attack_cycle();
     elseif e.signal == 1000 then -- zone reset signal (random timer for zone reset)
         eq.set_timer('reset', math.random(5) * 60 * 1000);        
     end
@@ -71,7 +77,24 @@ function attack_cycle()
 	eq.stop_timer('current_attack');
 	eq.stop_timer('check_attack');
 	attack_cleanup();
-	eq.set_timer('next_attack', math.random(5) * 60 * 1000);
+	if players then eq.set_timer('next_attack', math.random(5) * 60 * 1000); end
+	
+	-- checks for players
+	if not player_check() then
+		players = false;
+	end
+	
+end
+
+function player_check()
+	plist = eq.get_entity_list():GetClientList();
+	if plist ~= nil then
+		for player in plist.entries do
+			return true
+		end
+	end
+	
+	return false
 end
 
 function initiate_attack(tar, race)
@@ -140,6 +163,9 @@ function check_war_win()
         eq.stop_all_timers(); -- no more attacks until reset
         eq.set_timer('war_win', math.random(5) * 60 * 1000 );
         clear_fort();
+		
+		eq.stop_timer('idle_reset');
+		eq.set_timer('idle_reset', 48 * 60 * 60 * 1000) -- 48 hour idle timer if nobody doing anything with the war
     end
 end
 
@@ -194,6 +220,7 @@ function reset_zone()
     process_cond(conditions);
     event_started = false;
 	dead_boss = 0;
+	players = true;
     
     for _, v in pairs(cats) do -- return vah shir to the fort
         eq.signal(v, 100);
