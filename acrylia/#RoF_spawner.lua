@@ -9,7 +9,7 @@ warder = 154377 -- 2857 is the banish spell
 -- locations used in event, using {x,y,z,h} format
 -- trash_spawns = randomly inside the ring
 boss_locs = { [1]={-83, 13, -29, 0}; [2]={-104, 62, -30, 0} } -- Only final wave boss spawns out here
-grim_locs = { [1]={-79, 103, -30, 0}; [2]={-98, 117, -30, 0}; [3]={149, 98, -29, 0}; [4]={-136, 52, -29, 0} }
+grim_locs = { {-79, 103, -30, 0}, {-98, 117, -30, 0}, {149, 98, -29, 0}, {-136, 52, -29, 0} }
 warder_loc = { -96, -15, -30, 15 }
 
 function event_spawn(e)
@@ -135,7 +135,7 @@ end
 function setup_event()
 	eq.local_emote({-120, 80, -25}, 15, 150, "As you step into the grimlings' ring of fire, a hot breeze blows into the cavern and begins swirling about you. The grimlings' constant chanting seems to grow louder...")
 	
-	for _, v in pairs(grim_locs) do -- spawn untargettable grims
+	for _,v in pairs(grim_locs) do -- spawn untargettable grims
 		local mob = eq.ChooseRandom(grims);
 		local x, y, z, h = unpack(v);
 		--eq.spawn2(mob, 0, 0, x, y, z, h);
