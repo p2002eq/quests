@@ -16,7 +16,7 @@ function event_spawn(e)
 	reset_event();
 end
 
-function enter(e)
+function event_enter(e)
 	if not started then
 		eq.clear_proximity();
 		setup_event();
