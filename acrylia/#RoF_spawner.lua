@@ -8,8 +8,8 @@ warder = 154377 -- 2857 is the banish spell
 
 -- locations used in event, using {x,y,z,h} format
 -- trash_spawns = randomly inside the ring
-boss_locs = { [1]={-83, 13, -29, 0}; [2]={-104, 62, -30, 0} } -- Only final wave boss spawns out here
-grim_locs = { {-79, 103, -30, 0}, {-98, 117, -30, 0}, {149, 98, -29, 0}, {-136, 52, -29, 0} }
+boss_locs = { {-83, 13, -29, 0}, {-104, 62, -30, 0} } -- Only final wave boss spawns out here
+grim_locs = { {-86, 99, -30, 172}, {-100, 112, -29, 147}, {-139, 102, -29, 96}, {-135, 59, -29, 26} }
 warder_loc = { -96, -15, -30, 15 }
 
 function event_spawn(e)
@@ -137,11 +137,9 @@ function setup_event()
 	
 	for _,v in pairs(grim_locs) do -- spawn untargettable grims
 		local mob = eq.ChooseRandom(unpack(grims));
-		local x, y, z, h = unpack(v);
-		--eq.spawn2(mob, 0, 0, x, y, z, h);
 		eq.spawn2(mob, 0, 0, unpack(v));
 	end
-	-- eq.spawn2(warder, 0, 0, unpack(warder_loc));
+	eq.spawn2(warder, 0, 0, unpack(warder_loc));
 	
 	eq.set_timer('main', 1000); --initial timer is short!
 	started = true;
