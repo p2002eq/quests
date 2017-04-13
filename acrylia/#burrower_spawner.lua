@@ -26,14 +26,14 @@ function mob_check(e)
 	if timer == nil then
 		if cycle == nil then
 			eq.set_global('restless_progress', '1', 2, 'F');
-			eq.set_global('restless_timer', 'started', 2, 'M1'); -- 'H24')
+			eq.set_global('restless_timer', 'started', 2, 'H24')
 			
 		elseif cycle ~= nil then
 			local next_cycle = tonumber(cycle) + 1;
 			eq.set_global('restless_progress', tostring(next_cycle), 2, 'F');
 
 			if next_cycle < 7 then
-				eq.set_global('restless_timer', 'started', 2, 'M1') -- 'H24')
+				eq.set_global('restless_timer', 'started', 2, 'H24')
 			else
 				eq.set_global('restless_timer', 'started', 2, 'F')
 			end
@@ -50,7 +50,7 @@ end
 function event_signal(e)
 	if e.signal == 99 then
 		eq.delete_global('restless_progress');
-		eq.set_global('restless_timer', 'started', 2, 'M1') --'H' .. math.random(24))
+		eq.set_global('restless_timer', 'started', 2, 'H' .. tostring(math.random(24)))
 	end
 end
 
