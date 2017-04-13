@@ -113,9 +113,9 @@ function spawn_trash(rnd)
 		elseif rnd == 6 then
 			mob = eq.ChooseRandom(trash_mobs[3], trash_mobs[4], trash_mobs[5]);
 		end
-	end
-			
+		
 		eq.spawn2(mob, 0, 0, x, y, z, h);
+	end
 end
 
 function spawn_boss(rnd)
