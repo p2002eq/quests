@@ -121,7 +121,7 @@ end
 function spawn_boss(rnd)
 	local boss = eq.spawn2(boss_mobs[rnd], 0, 0, unpack(boss_locs[1]));
 	boss:Say("I now serve the master of the grimling horde. You too shall be reborn!");
-	boss:MoveTo(unpack(boss_locs[2]), true);
+	boss:CastToNPC():MoveTo(unpack(boss_locs[2]), true);
 end
 
 function reset_event()
