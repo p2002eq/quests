@@ -137,7 +137,8 @@ function setup_event()
 	
 	for _, v in pairs(grim_locs) do -- spawn untargettable grims
 		local mob = eq.ChooseRandom(grims);
-		eq.spawn2(mob, 0, 0, unpack(v));
+		local x, y, z, h = unpack(v);
+		eq.spawn2(mob, 0, 0, x, y, z, h);
 	end
 	eq.spawn2(warder, 0, 0, unpack(warder_loc));
 	
