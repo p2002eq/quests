@@ -136,10 +136,10 @@ function setup_event()
 	eq.local_emote({-120, 80, -25}, 15, 150, "As you step into the grimlings' ring of fire, a hot breeze blows into the cavern and begins swirling about you. The grimlings' constant chanting seems to grow louder...")
 	
 	for _,v in pairs(grim_locs) do -- spawn untargettable grims
-		local mob = eq.ChooseRandom(grims);
+		local mob = eq.ChooseRandom(unpack(grims));
 		local x, y, z, h = unpack(v);
 		--eq.spawn2(mob, 0, 0, x, y, z, h);
-		eq.spawn2(mob, 0, 0, -118, 81, -26, 0);
+		eq.spawn2(mob, 0, 0, unpack(v));
 	end
 	-- eq.spawn2(warder, 0, 0, unpack(warder_loc));
 	
