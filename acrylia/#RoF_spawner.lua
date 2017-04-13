@@ -139,7 +139,7 @@ function setup_event()
 		local mob = eq.ChooseRandom(grims);
 		local x, y, z, h = unpack(v);
 		--eq.spawn2(mob, 0, 0, x, y, z, h);
-		eq.spawn2(mob, 0, 0, v[1], v[2], v[3], v[4]);
+		eq.spawn2(mob, 0, 0, -118, 81, -26, 0);
 	end
 	-- eq.spawn2(warder, 0, 0, unpack(warder_loc));
 	
