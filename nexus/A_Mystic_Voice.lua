@@ -12,29 +12,29 @@ end
  
 function event_timer(e)
     evt = e;
-    ThreadManager:Resume("Predictable");
-    ThreadManager:Resume("Swapping");
+    ThreadManager:Resume("Norrath");
+    ThreadManager:Resume("Velious");
 end
 
 function old_world_cycle(evt)
     while true do
         eq.zone_emote(15, "norrath will port in 15")
-        ThreadManager:Wait(13);
+        ThreadManager:Wait(13.0);
         eq.zone_emote(15, "norrath will port in 2")
-        ThreadManager:Wait(2);
+        ThreadManager:Wait(2.0);
         eq.zone_emote(15, "Porting Norrath!")
-        ThreadManager:Wait(15);
+        ThreadManager:Wait(15.0);
     end
 end
 
 function velious_cycle(evt)
     while true do
-        ThreadManager:Wait(10)
+        ThreadManager:Wait(10.0)
         eq.zone_emote(15, "velious will port in 15")
-        ThreadManager:Wait(13);
+        ThreadManager:Wait(13.0);
         eq.zone_emote(15, "velious will port in 2")
-        ThreadManager:Wait(2);
+        ThreadManager:Wait(2.0);
         eq.zone_emote(15, "Porting Velious!")
-        ThreadManager:Wait(5);
+        ThreadManager:Wait(5.0);
     end
 end
