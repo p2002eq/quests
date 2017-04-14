@@ -19,7 +19,7 @@ function kunark_port(player_list)
             eq.zone_emote(1, "player found: " .. player:GetName());
             eq.zone_emote(1, "player distance is " .. player:CalculateDistance(110, -462, -59));
 			if player:CalculateDistance(110, -462, -59) <= 22 then
-				player:CastSpell(2709);
+				player:CastSpell(2709, player:GetID());
 			end
 		end
 	end
