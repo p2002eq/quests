@@ -40,11 +40,11 @@ end
 
 function event_waypoint_arrive(e)
     if e.wp >= 2 and e.wp <= 5 and e.wp > progress then
-        progress += 1
+        progress = progress + 1;
         spawn_wave(e.self);
     elseif e.wp >= 9 then
         e.self:Say("Whew, we are finally here. If you will give me the contract I will keep up with my part of the bargain.");
-        progress += 1
+        progress = progress + 1;
     end
 end
 
