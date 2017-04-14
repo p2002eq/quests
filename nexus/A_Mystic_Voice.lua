@@ -11,6 +11,7 @@ function event_spawn(e)
 end
  
 function event_timer(e)
+    evt = e;
     ThreadManager:Resume("Predictable");
     ThreadManager:Resume("Swapping");
 end
