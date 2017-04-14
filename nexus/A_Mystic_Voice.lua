@@ -1,6 +1,5 @@
 -- A_Mystic_Voice (152019) in the Nexus - coordinator for spire teleports
 
-
 local ThreadManager = require("thread_manager");
  
 function event_spawn(e)
@@ -24,7 +23,7 @@ function old_world_cycle(evt)
         eq.zone_emote(15, "norrath will port in 2")
         ThreadManager:Wait(2.0);
         eq.zone_emote(15, "Porting Norrath!")
-        kunark_port(eq.get_entity_list():GetClientList());
+        old_world_port(eq.get_entity_list():GetClientList());
         ThreadManager:Wait(15.0);
     end
 end
@@ -37,18 +36,32 @@ function velious_cycle(evt)
         eq.zone_emote(15, "velious will port in 2")
         ThreadManager:Wait(2.0);
         eq.zone_emote(15, "Porting Velious!")
+        velious_port(eq.get_entity_list():GetClientList());
         ThreadManager:Wait(5.0);
     end
 end
 
-function kunark_port(player_list)
+function old_world_port(player_list)
 	if player_list ~= nil then
-        eq.zone_emote(1, "player list not empty");
 		for player in player_list.entries do
-            eq.zone_emote(1, "player found: " .. player:GetName());
-            eq.zone_emote(1, "player distance is " .. player:CalculateDistance(110, -462, -59));
-			if player:CalculateDistance(110, -462, -59) <= 22 then
+            elseif player:CalculateDistance(-363, 39, -44) <= 22 then -- antonica platform & port
+				player:SpellFinished(2708, player);
+			elseif player:CalculateDistance(30, 350, -44) <= 22 then -- faydwer platform & port
+				player:SpellFinished(2706, player);
+            elseif player:CalculateDistance(370, -37, -44) <= 22 then -- odus platform & port (shared locs with velious)
+				player:SpellFinished(2707, player);
+			if player:CalculateDistance(110, -462, -59) <= 22 then -- kunark platform & port
 				player:SpellFinished(2709, player);
+			end
+		end
+	end
+end
+
+function velious_port(player_list)
+	if player_list ~= nil then
+		for player in player_list.entries do
+            elseif player:CalculateDistance(370, -37, -44) <= 22 then -- velious platform & port (shared locs with odus)
+				player:SpellFinished(2062, player);
 			end
 		end
 	end
