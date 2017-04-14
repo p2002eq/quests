@@ -6,7 +6,7 @@ function event_spawn(e)
 end
 
 function event_waypoint_arrive(e)
-    if e.wp >= 6 and e.self:GetGrid() == 3 then
+    if e.wp >= 5 and e.self:GetGrid() == 3 then
         e.self:Say("We had best save our sentiments for later and make haste back to the safety of Katta Castellum!");
         eq.signal(172192,1); -- Aellana_Barleou
         eq.signal(172193,1); -- Lyrra_Rutledge
