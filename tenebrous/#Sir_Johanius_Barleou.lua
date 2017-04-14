@@ -1,15 +1,30 @@
 ---- Quest:Johanius Stake of Slaying
+
+function event_spawn(e)
+    e.self:SetRunning(true);
+end
+
 function event_waypoint_arrive(e)
-    if(e.wp == 4) then
+    if(e.wp >= 6) then
+        eq.stop()
         e.self:Say("We had best save our sentiments for later and make haste back to the safety of Katta Castellum!");
-    elseif(e.wp == 5) then
         eq.signal(172192,1,1); -- Aellana_Barleou
         eq.signal(172193,1,1); -- Lyrra_Rutledge
-    elseif(e.wp == 25) then
+        eq.set_timer('return_trip', 1000)
+    elseif(e.wp == 17) then
         e.self:Say("Hurry inside the gates ladies I will be in shortly after rewarding the brave individuals that assisted me in your rescue.");
-    elseif(e.wp == 26) then
+        eq.signal(172192,1,2); -- Aellana_Barleou
+        eq.signal(172193,1,2); -- Lyrra_Rutledge
+        eq.stop()
+    elseif(e.wp >= 18) then
         eq.spawn2(172191,0,0,e.self:GetX(),e.self:GetY(),e.self:GetZ(),e.self:GetHeading()); -- #Johanius_Barleou_the_Slayer
         eq.depop();
+    end
+end
+
+function event_timer(e)
+    if e.timer == 'return_trip' then
+        eq.start(4);
     end
 end
 
