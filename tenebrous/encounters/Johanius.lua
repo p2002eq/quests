@@ -29,8 +29,7 @@ function CheckCamp(e)
     end
     
     eq.zone_emote(15, 'no mobs found!');
-    -- if no mobs found, spawn new Johanius and unload
-    eq.spawn2(172190,3,0,e.self:GetX(),e.self:GetY(),e.self:GetZ(),e.self:GetHeading()); -- #Sir_Johanius_Barleou
+    -- if no mobs found, alert Johanius
     eq.signal(172032, 1);
     eq.zone_emote(15, 'signals sent');
 end

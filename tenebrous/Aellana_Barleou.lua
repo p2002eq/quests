@@ -1,4 +1,5 @@
 ---- Quest:Johanius Stake of Slaying
+
 function event_spawn(e)
     started = false;
     e.self:SetRunning(true);

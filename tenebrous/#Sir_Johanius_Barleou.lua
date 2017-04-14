@@ -2,19 +2,20 @@
 
 function event_spawn(e)
     e.self:SetRunning(true);
+    eq.start(3);
 end
 
 function event_waypoint_arrive(e)
-    if(e.wp >= 6) then
-        eq.stop()
+    if e.wp >= 6 and e.self:GetGrid() == 3 then
         e.self:Say("We had best save our sentiments for later and make haste back to the safety of Katta Castellum!");
-        eq.signal(172192,1,1); -- Aellana_Barleou
-        eq.signal(172193,1,1); -- Lyrra_Rutledge
-        eq.set_timer('return_trip', 1000)
+        eq.signal(172192,1); -- Aellana_Barleou
+        eq.signal(172193,1); -- Lyrra_Rutledge
+        eq.set_timer('return_trip', 1000);
+        eq.stop();
     elseif(e.wp == 17) then
         e.self:Say("Hurry inside the gates ladies I will be in shortly after rewarding the brave individuals that assisted me in your rescue.");
-        eq.signal(172192,1,2); -- Aellana_Barleou
-        eq.signal(172193,1,2); -- Lyrra_Rutledge
+        eq.signal(172192,2); -- Aellana_Barleou
+        eq.signal(172193,2); -- Lyrra_Rutledge
         eq.stop()
     elseif(e.wp >= 18) then
         eq.spawn2(172191,0,0,e.self:GetX(),e.self:GetY(),e.self:GetZ(),e.self:GetHeading()); -- #Johanius_Barleou_the_Slayer

@@ -37,6 +37,7 @@ end
 
 function event_signal(e)
     if(e.signal == 1) then
+        eq.spawn2(172190,0,0,e.self:GetX(),e.self:GetY(),e.self:GetZ(),e.self:GetHeading()); -- #Sir_Johanius_Barleou
         eq.unload_encounter('Johanius');
         eq.depop_with_timer();
     elseif(e.signal == 2) then
