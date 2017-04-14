@@ -44,13 +44,13 @@ end
 function old_world_port(player_list)
 	if player_list ~= nil then
 		for player in player_list.entries do
-            elseif player:CalculateDistance(-363, 39, -44) <= 22 then -- antonica platform & port
+            if player:CalculateDistance(-363, 39, -44) <= 22 then -- antonica platform & port
 				player:SpellFinished(2708, player);
 			elseif player:CalculateDistance(30, 350, -44) <= 22 then -- faydwer platform & port
 				player:SpellFinished(2706, player);
             elseif player:CalculateDistance(370, -37, -44) <= 22 then -- odus platform & port (shared locs with velious)
 				player:SpellFinished(2707, player);
-			if player:CalculateDistance(110, -462, -59) <= 22 then -- kunark platform & port
+			elseif player:CalculateDistance(110, -462, -59) <= 22 then -- kunark platform & port
 				player:SpellFinished(2709, player);
 			end
 		end
@@ -60,7 +60,7 @@ end
 function velious_port(player_list)
 	if player_list ~= nil then
 		for player in player_list.entries do
-            elseif player:CalculateDistance(370, -37, -44) <= 22 then -- velious platform & port (shared locs with odus)
+            if player:CalculateDistance(370, -37, -44) <= 22 then -- velious platform & port (shared locs with odus)
 				player:SpellFinished(2062, player);
 			end
 		end
