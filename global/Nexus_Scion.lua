@@ -28,15 +28,15 @@ function luclin_cycle(evt)
     local locs = { evt.self:GetX(), evt.self:GetY(), evt.self:GetZ() };
     while true do
         eq.local_emote(locs, 0, 250, "A Mystic Voice says 'The portal to Luclin will become active in five minutes. Please begin gathering at the Spires if you wish to travel.'")
-        ThreadManager:Wait(12)
+        ThreadManager:Wait(120)
         eq.local_emote(locs, 0, 250, "A Mystic Voice says 'As a reminder, the portal will become active in three minutes.'")
-        ThreadManager:Wait(6);
-        eq.local_emote(locs, 0, 250, "A Mystic Voice says 'Two minutes till teleportation. Please be prepared to step inside the circle of Spires.'")
-        ThreadManager:Wait(6);
-        eq.local_emote(locs, 0, 250, "A Mystic Voice says 'One minute till teleportation. Please stand inside the circle of Spires and have a shard upon your person.'")
-        ThreadManager:Wait(6);
-        luclin_port(eq.get_entity_list():GetClientList());
         ThreadManager:Wait(60);
+        eq.local_emote(locs, 0, 250, "A Mystic Voice says 'Two minutes till teleportation. Please be prepared to step inside the circle of Spires.'")
+        ThreadManager:Wait(60);
+        eq.local_emote(locs, 0, 250, "A Mystic Voice says 'One minute till teleportation. Please stand inside the circle of Spires and have a shard upon your person.'")
+        ThreadManager:Wait(60);
+        luclin_port(eq.get_entity_list():GetClientList());
+        ThreadManager:Wait(600);
     end
 end
 
