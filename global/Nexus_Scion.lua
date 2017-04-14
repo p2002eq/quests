@@ -44,7 +44,7 @@ function luclin_port(player_list)
 	if player_list ~= nil then
 		for player in player_list.entries do
             local x, y = player:GetX(), player:GetY();
-            if player:HasItem(19720) and x > port_locs[1] and x < port_locs[2] and y > port_locs[3] and port_locs[4] then -- has stone, is within spires, then port
+            if player:HasItem(19720) and x > port_locs[1] and x < port_locs[2] and y > port_locs[3] and y < port_locs[4] then -- has stone, is within spires, then port
                 player:NukeItem(19720);
 				player:SpellFinished(2935, player);
 			end
