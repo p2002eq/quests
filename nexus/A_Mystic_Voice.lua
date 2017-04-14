@@ -19,11 +19,11 @@ end
 function old_world_cycle(evt)
     while true do
         ThreadManager:Wait(300);
-        eq.zone_emote(0, "A mystic voice says 'The portals to Odus, Antonica, Faydwer, and Kunark will become active in five minutes. Please begin gathering in the portal areas.'")
+        eq.zone_emote(0, "A Mystic Voice says 'The portals to Odus, Antonica, Faydwer, and Kunark will become active in five minutes. Please begin gathering in the portal areas.'")
         ThreadManager:Wait(120);
-        eq.zone_emote(0, "A mystic voice says 'As a reminder, the portals to Odus, Antonica, Faydwer, and Kunark will become active in three minutes.'")
+        eq.zone_emote(0, "A Mystic Voice says 'As a reminder, the portals to Odus, Antonica, Faydwer, and Kunark will become active in three minutes.'")
         ThreadManager:Wait(120);
-        eq.zone_emote(0, "A mystic voice says 'One minute till teleportation to Odus, Antonica, Faydwer, and Kunark. Please stand on the pad and you will be teleported shortly.'")
+        eq.zone_emote(0, "A Mystic Voice says 'One minute till teleportation to Odus, Antonica, Faydwer, and Kunark. Please stand on the pad and you will be teleported shortly.'")
         ThreadManager:Wait(60);
         old_world_port(eq.get_entity_list():GetClientList());
     end
@@ -31,11 +31,11 @@ end
 
 function velious_cycle(evt)
     while true do
-        eq.zone_emote(0, "A mystic voice says 'In approximately ten minutes the portals will become active and will transport you back to Odus, Antonica, Faydwer, and Kunark.  In five minutes the portal to Velious will become active.'")
+        eq.zone_emote(0, "A Mystic Voice says 'In approximately ten minutes the portals will become active and will transport you back to Odus, Antonica, Faydwer, and Kunark.  In five minutes the portal to Velious will become active.'")
         ThreadManager:Wait(120)
-        eq.zone_emote(0, "A mystic voice says 'The portal to Velious will become active in three minutes.  Please begin gathering in the portal area.'")
+        eq.zone_emote(0, "A Mystic Voice says 'The portal to Velious will become active in three minutes.  Please begin gathering in the portal area.'")
         ThreadManager:Wait(120);
-        eq.zone_emote(0, "A mystic voice says 'One minute till teleportation to Velious.  Please stand on the pad and you will be teleported shortly.'")
+        eq.zone_emote(0, "A Mystic Voice says 'One minute till teleportation to Velious.  Please stand on the pad and you will be teleported shortly.'")
         ThreadManager:Wait(60);
         velious_port(eq.get_entity_list():GetClientList());
         ThreadManager:Wait(300);
