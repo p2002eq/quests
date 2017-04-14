@@ -1,6 +1,6 @@
 ------ Quest:Grave Robbers
 function event_spawn(e)
-    eq.set_timer("Shoeon", 300);
+    eq.set_timer("Shoeon", 300 * 1000);
 end
 
 function event_timer(e)

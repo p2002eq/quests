@@ -10,7 +10,7 @@ primary_adds = {
 secondary_adds = { 179352, 179353, 179354, 179355 };
 
 function event_encounter_load(e)
-	eq.set_timer("hb", 60 * 1000);
+	eq.set_timer("hb", 10 * 1000);
 
 	eq.register_npc_event("Shei", Event.combat, 179349, SheiCombat);
 	eq.register_npc_event("Shei", Event.timer, 179349, SheiTimer);
@@ -38,11 +38,9 @@ end
 
 function event_timer(e)
 	if e.timer == 'hb' then
-		eq.zone_emote(1, 'HB trigger');
 		local ent_list = eq.get_entity_list();
 		if not ent_list:IsMobSpawnedByNpcTypeID(179032) and not ent_list:IsMobSpawnedByNpcTypeID(179349) then
 			eq.stop_timer(e.timer);
-			eq.zone_emote(1, 'EndEncounter');
 			eq.unload_encounter("Shei");
 		end
 	end

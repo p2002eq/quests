@@ -1,6 +1,4 @@
--- Fugus grove 'Calling beasties' north cavern event caller
-
-event_mobs = { 157121, 157122, 157123, 157115, 157116, 157117, 157118, 157120, 157124, 157125, 157127, 157128, 157129 }
+-- #Caller_Murkin (157004) in Fungus grove 'Calling beasties' north cavern event caller
 
 function event_spawn(e)
 	started = false;
@@ -68,14 +66,6 @@ function event_waypoint_arrive(e)
 	end
 end
 
-function event_death_complete(e)
-	eq.stop_all_timers()
-	
-	for _,v in pairs(event_mobs) do
-		eq.depop_all(v);
-	end
-end
-
 function spawn_waves(caller)
 	caller:Emote("moans and waves his arms, then shouts 'Graka! Mootogo Ta Naga!'");
 	for i=1,3 do
@@ -116,7 +106,9 @@ function spawn_waves(caller)
 		elseif mob_picker <= 1000 then
 			mob = 157128; -- Tuchako
 		end
-		eq.spawn2(mob, 0, 0, locs[1], locs[2], locs[3], 0):CastToNPC():MoveTo(-1098, 866, -332, 0, true);
+		local newmob = eq.spawn2(mob, 0, 0, locs[1], locs[2], locs[3], 0);
+		newmob:CastToNPC():MoveTo(-1098, 866, -332, 0, true);
+		eq.set_timer('depop', 30 * 60 * 1000, newmob);
 	end
 	wave_counter = wave_counter + 1;
 	total_waves = total_waves + 1;
