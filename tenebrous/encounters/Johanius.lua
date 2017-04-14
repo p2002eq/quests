@@ -14,7 +14,7 @@ end
 
 function CheckCamp(e)
     -- return true if NPC found in camp
-    local npcs_of_interest = Set { 172004, 172020, 172041, 172044 };
+    local npcs_of_interest = Set({ 172004, 172020, 172041, 172044 });
     local entity_list = eq.get_entity_list();
     local npc_list = entity_list:GetNPCList();
     eq.zone_emote(1, 'LISTS LOADED');
@@ -39,4 +39,11 @@ function CheckCamp(e)
     -- if no mobs found, alert Johanius
     eq.signal(172032, 1);
     eq.zone_emote(15, 'signals sent');
+end
+
+-- helper function
+function Set (list)
+  local set = {}
+  for _, l in ipairs(list) do set[l] = true end
+  return set
 end
