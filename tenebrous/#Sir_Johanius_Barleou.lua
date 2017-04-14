@@ -25,6 +25,7 @@ end
 function event_timer(e)
     if e.timer == 'return_trip' then
         eq.start(4);
+        eq.zone_emote(15, 'return trip started');
     end
 end
 

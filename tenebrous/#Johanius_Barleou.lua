@@ -19,6 +19,7 @@ end
 function event_waypoint_arrive(e)
     if e.wp >= 11 then
         eq.stop()
+        eq.move_to(-788.46, 1235.13, -20, 52, true); -- seems to run back to spawn otherwise!
         eq.load_encounter('Johanius');
         eq.set_timer('cleanup', 2 * 60 * 60 * 1000) -- 2 hour depop timer
     end
@@ -29,6 +30,7 @@ function event_timer(e)
         eq.depop(172192)
         eq.depop(172193)
         eq.unload_encounter('Johanius');
+        eq.zone_emote(15, 'event unloaded');
         eq.depop_with_timer()
     end
 end

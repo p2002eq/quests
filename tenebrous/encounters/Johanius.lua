@@ -1,6 +1,7 @@
 -- Johanius Stake of Slaying quest in tenebrous
 
 function event_encounter_load(e)
+    eq.zone_emote(15, 'encounter loaded');
     -- spawn NPCs for rescue
     eq.spawn2(172192,0,0,-377,1268,-28,0); -- Aellana_Barleou
     eq.spawn2(172193,0,0,-366,1254,-28,0); -- Lyrra_Rutledge
@@ -21,12 +22,15 @@ function CampCheck(e)
             local x, y = npc:GetSpawnPointX(), npc:GetSpawnPointY();
             -- if NPC alive AND on list of interest AND spawned in area of camp (prevents training away of NPCs), return true
             if npc.valid and npcs_of_interest[npc:GetNPCTypeID()] ~= nil and x > -470 and x < -260 and y > -400 and y < -340 then
+                eq.zone_emote(15, 'mob found: ' .. npc:GetName());
                 return true
             end
         end
     end
     
+    eq.zone_emote(15, 'no mobs found!');
     -- if no mobs found, spawn new Johanius and unload
     eq.spawn2(172190,3,0,e.self:GetX(),e.self:GetY(),e.self:GetZ(),e.self:GetHeading()); -- #Sir_Johanius_Barleou
     eq.signal(172032, 1);
+    eq.zone_emote(15, 'signals sent');
 end
