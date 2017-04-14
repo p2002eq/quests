@@ -10,7 +10,7 @@ function event_waypoint_arrive(e)
         e.self:Say("We had best save our sentiments for later and make haste back to the safety of Katta Castellum!");
         eq.signal(172192,1); -- Aellana_Barleou
         eq.signal(172193,1); -- Lyrra_Rutledge
-        eq.set_timer('return_trip', 1000);
+        eq.set_timer('return_trip', 2000);
         eq.stop();
     elseif(e.wp == 17) then
         e.self:Say("Hurry inside the gates ladies I will be in shortly after rewarding the brave individuals that assisted me in your rescue.");
@@ -24,9 +24,9 @@ function event_waypoint_arrive(e)
 end
 
 function event_timer(e)
+    eq.stop_timer(e.timer);
     if e.timer == 'return_trip' then
         eq.start(4);
-        eq.zone_emote(15, 'return trip started');
     end
 end
 

@@ -21,7 +21,6 @@ function CheckCamp(e)
             local x, y = npc:GetSpawnPointX(), npc:GetSpawnPointY();
             -- if NPC alive AND on list of interest AND spawned in area of camp (prevents training away of NPCs), return true
             if npc.valid and npcs_of_interest[npc:GetNPCTypeID()] ~= nil and x > -470 and x < -260 and y < 1500 and y > 1200 then
-                eq.zone_emote(15, 'mob found: ' .. npc:GetName());
                 return true
             end
         end
