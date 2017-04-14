@@ -1,7 +1,7 @@
 ---- Quest:Johanius Stake of Slaying
 function event_spawn(e)
     started = false;
-    e.self:SetAppearance(1);
+    e.self:SetRunning(true);
 end
 
 function event_say(e)

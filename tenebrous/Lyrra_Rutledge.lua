@@ -1,8 +1,7 @@
 ---- Quest:Johanius Stake of Slaying
 
----- Quest:Johanius Stake of Slaying
 function event_spawn(e)
-    e.self:SetAppearance(1);
+    e.self:SetRunning(true);
 end
 
 function event_waypoint_arrive(e)

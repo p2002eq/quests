@@ -6,13 +6,13 @@ function event_encounter_load(e)
     eq.spawn2(172192,0,0,-377,1268,-28,0); -- Aellana_Barleou
     eq.spawn2(172193,0,0,-366,1254,-28,0); -- Lyrra_Rutledge
         
-	eq.register_npc_event("Johanius", Event.death_complete, 172004, CheckCamp);
-    eq.register_npc_event("Johanius", Event.death_complete, 172020, CheckCamp);
-    eq.register_npc_event("Johanius", Event.death_complete, 172041, CheckCamp);
-    eq.register_npc_event("Johanius", Event.death_complete, 172044, CheckCamp);
+	eq.register_npc_event('Johanius', Event.death_complete, 172004, CheckCamp);
+    eq.register_npc_event('Johanius', Event.death_complete, 172020, CheckCamp);
+    eq.register_npc_event('Johanius', Event.death_complete, 172041, CheckCamp);
+    eq.register_npc_event('Johanius', Event.death_complete, 172044, CheckCamp);
 end
 
-function CampCheck(e)
+function CheckCamp(e)
     -- return true if NPC found in camp
     local npcs_of_interest = { 172004, 172020, 172041, 172044 };
     local entity_list = eq.get_entity_list();
