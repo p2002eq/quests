@@ -52,6 +52,6 @@ function spawn_wave(e_self)
     local mob = eq.ChooseRandom(161015, 161094, 161020);
     local my_x, my_y, my_z = e_self:GetX(), e_self:GetY(), e_self:GetZ();
     for i=1,math.random(2,4) do
-        eq.spawn2(mob, my_x + math.random(-20, 20), my_y + math.random(20, 40), my_z, 0):AddToHateList(e_self);
+        eq.spawn2(mob, 0, 0, my_x+math.random(-20, 20), my_y+math.random(20, 40), my_z, 0):AddToHateList(e_self);
     end
 end
