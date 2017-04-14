@@ -14,12 +14,19 @@ end
 
 function CheckCamp(e)
     -- return true if NPC found in camp
-    local npcs_of_interest = { 172004, 172020, 172041, 172044 };
+    local npcs_of_interest = Set { 172004, 172020, 172041, 172044 };
     local entity_list = eq.get_entity_list();
     local npc_list = entity_list:GetNPCList();
+    eq.zone_emote(1, 'LISTS LOADED');
     if (npc_list ~= nil) then
+        eq.zone_emote(1, 'NPC LIST NOT NIL');
         for npc in npc_list.entries do
             local x, y = npc:GetSpawnPointX(), npc:GetSpawnPointY();
+            eq.zone_emote(0, 'npc spawn at ' .. x .. ' by ' .. y);
+            if x > -470 and x < -260 and y < 1500 and y > 1200 then
+                eq.zone_emote(13, 'npc in right area');
+                if npc.valid then eq.zone_emote(13, 'npc in right area: ' .. npc:GetNPCTypeID()) end
+            end
             -- if NPC alive AND on list of interest AND spawned in area of camp (prevents training away of NPCs), return true
             if npc.valid and npcs_of_interest[npc:GetNPCTypeID()] ~= nil and x > -470 and x < -260 and y < 1500 and y > 1200 then
                 eq.zone_emote(15, 'mob found: ' .. npc:GetName());

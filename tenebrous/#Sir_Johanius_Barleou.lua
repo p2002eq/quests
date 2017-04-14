@@ -2,7 +2,6 @@
 
 function event_spawn(e)
     e.self:SetRunning(true);
-    eq.start(3);
 end
 
 function event_waypoint_arrive(e)
