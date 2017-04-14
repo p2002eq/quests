@@ -23,6 +23,7 @@ function old_world_cycle(evt)
         eq.zone_emote(15, "norrath will port in 2")
         ThreadManager:Wait(2.0);
         eq.zone_emote(15, "Porting Norrath!")
+        kunark_port(eq.get_entity_list():GetClientList());
         ThreadManager:Wait(15.0);
     end
 end
@@ -37,4 +38,14 @@ function velious_cycle(evt)
         eq.zone_emote(15, "Porting Velious!")
         ThreadManager:Wait(5.0);
     end
+end
+
+function kunark_port(player_list)
+	if player_list ~= nil then
+		for player in player_list.entries do
+			if player:CalculateDistance(110, -462, -59) <= 22 then
+				player:CastSpell(2709);
+			end
+		end
+	end
 end
