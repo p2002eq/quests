@@ -32,8 +32,8 @@ function mob_check(e_self)
 	local npc_list = eq.get_entity_list():GetNPCList();
 	if(npc_list ~= nil) then
 		for npc in npc_list.entries do
-			if npc:CalculateDistance(x, y, z) <= 200 and npc:GetNPCTypeID() ~= 167716 then
-				return true; -- if npc within 200
+			if npc:CalculateDistance(x, y, z) <= 200 and npc:GetNPCTypeID() ~= 167716 and not npc:IsPet() then
+				return true; -- npc within 200 other than self and pets!
 			end
 		end
 	end
