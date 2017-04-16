@@ -28,7 +28,7 @@ function event_enter(e)
             mob = 171086;
         end
         
-        if mob_chance > 60 and mob_chance <= 96 then
+        if chance > 60 and chance <= 96 then
             eq.local_emote({ x, y, z }, 0, 150, 'The sand at your feet explodes into violent motion!');
         else
             eq.local_emote({ x, y, z }, 0, 150, 'A creature of living stone leaps out at you from amongst the rocks!');
