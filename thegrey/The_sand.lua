@@ -1,4 +1,4 @@
--- The_sand (171005) in the Grey for rock trap mobs
+-- The_sand (171005) in the Grey for worm trap mobs
 
 function event_spawn(e)
 	local xloc = e.self:GetX();
