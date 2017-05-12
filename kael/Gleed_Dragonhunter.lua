@@ -1,10 +1,9 @@
 --Gleed's Bow
 
 function event_say(e)
-	
 	if (e.other:GetFaction(e.self) <= 4) then --Kindly or lower
 		if (e.message:findi("hail")) then	
-			e.self:Say("sighs as he looks down at you. 'I grow tired of this city. I so long for the tundra and lands of the wild.'");
+			e.self:Emote("sighs as he looks down at you. 'I grow tired of this city. I so long for the tundra and lands of the wild.'");
 		elseif (e.message:findi("lands of the wild")) then	
 			e.self:Say("I enjoy training these animals, don't get me wrong, but the open wastes, where the great animals and dragons roam free are what I crave. Before I came to serve King Tormax, I wandered those wastes, hunting young dragons and elder wurms. The whistle of an arrow from my bow was like sweet music - each slash of my sword a sweet song.");
 		elseif (e.message:findi("young dragons")) then	
@@ -16,24 +15,20 @@ function event_say(e)
 		elseif (e.message:findi("hung the beasts")) then	
 			e.self:Say("You will, little one? One such as yourself is a hunter? I did not know your kind had any skill in such things. In fact, I do not believe your kind could hunt a wurm, not without my wonderful bow. I will not simply hand it to a foolish "..eq.Race()..". Hunt down some big game before you bother talking to me again. Perhaps if you bring me the tail of the elusive Vluudeen.");
 		end
- 
 	else
 		e.self:Say("You need to prove your dedication to our cause before I can discuss such matters with you.");
 	end
-
 end
 
 function event_trade(e)
-
 	local item_lib = require('items');
-
-	if (item_lib.check_turn_in(e.self, e.trade, {item1 = 25137})) then
+	if (item_lib.check_turn_in(e.self, e.trade, {item1 = 25137})) then -- Vluudeens Tail
 		e.self:Say("My, you do have a hunters spirit! If you could track down Vluudeen and slay him without the aid of my bow, you must be worthy. Take the bow, huntsman. Use it to slay others of Vluudeen's kind.");
 		e.other:Faction(188, 10); --kromrif
 		e.other:Faction(189, 10); --kromzek
 		e.other:Faction(42, -30); --CoV
 		e.other:Faction(49, -30); --coldain
+		e.other:QuestReward(e.self,0,0,0,0,25033,10000); -- Bow of the Huntsman
 	end
 	item_lib.return_items(e.self, e.other, e.trade);
-
 end
