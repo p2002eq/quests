@@ -14,16 +14,14 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-
 	if(e.other:GetFaction(e.self) < 7) then
-		if(item_lib.check_turn_in(e.self, e.trade, {item1 = 30246})) then
-			e.other:QuestReward(e.self,0,0,0,0,30249);
-		elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 30270})) then
-			e.other:QuestReward(e.self,0,0,0,0,30273);
-		elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 30273, item2 = 30249})) then
-			e.other:QuestReward(e.self,0,0,0,0,30274);
+		if(item_lib.check_turn_in(e.self, e.trade, {item1 = 30246})) then -- Velium War Wolf Choker
+			e.other:QuestReward(e.self,0,0,0,0,30249); -- Blood Wolf Harness
+		elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 30270})) then -- Gem of Persuasion
+			e.other:QuestReward(e.self,0,0,0,0,30273); -- Giants Gem of Persuasion
+		elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 30273, item2 = 30249})) then -- Giants Gem of Persuasion and Blood Wolf Harness
+			e.other:QuestReward(e.self,0,0,0,0,30274); -- Giants Harness of Control
 		end
 	end
-	
 	item_lib.return_items(e.self, e.other, e.trade)
 end
