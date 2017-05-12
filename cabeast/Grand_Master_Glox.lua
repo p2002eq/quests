@@ -20,8 +20,7 @@ function event_trade(e)
 		e.other:Faction(193,50); 	--Legion of Cabilis
 		e.other:AddEXP(100);
 		e.other:Ding();
-	end
-	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 14788})) then  -- Illegible Note: Helm
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 14788})) then  -- Illegible Note: Helm
 		e.self:Emote("sits whispering incoherently for a long moment before even regarding the note you dropped in front of him. The Grand Master suddenly snatches up the note from Xlixinar, removes a small charcoal marker from a belt pouch, and scrawls some intructions upon it. He drops the note immediately after finishing and resumes his meditation without a word.");
 		e.other:SummonItem(18980); -- Note from Glox
 		e.other:Ding();
