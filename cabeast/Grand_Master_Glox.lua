@@ -1,3 +1,4 @@
+---- Newbie GM and Trooper Scale Armor
 function event_say(e)
 	if(e.message:findi("hail")) then
 		e.self:Emote('shows no reaction to your greeting.');
@@ -20,21 +21,15 @@ function event_trade(e)
 		e.other:AddEXP(100);
 		e.other:Ding();
 	end
-	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 14788})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 14788})) then  -- Illegible Note: Helm
 		e.self:Emote("sits whispering incoherently for a long moment before even regarding the note you dropped in front of him. The Grand Master suddenly snatches up the note from Xlixinar, removes a small charcoal marker from a belt pouch, and scrawls some intructions upon it. He drops the note immediately after finishing and resumes his meditation without a word.");
-		e.other:SummonItem(18980);
+		e.other:SummonItem(18980); -- Note from Glox
 		e.other:Ding();
-	end
-	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 14782, item2 = 10032})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 14782, item2 = 10032, item3 = 10032})) then -- a Tiny Collar and 2x Star Ruby
 		e.self:Emote("nods slightly");
-		e.other:SummonItem(14783);
-		e.other:AddEXP(10000);
+		e.other:SummonItem(14783); -- Glox Reference
+		e.other:AddEXP(1000);
 		e.other:Ding();
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------

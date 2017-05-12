@@ -1,3 +1,4 @@
+---- Trooper Scale Armor
 function event_say(e)
 	if(e.message:findi("hail")) then
 		e.self:Say("Praise to the ancients, my friend! There is much suffering to be given unto the world. I am the Prime Hierophant of the Temple of Terror.  Through me and my fellow priests flows the wisdom of our ancestors.");
@@ -16,33 +17,34 @@ function event_trade(e)
 		e.other:Faction(193,25); 	--Legion of Cabilis
 		e.other:AddEXP(100);
 		e.other:Ding();
-	end
-	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 18462, item2 = 22917})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 18462, item2 = 22917})) then
 		e.self:Emote("smiles at your dedication to Cazic Thule and hands you a small gem.");
 		e.other:SummonItem(7881);
 		e.other:Faction(317,20);
 		e.other:Faction(193,10);
 		e.other:AddEXP(20000);
 		e.other:Ding();
-	end
-	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 18359, item2 = 22916})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 18359, item2 = 22916})) then
 		e.self:Emote("smiles at your dedication to Cazic Thule and hands you a small gem.");
 		e.other:SummonItem(7881);
 		e.other:Faction(317,20);
 		e.other:Faction(193,10);
 		e.other:AddEXP(20000);
 		e.other:Ding();
-	end
-	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 14790})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 14790})) then -- Illegible Note: Vambraces
 		e.self:Emote("stares down at the note, confused, until he recognizes the writing and gasps in shock!");
 		e.self:Say("You spoke to the Brothers? You, a simple Legionnaire? Well, no matter, you are here to test your virtue of sacrifice and we will take pleasure in it as we have for generations even before the Fallen Brothers. One of our greatest allies in pain is disease. In the woods outside our fair city is a small tribe of goblins. There is a certain goblin famed for his [unique weapon]. Take this knife and use it to cut this from the goblin. Then return his weapon, the knife, a sapphire, and an opal to me.");
-		e.other:SummonItem(14784);
-	end
-	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 14784, item2 = 14785, item3 = 10034, item4 = 10030})) then
+		e.other:SummonItem(14784); -- Hierophants Knife
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 14795})) then -- Illegible Note: Pauldron
+		e.self:Emote("stares down at the note, confused, until he recognizes the writing.");
+		e.self:Say("I need you to take care of a problem I have. There is a froglok slave that i need eliminated. You should use a Grayish Liquid to dispatch him.");
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 14784, item2 = 14785, item3 = 10034, item4 = 10030})) then
 		e.self:Say("Well done");
 		e.other:SummonItem(14786);
 		e.other:AddEXP(10000);
 		e.other:Ding();
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 14805, item2 = 10033, item3 = 10033})) then -- Froglok Goo and 2x Fire Emerald
+		e.other:QuestReward(e.self,0,0,0,0,14787,100); -- Vek's Reference: Pauldrons
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
