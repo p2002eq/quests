@@ -4,7 +4,7 @@ function event_spawn(e)
 end
 
 function event_death_complete(e)
-	eq.spawn2(90016,0,0,28.1,1.4,7,192.5); ----Marl Kastane
+	eq.spawn2(90191,0,0,28.1,1.4,7,192.5); -- Marl Kastane
 end
 
 function event_trade(e)
@@ -16,8 +16,3 @@ end
 function event_timer(e)
 	eq.depop();
 end
--- Quest by mystic414
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------

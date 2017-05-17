@@ -14,7 +14,6 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 30272})) then -- Harness of Control
 		quest_chain = "Kromriff"
 		e.self:Emote("reels in pain as the harness snaps around its neck tightly. A strange gleam enters its eyes as it slowly begins to shamble towards the exit and the giants fortress.");
@@ -22,7 +21,7 @@ function event_trade(e)
 		e.other:AddEXP(20000);
 		-- start gridid 135 (Kromriff fort path)
 		eq.start(135);
-	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 30274})) then -- Giants Harness of Control)
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 30274})) then -- Giants Harness of Control
 		quest_chain = "Coldain"
 		e.self:Emote("reels in pain as the harness snaps around its neck tightly. A strange gleam enters its eyes as it slowly begins to shamble towards the exit and the coldain mining camp.");
 		e.other:Ding();
@@ -30,7 +29,7 @@ function event_trade(e)
 		-- start gridid 136 (Coldain cave path)
 		eq.start(136);
 	end
-	
+
 	item_lib.return_items(e.self, e.other, e.trade);
 end
 

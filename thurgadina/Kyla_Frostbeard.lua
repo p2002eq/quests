@@ -2,8 +2,8 @@
 local quest_helper = require('velious_quest_helper');
 local THURG_ARMOR = quest_helper.THURG_ARMOR;
 local QUEST_TEXT = {
-    hail="Greetings to you. I seek one that has chosen the path of monkhood. What do you call yourself?",
-    magician="Good. I had hoped you were one. I have heard that as seeker of the way you are in constant training to push yourself to your physical and mental limits. It is an admirable quality and I wish to aid you. I will provide you with a cap, a tunic, sleeves, bracers, gloves, leggings and boots.",
+    hail="Greetings to you. I seek those who call themselves magicians. Are you a [magician], little one?",
+    magician="I thought so. I have several tasks for you accomplish. Once you have completed them I will have a cap, a robe, sleeves, wristbands, gloves, leggings and boots to reward you with.",
 
 }
 

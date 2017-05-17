@@ -1,3 +1,4 @@
+---- Trooper Scale Armor
 function event_say(e)
 	if(e.message:findi("mission")) then
 		e.self:Say("If you have not noticed the new intelligent races that have found it's way to our land, you will see soon. They have built a small outpost far to the south along the ocean. If they go unchecked, their outpost will become a city from which they will cause us much discomfort. They are strong and have experienced [mercenaries] in their employ.");
@@ -17,15 +18,9 @@ function event_trade(e)
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 14789})) then
 		e.self:Emote("snickers to himself and looks out over the swamp for a moment before saying,");
 		e.self:Say("Perseverance is indeed our greatest virtue. Perhaps if we as warriors looked more to cultivate our virtue rather than to hoard glory our people would be rulers of this entire land. I will send you on a [mission] to learn of perseverance. If you complete it I will give you my reference.");
-	end
-	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 10035, item2 = 10035, item3 = 10035, item4 = 14819})) then
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 10035, item2 = 10035, item3 = 10035, item4 = 14819})) then
 		e.other:QuestReward(e.self,0,0,0,0,14783,10000);   --proper item not in db
 		e.self:Say("Well done");
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------

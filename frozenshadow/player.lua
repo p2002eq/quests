@@ -10,31 +10,31 @@ function event_click_door(e)
 	client_e = e;
     group = e.self:GetGroup();
     if (door_id == 2) or (door_id == 166) then --First Floor
-		if (e.self:HasItem(20033) or e.self:HasItem(20039)) then --Crystal Key
+		if (e.self:HasItem(20033) or e.self:HasItem(20039) or e.self:KeyRingCheck(20033) or e.self:KeyRingCheck(20039)) then --Crystal Key
 			PortChars(e.self:GetX(), e.self:GetY(), e.self:GetZ(), 75, 660, 100, 40, 0);
 		end
 	elseif (door_id == 4) or (door_id == 167) then --Second Floor
-		if (e.self:HasItem(20034) or e.self:HasItem(20039)) then --Three Toothed Key
+		if (e.self:HasItem(20034) or e.self:HasItem(20039) or e.self:KeyRingCheck(20034) or e.self:KeyRingCheck(20039)) then --Three Toothed Key
 			PortChars(e.self:GetX(), e.self:GetY(), e.self:GetZ(), 75, 670, 750, 75, 0);
 		end
 	elseif (door_id == 16) or (door_id == 165) then --Third Floor
-		if (e.self:HasItem(20035) or e.self:HasItem(20039)) then --Frosty Key
+		if (e.self:HasItem(20035) or e.self:HasItem(20039) or e.self:KeyRingCheck(20035) or e.self:KeyRingCheck(20039)) then --Frosty Key
 			PortChars(e.self:GetX(), e.self:GetY(), e.self:GetZ(), 75, 170, 775, 175, 0);
 		end
 	elseif (door_id == 27) or (door_id == 169) then --Fourth Floor
-		if (e.self:HasItem(20036) or e.self:HasItem(20039)) then --Small Rusty Key
+		if (e.self:HasItem(20036) or e.self:HasItem(20039) or e.self:KeyRingCheck(20036) or e.self:KeyRingCheck(20039)) then --Small Rusty Key
 			PortChars(e.self:GetX(), e.self:GetY(), e.self:GetZ(), 75, -150, 160, 217, 0);
 		end
 	elseif (door_id == 34) or (door_id == 168) then --Fifth Floor
-		if (e.self:HasItem(20037) or e.self:HasItem(20039)) then --Bone Finger Key
+		if (e.self:HasItem(20037) or e.self:HasItem(20039) or e.self:KeyRingCheck(20037) or e.self:KeyRingCheck(20039)) then --Bone Finger Key
 			PortChars(e.self:GetX(), e.self:GetY(), e.self:GetZ(), 75, -320, 725, 12, 0);
 		end
 	elseif (door_id == 34) or (door_id == 168) then --Sixth Floor
-		if (e.self:HasItem(20038) or e.self:HasItem(20039)) then --Large Metal Key
+		if (e.self:HasItem(20038) or e.self:HasItem(20039) or e.self:KeyRingCheck(20038) or e.self:KeyRingCheck(20039)) then --Large Metal Key
 			PortChars(e.self:GetX(), e.self:GetY(), e.self:GetZ(), 75, -320, 725, 12, 0);
 		end
 	elseif (door_id == 1) then --first floor going to mirror room.
-		if (e.self:HasItem(20039)) then --Tserinas Key
+		if (e.self:HasItem(20039) or e.self:KeyRingCheck(20039)) then --Tserinas Key
 			PortChars(e.self:GetX(), e.self:GetY(), e.self:GetZ(), 75, 18, 260, 353, 0);
 		end
 	end
