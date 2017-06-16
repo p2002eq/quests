@@ -30,7 +30,7 @@ function event_death(e)
 
    local spawned = eq.spawn2(mob, 0, 0, x, y, z, h);
    eq.set_timer('depop', 30 * 60 * 1000, spawned);
-   eq.depop_with_timer();
+    
 
 end
 
