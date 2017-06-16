@@ -1,22 +1,31 @@
-function event_death_complete(e)
-   local ran = math.random(1, 5)
-   local mob
+-- depop script for a trap mob in VT
+
+function event_timer(e)
+    if e.timer == 'depop' then
+        eq.stop_timer(e.timer);
+        eq.depop();
+    end
+end
+
+function event_death(e)
+   local ran = math.random(1, 5);
+   local mob;
    local x, y, z , h = e.self:GetX(), e.self:GetY(), e.self:GetZ(), e.self:GetHeading();
    if ran == 1 then
       --qua 
-      mob = 158020
+      mob = 158020;
    elseif ran == 2 then
       --zov
-      mob = 158063
+      mob = 158063;
    elseif ran == 3 then
       --zun
-      mob = 158045
+      mob = 158045;
    elseif ran == 4 then
       --pli
-      mob = 158059
+      mob = 158059;
    elseif ran == 5 then
       -- eom
-      mob = 158004
+      mob = 158004;
    end
 
    local spawned = eq.spawn2(mob, 0, 0, x, y, z, h);
@@ -24,3 +33,5 @@ function event_death_complete(e)
    eq.depop_with_timer();
 
 end
+
+
