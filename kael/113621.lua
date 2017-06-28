@@ -9,5 +9,5 @@ function event_spawn(e)
 end
 
 function event_death_complete(e)
-    eq.spawn2(113632, 0, 0 , 1139, -839, -128, 0) --Respawns Plate Cycle Trigger
+    eq.delete_global("platecycle");  --removes global to allow event to be restarted (success!)
 end
