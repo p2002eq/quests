@@ -6,4 +6,5 @@ function event_death_complete(e)
 	eq.spawn2(162519, 0, 0, 390, -161, 265, 32);  -- guard
 	eq.spawn2(162090, 0, 0, 375, -64, 257, 64);  -- guard
 	eq.spawn2(162090, 0, 0, 467, -64, 257, 192);  -- guard
+	eq.set_global("AL_Cycle","AL",3,"D4");  --sets global to "AL" to indicate Arch Lich as next target up in cycle in case of zone crash/reboot
 end
