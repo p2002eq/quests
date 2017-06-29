@@ -1,6 +1,6 @@
 --Controls respawn of Arch Lich Cycle on zone repop/crash since Idol is a triggered NPC
 
-function event_enter_zone(e)
+function event_spawn(e)
 	local qglobals = eq.get_qglobals(e.self);
 	
 	if (qglobals["AL_Cycle"] == "R2" and eq.get_entity_list():IsMobSpawnedByNpcTypeID(162192) == false) then  --checks for Rhag`Zhezum death and verifies Rhag`Mozdezh is not already up
