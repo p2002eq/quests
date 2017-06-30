@@ -1,3 +1,4 @@
+-- Steel Warrior Initiation
 function event_say(e)
 	if(e.message:findi("hail")) then
 		e.self:Say("Greetings. The fishing is sparse here. You would fare better at [Lake Rathe].");
@@ -8,7 +9,6 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 18893})) then -- A Sealed Letter
 		e.self:Say("So you are the new warrior. Let us test your skill. Across the pond is a skeleton. See him? Engage him in combat. He awaits. Return his skull to me and I shall call you a Steel Warrior. Be quick. He will dissipate soon.");
 		eq.unique_spawn(4218,0,0,1055,3858,-19); -- a_strange_skeleton

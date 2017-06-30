@@ -1,5 +1,6 @@
+-- Steel Warrior Initiation
 function event_spawn(e)
-	eq.set_timer("depop",120000);
+	eq.set_timer("depop",360000);
 end
 
 function event_timer(e)
