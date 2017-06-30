@@ -1,3 +1,4 @@
+-- The Crude Bone Altar
 function event_say(e)
 	if(e.message:findi("hail")) then
 		e.self:Say("Hail traveler. may I assist you with something. or are you just [passing through]?");
@@ -22,14 +23,9 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-
-	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 8720})) then
-		e.self:Say("Thank you for returning this to us. I'll secure it until it can be returned for analysis. Please take this as a sign of my appreciation"); -- text made up
-		e.other:SummonItem(8732);
-		e.other:Ding();
-		e.other:AddEXP(100000);
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 8720})) then -- Phobonomicon of Thul Tae Ew
+		e.self:Say("Thank you for returning this to us. I'll secure it until it can be returned for analysis. Please take this as a sign of my appreciation");
+		e.other:QuestReward(e.self,0,0,0,0,8732,100000); -- Medallion of the Arcane Scientists
 	end
 	item_lib.return_items(e.self, e.other, e.trade);
 end
-
--- END of FILE Zone:feerrott  ID:47132 -- Aqaar_Aluram
