@@ -32,7 +32,7 @@ function event_trade(e)
 		e.other:Faction(176,10,0); 	-- king ak'anon
 		e.other:Faction(71,-30,0); 	-- Dark reflection
 		e.other:Faction(322,-30,0); -- the dead
-		e.other:QuestReward(e.self,6,1,2,0,0,100); -- Money/Exp
+		e.other:QuestReward(e.self,6,1,2,0,10017,100); -- Turquoise
 	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 12160, item2 = 12160, item3 = 12160, item4 = 12160})) then -- Basilisk Tongue x 4
 		e.self:Say("Very very good! I can use these in some of our experiments. These tongues are hard to come by and more than a few of our scouts have been turned to stone because of these creatures, but I'm sure you found that out by now, eh?");
 		e.other:Faction(91,10,0); 	-- eldritch collective
