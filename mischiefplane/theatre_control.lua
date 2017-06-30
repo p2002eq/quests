@@ -1,4 +1,4 @@
-local depop_list = {126158, 126227, 126200, 126157, 126295, 126173, 126251, 126178, 126323, 126342, 126211, 126254, 126324, 126327, 126338, 126334, 126252, 126248, 126335, 126331, 999225, 126265, 126291, 126153, 126246, 999224, 126163};
+local depop_list = {126158, 126227, 126200, 126157, 126295, 126173, 126251, 126178, 126323, 126342, 126211, 126254, 126324, 126327, 126338, 126334, 126252, 126248, 126335, 126331, 126606, 126607, 126608, 126609, 126610, 126611, 126605};
 
 function event_spawn(e)
 	eq.set_timer("depop",1);  				-- clear pops upon spawn at 6am
@@ -12,8 +12,9 @@ function event_spawn(e)
 	eq.set_timer("row4s1",35*1000);	
 	eq.set_timer("row5s2",40*1000);
 	eq.set_timer("row5s1",45*1000);	
+	eq.set_timer("puppets",1*60*1000);	--debug line
 	--eq.set_timer("puppets",6*60*1000);  	 -- puppets spawn at 9am 
-	eq.set_timer("bristlebane",1*60*1000);	  --bristlebane spawns around 10am
+	eq.set_timer("bristlebane",1*60*1000);	  --debug line
 	--eq.set_timer("bristlebane",9*60*1000);	  --bristlebane spawns around 10am
 end
 
@@ -78,15 +79,15 @@ function event_timer(e)
 		
 	elseif (e.timer == "puppets") then
 		eq.stop_timer("puppets");
-		eq.spawn2(999225,0,0,189,625,145.81,130); -- Spawns Solusek Puppet
-		eq.spawn2(126265,0,0,179,625,145.81,130); -- Spawns Rallos Puppet
-		eq.spawn2(126291,0,0,169,625,145.81,130); -- Spawns Erollsi Marr Puppet
-		eq.spawn2(126153,0,0,159,625,145.81,130); -- Spawns Innoruuk Puppet
-		eq.spawn2(126246,0,0,149,625,145.81,130); -- Spawns Tribunal Puppet #1
-		eq.spawn2(126246,0,0,142,625,145.81,130); -- Spawns Tribunal Puppet #2
-		eq.spawn2(126246,0,0,135,625,145.81,130); -- Spawns Tribunal Puppet #3
-		eq.spawn2(999224,0,0,182,603,145.81,130); -- Spawns Bristlebane Puppet
-		eq.spawn2(126163,0,0,142,603,145.81,130); -- Spawns Tunare Puppet
+		eq.spawn2(126606,0,0,189,625,145.81,130); -- Spawns Solusek Puppet
+		eq.spawn2(126607,0,0,179,625,145.81,130); -- Spawns Rallos Puppet
+		eq.spawn2(126608,0,0,169,625,145.81,130); -- Spawns Erollsi Marr Puppet
+		eq.spawn2(126609,0,0,159,625,145.81,130); -- Spawns Innoruuk Puppet
+		eq.spawn2(126610,0,0,149,625,145.81,130); -- Spawns Tribunal Puppet #1
+		eq.spawn2(126610,0,0,142,625,145.81,130); -- Spawns Tribunal Puppet #2
+		eq.spawn2(126610,0,0,135,625,145.81,130); -- Spawns Tribunal Puppet #3
+		eq.spawn2(126611,0,0,182,603,145.81,130); -- Spawns Bristlebane Puppet
+		eq.spawn2(126605,0,0,142,603,145.81,130); -- Spawns Tunare Puppet
 
 	elseif (e.timer == "bristlebane") then
 		eq.stop_timer("bristlebane");
