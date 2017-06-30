@@ -1,3 +1,4 @@
+-- Note for Janam
 function event_say(e)
 	if(e.message:findi("hail")) then
 		e.self:Say("HA! Greetings there. " .. e.other:GetName() .. "!  How are ya this fine day?  Me?  I'm doing all right.  Guard duty down here always reminds me of home.");
@@ -15,20 +16,14 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 18016})) then -- Note to Harkin
 		e.self:Say("Ah, good work, " .. e.other:GetName() .. ". And quick too, I'll makes sure that Elisi hears of your loyal work. Here... take this for your efforts.. it's not much, but it's all I have on me right now.");
-		e.other:SummonItem(1054); -- Used Merchants Gloves
-		e.other:Ding();
 		e.other:Faction(48,1,0); -- Coalition of Tradefolk Underground
 		e.other:Faction(47,1,0); -- Coalition of Trade Folk
 		e.other:Faction(31,1,0); -- Carson McCabe
 		e.other:Faction(53,1,0); -- Corrupt Qeynos Guards
 		e.other:Faction(105,1,0); -- Freeport Militia
-		e.other:AddEXP(100);
-		e.other:GiveCash(6,0,0,0);
+		e.other:QuestReward(e.self,6,0,0,0,1054,100); -- Used Merchants Gloves
 	end
 	item_lib.return_items(e.self, e.other, e.trade);
 end
-
---END of FILE Zone:freporte  ID:10107 -- Harkin_Duskfoot
