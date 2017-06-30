@@ -1,3 +1,4 @@
+-- Note for Janam
 function event_say(e)
 	if(e.message:findi("hail")) then
 		e.self:Say("Heya. " .. e.other:GetName() .. "!  I've been on watch duty all night.  Kinda makes a man thirsty. ya know?  Why don't you be a good little scamp and run up to the bar and get me a [dwarven ale]?  That sure would hit the spot right about now.");
@@ -13,7 +14,6 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 13036})) then -- Dwarven Ale
 		e.other:Ding();
 		e.self:Say("Well, well, well.. It's about time. Whatta ya got, boots fulla stones? Or maybe yer just part turtle? Bah, anyways, thanks for the ale. Maybe I'll buy you one sometime, eh? Bwahaha!");
@@ -22,5 +22,3 @@ function event_trade(e)
 	end
 	item_lib.return_items(e.self, e.other, e.trade);
 end
-
--- END of FILE Zone:freporte  ID:10106 -- Beur_Tenlah
