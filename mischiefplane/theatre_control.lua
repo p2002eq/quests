@@ -12,8 +12,9 @@ function event_spawn(e)
 	eq.set_timer("row4s1",35*1000);	
 	eq.set_timer("row5s2",40*1000);
 	eq.set_timer("row5s1",45*1000);	
-	eq.set_timer("puppets",6*60*1000);  	 -- puppets spawn at 9am 
-	eq.set_timer("bristlebane",9*60*1000);	  --bristlebane spawns around 10am
+	--eq.set_timer("puppets",6*60*1000);  	 -- puppets spawn at 9am 
+	eq.set_timer("bristlebane",1*60*1000);	  --bristlebane spawns around 10am
+	--eq.set_timer("bristlebane",9*60*1000);	  --bristlebane spawns around 10am
 end
 
 function event_timer(e)
