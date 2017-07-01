@@ -3,7 +3,7 @@ function event_say(e)
 	    if(e.message:findi("hail")) then
 		    e.self:Say("Greetings, " .. e.other:GetName().. ". I am the keeper of relics. If you are brave I have tasks to test your might and perhaps rewards.");
 	    elseif(e.message:findi("rewards")) then
-		    e.self:Say("One should ask of the tasks before worrying about rewards, $race.");
+		    e.self:Say("One should ask of the tasks before worrying about rewards, " .. e.other:Race() .. ".");
 	    elseif(e.message:findi("tasks")) then 
 		    e.self:Say("Enter into the halls of testing to complete these tasks. Seek out the ancient ones inside and see if your might is as great as theirs and fear not, those who you slay will be returned to the temple by the gift of Veeshan's great power. I have three tasks, which any may complete, as well as a request of both the arcane and the strong.");
 	    elseif(e.message:findi("request of the arcane")) then
