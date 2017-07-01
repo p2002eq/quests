@@ -1,3 +1,4 @@
+-- Wenglawks the Traitor
 function event_say(e)
 	if(e.message:findi("hail")) then
 		e.self:Say("Today is a good day in Kael Drakkel. Don't you think?");
@@ -13,16 +14,14 @@ function event_say(e)
 end
 
 function event_trade(e)
-	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 1717})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 1717})) then -- Sealed Letter
 		e.self:Say("You have found what I was unable to. King Tormax's protection of Wenglawks will end soon. His death will be so very delightful to invoke.");
 		e.self:Emote("rushes out of the room, dropping his spear as he does.");
-		e.other:Faction(189, 20); --kromzek
-		e.other:Faction(179, 20); --king tormax
-		e.other:Faction(67, -30); --dain 
-		e.other:Faction(362, -30); --yelinak
-		e.other:QuestReward(e.self, 0, 0, 0, 0, 25030, 1107392) --Frozen Shard. XP 1% of level 45
+		e.other:Faction(189, 20); -- kromzek
+		e.other:Faction(179, 20); -- king tormax
+		e.other:Faction(67, -30); -- dain
+		e.other:Faction(362, -30); -- yelinak
+		e.other:QuestReward(e.self, 0, 0, 0, 0, 25030, 1107392) -- Frozen Shard. XP 1% of level 45
 	end
-
-	item_lib.return_items(e.self, e.other, e.trade)	
-
+	item_lib.return_items(e.self, e.other, e.trade)
 end
