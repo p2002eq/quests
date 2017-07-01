@@ -1,4 +1,4 @@
--- Kelorek's Scales
+-- Kelorek's Scales and Captain Nalot's Triple Strength Rum
 function event_say(e)
 	if(e.message:findi("hail")) then
 		e.self:Emote("sets down several large crustacean shells covered in foreign runes, then extends his large, coarse hands in a gesture of friendship.");
@@ -30,7 +30,7 @@ function event_trade(e)
 		e.other:Faction(345, -60); -- Ulthork
 		e.other:QuestReward(e.self,0,0,0,0,11589,10000); -- Sea Dragonscale Bracer
 	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 30059,item2= 30059})) then -- Barracuda Liver
-		e.self:Emote("claps enthusiastically and hands you your reward"); --Text made up
+		e.self:Emote("slams a knife into the various livers and squeezes out all of their various goos and juices. Eventually he separates a bit of it and pours it into a protective bladder. 'Excellent work. This good catch. Here, you have sack of ooze. It's good for burning things off or etching metals. Thank you for your help.");
 		e.other:Faction(241, 30); -- Othmir
 		e.other:Faction(345, -60); -- Ulthork
 		e.other:QuestReward(e.self,0,0,0,0,30060,10000); -- Bladder of Acidic Ooze

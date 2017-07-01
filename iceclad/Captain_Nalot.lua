@@ -21,12 +21,14 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 30047})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 30047})) then -- Completed Map of Iceclad
         e.self:Emote("squints and then knocks hard on the metal half of his face to get his eye back in adjustment. 'Arrr. This is perfect. Har! Now we can be plannin' our pillagin' and plunderin' all proper like. Good work, $name!'");
         e.self:Emote("slaps you on the back and accidentally drops his eyepatch. Being a proper pirate now you conveniently forget to mention it to him.");
-        e.other:AddEXP(50000);
-        e.other:SummonItem(30008);
-    end   
+		e.other:QuestReward(e.self,0,0,0,0,30008,50000); -- Eyepatch of Plunder
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 30040, item2 = 34065})) then -- Rum Box Key and Locked Case
+		e.self:Say("Land ho! That be me rum! Where did ya get that? Ah nevermind. Gimme those things. Just a bit of a turn here... and a pick there... and a twist... and she's unlocked, har! Here, take a jug. It'll be the least I can do fer ye. We'll be havin a party tonight lads!");
+		e.other:QuestReward(e.self,0,0,0,0,34066,1000); -- Capt. Nalot's Triple Strength Rum
+	end
     item_lib.return_items(e.self, e.other, e.trade)
 end
 
