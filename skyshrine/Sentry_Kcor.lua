@@ -1,6 +1,8 @@
+-- Storm Giant Toes to Sentry Kcor
 function event_say(e)
     if(e.message:findi("hail")) then
         e.self:Say("Halt who goes there? Hmmm. What manner of strangers are you? Let it be known the Kin hold no love for outsiders, only the truly worthy may walk amongst the Kin.");
+        eq.signal(114566,1,2000); -- Sentry_Enots
     elseif (e.other:GetFaction(e.self) < 4) then -- Less than amiable
         e.self:Say("Be quick for the Guardians may not appreciate you leaving your post.");
     end
@@ -49,5 +51,23 @@ function event_trade(e)
         mercAssigments = mercAssigments - 1;
         until mercAssigments == 0
     end
+
+    if(item_lib.check_turn_in(e.self, e.trade, {item1 = 29124})) then
+        e.self:Say("Ahh these will go nicely with the rest of my collection. Here is a small reward for your trouble.");
+        e.other:Faction(42, 10); -- CoV
+        e.other:Faction(362, 2); -- Yelinak
+        e.other:Faction(189, -2); -- Kromzek
+        e.other:QuestReward(e.self,4,1,2,0,0,10000); -- Faction and EXP
+    end
     item_lib.return_items(e.self, e.other, e.trade)
+end
+
+function event_signal(e)
+    if(e.signal == 1) then
+        e.self:Say("Perhaps, but then again these strangers may be worthy of our trust unlike that vile Kragen Morshire, perhaps we should give them a chance to prove themselves truly worthy to walk amongst the Kin.");
+        eq.signal(114566,2,2000); -- Sentry_Enots
+    elseif(e.signal == 2) then
+        e.self:Say("Very well Enots, but do not be long, Lord Yelinak would have your hide should invaders arrive while you are not at your post.");
+        eq.signal(114566,3,2000); -- Sentry_Enots
+    end
 end
