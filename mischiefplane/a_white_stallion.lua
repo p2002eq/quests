@@ -7,6 +7,11 @@ function event_spawn(e)
 	eq.depop(126612);  --despawns White Lithiniath if remained up 
 end
 
+function event_say(e)
+        if(e.message:findi("Hail")) then
+                e.self:Emote("stares at " .. e.other:GetName() .. " unblinking with colorless eyes.");
+        end      
+end
 
 function event_trade(e)
     local item_lib = require("items");
