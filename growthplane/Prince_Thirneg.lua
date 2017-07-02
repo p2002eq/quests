@@ -7,6 +7,8 @@ function event_say(e)
     elseif(e.message:findi("Lithiniath")) then
 		e.self:Say("Ahh..Lithiniath, the first of the black unicorns, cursed by Fizzlethorpe Bristlebane to spread madness and delusions. Lithiniath is not evil, but his lawful magical nature has been replaced with a chaotic reflection of it that has twisted his mind. Thank you for inquiring after him. I hope to save him one day when the domain of Bristlebane is accessible once more.");
 		e.other:SummonItem(24869);
+	elseif(e.message:findi("phat lewt")
+		e.self:SpellFinished(982, e.other);  --cast Cazic Touch (10K unresistable dmg)
     end
 end
 
