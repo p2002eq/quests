@@ -1,8 +1,16 @@
 local depop_list = {126158, 126227, 126200, 126157, 126295, 126173, 126251, 126178, 126323, 126342, 126211, 126254, 126324, 126327, 126338, 126334, 126252, 126248, 126335, 126331, 126606, 126607, 126608, 126609, 126610, 126611, 126605};
 
+local a_trigger = 0;  --sets value to 1 once audience cycle triggered
+local p_trigger = 0;	--sets value to 1 once puppets spawn is triggered
+local b_trigger = 0;	--sets value to 1 once bristlebane triggered
+
 function event_spawn(e)
-	eq.set_timer("depop",1);  				-- clear pops upon spawn at 6am
-	eq.set_timer("row1s2",1); 			    --audience procession starts at 7am
+	eq.set_timer("depop",1);
+	eq.set_timer("hourcheck",3*1000);  -- check every server tick for hour change
+end
+
+function audience_start(e) --audience procession starts at 7am.  spawns NPCS on each side of theatre in 5 second intervals
+	eq.set_timer("row1s2",1); 			   
 	eq.set_timer("row1s1",5*1000);
 	eq.set_timer("row2s2",10*1000);
 	eq.set_timer("row2s1",15*1000);
@@ -12,15 +20,14 @@ function event_spawn(e)
 	eq.set_timer("row4s1",35*1000);	
 	eq.set_timer("row5s2",40*1000);
 	eq.set_timer("row5s1",45*1000);	
-	eq.set_timer("puppets",1*60*1000);	--debug line
-	--eq.set_timer("puppets",6*60*1000);  	 -- puppets spawn at 9am 
-	eq.set_timer("bristlebane",1*60*1000);	  --debug line
-	--eq.set_timer("bristlebane",9*60*1000);	  --bristlebane spawns around 10am
 end
 
 function event_timer(e)
 	if (e.timer == "depop") then
 		eq.stop_timer("depop");
+		a_trigger = 0;  --resets trigger for next event
+		b_trigger = 0;	--resets trigger for next event
+		p_trigger = 0;	--resets trigger for next event
 		local count = 1;		
 			while (depop_list[count] ~= nil) do
 				eq.depop_all(depop_list[count]);  --Despawns all audience and puppets
@@ -98,7 +105,19 @@ function event_timer(e)
 			eq.set_timer("depop", 3*60*1000);		--sets despawn for 11am
 		end
 	
+	elseif (e.timer == "hourcheck") then
+		local ztime = eq.get_zone_time();
+		if (ztime.zone_hour == 6) then
+			eq.set_timer("depop",1);  		-- clear pops upon spawn at 6am
+		elseif (ztime.zone_hour == 7 and a_trigger ~= 1) then
+			audience_start();				--audience procession starts at 7am
+			a_trigger = 1;
+		elseif (ztime.zone_hour == 9 and p_trigger ~=1) then
+			eq.set_timer("puppets",1);  	-- puppets spawn at 9am 
+			p_trigger = 1;
+		elseif (ztime.zone_hour == 10 and b_trigger ~=1) then	
+			eq.set_timer("bristlebane",1);	--bristlebane spawns around 10am
+			b_trigger = 1;
+		end
 	end 	
-
-
 end
