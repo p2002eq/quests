@@ -1,6 +1,4 @@
--- Test of Enlightenment - enchanter epic - start of quest
--- Converted to .lua by Speedz
-
+-- Test of Enlightenment - Enchanter Epic
 function event_say(e)
 	if (e.message:findi("are you mizzle")) then
 		e.self:Say("Oh hello! I'm Mizzle, that I am. I bet you want to be given true clarity, don't you?");
@@ -19,17 +17,14 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if (item_lib.check_turn_in(e.self, e.trade, {item1 = 10604})) then
+	if (item_lib.check_turn_in(e.self, e.trade, {item1 = 10604})) then -- Jeb's Seal
 		e.self:Say("It is time then, are you ready to get the required components?");
-		e.other:Ding();
-		e.other:SummonItem(10604);
-		e.other:SummonItem(17861);
-	elseif (item_lib.check_turn_in(e.self, e.trade, {item1 = 10636})) then
+		e.other:SummonItem(10604); -- Jeb's Seal
+		e.other:QuestReward(e.self,0,0,0,0,17861,5000); -- An Enchanters Sack
+	elseif (item_lib.check_turn_in(e.self, e.trade, {item1 = 10636})) then -- A Sack For Mizzle
 		e.self:Say("Oh excellent, you have done what is required. Here take this part, and seek the third master, you are well on your way.");
-		e.other:Ding();
-		e.other:Faction(342,30,0);
-		e.other:AddEXP(100000);
-		e.other:SummonItem(10611);
+		e.other:Faction(342,30,0); -- True Spirit
+		e.other:QuestReward(e.self,0,0,0,0,10611,100000); -- 2nd Piece of Staff
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end

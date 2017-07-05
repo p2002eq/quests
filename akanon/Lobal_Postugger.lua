@@ -1,5 +1,3 @@
--- Converted to .lua by Speedz
-
 function event_say(e)
 	if(e.message:findi("hail")) then
 		e.self:Say("Hello. I am the guild master.");
@@ -12,10 +10,9 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 9470})) then	-- Bundle of Poisons
-		e.self:Emote("laughs. 'Here, take this then!'"); 		-- text made up
-		e.other:SummonItem(24096); 								-- Dip Resist Sketch
-		e.other:Ding();
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 9470})) then -- Bundle of Poisons
+		e.self:Emote("laughs. 'Here, take this then!'"); -- text made up
+		e.other:QuestReward(e.self,0,0,0,0,24096,100); -- Dip Resist Sketch
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end

@@ -1,5 +1,3 @@
--- Converted to .lua by Speedz
-
 function event_say(e)
 	if(e.message:findi("hail")) then
 		e.self:Say("Greetings, child. Welcome to Gemchopper Hall. I trust that you are a [warrior], or perhaps you are lost..?");
@@ -16,7 +14,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 1270,item2 = 1319,item3 = 1323})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 1270,item2 = 1319,item3 = 1323})) then -- Hector's Severed Head, Jerald's Severed Head and Renaldo's Severed Head
 		e.self:Say("Thank you " .. e.other:GetName() .. ", take this coin as your reward. I’m sorry to say we’re currently out of masks.");
 		e.other:Faction(115,2); -- gem chopper
 		e.other:Faction(210,1); -- merchants of akanon

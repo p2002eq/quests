@@ -1,4 +1,14 @@
--- Converted to .lua by Speedz
+function event_spawn(e)
+	local xloc = e.self:GetX();
+	local yloc = e.self:GetY();
+	eq.set_proximity(xloc - 50, xloc + 50, yloc - 50, yloc + 50);
+end
+
+function event_enter(e)
+	if(e.other:HasItem(18703) == true) then -- Old Folded Letter
+		e.other:Message(15,"An evil cackle echoes throughout the mines as you get your bearings. Rilgor Plegnog turns his gaze upon you. 'Why do you stand about young apprentice?! There is much to learn. Read the note in your inventory and then hand it to me so that we can begin your training! The Dark Reflection will have its revenge!'");
+	end
+end
 
 function event_say(e)
 	if (e.message:findi("mechanical pen")) then
@@ -10,18 +20,15 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 18703})) then  -- Old Folded Letter
-		e.other:Ding();
-		e.other:SummonItem(13524);	-- Dark Gold Felt Robe*
+		e.self:Say("It's always good to see new blood eager to learn teh dark art of mind control. Please take this robe as a symbolization of loyalty to this house.");
 		e.other:Faction(71,100,0); 	-- Dark reflection
 		e.other:Faction(91,-10,0); 	-- eldritch collective
 		e.other:Faction(115,-10,0); -- gem choppers
 		e.other:Faction(76,-10,0); 	-- Deepmuses
-		e.other:AddEXP(100);
-	elseif (item_lib.check_turn_in(e.self, e.trade, {item1 = 1360})) then
+		e.other:QuestReward(e.self,0,0,0,0,13524,100); -- Dark Gold Felt Robe*
+	elseif (item_lib.check_turn_in(e.self, e.trade, {item1 = 1360})) then -- Shining Metallic Robes
 		e.self:Say("Very nice!! It is perfect! Here take this pen. Have fun with it.");
-		e.other:Ding();
-		e.other:AddEXP(50000);
-		e.other:SummonItem(10600);
+		e.other:QuestReward(e.self,0,0,0,0,10600,50000); -- Mechanical Pen
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end

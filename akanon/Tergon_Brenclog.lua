@@ -1,5 +1,3 @@
--- Converted to .lua by Speedz
-
 function event_say(e)
 	if(e.message:findi("hail")) then
 		e.self:Say("Eh!!? What do I see before me? A young upstart? Some child pretending to be a great mind? If you wish to test your mettle then you will assist Tergon. Will you [Help Tergon] or are you far [too superior] to deal with such things?");
@@ -11,8 +9,7 @@ function event_say(e)
 		e.self:Say("Not all experience is gained upon the battlefield. We magicians must heighten our minds to become formidable opponents. I see much promise in you, " .. e.other:GetName() .. ". I will require you to [travel abroad] toward Freeport.");
 	elseif(e.message:findi("travel abroad")) then
 		e.self:Say("You will go to Freeport and seek out the Academy of Arcane Science. There you shall find my brother Retlon. He has scribed some new spells in my [personal spellbook]. Hand him this note as proof of your alliance. He works closely with Master Dooly Jonkers.");
-		e.other:SummonItem(1717);
-		e.other:Ding();
+		e.other:SummonItem(1717); -- Sealed Letter
 	elseif(e.message:findi("defector")) then
 		e.self:Say("It seems a gnome magician by the name of Toko Binlittle has gone and left the guild. He joined forces with the [Pirates of Gunthak]. Find him. He must be destroyed. Our secrets cannot be known. Return his head to me and I shall give you the [Elemental Grimoire].");
 	elseif(e.message:findi("pirates of gunthak")) then
@@ -26,36 +23,31 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 13333})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 13333})) then -- Iron Pellet
 		e.self:Say("So, you have survived. There is no doubt in my mind that you achieved this solely with your own powers. Only a dim one requires the assistance of others. Take this. May it help you in your pursuit of greatness. [Further tasks] may bring you to that point.");
-		e.other:SummonItem(15058);
-		e.other:SummonItem(eq.ChooseRandom(15400,15397,15399,15398,15317,15058));
-		e.other:Faction(91,3,0);
-		e.other:Faction(71,-3,0);
-		e.other:Faction(322,-3,0);
-		e.other:Faction(115,3,0);
-		e.other:Faction(176,3,0);
-		e.other:Ding();
-		e.other:AddEXP(150);
-	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 13387})) then
+		e.other:Faction(91,3,0); -- Eldritch Collective
+		e.other:Faction(71,-3,0); -- Dark Reflection
+		e.other:Faction(322,-3,0); -- The Dead
+		e.other:Faction(115,3,0); -- Gem Choppers
+		e.other:Faction(176,3,0); -- King Ak'Anon
+		e.other:SummonItem(15058); -- Spell: Elementalkin: Earth
+		e.other:QuestReward(e.self,0,0,0,0,eq.ChooseRandom(15400,15397,15399,15398,15317),150); -- Random Elementaling Spell
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 13387})) then -- Tergons Spellbook
 		e.self:Say("Thank you " .. e.other:GetName() .. ". I had no doubt you would fulfill my will and return my spellbook.. here is your reward for such effort. Now I have news of a larger matter. It has to do with a [defector].");
-		e.other:Faction(91,3,0);
-		e.other:Faction(71,-3,0);
-		e.other:Faction(322,-3,0);
-		e.other:Faction(115,3,0);
-		e.other:Faction(176,3,0);
-		e.other:Ding();
-		e.other:AddEXP(150);
-	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 13388})) then
+		e.other:Faction(91,3,0); -- Eldritch Collective
+		e.other:Faction(71,-3,0); -- Dark Reflection
+		e.other:Faction(322,-3,0); -- The Dead
+		e.other:Faction(115,3,0); -- Gem Choppers
+		e.other:Faction(176,3,0); -- King Ak'Anon
+		e.other:QuestReward(e.self,0,0,0,0,0,150); -- Faction and EXP
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 13388})) then -- Teir`Dal Head
 		e.self:Say("Excellent work, " .. e.other:GetName() .. ". It's unfortunate this had to be done, but we cannot allow our secrets to fall into the hands of others.");
-		e.other:SummonItem(17502); -- elemental grimoire
-		e.other:Faction(91,3,0);
-		e.other:Faction(71,-3,0);
-		e.other:Faction(322,-3,0);
-		e.other:Faction(115,3,0);
-		e.other:Faction(176,3,0);
-		e.other:Ding();
-		e.other:AddEXP(300);
+		e.other:Faction(91,3,0); -- Eldritch Collective
+		e.other:Faction(71,-3,0); -- Dark Reflection
+		e.other:Faction(322,-3,0); -- The Dead
+		e.other:Faction(115,3,0); -- Gem Choppers
+		e.other:Faction(176,3,0); -- King Ak'Anon
+		e.other:QuestReward(e.self,0,0,0,0,17502,300); -- Elemental Grimoire
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
