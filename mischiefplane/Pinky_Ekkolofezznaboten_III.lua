@@ -1,14 +1,18 @@
 --Pinky Ekkolofezznaboten III 
 --Plane of Mischief 1.0
 
---possibly more responses should go into this LUA (i.e. says certain knock knock jokes) but haven't seen any specific data
+--NPC dialogue from http://web.archive.org/web/20021119033024/http://www.swtoys.net:80/pom/pinky.html
 
 function event_say(e)
     if(e.message:findi("hail")) then
-		e.self:Say("Hail ".. e.other:GetName() ..".  Do you know any [knock knock] jokes?");
+		e.self:Say("Knock knock.");
+	elseif(e.message:findi("Who's there")) then
+		e.self:Say("Will.");
+	elseif(e.message:findi("Will who")) then
+		e.self:Say("Will you tell ME a knock knock joke?");
 	elseif(e.message:findi("knock knock")) then
-        e.self:Emote("laughs");
         e.self:SpellFinished(904, e.other);  --knockback player towards pit trap behind invis wall
+		e.self:Say("Here is a knock for ya! Har har har haaaarrr!!!");
     end
 end
 
