@@ -1,6 +1,5 @@
 function event_say(e)
 	local fac = e.other:GetFaction(e.self);
-
 	if(e.message:findi("hail")) then
 		e.self:Say("Greetings, my friend. What brings you so far from the trodden path? I hope you do not plan on stealing my [fishing spot].");
 	elseif(e.message:findi("fishing spot")) then
@@ -20,27 +19,20 @@ function event_say(e)
 			e.self:Say("How dare you approach a member of the Clerics of Underfoot?! Dogs such as you lie in the same bed as aviaks and ogres!!");
 		else
 			e.self:Say("Yes, you shall do, noble " .. e.other:GetName() .. ". Take this. This is the Chalice Case. It is intended for the Chalice of Conquest and the [Candle of Bravery]. If you should get both, be sure to place them within the Chalice Case and combine them. Take the full Chalice Case to Lord Nightseer in Kaladim and I shall be redeemed and you shall surely earn a fine paladin's reward. Let your quest begin in the mountains of Rathe.");
-			e.other:SummonItem(17976);
+			e.other:SummonItem(17976); -- Chalice Case - empty
 		end
 	end
 end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 12281})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 12281})) then -- Cape of Underfoot
 		e.self:Say("I thank you, my friend. You are truly a great paladin and noble addition to our ranks. I now can walk in Kaladim. Take this as a reward. It is the Holy Partisan of Underfoot. It is now yours. I believe it still has a couple of charges. Use it wisely as the only cleric able to recharge it was lost amid the lava filled lands of Antonica.");
-		e.other:Ding();
-		e.other:Faction(246, 25);
-		e.other:Faction(169, 25);
-		e.other:Faction(44, 25);
-		e.other:Faction(351, 25);
-		e.other:AddEXP(750);
-		e.other:SummonItem(5376, 5);
+		e.other:Faction(246, 25); -- Paladins of Underfoot
+		e.other:Faction(169, 25); -- Kazon Stormhammer
+		e.other:Faction(44, 25); -- Clerics of Underfoot
+		e.other:Faction(351, 25); -- Veeshan
+		e.other:QuestReward(e.self,0,0,0,0,5376,750); -- Holy Partisan of Underfoot
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------

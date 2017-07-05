@@ -15,16 +15,9 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 28036, item2 = 28037, item3 = 28038, item4 = 28039})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 28036, item2 = 28037, item3 = 28038, item4 = 28039})) then -- Power of Fire, Power of Wind, Power of Earth and Power of Water
 		e.self:Say("The arcane art of Summoning is derived from the power of the elements which surround us. Continue your journey across the Ocean of Tears. In a dark fortress, you should find Akksstaf lurking about. Be wary, but tell him that you seek Magi'kot. Hurry now " .. e.other:GetName() .. ", you do not wish to miss the ship!");
-		e.other:Ding();
-		e.other:SummonItem(28031);
-		e.other:AddEXP(500);
+		e.other:QuestReward(e.self,0,0,0,0,28031,500); -- Power of the Elements
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------
