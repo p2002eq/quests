@@ -1,12 +1,12 @@
 function event_spawn(e)
-	eq.set_timer("depop",1200000);
+	eq.set_timer("depop",1200000); -- 20 Minutes
+	e.self:Say("You will never take me alive!!");
 end
 
 function event_timer(e)
 	eq.depop();
 end
 
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------
+function event_death_complete(e)
+	e.self:Say("hisss.. You will never stop the.. Radiant.. Green..");
+end
