@@ -6,14 +6,9 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 12676})) then --Bixie Berry Pie
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 12676})) then -- Bixie Berry Pie
 		e.self:Emote("breaks open the crust of the pie.");
 		e.self:Say("Wait! What is this? A device of some kind? It looks kind of like some sort of lockpick. BUGRIN!! Get in here and answer some questions at once!!");
-		eq.spawn2(106302,0,0,120,563,4,0); 
+		eq.spawn2(106302,0,0,120,563,4,0); -- Bugrin the Gatherer
 	end
 end
-
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------

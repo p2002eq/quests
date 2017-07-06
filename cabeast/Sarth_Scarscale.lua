@@ -1,6 +1,4 @@
 --Iksar low- to mid-level armor quests.  This is for the Shadowknight.
---In order for this to work, must add:  Drixie Wings (Item 14827) to Lady Chromoire (both instances) in Firiona Vie as a 50% probability 100% drop on it's own LootDrop.
-
 function event_say(e)
 	if(e.message:findi("Hail")) then
 		e.self:Emote("hisses at you loudly. 'So, you bear the [mantle of a crusader], yes?  I am known as Sarth and shall reward you, provided you prove your worthiness to our cause, child of Rile.'");
@@ -21,38 +19,18 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	--Dreadscale Bracer for:  Scale=14824  Bracer=3061  Sapphire=10034
-	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 14824, item2 = 3061, item3 = 10034})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 14824, item2 = 3061, item3 = 10034})) then -- Bloodgill Scales, Banded Bracer and Sapphire
 		e.self:Say("Well done!  Here is the item we agreed upon.  May Cazic's glorious curses flow through you!");
-		e.other:SummonItem(4971);
-		e.other:AddEXP(10000);
-		e.other:Ding();
-	end
-	--Dreadscale Greaves for:  Boots=14829  Head=14820  Greaves=3063  StarRuby=10032
-	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 14829, item2 = 14820, item3 = 3063, item4 = 10032})) then
+		e.other:QuestReward(e.self,0,0,0,0,4971,10000); -- Dreadscale Bracer
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 14829, item2 = 14820, item3 = 3063, item4 = 10032})) then -- Boots of Zorash, Grachnists Head, Banded Leggings and Star Ruby
 		e.self:Say("Well done!  Here is the item we agreed upon.  May Cazic's glorious curses flow through you!");
-		e.other:SummonItem(4973);
-		e.other:AddEXP(10000);
-		e.other:Ding();
-	end
-	--Dreadscale Mask for:  Wings=14827  Mask=3054  FireEmerald=10033
-	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 14827, item2 = 3054, item3 = 10033})) then
+		e.other:QuestReward(e.self,0,0,0,0,4973,10000); -- Dreadscale Greaves
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 14827, item2 = 3054, item3 = 10033})) then -- Wings of the Drixie Queen, Banded Mask and Fire Emerald
 		e.self:Say("Well done!  Here is the item we agreed upon.  May Cazic's glorious curses flow through you!");
-		e.other:SummonItem(4975);
-		e.other:AddEXP(10000);
-		e.other:Ding();
-	end
-	--Dreadscale Breastplate for:  Braid=12982  Chitin=14821  Breastplate=3056  Ruby=10035
-	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 12982, item2 = 14821, item3 = 3056, item4 = 10035})) then
+		e.other:QuestReward(e.self,0,0,0,0,4975,10000); -- Dreadscale Mask
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 12982, item2 = 14821, item3 = 3056, item4 = 10035})) then -- A Sarnak War Braid, Scorpion Chitin, Banded Mail and Ruby
 		e.self:Say("Well done!  Here is the item we agreed upon.  May Cazic's glorious curses flow through you!");
-		e.other:SummonItem(4969);
-		e.other:AddEXP(10000);
-		e.other:Ding();
+		e.other:QuestReward(e.self,0,0,0,0,4969,10000); -- Dreadscale Breastplate
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------

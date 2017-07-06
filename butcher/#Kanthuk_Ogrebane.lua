@@ -1,12 +1,9 @@
 -- Part of Ghoulbane quest
-
 function event_say(e)
 	local qglobals = eq.get_qglobals(e.self,e.other);
-
 	if(e.message:findi("hail")) then
 		e.self:Say("Hello.");
-	end
-	if(qglobals["Kanthuk"] ~= nil) then
+	elseif(qglobals["Kanthuk"] ~= nil) then
 		if(e.message:findi("Amstaf Trunolis")) then
 			e.self:Say("Amstaf Trunolis was a good man. I've followed into [battle] many times. We've seen many of our friends die by the sword of others.");
 		elseif(e.message:findi("battle")) then
@@ -27,7 +24,7 @@ function event_say(e)
 			e.self:Say("That night I dreamt of many things. Random thoughts kept swirling around my mind. I kept seeing the image of a cloaked being and of Amstaf circled around a fire. I saw Ambreen's body convulsing above the fire as if life was being brought back to it. I don't know what happened that night. I don't even know if what i dreamt was real, but before I awoke I saw a [strange image].");
 		elseif(e.message:findi("strange image")) then
 			e.self:Say("I saw Amstaf lower his head and walked away in silence. He was surronded by two beings carrying a torch. I don't know what it meant, but I swear it was so real. When I awoke both Amstaf and Ambreen were gone. Please find Llara and give this pendant to her. This pendant belonged to Amstaf. She too had a vision that night that may clear things up. If she asks where you got it from, mention my name.");
-			e.other:SummonItem(2414);
+			e.other:SummonItem(2414); -- A Pendant
 			eq.delete_global("Kanthuk");
 		end
 	end
@@ -35,17 +32,9 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	
-	if(item_lib.check_turn_in(e.self, e.trade, {item1 == 2416})) then
-		e.other:Ding();
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 == 2416})) then -- Note to Kanthuk
 		e.self:Say("Ahh, I see you have spoken to Ryshon. You seem tired from your long journey. Sit with me as I tell you a tale. A tale about a true friend of mine, a great man known as [Amstaf Trunolis].");
 		eq.set_global("Kanthuk","ghoul",0,"D30");
-		e.other:AddEXP(1000);
+		e.other:QuestReward(e.self,0,0,0,0,0,1000); --
 	end
 end
-
--- Quest by mystic414
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------

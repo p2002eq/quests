@@ -15,15 +15,9 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 19956, item2 = 19957, item3 = 19958})) then --Piece of a Medallion (Bottom, Middle, Top)
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 19956, item2 = 19957, item3 = 19958})) then -- Piece of a Medallion (Bottom, Middle, Top)
 		e.self:Say("Ssssss. I thought I would never see these. I never thought the symbol of our people would be made whole again. I feel no rest for my sssoul though. My torment still flows as freely as when my peoples first suffered fiery death. I need this not. It is useless to me. Here, you take it. Maybe you can find some good to do with it.");
-		e.other:QuestReward(e.self,0,0,0,0,19953,1000);
+		e.other:QuestReward(e.self,0,0,0,0,19953,1000); -- Medallion of the Obulus
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
--- Quest by mystic414
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------

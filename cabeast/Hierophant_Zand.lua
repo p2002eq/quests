@@ -6,7 +6,7 @@ function event_say(e)
 		e.self:Emote("closes his eyes and bows before you. 'I am honored to meet the one who shall pledge his life to the return of the Skulls of the Ancients. However, I must see proof of our prowess as of yet. Go to the outlands and retrieve one Froglok Hexdoll, and no, they are not found on Frogloks. They are shaman dolls made by the goblin tribe.");
 	elseif(e.message:findi("hail")) then
 		e.self:Say("Welcome to the Temple of Terror, young one. May the pain of the ancients guide you. Have you lost your Iron Cudgel of the Petitioner?"); -- Adlib
-	elseif(e.message:findi("Lost")) then -- The Penance quest
+	elseif(e.message:findi("Lost")) then
 		e.self:Emote("shakes his head and growls. 'That is not good, broodling... Not good at all. You will need to take this note and seek out the Toilmaster immediately. Read it on the way and hope that your incompetence can be overcome. The Crusaders of Greenmist have a pit meant for you, should this prove to be impossible."); -- Adlib
 		e.other:SummonItem(18271); -- A Ragged Book
 	elseif(e.message:findi("What skulls of Di Nozok") and (tonumber(qglobals.shmskullquest) >= 6)) then
@@ -21,7 +21,6 @@ function event_trade(e)
 		e.self:Emote("takes the bag and tome from you and in return gives you the item that you have been thinking of all of this time.");
 		e.self:Say("Lucky you. You have earned a second chance. Praise Cazic-Thule!");
 		e.other:QuestReward(e.self,0,0,0,0,5140,0); -- Iron Cudgel of the Petitioner
-	--Shaman Skull Quest No.3.1 turn in
 	elseif((tonumber(qglobals.shmskullquest) >= 2) and (item_lib.check_turn_in(e.self, e.trade, {item1 = 12734})) and (e.other:GetFaction(e.self) <= 4)) then -- A Froglok Hex Doll
 		e.self:Say("You have proven your prowess to me, now take this note to Crusader Quarg outside the city and he will test you further.");
 		eq.set_global("shmskullquest","3",5,"F"); -- Completed Cudgel Quest 3.1
