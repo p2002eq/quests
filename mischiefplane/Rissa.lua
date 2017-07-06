@@ -1,7 +1,7 @@
 --Rissa
 --zone: Plane of Mischief 1.0
 
---Script to control NPC dialogues while running
+--Script to control NPC dialogues while running.  Dialogue references from:  http://web.archive.org/web/20020617162816/http://www.swtoys.net:80/pom/rissa.html
 
 function event_spawn(e)
 	e.self:SetRunning(true);
