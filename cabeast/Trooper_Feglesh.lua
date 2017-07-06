@@ -3,8 +3,3 @@ function event_say(e)
 		e.self:Say("If sweets are your fancy. seek out the chefs of Cabilis.  They have much to offer.");
 	end
 end
-
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------

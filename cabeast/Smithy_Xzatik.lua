@@ -9,8 +9,3 @@ function event_say(e)
 		e.self:Say("Skyiron Targ Shields are customized shields perfect for members of the Legion of Cabilis. Such shields can only be crafted in our unique Cabilis Forge. The supplies needed for a shield are a Targ Shield Mold, a Folded Skyiron Sheet, a Forging Hammer, and Scale Temper.");
 	end
 end
-
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------

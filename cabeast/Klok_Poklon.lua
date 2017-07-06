@@ -1,3 +1,4 @@
+-- Shaman Skull Quest 6
 function event_say(e)
 	local qglobals = eq.get_qglobals(e.other,e.self);
 	if(e.message:findi("hail")) then

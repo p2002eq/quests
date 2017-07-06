@@ -1,5 +1,3 @@
---Note: All text contained herein is non-Live. Need to acquire original
-
 function event_say(e)
 	if(e.message:findi("hail")) then
 		e.self:Say("Greetings, youngling. Are you here seeking wisdom or are you here to [work]?");
@@ -20,45 +18,29 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 3064, item2 = 10033, item3 = 14767, item4 = 14768})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 3064, item2 = 10033, item3 = 14767, item4 = 14768})) then -- Banded Boots, Fire Emerald, Spirit Caller Beads and Rhino Hoof
 		e.self:Say("Ah! Excellent! Now just watch... and... here! Now you know how to make your own boots! Take this pair in case you didn't actually learn anything.");
-		e.other:AddEXP(1000);
-		e.other:SummonItem(4984); --scaled mystic boots
-		e.other:Faction(282,10);
-		e.other:Faction(193,5);
-		e.other:Faction(30,5);
-		e.other:Ding();
-	end
-	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 3061, item2 = 10035, item3 = 14769, item4 = 14770})) then
+		e.other:Faction(282,10); -- Scaled Mystics
+		e.other:Faction(193,5); -- Legion of Cabilis
+		e.other:Faction(30,5); -- Cabilis Residents
+		e.other:QuestReward(e.self,0,0,0,0,4984,1000); -- Scaled Mystic Boots
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 3061, item2 = 10035, item3 = 14769, item4 = 14770})) then -- Banded Bracer, Ruby, Coercion Implant and Gooey Adhesive
 		e.self:Say("What's this? Oh the parts for your bracer. Well just watch me work... and... done! Take these as an example of what a skilled craftsman can do. Strive for this perfection.");
-		e.other:SummonItem(4988); --scaled mystic bracers
-		e.other:AddEXP(1000);
-		e.other:Faction(282,10);
-		e.other:Faction(193,5);
-		e.other:Faction(30,5);
-		e.other:Ding();
-	end
-	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 3058, item2 = 10032, item3 = 14765, item4 = 14766})) then
+		e.other:Faction(282,10); -- Scaled Mystics
+		e.other:Faction(193,5); -- Legion of Cabilis
+		e.other:Faction(30,5); -- Cabilis Residents
+		e.other:QuestReward(e.self,0,0,0,0,4988,1000); -- Scaled Mystic Bracers
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 3058, item2 = 10032, item3 = 14765, item4 = 14766})) then -- Banded Cloak, Star Ruby, Forest Giant Hammer and Worn Charbone
 		e.self:Say("Well you finally brought the parts to learn how to make your cloak. Just watch this... and... all done. It's not the best I've ever made, but it's fitting for a novice.");
-		e.other:SummonItem(4991); --scaled mystic cloak
-		e.other:AddEXP(1000);
-		e.other:Faction(282,10);
-		e.other:Faction(193,5);
-		e.other:Faction(30,5);
-		e.other:Ding();
-	end
-	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 3060, item2 = 10034, item3 = 14763, item4 = 14764})) then
-		e.other:AddEXP(1000);
-		e.other:SummonItem(4986); --scaled mystic vambraces
-		e.other:Faction(282,10);
-		e.other:Faction(193,5);
-		e.other:Faction(30,5);
-		e.other:Ding();
+		e.other:Faction(282,10); -- Scaled Mystics
+		e.other:Faction(193,5); -- Legion of Cabilis
+		e.other:Faction(30,5); -- Cabilis Residents
+		e.other:QuestReward(e.self,0,0,0,0,4991,1000); -- Scaled Mystic Cloak
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 3060, item2 = 10034, item3 = 14763, item4 = 14764})) then -- Banded Sleeves, Sapphire, Frenzied Gnawer Tail and Froglok Treated Planks
+		e.other:Faction(282,10); -- Scaled Mystics
+		e.other:Faction(193,5); -- Legion of Cabilis
+		e.other:Faction(30,5); -- Cabilis Residents
+		e.other:QuestReward(e.self,0,0,0,0,4986,1000); -- Scaled Mystic Vambraces
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------

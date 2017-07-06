@@ -26,5 +26,5 @@ function event_trade(e)
 		eq.set_global("shmskullquest", "13",5,"F"); -- Totally Completed Cudgel Quest 7
 		e.other:QuestReward(e.self,0,0,0,10,5148,100000); -- SkyIron Cudgel of the Arisen
 	end
-	item_lib.return_items(e.self, e.other, e.trade)	--return items if not the ones required
+	item_lib.return_items(e.self, e.other, e.trade)
 end
