@@ -1,12 +1,11 @@
 function event_say(e)
 	fac = e.other:GetFaction(e.self);
 	random_result = math.random(100);
-	
 	if(fac < 7) then
 		if(e.message:findi("hail")) then
 			if(random_result <= 50) then
 				e.self:Say("Hail!! You are welcome to rest here.");
-				eq.signal(70007,5);
+				eq.signal(70007,5); -- Ghilanbiddle Nylwadil
 			else
 				e.self:Say("What business do you have here?!! Trying to keep safe? Expecting us to fight your battles? Bah!!");
 			end
@@ -24,24 +23,20 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-
-	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 12280,item2 = 18946,gold = 100})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 12280,item2 = 18946,gold = 100})) then -- Klungas Bracelet, Blood Stained Note and 100 Gold
 		e.self:Say("Biggily boo, biggily borc.. Raise that stinky orc!! Bamm!! Okay!! It's done. Now all you have to do is find him in the spot where his soul left him and give him an orc shovel. Oh!! I didn't mention that? Oh, well. I'm sure you can find one.. somewhere. Now, get lost before I turn you into a toad!");
-		e.other:Ding();
-		e.other:Faction(91, 25,0);
-		e.other:Faction(71, -25,0);
-		e.other:Faction(322, -25,0);
-		e.other:Faction(115, 25,0);
-		e.other:Faction(176, 25,0);
-		e.other:AddEXP(18000);
-		eq.spawn2(70072, 0, 0, -2133.49, -727.05, 154.86, 0);
+		e.other:Faction(91,25,0); -- Eldritch Collective
+		e.other:Faction(71,-25,0); -- Dark Reflection
+		e.other:Faction(322,-25,0); -- The Dead
+		e.other:Faction(115,25,0); -- Gem Choppers
+		e.other:Faction(176,25,0); -- King Ak'Anon
+		eq.spawn2(70072,0,0,-2133.49,-727.05,154.86,0); -- Captain Klunga
+		e.other:QuestReward(e.self,0,0,0,0,0,18000); -- Faction and EXP
 	end
 	item_lib.return_items(e.self, e.other, e.trade);
 end
 
 function event_signal(e)
 	e.self:Say("Ha!! One like that one stands no chance within this realm. The goblins shall skin him alive!!");
-	eq.signal(70005, 5);
+	eq.signal(70005, 5); -- Elmion Hendrys
 end
-
--- EOF Ghilanbiddle Nylwadil

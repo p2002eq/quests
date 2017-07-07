@@ -12,17 +12,12 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-
-	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 13260,item2 = 13260,item3 = 13260,gold = 30})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 13260, item2 = 13260, item3 = 13260, gold = 30})) then -- 3x Giant Wasp Venom Sac and 30 Gold
 		e.self:Say("Take the giant wasp venom. Good or evil it is not. That is up to you.");
-		e.other:SummonItem(14032);
-		e.other:Ding();
-	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 18955})) then
+		e.other:QuestReward(e.self,0,0,0,0,14032,100); -- Regalis Poison
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 18955})) then -- a sealed note
 		e.self:Say("So Lon has sworn allegiance to a temple. What a fool, but he is a skilled fool. My word is my bond and if he asks for the gem, then so be it. Unfortunately I traded it for a much-needed axe. It was in the middle of a dungeon and... well, that is a long story. If you want to get the gem, take this axe back to the [one who once owned it].");
-		e.other:SummonItem(12366);
-		e.other:Ding();
+		e.other:QuestReward(e.self,0,0,0,0,12366,100); -- never stop chopping
 	end
 	item_lib.return_items(e.self, e.other, e.trade);
 end
-
--- EOF Conium Darkblade
