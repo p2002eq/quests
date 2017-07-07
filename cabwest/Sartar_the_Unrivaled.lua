@@ -25,8 +25,3 @@ function event_say(e)
 		e.self:Say("Occasionally, a person will perform some heroic deed and be rewarded by a servant of the gods with a coin that marks them as one on the path to becoming a hero. I will accept these coins and in return, reward that individual in kind with a prize worthy of a hero.");
 	end
 end
-
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------

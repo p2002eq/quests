@@ -8,16 +8,9 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 19423}) or item_lib.check_turn_in(e.self, e.trade, {item1 = 19296}) or item_lib.check_turn_in(e.self, e.trade, {item1 = 19294}) or item_lib.check_turn_in(e.self, e.trade, {item1 = 19299})) then -- convergence defoliation splurt thrall of bones
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 19423}) or item_lib.check_turn_in(e.self, e.trade, {item1 = 19296}) or item_lib.check_turn_in(e.self, e.trade, {item1 = 19294}) or item_lib.check_turn_in(e.self, e.trade, {item1 = 19299})) then -- Spell: Convergence OR Spell: Defoliation OR Spell: Splurt OR Spell: Thrall of Bones
 		e.self:Say("Here is the scroll that I promised. We have both gained much today. I hope to do business with you again soon. Farewell.");
-		e.other:SummonItem(eq.ChooseRandom(19297,19421,19408,19409));
-		e.other:AddEXP(1000);
-		e.other:Ding();
+		e.other:QuestReward(e.self,0,0,0,0,eq.ChooseRandom(19297,19421,19408,19409),1000); -- Spell: Minion of Shadows OR Spell: Sacrifice OR Spell: Scent of Terris OR Spell: Shadowbond
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------

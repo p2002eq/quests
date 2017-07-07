@@ -16,20 +16,12 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 12854, item2 = 12855, item3 = 12856, item4 = 12857})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 12854, item2 = 12855, item3 = 12856, item4 = 12857})) then -- An Illegible Note (Notepage 1 Of Rott), (Notepage 2 Of Rott), (Notepage 3 Of Rott) and (Notepage 4 Of Rott)
 		e.self:Say("Oh, great necromancer, how can I repay you?!! I know. Here is a spell I recently researched. It should help you increase the strength of a summoned pet. Learn it well.");
-		e.other:SummonItem(16426);
-		e.other:Faction(24, 3);
-		e.other:Faction(193, 3);
-		e.other:AddEXP(1000);
-		e.other:Ding();
-	else
-		e.self:Say("I am expecting pages one through four. Do I have to go and find them myself?!");
+		e.other:Faction(24,3); -- Brood of Kotiz
+		e.other:Faction(193,3); -- Legion of Cabilis
+		e.other:QuestReward(e.self,0,0,0,0,16426,1000); -- Spell: Intensify Death
 	end
+	e.self:Say("I am expecting pages one through four. Do I have to go and find them myself?!");
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------
