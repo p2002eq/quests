@@ -1,4 +1,4 @@
---NPC ID: 86097
+-- Bard Epic
 function event_say(e)
 	if(e.message:findi("Hail")) then
 		e.self:Say("Hello, " .. e.other:GetName() .. ". Don't you think this would be a wonderful place to perform a [symphony]?");
@@ -20,14 +20,9 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 20376, item2 = 20383, item3 = 20377, item4 = 20538})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 20376, item2 = 20383, item3 = 20377, item4 = 20538})) then -- Maestro's Symphony Page 24 Top, Maestro's Symphony Page 24 Bottom, Maestros Symphony Page 25 and Mystical Lute
 		e.self:Emote("looks shocked as you hand him the pages and the mystical lute. 'I will put on a symphony the likes of which the gods have never seen. Thank you so much, " .. e.other:GetName() .. ". Please take this sword as a token of my gratitude.");
-		e.other:QuestReward(e.self,0,0,0,0,20542,350000);
+		e.other:QuestReward(e.self,0,0,0,0,20542,350000); -- Singing Short Sword
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------

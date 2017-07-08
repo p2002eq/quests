@@ -1,7 +1,4 @@
---Quest Name: A dufrenite for a boon
---This mob, usually KoS had to be charmed by an enchanter/bard before he would talk.
---Text is completely improvised. Yes, I know its actually the drumming anim, but its close.
---Quest for Guard Elron in North Qeynos
+-- A dufrenite for a boon
 function event_say(e)
 	if(e.message:findi("Hail")) then
 		e.self:DoAnim(39);
@@ -16,10 +13,10 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 10073})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 10073})) then -- Dufrenite
 		e.self:Emote("eyes sparkle as you hand it the gem.");
 		e.self:Say("Yes! Yes! This is the greenest of gems!");
-		e.other:QuestReward(e.self,0,0,0,0,12946,3000);
+		e.other:QuestReward(e.self,0,0,0,0,12946,3000); -- Dread Diamond
 		e.self:Say("Worth more to you crushed, that is! Find a spectral pestle, and crush it to dust!");
 		eq.set_timer("cutting",4000);
 	end
@@ -38,9 +35,3 @@ function event_timer(e)
 		eq.stop_timer("cutting");
 	end
 end
-
---Author: BWStripes
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------

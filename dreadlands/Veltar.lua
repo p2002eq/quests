@@ -1,5 +1,4 @@
---Velter gives us the last shackle in the line, the Shackle of Tynonnium.
---Since players must turn in their Shackle of Steel to the tome keeper in Kaesora to complete Veltar's quest, there is no requirement to check for it here.
+-- Shackle of Tynonnium
 function event_say(e)
 	if(e.message:findi("hail")) then
 		e.self:Emote("'s body has scars all about it, looking as though beaten with whips. One wrist bares a unique looking bracer, the other is bare. 'Leave me be! I did not come up here because I wanted company.'");
@@ -18,17 +17,11 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 7879, item2 = 7880, item3 = 7881})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 7879, item2 = 7880, item3 = 7881})) then -- Mark of Agility, Mark of Patience and Mark of Clarity
 		e.self:Say("So you are finally ready for the final rung. Here it is, you shall receive mine for I quest for the fists of Cazic Thule no longer.");
-		e.other:QuestReward(e.self,0,0,0,0,4199,60000);
-		e.other:Faction(317,20);
-		e.other:Faction(193,10);
+		e.other:Faction(317,20); -- Swift Tails
+		e.other:Faction(193,10); -- Legion of Cabilis
+		e.other:QuestReward(e.self,0,0,0,0,4199,60000); -- Shackle of Tynnonium
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
---Submitted by: Jim Mills
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------
