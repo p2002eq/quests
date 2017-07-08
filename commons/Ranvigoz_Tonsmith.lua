@@ -1,8 +1,6 @@
 -- resize crafted armor to small size
-
 function event_say(e)
 	fac = e.other:GetFaction(e.self);
-	
 	if(fac < 6) then
 		if(e.message:findi("hail")) then
 			e.self:Say("Hail! I am Ranvigoz Tonsmith. My brother Timtok and I are some of the finest smiths this side of Kaladim. If you are interested we will happily [resize] your [Crafted Armor] down to a more manageable size.");
@@ -18,19 +16,18 @@ function event_trade(e)
 	local item_lib = require("items");
 	fac = e.other:GetFaction(e.self);
 	item_check = 0;
-
 	if(fac < 6) then
-		if(item_lib.check_turn_in(e.self, e.trade, {item1 = 4177})) then
-			e.other:SummonItem(4185);
+		if(item_lib.check_turn_in(e.self, e.trade, {item1 = 4177})) then -- Crafted Bracers
+			e.other:SummonItem(4185); -- Small Crafted Bracers
 			item_check = 1;
-		elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 4179})) then
-			e.other:SummonItem(4187);
+		elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 4179})) then -- Crafted Greaves
+			e.other:SummonItem(4187); -- Small Crafted Greaves
 			item_check = 1;
-		elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 4175})) then
-			e.other:SummonItem(4183);
+		elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 4175})) then -- Crafted Pauldron
+			e.other:SummonItem(4183); -- Small Crafted Pauldron
 			item_check = 1;
-		elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 4174})) then
-			e.other:SummonItem(4182);
+		elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 4174})) then -- Crafted Breastplate
+			e.other:SummonItem(4182); -- Small Crafted Breastplate
 			item_check = 1;
 		end
 		if(item_check == 1) then
@@ -44,5 +41,3 @@ function event_trade(e)
 	end
 	item_lib.return_items(e.self, e.other, e.trade);
 end
-
--- EOF zone: commons NPC: Ranvigoz_Tonsmith

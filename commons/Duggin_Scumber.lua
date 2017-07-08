@@ -1,7 +1,7 @@
 function event_spawn(e)
 	e.self:Emote("runs up and steals the note. 'Aha!! Foolish Qeynite or whatever you call yourself!! I have found the note and now I shall take it to my superior!! Just try and catch me!!'");
-	eq.set_timer("1",10000);
-	eq.set_timer("2",600000);
+	eq.set_timer("1",10000); -- 10 Sec
+	eq.set_timer("2",600000); -- 10 Minutes
 end
 
 function event_timer(e)
