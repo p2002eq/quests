@@ -6,14 +6,9 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 15959})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 15959})) then -- Goblins and Their Religions
 		e.self:Emote("Oh! Thank you, I assume this means that Thiran sent you. I ran off with the incorrect book without thinking to check. Would you be kind enough to return this to him?");
-		e.other:QuestReward(e.self,0,0,0,0,15960); --The Reflecting Pools of Tanaan
+		e.other:QuestReward(e.self,0,0,0,0,15960); -- The Reflecting Pools of Tanaan
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------
