@@ -4,5 +4,5 @@ end
 
 function event_enter(e)
 	e.self:Say("Begone intruder!");
-	e.other:SpellFinished(2129, e.other);
+	e.other:SpellFinished(2129, e.other); -- Feerrott Exile
 end
