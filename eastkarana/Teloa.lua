@@ -1,7 +1,7 @@
 local move;
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 20451})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 20451})) then -- Frayed Braided Grass Amulet
 		e.self:Emote("begins walking toward the gathering spot. 'Follow, friend.'");
 		eq.move_to(-1597,-3670,-18,0, true);
 	end
@@ -16,11 +16,5 @@ function event_signal(e)
 end
 
 function event_waypoint_arrive(e)
-	eq.signal(15044,1,0);
+	eq.signal(15044,1,0); -- Althele
 end
-
-
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------
