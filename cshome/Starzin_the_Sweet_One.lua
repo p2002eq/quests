@@ -5,5 +5,3 @@ function event_say(e)
 		e.self:Say("Queue? What queue? We don't need no stinkin' QUEUE!' Starzin glances around and giggles gleefully. then whispers. 'Just don't tell anyone else!");
 	end
 end
-
---Converted to LUA by Speedz
