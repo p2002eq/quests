@@ -16,21 +16,13 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	if(e.other:GetFaction(e.self)==1) then -- Ally faction
-		-- 6477 spirit wracked urn
-		-- 6478 undead dragon sinew
-		-- 5727 regal band of bathezid
-		if(item_lib.check_turn_in(e.self, e.trade, {item1 = 6477, item2 = 6478, item3 = 5727})) then
+		if(item_lib.check_turn_in(e.self, e.trade, {item1 = 6477, item2 = 6478, item3 = 5727})) then -- Spirit Wracked Urn, Undead Dragon Sinew and Regal band of Bathezid
 			e.self:Say("Amazing! You have returned the trophies I asked for, against impossible odds. Here is your reward, worthy minion, may it serve you well.");
-			e.other:Faction(281,50);
-			e.other:Faction(384,-30);
-			e.other:SummonItem(5727); -- 5727 We get Regal Band of Bathezid back
-			e.other:QuestReward(e.self,0,0,0,0,5723,100000); -- 5723  Spirit Wracked Cord, final reward
+			e.other:Faction(281,50); -- Sarnak Collective
+			e.other:Faction(384,-30); -- Mountain Death Clan
+			e.other:SummonItem(5727); -- Regal Band of Bathezid
+			e.other:QuestReward(e.self,0,0,0,0,5723,100000); -- Spirit Wracked Cord
 		end
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------
