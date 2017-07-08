@@ -12,12 +12,12 @@ end
 
 function event_trade(e)
 	local item_lib = require('items');
-	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 22815, platinum = 1000})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 22815, platinum = 1000})) then -- Section of Lodizal's Shell and 1000 Platinum
 		e.self:Emote("skillfully crafts the section of Lodizal's shell into the shape of a shield. He then attaches sturdy cured walrus hide leather straps to the inner side of the shield and inscribes intricate glowing runes on the shield's face. When he is finished, he hands you the shield and claps loudly.");
-		e.other:Faction(241, 30); --Othmir
-		e.other:Faction(345, -60); --Ulthork
-		e.other:QuestReward(e.self, 0, 0, 0, 0, 22816, 100000); --Lodizal Shell Shield
-	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 22815, platinum ~= 1000})) then
+		e.other:Faction(241, 30); -- Othmir
+		e.other:Faction(345, -60); -- Ulthork
+		e.other:QuestReward(e.self,0,0,0,0,22816,100000); -- Lodizal Shell Shield
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 22815, platinum ~= 1000})) then -- Section of Lodizal's Shell and less than 1000 Platinum
 		e.self:Say("Sorry stranger, but that is not enough to barter with.");
 		item_lib.return_items(e.self, e.other, e.trade);
 	end

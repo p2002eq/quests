@@ -8,18 +8,16 @@ end
 
 function event_trade(e)
 	local item_lib = require('items');
-
-	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 22812, item2=19113, item3 = 16498, item4 = 16498})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 22812, item2=19113, item3 = 16498, item4 = 16498})) then -- Water Dragon Meat, Saltwater Seaweed and 2x Fish Eggs
 		e.self:Say("It has been many moons since my people have feasted on this rarest of meat. Take this totem crafted in the form of our oceanlord Prexus and inscribed with the runes of our people. May the oceans watch over you, "..e.other:GetName()..".");
-		e.other:Faction(241, 30); --Othmir
-		e.other:Faction(345, -60); --Ulthork
-		e.other:QuestReward(e.self, 0, 0, 0, 0, 28514, 10000);
-	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 22813, item2=19113, item3 = 16498, item4 = 16498})) then
+		e.other:Faction(241, 30); -- Othmir
+		e.other:Faction(345, -60); -- Ulthork
+		e.other:QuestReward(e.self,0,0,0,0,28514,10000); -- Othmir Prexus Totem
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 22813, item2=19113, item3 = 16498, item4 = 16498})) then -- Sea Dragon Meat, Saltwater Seaweed and 2x Fish Eggs
 		e.self:Say("It has been many moons since my people have feasted on this rarest of meat. Take this totem crafted in the form of our oceanlord Prexus and inscribed with the runes of our people. May the oceans watch over you, "..e.other:GetName()..".");
-		e.other:Faction(241, 30); --Othmir
-		e.other:Faction(345, -60); --Ulthork
-		e.other:QuestReward(e.self, 0, 0, 0, 0, 28514, 10000);
+		e.other:Faction(241, 30); -- Othmir
+		e.other:Faction(345, -60); -- Ulthork
+		e.other:QuestReward(e.self,0,0,0,0,28514,10000); -- Othmir Prexus Totem
 	end
-	item_lib.return_items(e.self, e.other, e.trade)	
-
+	item_lib.return_items(e.self, e.other, e.trade)
 end
