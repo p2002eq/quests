@@ -1,4 +1,4 @@
-local depop_list = {126158, 126227, 126200, 126157, 126295, 126173, 126251, 126178, 126323, 126342, 126211, 126254, 126324, 126327, 126338, 126334, 126252, 126248, 126335, 126331, 126606, 126607, 126608, 126609, 126610, 126611, 126605};
+local depop_list = {126158, 126227, 126200, 126157, 126295, 126251, 126178, 126323, 126342, 126211, 126254, 126324, 126327, 126338, 126334, 126252, 126248, 126335, 126331, 126606, 126607, 126608, 126609, 126610, 126611, 126605};
 
 local a_trigger = 0;  --sets value to 1 once audience cycle triggered
 local p_trigger = 0;	--sets value to 1 once puppets spawn is triggered
@@ -109,6 +109,7 @@ function event_timer(e)
 		local ztime = eq.get_zone_time();
 		if (ztime.zone_hour == 6) then
 			eq.set_timer("depop",1);  		-- clear pops upon spawn at 6am
+			eq.depop_all(126173);			--despawns Kelld
 		elseif (ztime.zone_hour == 7 and a_trigger ~= 1) then
 			audience_start();				--audience procession starts at 7am
 			a_trigger = 1;
