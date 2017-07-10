@@ -4,7 +4,6 @@ end
 
 function event_timer(e)
 	if (e.timer == "90") then
-		eq.depop_all(116556);
+		eq.depop_all(116556); -- Ry`Gorr Elite
 	end
-
 end

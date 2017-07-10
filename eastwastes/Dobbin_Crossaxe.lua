@@ -13,22 +13,20 @@ end
 
 function event_trade(e)
 	local item_lib = require('items');
-	
-	if (item_lib.check_turn_in(e.self, e.trade, {item1 = 30162})) then -- Checks for Mithril Coldain Insignia Ring separately from completed Corbin walk to enable handing back of ring
+	if (item_lib.check_turn_in(e.self, e.trade, {item1 = 30162})) then -- Mithril Coldain Insignia Ring
 		if (ring_seven_final == 1) then
 			e.self:Say("Thank you. " .. e.other:GetName().. ", your deeds will be mentioned to the Dain. Please take this note from Corbin to Garadain. it may help him to achieve victory over the enemy.");
 			ring_seven_final = nil;
-			e.other:QuestReward(e.self,0,0,0,0,1047,10000);
-			e.other:Faction(49, 5);
-			e.other:Faction(67, 5);
-			e.other:Faction(188, -10);
-			e.other:Faction(189, -10);
-			eq.depop_all(116119);
+			e.other:QuestReward(e.self,0,0,0,0,1047,10000); -- Note from Corbin
+			e.other:Faction(49,5); -- Coldain
+			e.other:Faction(67,5); -- Dain Frostreaver IV
+			e.other:Faction(188,-10); -- Kromrif
+			e.other:Faction(189,-10); -- Kromzek
+			eq.depop_all(116119); -- Corbin Blackwell
 		else
 			e.self:Say(string.format("I have no need for this item %s, you can have it back.", e.other:GetCleanName()));
-			e.other:SummonItem(30162);
+			e.other:SummonItem(30162); -- Mithril Coldain Insignia Ring
 		end
 	end
-	
 	item_lib.return_items(e.self, e.other, e.trade);
 end

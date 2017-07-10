@@ -3,8 +3,7 @@ function event_spawn(e)
 end
 
 function event_timer(e)
-	local check_npc = eq.get_entity_list():GetMobByNPCTypeID(116577);
-
+	local check_npc = eq.get_entity_list():GetMobByNPCTypeID(116577); -- a wooly mammoth
 	if (e.timer == "98") and (check_npc == true) then
 		eq.stop_timer("98");
 		eq.set_timer("94", 1000000); --16.67 min
@@ -13,5 +12,4 @@ function event_timer(e)
 	elseif (e.timer == "94") then
 		eq.depop_all(116012);
 	end
-
 end
