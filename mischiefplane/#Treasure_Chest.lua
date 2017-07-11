@@ -2,9 +2,10 @@
 --Plane of Mischief 1.0
 
 --Script for causing aggro of guards when attacking NPC
---                   Nupple  Dupple  Snitch  Blich  Plupple  Krupple  Stitch  Kitch
+--             Nupple  Dupple  Snitch  Blich  Plupple  Krupple  Stitch  Kitch
 local guard_list = { 126614, 126613, 126615, 126616, 126617, 126618, 126619, 126620 };
 local GuardsSpawned = 0;
+
 
 function spawn_guards(e)  -- function to spawn guard list upon chest being aggroed
 	local x = {-478,-441,-342,-312,-312,-342,-441,-478}; 
@@ -49,7 +50,7 @@ end
 function aggro_guards(mob, e) 
 	local counter = 0;
 	local add_match = 0;
-	while (add_match == 0) do
+	while (add_match == 0 and counter < 200) do   -- runs loop till match found or 200 attempts at finding match.  Loop exits after 200 tries
 		n = math.random(1,8);	--randomly select guard mob to assist Treasure Chest
 		local guard_mob = eq.get_entity_list():GetNPCByNPCTypeID(guard_list[n]);
 		if (guard_mob ~=nil and guard_mob:IsEngaged() == false and eq.get_entity_list():IsMobSpawnedByNpcTypeID(guard_list[n]) == true) then 
@@ -57,13 +58,14 @@ function aggro_guards(mob, e)
 			guard_mob:Shout("MINE!!!");
 			guard_mob:AddToHateList(mob);
 		end
+		counter = counter + 1;
 	end
 end
 
 function event_combat(e)
 	if (e.joined) then
 		spawn_guards(e);
-		aggro_guards(e.self:GetHateTop());
+		aggro_guards(e.self:GetHateRandom());
 		eq.set_timer('aggro_guards',10*1000);
 	else
 		eq.stop_timer('aggro_guards');
