@@ -2,8 +2,8 @@
 --Plane of Mischief 1.0
 
 --Script for causing aggro of guards when attacking NPC
---             Nupple  Dupple  Snitch  Blich  Plupple  Krupple  Stitch  Kitch
-local guard_list = { 126314, 126313, 126315, 126316, 126317, 126318, 126319, 126320 };
+--                   Nupple  Dupple  Snitch  Blich  Plupple  Krupple  Stitch  Kitch
+local guard_list = { 126614, 126613, 126615, 126616, 126617, 126618, 126619, 126620 };
 local GuardsSpawned = 0;
 
 function spawn_guards(e)  -- function to spawn guard list upon chest being aggroed
