@@ -33,7 +33,7 @@ function event_timer(e)
 				eq.depop_all(depop_list[count]);  --Despawns all audience and puppets
 				count = count + 1;
 			end
-		eq.depop_all(126160);  -- Despawn Bristlebane
+		eq.signal(126160,3);			-- send signal to despawn Bristlebane
 	elseif (e.timer == "row1s2") then
 		eq.stop_timer("row1s2");
 		eq.spawn2(126158,15,0,260,404.54,118.72,65); -- Spawns Loplo using Grid 15
