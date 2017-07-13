@@ -1,3 +1,8 @@
+--Warden Bruke
+--zone: eastwastes
+
+--script to call random # of guards on aggro
+
 function event_spawn(e)
 	cooldown = false;
 end
@@ -9,17 +14,28 @@ function event_hate_list(e)
 			local y = e.self:GetY();
 			local z = e.self:GetZ();
 			local h = e.self:GetHeading();
+			local guard_roll = math.random(1,100);
 			
-			g1 = eq.spawn2(116166, 0, 0, (x + 15), (y + 5), z, h):GetID();
-			g2 = eq.spawn2(116166, 0, 0, (x - 15), (y + 5), z, h):GetID();
-			g3 = eq.spawn2(116166, 0, 0, x, (y - 15), z, h):GetID();
+			e.self:Say("GUARDS ASSIST ME!");
+			if (guard_roll >= 60) then		-- 40% chance to spawn 4 guards
+				g1 = eq.spawn2(116166, 0, 0, (x + 15), (y + 5), z, h);
+				g2 = eq.spawn2(116166, 0, 0, (x - 15), (y + 5), z, h);
+				g3 = eq.spawn2(116166, 0, 0, (x + 15), (y - 15), z, h);
+				g4 = eq.spawn2(116166, 0, 0, (x - 15), (y - 15), z, h);
+			elseif (guard_roll >= 30) then	-- 30% chance to spawn 3 guards
+				g1 = eq.spawn2(116166, 0, 0, (x + 15), (y + 5), z, h);
+				g2 = eq.spawn2(116166, 0, 0, (x - 15), (y + 5), z, h);
+				g3 = eq.spawn2(116166, 0, 0, x, (y - 15), z, h):GetID();
+			elseif (guard_roll >=10) then	--20% chance to spawn 2 guards
+				g1 = eq.spawn2(116166, 0, 0, (x + 15), (y + 5), z, h);
+				g2 = eq.spawn2(116166, 0, 0, (x - 15), (y + 5), z, h);
+			else							--10% chance to spawn only 1 guard
+				g1 = eq.spawn2(116166, 0, 0, (x + 15), (y + 5), z, h);
+			end
 			eq.set_timer("depop", 600000);
 			cooldown = true;
 		end
 		
-		eq.get_entity_list():GetMob(g1):AddToHateList(e.other, 1);
-		eq.get_entity_list():GetMob(g2):AddToHateList(e.other, 1);
-		eq.get_entity_list():GetMob(g3):AddToHateList(e.other, 1);
 	end
 end
 
