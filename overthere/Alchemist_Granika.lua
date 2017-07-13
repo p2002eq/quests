@@ -12,7 +12,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 3892})) then
-		e.self:Say("If Heirophant Oxyn has sent this with you, I can assume that our visions were corect. The new age is calling us from the heavens. Prepare for battle. I will take this solution to the Outlander's gates and use it to reveal the location of the metal of prophecy. Should I not return, you will only need to find the creature that glows without the use of a torch. Deklium glows when it gets near the smallest trace of tynnomium. Prepare for battle, Crusader... I am off!");
+		e.self:Say("If Heirophant Oxyn has sent this with you, I can assume that our visions were correct. The new age is calling us from the heavens. Prepare for battle. I will take this solution to the Outlander's gates and use it to reveal the location of the metal of prophecy. Should I not return, you will only need to find the creature that glows without the use of a torch. Deklium glows when it gets near the smallest trace of tynnomium. Prepare for battle, Crusader... I am off!");
 		eq.stop_timer("sit");
 		eq.start(4);
 		eq.set_timer("Depop",8000);
@@ -37,8 +37,3 @@ function event_timer(e)
 	end
 end
 
---Submitted by Jim Mills
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------

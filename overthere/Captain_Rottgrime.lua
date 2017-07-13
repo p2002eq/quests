@@ -20,7 +20,7 @@ end
 function event_waypoint_arrive(e)
 	if(e.wp==2) then
 		e.self:Say("Atteeennntion !!");
-		eq.signal(93126);
+		eq.signal(93126,1);
 	end
 end
 
