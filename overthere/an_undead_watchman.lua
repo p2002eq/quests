@@ -1,7 +1,7 @@
---This simple script sets the glowing cliff golem to a path when he spawns
+--depop script
+
 function event_spawn(e)
-	eq.set_timer("depop",15*60*1000);  -- set depop
-	eq.start(5);
+	eq.set_timer("depop",15*60*1000);
 end
 
 function event_timer(e)
@@ -14,5 +14,4 @@ function event_trade(e)
 	local item_lib = require("items");
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
 

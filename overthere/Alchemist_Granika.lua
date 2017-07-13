@@ -16,11 +16,13 @@ function event_trade(e)
 		eq.stop_timer("sit");
 		eq.start(4);
 		eq.set_timer("Depop",8000);
-		eq.spawn2(93308,0,0,1955,2825,-49,190); --Spawn the golem and three guards
-		eq.spawn2(93309,0,0,1955,2794,-49,190);
-		eq.spawn2(93309,0,0,1954,2855,-49,190);
-		eq.spawn2(93311,0,0,1915,2825,-49,190);
-		eq.signal(93077,0,0);
+		eq.spawn2(93308,0,0,1955,2825,-49,190); 	--Spawns glowing cliff golem
+		eq.spawn2(93309,0,0,1955,2794,-49,190);		--undead watchman
+		eq.spawn2(93309,0,0,1954,2855,-49,190);		--undead watchman
+		eq.spawn2(93309,0,0,1925,2810,-49,190);		--undead watchman
+		eq.spawn2(93309,0,0,1925,2840,-49,190);		--undead watchman		
+		eq.spawn2(93311,0,0,1915,2825,-49,190);		--Watch Sergeant Grolj
+		eq.signal(93077,0,0);						--despawns cliff golem if up since glowing golem triggered
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
