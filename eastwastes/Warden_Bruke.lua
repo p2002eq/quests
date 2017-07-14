@@ -4,6 +4,7 @@
 --script to call random # of guards on aggro
 
 function event_spawn(e)
+	eq.signal(116595,1);				-- signals Kromrif Guards to depop
 	local cooldown = false;
 end
 
@@ -33,7 +34,9 @@ function event_combat(e)
 		end
 
 	else
-		eq.set_timer("depop",6*60*1000);  -- 6 min despawn on guards triggered on leaving combat
+		--eq.set_timer("depop",6*60*1000);  -- 6 min despawn on guards triggered on leaving combat
+		eq.set_timer("depop",20*1000);		--debug line
+		e.self:Say("cooldown not met");		--debug line
 	end
 end
 
