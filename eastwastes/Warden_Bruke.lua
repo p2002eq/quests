@@ -5,14 +5,12 @@
 
 function event_spawn(e)
 	eq.signal(116595,1);				-- signals Kromrif Guards to depop
-	local cooldown = false;
 end
 
 function event_combat(e)
 	if e.joined then
 		eq.stop_timer("depop");		--Halt despawn timer on guards if combat is entered
-		if not cooldown and not eq.get_entity_list():IsMobSpawnedByNpcTypeID(116595) then
-			cooldown = true;			
+		if not eq.get_entity_list():IsMobSpawnedByNpcTypeID(116595) then
 			e.self:Say("GUARDS, ASSIST ME !");
 			
 			local guard_roll = math.random(1,100);
@@ -34,9 +32,7 @@ function event_combat(e)
 		end
 
 	else
-		--eq.set_timer("depop",6*60*1000);  -- 6 min despawn on guards triggered on leaving combat
-		eq.set_timer("depop",20*1000);		--debug line
-		e.self:Say("cooldown not met");		--debug line
+		eq.set_timer("depop",6*60*1000);  -- 6 min despawn on guards triggered on leaving combat
 	end
 end
 
@@ -44,7 +40,6 @@ function event_timer(e)
 	if (e.timer == "depop") then
 		eq.stop_timer("depop");
 		eq.signal(116595,1);			-- signals Kromrif Guards to depop
-		cooldown = false;
 	end
 end
 
