@@ -4,7 +4,7 @@ function event_death_complete(e)
 end
 
 function event_trade(e)
-	local qglobals = eq.get_qglobals(e.other,e.self);
+	local qglobals = eq.get_qglobals(e.self,e.other);
 	local item_lib = require("items");
 	if(tonumber(qglobals.shmskullquest) >= 9 and item_lib.check_turn_in(e.self, e.trade, {item1 = 12752})) then -- A Potion of Swirling Liquid
 		e.other:QuestReward(e.self,0,0,0,10,12750,0); -- An Iksar Skull

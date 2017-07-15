@@ -1,6 +1,6 @@
 -- Shaman Skull Quest 6
 function event_say(e)
-	local qglobals = eq.get_qglobals(e.other,e.self);
+	local qglobals = eq.get_qglobals(e.self,e.other);
 	if(e.message:findi("Hail")) then
 		e.self:Emote("seems to be preocupied. He is examining an egg. 'What?!! Who has [sent] you to me? Bah!! Away with you.' He ignores you and continues chanting.'");
 	elseif((e.other:GetFaction(e.self) <= 4) and (tonumber(qglobals.shmskullquest) >= 7)) then
@@ -16,7 +16,7 @@ function event_say(e)
 end
 
 function event_trade(e)
-	local qglobals = eq.get_qglobals(e.other,e.self);
+	local qglobals = eq.get_qglobals(e.self,e.other);
 	local item_lib = require("items");
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 5145, item2 = 12748, item3 = 12750, item4 = 12749}) and (e.other:GetFaction(e.self) <= 4)) then -- Iron Cudgel of the Channeler, An Iksar Skull, An Iksar Skull and An Iksar Skull
 		e.self:Say("You have returned the skulls of the Sisters of Scale. For this you shall be rewarded. Take this hierophant's weapon. May you use it to smite the foes of our people.' Dexl comes out of the trance. 'What?!! Whew. Hey!! Where is my cudgel?");

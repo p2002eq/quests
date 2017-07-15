@@ -1,6 +1,6 @@
 -- Shaman Skull Quest 6
 function event_say(e)
-	local qglobals = eq.get_qglobals(e.other,e.self);
+	local qglobals = eq.get_qglobals(e.self,e.other);
 	if(e.message:findi("hail")) then
 		e.self:Say("Greetings, thirsty traveler. Pull up a stool and lay yer copper down. Its time to drink and be merry. Just don't get too merry or I will have to call the troopers.");
 	elseif(e.message:findi("talon southpaw")) then

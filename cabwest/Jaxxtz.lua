@@ -1,6 +1,6 @@
 -- Shaman Skull Quest #6
 function event_say(e)
-	local qglobals = eq.get_qglobals(e.other,e.self);
+	local qglobals = eq.get_qglobals(e.self,e.other);
 	if(e.message:findi("Hail")) then
 		e.self:Say("Greetings, " .. e.other:GetName() .. ", Perhaps you've come to purchase some of my rare supplies? I have a special blend of eleven herbs and spices......oh wait.....I'm sold out of that......anyway. What can I do for you?");
 	elseif(e.message:findi("Vagnar") and tonumber(qglobals.shmskullquest) >= 7 and e.other:GetFaction(e.self) < 6) then

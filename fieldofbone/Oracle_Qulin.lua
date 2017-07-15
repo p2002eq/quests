@@ -1,6 +1,6 @@
 -- Shaman Skull Quest 7
 function event_trade(e)
-	local qglobals = eq.get_qglobals(e.other,e.self);
+	local qglobals = eq.get_qglobals(e.self,e.other);
 	local item_lib = require("items");
 	if(tonumber(qglobals.shmskullquest) >= 11 and item_lib.check_turn_in(e.self, e.trade, {item1 = 30984})) then -- A Dusty Iksar Skull
 		e.self:Emote("runs his scaled fingers slowly over the cracked, brittle skull. 'Granix did well to send you to me, I may yet be able to recover the spirit of this ancient and set it free. Come! I shall need your help with this ritual.'");

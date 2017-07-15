@@ -1,6 +1,6 @@
 -- Shaman Skull Quest 4 & 5
 function event_say(e)
-	local qglobals = eq.get_qglobals(e.other,e.self);
+	local qglobals = eq.get_qglobals(e.self,e.other);
 	if(e.message:findi("Hail")) then
 		e.self:Emote("shows the signs of a great mystic. You can feel the power resonating from his aura. 'Greetings and may the cursed blessings of Cazic-Thule be yours. What may I do for you this fine evening? Perhaps I can [cure disease] or [heal] you, perhaps even [purge toxins] from your system?");
 	elseif(e.message:findi("cure disease")) then
@@ -15,7 +15,7 @@ function event_say(e)
 end
 
 function event_trade(e)
-	local qglobals = eq.get_qglobals(e.other,e.self);
+	local qglobals = eq.get_qglobals(e.self,e.other);
 	local item_lib = require("items");
 	if((tonumber(qglobals.shmskullquest) >= 5) and (item_lib.check_turn_in(e.self, e.trade, {item1 = 12736, item2 = 5143})) and e.other:GetFaction(e.self)) then -- Full C.O.R.N. Chest and Iron Cudgel of the Mystic
 		e.self:Emote("'s voice booms loudly and does not sound the same as before. 'You have brought the skulls back to the empire. For this you shall be rewarded. You are now a prophet of the Temple of Terror. Go and find the Skulls of Di Nozok. I shall wait within Zand. Bring them along with your iron cudgel of the prophet.'");

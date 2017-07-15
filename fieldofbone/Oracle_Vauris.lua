@@ -1,6 +1,6 @@
 -- Shaman Skull Quest 8
 function event_say(e)
-	local qglobals = eq.get_qglobals(e.other,e.self);
+	local qglobals = eq.get_qglobals(e.self,e.other);
 	if(e.message:findi("Hail")) then
 		e.self:Emote("Oracle Vauris motions for silence and points at the shifting sands below him without a word.");
 	elseif(e.message:findi("Rile")) then
@@ -15,7 +15,7 @@ function event_say(e)
 end
 
 function event_trade(e)
-	local qglobals = eq.get_qglobals(e.other,e.self);
+	local qglobals = eq.get_qglobals(e.self,e.other);
 	local item_lib = require("items");
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 30989})) then -- Shrunken Iksar Skull Necklace
 		e.self:Emote("Vauris looks into your eyes for a moment. He seems to be searching for something. Apparently he finds whatever he was looking for as he pulls an empty bag from his belt. He takes the necklace and snaps the cord with his teeth allowing the skulls to fall into the bag. He looks you square in the eyes again and motions for you to put out your hand. You do so and almost immediately regret it. Vauris takes the knife from his belt and slices open your forearm allowing your blood to fall into the bag. He uses the cord to tie the bag and hands it back to you.");

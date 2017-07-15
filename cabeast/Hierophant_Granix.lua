@@ -1,6 +1,6 @@
 -- Shaman Skull Quest 7
 function event_say(e)
-	local qglobals = eq.get_qglobals(e.other,e.self);
+	local qglobals = eq.get_qglobals(e.self,e.other);
 	if(e.message:findi("Hail")) then
 		e.self:Say("Leave me in peace " .. e.other:GetName() .. ", I have little desire for company now. The Faceless sends visions to me that may hold the fate of our race in sway.");
 	elseif(e.message:findi("What Visions?") and tonumber(qglobals.shmskullquest) >= 10 and e.other:GetFaction(e.self) <= 4) then
@@ -11,7 +11,7 @@ function event_say(e)
 end
 
 function event_trade(e)
-	local qglobals = eq.get_qglobals(e.other,e.self);
+	local qglobals = eq.get_qglobals(e.self,e.other);
 	local item_lib = require("items");
 	if((tonumber(qglobals.shmskullquest) >= 10) and (item_lib.check_turn_in(e.self, e.trade, {item1 = 30984})) and (e.other:GetFaction(e.self) <= 4)) then -- A Dusty Iksar Skull
 		e.self:Emote("peers at the skull intently. 'There is strange magic in this skull Cradossk, whatever necromancer animated this skeleton was a powerful warlock indeed. I sense the power of several ancients in this relic. Take this skull to Oracle Qulin in the field of bone, he may be able to perform the ritual which will free this ancient's spirit from the mortal realm.'");

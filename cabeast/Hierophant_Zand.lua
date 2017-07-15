@@ -1,7 +1,7 @@
 --Heirophant Zand starts and ends The Penance quest. This allows a young iksar to replace their guild's starting item if they've lost it. She is also for the 3rd and 5th shaman skullcap quests.
 
 function event_say(e)
-	local qglobals = eq.get_qglobals(e.other,e.self);
+	local qglobals = eq.get_qglobals(e.self,e.other);
 	if((e.message:findi("chosen savior")) and (e.other:GetFaction(e.self) <= 4) and (tonumber(qglobals.shmskullquest) >= 2)) then
 		e.self:Emote("closes his eyes and bows before you. 'I am honored to meet the one who shall pledge his life to the return of the Skulls of the Ancients. However, I must see proof of our prowess as of yet. Go to the outlands and retrieve one Froglok Hexdoll, and no, they are not found on Frogloks. They are shaman dolls made by the goblin tribe.");
 	elseif(e.message:findi("hail")) then
@@ -15,7 +15,7 @@ function event_say(e)
 end
 
 function event_trade(e)
-	local qglobals = eq.get_qglobals(e.other,e.self);
+	local qglobals = eq.get_qglobals(e.self,e.other);
 	local item_lib = require("items");
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 18272, item2 = 24770})) then -- Rites of Exoneration and Filled Penance Bag
 		e.self:Emote("takes the bag and tome from you and in return gives you the item that you have been thinking of all of this time.");
