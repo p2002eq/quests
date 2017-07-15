@@ -2,7 +2,7 @@
 function event_say(e)
 	local qglobals = eq.get_qglobals(e.self,e.other);
 	if(e.message:findi("hail")) then
-		e.self:Say("Greetings, and may the pain of the ancients guide you. You have come to us for guidance, have you not? We are the Hierophants of Cabilis and we guide the young Scale Mystics. All petitioners shall speak with me of [temple tasks].");
+		e.self:Say("Greetings, and may the pain of the ancients guide you. You have come to us for guidance, have you not? We are the Hierophants of Cabilis and we guide the young Scale Mystics. All petitioners shall speak with me of [temple tasks]. I can also check the [progress] of tasks we have assigned you.");
 	elseif((e.message:findi("temple tasks")) and (e.other:GetFaction(e.self) <= 4) and (e.other:Class() == "Shaman")) then
 		e.self:Say("The Temple of Terror requires all young Scaled Mystics to [perform daily tasks.]. The tasks are necessary to the upkeep of our order as well as that of our brothers, the Crusaders of Greenmist.");
 	elseif((e.message:findi("daily tasks")) and (e.other:GetFaction(e.self) <= 4) and (e.other:Class() == "Shaman")) then
@@ -20,6 +20,33 @@ function event_say(e)
 		e.self:Emote("seems unsure of your prowess. 'Hmmm. First you shall go after the two skulls of the Cleansers of the Outlands. If you find them, bring them back unbroken and then I shall trust you. Hand me both skulls and your iron cudgel of the clairvoyant and I will know you are prepared.'");
 	elseif(e.message:findi("liquid")) then
 		e.self:Say("The bottle contains deklium in a liquid solution. The metal of prophecy has been determined to rest in a mass of living earth. Our scholars have written of a mass of ore that fell from the heavens. This ore was used in the creation of a blade of our father, Rile. We have been filled with visions of this blade. I have seen it in the hands of our Crusaders as they march towards the new age of Greenmist! Seek out the corrupted earth that guards the interlopers. We have an alchemist near there. He will be able to use the deklium to determine which golem contains the metal. Take care to go in force. I sense that there will be a battle.");
+	elseif(e.message:findi("progress")) then
+		if(e.self:HasItem(5149)) then -- Skyiron Cudgel of the Ancients
+			e.self:Say("You have completed the Shaman Skulls Quest. No flag given.");
+		elseif(e.self:HasItem(5148)) then -- SkyIron Cudgel of the Arisen
+			e.self:Say("You have completed Shaman Skull Quest #7 and have been flagged for the begining of the 8th quest.");
+			eq.set_global("shmskullquest","13",5,"F"); -- Completed Cudgel Quest 7
+		elseif(e.self:HasItem(5146)) then -- Iron Cudgel of the Hierophant
+			e.self:Say("You have completed Shaman Skull Quest #6 and have been flagged for the begining of the 7th quest.");
+			eq.set_global("shmskullquest","10",5,"F"); -- Completed Cudgel Quest 6
+		elseif(e.self:HasItem(5145)) then -- Iron Cudgel of the Channeler
+			e.self:Say("You have completed Shaman Skull Quest #5 and have been flagged for the begining of the 6th quest.");
+			eq.set_global("shmskullquest","7",5,"F"); -- Completed Cudgel Quest 5
+		elseif(e.self:HasItem(5144)) then -- Iron Cudgel of the Prophet
+			e.self:Say("You have completed Shaman Skull Quest #4 and have been flagged for the begining of the 5th quest.");
+			eq.set_global("shmskullquest","6",5,"F"); -- Completed Cudgel Quest 4
+		elseif(e.self:HasItem(5143)) then -- Iron Cudgel of the Mystic
+			e.self:Say("You have completed Shaman Skull Quest #3 and have been flagged for the begining of the 4th quest.");
+			eq.set_global("shmskullquest","5",5,"F"); -- Completed Cudgel Quest 3
+		elseif(e.self:HasItem(5142)) then -- Iron Cudgel of the Seer
+			e.self:Say("You have completed Shaman Skull Quest #2 and have been flagged for the begining of the 3rd quest.");
+			eq.set_global("shmskullquest","2",5,"F"); -- Completed Cudgel Quest 2
+		elseif(e.self:HasItem(5141)) then -- Iron Cudgel of the Clairvoyant
+			e.self:Say("You have completed Shaman Skull Quest #1 and have been flagged for the begining of the 2nd quest.");
+			eq.set_global("shmskullquest","1",5,"F"); -- Completed Cudgel Quest 1
+		else
+			e.self:Say("I cannot locate your Cudgel, it does not appear you have assisted us. We could use some help with [Lost Skulls].");
+		end
 	end
 end
 
@@ -49,7 +76,6 @@ function event_trade(e)
 		e.other:Faction(282, 10); -- Scaled Mystics
 		e.other:Faction(193, 10); -- Legion of Cabilis
 		e.other:QuestReward(e.self,0,0,0,1,5141,2000); -- Iron Cudgel of the Clairvoyant
-	--shaman skull quest no.2 turn in - check for Skull with I and Skull with II turn in and cudgel
 	elseif((tonumber(qglobals.shmskullquest) >= 1) and (item_lib.check_turn_in(e.self, e.trade, {item1 = 12724, item2 = 12725, item3 = 5141})) and (e.other:GetFaction(e.self) <= 4)) then -- Skull with I, Skull with II and Iron Cudgel of the Clairvoyant
 		e.self:Say("We are in your debt. You are truly one who shall collect all the lost ancient skulls. Take your weapon. Go to Hierophant Zand and he shall guide you further. Tell him you are [the chosen saviour].");
 		eq.set_global("shmskullquest","2",5,"F");	-- Completed Cudgel Quest 2
