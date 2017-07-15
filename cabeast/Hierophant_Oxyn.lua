@@ -21,27 +21,27 @@ function event_say(e)
 	elseif(e.message:findi("liquid")) then
 		e.self:Say("The bottle contains deklium in a liquid solution. The metal of prophecy has been determined to rest in a mass of living earth. Our scholars have written of a mass of ore that fell from the heavens. This ore was used in the creation of a blade of our father, Rile. We have been filled with visions of this blade. I have seen it in the hands of our Crusaders as they march towards the new age of Greenmist! Seek out the corrupted earth that guards the interlopers. We have an alchemist near there. He will be able to use the deklium to determine which golem contains the metal. Take care to go in force. I sense that there will be a battle.");
 	elseif(e.message:findi("progress")) then
-		if(e.self:HasItem(5149)) then -- Skyiron Cudgel of the Ancients
+		if(e.other:HasItem(5149)) then -- Skyiron Cudgel of the Ancients
 			e.self:Say("You have completed the Shaman Skulls Quest. No flag given.");
-		elseif(e.self:HasItem(5148)) then -- SkyIron Cudgel of the Arisen
+		elseif(e.other:HasItem(5148)) then -- SkyIron Cudgel of the Arisen
 			e.self:Say("You have completed Shaman Skull Quest #7 and have been flagged for the begining of the 8th quest.");
 			eq.set_global("shmskullquest","13",5,"F"); -- Completed Cudgel Quest 7
-		elseif(e.self:HasItem(5146)) then -- Iron Cudgel of the Hierophant
+		elseif(e.other:HasItem(5146)) then -- Iron Cudgel of the Hierophant
 			e.self:Say("You have completed Shaman Skull Quest #6 and have been flagged for the begining of the 7th quest.");
 			eq.set_global("shmskullquest","10",5,"F"); -- Completed Cudgel Quest 6
-		elseif(e.self:HasItem(5145)) then -- Iron Cudgel of the Channeler
+		elseif(e.other:HasItem(5145)) then -- Iron Cudgel of the Channeler
 			e.self:Say("You have completed Shaman Skull Quest #5 and have been flagged for the begining of the 6th quest.");
 			eq.set_global("shmskullquest","7",5,"F"); -- Completed Cudgel Quest 5
-		elseif(e.self:HasItem(5144)) then -- Iron Cudgel of the Prophet
+		elseif(e.other:HasItem(5144)) then -- Iron Cudgel of the Prophet
 			e.self:Say("You have completed Shaman Skull Quest #4 and have been flagged for the begining of the 5th quest.");
 			eq.set_global("shmskullquest","6",5,"F"); -- Completed Cudgel Quest 4
-		elseif(e.self:HasItem(5143)) then -- Iron Cudgel of the Mystic
+		elseif(e.other:HasItem(5143)) then -- Iron Cudgel of the Mystic
 			e.self:Say("You have completed Shaman Skull Quest #3 and have been flagged for the begining of the 4th quest.");
 			eq.set_global("shmskullquest","5",5,"F"); -- Completed Cudgel Quest 3
-		elseif(e.self:HasItem(5142)) then -- Iron Cudgel of the Seer
+		elseif(e.other:HasItem(5142)) then -- Iron Cudgel of the Seer
 			e.self:Say("You have completed Shaman Skull Quest #2 and have been flagged for the begining of the 3rd quest.");
 			eq.set_global("shmskullquest","2",5,"F"); -- Completed Cudgel Quest 2
-		elseif(e.self:HasItem(5141)) then -- Iron Cudgel of the Clairvoyant
+		elseif(e.other:HasItem(5141)) then -- Iron Cudgel of the Clairvoyant
 			e.self:Say("You have completed Shaman Skull Quest #1 and have been flagged for the begining of the 2nd quest.");
 			eq.set_global("shmskullquest","1",5,"F"); -- Completed Cudgel Quest 1
 		else
