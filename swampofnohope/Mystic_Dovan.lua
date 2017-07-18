@@ -21,7 +21,7 @@ function event_trade(e)
 		e.self:Emote("'s voice booms loudly and does not sound the same as before. 'You have brought the skulls back to the empire. For this you shall be rewarded. You are now a prophet of the Temple of Terror. Go and find the Skulls of Di Nozok. I shall wait within Zand. Bring them along with your iron cudgel of the prophet.'");
 		e.other:Faction(282, 10); --Scaled Mystics
 		e.other:Faction(193, 10); --Legion of Cabilis
-		e.other:QuestReward(e.self,0,0,0,0,5144,100000); --Give the player the Iron Cudgel of the Prophet
+		e.other:QuestReward(e.self,0,0,0,0,5144,100000); -- Iron Cudgel of the Prophet
 		eq.set_global("shmskullquest","6",5,"F"); -- Completed Cudgel Quest 4
 	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 12671})) then -- A Giant Blood Sac
 		e.self:Say("Day destroys the night, night divides the day. Tried to run, tried to hide, break on through to the other side."); -- Obviously borrowed.
