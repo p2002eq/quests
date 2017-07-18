@@ -24,7 +24,6 @@ function event_trade(e)
 			e.other:Faction(42, 15); --CoV
 			e.other:Faction(362, 3); --Yelinak
 			e.other:Faction(189, -7); --Kromzek
-			e.other:AddEXP(200);
 			e.other:QuestReward(e.self,math.random(10),math.random(10),math.random(10),math.random(10),0,250);
 			eq.depop_with_timer();	--depop after hand-in
 		end
