@@ -33,6 +33,19 @@ function event_say(e)
 			end
 		end
 	end
+	
+	--GM Testing commands/reset controls.  Sometimes requires qglobal commands to be entered twice to take effect
+	if(e.message:findi("event reset") and e.self:GetGM() == true) then		
+		eq.delete_global("garzicor_spirit");
+		eq.delete_global("garzicor_battle");
+		e.self:Message(5,"Event qglobals have been reset.");
+	elseif(e.message:findi("event test seance") and e.self:GetGM() == true) then	-- command to trigger temporary qglobal flags
+		eq.set_global("garzicor","4",5,"M30");	
+		e.self:Message(14,"Seance event ready.  say [Remember, Garzicor] to begin");
+	elseif(e.message:findi("event test battle") and e.self:GetGM() == true) then	-- command to trigger temporary qglobal flags
+		eq.set_global("garzicor","7",5,"M30");
+		e.self:Message(15,"Battle event ready.  say [You are one but two.  Your vengeance shall find a home]");
+	end
 end
 
 function event_timer(e)
@@ -71,8 +84,8 @@ function Seance(e)
 	event_emote(e,"I am one but two");
 	ThreadManager:Wait(5);
 	event_emote(e,"I am sorry");
-	eq.create_ground_object(1888, 1068.24, 1516.23, -136.19, 177, 30*1000);	-- Dragonwing Skin
-	eq.create_ground_object(1889, 1068.24, 1513.18, -136.19, 177, 30*1000);	--  Dragonbone Dust
+	eq.create_ground_object(1888, 1068.24, 1516.23, -136.19, 177, 60*1000);	-- Dragonwing Skin
+	eq.create_ground_object(1889, 1068.24, 1513.18, -136.19, 177, 60*1000);	--  Dragonbone Dust
 	eq.stop_timer("TMHB");
 end
 

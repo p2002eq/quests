@@ -61,7 +61,7 @@ function event_trade(e)
 		--Quest Trade Dialog for Step 6.0
 		if (qglobals["garzicor"] == "4") then		--  checks for qglobal of 4.0 since 5.0 event does not currently give a qglobal flag.  5.0 flag will be awarded below and 6.0 to be awarded by Eldriaks
 			if(item_lib.check_turn_in(e.self, e.trade, {item1 = 1887})) then	--Check for Dragon Crafted Urn (1st version)
-				e.self:Say("You found it!  Thank you, ".. e.other:GetName() .. ".  Please show this immediately to Eldriaks.  He should be nearby."); 	--need actual quest text
+				e.self:Say("You found it!  Thank you, ".. e.other:GetName() .. ".  Please show this immediately to Eldriaks Fe`Dhar.  He should be in the library."); 	--need actual quest text
 				e.other:QuestReward(e.self,0,0,0,0,2053,100);	-- Dragon Crafted Urn (2nd version)
 				eq.set_global("garzicor","5",5,"F"); -- Completed Garzicor Quest Part 5.0
 			end
