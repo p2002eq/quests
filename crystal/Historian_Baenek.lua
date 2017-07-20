@@ -8,7 +8,7 @@ function event_trade(e)
 	local qglobals = eq.get_qglobals(e.self,e.other);
 	
 	if (qglobals["garzicor"] == "2") then	--check prequisite flag from Loremaster Sarl in thurgadina
-		if(item_lib.check_turn_in(e.trade, {item1 = 18237})) then	--Check for Worn Coldain Tome	
+		if(item_lib.check_turn_in(e.self, e.trade, {item1 = 18237})) then	--Check for Worn Coldain Tome	
 			e.other:Faction(399,10);	--Citizens of Frostone
 			e.other:AddEXP(100);
 			e.self:Say("You found one of our lost tomes! A lost volume of the Book of Grudges, quite a find. Oh dear Brell! This evidence proves that the legend of Burdael is true! Thank you, " .. e.other:GetName() .. ". And now I suppose you wish to meet his ghostly form. I have sensed him from time to time. I will call to him now. Go and wait for him in the lower halls. His spirit sometimes calls to me from the fearsome Stalag Terrors lair. Be wary though, unlife may have twisted his mind beyond reason.");

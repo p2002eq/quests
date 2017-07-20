@@ -48,27 +48,22 @@ function event_trade(e)
 		
 		--Quest Trade Dialog for Step 4.0
 		if (qglobals["garzicor"] == "3") then
-			if(item_lib.check_turn_in(e.trade, {item1 = 1837})) then	--Check for Onyxbrand (Axe from Ghost of Burdael)	
+			if(item_lib.check_turn_in(e.self, e.trade, {item1 = 1837})) then	--Check for Onyxbrand (Axe from Ghost of Burdael)	
 				e.self:Emote("examines the axe closely. The wurm's eyes widen as he makes out the name of Garzicor and immediately raises his head to the ceiling, letting out a howl of emotional pain. Your bones shake with the screach, an image of a man in the midst of a rain of his own child's blood comes to mind, the agony is so great. Out of breath, Oglard drops his head and focuses his attention back to you, barely able to hold himself up. He places an urn before you and says, 'You must find his corpse. Find his burial site and summon Garzicor's spirit by speaking your remembrance of him. Speak to him and find out all you can. Return to me with 2 pieces of his corpse combined in that urn. Help us " .. e.other:GetName() .. " , you MUST!'");
 				e.other:Faction(42, 15); --CoV
 				e.other:Faction(362, 3); --Yelinak
 				e.other:Faction(189, -7); --Kromzek
 				e.other:QuestReward(e.self,0,0,0,0,17050,250);	-- Dragon Crafted Urn (Combine Container)
-				
-				--if (tonumber(qglobals["garzicor"]) < 4) then	--checks qglobals flag to see if already progressed further on quest
-					eq.set_global("garzicor","4",5,"F"); -- Completed Garzicor Quest Part 4.0
-				--end
+				eq.set_global("garzicor","4",5,"F"); -- Completed Garzicor Quest Part 4.0
 			end
 		end
 
 		--Quest Trade Dialog for Step 6.0
 		if (qglobals["garzicor"] == "4") then		--  checks for qglobal of 4.0 since 5.0 event does not currently give a qglobal flag.  5.0 flag will be awarded below and 6.0 to be awarded by Eldriaks
-			if(item_lib.check_turn_in(e.trade, {item1 = 1887})) then	--Check for Dragon Crafted Urn (1st version)
+			if(item_lib.check_turn_in(e.self, e.trade, {item1 = 1887})) then	--Check for Dragon Crafted Urn (1st version)
 				e.self:Say("You found it!  Thank you, ".. e.other:GetName() .. ".  Please show this immediately to Eldriaks.  He should be nearby."); 	--need actual quest text
 				e.other:QuestReward(e.self,0,0,0,0,2053,100);	-- Dragon Crafted Urn (2nd version)
-				--if (tonumber(qglobals["garzicor"]) < 5) then	--checks qglobals flag to see if already progressed further on quest
-					eq.set_global("garzicor","5",5,"F"); -- Completed Garzicor Quest Part 5.0
-				--end
+				eq.set_global("garzicor","5",5,"F"); -- Completed Garzicor Quest Part 5.0
 			end
 		end
 	end

@@ -71,7 +71,7 @@ function event_trade(e)
 	local qglobals = eq.get_qglobals(e.self,e.other);
 	
 	if ((book == 1) and (qglobals["garzicor"] == "1")) then 	--checks for final waypoint being reached and that player has received previous qglobal flag
-		if(item_lib.check_turn_in(e.trade, {platinum = 50})) then		
+		if(item_lib.check_turn_in(e.self, e.trade, {platinum = 50})) then		
 			e.other:QuestReward(e.self,0,0,0,0,18237,250);	--Worn Coldain Tome
 			eq.set_global("garzicor","2",5,"F"); -- Completed Garzicor Quest Part 2.0
 			eq.set_timer("depop",1);	--depop after hand-in
