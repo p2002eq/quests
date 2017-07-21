@@ -1,4 +1,5 @@
 -- #RoF_spawner (154372) for Ring of Fire in Acrylia
+--Original script written by Kalaylus
 
 -- NPCs used in event
 trash_mobs = { 154353, 154354, 154355, 154356, 154363 } -- 50 war, 50 SK, 55 war, 55 sk, priest
@@ -42,27 +43,33 @@ function process_wave()
 	if round == 0 then
 		round, wave = 1, 1;
 		spawn_trash(round);
-		return 120;
+		return 10;
+		--return 120;
 	elseif round == 1 then
 		if wave < 10 then
 			spawn_trash(round);
-			return 120;
+			return 10;
+			--return 120;
 		else
 			spawn_boss(round);
 			round, wave = end_round(round, wave);
-			return 300;
+			return 30;
+			--return 300;
 		end
 	elseif round == 2 then
 		if wave < 7 or (wave > 7 and wave < 14) then
 			spawn_trash(round);
-			return 90;
+			return 10;
+			--return 90;
 		elseif wave == 7 then
 			spawn_mini();
-			return 90;
+			return 10;
+			--return 90;
 		else
 			spawn_boss(round);
 			round, wave = end_round(round, wave);
-			return 300;
+			return 30;
+			--return 300;
 		end
 	elseif round >= 3 and round <= 6 then
 		if wave == 20 then
@@ -71,10 +78,12 @@ function process_wave()
 			return math.random(300, 500);
 		elseif wave % 5 == 0 then
 			spawn_mini();
-			return 60;
+			return 10;
+			--return 60;
 		else
 			spawn_trash(round);
-			return 60;
+			return 10;
+			--return 60;
 		end
 	else -- should only get here if round > 6 i.e. event is over!
 		reset_event()
@@ -121,7 +130,8 @@ end
 function spawn_boss(rnd)
 	local boss = eq.spawn2(boss_mobs[rnd], 0, 0, unpack(boss_locs[1]));
 	boss:Say("I now serve the master of the grimling horde. You too shall be reborn!");
-	boss:CastToNPC():MoveTo(unpack(boss_locs[2]), true);
+	--boss:CastToNPC():MoveTo(unpack(boss_locs[2]), true);
+	boss:CastToNPC():MoveTo(-104,62,-30,0, true);
 end
 
 function reset_event()
