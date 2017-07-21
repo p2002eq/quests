@@ -12,6 +12,8 @@ warder = 154377 -- 2857 is the banish spell
 boss_locs = { {-83, 13, -29, 0}, {-104, 62, -30, 0} } -- Only final wave boss spawns out here
 grim_locs = { {-86, 99, -30, 172}, {-100, 112, -29, 147}, {-139, 102, -29, 96}, {-135, 59, -29, 26} }
 warder_loc = { -96, -15, -30, 15 }
+local wave = 0;
+local round = 0;
 
 function event_spawn(e)
 	reset_event();
@@ -40,6 +42,7 @@ function process_wave()
 	local tim_ret;
 	-- logic for all of the waves
 	wave = wave + 1; -- wave always increments!
+	eq.zone_emote(154,"Wave #" .. wave .. " Round #" .. round);
 	if round == 0 then
 		round, wave = 1, 1;
 		spawn_trash(round);
