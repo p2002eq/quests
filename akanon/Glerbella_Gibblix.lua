@@ -26,7 +26,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	if (item_lib.check_turn_in(e.self, e.trade, {item1 = 10989})) then -- Parchment to Glerbella
-		e.self:Say("Hail " .. e.other:GetName() .. "! You must be one of Derthix new disciples. Derthix has asked me to help get you outfitted in a suit of armor to protect you from the weapons of our foes. I have assembled a kit for you that will allow you to construct the armor pieces once you have gathered the necessary components. The required components vary according to which piece of Plague Raiser Armor you are planning on assembling. Do you wish to craft a [plague raiser helm], a [plague raiser bracer], [plague raiser gauntlets], [plague raiser boots], [plague raiser vambraces], [plague raiser greaves], or a [plague raiser breastplate].");
+		e.self:Say("Hail " .. e.other:GetName() .. "! You must be one of Derthix new disciples. Derthix has asked me to help get you outfitted in a suit of armor to protect you from the weapons of our foes. I have assembled a kit for you that will allow you to construct the armor pieces once you have gathered the necessary components. The required components vary according to which piece of Plague Raiser Armor you are planning on assembling. Do you wish to craft a [" .. eq.say_link("plague raiser helm") .. "], a [" .. eq.say_link("plague raiser bracer") .. "], [" .. eq.say_link("plague raiser gauntlets") .. "], [" .. eq.say_link("plague raiser boots") .. "], [" .. eq.say_link("plague raiser vambraces") .. "], [" .. eq.say_link("plague raiser greaves") .. "], or a [" .. eq.say_link("plague raiser breastplate") .. "].");
 		e.other:QuestReward(e.self,0,0,0,0,17124,100); -- Mail Assembly Kit
 	end
 	item_lib.return_items(e.self, e.other, e.trade)

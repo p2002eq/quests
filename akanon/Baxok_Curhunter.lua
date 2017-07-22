@@ -12,9 +12,9 @@ end
 
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Hail, " .. e.other:GetName() .. ". I invite you to serve the mighty state of Ak'Anon by becoming a Gemchopper. We gnomes are not known for our warrior skills, but those few who endure and survive to become elite amongst our warriors soon find that the technology of the gnomes has found its way into our halls. You must be a [new recruit] or [an outsider], perhaps?");
+		e.self:Say("Hail, " .. e.other:GetName() .. ". I invite you to serve the mighty state of Ak'Anon by becoming a Gemchopper. We gnomes are not known for our warrior skills, but those few who endure and survive to become elite amongst our warriors soon find that the technology of the gnomes has found its way into our halls. You must be a [" .. eq.say_link("new recruit") .. "] or [" .. eq.say_link("an outsider") .. "], perhaps?");
 	elseif(e.message:findi("new recruit")) then
-		e.self:Say("Well, good to make your acquaintance, " .. e.other:GetName() .. ". Maybe someday you shall be a great Watchman. Until then, I have a task for you. Will you [serve the Crown] or has a yellow streak appeared upon your back?");
+		e.self:Say("Well, good to make your acquaintance, " .. e.other:GetName() .. ". Maybe someday you shall be a great Watchman. Until then, I have a task for you. Will you [" .. eq.say_link("serve the Crown") .. "] or has a yellow streak appeared upon your back?");
 	elseif(e.message:findi("an outsider")) then
 		e.self:Say("I should have guessed as much. You look the part.");
 	elseif(e.message:findi("serve the crown")) then

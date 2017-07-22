@@ -1,10 +1,10 @@
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Greetings, child. Welcome to Gemchopper Hall. I trust that you are a [warrior], or perhaps you are lost..?");
+		e.self:Say("Greetings, child. Welcome to Gemchopper Hall. I trust that you are a [" .. eq.say_link("warrior") .. "], or perhaps you are [" .. eq.say_link("lost") .. "]..?");
 	elseif(e.message:findi("lost")) then
 		e.self:Say("One can easily get lost in Ak'Anon. You must get your vision checked. If you are truly lost, I would advise speaking with a mechanical guide. There should be one close by on the main walkway.");
 	elseif(e.message:findi("warrior")) then
-		e.self:Say("That is good news! We gnomes are not known for our love of battle so it is always good to bring new blood into our ranks. We shall prove our worth as warriors to all other races. For now. there is much to do in Ak'Anon. There are [rogue clockworks] and the [cargo clockwork].");
+		e.self:Say("That is good news! We gnomes are not known for our love of battle so it is always good to bring new blood into our ranks. We shall prove our worth as warriors to all other races. For now. there is much to do in Ak'Anon. There are [" .. eq.say_link("rogue clockworks") .. "] and the [" .. eq.say_link("cargo clockwork") .. "].");
 	elseif(e.message:findi("rogue clockworks")) then
 		e.self:Say("The clockworks are the responsibility of Manik Compolten. Speak with him - I am sure he is here somewhere.");
 	elseif(e.message:findi("cargo clockwork")) then

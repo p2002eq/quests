@@ -12,9 +12,9 @@ end
 
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("It is good to see the young show an interest in the ways of magic. Its circles can be used in tandem with our unique ways of tinkering. Have you [joined the Eldritch Collective] or are you [merely curious]?");
+		e.self:Say("It is good to see the young show an interest in the ways of magic. Its circles can be used in tandem with our unique ways of tinkering. Have you [" .. eq.say_link("joined the Eldritch Collective") .. "] or are you [" .. eq.say_link("merely curious") .. "]?");
 	elseif(e.message:findi("joined the Eldritch Collective")) then
-		e.self:Say("Very good. Would you like to [go on a little mission] or are you busy studying?");
+		e.self:Say("Very good. Would you like to [" .. eq.say_link("go on a little mission") .. "] or are you busy studying?");
 	elseif(e.message:findi("merely curious")) then
 		e.self:Say("Please look around. We have much knowledge within these halls. May you soon find your place among our members. Good day.");
 	elseif(e.message:findi("go on a little mission")) then

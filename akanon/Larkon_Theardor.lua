@@ -1,16 +1,16 @@
 -- Air Tight Box - Basilisk Tongues - Bozinite Pestle - Minotaur Horns
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Greetings! Welcome to the Library of Mechanimagica. You must be a [current member of the Library] or has my [mind begun to slip]?");
-	elseif(e.message:findi("mind")) then
-		e.self:Say("What!!? That was but a joke. I try to make you feel comfortable with a little levity and you proclaim my mind has gone the way of Meldrath's. Well.. enough frivolity. You will do your part to help in the menial tasks of the Collective. Do you want the [clean tasks] or the [dirty tasks]?");
-	elseif(e.message:findi("tasks")) then
+		e.self:Say("Greetings! Welcome to the Library of Mechanimagica. You must be a [" .. eq.say_link("current member of the Library") .. "] or has my [" .. eq.say_link("mind begun to slip") .. "]?");
+	elseif(e.message:findi("mind begun to slip")) then
+		e.self:Say("What!!? That was but a joke. I try to make you feel comfortable with a little levity and you proclaim my mind has gone the way of Meldrath's. Well.. enough frivolity. You will do your part to help in the menial tasks of the Collective. Do you want the [" .. eq.say_link("clean tasks") .. "] or the [" .. eq.say_link("dirty tasks") .. "]?");
+	elseif(e.message:findi("dirty tasks")) then
 		e.self:Say("Clean.. Dirty.. It matters not. You have upset me with your rude remarks. You will go to the Steamfont Mountains. There you will find Fodin and tell him I have sent you. He will have a nice tidy task for you. A bath!! Be on your way!");
 	elseif(e.message:findi("current member of the library")) then
-		e.self:Say("Good. The last thing a member of the Eldritch Collective needs is to lose his mind. Look what happened to Meldrath. Enough chitchat. I am Larkon and it is not my job to teach you. It is my job to direct you to service. We require items and such to complete our studies. We need someone of moderate skill to [gather minotaur horns] and [collect basilisk tongues].");
+		e.self:Say("Good. The last thing a member of the Eldritch Collective needs is to lose his mind. Look what happened to Meldrath. Enough chitchat. I am Larkon and it is not my job to teach you. It is my job to direct you to service. We require items and such to complete our studies. We need someone of moderate skill to [" .. eq.say_link("gather minotaur horns") .. "] and [" .. eq.say_link("collect basilisk tongues") .. "].");
 	elseif(e.message:findi("gather minotaur horns")) then
 		e.self:Say("We magicians require the horns of minotaurs. We crush them down and use the powder in many of our tests. Go and fetch two minotaur horns. Do not return empty-handed. I await your return as does your reward.");
-	elseif(e.message:findi("basilisk tongues")) then
+	elseif(e.message:findi("collect basilisk tongues")) then
 		e.self:Say("Very good of you. Go beyond the land of the gnomes and seek out basilisks. Return four of their tongues to me and I shall share the knowledge of the magicians of the Eldritch Collective.");
 	end
 end
