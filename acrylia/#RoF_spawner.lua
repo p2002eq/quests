@@ -90,6 +90,7 @@ function process_wave()
 			--return 60;
 		end
 	else -- should only get here if round > 6 i.e. event is over!
+		eq.depop_all(warder);	--depops warder so doesn't shout since event completed
 		reset_event();
 		return 5*60;	--avoids returning nil value error on main timer (5 min reset on event completion
 	end
