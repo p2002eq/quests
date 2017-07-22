@@ -33,7 +33,7 @@ function event_timer(e)
 			local next_timer = process_wave(); -- increments round/wave counters, spawns wave, returns timer for next wave
 			eq.set_timer('main', next_timer * 1000);
 		else
-			reset_event()
+			reset_event();
 		end
 	end
 end
@@ -42,7 +42,7 @@ function process_wave()
 	local tim_ret;
 	-- logic for all of the waves
 	wave = wave + 1; -- wave always increments!
-	eq.zone_emote(154,"Wave #" .. wave .. " Round #" .. round);
+	eq.zone_emote(154,"Round #" .. round .. " Wave #" ..wave);
 	if round == 0 then
 		round, wave = 1, 1;
 		spawn_trash(round);
@@ -78,7 +78,8 @@ function process_wave()
 		if wave == 20 then
 			spawn_boss(round);
 			round, wave = end_round(round, wave);
-			return math.random(300, 500);
+			return 30;
+			--return math.random(300, 500);
 		elseif wave % 5 == 0 then
 			spawn_mini();
 			return 10;
@@ -89,7 +90,8 @@ function process_wave()
 			--return 60;
 		end
 	else -- should only get here if round > 6 i.e. event is over!
-		reset_event()
+		reset_event();
+		return 1;	--avoids returning nil value error on main timer
 	end
 	
 end
@@ -160,7 +162,8 @@ end
 
 function cleanup()
 	eq.stop_all_timers();
-	eq.depop_all(warder); -- depop warder
+	eq.signal(warder,1,3*1000);
+	--eq.depop_all(warder); -- depop warder
 	for _, v in pairs(grims) do -- depop grims
 		eq.depop_all(v);
 	end
