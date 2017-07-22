@@ -36,7 +36,7 @@ function event_trade(e)
 end
 
 function event_spawn(e)
-	eq.set_timer("shout",math.random(30,60)*1000);		--random shout every 30-60 min
+	eq.set_timer("shout",math.random(30,60)*60*1000);		--random shout every 30-60 min
 end
 
 function event_timer(e)
