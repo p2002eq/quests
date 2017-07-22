@@ -9,11 +9,11 @@ warder = 154377 -- 2857 is the banish spell
 
 -- locations used in event, using {x,y,z,h} format
 -- trash_spawns = randomly inside the ring
-boss_locs = { {-83, 13, -29, 0}, {-104, 62, -30, 0} } -- Only final wave boss spawns out here
+boss_locs = { {-83, 13, -30, 0}, {-104, 62, -30, 0} } -- Only final wave boss spawns out here
 grim_locs = { {-86, 99, -30, 172}, {-100, 112, -29, 147}, {-139, 102, -29, 96}, {-135, 59, -29, 26} }
 warder_loc = { -96, -15, -30, 15 }
 local wave = 0;
-local round = 0;
+local round = 6;
 
 function event_spawn(e)
 	reset_event();
@@ -91,7 +91,7 @@ function process_wave()
 		end
 	else -- should only get here if round > 6 i.e. event is over!
 		reset_event();
-		return 1;	--avoids returning nil value error on main timer
+		return 5*60;	--avoids returning nil value error on main timer (5 min reset on event completion
 	end
 	
 end
@@ -136,7 +136,7 @@ function spawn_boss(rnd)
 	local boss = eq.spawn2(boss_mobs[rnd], 0, 0, unpack(boss_locs[1]));
 	boss:Say("I now serve the master of the grimling horde. You too shall be reborn!");
 	--boss:CastToNPC():MoveTo(unpack(boss_locs[2]), true);
-	boss:CastToNPC():MoveTo(-104,62,-30,0, true);
+	boss:CastToNPC():MoveTo(-104,62,-28,0, true);
 end
 
 function reset_event()
