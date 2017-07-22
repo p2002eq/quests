@@ -13,7 +13,7 @@ boss_locs = { {-83, 13, -30, 0}, {-104, 62, -30, 0} } -- Only final wave boss sp
 grim_locs = { {-86, 99, -30, 172}, {-100, 112, -29, 147}, {-139, 102, -29, 96}, {-135, 59, -29, 26} }
 warder_loc = { -96, -15, -30, 15 }
 local wave = 0;
-local round = 6;
+local round = 0;
 
 function event_spawn(e)
 	reset_event();
@@ -141,7 +141,8 @@ end
 
 function reset_event()
 	cleanup();
-	round = 0;
+	round = 6;
+	--round = 0;
 	wave = 0;
 	started = false;
 	eq.set_proximity(-124, -110, 74, 90);
