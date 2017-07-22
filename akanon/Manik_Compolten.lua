@@ -1,6 +1,6 @@
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Greetings, young one. I am Manik Compolten, High Watchman. Are you a [new warrior] or an [experienced fighter]?");
+		e.self:Say("Greetings, young one. I am Manik Compolten, High Watchman. Are you a [" .. eq.say_link("new warrior") .. "] or an [" .. eq.say_link("experienced fighter") .. "]?");
 	elseif(e.message:findi("new warrior")) then
 		if(e.other:GetFaction(e.self) < 5) then
 			e.self:Say("It is always good to see new blood amongst the Gemchoppers. I have a small task for you. Take this keycard. I will give you only one at a time. Use each to obtain blackboxes for the C series clockworks. I am sure you are familiar with the clockworks. When you are done, bring them all to me. Let me know if you need another keycard.");
