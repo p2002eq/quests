@@ -32,5 +32,26 @@ function event_trade(e)
 		e.self:Say("Thank you so much. Tiny gets quite tired doing this by himself. Here you go.");
 		e.other:QuestReward(e.self,0,0,0,0,27265,500000);
 	end
-	item_lib.return_items(e.self, e.other, e.trade)
+	item_lib.return_items(e.self, e.other, e.trade)  
+end
+
+function event_spawn(e)
+	eq.set_timer("shout",math.random(30,60)*1000);		--random shout every 30-60 min
+end
+
+function event_timer(e)
+	if (e.timer == "shout") then
+		local n = math.random(1,5);  	--chooses from 5 known lore dialogues
+		if (n == 1) then
+			e.self:Shout("Somebody is there, I can tell! Listen to me! We were WRONG, he must be awakened!");
+		elseif (n == 2) then
+			e.self:Shout("Release him......... release him.........release......ME!");
+		elseif (n == 3) then
+			e.self:Shout("Zlandicar, I know you are here, you are always here! Do not ignore me, you must listen...we must talk!");
+		elseif (n == 4) then
+			e.self:Shout("Trakanon, my friend, you BETRAYED me!");
+		elseif (n == 5) then
+			e.self:Shout("Harla! Phara! It is cold here, and dark....so very dark.");
+		end
+	end
 end
