@@ -13,7 +13,6 @@ boss_locs = { {-83, 13, -30, 0}, {-104, 62, -30, 0} } -- Only final wave boss sp
 grim_locs = { {-86, 99, -30, 172}, {-100, 112, -29, 147}, {-139, 102, -29, 96}, {-135, 59, -29, 26} }
 warder_loc = { -96, -15, -30, 15 }
 local wave = 0;
-local round = 6;
 
 function event_spawn(e)
 	reset_event();
@@ -42,52 +41,42 @@ function process_wave()
 	local tim_ret;
 	-- logic for all of the waves
 	wave = wave + 1; -- wave always increments!
-	eq.zone_emote(154,"Round #" .. round .. " Wave #" ..wave);
 	if round == 0 then
 		round, wave = 1, 1;
 		spawn_trash(round);
-		return 10;
-		--return 120;
+		return 120;
 	elseif round == 1 then
 		if wave < 10 then
 			spawn_trash(round);
-			return 10;
-			--return 120;
+			return 120;
 		else
 			spawn_boss(round);
 			round, wave = end_round(round, wave);
-			return 30;
-			--return 300;
+			return 300;
 		end
 	elseif round == 2 then
 		if wave < 7 or (wave > 7 and wave < 14) then
 			spawn_trash(round);
-			return 10;
-			--return 90;
+			return 90;
 		elseif wave == 7 then
 			spawn_mini();
-			return 10;
-			--return 90;
+			return 90;
 		else
 			spawn_boss(round);
 			round, wave = end_round(round, wave);
-			return 30;
-			--return 300;
+			return 300;
 		end
 	elseif round >= 3 and round <= 6 then
 		if wave == 20 then
 			spawn_boss(round);
 			round, wave = end_round(round, wave);
-			return 30;
-			--return math.random(300, 500);
+			return math.random(300, 500);
 		elseif wave % 5 == 0 then
 			spawn_mini();
-			return 10;
-			--return 60;
+			return 60;
 		else
 			spawn_trash(round);
-			return 10;
-			--return 60;
+			return 60;
 		end
 	else -- should only get here if round > 6 i.e. event is over!
 		eq.depop_all(warder);	--depops warder so doesn't shout since event completed
@@ -142,8 +131,7 @@ end
 
 function reset_event()
 	cleanup();
-	round = 6;
-	--round = 0;
+	round = 0;
 	wave = 0;
 	started = false;
 	eq.set_proximity(-124, -110, 74, 90);
@@ -164,8 +152,7 @@ end
 
 function cleanup()
 	eq.stop_all_timers();
-	eq.signal(warder,1,3*1000);
-	--eq.depop_all(warder); -- depop warder
+	eq.signal(warder,1,3*1000);	--depop warder
 	for _, v in pairs(grims) do -- depop grims
 		eq.depop_all(v);
 	end
