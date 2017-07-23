@@ -1,14 +1,14 @@
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Welcome. my child.  I am Leraena Shelyrak. overseer of the Temple of Divine Light. Inside this temple. you may find the path to inner peace.  Introduce yourself to each of the priests and priestesses of the temple as well as the paladins. Together we shall put an end to such disruptive influences as the [kobold shamans]."); 
-	elseif(e.message:findi("kobold shaman")) then
-		e.self:Say("The primitive kobold race has begun to show signs of healing ability.  No doubt this was granted by some evil deity.  Since they are of little power compared to a much more superior race such as ours. we only require the talents of young priests to [slay the kobold shaman].");  
+		e.self:Say("Welcome. my child.  I am Leraena Shelyrak. overseer of the Temple of Divine Light. Inside this temple. you may find the path to inner peace.  Introduce yourself to each of the priests and priestesses of the temple as well as the paladins. Together we shall put an end to such disruptive influences as the [" .. eq.say_link("kobold shamans") .. "]."); 
+	elseif(e.message:findi("kobold shamans")) then
+		e.self:Say("The primitive kobold race has begun to show signs of healing ability.  No doubt this was granted by some evil deity.  Since they are of little power compared to a much more superior race such as ours. we only require the talents of young priests to [" .. eq.say_link("slay the kobold shaman") .. "].");  
 	elseif(e.message:findi("slay")) then
 		e.self:Say("You are so young...  Go to Toxxulia and find these kobold shamans.  Cut off their paws and return them to me.  I require three paws as proof of your worth to our temple."); 
 	elseif(e.message:findi("guild coin")) then
 		e.self:Say("Yes, of course. Here it is. Remember that it is not a form of currency.");
 		e.other:SummonItem(13989);
-	elseif(e.message:findi("powerful shamen")) then -- need correct text
+	elseif(e.message:findi("powerful shaman")) then -- need correct text
 		e.self:Say("There are obviously other shaman with greater healing ability than those we have yet seen.  Take this pouch and collect some of their odd necklaces so that we may study them.");
 		e.other:SummonItem(17090);
 	elseif(e.message:findi("greater kobold shamen")) then
@@ -38,7 +38,7 @@ function event_trade(e)
 		e.other:Faction(143,-5,0); --  Heretics.
 		e.other:AddEXP(1000);
 	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 13883,item2 = 13883,item3 = 13883})) then
-		e.self:Say("Fine work. They shall never lay hands upon another kobold again. I mean paws. Here is a small reward for a fine job. Unfortunatly we have recently learned that the shamen in the forest are merely underlings to [more powerful kobold shamen] that reside in the kobold warrens. Continue the work of Quellious.");
+		e.self:Say("Fine work. They shall never lay hands upon another kobold again. I mean paws. Here is a small reward for a fine job. Unfortunatly we have recently learned that the shamen in the forest are merely underlings to [" .. eq.say_link("more powerful kobold shaman") .. "] that reside in the kobold warrens. Continue the work of Quellious.");
 		e.other:SummonItem(eq.ChooseRandom(15213, 15011));
 		e.other:Ding();
 		e.other:Faction(247,20,0);
@@ -46,11 +46,11 @@ function event_trade(e)
 		e.other:Faction(143,-20,0);
 		e.other:AddEXP(500);
 	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 14582})) then -- need correct text
-		e.self:Say("I am unfamiliar with the markings that adorn these necklaces. You have done well thus far in hindering the kobolds worship of their evil deity. I award you the Initiate Symbol of Quellious. Return to me when you feel you are ready to deal with the [greater kobold shaman].");
+		e.self:Say("I am unfamiliar with the markings that adorn these necklaces. You have done well thus far in hindering the kobolds worship of their evil deity. I award you the Initiate Symbol of Quellious. Return to me when you feel you are ready to deal with the [" .. eq.say_link("greater kobold shaman") .. "].");
 		e.other:Ding();
 		e.other:SummonItem(1564);
 	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 14583,item2 = 1564})) then
-		e.self:Say("Your service to this temple is commendable. I award you the rank of Disciple for your devotions to The Tranquil. When you are [ready to advance] return to me and I will set you upon another task.");
+		e.self:Say("Your service to this temple is commendable. I award you the rank of Disciple for your devotions to The Tranquil. When you are [" .. eq.say_link("ready to advance") .. "] return to me and I will set you upon another task.");
 		e.other:SummonItem(1565);
 		e.other:Ding();
 		e.other:Faction(247,20,0);

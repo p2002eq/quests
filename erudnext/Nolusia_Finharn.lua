@@ -1,18 +1,18 @@
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Greetings, " .. e.other:GetName() .. "! Has Lanken sent you to see me? Are you a [visitor or citizen of Erudin]?");
+		e.self:Say("Greetings, " .. e.other:GetName() .. "! Has Lanken sent you to see me? Are you a [" .. eq.say_link("visitor of erudin",false,"visitor or citizen of Erudin") .. "]?");
 	elseif(e.message:findi("visitor of erudin")) then
 		e.self:Say("Then, remember, inside the palace walls, never speak the names of those defilers who have passed on. I shall be at the Vasty Inn later tonight. I can answer your questions there.");
 	elseif(e.message:findi("moodoro")) then
-		e.self:Say("Moodoro Finharn is my brother. He was a good boy up until he met that accursed halfling named [Flynn] Merrington.");
+		e.self:Say("Moodoro Finharn is my brother. He was a good boy up until he met that accursed halfling named [" .. eq.say_link("Flynn") .. "] Merrington.");
 	elseif(e.message:findi("flynn")) then
-		e.self:Say("Flynn Merrington talked my brother into stealing waters from the [Vasty Deep] and selling them to any buyers they could find. The waters from the Vasty Deep are sacred. That is why they started their [business].");
+		e.self:Say("Flynn Merrington talked my brother into stealing waters from the [" .. eq.say_link("Vasty Deep") .. "] and selling them to any buyers they could find. The waters from the Vasty Deep are sacred. That is why they started their [" .. eq.say_link("business") .. "].");
 	elseif(e.message:findi("vasty deep")) then
 		e.self:Say("The Vasty Deep waters are said to be magical. Of course this is rumor, but it does not stop magic users from all over Norrath from trying to obtain some of the waters.");
 	elseif(e.message:findi("business")) then
-		e.self:Say("Flynn had talked Moodoro into delivering the waters to him in Qeynos. Eventually Moodoro was caught. He was sentenced to death, but a few spells from yours truly helped him escape death by replacing him with a [doppelganger].");
+		e.self:Say("Flynn had talked Moodoro into delivering the waters to him in Qeynos. Eventually Moodoro was caught. He was sentenced to death, but a few spells from yours truly helped him escape death by replacing him with a [" .. eq.say_link("doppelganger") .. "].");
 	elseif(e.message:findi("doppelganger")) then
-		e.self:Say("The doppelganger's innards were pulled out its esophagus and Moodoro went to Qeynos to start a new life. Unfortunately, he found Flynn there also. Now they have started up again somehow! My guildmaster is aware of this and fears what the High Council will do to our guild when they find this out. Will you [help] me?");
+		e.self:Say("The doppelganger's innards were pulled out its esophagus and Moodoro went to Qeynos to start a new life. Unfortunately, he found Flynn there also. Now they have started up again somehow! My guildmaster is aware of this and fears what the High Council will do to our guild when they find this out. Will you [" .. eq.say_link("help") .. "] me?");
 	elseif(e.message:findi("help")) then
 		e.self:Say("Find out how they get the water. Get me the water and I shall put a poison on the seal of the container. Then you carefully carry the container back to Flynn, not to my brother, and we shall put an end to this");
 	end

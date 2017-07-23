@@ -1,8 +1,8 @@
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Make it a habit of walking into peoples rooms now do ya? Well seeing as I'm here on business I may have a [proposition] for you.");
+		e.self:Say("Make it a habit of walking into peoples rooms now do ya? Well seeing as I'm here on business I may have a [" .. eq.say_link("proposition") .. "] for you.");
 	elseif(e.message:findi("proposition")) then
-		e.self:Say("I'm in the employment of an alchemist that desires some rare venom from this region of Norrath. I will reward you with a special weapon treatment if you can return to me with a venomous spikefish poison sac, an ancient poison sac, an ancient snake fang, and the blood of a necromancer.");
+		e.self:Say("I'm in the employment of an alchemist that desires some rare venom from this region of Norrath. I will reward you with a [" .. eq.say_link("special weapon treatment") .. "] if you can return to me with a venomous spikefish poison sac, an ancient poison sac, an ancient snake fang, and the blood of a necromancer.");
 	elseif(e.message:findi("special weapon treatment")) then
 		e.self:Say("My employer has uncovered the secrets of the Bloodclaw and can reproduce the weapon treatment used in the forging of the legendary Stiletto of the Bloodclaw.");
 	end

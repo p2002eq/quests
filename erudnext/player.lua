@@ -12,7 +12,7 @@ function event_signal(e)
 	if(e.signal == 1) then
 		e.self:SetBoatID(772);
 		e.self:SetBoatName("Sea_King000");
-	elseif(e.signal == 2) then 
+	elseif(e.signal == 2) then
 		e.self:SetBoatID(773);
 		e.self:SetBoatName("Golden_Maiden000");
 	end

@@ -1,22 +1,22 @@
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Hail, " .. e.other:GetName() .. "! This is the Deepwater Temple. Here you shall find the wisdom and courage of Prexus, the Ocean Lord. I am glad to see you have an interest. Forgive me if I cut our conversation short, but I have many [Deepwater tasks] to complete.");  
+		e.self:Say("Hail, " .. e.other:GetName() .. "! This is the Deepwater Temple. Here you shall find the wisdom and courage of Prexus, the Ocean Lord. I am glad to see you have an interest. Forgive me if I cut our conversation short, but I have many [" .. eq.say_link("Deepwater tasks") .. "] to complete.");  
 	elseif(e.message:findi("deepwater task")) then   
 		if(e.other:GetFaction(e.self) > 5) then
 			e.self:Say("We, the Deepwater Knights, know of your vile ways. You had best leave while you can.");
 		elseif(e.other:GetFaction(e.self) < 4) then
-			e.self:Say("We here at the Deepwater Temple must tend to the [Peacekeeper battlestaff] and the [Deepwater harpoon] as well as other duties such as [ocean protection]. There is always something we must do.");  
+			e.self:Say("We here at the Deepwater Temple must tend to the [" .. eq.say_link("Peacekeeper battlestaff") .. "] and the [" .. eq.say_link("Deepwater harpoon") .. "] as well as other duties such as [ocean protection]. There is always something we must do.");
 		else
 			e.self:Say("There is no reason to dislike you, but we of the Deepwater Knights must see more done for our cause before we truly accept you.");
 		end
 	elseif(e.message:findi("deepwater harpoon")) then 
-		e.self:Say("We do not award the Deepwater harpoon to just any paladin.  Nobility is all well and good, but you must still prove yourself.  We have heard rumors of a very distressing matter.  Perhaps it is your calling.  Are you ready to [prove allegiance to Erudin] and earn the Deepwater harpoon?");  
+		e.self:Say("We do not award the Deepwater harpoon to just any paladin.  Nobility is all well and good, but you must still prove yourself.  We have heard rumors of a very distressing matter.  Perhaps it is your calling.  Are you ready to [" .. eq.say_link("prove allegiance to Erudin") .. "] and earn the Deepwater harpoon?");  
 	elseif(e.message:findi("prove allegiance to Erudin")) then
 		e.self:Say("Yes, you are ready. We have heard rumors of a great bridge which will connect Antonica with Odus!! This must not happen! We must shield ourselves from the savage and evil ways of the other races. They say that a list exists. A list of three grand architects who wish to see this bridge erected. You will venture to Qeynos and find the list, then exterminate these three men. Return the list along with their heads and the Deepwater Harpoon is yours. Go!!");  
 	elseif(e.message:findi("peacekeeper battlestaff")) then
-		e.self:Say("Every sentinel in Erudin carries a High Guard battlestaff.  The creation of these weapons is the duty of the Deepwater Temple and the Temple of Divine Light.  Our portion of the task is to send young members to [collect the Pearls of Odus].  These are imbedded into the staff and used to store mystical power.");
+		e.self:Say("Every sentinel in Erudin carries a High Guard battlestaff.  The creation of these weapons is the duty of the Deepwater Temple and the Temple of Divine Light.  Our portion of the task is to send young members to [" .. eq.say_link("collect the Pearls of Odus") .. "].  These are imbedded into the staff and used to store mystical power.");
 	elseif(e.message:findi("ocean protectio")) then
-		e.self:Say("In the name of Prexus, we are sworn to protect all ocean creatures.  We have heard reports of a shark carrying a deadly malady.  We believe she is pregnant.  If she delivers her young to the ocean, it will endanger all other creatures.  We need to find a young paladin to [hunt the diseased shark].");  
+		e.self:Say("In the name of Prexus, we are sworn to protect all ocean creatures.  We have heard reports of a shark carrying a deadly malady.  We believe she is pregnant.  If she delivers her young to the ocean, it will endanger all other creatures.  We need to find a young paladin to [" .. eq.say_link("hunt the diseased shark") .. "].");  
 	elseif(e.message:findi("hunt the diseased shark")) then
 		e.self:Say("Ah, yes!  Take this bag with you.  When you have collected the remains of the diseased shark and no fewer than three of her young in it, combine them in it and return it to me.  Then, you shall get your reward.");
 		e.other:SummonItem(17938);  
@@ -48,7 +48,7 @@ function event_trade(e)
 		e.other:Faction(143,-15,0); --  Heretics
 		e.other:AddEXP(100);
 	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 18835,item2 = 13838,item3 = 13839,item4 = 13840})) then -- Bridge Quest Handin: 3 heads + sealed list
-		e.self:Say("It is done!! I pray to Prexus that the knowledge of the bridge's design has departed from this world with the passing of these intelligent men. A pity they had to die. As for you, the other states may not tolerate your presence any longer, but you have proven that allegiance to Erudin is paramount among all Erudites. I am afraid the [harpoon is no more]!! I bestow upon you Deep Six, my personal cutlass!! May you wield it in the name of Erudin.");
+		e.self:Say("It is done!! I pray to Prexus that the knowledge of the bridge's design has departed from this world with the passing of these intelligent men. A pity they had to die. As for you, the other states may not tolerate your presence any longer, but you have proven that allegiance to Erudin is paramount among all Erudites. I am afraid the [" .. eq.say_link("harpoon is no more") .. "]!! I bestow upon you Deep Six, my personal cutlass!! May you wield it in the name of Erudin.");
 		e.other:SummonItem(5377);
 		e.other:Ding();
 		e.other:Faction(79,10,0); --  Deepwater Knights
@@ -66,5 +66,3 @@ function event_trade(e)
 	end
 	item_lib.return_items(e.self, e.other, e.trade);
 end
-
--- END of FILE Zone:erudnext  ID:24065 -- Weligon_Steelherder

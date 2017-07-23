@@ -1,8 +1,8 @@
 function event_say(e)
 	if(e.message:findi("Hail")) then
-		e.self:Say("Hail! You appear to be a [new priest]. Ah, I so enjoy the presence of youth within Deepwater Temple. I am sure Prexus is smiling upon us as we speak.");
+		e.self:Say("Hail! You appear to be a [" .. eq.say_link("new priest") .. "]. Ah, I so enjoy the presence of youth within Deepwater Temple. I am sure Prexus is smiling upon us as we speak.");
 	elseif(e.message:findi("new priest")) then
-		e.self:Say("As I suspected. I shall assist you with your training and you shall assist the temple with your service. A young priest can help out by asking to [convert fishermen in Qeynos] or maybe even something truly great such as requesting to [protect the depths].");
+		e.self:Say("As I suspected. I shall assist you with your training and you shall assist the temple with your service. A young priest can help out by asking to [" .. eq.say_link("convert fishermen in Qeynos") .. "] or maybe even something truly great such as requesting to [" .. eq.say_link("protect the depths") .. "].");
 	elseif(e.message:findi("protect the depth")) then
 		e.self:Say("We have heard of zombies inhabiting the depths of Erud's Crossing. Go and seek them out. Destroy them. This evil should not exist within the realm of the Ocean Lord. Take this bag. Fill it with their rotting flesh. combine it and return it to me. May Prexus guide you.");
 		e.other:SummonItem(17939);
