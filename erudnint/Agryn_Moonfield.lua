@@ -10,7 +10,7 @@ function event_trade(e)
 	local item_lib = require("items");
 
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 13989})) then
-		e.self:Say("Ah!! A Peacekeeper. I have some Vasty Deep water sitting out already. Here you are. Do not let it fall into the wrong hands.");
+		e.self:Say("Ah!! A Peacekeeper. I have some [" .. eq.say_link("Vasty Deep water") .. "] sitting out already. Here you are. Do not let it fall into the wrong hands.");
 		e.other:SummonItem(13939);
 		e.other:Ding();
 		e.other:AddEXP(100);

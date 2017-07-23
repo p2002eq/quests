@@ -1,9 +1,8 @@
 -- Tunare Warden
 -- Missing The Mystic Cloak
-
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Hail. good adventurer!  Do you bring word from my [husband]?");
+		e.self:Say("Hail. good adventurer!  Do you bring word from my [" .. eq.say_link("husband") .. "]?");
 	elseif(e.message:findi("husband")) then
 		e.self:Say("Tolkar is his name. My beloved husband. He still lives in Felwithe while I study here. It must be hard on him."); 
 	end
@@ -36,5 +35,3 @@ function event_trade(e)
 	end
 	item_lib.return_items(e.self, e.other, e.trade);
 end
-
---END of FILE Zone:erudnint  ID:23020 -- Trilani_Parlone
