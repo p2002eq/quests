@@ -1,8 +1,8 @@
 function event_say(e)
 	if(e.message:findi("Hail")) then
-		e.self:Say("I am looking for a [great sorcerer]. Are you such a person?");
+		e.self:Say("I am looking for a [" .. eq.say_link("great sorcerer") .. "]. Are you such a person?");
 	elseif((e.message:findi("great sorcerer")) and e.other:HasItem( 4266) and (e.other:GetLevel() > 34)) then
-		e.self:Say("Are we now? Well then take this. See if you can finish this project that I started so many years ago. It still requires a [whip], a [tassel], and a [lock]. Go and find these items and return to me with what you have already learned and I shall reward you.");
+		e.self:Say("Are we now? Well then take this. See if you can finish this project that I started so many years ago. It still requires a [" .. eq.say_link("whip") .. "], a [" .. eq.say_link("tassel") .. "], and a [" .. eq.say_link("lock") .. "]. Go and find these items and return to me with what you have already learned and I shall reward you.");
 		e.other:SummonItem(17195); -- A Flaxen Hilt
 	elseif(e.message:findi("whip")) then
 		e.self:Say("Many years ago in Dreadlans a drovarg came and ravaged my camp and stole a whip that was given to me by my master. With the loss of the whip I became an outcast to the dark arts.");

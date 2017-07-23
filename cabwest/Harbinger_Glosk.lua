@@ -16,7 +16,7 @@ function event_say(e)
 	elseif(e.message:findi("keepers grotto")) then
 		e.self:Say("Keepers Grotto is where you shall find the Keepers. They study and scribe the spells of our dark circle. The grotto is not far from here, near the arena called the Gauntlet.");
 	elseif(e.message:findi("new revenant")) then
-		e.self:Say("Yes. You are. You shall do as I command. Take this. It is incomplete and must be ready for the emperor within the half season. You must find the [Four Missing Gems]. When you have them, then you will have to Quest for the [Grand Forge of Dalnir]. Within it's fire, all shall combine. Return the Sceptre to me with your Revenant Skullcap. Go.");
+		e.self:Say("Yes. You are. You shall do as I command. Take this. It is incomplete and must be ready for the emperor within the half season. You must find the Four Missing Gems. When you have them, then you will have to Quest for the [" .. eq.say_link("forge of dalnir",false,"Grand Forge of Dalnir") .. "]. Within it's fire, all shall combine. Return the Sceptre to me with your Revenant Skullcap. Go.");
 		e.other:SummonItem(12873); -- Unfinished Sceptre
 	elseif(e.message:findi("forge of dalnir")) then
 		e.self:Emote("scratches his chin. 'I know little of it other than that it once belonged to the ancient Haggle Baron, Dalnir. From what I have read, its fires require no skill, but will melt any common forge hammer used. Dalnir was said to have called upon the ancients for a hammer which could tolerate the magical flames.'");
@@ -26,7 +26,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 18207})) then -- Guild Summons
-		e.self:Say("Another apprentice has reached rebirth. You now have become one with the Brood of Kotiz. We study the ancient writing of Kotiz. Through his writing we have found the power of the dark circles. Listen well to the scholars within this tower and seek the [Keepers Grotto] for knowledge of our spells. This drape shall be the sign to all Iksar that you walk with the Brood. Now go speak with Xydoz.");
+		e.self:Say("Another apprentice has reached rebirth. You now have become one with the Brood of Kotiz. We study the ancient writing of Kotiz. Through his writing we have found the power of the dark circles. Listen well to the scholars within this tower and seek the [" .. eq.say_link("Keepers Grotto") .. "] for knowledge of our spells. This drape shall be the sign to all Iksar that you walk with the Brood. Now go speak with Xydoz.");
 		e.other:Faction(24,100); -- Brood of Kotiz
 		e.other:Faction(193,25); -- Legion of Cabilis
 		e.other:QuestReward(e.self,0,0,0,0,12407,100); -- Drape of the Brood

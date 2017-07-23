@@ -1,6 +1,6 @@
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Greetings " .. e.other:GetName() .. ". Lately the creatures of Lake of Ill Omen have be causing problems for us. Are you [interested] in helping me reduce the threat from this creatures?");
+		e.self:Say("Greetings " .. e.other:GetName() .. ". Lately the creatures of Lake of Ill Omen have be causing problems for us. Are you [" .. eq.say_link("interested") .. "] in helping me reduce the threat from this creatures?");
 	elseif(e.message:findi("interested")) then
 		e.self:Say("Good. Bring me a Brittle Iksar Skull, a Sabertooth Cub Canine, and a Large Scorpion Pincer. And i shall reward you with a spell.");
 	end

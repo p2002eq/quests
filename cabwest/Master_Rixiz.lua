@@ -1,10 +1,10 @@
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("You are on the grounds of the Brood of Kotiz. If you do not belong, you must leave at once. There shall be no [third rank skullcap] for you.");
+		e.self:Say("You are on the grounds of the Brood of Kotiz. If you do not belong, you must leave at once. There shall be no [" .. eq.say_link("third rank skullcap") .. "] for you.");
 	elseif(e.message:findi("third rank skullcap")) then
-		e.self:Say("I offer the third rank apprentice skullcap to those who wear the second. If that is you, then you will do the [bidding of the tower].");
+		e.self:Say("I offer the third rank apprentice skullcap to those who wear the second. If that is you, then you will do the [" .. eq.say_link("bidding of the tower") .. "].");
 	elseif(e.message:findi("bidding of the tower")) then
-		e.self:Say("Take this glass canopic. Within it you shall place a brain for me. The brain I seek is that of a sarnak crypt raider. Any shall do. The ones we seek should be near the Lake of Ill Omen. When you obtain the brain, you must quickly put it into the glass canopic with [embalming fluid]. When these are combined, the canopic shall seal and if you return it to me with your second rank skullcap, I shall hand you the next and final skullcap.");
+		e.self:Say("Take this glass canopic. Within it you shall place a brain for me. The brain I seek is that of a sarnak crypt raider. Any shall do. The ones we seek should be near the Lake of Ill Omen. When you obtain the brain, you must quickly put it into the glass canopic with [" .. eq.say_link("embalming fluid") .. "]. When these are combined, the canopic shall seal and if you return it to me with your second rank skullcap, I shall hand you the next and final skullcap.");
 		e.other:SummonItem(17023); -- Brood Canopic
 		e.self:Say("You shall get no skullcap until I have the preserved raider brain and your second circle apprentice skullcap.");
 	elseif(e.message:findi("embalming fluid")) then
