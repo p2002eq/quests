@@ -17,7 +17,7 @@ function event_trade(e)
 		e.other:QuestReward(e.self,0,0,0,0,17034,10000); -- A Skull Chest
 		eq.set_global("shmskullquest","4",5,"F"); -- Completed Cudgel Quest 3.2
 	elseif((tonumber(qglobals.shmskullquest) >= 4) and (item_lib.check_turn_in(e.self, e.trade, {item1 = 12735, item2 = 5142})) and (e.other:GetCharacterFactionLevel(282) > 6)) then -- Full C.O.B.B. Chest and Iron Cudgel of the Seer
-		e.self:Say("The temple will be pleased. As instructed by the hierophants, here is your iron cudgel of the mystic. You have done so well that I must ask you to also collect the [crusaders of Rok Nilok].");
+		e.self:Say("The temple will be pleased. As instructed by the hierophants, here is your iron cudgel of the mystic. You have done so well that I must ask you to also collect the [" .. eq.say_link("crusaders of Rok Nilok") .. "].");
 		e.other:Faction(282, 10); -- Scaled Mystics
 		e.other:Faction(193, 10); -- Legion of Cabilis
 		e.other:QuestReward(e.self,0,2,4,1,5143,100000); -- Iron Cudgel of the Mystic
