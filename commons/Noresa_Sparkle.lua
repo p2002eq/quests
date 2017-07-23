@@ -1,6 +1,6 @@
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("He.. Hello. Wou.. would you like to buy something? Be quick or [Kizdean] will return!");
+		e.self:Say("He.. Hello. Wou.. would you like to buy something? Be quick or [" .. eq.say_link("Kizdean") .. "] will return!");
 	elseif(e.message:findi("Kizdean")) then
 		e.self:Say("Sshhh..Please..save me. Get..rid..of..him.");
 	end

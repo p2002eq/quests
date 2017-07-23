@@ -1,8 +1,8 @@
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Hi. How are you? The fish are biting pretty good. That is what Skipynn tells me. I sure wish I had a different [job]. If I did, I could fish all day long.");
+		e.self:Say("Hi. How are you? The fish are biting pretty good. That is what Skipynn tells me. I sure wish I had a different [" .. eq.say_link("job") .. "]. If I did, I could fish all day long.");
 	elseif(e.message:findi("job")) then
-		e.self:Say("I am a messenger for [Antonius Bayle], ruler of the great city of [Qeynos].");
+		e.self:Say("I am a messenger for [" .. eq.say_link("Antonius Bayle") .. "], ruler of the great city of [" .. eq.say_link("Qeynos") .. "].");
 	elseif(e.message:findi("qeynos")) then
 		e.self:Say("Huh?! Have you been living in a cave? The great city of Qeynos is the mightiest nation in Antonica! You'd best journey toward the west and visit the city whose influence stretches beyond the horizons.");
 	elseif(e.message:findi("antonius bayle")) then
