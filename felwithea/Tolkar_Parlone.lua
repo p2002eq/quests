@@ -1,6 +1,6 @@
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Hail. good adventurer!  I am afraid that my services are not available at the moment.  I am too worried about my [daughter].");
+		e.self:Say("Hail. good adventurer!  I am afraid that my services are not available at the moment.  I am too worried about my [" .. eq.say_link("daughter") .. "].");
 	elseif(e.message:findi("daughter")) then
 		e.self:Say("My daughter's name is Lenara.  I have not seen her in several months. and I fear the worst.  She went off adventuring. even though I told her how dangerous it was."); 
 	elseif(e.message:findi("Where did she go")) then
