@@ -1,11 +1,11 @@
 -- Shaman Skull Quest 6
 function event_say(e)
 	local qglobals = eq.get_qglobals(e.self,e.other);
-	if(tonumber(qglobals["shmskullquest"]) >= 9) then
+	if(tonumber(qglobals[" .. eq.say_link(""shmskullquest"") .. "]) >= 9) then
 		if(e.message:findi("hail")) then
 			e.self:Say("Ahh!! A conversationalist. How good to meet you, Cradossk. Yes. I have heard of you. Go ahead and ask for that which has brought you to my tower and emboldened you to slay my weaker minions.");
 		elseif(e.message:findi("Give me the skull of the sisters of scale")) then
-			e.self:Say("What a coincidence! I, too, seek a skull. Perhaps you might help me [obtain the skull]. Perhaps then you shall have the skull you desire.");
+			e.self:Say("What a coincidence! I, too, seek a skull. Perhaps you might help me [" .. eq.say_link("I will help you obtain the skull",false,"obtain the skull") .. "]. Perhaps then you shall have the skull you desire.");
 		elseif(e.message:findi("I will help you obtain the skull")) then
 			e.self:Say("I am sure you would not mind removing the head of a scaled mystic. I hope not. There is an old Iksar who once called me slave. Now he shall adorn my wall, mounted on a fine plaque. His name is Digalis. Find him. Do not return until your task is complete.");
 		end
@@ -15,7 +15,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	local qglobals = eq.get_qglobals(e.self,e.other);
-	if(tonumber(qglobals["shmskullquest"]) >= 9) then
+	if(tonumber(qglobals[" .. eq.say_link(""shmskullquest"") .. "]) >= 9) then
 		if(item_lib.check_turn_in(e.self, e.trade, {item1 = 12764})) then -- Iksar Skull
 			e.self:Shout("Excellent. You show signs of a true Iksar slayer. Too, bad I have already given the skull of the Sister of Scale to another. Perhaps you would like to meet him before he departs. Say hello, Doval.");
 			eq.unique_spawn(87255,0,0,e.self:GetX() + 5,e.self:GetY(),e.self:GetZ()); -- Clerk_Doval
