@@ -20,5 +20,3 @@ function event_waypoint_arrive(e)
 		e.self:SetRunning(false);
 	end
 end
-
--- END of FILE Zone:freporte -- Brunar Rankin

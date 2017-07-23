@@ -1,8 +1,8 @@
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say(string.format("Aya. howdy there. %s.  The name's Gren Frikniller.  'Niller the Killer' The only person who can give me a run for my money is my [sister].",e.other:GetName()));
+		e.self:Say(string.format("Aya. howdy there. %s.  The name's Gren Frikniller.  'Niller the Killer' The only person who can give me a run for my money is my [" .. eq.say_link("sister") .. "].",e.other:GetName()));
 	elseif(e.message:findi("sister")) then
-		e.self:Say("Ah, my sister Falia has traveled here all the way from Rivervale. I hear that she's been staying up in North Freeport, but I haven't had a chance to find her yet. If you get some spare time, could you take this letter to her for me? Thanks, " .. e.other:GetName() .. ", you're really not so bad after all.");
+		e.self:Say("Ah, my sister Falia has traveled here all the way from [" .. eq.say_link("Rivervale") .. "]. I hear that she's been staying up in North Freeport, but I haven't had a chance to find her yet. If you get some spare time, could you take this letter to her for me? Thanks, " .. e.other:GetName() .. ", you're really not so bad after all.");
 		e.other:SummonItem(18925); -- Letter to Falia
 	elseif(e.message:findi("rivervale")) then
 		e.self:Say("Rivervale?  Well. it's far from here. thank Fizzlethorpe.  They got more wanted posters with my face on 'em than they got trees there.  I mean. 'tweren't my fault either.  Just a friendly game of cards. and this little weasel catches me with an extra ace up my sleeve.  Can you believe this kid calls ol' Grenny here a cheater. right in front of the whole bar?!!  So. you know. I gave him a quick cut. ear to ear. with me dagger...  just to shut him up. you know.  Suddenly. I'm a murderer?  For simply defending myself?! Go figure!");
@@ -31,8 +31,3 @@ end
 function event_signal(e)
 	e.self:Say("Yea.. Bite that tongue of yours, there shorty, or I might just have to cut it off to shut you up for good.");
 end
-
-
--- END of FILE Zone:freporte -- Gren_Frikniller
-
-

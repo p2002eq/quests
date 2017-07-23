@@ -32,7 +32,7 @@ function event_trade(e)
 	end
 	
 	if(morechampagne == 1) then
-		e.self:Say("Ahh!! That was good. Now where were we?. Oh yes. My friend Zimel is a fellow beggar. He was locked up in the arena. They were going to let him go when the Freeport Militia came for him. Ha!! He is crazy as a troll now. I took this blanket from his cell before I was released. I no longer need it and my guilt has reached its peak. I do not want crazy old Zimel to freeze. Perhaps you can return it to him.");
+		e.self:Say("Ahh!! That was good. Now where were we?. Oh yes. My [" .. eq.say_link("tell me of zimel",false,"friend Zimel") .. "] is a fellow beggar. He was locked up in the arena. They were going to let him go when the Freeport Militia came for him. Ha!! He is crazy as a troll now. I took this blanket from his cell before I was released. I no longer need it and my guilt has reached its peak. I do not want crazy old Zimel to freeze. Perhaps you can return it to him.");
 		e.other:Ding();
 		e.other:SummonItem(12196); -- Bunker Cell #1 (Zimel's Blanket)
 		e.other:AddEXP(10);
@@ -40,5 +40,3 @@ function event_trade(e)
 	end	
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
--- END if FILE Zone:freporte -- Tykar_Renlin

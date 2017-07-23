@@ -1,8 +1,8 @@
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Oh. hello down there. puny one. I'm Brutol Rhaksen. Commmander of warriors who [serve] the Dismal Rage. and that's really all you need to know..for now.");
+		e.self:Say("Oh. hello down there. puny one. I'm Brutol Rhaksen. Commmander of warriors who [" .. eq.say_link("serve") .. "] the Dismal Rage. and that's really all you need to know..for now.");
 	elseif(e.message:findi("serve")) then
-		e.self:Say("You must become strong to survive amongst the ranks of the Dismal Rage. Take this note to Rolfic Gohar and he will help you get a suit of armor to protect your scrawny hide from the weapons of our enemies. Once you have been properly outfitted return to me and will give you your [next orders].");
+		e.self:Say("You must become strong to survive amongst the ranks of the Dismal Rage. Take this note to Rolfic Gohar and he will help you get a suit of armor to protect your scrawny hide from the weapons of our enemies. Once you have been properly outfitted return to me and will give you your [" .. eq.say_link("next orders") .. "].");
 		e.other:SummonItem(19843); -- Note to Rolfic Gohar
 	elseif(e.message:findi("next orders")) then
 		e.self:Say("Ready to make yourself useful " .. e.other:GetName() .. " ? Beneath West Freeport are sewer tunnels leading to North Freeport being used by the Knights of Truth and the Sentries and Passion that have gained too much notoriety with the Freeport Militia and the Dismal Rage to pass safely through the eastern and western quarters of Freeport. We believe a sympathizer of the Sentries of Passion. Tarsa Yovar. is hiding somewhere in the western tunnel system. The sympathizer is a Steel Warrior faithful to Erollisi and although she is only a minor nuisance must be dealt with. Find her and bring me her head.");
@@ -34,5 +34,3 @@ function event_trade(e)
 	end
 	item_lib.return_items(e.self, e.other, e.trade);
 end
-
--- END of FILE Zone:freporte -- Brutol_Rhaksen
