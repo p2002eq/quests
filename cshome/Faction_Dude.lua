@@ -42,8 +42,8 @@ end
 
 function event_say(e)
     if (e.message:findi('hail')) then
-        e.self:Say("Whats up BRO! I am the Faction Dude I will [help] you set [factions] [values]");
-        e.self:Say("you can also view your [current] faction levels.");
+        e.self:Say("Whats up BRO! I am the Faction Dude I will [" .. eq.say_link("help") .. "] you set [" .. eq.say_link("faction",false,"factions") .. "] [" .. eq.say_link("value",false,"values") .. "]");
+        e.self:Say("you can also view your [" .. eq.say_link("current") .. "] faction levels.");
         return;
     end
     if (e.message:findi('faction')) then
@@ -61,7 +61,7 @@ function event_say(e)
         return;
     end
     if (e.message:findi("help")) then
-        e.self:Say("To set a [faction] to a [value] say \"set <faction> <value>\"")
+        e.self:Say("To set a [" .. eq.say_link("faction") .. "] to a [" .. eq.say_link("value") .. "] say \"set <faction> <value>\"")
         return;
     end
     if (e.message:findi("current")) then
