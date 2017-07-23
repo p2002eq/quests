@@ -1,10 +1,10 @@
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Hail. good citizen!  You have entered the Hall of Truth.  What is it you seek?  Many citizens come to request aid in dealing with the local rogues or the oppression of our sworn enemies. the Freeport Militia.  A few valiant ones have been [summoned to the Hall of Truth].");
+		e.self:Say("Hail. good citizen!  You have entered the Hall of Truth.  What is it you seek?  Many citizens come to request aid in dealing with the local rogues or the oppression of our sworn enemies. the Freeport Militia.  A few valiant ones have been [" .. eq.say_link("summoned to the Hall of Truth") .. "].");
 	elseif(e.message:findi("summoned to the hall of truth")) then
-		e.self:Say("You have been summoned? You do not have the look of nobility. You must be a [squire]. There are many squires who have been summoned to our Hall. Not all pass the [Test of Truth]."); 
+		e.self:Say("You have been summoned? You do not have the look of nobility. You must be a [" .. eq.say_link("squire") .. "]. There are many squires who have been summoned to our Hall. Not all pass the [" .. eq.say_link("Test of Truth") .. "].");
 	elseif(e.message:findi("squire")) then
-		e.self:Say("Then I welcome you, Squire . Being a squire is the first step to becoming a true knight of the Hall of Truth. Remember always to protect and serve the meek. I have a [small task] which suits a squire perfectly.");
+		e.self:Say("Then I welcome you, Squire . Being a squire is the first step to becoming a true knight of the Hall of Truth. Remember always to protect and serve the meek. I have a [" .. eq.say_link("small task") .. "] which suits a squire perfectly.");
 	elseif(e.message:findi("small task")) then
 		e.self:Say("Venture to the Commonlands and seek out our noble friend Altunic Jartin. He lives and works out of his home. Hand him this note.");
 		e.other:SummonItem(18896); -- Give player "A Note (Note To Altunic)".

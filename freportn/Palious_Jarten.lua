@@ -1,6 +1,6 @@
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say(string.format("It is good to see you. %s!! Do not forget that the clerics of Mithaniel Marr are here to help those who pay tribute to Him. Should you require me to [cure disease]. just mention it.",e.other:GetName()));
+		e.self:Say(string.format("It is good to see you. %s!! Do not forget that the clerics of Mithaniel Marr are here to help those who pay tribute to Him. Should you require me to [" .. eq.say_link("cure disease") .. "]. just mention it.",e.other:GetName()));
 	elseif(e.message:findi("cure disease")) then
 		e.self:Say("If you require me to cure disease. it will cost you 10 gold coins.");
 	end

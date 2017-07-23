@@ -1,15 +1,14 @@
 function event_say(e)
 	local fac = e.other:GetFaction(e.self);
-
 	if(e.message:findi("hail")) then
-		e.self:Say("Bless you. my friend!  We always welcome new converts into our Hall of Truth.  The righteous army of the twin deities must assemble.  The battle draws near.  The blessings of the Truthbringer are passed to all who are [devoted to truth].");
+		e.self:Say("Bless you. my friend!  We always welcome new converts into our Hall of Truth.  The righteous army of the twin deities must assemble.  The battle draws near.  The blessings of the Truthbringer are passed to all who are [" .. eq.say_link("devoted to truth") .. "].");
 	elseif(e.message:findi("fallen knight")) then
-			e.self:Say("The fallen knight is Sir Lucan D'Lere. The organizer and leader of the Freeport Militia. He once stood beside us. Now he shall burn!! We will end him. We shall [crush the Freeport Militia]. Truth shall reign once again.");
+			e.self:Say("The fallen knight is Sir Lucan D'Lere. The organizer and leader of the Freeport Militia. He once stood beside us. Now he shall burn!! We will end him. We shall [" .. eq.say_link("crush the Freeport Militia") .. "]. Truth shall reign once again.");
 	elseif(e.message:findi("true organizer")) then
 			e.self:Say("Captain Hazran is the commander of the Freeport Militia. Lucan has no time to waste on relegating duties. Hazran is the one who keeps these brutes together as a militia. Stop him and maybe the militia will collapse. Find a way to return his head to me. That would surely bring great thanks from this temple.");
 	elseif(e.message:findi("devoted to truth")) then
 		if(fac < 5) then
-			e.self:Say("May the hand of Marr shield you from harm. Welcome to our world. The war begins here in Freeport. The [fallen knight] has masked the truth from the world, but he cannot mask his evil from the Truthbringer. He once followed our ways. Now he is our enemy and yours. We must end his rule. We must [crush the Freeport Militia]!!");
+			e.self:Say("May the hand of Marr shield you from harm. Welcome to our world. The war begins here in Freeport. The [" .. eq.say_link("fallen knight") .. "] has masked the truth from the world, but he cannot mask his evil from the Truthbringer. He once followed our ways. Now he is our enemy and yours. We must end his rule. We must [" .. eq.say_link("crush the Freeport Militia") .. "]!!");
 			e.self:CastSpell(11,e.other:GetID());
 		else
 			e.self:Say("Work on the ways of valor before we discuss such things. You are on the righteous path of the Truthbringer, but there is more work to do.");
@@ -25,9 +24,8 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 13921})) then
-		e.self:Say("Bless you, my child. Marr is grateful, as are we. Here is our thanks. Let it bring you greater strength to defeat the Militia. Go and continue the crusade. Soon you will be strong enough to slay the [true organizer].");
+		e.self:Say("Bless you, my child. Marr is grateful, as are we. Here is our thanks. Let it bring you greater strength to defeat the Militia. Go and continue the crusade. Soon you will be strong enough to slay the [" .. eq.say_link("true organizer") .. "].");
 		e.other:Ding();
 		e.other:Faction(184,3,0);
 		e.other:Faction(258,3,0);
