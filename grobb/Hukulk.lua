@@ -1,14 +1,12 @@
--- Converted to .lua by Speedz
-
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("What you want!! You make fun of [helm of Hukulk]?!! Me smash you!! Maybe you come learn ways of Hate and Fear! You be dark power. You be Pain. You [want join Nightkeep]?");
+		e.self:Say("What you want!! You make fun of [" .. eq.say_link("helm of Hukulk") .. "]?!! Me smash you!! Maybe you come learn ways of Hate and Fear! You be dark power. You be Pain. You [" .. eq.say_link("want join Nightkeep") .. "]?");
 	elseif(e.message:findi("helm")) then
-		e.self:Say("Oh!!  Yooz tink you great enough to wear helm of Hukulk?  Me have another just like it. Me make deal with yooz.  If yooz want helm den yooz help Hukulk get revenge.  Youz better be strong or yooz useless!!  So.. Yooz [make deal with Hukulk]?");
+		e.self:Say("Oh!!  Yooz tink you great enough to wear helm of Hukulk?  Me have another just like it. Me make deal with yooz.  If yooz want helm den yooz help Hukulk get revenge.  Youz better be strong or yooz useless!!  So.. Yooz [" .. eq.say_link("make deal with Hukulk") .. "]?");
 	elseif(e.message:findi("deal")) then
-		e.self:Say("Yooz smart!!  Yooz go and walks to dark elf city.  Yooz finds one whos make Lynuga breaks up with Hukulk!  Maybe first yooz find Lynuga.  Find who she visits in dark elf city!!  Den yooz go and top off him head!!  Bash Lynuga too, if she no give me back [happy love bracer]!!  Me want head of dat home wrecker an' me happy love bracers, den me give yooz helm of Hukulk.");
+		e.self:Say("Yooz smart!!  Yooz go and walks to dark elf city.  Yooz finds one whos make Lynuga breaks up with Hukulk!  Maybe first yooz find Lynuga.  Find who she visits in dark elf city!!  Den yooz go and top off him head!!  Bash Lynuga too, if she no give me back [" .. eq.say_link("happy love bracer") .. "]!!  Me want head of dat home wrecker an' me happy love bracers, den me give yooz helm of Hukulk.");
 	elseif(e.message:findi("bracer")) then
-		e.self:Say("Happy love bracers are mines!!  Me make dem for Lynuga.  Dey all shiny and green like da forests me see in adventures when me young.  Dey make Hukulk all warm and happy.  Den me give to Lynuga and.. and <sob>.. and.. AND LYNUGA RIP OUT HUKULK HEART!!  Yooz makes Lynuga give back [happy love bracers]!!");
+		e.self:Say("Happy love bracers are mines!!  Me make dem for Lynuga.  Dey all shiny and green like da forests me see in adventures when me young.  Dey make Hukulk all warm and happy.  Den me give to Lynuga and.. and <sob>.. and.. AND LYNUGA RIP OUT HUKULK HEART!!  Yooz makes Lynuga give back [" .. eq.say_link("happy love bracers") .. "]!!");
 	elseif(e.message:findi("join")) then
 		e.self:Say("Good. Hate and Pain. Innoruuk teach power, I teach power. Me make you power. You do what me say. You no mess up, I no kill you. We no like dead creature we no own. Go, kill dem. Bring four bone chips. I make you power.");
 	end

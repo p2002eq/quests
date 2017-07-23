@@ -1,8 +1,6 @@
--- Converted to .lua by Speedz
-
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Ya wanna be a member a Da Bashers. duz ya?  What making ya tink yooz is good nuff ta be one o' us?  Can ya proves ta me why I shouldn't oughtta just eat yer smelly hide?  I gonna tests ya. ya big. ugly peece o' meet.  Ya [willin ta test] or duz I just eats ya now?");
+		e.self:Say("Ya wanna be a member a Da Bashers. duz ya?  What making ya tink yooz is good nuff ta be one o' us?  Can ya proves ta me why I shouldn't oughtta just eat yer smelly hide?  I gonna tests ya. ya big. ugly peece o' meet.  Ya [" .. eq.say_link("willin ta test") .. "] or duz I just eats ya now?");
 	elseif(e.message:findi("willin ta test")) then
 		e.self:Say("Stoopid meat.  I gonna eats ya anyways sumday.  Brings me a froglok meat and two dem li'l froglok tadpole fleshes.  Dey berry good.");
 	end

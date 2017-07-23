@@ -3,9 +3,9 @@
 
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("You dare speak to Master Treskar!! You be [sent by Hukulk] or you be hurtin'!! Me have no time to waste with ugly one like you!!");
+		e.self:Say("You dare speak to Master Treskar!! You be [" .. eq.say_link("sent by Hukulk") .. "] or you be hurtin'!! Me have no time to waste with ugly one like you!!");
 	elseif(e.message:findi("sent by hukulk")) then
-		e.self:Say("Ha!! Hukulk accept puny troll now?!! Ha!! You join us and you join fight. Nightkeep enemy is " .. e.other:GetName() .. " enemy!! You help smash [other weak shadowknights]. Them weak. We true power!! You bash good and maybe you do [secret mission] for Treskar. Or I has sum other [work] fer you.");
+		e.self:Say("Ha!! Hukulk accept puny troll now?!! Ha!! You join us and you join fight. Nightkeep enemy is " .. e.other:GetName() .. " enemy!! You help smash [" .. eq.say_link("other weak shadowknights") .. "]. Them weak. We true power!! You bash good and maybe you do [" .. eq.say_link("secret mission") .. "] for Treskar. Or I has sum other [" .. eq.say_link("work") .. "] fer you.");
 	elseif(e.message:findi("other weak shadowknights")) then
 		e.self:Say("Ha! Dem Ogre Greenbloods are weaklings. Dems your enemy. Frogloks are your enemy. Smash all Greenbloods! Smash all Frogloks!");
 	elseif(e.message:findi("secret mission")) then -- Should have a faction check. However, since the Trolls haven't eaten you, we'll let you do it.
@@ -33,17 +33,17 @@ function event_trade(e)
 		e.other:Faction(22,-10,0); 	-- Green Blood Knights (Ogre SK)
 		e.other:AddEXP(10000); 		-- Appropriate for ~level 10?
 	elseif (item_lib.check_turn_in(e.self, e.trade, {item1 = 13782,item2 = 13782,item3 = 13782, item4 = 10307})) then
-		e.self:Say("Dats gud, here take dis armor to helps you be stronger. Come sees me when you want [another] job");
+		e.self:Say("Dats gud, here take dis armor to helps you be stronger. Come sees me when you want [" .. eq.say_link("another") .. "] job");
 		e.other:SummonItem(2104);
 		e.other:Ding();
 		e.other:AddEXP(1000);
 	elseif (item_lib.check_turn_in(e.self, e.trade, {item1 = 13088, item2 = 13088})) then
-		e.self:Say("Dis is good.  I go make a pie now. Here is sumting for your help. Come see me agin when you want your [next] job.");
+		e.self:Say("Dis is good.  I go make a pie now. Here is sumting for your help. Come see me agin when you want your [" .. eq.say_link("next") .. "] job.");
 		e.other:SummonItem(eq.ChooseRandom(2145, 2140, 2144, 2137, 2137, 2138, 2147, 2139, 2146, 2142, 2148, 2143)); -- Random raw-hide armor
 		e.other:Ding();
 		e.other:AddEXP(1000);
 	elseif (item_lib.check_turn_in(e.self, e.trade, {item1 = 13916,item2 = 13916,item3 = 13916})) then
-		e.self:Say("Very good! We turn you into a basher yet. Here you go. Come see me when you want your [final] task.");
+		e.self:Say("Very good! We turn you into a basher yet. Here you go. Come see me when you want your [" .. eq.say_link("final") .. "] task.");
 		e.other:SummonItem(eq.ChooseRandom(6031, 5070, 5071, 7024, 5042, 5047, 6033)); -- Random tarnished weapon
 		e.other:Ding();
 		e.other:AddEXP(1000);
