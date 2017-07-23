@@ -1,10 +1,10 @@
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("It is a pleasure to meet you " .. e.other:GetName() .. ", I am Samatansyn Flamecaller, Warder of Tunare and Guildmaster of Faydarks Champions. I have studied here for many of my years until recently when I took up teaching. I have many pupils that undergo my vigorous [training exercises].");
+		e.self:Say("It is a pleasure to meet you " .. e.other:GetName() .. ", I am Samatansyn Flamecaller, Warder of Tunare and Guildmaster of Faydarks Champions. I have studied here for many of my years until recently when I took up teaching. I have many pupils that undergo my vigorous [" .. eq.say_link("training exercises") .. "].");
 	elseif(e.message:findi("training exercises")) then
-		e.self:Say("I have a series of tests that all new rangers of Kelethin are suggested to participate in. These tests will help you develop many of your skills including hunting and gathering and will also provide you with a chance to fashion your own Trueshot Chainmail. If you are a [ranger of Tunare] and are willing to begin your training I will be happy to explain to you how the tests work.");
+		e.self:Say("I have a series of tests that all new rangers of Kelethin are suggested to participate in. These tests will help you develop many of your skills including hunting and gathering and will also provide you with a chance to fashion your own Trueshot Chainmail. If you are a [" .. eq.say_link("ranger of Tunare") .. "] and are willing to begin your training I will be happy to explain to you how the tests work.");
 	elseif(e.message:findi("ranger of tunare")) then
-		e.self:Say("Excellent " .. e.other:GetName() .. ", then lets get started! Here is your Trueshot Assembly Kit. You will collect various items from the Faydark and Clan Crushbone that will be necessary for creating your armor materials in your assembly kit. Once you have fashioned together a specific armor material you can then take it to a forge along with the applicable pattern to create your Trueshot Chainmail armor piece. Simply tell me what armor piece you [want] to craft and I can provide you with the material recipes and patterns for Trueshot Chainmail [Coifs], [Bracers], [Sleeves], [Boots], [Legplates], [Gauntlets] and [Tunics].");
+		e.self:Say("Excellent " .. e.other:GetName() .. ", then lets get started! Here is your Trueshot Assembly Kit. You will collect various items from the Faydark and Clan Crushbone that will be necessary for creating your armor materials in your assembly kit. Once you have fashioned together a specific armor material you can then take it to a forge along with the applicable pattern to create your Trueshot Chainmail armor piece. Simply tell me what armor piece you want to craft and I can provide you with the material recipes and patterns for Trueshot Chainmail [" .. eq.say_link("Coifs") .. "], [" .. eq.say_link("Bracers") .. "], [" .. eq.say_link("Sleeves") .. "], [" .. eq.say_link("Boots") .. "], [" .. eq.say_link("Legplates") .. "], [" .. eq.say_link("Gauntlets") .. "] and [" .. eq.say_link("Tunics") .. "].");
 		e.other:SummonItem(17367);
 	elseif(e.message:findi("coif")) then
 		e.self:Say("To create your coif material you will need to combine 2 Bricks of Crude Bronze, 1 Royal Jelly, 1 Spiderling Eye and 1 Ration in your assembly kit. Once you have created the proper material take it to a forge along with this mold to fashion your very own Trueshot Coif.");
@@ -25,10 +25,10 @@ function event_say(e)
 		e.self:Say("To create your gauntlets material you will need to combine 3 Bricks of Crude Bronze, 1 Orc Ulna, 1 Orc Tibia, and 2 Orc Finger Bones in your assembly kit. Once you have created the proper material take it to a forge along with this mold to fashion your very own Trueshot Chainmail Gauntlets.");
 		e.other:SummonItem(22676);
 	elseif(e.message:findi("tunic")) then
-		e.self:Say("To create your tunic material you will need to combine 5 Bricks of Crude Bronze, 1 Orc Fibula, 1 Golden Bandit Tooth, 1 Pristine Forest Drakeling Scale, 1 Orc Ribcage and 1 Orc Eye in your assembly kit. Once you have created the proper material take it to a forge along with this mold to fashion your very own Trueshot Chainmail Tunic. Please return to me after you have completed your tunic, for I have one final [favor] to ask of you.");
+		e.self:Say("To create your tunic material you will need to combine 5 Bricks of Crude Bronze, 1 Orc Fibula, 1 Golden Bandit Tooth, 1 Pristine Forest Drakeling Scale, 1 Orc Ribcage and 1 Orc Eye in your assembly kit. Once you have created the proper material take it to a forge along with this mold to fashion your very own Trueshot Chainmail Tunic. Please return to me after you have completed your tunic, for I have one final [" .. eq.say_link("favor") .. "] to ask of you.");
 		e.other:SummonItem(22677);
 	elseif(e.message:findi("favor")) then
-		e.self:Say("I have received word that there are numerous elves being held hostage in the confines of Clan Crushbone, beaten and forced to perform slave work under horrible conditions. There is believed to be a specific Orc that patrols the jail cells that has a master key in his possession for all of the elven hostages. If you were to retrieve this master key for me I would possibly be able to make copies of it and distribute them to my task force so that we may attempt to rescue our helpless bretheren. Will you [retrieve the master key]?");
+		e.self:Say("I have received word that there are numerous elves being held hostage in the confines of Clan Crushbone, beaten and forced to perform slave work under horrible conditions. There is believed to be a specific Orc that patrols the jail cells that has a master key in his possession for all of the elven hostages. If you were to retrieve this master key for me I would possibly be able to make copies of it and distribute them to my task force so that we may attempt to rescue our helpless bretheren. Will you [" .. eq.say_link("retrieve the master key") .. "]?");
 	elseif(e.message:findi("retrieve the master key")) then
 		e.self:Say("Excellent news, I was afraid I would not be able to find someone willing to help. Please bring me the master key along with 2 Orc Eyes and I shall craft you a long sword worthy of your great deeds.");
 	end
@@ -43,5 +43,3 @@ function event_trade(e)
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
--- END of FILE Zone:gfaydark  ID:54071 -- Samatansyn Flamecaller

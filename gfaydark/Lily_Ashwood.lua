@@ -20,8 +20,6 @@ function event_signal(e)
 	elseif(e.signal == 2) then
 		e.self:Emote("laughs. 'In your dreams, little brother.' ");
 	elseif(e.signal == 3) then
-		e.self:Say("Oh! If you're going to see him, would you please take this letter to him? I trust you, since you're a ranger and all");
+		e.self:Say("Oh! If you're going to see him, would you please take this [" .. eq.say_link("Take him the letter",false,"letter") .. "] to him? I trust you, since you're a ranger and all");
 	end
 end
-
--- END of FILE Zone:gfaydark  ID:54082 -- Lily_Ashwood 
