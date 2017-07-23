@@ -1,7 +1,7 @@
 ---- Quest:Smuggler Reports
 function event_say(e)
     if(e.message:findi("hail")) then
-        e.self:Say("Greetings Stranger, is there something I can help you with? I would love to chat with you but i'm afraid I have to stay focused on the [case] I am investigating.");
+        e.self:Say("Greetings Stranger, is there something I can help you with? I would love to chat with you but i'm afraid I have to stay focused on the [" .. eq.say_link("case") .. "] I am investigating.");
     elseif(e.message:findi("case")) then
         e.self:Say("Well, " .. e.other:GetName() .. ". I'm monitoring a possible smugglers ring down there ahead of us in the distance. That group down there sure has a large shipment of goods and I intend to find out why.");
     end
