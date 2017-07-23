@@ -1,7 +1,7 @@
 -- divine might
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("ail, dere! Ain'tcha a sight fer me sore eyes! I knows dat we're strangers an' all, but might I ask a [boon] of ye?");
+		e.self:Say("ail, dere! Ain'tcha a sight fer me sore eyes! I knows dat we're strangers an' all, but might I ask a [" .. eq.say_link("boon") .. "] of ye?");
 	elseif(e.message:findi("boon")) then
 		e.self:Say("Well, me pickaxe is blunted awfully bad and me ale supplies are dangerously low. If'n ye would be kind enough t' get me a new pick and a couple o' bottles o' dwarven ale, I would be f'rever in yer debt.");
 	end
