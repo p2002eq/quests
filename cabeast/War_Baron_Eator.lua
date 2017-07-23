@@ -24,8 +24,8 @@ function event_trade(e)
 		e.other:QuestReward(e.self,0,0,0,0,7881,20000); -- Mark of Clarity
 	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 12899, item2 = 12898, item3 = 12896, item4 = 5132})) then -- An Emerald, A Sapphire, A Ruby and Footmans Pike
 		e.self:Emote("gulps down a wad of phlegm.");
-		e.self:Say("My memory has returned! Boneripper! You are no footman. I grant you the rank of soldier. Go and forge your weapon. Do not return to me until you become a [brave trooper of the empire].");
-		e.self:Say("Find Drill Master Kyg to help you in this task?  [Footman Moglok] needs help.");
+		e.self:Say("My memory has returned! Boneripper! You are no footman. I grant you the rank of soldier. Go and forge your weapon. Do not return to me until you become a [" .. eq.say_link("brave trooper of the empire") .. "].");
+		e.self:Say("Find Drill Master Kyg to help you in this task? [Footman Moglok] needs help.");
 		e.other:Faction(30,2); -- Cabilis Residents
 		e.other:Faction(193,2); -- Legion of Cabilis
 		e.other:Faction(282,2); -- Scaled Mystics

@@ -1,12 +1,12 @@
 function event_say(e)
 	if(e.message:findi("Hail")) then
-		e.self:Say("Welcome.  Who has [sent] you to me?");
+		e.self:Say("Welcome.  Who has [" .. eq.say_link("sent") .. "] you to me?");
 	elseif(e.message:findi("Grand Master Glox")) then
-		e.self:Say("So Grand Master Glox has sent you?  You must be new to the court.  We are of the Swifttail caste as are you.  Under the guidance of masters such as I. You will forge your body into a weapon of pure destruction.  Do not bother the Grand Master.  He is in constant meditation and is bothered with only the most paramount of concerns.  Are you [ready to train]?");
+		e.self:Say("So Grand Master Glox has sent you?  You must be new to the court.  We are of the Swifttail caste as are you.  Under the guidance of masters such as I. You will forge your body into a weapon of pure destruction.  Do not bother the Grand Master.  He is in constant meditation and is bothered with only the most paramount of concerns.  Are you [" .. eq.say_link("ready to train") .. "]?");
 	elseif(e.message:findi("ready to train")) then
-		e.self:Say("Then I can offer training in the martial arts as well as other skills.  Please remember to obtain knowledge from our court chronicler.  You shall also begin to aid your brothers and sisters with [menial tasks].  All begin upon the rung of dust and all have done these tasks in order to climb to the next rung.");
+		e.self:Say("Then I can offer training in the martial arts as well as other skills.  Please remember to obtain knowledge from our court chronicler.  You shall also begin to aid your brothers and sisters with [" .. eq.say_link("menial tasks") .. "].  All begin upon the rung of dust and all have done these tasks in order to climb to the next rung.");
 	elseif(e.message:findi("menial tasks")) then
-		e.self:Say("We have a few menial tasks we require our young members to perform.  Young members must [tailor training bags] for our court.");
+		e.self:Say("We have a few menial tasks we require our young members to perform.  Young members must [" .. eq.say_link("tailor training bags") .. "] for our court.");
 	elseif(e.message:findi("tailor training bags")) then
 		e.self:Say("Then take this leech husk pouch and fill it with the obvious.  Once done, combine the skins and take the full leech husk pouch to a local tailor by the name of Klok Mugruk.  He is the one who cleans and toughens the husks for us. He shall hand you a ready-made training bag husk.  He will instruct you further.");
 		e.other:SummonItem(17998); -- Leech Husk Pouch

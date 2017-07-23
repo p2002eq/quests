@@ -1,10 +1,10 @@
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Greetings, youngling. Are you here seeking wisdom or are you here to [work]?");
+		e.self:Say("Greetings, youngling. Are you here seeking wisdom or are you here to [" .. eq.say_link("work") .. "]?");
 	elseif(e.message:findi("work")) then
-		e.self:Say("Ah! Excellent! Than you shall acquire wisdom THROUGH work! As a mystic, you will need to learn [arts of creation], and you can learn that by watching me work.");
+		e.self:Say("Ah! Excellent! Than you shall acquire wisdom THROUGH work! As a mystic, you will need to learn [" .. eq.say_link("arts of creation") .. "], and you can learn that by watching me work.");
 	elseif(e.message:findi("arts")) then
-		e.self:Say("Yes yes... the arts of creation. You'll need to do some leg work in the fields to gather the materials for me to show you how to create [boots], [bracers], a [cloak], or [vambraces].");
+		e.self:Say("Yes yes... the arts of creation. You'll need to do some leg work in the fields to gather the materials for me to show you how to create [" .. eq.say_link("boots") .. "], [" .. eq.say_link("bracers") .. "], a [" .. eq.say_link("cloak") .. "], or [" .. eq.say_link("vambraces") .. "].");
 	elseif(e.message:findi("boots")) then
 		e.self:Say("I'll need you to bring me some banded boots, a fire emerald, some spirit caller beads, and a rhino hoof. Come back to me when you have all the components and then give them to me, then I'll show you how to make boots.");
 	elseif(e.message:findi("bracers")) then

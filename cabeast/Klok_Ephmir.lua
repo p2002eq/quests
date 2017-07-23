@@ -2,8 +2,8 @@ function event_say(e)
 	if(e.message:findi("hail")) then
 		e.self:Emote("stares at you with a wicked smirk. 'So you share the Brood's love of frogloks, do you? Alive, they provide much trouble. Dead, they provide much delight. I have found many uses for the frogloks. From fine meat to fine mats. Be sure to ask if you do not see something you desire.'");
 	elseif(e.message:findi("i need thinly sliced froglok")) then
-		e.self:Say("I can provide thin sliced froglok meat, or rather, I used to. First I need to [sharpen the dull cutting disk].");
-	elseif(e.message:findi("sharpen.*disk")) then
+		e.self:Say("I can provide thin sliced froglok meat, or rather, I used to. First I need to [" .. eq.say_link("sharpen the dull cutting disk") .. "].");
+	elseif(e.message:findi("sharpen the dull cutting disk")) then
 		e.self:Say("That would be good. If you are a blacksmith, I am sure you can find a sharpening stone and bring life back in my disk. If you sharpen this I shall gladly provide you with some thin sliced froglok.");
 		e.other:SummonItem(12449); -- Dull Cutting Disk
 	elseif(e.message:findi("outlander")) then

@@ -22,7 +22,7 @@ function event_trade(e)
 		eq.set_global("shmskullquest", "12",5,"F"); -- Completed Cudgel 7.2
 		e.other:QuestReward(e.self,0,0,0,10,17134,1000); -- Ornate Skull Case
 	elseif((tonumber(qglobals.shmskullquest) >= 12) and (item_lib.check_turn_in(e.self, e.trade, {item1 = 30988, item2 = 5146})) and (e.other:GetFaction(e.self) <= 4)) then -- A Filled Ornate Skull Case and Iron Cudgel of the Hierophant
-		e.self:Say("You have done well " .. e.other:GetName() .. ". Perhaps you can help clear these troubling dreams from my tired aging mind. Commune with the spirits of our Ancestors and learn from them. Never forget that the ultimate power comes from knowledge. The ancients are privy to much knowledge that mortals will never see. Should you be granted enlightenment from our ancestors, share your knowledge with me so that we may use this knowledge for the benefit of our brethren. I will continue to study the [dreams] that [cloud] my mind.");
+		e.self:Say("You have done well " .. e.other:GetName() .. ". Perhaps you can help clear these troubling dreams from my tired aging mind. Commune with the spirits of our Ancestors and learn from them. Never forget that the ultimate power comes from knowledge. The ancients are privy to much knowledge that mortals will never see. Should you be granted enlightenment from our ancestors, share your knowledge with me so that we may use this knowledge for the benefit of our brethren. I will continue to study the [" .. eq.say_link("dreams") .. "] that cloud my mind.");
 		eq.set_global("shmskullquest", "13",5,"F"); -- Totally Completed Cudgel Quest 7
 		e.other:QuestReward(e.self,0,0,0,10,5148,100000); -- SkyIron Cudgel of the Arisen
 	end

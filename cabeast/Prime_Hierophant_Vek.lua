@@ -39,7 +39,7 @@ function event_trade(e)
 		e.other:QuestReward(e.self,0,0,0,0,7881,20000); -- Mark of Clarity
 	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 14790})) then -- Illegible Note: Vambraces
 		e.self:Emote("stares down at the note, confused, until he recognizes the writing and gasps in shock!");
-		e.self:Say("You spoke to the Brothers? You, a simple Legionnaire? Well, no matter, you are here to test your virtue of sacrifice and we will take pleasure in it as we have for generations even before the Fallen Brothers. One of our greatest allies in pain is disease. In the woods outside our fair city is a small tribe of goblins. There is a certain goblin famed for his [unique weapon]. Take this knife and use it to cut this from the goblin. Then return his weapon, the knife, a sapphire, and an opal to me.");
+		e.self:Say("You spoke to the Brothers? You, a simple Legionnaire? Well, no matter, you are here to test your virtue of sacrifice and we will take pleasure in it as we have for generations even before the Fallen Brothers. One of our greatest allies in pain is disease. In the woods outside our fair city is a small tribe of goblins. There is a certain goblin famed for his [" .. eq.say_link("unique weapon") .. "]. Take this knife and use it to cut this from the goblin. Then return his weapon, the knife, a sapphire, and an opal to me.");
 		e.other:QuestReward(e.self,0,0,0,0,14784,100); -- Hierophants Knife
 	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 14795})) then -- Illegible Note: Pauldron
 		e.self:Emote("stares down at the note, confused, until he recognizes the writing.");
