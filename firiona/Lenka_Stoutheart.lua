@@ -17,7 +17,7 @@ end
 
 function event_signal(e)
 	if(e.signal == 1) then
-		e.self:Say("We're just kidding with you, kid. Heh.  Although they are making heroes kinda small these days.  Hey, you [want to see something interesting]?");
+		e.self:Say("We're just kidding with you, kid. Heh.  Although they are making heroes kinda small these days.  Hey, you [" .. eq.say_link("want to see something interesting") .. "]?");
 	elseif(e.signal == 2) then
 		e.self:Say("I hear they sell the stuff in only two places. Lizardtown and Neriak. Hmmm. Now, why is that?");
 	end
@@ -27,8 +27,3 @@ function event_trade(e)
 	local item_lib = require("items");
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------

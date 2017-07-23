@@ -1,8 +1,8 @@
 function event_say(e)
 	if(e.message:findi("hail")) then 				
-		e.self:Emote("Well hello there. I am new to the bank. I am helping the Fargins out since it is so busy lately. Mr. Fargin doesn't even have time for his [hobby] these days.");
+		e.self:Emote("Well hello there. I am new to the bank. I am helping the Fargins out since it is so busy lately. Mr. Fargin doesn't even have time for his [" .. eq.say_link("hobby") .. "] these days.");
 	elseif(e.message:findi("hobby")) then 		
-		e.self:Emote("Mr. Fargin used to collect rare coins and gems. He came to Firiona Vie to do just that, but now he never has the time to [collect rare coins] since he is always working here. That is why I came to help him out.");
+		e.self:Emote("Mr. Fargin used to collect rare coins and gems. He came to Firiona Vie to do just that, but now he never has the time to [" .. eq.say_link("collect rare coins") .. "] since he is always working here. That is why I came to help him out.");
 	elseif(e.message:findi("rare coins")) then 	
 		e.self:Say("If you want to help, you can begin by replacing Mr. Fargin's prized Star of Odus which was taken from his vault when he stepped out to dine one night. Do so, and I may trust you to collect coins. I will also reward you with an item a composer left here. With Mr. Fargin's approval of course.");
 	end

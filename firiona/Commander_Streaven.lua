@@ -3,4 +3,3 @@ function event_say(e) --Unknown text
 		e.self:Emote("ignores you.");
 	end
 end
-
