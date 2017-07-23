@@ -2,10 +2,10 @@
 function event_say(e)
 	if(e.other:GetFaction(e.self)==1) then -- Only if you are ally with Sarnaks
 		if(e.message:findi("hail")) then
-			e.self:Say("Hail, minion! It is good to see a member of a lesser race striving to improve themself through service to the Dizok. We are feeling especially generous as of late, and if you would do us a [service], we shall reward you handsomely.");
+			e.self:Say("Hail, minion! It is good to see a member of a lesser race striving to improve themself through service to the Dizok. We are feeling especially generous as of late, and if you would do us a [" .. eq.say_link("service") .. "], we shall reward you handsomely.");
 		end
 		if(e.message:findi("service")) then
-			e.self:Say("We are not sure you are worthy, but shall assign you this task in hopes you prove mighty enough to resolve it. Gather your broodlings about you, and journey to Charasis. There you shall find a Urn of spirits. We require this, as well as [additional components].");
+			e.self:Say("We are not sure you are worthy, but shall assign you this task in hopes you prove mighty enough to resolve it. Gather your broodlings about you, and journey to Charasis. There you shall find a Urn of spirits. We require this, as well as [" .. eq.say_link("additional components") .. "].");
 		end
 		if(e.message:findi("additional components")) then
 			e.self:Say("Very well, if you feel you are up to it, lead your broodlings to fallen Sebilis and return to us with a portion of undead dragon sinew. Bring us the Sinew, the Urn, and your Regal Band of Bathezid as proof of service, and a worthy reward shall be yours.");
