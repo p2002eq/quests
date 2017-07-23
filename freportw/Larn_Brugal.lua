@@ -1,8 +1,8 @@
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Good day to you " .. e.other:GetName() .. " I hope you yearn to become a Steel Warrior as we all are here in the Bunker. We are in need of more recruits to continue the [war].");
+		e.self:Say("Good day to you " .. e.other:GetName() .. " I hope you yearn to become a Steel Warrior as we all are here in the Bunker. We are in need of more recruits to continue the [" .. eq.say_link("war") .. "].");
 	elseif(e.message:findi("war")) then
-		e.self:Say("The war I speak of is the one we Steel Warriors have sworn to wage agianst [Clan Deathfist] in the Commonlands. We are doing a fine job but we require more weapons. We are expecting a shipment of blades from Groflahs Forge. We require a warrior of the bunker to [get our shipment]. Maybe you.");
+		e.self:Say("The war I speak of is the one we Steel Warriors have sworn to wage agianst [" .. eq.say_link("Clan Deathfist") .. "] in the Commonlands. We are doing a fine job but we require more weapons. We are expecting a shipment of blades from Groflahs Forge. We require a warrior of the bunker to [" .. eq.say_link("get our shipment") .. "]. Maybe you.");
 	elseif(e.message:findi("clan deathfist")) then
 		e.self:Say("If you do not know of Clan Deathfist go ask Cain who they are. He will not only tell you he will sign you up to help fight our war!");
 	elseif(e.other:GetClass() == 1) then
@@ -24,5 +24,3 @@ function event_trade(e)
 	end
 	item_lib.return_items(e.self, e.other, e.trade);
 end
-
--- END of FILE Zone:freportw  ID:9113 -- Larn_Brugal

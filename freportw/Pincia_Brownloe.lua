@@ -18,5 +18,3 @@ function event_signal(e)
 		eq.signal(9057, 2, 10000);
 	end
 end
-
--- END of FILE Zone:freportw -- Pincia_Brownloe

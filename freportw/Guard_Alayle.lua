@@ -8,7 +8,6 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-
 	if(e.other:Class() == "Paladin") then
 		if(item_lib.check_turn_in(e.self, e.trade, {item1 = 18817})) then -- Sealed Letter
 			e.self:Say("This is not good news. I must leave immediately. Here. Take this to Kala.. I mean my father. I found it on the floor of Sir Lucan D'Lere's quarters. Thanks again, messenger. I got this just in time.");
@@ -29,5 +28,3 @@ function event_signal(e)
 	e.self:Say("'Oh no!! It is too late!! Run!!");
 	eq.signal(9143,1,30000);
 end
-
--- END of FILE Zone:freportw Guard_Alayle

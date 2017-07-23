@@ -20,6 +20,4 @@ function event_signal(e)
 		e.self:Say("As you try to open penetrate the stone wall it is clearly being held in place by a powerful force.");
 		eq.attack_npc_type(9141);
 		eq.signal(9106,1);
-end	
-
---END of FILE Zone:freportw  Krazen_Loosh
+end
