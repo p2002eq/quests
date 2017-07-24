@@ -1,8 +1,8 @@
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Hail, my friend. Unfortunately I cannot talk right now. The giants must be dealt with.");
+		e.self:Say("Hail, my friend. Unfortunately I cannot talk right now. The [" .. eq.say_link("giants") .. "] must be dealt with.");
     elseif(e.message:findi("giants")) then
-		e.self:Say("The giants are continuing to put forth efforts to encroach the lands blessed by Tunare. We need an outrider or preserver to aid us in our continued fight.");
+		e.self:Say("The giants are continuing to put forth efforts to encroach the lands blessed by Tunare. We need an [" .. eq.say_link("outrider") .. "] or [" .. eq.say_link("preserver") .. "] to aid us in our continued fight.");
     elseif(e.message:findi("preserver")) then
 		e.self:Say("Noble preserver, you will be needed to combat the priests of the warbringer. Scouts have reported three priests wandering the Wakening Lands in search of a site to build a shrine to their god. Seek them out, kill them, and bring their heads and those of anyone else involved.");
     elseif(e.message:findi("outrider")) then
