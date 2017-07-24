@@ -1,8 +1,11 @@
 function event_enter_zone(e)
-	if(e.self:GetBoatID() == 772 or e.self:GetBoatID() == 773) then
-		eq.signal(1138,1);
-	else
-		eq.signal(1138,2);
+	--if(e.self:GetBoatID() == 772 or e.self:GetBoatID() == 773) then
+	--	eq.signal(1138,1);
+	--else
+	--	eq.signal(1138,2);
+	--end
+	if(e.self:GetRace() == 330) then
+		e.self:MovePC(185,-436.45,604,-87.1,62);
 	end
 	local discs = require('disciplines');
 	discs:update_discs(e, e.self:GetLevel());
