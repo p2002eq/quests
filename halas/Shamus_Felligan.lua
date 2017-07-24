@@ -2,10 +2,10 @@
 
 function event_say(e)
 	if(e.message:findi("Hail")) then
-		e.self:Say("Greetin's! Justice speaks through us. We're the followers o' the Tribunal. We act as judge. jury and executioner fer all misled Northmen. Sometimes we must also execute our swift justice upon evil races. such as th' [ice goblins].");
-	elseif(e.message:findi("what ice goblins")) then
-		e.self:Say("The ice goblins are a weak race. They pose no threat to our community. but lately we've heard rumors of ice goblins that can cast spells. They're said to be as weak as the goblin warriors. so I seek to employ the talents of our young shamans to [hunt the goblin casters].");
-	elseif(e.message:findi("i will hunt the goblin casters")) then
+		e.self:Say("Greetin's! Justice speaks through us. We're the followers o' the Tribunal. We act as judge. jury and executioner fer all misled Northmen. Sometimes we must also execute our swift justice upon evil races. such as th' [" .. eq.say_link("ice goblins") .. "].");
+	elseif(e.message:findi("ice goblins")) then
+		e.self:Say("The ice goblins are a weak race. They pose no threat to our community. but lately we've heard rumors of ice goblins that can cast spells. They're said to be as weak as the goblin warriors. so I seek to employ the talents of our young shamans to [" .. eq.say_link("hunt the goblin casters") .. "].");
+	elseif(e.message:findi("hunt the goblin casters")) then
 		e.self:Say("Aye. ye'll serve justice.  I must find the source o' their recent spellcasting ability.  I hear reports o' glowing necklaces upon these wicked beasts' necks. Get me one o' these casters' necklaces. Return them in any condition at all. Go! Justice awaits yer return.");
 	end
 end
@@ -41,7 +41,3 @@ item_lib.return_items(e.self, e.other, e.trade)
 end
 
 -- DEVELOPER: KOVOU
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------

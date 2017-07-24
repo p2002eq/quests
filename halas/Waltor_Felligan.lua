@@ -1,6 +1,6 @@
 function event_say(e)
 	if(e.message:findi("Hail")) then
-		e.self:Say("Hello, me friend! I'm the resident healer o' Halas. Please inform me when ye've a need fer me talents to [bind wounds], [cure disease] or [cure poison]. Might I add, if ye're a young shaman o' Halas, ye can also [assist in gathering fungus].");
+		e.self:Say("Hello, me friend! I'm the resident healer o' Halas. Please inform me when ye've a need fer me talents to [" .. eq.say_link("bind wounds") .. "], [" .. eq.say_link("cure disease") .. "] or [" .. eq.say_link("cure poison") .. "]. Might I add, if ye're a young shaman o' Halas, ye can also [" .. eq.say_link("assist in gathering fungus") .. "].");
 	elseif(e.other:GetFaction(e.self) < 6) then
 		if(e.message:findi("cure disease")) then
 			e.self:Say("Two small quantities o' wooly fungus are needed before we can cure yer malady.");
@@ -47,8 +47,3 @@ function event_trade(e)
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------

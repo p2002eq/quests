@@ -1,17 +1,13 @@
 function event_say(e)
 	if(e.message:findi("Hail")) then
-		e.self:Say("Hail, mighty " .. e.other:GetName() .. "! I assume ye must be a [warrior o' the Wolves]. Why else would ye approach a trainer such as meself, then?");
-	end
-	if(e.message:findi("warrior o' the Wolves") and e.other:GetFaction(e.self) < 5) then
-		e.self:Say("Aye, 'tis as I thought. I'm glad t' see we've warriors such as yerself amongst the Wolves o' the North. Lately, Kylan's been allowing too many scrawny warriors in, methinks. Nor have they fared well in Everfrrost. Many frreeze to death, ye know... Will ye assist me and [deliver an elixir to young warriors] in Everfrost?");
-	end
-	if(e.message:findi("warrior o' the Wolves") and e.other:GetFaction(e.self) == 5) then
-		e.self:Say("The Wolves o' the North show ye no ill will, but there's much ye must do t' earn our trust.  Perhaps ye should speak with Lysbith and inquire o' the [gnoll bounty].");
-	end
-	if(e.message:findi("warrior o' the Wolves") and e.other:GetFaction(e.self) > 5) then
+		e.self:Say("Hail, mighty " .. e.other:GetName() .. "! I assume ye must be a [" .. eq.say_link("warrior o' the Wolves") .. "]. Why else would ye approach a trainer such as meself, then?");
+	elseif(e.message:findi("warrior o' the Wolves") and e.other:GetFaction(e.self) < 5) then
+		e.self:Say("Aye, 'tis as I thought. I'm glad t' see we've warriors such as yerself amongst the Wolves o' the North. Lately, Kylan's been allowing too many scrawny warriors in, methinks. Nor have they fared well in Everfrrost. Many frreeze to death, ye know... Will ye assist me and [" .. eq.say_link("deliver an elixir to young warriors") .. "] in Everfrost?");
+	elseif(e.message:findi("warrior o' the Wolves") and e.other:GetFaction(e.self) == 5) then
+		e.self:Say("The Wolves o' the North show ye no ill will, but there's much ye must do t' earn our trust.  Perhaps ye should speak with Lysbith and inquire o' the [" .. eq.say_link("gnoll bounty") .. "].");
+	elseif(e.message:findi("warrior o' the Wolves") and e.other:GetFaction(e.self) > 5) then
 		e.self:Say("Run while ye still can!! The Wolves o' the North will not tolerate yer presence!");
-	end
-	if(e.message:findi("deliver an elixir to young warriors") and e.other:GetFaction(e.self) < 5) then
+	elseif(e.message:findi("deliver an elixir to young warriors") and e.other:GetFaction(e.self) < 5) then
 		e.self:Say("Ach, 'tis good o' ye! Take this bottle of elixir to Everfrost Peaks. Find Talin O'Donal. He'll take the first sip, and then instruct ye on who else ye need to find. Do that, and I'll give ye a fine reward when ye return the empty elixir bottle. Good luck, then. Don't die.");
 		e.other:SummonItem(13241);
 	end
@@ -32,10 +28,3 @@ function event_trade(e)
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
---Author: Hamarabi, but I didn't write it, I just fixed it and completed the unfinished parts with the help of paaco, mrea, Muuss, and ylosh.
---revised by: robregen
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------
