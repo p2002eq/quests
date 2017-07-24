@@ -10,7 +10,7 @@ function event_trade(e)
 	local item_lib = require("items");
 
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 18795})) then
-		e.self:Say("Hmm, I see. We think we've found out who the mole is in Carson's guards, some guy named Stald. We need to get rid of this guy as quickly, and as quietly, as possible. Carson doesn't want to cause a stink by eliminating one of his own men, so he asked us to do it. What about you? Do you think [you could get rid of Stald] for us?");
+		e.self:Say("Hmm, I see. We think we've found out who the mole is in Carson's guards, some guy named Stald. We need to get rid of this guy as quickly, and as quietly, as possible. Carson doesn't want to cause a stink by eliminating one of his own men, so he asked us to do it. What about you? Do you think [" .. eq.say_link("you could get rid of Stald") .. "] for us?");
 		e.other:Ding();
 		e.other:Faction(31,10,0); -- Carson Mccabe
 		e.other:Faction(48,10,0); -- Coalition of Tradefolk Underground
