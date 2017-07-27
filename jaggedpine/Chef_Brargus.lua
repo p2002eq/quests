@@ -5,9 +5,9 @@ function event_say(e)
         if(e.message:findi("hail")) then
             e.self:Say("Whatchoo want?");
         elseif(e.message:findi("dryad pate")) then
-            e.self:Say("You want my secret recipe for Nymph Pate? You don't look like you could even cook a [Patty Melt] without making a disgusting mess, let alone something as delicate and refined as Nymph Pate!");
+            e.self:Say("You want my secret recipe for Nymph Pate? You don't look like you could even cook a [" .. eq.say_link("Patty Melt") .. "] without making a disgusting mess, let alone something as delicate and refined as Nymph Pate!");
         elseif(e.message:findi("patty melt")) then
-            e.self:Say("Yeah, you know a patty melt! It's like a [Grilled Cheese Sandwich] with some meat stuck in between the whole mess. Sheesh, are you a vegetarian or something?");
+            e.self:Say("Yeah, you know a patty melt! It's like a [" .. eq.say_link("Grilled Cheese Sandwich") .. "] with some meat stuck in between the whole mess. Sheesh, are you a vegetarian or something?");
         elseif(e.message:findi("grilled cheese sandwich")) then
             e.self:Say("Great Brell's gravy, you are inept aren't you! I'll say this slowly. You take some bread, then you take some cheese then you put them together and cook it with a frying pan! I'll tell you what, if you can manage to figure out how to make a Patty Melt, bring it back to me and if it's halfway edible I'll give you my recipe for Nymph Pate.");
         end
