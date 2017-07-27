@@ -1,12 +1,12 @@
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Step forward and speak up, young " .. e.other:GetName() .. "! Kaladim can always use another warrior. Are you [ready to serve Kaladim] or has a yellow streak appeared down your back?");
+		e.self:Say("Step forward and speak up, young " .. e.other:GetName() .. "! Kaladim can always use another warrior. Are you [" .. eq.say_link("ready to serve Kaladim") .. "] or has a yellow streak appeared down your back?");
 	elseif(e.message:findi("ready to serve kaladim")) then
-		e.self:Say("Then serve you shall. Let your training begin on the battlefields of Faydwer. Seek out and destroy all [Crushbone orcs]. Return their belts to me.  I shall also reward you for every two orc legionnaire shoulder pads  returned.  A warrior great enough to slay one legionnaire shall surely have no problem with another.  Go. and let the cleansing of Faydwer begin.");
+		e.self:Say("Then serve you shall. Let your training begin on the battlefields of Faydwer. Seek out and destroy all [" .. eq.say_link("Crushbone orcs") .. "]. Return their belts to me.  I shall also reward you for every two orc legionnaire shoulder pads  returned.  A warrior great enough to slay one legionnaire shall surely have no problem with another.  Go. and let the cleansing of Faydwer begin.");
 	elseif(e.message:findi("crushbone orcs")) then
-		e.self:Say("The army of the Crushbone orcs is deadly indeed. They are great military strategists. It was a legion of them that brought down the great [Trondle Ogrebane]. Speak with Furtog Ogrebane about the Crushbones. He has need of warriors such as you.");
+		e.self:Say("The army of the Crushbone orcs is deadly indeed. They are great military strategists. It was a legion of them that brought down the great [" .. eq.say_link("Trondle Ogrebane") .. "]. Speak with Furtog Ogrebane about the Crushbones. He has need of warriors such as you.");
 	elseif(e.message:findi("trondle ogrebane")) then
-		e.self:Say("Trondle Ogrebane is the legary dwarven warrior who single-handedly exterminated the ogre clan called the [Mudtoes]. He was recently killed in battle. It took an entire legion of Crushbone orcs to bring him down. Furtog is still fuming about that.");
+		e.self:Say("Trondle Ogrebane is the legary dwarven warrior who single-handedly exterminated the ogre clan called the [" .. eq.say_link("Mudtoes") .. "]. He was recently killed in battle. It took an entire legion of Crushbone orcs to bring him down. Furtog is still fuming about that.");
 	elseif(e.message:findi("mudtoes")) then
 		e.self:Say("The Mudtoes were a small clan of ogres. They lived somewhere in the Butcherblock Mountains. They had an insatiable appetite for dwarves. They were finally destroyed by the hand of Trondle Ogrebane.");
 	end
@@ -60,9 +60,3 @@ function event_trade(e)
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
--- revised by robregen.
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------
