@@ -3,7 +3,7 @@
 function event_say(e)
 	if (e.other:GetFaction(e.self) <= 4) then --Kindly or lower
 		if (e.message:findi("hail")) then	
-			e.self:Emote("sighs as he looks down at you. 'I grow tired of this city. I so long for the tundra and lands of the wild.'");
+			e.self:Emote("sighs as he looks down at you. 'I grow tired of this city. I so long for the tundra and [" .. eq.say_link("") .. "]lands of the wild.'");
 		elseif (e.message:findi("lands of the wild")) then	
 			e.self:Say("I enjoy training these animals, don't get me wrong, but the open wastes, where the great animals and dragons roam free are what I crave. Before I came to serve King Tormax, I wandered those wastes, hunting young dragons and elder wurms. The whistle of an arrow from my bow was like sweet music - each slash of my sword a sweet song.");
 		elseif (e.message:findi("young dragons")) then	

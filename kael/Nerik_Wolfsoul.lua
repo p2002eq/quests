@@ -18,8 +18,8 @@ function event_say(e)
 	if (e.other:GetFaction(e.self) == 1) then
 		if (e.message:findi("hail")) then	
 			e.self:Say("Greetings to you. I seek one who is known as a beastlord. What do you call yourself, " .. e.other:GetName() .. "?");	
-		elseif (e.message:findi("i am a beastlord")) then	
-			e.self:Say("Then perhaps you would be interested in some armor that I can make you. I can make you a cap, tunic, leggings, bracer, boots, sleeves, and gloves if you bring me the correct items.");
+		elseif (e.message:findi("beastlord")) then
+			e.self:Say("Then perhaps you would be interested in some armor that I can make you. I can make you a [" .. eq.say_link("cap") .. "], [" .. eq.say_link("tunic") .. "], [" .. eq.say_link("leggings") .. "], [" .. eq.say_link("bracer") .. "], [" .. eq.say_link("boots") .. "], [" .. eq.say_link("sleeves") .. "], and [" .. eq.say_link("gloves") .. "] if you bring me the correct items.");
 		elseif (e.message:findi("cap")) then	
 			e.self:Say("I shall weave one of exceptional quality for you but you must gather the items first. I require an ancient leather cap and a set of three pieces of crushed coral.");
 		elseif (e.message:findi("tunic")) then	

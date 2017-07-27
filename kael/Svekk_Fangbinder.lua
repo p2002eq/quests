@@ -10,12 +10,12 @@ function event_say(e)
 			e.self:Say("I wonder how much I could get for the tongue of a blithering fool?  Leave before I decide to find out for myself.");
 		end
 	elseif (e.message:findi("hail")) and (e.other:GetFaction(e.self) <= 5) then
-		e.self:Emote("Greetings, "..e.other:GetName()..".  I am Svekk, a humble servant of Wenglawks.  It is my job to keep track of the supplies here.  I also sell mundane wares.");
+		e.self:Emote("Greetings, "..e.other:GetName()..".  I am Svekk, a humble servant of Wenglawks.  It is my job to keep track of the [" .. eq.say_link("supplies") .. "] here.  I also sell mundane wares.");
 	elseif (e.message:findi("supplies")) and (e.other:GetFaction(e.self) <= 5) then	
-		e.self:Say("We have all kinds of supplies!  Normally we deliver them to the giants who live outside Kael.");
+		e.self:Say("We have all kinds of supplies!  Normally we deliver them to the [" .. eq.say_link("giants") .. "] who live outside Kael.");
 	
 	elseif (e.message:findi("giants")) and (e.other:GetFaction(e.self) <= 5) then	
-		e.self:Say("There are several encampments in the eastern wastes that barter for supplies with us monthly.  The great divide also has a small outpost of Kromrif who strive to beat the Coldain back into their city of Thurgadin and of course the outposts in the wakening lands.  Our last batch of deliveries did not reach their intended targets.  The runners have not been heard from since they were dispatched either.");
+		e.self:Say("There are several encampments in the [" .. eq.say_link("eastern wastes") .. "] that barter for supplies with us monthly.  The [" .. eq.say_link("great divide") .. "] also has a small outpost of Kromrif who strive to beat the Coldain back into their city of Thurgadin and of course the outposts in the wakening lands.  Our last batch of deliveries did not reach their intended targets.  The runners have not been heard from since they were dispatched either.");
 	elseif (e.message:findi("eastern wastes")) and (e.other:GetFaction(e.self) <= 5) then	
 		e.self:Say("The Kromrif of the Eastern wastes are more savage than those who dwell within Kael Drakkel.  Normally they can fend for themselves but recently Fjloaren of the Icebane clan has requested we help them with a shipment of supplies.  We have yet to receive payment for the supplies but you are more than welcome to purchase supplies for them and deliver them.  It has been a most unforgiving season upon the wastes I believe.");
 	elseif (e.message:findi("great divide")) and (e.other:GetFaction(e.self) <= 5) then	
@@ -41,7 +41,7 @@ function event_trade(e)
 		e.other:Faction(42, -30); --CoV
  	--Could not find any information this quest just copied perl
 	elseif (item_lib.check_turn_in(e.self, e.trade, {item1 =  25267})) then	
-		e.self:Say("This is unbelievable!  The fool is asking for things I don't even have in stock!  Listen, "..e.other:GetName()..", you're the one that wanted to help them out, I'm just here working for Wenglawks.  I can get most of these supplies ready but I have no source for Klezendian Crystals.  I will start bundling the more mundane items Bekerak wants.  If you find any Klezendian return to me with the crystal and this voucher.");
+		e.self:Say("This is unbelievable!  The fool is asking for things I don't even have in stock!  Listen, "..e.other:GetName()..", you're the one that wanted to help them out, I'm just here working for Wenglawks.  I can get most of these supplies ready but I have no source for Klezendian Crystals.  I will start bundling the more mundane items Bekerak wants.  If you find any [" .. eq.say_link("Klezendian") .. "] return to me with the crystal and this voucher.");
 		e.other:QuestReward(e.self, 0, 0, 0, 0, 25270, 250); --Supply Voucher
 		e.other:Faction(189, 10); --kromzek
 		e.other:Faction(188, 10); --kromrif

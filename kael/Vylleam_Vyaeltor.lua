@@ -18,11 +18,11 @@ function event_say(e)
 	if(e.other:GetFaction(e.self) < 2) then -- Must be Ally
 		if(e.message:findi("hail")) then
 			e.self:Emote(" bows.");
-			e.self:Say("Greetings to you. You are far away from your homelands, stranger. I am looking for someone. Someone that the outlanders call a cleric. Are you a cleric?");
+			e.self:Say("Greetings to you. You are far away from your homelands, stranger. I am looking for someone. Someone that the outlanders call a [" .. eq.say_link("") .. "]cleric. Are you a cleric?");
 		elseif(e.message:findi("cleric")) then
-			e.self:Say("Ahhh... most pious one. I sense the aura of your devotion and conviction and it is strong about you. A shame you are so short lived, mortal. But I see potential in you and for that I shall aid you in your calling. Do you wish my aid?");
+			e.self:Say("Ahhh... most pious one. I sense the aura of your devotion and conviction and it is strong about you. A shame you are so short lived, mortal. But I see potential in you and for that I shall aid you in your calling. Do you [" .. eq.say_link("") .. "]wish my aid?");
 		elseif(e.message:findi("i wish your aid")) then
-			e.self:Say("Then I have a set of goals for you. Once you have achieved them, you shall be rewarded with such as these; a helm, a breastplate, armplates, bracers, gauntlets, greaves and boots. May they protect you from your enemies.");
+			e.self:Say("Then I have a set of goals for you. Once you have achieved them, you shall be rewarded with such as these; a [" .. eq.say_link("helm") .. "], a [" .. eq.say_link("breastplate") .. "], [" .. eq.say_link("armplates") .. "], [" .. eq.say_link("bracers") .. "], [" .. eq.say_link("gauntlets") .. "], [" .. eq.say_link("greaves") .. "] and [" .. eq.say_link("boots") .. "]. May they protect you from your enemies.");
 		elseif(e.message:findi("helm")) then
 			e.self:Say("I shall craft a helm for you but you must seek these items out for me first. I have need of an ancient tarnished plate helmet and three crushed onyx sapphires.");
 		elseif(e.message:findi("breastplate")) then

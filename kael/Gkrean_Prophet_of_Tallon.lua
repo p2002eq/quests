@@ -1,8 +1,8 @@
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("You have entered the sacred temple of Tallon Zek. This is the Temple of Tactics, where we teach what must be done to achieve goals in the most efficient manner.");
+		e.self:Say("You have entered the sacred temple of Tallon Zek. This is the Temple of Tactics, where we [" .. eq.say_link("teach me",false,"teach") .. "] what must be done to achieve goals in the most efficient manner.");
 	elseif(e.message:findi("teach me")) then	
-		e.self:Say("I cannot teach one of your kind the arts of war. I must teach the other Kromzek at this time. If you were to serve the Temple of Tactics I might consider giving you a few words of wisdom.");
+		e.self:Say("I cannot teach one of your kind the arts of war. I must teach the other Kromzek at this time. If you were to [" .. eq.say_link("serve the Temple") .. "] of Tactics I might consider giving you a few words of wisdom.");
 	elseif(e.message:findi("serve the temple")) then
 		e.self:Say("The great father of war, Rallos Zek, wishes the destruction of the inferior race known as the Coldain. As the high priest of Tallon Zek, I see that they use great tactics to evade destruction. Find the ones who teach these tactics to the other Coldain and bring back the books that contain the ancient Coldain tactics and strategies. Do not waste my time without a scroll or book that those tiny beasts hold");
 	end

@@ -16,11 +16,11 @@ local QUEST_ITEMS = {
 function event_say(e)
 	if (e.other:GetFaction(e.self) == 1) then
 		if(e.message:findi("hail")) then
-			e.self:Say("Greetings to you. I seek the service of a powerful warrior. Are you a warrior? If not then be gone.");
+			e.self:Say("Greetings to you. I seek the service of a powerful warrior. Are you a [" .. eq.say_link("warrior") .. "]? If not then be gone.");
 		elseif(e.message:findi("warrior")) then
-			e.self:Say("Excellent. I see that you are a seasoned veteran of many battles. I admire your strength and ferocity. Life is but a series of battles, is it not?");
+			e.self:Say("Excellent. I see that you are a seasoned veteran of many battles. I admire your strength and ferocity. [" .. eq.say_link("life is a series of battles",false,"Life is but a series of battles") .. "], is it not?");
 		elseif(e.message:findi("life is a series of battles")) then
-			e.self:Say("We share the same view then. I wish to test your skills in battle. Not with me of course, for I will destroy you where you stand. Instead I wish for you to retrieve some trinkets for me and once I have them I will reward you handsomely with a helm, a breastplate, armplates, bracers, gauntlets, greaves, or boots.");
+			e.self:Say("We share the same view then. I wish to test your skills in battle. Not with me of course, for I will destroy you where you stand. Instead I wish for you to retrieve some trinkets for me and once I have them I will reward you handsomely with a [" .. eq.say_link("helm") .. "], a [" .. eq.say_link("breastplate") .. "], [" .. eq.say_link("armplates") .. "], [" .. eq.say_link("bracers") .. "], [" .. eq.say_link("gauntlets") .. "], [" .. eq.say_link("greaves") .. "], or [" .. eq.say_link("boots") .. "].");
 		elseif(e.message:findi("helm")) then
 			e.self:Say("All I require are an ancient tarnished plate helmet and three crushed coral pieces. This should be a small task for one such as you. Go now and I shall await your return.");
 		elseif(e.message:findi("breastplate")) then

@@ -18,9 +18,9 @@ local QUEST_ITEMS = {
 function event_say(e)
 	if(e.other:GetFaction(e.self) < 2) then -- Must be ally
 		if(e.message:findi("hail")) then
-			e.self:Say("Greetings to you. I seek one who has chosen the path of monkhood. What do you call yourself?");
+			e.self:Say("Greetings to you. I seek one who has chosen the path of [" .. eq.say_link("I am a Monk",false,"monkhood") .. "]. What do you call yourself?");
 		elseif(e.message:findi("monk")) then
-			e.self:Say("Good. I had hoped you were one. As seeker of the way you are in constant training to push yourself to your physical and mental limits. It is an admirable quality and I wish to aid you. I will provide you with a cap, a tunic, sleeves, bracers, gloves, leggings and boots.");
+			e.self:Say("Good. I had hoped you were one. As seeker of the way you are in constant training to push yourself to your physical and mental limits. It is an admirable quality and I wish to aid you. I will provide you with a [" .. eq.say_link("cap") .. "], a [" .. eq.say_link("tunic") .. "], [" .. eq.say_link("sleeves") .. "], [" .. eq.say_link("bracers") .. "], [" .. eq.say_link("gloves") .. "], [" .. eq.say_link("leggings") .. "] and [" .. eq.say_link("boots") .. "].");
 		elseif(e.message:findi("cap")) then
 			e.self:Say("I shall weave one of exceptional quality for you but you must gather the items first. I require an ancient leather cap and a set of three pieces of crushed coral.");
 		elseif(e.message:findi("tunic")) then
