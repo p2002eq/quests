@@ -16,7 +16,7 @@ end
 function event_trade(e)
     local item_lib = require("items");
     if(item_lib.check_turn_in(e.self, e.trade, {item1 = 4754})) then -- A Jarbled Note
-        e.self:Say("Ah, of course, you must be sent to pick up the supplies that Daesorak has been needing for his mining operation. I was wondering when that crazy Dwarf was going to come and pick these up. I imagine then that you will [take the mining picks] to Daesorak?");
+        e.self:Say("Ah, of course, you must be sent to pick up the supplies that Daesorak has been needing for his mining operation. I was wondering when that crazy Dwarf was going to come and pick these up. I imagine then that you will [" .. eq.say_link("take the mining picks") .. "] to Daesorak?");
         notecheck = 1;
         e.other:QuestReward(e.self,0,0,0,0,0,2500); --
     end

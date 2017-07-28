@@ -1,4 +1,3 @@
-
 function event_say(e)
 	if e.message:findi("hail") then
 		e.self:Say(string.format("Greetings %s. I am Magistrate Elnerick Augustleaf of Katta Castellum and the Loyalist Empire. If it is arcane knowledge that you seek you have come to an excellent place to study. Not only do we have wondrous magical resources available at the Magus Conlegium but the teachings of Tsaph Katta are well known to all of our citizens and aid in preparing the mind for the freedom of thought and mental and emotional discipline needed to become a great wizard.", e.other:GetName()));
@@ -7,10 +6,8 @@ function event_say(e)
 	end
 end
 
-
 function event_trade(e)
 	local item_lib=require("items");
-	
 	-- 29881 :  Shard of the Shoulder
     -- 29882 :  Shard of the Eye
     -- 29883 :  Shard of the Hand
@@ -28,7 +25,3 @@ function event_trade(e)
 
 	item_lib.return_items(e.self, e.other, e.trade); -- return unused items
 end
-
- -- End of File, Zone:katta  -- Elnerick_Augustleaf
-
-

@@ -1,7 +1,7 @@
 ---- Quest:Shrieking Substances
 function event_say(e)
     if(e.message:findi("Hail")) then
-        e.self:Say("Ho there, who are you? Are you [reporting for duty] or just annoying me?");
+        e.self:Say("Ho there, who are you? Are you [" .. eq.say_link("reporting for duty") .. "] or just annoying me?");
     elseif(e.message:findi("reporting for duty")) then
         e.self:Say("Outstanding, now tuck in that tunic. We are trying out some new Shadowscream armor from Barkhem, the smith in Shar Vahl, and some of his students. They will cut us a nice deal if we deliver some of the supplies, so go fill this up with shrieking substances for me. What are you staring at? Go!! And suck in that gut!");
         e.other:SummonItem(17497); -- Sonic Receptacle

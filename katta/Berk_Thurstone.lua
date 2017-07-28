@@ -1,9 +1,9 @@
 ---- Quest:Pyrrhotite Experiments
 function event_say(e)
     if(e.message:findi("Hail")) then
-        e.self:Emote("startles and gazes up at you. 'Careful, careful... I am nearly out of [pyrrhotite].'");
+        e.self:Emote("startles and gazes up at you. 'Careful, careful... I am nearly out of [" .. eq.say_link("pyrrhotite") .. "].'");
     elseif(e.message:findi("pyrrhotite")) then
-        e.self:Say("Pyrrhotite is the name of this ore I have my hands on here. Ye see, I may still look an able-bodied dwarf, full o' spit and fire, but the time is coming where'n I may lose a step or two and they will take me off post- I want to be prepared for that time. I have been doing some [experiments] on this piece of rock, trying to have something to bring to Toktonn and maybe secure a job in ore studies for meself after retirin' from the Validus Custodus.");
+        e.self:Say("Pyrrhotite is the name of this ore I have my hands on here. Ye see, I may still look an able-bodied dwarf, full o' spit and fire, but the time is coming where'n I may lose a step or two and they will take me off post- I want to be prepared for that time. I have been doing some [" .. eq.say_link("experiments") .. "] on this piece of rock, trying to have something to bring to Toktonn and maybe secure a job in ore studies for meself after retirin' from the Validus Custodus.");
     elseif(e.message:findi("experiments")) then
         e.self:Say("Well, there is a powerful magnetic quality to this particular rock, but it is very inconsistent. If I can figure out what makes it tick, it'd sure be a boon to some o' that crazy engineering the gnomes're always doing. This sample is running out though, and it ain't easy to come by what with the durned grimlings hogging the mines, I'd sure appreciate it if someone were to bring me some more. Careful though, it's deceptively heavy.");
     end
