@@ -15,7 +15,7 @@ end
 
 function event_signal(e)
     if(e.signal == 1) then
-        e.self:Emote("catches on slowly, 'ahhh, roight! Good show, Tack! D'ye think 'e would go te that kinda [trouble] fer us?'");
+        e.self:Emote("catches on slowly, 'ahhh, roight! Good show, Tack! D'ye think 'e would go te that kinda [" .. eq.say_link("trouble") .. "] fer us?'");
     end
 end
 

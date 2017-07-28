@@ -1,12 +1,12 @@
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Stand at attention!!  I am General Jyleel. of the Koada'Vie. defenders of Felwithe.  Do you [follow Tunare]. the Mother of All. or do you still [seek your enlightenment]?");
-	elseif(e.message:findi("follow Tunar")) then
-		e.self:Say("Then you are wise indeed.  Would you like to [assist the defenders] in our conflicts or have you other business to attend to?");
+		e.self:Say("Stand at attention!!  I am General Jyleel. of the Koada'Vie. defenders of Felwithe.  Do you [" .. eq.say_link("follow Tunare") .. "]. the Mother of All. or do you still [" .. eq.say_link("seek your enlightenment") .. "]?");
+	elseif(e.message:findi("follow Tunare")) then
+		e.self:Say("Then you are wise indeed.  Would you like to [" .. eq.say_link("assist the defenders") .. "] in our conflicts or have you other business to attend to?");
 	elseif(e.message:findi("seek my enlightenment")) then
 		e.self:Say("Then seek it within these walls.  We welcome all fine upstanding Koada'Dal.");
 	elseif(e.message:findi("assist the defenders")) then
-		e.self:Say("Seek out the Crushbone orcs of the Faydarks.  We must have their oracle scrolls.  They are illegible to you, but we will study them here in Felwithe.  Only the orc oracles will carry them, so be very careful.  There is also the problem with the [Crushbone runners]."); 
+		e.self:Say("Seek out the Crushbone orcs of the Faydarks.  We must have their oracle scrolls.  They are illegible to you, but we will study them here in Felwithe.  Only the orc oracles will carry them, so be very careful.  There is also the problem with the [" .. eq.say_link("Crushbone runners") .. "]."); 
 	elseif(e.message:findi("crushbone runners")) then
 		e.self:Say("The Crushbone orcs are sending messages across the Ocean of Tears to Antonica.  Why. we do not know.  The runner is usually spotted on the open pathways of Butcherblock. running toward the docks.  Find him. kill him. and return his note pouch.");
 	elseif(e.message:findi("faithful paladin of this court")) then
@@ -35,7 +35,7 @@ function event_trade(e)
 		e.other:AddEXP(500);
 		e.other:GiveCash(1,2,0,0);
 	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 18840})) then
-		e.self:Say("So, the Teir'Dal are behind the recent advances of the orcs?!! Your news has shed light on their union. It is time to step forth and prove yourself a [faithful paladin of this court].");
+		e.self:Say("So, the Teir'Dal are behind the recent advances of the orcs?!! Your news has shed light on their union. It is time to step forth and prove yourself a [" .. eq.say_link("faithful paladin of this court") .. "].");
 		e.other:Ding();
 		e.other:Faction(43,5,0); -- Clerics of Tunare
 		e.other:Faction(178,5,0); -- King Tearis Thex

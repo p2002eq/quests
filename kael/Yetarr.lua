@@ -1,12 +1,12 @@
 function event_say(e)
 	if (e.message:findi("hail")) then
-		e.self:Say("$name, your name has reached my ears more than a few times. Rumors fly that your kind will be the downfall of both the dragons and the Coldain.");
+		e.self:Say("".. e.other:GetName() .. ", your name has reached my ears more than a few times. Rumors fly that your kind will be the downfall of both the [" .. eq.say_link("dragons") .. "] and the [" .. eq.say_link("Coldain") .. "].");
 	elseif (e.message:findi("dragons")) then	
 		e.self:Say("The dragons are not my primary concern, Kyenka has a greater hatred for them. I leave matters regarding to them in his capable hands. My worries are of the Coldain.");
 	elseif (e.message:findi("Coldain")) then	
-		e.self:Say("I do not fully trust the Kromrif to keep Kael Drakkel protected from the menace of the tiny savages. The Kromrif do not actively seek to kill them. If the Coldain are left to breed they will one day swarm over Kael and no number of Kromzek warriors will be able to save us.");
+		e.self:Say("I do not fully trust the [" .. eq.say_link("Kromrif") .. "] to keep Kael Drakkel protected from the menace of the tiny savages. The Kromrif do not actively seek to kill them. If the Coldain are left to breed they will one day swarm over Kael and no number of Kromzek warriors will be able to save us.");
 	elseif (e.message:findi("Kromrif")) then	
-		e.self:Say("I do not fully trust the Kromrif to keep Kael Drakkel protected from the menace of the tiny savages. The Kromrif do not actively seek to kill them. If the Coldain are left to breed they will one day swarm over Kael and no number of Kromzek warriors will be able to save us.");
+		e.self:Say("I do not fully trust the Kromrif to keep Kael Drakkel protected from the menace of the tiny savages. The Kromrif do not actively seek to [" .. eq.say_link("assassinate",false,"kill") .. "] them. If the Coldain are left to breed they will one day swarm over Kael and no number of Kromzek warriors will be able to save us.");
 	elseif (e.message:findi("assassinate")) then	
 		e.self:Say("Perhaps assassinate is not the best word. I simply wish the death of some of the more compitent (sic) advisors of that foolish Dain. Within the halls of Icewell keep dwells a huntsman that has stood by the Dains side since he was a mere child. The court scribe is also more then he appears to be. Bring me their heads, I will reward you for each one. That is the only proof I will take of their deaths.");
 	end

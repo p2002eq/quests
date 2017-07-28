@@ -3,5 +3,3 @@ function event_say(e)
 		e.self:Say("Greetings. " .. e.other:GetName() .. ".  I protect these lands in the name of the Royal Order of Koada'Vie. defenders of Felwithe.");
 	end
 end
-
--- END of FILE Zone:gfaydark  ID:54106 -- Captain_Silverwind 

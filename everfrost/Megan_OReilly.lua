@@ -2,7 +2,7 @@ function event_say(e)
 	if(e.message:findi("hail")) then
 		e.self:Say("Brrrr.. It.. Is sooo.. c-cold!! I never.. sh-should've j-joined.. the.. the W-wolves of the N-north!!");
 	elseif(e.message:findi("ivan's remains")) then
-		e.self:Say("You were sent to retrieve the remains? I am sorry, I lost them. It was not my fault! There was no escort as I was told. I got lost returning to Halas and ended up on a frozen river. The ice broke and the remains were scattered into the freezing water. Will you [dive for the remains]?");
+		e.self:Say("You were sent to retrieve the remains? I am sorry, I lost them. It was not my fault! There was no escort as I was told. I got lost returning to Halas and ended up on a frozen river. The ice broke and the remains were scattered into the freezing water. Will you [" .. eq.say_link("dive for the remains") .. "]?");
 	elseif(e.message:findi("dive for the remains")) then
 		e.self:Say("Thank the Tribunal!! I would have, but I cannot swim. Take this chest. Fill it with the four pieces which fell below the surface. I know not what else lies within. When you fill the box and combine the items, return it to Renth. Good luck, " .. e.other:GetName() .. ".");
 		e.other:SummonItem(17945);
@@ -32,5 +32,3 @@ function event_waypoint_arrive(e)
 		e.self:SetRunning(false);
 	end
 end
-
--- END of FILE Zone:everfrost  ID:30029, 30096, 30119 -- Megan_OReilly

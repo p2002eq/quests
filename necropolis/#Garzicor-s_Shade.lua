@@ -1,7 +1,5 @@
 --NPC:  Spirit of Garzicor  v1 (Gold Tinted Diamond)
 --zone: necropolis
-
-
 function event_spawn(e)
 	eq.set_timer("depop", 10*60*1000); 	--10min depop
 end
@@ -11,7 +9,6 @@ function event_timer(e)
 		eq.depop();
 	end
 end
-
 
 function event_trade(e)
 	local item_lib = require("items");

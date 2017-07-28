@@ -2,11 +2,11 @@ function event_say(e)
 	if(e.message:findi("hail")) then
 		e.self:Say("I am the overseer of the great city of Erudin. You will address me in proper manner. HAIL!!");
 	elseif(e.message:findi("crime")) then
-		e.self:Say("Oh, yes. We here in Erudin have no crime. Actually, it is a very low crime rate. Most of those crimes are committed by the defective brains of [heretics] or inferior, non-Erudite races.");
-	elseif(e.message:findi("heretic")) then
-		e.self:Say("The heretics are our sworn enemies. Their ancient origins are our own, however, they are the mad Erudites who chose the dark side of magic called necromancy. We, the magicians, caught one snooping in the palace just last week. He is now our [prisoner].");
+		e.self:Say("Oh, yes. We here in Erudin have no crime. Actually, it is a very low crime rate. Most of those crimes are committed by the defective brains of [" .. eq.say_link("heretics") .. "] or inferior, non-Erudite races.");
+	elseif(e.message:findi("heretics")) then
+		e.self:Say("The heretics are our sworn enemies. Their ancient origins are our own, however, they are the mad Erudites who chose the dark side of magic called necromancy. We, the magicians, caught one snooping in the palace just last week. He is now our [" .. eq.say_link("prisoner") .. "].");
 	elseif(e.message:findi("prisoner")) then
-		e.self:Say("The infidel was memorizing our spells to take to the rest of the heretic scum. He will finally be [purged] today. Could you please go to the cells here in the palace and ask Jail Master Lius to give you the heretic's remains?");
+		e.self:Say("The infidel was memorizing our spells to take to the rest of the heretic scum. He will finally be [" .. eq.say_link("purged") .. "] today. Could you please go to the cells here in the palace and ask Jail Master Lius to give you the heretic's remains?");
 	elseif(e.message:findi("purged")) then
 		e.self:Say("To be purged is to take all the evil from ones body and set your soul free. Through magical means, the Erudite Cleansers pull the accused's organs out through the mouth. When all is done, you can be assured the body is cleansed of all evil.");
 	elseif(e.message:findi("heretic has escaped")) then

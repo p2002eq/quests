@@ -2,10 +2,10 @@
 function event_say(e)
 	if(e.message:findi("Hail")) then
 		e.self:DoAnim(39);
-		e.self:Emote("appears to be busy cutting a green gem; upon your greeting, it jumps, fleshless hands slipping carelessly and breaking the gem into powder.");
+		e.self:Emote("appears to be busy cutting a [" .. eq.say_link("green gem") .. "]; upon your greeting, it jumps, fleshless hands slipping carelessly and breaking the gem into powder.");
 		eq.set_timer("distracted",2000);
 	elseif(e.message:findi("green gem")) then
-		e.self:Say("The greenest of gems I seek! Jade too brittle, emerald too hard, but [dufrenite]! Ahh, now there is a gem amongst gems.");
+		e.self:Say("The greenest of gems I seek! Jade too brittle, emerald too hard, but [" .. eq.say_link("dufrenite") .. "]! Ahh, now there is a gem amongst gems.");
 	elseif(e.message:findi("dufrenite")) then
 		e.self:Say("Yes, dufrenite! Find me a dufrenite to replace the one you made me break. Now go!");
 	end

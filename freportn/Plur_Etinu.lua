@@ -1,6 +1,6 @@
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Your soul is welcome in our temple. The Queen of Love, Erollisi Marr, desires more to join our ranks. This city of Freeport must not stay under the control of  the Freeport Militia. I am here to [cure poison] and [cure disease], or if any [need healing].");
+		e.self:Say("Your soul is welcome in our temple. The Queen of Love, Erollisi Marr, desires more to join our ranks. This city of Freeport must not stay under the control of  the Freeport Militia. I am here to [" .. eq.say_link("cure poison") .. "] and [" .. eq.say_link("cure disease") .. "], or if any [" .. eq.say_link("need healing") .. "].");
 	elseif(e.message:findi("cure poison")) then
 		e.self:Say("Before the Queen of Passion can force the toxin from your system, I shall require 3 bixie stingers to perform the act.");
 	elseif(e.message:findi("cure disease")) then
@@ -12,7 +12,6 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 13074, item2 = 13074})) then -- 2x zombie skin
 		e.self:Say("May the Power of Passion purge you of disease!"); -- text made up
 		e.other:Ding();

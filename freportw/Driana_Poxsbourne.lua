@@ -4,7 +4,6 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 1797,item2 = 1797,item3 = 1797})) then
 		e.self:Say(string.format("Ahh wonderful work %s Here is the substance....don't spill it HAHAHAaahhahehehe...yes......you don't want to spill that heheh.",e.other:GetName()));
 		e.other:Faction(21,2,0); -- Bloodsabers
@@ -16,5 +15,3 @@ function event_trade(e)
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
---END of FILE Zone:freportw  -- Driana_Poxsbourne

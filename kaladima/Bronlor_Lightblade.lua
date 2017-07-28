@@ -1,22 +1,22 @@
 function event_say(e)
 	if(e.message:findi("hail")) then
 		-- Initiate Symbol of Brell Serilis (Start)
-		e.self:Say("Allo dere " .. e.other:GetName() .. ", how does ye fare today? Are ye a [priest] of the great Brell Serilis? If ye are not I mean nothing against yar but I am on a mission to administer guidance to a holy priest of milord Brell Serilis.");
+		e.self:Say("Allo dere " .. e.other:GetName() .. ", how does ye fare today? Are ye a [" .. eq.say_link("priest") .. "] of the great Brell Serilis? If ye are not I mean nothing against yar but I am on a mission to administer guidance to a holy priest of milord Brell Serilis.");
 	elseif(e.message:findi("priest")) then
 		-- Initiate Symbol of Brell Serilis
-		e.self:Say("Well now were talkin " .. e.other:GetName() .. ". I think if ye have been doing well in your training then ye will be ready to assist me in with the problem we been havin with those dern good fer nothin [green rascals].");
+		e.self:Say("Well now were talkin " .. e.other:GetName() .. ". I think if ye have been doing well in your training then ye will be ready to assist me in with the problem we been havin with those dern good fer nothin [" .. eq.say_link("green rascals") .. "].");
 	elseif(e.message:findi("green rascals")) then
 		-- Initiate Symbol of Brell Serilis
-		e.self:Say("Well of course I be talkin bout dose goblins that have tried to storm our front gates fer some time. I reckon dey are up to no good sense I hear dey just be a few from a well trained horde of goblin invaders that are planning an attack me thinks. Will ye [help] us in finding and slaying these goblins?");
+		e.self:Say("Well of course I be talkin bout dose goblins that have tried to storm our front gates fer some time. I reckon dey are up to no good sense I hear dey just be a few from a well trained horde of goblin invaders that are planning an attack me thinks. Will ye [" .. eq.say_link("help") .. "] us in finding and slaying these goblins?");
 	elseif(e.message:findi("help")) then
 		-- Initiate Symbol of Brell Serilis
 		e.self:Say("Dats great to here " .. e.other:GetName() .. "! To prove to me that you have found and slain these beasts bring four sets of the beads that dey carry around their necks. I dont know much about dem but Id reckon dey have set up camp close by here. The night watch that haulted the first attack by these goblins described the fighting style to be of the highest goblin caliber. I hope this helps, good luck to ye.");
 	elseif(e.message:findi("task")) then
 		-- Disciple Symbol of Brell Serilis (Start)
-		e.self:Say("Ah ye are ready fer yer task are ya " .. e.other:GetName() .. ". I must say dat I am quite impressed with the excellent job dat ya did taking care of those strong goblins. Ok well ye came for yer task so here it tis. I need to get this note to me friend Taldrik, however he has told me that he was heading to the Oasis that is finest in norrath for sum relaxin time. Although I would love to go myself but Im afraid I hab many duties to uphold here. Will you [deliver] my note to Taldrik?");
+		e.self:Say("Ah ye are ready fer yer task are ya " .. e.other:GetName() .. ". I must say dat I am quite impressed with the excellent job dat ya did taking care of those strong goblins. Ok well ye came for yer task so here it tis. I need to get this note to me friend Taldrik, however he has told me that he was heading to the Oasis that is finest in norrath for sum relaxin time. Although I would love to go myself but Im afraid I hab many duties to uphold here. Will you [" .. eq.say_link("deliver") .. "] my note to Taldrik?");
 	elseif(e.message:findi("deliver")) then
 		-- Disciple Symbol of Brell Serilis
-		e.self:Say("Fantastic " .. e.other:GetName() .. "! I knew that ye would be able to help me. Please take this note to Taldrik, whereber he may be and be sure to give him his favorite [drinks] or he may be very grumpy.");
+		e.self:Say("Fantastic " .. e.other:GetName() .. "! I knew that ye would be able to help me. Please take this note to Taldrik, whereber he may be and be sure to give him his favorite [" .. eq.say_link("drinks") .. "] or he may be very grumpy.");
 		-- Summon: a note to Taldrik
 		e.other:SummonItem(2429);
 	elseif(e.message:findi("drinks")) then
@@ -30,7 +30,7 @@ function event_trade(e)
 	-- Handin: Enraged Goblin Beads
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 2396, item2 = 2396, item3 = 2396, item4 = 2396})) then
 		-- Initiate Symbol of Brell Serilis (End)
-		e.self:Say("I knew I was able to trust ye to help me rid the land of these nasty goblins! The Bloodforge Brigade salutes ye " .. e.other:GetName() .. ". Ye will be well known in our city for being the young one that helped rid our mountains of these goblins. Please take this as a symbol of your devotion to your faith and your God and return to me when ye are ready for yer next [task].");
+		e.self:Say("I knew I was able to trust ye to help me rid the land of these nasty goblins! The Bloodforge Brigade salutes ye " .. e.other:GetName() .. ". Ye will be well known in our city for being the young one that helped rid our mountains of these goblins. Please take this as a symbol of your devotion to your faith and your God and return to me when ye are ready for yer next [" .. eq.say_link("task") .. "].");
 		-- Summon: Initiate Symbol of Brell Serilis
 		e.other:SummonItem(1430);
 		e.other:Faction(44,10);   -- +Clerics of Underfoot
@@ -41,8 +41,3 @@ function event_trade(e)
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------

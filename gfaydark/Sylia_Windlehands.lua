@@ -1,6 +1,6 @@
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Salutations! The Song Weavers are always glad to add a new voice to the choir.  In addition to your voice. will you also [fetch spiderling silk]?  We need some to replace our worn lute strings.  Carry out this task in high tempo and we will show our gratitude.");
+		e.self:Say("Salutations! The Song Weavers are always glad to add a new voice to the choir.  In addition to your voice. will you also [" .. eq.say_link("fetch spiderling silk") .. "]?  We need some to replace our worn lute strings.  Carry out this task in high tempo and we will show our gratitude.");
 	elseif(e.message:findi("spiderling silk")) then
 		e.self:Say("Very spirited of you!!  Gather four spiderling silk and return them to me.  Good hunting. my friend!!");
 	end
@@ -20,5 +20,3 @@ function event_trade(e)
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
--- END of FILE Zone:gfaydark  ID:54088 -- Sylia_Windlehands

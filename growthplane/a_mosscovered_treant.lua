@@ -1,18 +1,18 @@
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("I welcome thee, $name. Is there something I can assist you with? I am afraid my tireless searching for the incantations is going to be endless.");
+		e.self:Say("I welcome thee, ".. e.other:GetName() .. ". Is there something I can assist you with? I am afraid my tireless [" .. eq.say_link("searching") .. "] for the incantations is going to be endless.");
     elseif(e.message:findi("searching")) then
-		e.self:Say("For quite some time now I have been seeking the teachings and scribings of Conjurers and Summoners of great power. As I continue my personal quest towards enlightenment there is absolute knowledge that evades me to this day.");
+		e.self:Say("For quite some time now I have been seeking the teachings and scribings of Conjurers and Summoners of great power. As I continue my personal quest towards enlightenment there is absolute [" .. eq.say_link("knowledge") .. "] that evades me to this day.");
     elseif(e.message:findi("knowledge")) then
-		e.self:Say("There is believed to be a tome that contained only the most spectacular and powerful summoning. Many great magicians of time passed were believed to be contributors to this magical tome. During the meeting called by these select few something went terribly wrong.");
+		e.self:Say("There is believed to be a tome that contained only the most spectacular and powerful summoning. Many great magicians of time passed were believed to be contributors to this magical tome. During the meeting called by these select few something went terribly [" .. eq.say_link("wrong") .. "].");
     elseif(e.message:findi("wrong")) then
-		e.self:Say("Of those in attendance, there was one servant of Innoruuk whose intentions were to steal the research and knowledge of his peers and use it to benefit himself and his Dark god. This selfishness led to numerous Intellectual conflicts and the Arch-Magi decided to go their separate ways, only to perish so close to the answer for which they sought.");
+		e.self:Say("Of those in attendance, there was one servant of Innoruuk whose intentions were to steal the research and knowledge of his peers and use it to benefit himself and his Dark god. This selfishness led to numerous Intellectual conflicts and the Arch-Magi decided to go their separate ways, only to perish so close to the [" .. eq.say_link("answer") .. "] for which they sought.");
     elseif(e.message:findi("answer")) then
-		e.self:Say("As time progressed the Elementalists continued their studies and research only to soon discover that there was always something missing. As each of them decended upon the Skyshrine they continued to look, not knowing that what they were searching for was each other.");
+		e.self:Say("As time progressed the Elementalists continued their studies and research only to soon discover that there was always something missing. As each of them decended upon the Skyshrine they continued to [" .. eq.say_link("I will look",false,"look") .. "], not knowing that what they were searching for was each other.");
     elseif(e.message:findi("i will look")) then
-		e.self:Say("That is a kind gesture indeed my friend, but be warned the journey that lies ahead of you will not be easy. But I have faith that this tome will one day be assembled as it was always meant to be and never was. I have faith that the pages do still exist, waiting to be unearthed.");
+		e.self:Say("That is a kind gesture indeed my friend, but be warned the [" .. eq.say_link("journey") .. "] that lies ahead of you will not be easy. But I have faith that this tome will one day be assembled as it was always meant to be and never was. I have faith that the pages do still exist, waiting to be unearthed.");
     elseif(e.message:findi("journey")) then
-		e.self:Say("Search the lands for the remains of these Arch-mages, $name. Only when I have these teachings and am able to once again construct this tome may I bring myself closer to my Enlightenment and Arcane Mastery.");
+		e.self:Say("Search the lands for the remains of these Arch-mages, ".. e.other:GetName() .. ". Only when I have these teachings and am able to once again construct this tome may I bring myself closer to my Enlightenment and Arcane Mastery.");
     end
 end
 

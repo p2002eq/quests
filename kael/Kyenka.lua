@@ -3,11 +3,11 @@
 function event_say(e)
 	if (e.other:GetFaction(e.self) <= 3) then --kindly or better
 		if (e.message:findi("hail")) then	
-			e.self:Say("My, it is the great "..e.other:GetName().." who stands before me! Rumors of your greatness have spread even to the court of King Tormax. I am Kyenka, Duke of Kael Drakkel. I advise King Tormax on matters concerning the nefarious dragons.");
+			e.self:Say("My, it is the great "..e.other:GetName().." who stands before me! Rumors of your greatness have spread even to the court of King Tormax. I am Kyenka, Duke of Kael Drakkel. I advise King Tormax on matters concerning the nefarious [" .. eq.say_link("dragons") .. "].");
 		elseif (e.message:findi("dragons")) then	
-			e.self:Say("The living dragons of this realm are the bane of Kael Drakkel and its people. Eventually they will be gone and only we Kromzek will remain. We will purge this land of their menace.");
+			e.self:Say("The living dragons of this realm are the bane of Kael Drakkel and its people. Eventually they will be gone and only we Kromzek will remain. We will [" .. eq.say_link("purge") .. "] this land of their menace.");
 		elseif (e.message:findi("purge")) then	
-			e.self:Say("The beasts must be slain. They only bring strife to this world. You are a powerful mercenary, and are sympathetic to my cause, I would assume. You could become rich beyond your wildest dreams by assisting King Tormax and me.");
+			e.self:Say("The beasts must be slain. They only bring strife to this world. You are a powerful mercenary, and are sympathetic to my cause, I would assume. You could become rich beyond your wildest dreams by [" .. eq.say_link("assisting") .. "] King Tormax and me.");
 		elseif (e.message:findi("assist")) then	
 			e.self:Say("Rally together a band of adventurers and track down and slay the elder dragons of this continent. For each head you return to me I will impart a gift to you.");
 		end

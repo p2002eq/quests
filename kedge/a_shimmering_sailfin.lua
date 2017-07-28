@@ -3,5 +3,3 @@ function event_death(e)
 		e.self:CastSpell(1017, e.other:GetID());                -- fishnova
 	end
 end
-
--- Created by Torven

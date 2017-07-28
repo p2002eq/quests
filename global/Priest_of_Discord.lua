@@ -1,8 +1,8 @@
 function event_say(e)
 	if(e.message:findi("Hail")) then
-		e.self:Say("Greetings, " .. e.other:GetName() .. " .  Are you a child of Order?  If you have come seeking the path of Discord. I require only that you give me your [Tome of Order and Discord] and I shall show you the way.  Only then will you be freed from Order's confining restraints.");
+		e.self:Say("Greetings, " .. e.other:GetName() .. " .  Are you a child of Order?  If you have come seeking the path of Discord. I require only that you give me your [" .. eq.say_link("Tome of Order and Discord") .. "] and I shall show you the way.  Only then will you be freed from Order's confining restraints.");
 	elseif(e.message:findi("tome")) then
-		e.self:Say("The Tome of Order and Discord was penned by the seventh member of the Tribunal and has become the key to a life of Discord, in spite of the author's pitiful warnings.  Do you not have one, child of Order?  Would you [like to read] it?");
+		e.self:Say("The Tome of Order and Discord was penned by the seventh member of the Tribunal and has become the key to a life of Discord, in spite of the author's pitiful warnings.  Do you not have one, child of Order?  Would you [" .. eq.say_link("like to read") .. "] it?");
 	elseif(e.message:findi("read")) then
 		e.self:Say("Very well. Here you go. Simply return it to me to be released from the chains of Order.");
 		e.other:SetPVP(false);
@@ -18,8 +18,3 @@ function event_trade(e)
 		e.other:Ding();
 	end
 end
-
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------

@@ -12,9 +12,9 @@ end
 
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Greetings. I only train those who follow the path of the Patriarchs of Cabilis and have yet to develop their [powers] over the beasts of the wild.");
+		e.self:Say("Greetings. I only train those who follow the path of the Patriarchs of Cabilis and have yet to develop their [" .. eq.say_link("powers") .. "] over the beasts of the wild.");
 	elseif(e.message:findi("powers")) then	-- Armor of the Patriarch Quest
-		e.self:Say("Good. In order to develop your powers over the beasts of the wild, you must complete several [tests] which will prove your loyalty to our cause. ");
+		e.self:Say("Good. In order to develop your powers over the beasts of the wild, you must complete several [" .. eq.say_link("tests") .. "] which will prove your loyalty to our cause. ");
 	elseif(e.message:findi("tests")) then 	-- Armor of the Patriarch Quest (part 1 - Patriarch's Bracer)
 		e.self:Say("In order to develop your powers you will need to collect various items which will serve to me as proof of your continued training. When you return the items to me, I will reward you with a piece of armor to help protect you from the dangers found outside our city walls. Go now and bring me four leech husks as proof of growing powers. ");
 	elseif(e.message:findi("aid")) then 	-- Claw of the Cub Quest (Claw of the Spiritual Elder Quest Line 1/6)
@@ -50,7 +50,7 @@ function event_trade(e)
 		e.other:Faction(193,10); -- Legion of Cabilis
 		e.other:QuestReward(e.self,0,0,0,0,7831,20000); -- Patriarchs Leather
 	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 18848})) then -- A tattered note
-		e.self:Say("The Hierophants have sensed that your spirit is strong with obedience inspiring fear! You must learn to harness your [powers] over the scaled wolves! Wear this tunic so that the Legion of Cabilis will recognize you as a Scaled Spiritist.");
+		e.self:Say("The Hierophants have sensed that your spirit is strong with obedience inspiring fear! You must learn to harness your [" .. eq.say_link("powers") .. "] over the scaled wolves! Wear this tunic so that the Legion of Cabilis will recognize you as a Scaled Spiritist.");
 		e.other:Faction(282,15); -- Scaled Mystics
 		e.other:Faction(193,3); -- Legion of Cabilis
 		e.other:QuestReward(e.self,0,0,0,0,13577,100); -- Dusty Green Tunic*

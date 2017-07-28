@@ -6,9 +6,3 @@ function event_say(e)
 		e.other:QuestReward(e.self,0,0,0,0,13275); --telescope lens [trudo's lens]
 	end
 end
-
---END of FILE Zone:lfaydark  ID:57059 -- Trudo_Frugrin
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------

@@ -1,11 +1,11 @@
 ---- Quest:Jeremy's Letter
 function event_say(e)
     if(e.message:findi("hail")) then
-        e.self:Say("Hello there " .. e.other:GetName() .. ". Nice day today isn't it? We really appreciate the help that the city of Qeynos has offered us in defense of [Fort Jaggedpine].");
+        e.self:Say("Hello there " .. e.other:GetName() .. ". Nice day today isn't it? We really appreciate the help that the city of Qeynos has offered us in defense of [" .. eq.say_link("Fort Jaggedpine") .. "].");
     elseif(e.message:findi("Fort Jaggedpine")) then
-        e.self:Say("That's the name my grandfather and grandmother gave to this place a while ago. Great name don't you think? Well at least I think it is anyway. My grandmother moved away after my grandfather passed away a long time ago. Are you [planning a trip to Felwithe] any time soon?");
+        e.self:Say("That's the name my grandfather and grandmother gave to this place a while ago. Great name don't you think? Well at least I think it is anyway. My grandmother moved away after my grandfather passed away a long time ago. Are you [" .. eq.say_link("planning a trip to Felwithe") .. "] any time soon?");
     elseif(e.message:findi("Felwithe")) then
-        e.self:Say("Hey that's great. I don't see much of my grandmother these days, would you be [willing to deliver a letter] to her?");
+        e.self:Say("Hey that's great. I don't see much of my grandmother these days, would you be [" .. eq.say_link("willing to deliver a letter") .. "] to her?");
     elseif(e.message:findi("letter")) then
         e.self:Say("Thanks a bunch, I really appreciate it! Here take this to her. Her name is Elishia.");
         e.other:SummonItem(8969); -- Letter to Elishia

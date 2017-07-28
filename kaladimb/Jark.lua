@@ -2,9 +2,9 @@
 
 function event_say(e)
 	if(e.message:findi("Hail")) then
-		e.self:Emote("strikes the wall with his pick. A clacking sound echoes through the cave. 'Har har. There's something all right.'");
+		e.self:Emote("strikes the wall with his pick. A clacking sound echoes through the cave. 'Har har. There's [" .. eq.say_link("something") .. "] all right.'");
 	elseif(e.message:findi("something")) then
-		e.self:Say("Huh? Oh, I struck me some silver. Ain't gonna make me rich but it'll sure pay for me minin' costs. Speakin of, that wife o' mine was supposed ta bring me food already. Hey, you, wanna go get me my dinner? I ain't got nothing ta pay ya with but I sure would appreciate it.");
+		e.self:Say("Huh? Oh, I struck me some silver. Ain't gonna make me rich but it'll sure pay for me minin' costs. Speakin of, that wife o' mine was supposed ta bring me food already. Hey, you, wanna go get me my [" .. eq.say_link("dinner") .. "]? I ain't got nothing ta pay ya with but I sure would appreciate it.");
 	elseif(e.message:findi("dinner")) then
 		e.self:Say("Har, I know you were a good sort. Nella has it. She's out there somewhere in the lower areas. She likes to visit the temple, so maybe she's there. Just tell 'er Jark sent ya and she'll prolly have everythin' ready fer me.");
 		eq.spawn2(67090,0,0,178.5,708.9,3.4,194.2); --spawn Nella Stonebraids
@@ -19,8 +19,3 @@ function event_trade(e)
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------

@@ -1,16 +1,16 @@
 function event_say(e)
 	if(e.message:findi("hail")) then
 		e.self:Emote("flips through a few pages of a small book, reading intently before answering you.");
-		e.self:Say("Ye scurvy dog. I'll strike yer colors 'fore ya can put me on a gibbet. Take that, ya crimp!");
+		e.self:Say("[" .. eq.say_link("Ye scurvy dog") .. "]. I'll strike yer colors 'fore ya can put me on a gibbet. Take that, ya crimp!");
 	    e.self:Emote("flips through a few more pages then smiles at you.");
 		e.self:Say("Arrrr!");
 	elseif(e.message:findi("ye scurvy dog")) then
-		e.self:Say("Hey, that's pretty good. You did it without a book too. Nice to meet you. I'm the bosun here.");
+		e.self:Say("Hey, that's pretty good. You did it without a book too. Nice to meet you. I'm the [" .. eq.say_link("bosun") .. "] here.");
 	elseif(e.message:findi("a bosun")) then
-		e.self:Say("Yup. I think it means I'm in charge of the flag cause that's what the Cap'n told me to take care of. I'm the one who made our symbol, so I get to protect it. I even got my own copy of the grammar manual so I can practice my pirate speech.");	
+		e.self:Say("Yup. I think it means I'm in charge of the flag cause that's what the Cap'n told me to take care of. I'm the one who made our symbol, so I get to protect it. I even got my own copy of the [" .. eq.say_link("grammar manual") .. "] so I can practice my pirate speech.");
 	elseif(e.message:findi("grammar manual")) then
 	    e.self:Emote("nods and shows you the book for a moment.");
-		e.self:Say("We don't have many of them and usually we share. My book is missing a chapter, though.");
+		e.self:Say("We don't have many of them and usually we share. My book is missing a [" .. eq.say_link("chapter") .. "], though.");
 	elseif(e.message:findi("chapter")) then
 	    e.self:Emote("nods.");
 		e.self:Say("A mate of mine borrowed the P Chapter to draw a map on but then he went and got himself lost. I've memorized the rest of the book but that chapter. Oh, well, I guess I can get by with what I have. Walk the mizenmast and batten down the boom!");

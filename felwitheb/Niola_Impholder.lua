@@ -1,6 +1,6 @@
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Greetings, " .. e.other:GetName() .. ". Welcome to the home of the Keepers of the Art. I am in need of spell components. Would you be willing to [fetch] some for me?");
+		e.self:Say("Greetings, " .. e.other:GetName() .. ". Welcome to the home of the Keepers of the Art. I am in need of spell components. Would you be willing to [" .. eq.say_link("fetch") .. "] some for me?");
 	elseif(e.message:findi("fetch")) then
 		e.self:Say("What I need are some bat wings for a spell I am researching. If you bring me back four bat wings, I would be willing to reward you with a scroll.");
 	end
@@ -8,7 +8,6 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 13068,item2 = 13068,item3 = 13068,item4 = 13068})) then
 		e.self:Say("Ah yes.  These are exactly what I need.  Thank you very much.");
 		e.other:SummonItem(eq.ChooseRandom(15310,15332));
@@ -35,5 +34,3 @@ function event_trade(e)
 	end
 	item_lib.return_items(e.self, e.other, e.trade);
 end
-
---END of FILE Zone:felwitheb  ID:62021 -- Niola_Impholder

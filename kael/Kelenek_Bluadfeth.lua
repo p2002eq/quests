@@ -18,11 +18,11 @@ local QUEST_ITEMS = {
 function event_say(e)
 	if(e.other:GetFaction(e.self) < 2) then --Must be ally
 		if(e.message:findi("hail")) then
-			e.self:Say("What do we have here? A cutthroat, perhaps? If not then go away, for I have words to speak with a rogue.");
+			e.self:Say("What do we have here? A cutthroat, perhaps? If not then go away, for I have words to speak with a [" .. eq.say_link("rogue") .. "].");
 		elseif(e.message:findi("rogue")) then
-			e.self:Say("I commend you on your skill, making it this far. I have a job for you, thief. Several in fact and quite simple for an assassin such as yourself. I am in need of certain components and will reward you well if they are brought to me. Do I have your services?");
+			e.self:Say("I commend you on your skill, making it this far. I have a job for you, thief. Several in fact and quite simple for an assassin such as yourself. I am in need of certain components and will reward you well if they are brought to me. Do I [" .. eq.say_link("you have my services",false,"have your services") .. "]?");
 		elseif(e.message:findi("you have my services")) then
-			e.self:Say("Excellent. Now, down to business. I shall pay you in trade for the items I seek. What I have for you is as such, a coif, a breastplate, armplates, bracers, gauntlets, greaves and boots. These should aid you in your skullduggery.");
+			e.self:Say("Excellent. Now, down to business. I shall pay you in trade for the items I seek. What I have for you is as such, a [" .. eq.say_link("coif") .. "], a [" .. eq.say_link("breastplate") .. "], [" .. eq.say_link("armplates") .. "], [" .. eq.say_link("bracers") .. "], [" .. eq.say_link("gauntlets") .. "], [" .. eq.say_link("greaves") .. "] and [" .. eq.say_link("boots") .. "]. These should aid you in your skullduggery.");
 		elseif(e.message:findi("coif")) then
 			e.self:Say("I am need of an ancient tarnished chain coif and three crushed pieces of coral. For your services I shall give you a coif suitable for one such as you.");
 		elseif(e.message:findi("breastplate")) then

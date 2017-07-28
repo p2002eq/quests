@@ -1,9 +1,9 @@
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Hail noble, " .. e.other:GetName() .. "!  Can you be of [service to the Clerics of Tunare] or are you not from our order?");
+		e.self:Say("Hail noble, " .. e.other:GetName() .. "!  Can you be of [" .. eq.say_link("service to the Clerics of Tunare") .. "] or are you not from our order?");
 	elseif(e.other:GetFaction(e.self) < 5) then
 		if(e.message:findi("service to the clerics of tunare")) then
-			e.self:Say("That is good. Prove yourself, then.  Are you [new to Felwithe] or have I been conversing with a [veteran of the good fight]?");
+			e.self:Say("That is good. Prove yourself, then.  Are you [" .. eq.say_link("new to Felwithe") .. "] or have I been conversing with a [" .. eq.say_link("veteran of the good fight") .. "]?");
 		elseif(e.message:findi("new to felwithe")) then
 			e.self:Say("Then stand at attention when I speak.  I want you to venture to Kelethin and seek out Tandan Nybright.  He is an old member of ours.  He had some hardships and he fell from Tunare's grace, yet he is still a member of our family.  He will be the one who reeks of elven wine.  Greet him by name.  We are worried for him.");
 		elseif(e.message:findi("veteran of the good fight")) then
@@ -18,7 +18,6 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 18781})) then -- Tattered Note
 		e.self:Say("Greetings. young paladin!  I am Master Tynkale of the Clerics of Tunare.  Here. we shall teach and train you in the skills needed to defeat our evil and diseased enemies.  Take this, our guild tunic - it will help protect you. Wear it with pride, for you are now one of us.");
 		e.other:SummonItem(13591); -- Used Gold Training Tunic*
@@ -39,5 +38,3 @@ function event_trade(e)
 	end
 	item_lib.return_items(e.self, e.other, e.trade);
 end
-
---END of FILE Zone:felwithea  ID:61018 -- Tynkale

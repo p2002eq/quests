@@ -18,12 +18,12 @@ function event_say(e)
 	if(e.other:GetFaction(e.self) < 2) then --Must be ally
 		if(e.message:findi("hail")) then 
 			e.self:Emote("looks around.");
-			e.self:Say("Who dares address me? Oh, it is a ".. e.other:Race() ..". Only a shadowknight may address me and proceed further. Are you a shadowknight? Speak, oaf! Otherwise take your prattle elsewhere.");
+			e.self:Say("Who dares address me? Oh, it is a ".. e.other:Race() ..". Only a shadowknight may address me and proceed further. Are you a [" .. eq.say_link("shadowknight") .. "]? Speak, oaf! Otherwise take your prattle elsewhere.");
 		elseif(e.message:findi("shadowknight")) then
-			e.self:Say("What is it you want little one? Some armor perhaps? To make a pretty meal? I hate when bits of armor get stuck in my gullet. It is very annoying.");
+			e.self:Say("What is it you want little one? Some [" .. eq.say_link("i want some armor",false,"armor") .. "] perhaps? To make a pretty meal? I hate when bits of armor get stuck in my gullet. It is very annoying.");
 		elseif(e.message:findi("i want some armor")) then
 			e.self:Emote("laughs deeply at you.");
-			e.self:Say("You are so transparent," .. e.other:GetName() ..". Well, if armor is what you wish, then only the best shall you have for I will not waste my time on nothing less. This is what I will make for you, granted that you can acquire the components for me, a helm, breastplate, armplates, bracers, gauntlets, leggings, and boots.");
+			e.self:Say("You are so transparent," .. e.other:GetName() ..". Well, if armor is what you wish, then only the best shall you have for I will not waste my time on nothing less. This is what I will make for you, granted that you can acquire the components for me, a [" .. eq.say_link("helm") .. "], [" .. eq.say_link("breastplate") .. "], [" .. eq.say_link("armplates") .. "], [" .. eq.say_link("bracers") .. "], [" .. eq.say_link("gauntlets") .. "], [" .. eq.say_link("leggings") .. "], and [" .. eq.say_link("boots") .. "].");
 		elseif(e.message:findi("helm")) then
 			e.self:Say("For the helm I shall require an ancient tarnished plate helmet and three pieces of crushed coral. Does your tiny mind comprehend the task set before you? If so, then get them immediately! I am beginning to get hungry and you are looking all the better as a snack.");
 		elseif(e.message:findi("breastplate")) then

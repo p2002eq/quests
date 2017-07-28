@@ -1,6 +1,6 @@
 function event_say(e)
 	if (e.message:findi("hail")) and (e.other:GetFaction(e.self) < 6) then	
-		e.self:Say("What is it you want, $race?  I have no time to speak with your kind.");
+		e.self:Say("What is it you want, " .. e.other:Race() .. "?  I have no time to speak with your kind.");
 	end
 end
 

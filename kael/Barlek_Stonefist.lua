@@ -17,11 +17,11 @@ local QUEST_ITEMS = {
 function event_say(e)
     if (e.other:GetFaction(e.self) < 2) then -- Must be Ally
         if (e.message:findi("hail")) then
-            e.self:Say("Greetings to you. I seek the service of devout knights who have distinguished themselves. Are you a paladin? If not then be gone.")
+            e.self:Say("Greetings to you. I seek the service of devout knights who have distinguished themselves. Are you a [" .. eq.say_link("paladin") .. "]? If not then be gone.")
         elseif (e.message:findi("paladin")) then
-            e.self:Say("A paladin of your order has not made it this far for quite some time. Well, I wonder what it is you seek here. Do you seek heroic and chivalrous deeds to distinguish yourself from your brethren? Do you need accoutrements to aid you in your battles perhaps? You are in luck, knight for I have both for you. Do you wish to partake of my quests?")
+            e.self:Say("A paladin of your order has not made it this far for quite some time. Well, I wonder what it is you seek here. Do you seek heroic and chivalrous deeds to distinguish yourself from your brethren? Do you need accoutrements to aid you in your battles perhaps? You are in luck, knight for I have both for you. Do you wish to [" .. eq.say_link("I will partake of your quests",false,"partake of my quests") .. "]?")
     	elseif (e.message:findi("partake of your quests")) then
-    		e.self:Say("Excellent. By serving my cause, you, in turn, will further your own. I require certain components to aid me and if you bring them to me, I shall reward you for your honorable service. You may choose from among these items, a helm, a breastplate, armplates, bracers, gauntlets, greaves, and boots.")
+    		e.self:Say("Excellent. By serving my cause, you, in turn, will further your own. I require certain components to aid me and if you bring them to me, I shall reward you for your honorable service. You may choose from among these items, a [" .. eq.say_link("helm") .. "], a [" .. eq.say_link("breastplate") .. "], [" .. eq.say_link("armplates") .. "], [" .. eq.say_link("bracers") .. "], [" .. eq.say_link("gauntlets") .. "], [" .. eq.say_link("greaves") .. "], and [" .. eq.say_link("boots") .. "].")
     	elseif (e.message:findi("helm")) then
     		e.self:Say("All that I require is an ancient tarnished plate helmet and three pieces of crushed coral. This should be a small task for one such as you. Go now and I shall await your return.")
     	elseif(e.message:findi("breastplate")) then

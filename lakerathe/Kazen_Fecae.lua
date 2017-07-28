@@ -6,7 +6,7 @@ function event_say(e)
 		e.self:Emote("'s eyes seem to glow as he turns to you and says, 'Leave me be if you have no reason to be here, mortal!'");
 	elseif(e.message:findi("dark arts")) then
 		if(e.other:Class() == "Necromancer" and e.other:GetLevel() > 49) then
-			e.self:Emote("looks you up and down, his eyes glowing with a soft red light. After a moment he begins to speak though his lips do not move. 'You wish to study under me? Perhaps, if you prove yourself to follow the twisted path. If you prove to be as coldhearted as I then I will let you become my servant.'");
+			e.self:Emote("looks you up and down, his eyes glowing with a soft red light. After a moment he begins to speak though his lips do not move. 'You wish to study under me? Perhaps, if you prove yourself to follow the twisted path. If you [" .. eq.say_link("prove") .. "] to be as coldhearted as I then I will let you become my servant.'");
 		else
 			e.self:Say("Ha! You call yourself a Necromancer? Come back when you have tortured a few more souls!");
 		end
@@ -15,7 +15,7 @@ function event_say(e)
 	elseif(e.message:findi("advance")) then
 		e.self:Say("I share great secrets with my more powerful servants who show me they are willing to serve without question. Tell my servant the name of any symbol he gives you and he will instruct you. If I give you a symbol, speak its name to me so I may instruct you.");
 	elseif(e.message:findi("symbol of apprentice")) then
-		e.self:Say("You have a long way to go before I teach you the true secrets of life and death. Visit Venenzi Oberendi in the Nektulos Forest and show her the symbol. She is collecting reagents for one of my experiments and is taking far too long. I do not wish her dead, yet, I simply need the reagents soon. Retrieve the reagents and give them to my assistant Emkel Kabae. I do not wish to handle them myself.");
+		e.self:Say("You have a long way to go before I teach you the true secrets of life and death. Visit Venenzi Oberendi in the Nektulos Forest and show her the symbol. She is collecting reagents for one of my experiments and is taking far too long. I do not wish her dead, yet, I simply need the reagents soon. Retrieve the [" .. eq.say_link("reagents") .. "] and give them to my assistant Emkel Kabae. I do not wish to handle them myself.");
 	elseif(e.message:findi("reagents")) then
 		e.self:Say("'The reagents are the same types the great sorcerer Miragul used to cheat death and become a lich. I do not wish to become a lich as Miragul did, I have greater aspirations than to simply live forever as a hollow shell. I will rise up a being of pirit only, with a will off my own.' Kazen's eyes glow sickly red as he stared off toward the horizon.");
 	elseif(e.message:findi("symbol of testing")) then
@@ -28,7 +28,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 20641})) then --Head of Sir Edwin Motte
-		e.self:Say("'Excellent!' You watch Kazen hold the head by the hair and begin to cast a spell. A flash of darkness centers around the head, and the eyes of the dead knight open, a terrible scream emanating from its lips. 'This poor fool here - I think I will keep him in my bag from now on. You have done well, my new apprentice. Take this symbol and know that you can do other tasks to advance within my apprentice ranks.'");
+		e.self:Say("'Excellent!' You watch Kazen hold the head by the hair and begin to cast a spell. A flash of darkness centers around the head, and the eyes of the dead knight open, a terrible scream emanating from its lips. 'This poor fool here - I think I will keep him in my bag from now on. You have done well, my new apprentice. Take this symbol and know that you can do other tasks to [" .. eq.say_link("advance") .. "] within my [" .. eq.say_link("apprentice") .. "] ranks.'");
 		e.other:AddEXP(5000);
 		e.other:SummonItem(20642); --Symbol of the Apprentice
 		e.other:Ding();
@@ -51,8 +51,3 @@ function event_trade(e)
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------

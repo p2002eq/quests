@@ -1,6 +1,6 @@
 function event_say(e)
  if(e.message:findi("hail"))then
-		e.self:Say("Might you be an [apprentice] or a [guide]?' Llara then grins evilly...");
+		e.self:Say("Might you be an [" .. eq.say_link("apprentice") .. "] or a [" .. eq.say_link("guide") .. "]?' Llara then grins evilly...");
 	elseif(e.message:findi("apprentice"))then
 		e.self:Say("Welcome to the Guide Program, " .. e.other:GetName() .. ". I am sure you will enjoy your time here. Do not worry about being only an apprentice right now, I'm sure that in time you will be ready for promotion. This is truly the best place to be in the world. Good luck to you, " .. e.other:GetName() .. "!");
 	elseif(e.message:findi("guide"))then

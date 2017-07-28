@@ -5,7 +5,7 @@
 
 function event_say(e)
 	if e.message:findi("bregun dorey") then
-		e.self:Say("Bregun Dorey... I have not heard that name in many years. I will never forget it. He was very unique, always running around with an odd metal hat on. He swore that it would keep out the mind probing magics of the Question. I know where he was last seen, and I will tell you if you help by getting us some [supplies].");
+		e.self:Say("Bregun Dorey... I have not heard that name in many years. I will never forget it. He was very unique, always running around with an odd metal hat on. He swore that it would keep out the mind probing magics of the Question. I know where he was last seen, and I will tell you if you help by getting us some [" .. eq.say_link("supplies") .. "].");
 	elseif e.message:findi("supplies") then
 		e.self:Say("Get me two Bark Potions, a Spring Crystal, and a Harvest Crystal. I will tell you where I last saw him headed. If you buy them in Sanctus Seru do not tell them you are giving aid to the Recuso or you shall be prosecuted as well.");
 	end

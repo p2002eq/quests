@@ -1,10 +1,10 @@
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Welcome! Welcome to the Church o' the Tribunal! Do ye require healing or are ye [new to the Shamans o' Justice], then, eh?");
+		e.self:Say("Welcome! Welcome to the Church o' the Tribunal! Do ye require healing or are ye [" .. eq.say_link("new to the Shamans o' Justice") .. "], then, eh?");
 	elseif(e.message:findi("new to the shamans")) then
-		e.self:Say("Then I welcome ye into our noble order. Ye'll serve us well or spend an eternity in the dungeons o' the Tribunal. Are ye willing to [contribute to our church] or did ye just come to meditate within our walls?");
+		e.self:Say("Then I welcome ye into our noble order. Ye'll serve us well or spend an eternity in the dungeons o' the Tribunal. Are ye willing to [" .. eq.say_link("contribute to our church") .. "] or did ye just come to meditate within our walls?");
 	elseif(e.message:findi("contribute")) then
-		e.self:Say("Well then, ye best be off ta find Holana Oleary, she organises our monthly Karan Clover shipments, just tell her Jinkus sent you to assist her. Or, I can have you [make a delivery] for me."); --made up text
+		e.self:Say("Well then, ye best be off ta find Holana Oleary, she organises our monthly Karan Clover shipments, just tell her Jinkus sent you to assist her. Or, I can have you [" .. eq.say_link("make a delivery") .. "] for me."); --made up text
 	elseif(e.message:findi("make a delivery")) then
 		e.self:Say("Excellent! First, visit Cindl and tell er ye need a Mammoth Hide Parchment. Then, I need ye to visit Greta and tell her you need some ink. Bring these back to me and we will continue from there.");
 	end
@@ -31,7 +31,3 @@ function event_trade(e)
 end
 
 -- DEVELOPER: KOVOU
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------

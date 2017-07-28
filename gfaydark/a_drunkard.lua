@@ -2,9 +2,9 @@ function event_say(e)
 	if(e.message:findi("hail")) then
 		e.self:Say("Can you -hic- . . . spare some copper or -hic- . . . silver? I just . . . -Hic- . . . need some change to buy something to drin . . Er . . Eat . -Hic-");
 	elseif(e.message:findi("tandan nybright")) then
-		e.self:Say("How did you know my name? You must be from Felwithe. Hic.. Excuse my condition. I am not the man I was. I have had a [shocking experience].");
+		e.self:Say("How did you know my name? You must be from Felwithe. Hic.. Excuse my condition. I am not the man I was. I have had a [" .. eq.say_link("shocking experience") .. "].");
 	elseif(e.message:findi("shocking")) then
-		e.self:Say("My daughters have become blood thirsty bandits. They went off to visit Antonica and when they returned they became bandits. They now attack every poor traveler who happens upon them. They have disgraced the name of Nybright. Will you [hunt the Nybright Sisters] or is this not to your liking?");
+		e.self:Say("My daughters have become blood thirsty bandits. They went off to visit Antonica and when they returned they became bandits. They now attack every poor traveler who happens upon them. They have disgraced the name of Nybright. Will you [" .. eq.say_link("hunt the Nybright Sisters") .. "] or is this not to your liking?");
 	elseif(e.message:findi("hunt")) then
 		e.self:Say("I am most thankful. Many adventurers would not help me with this matter. Go and seek out the Nybright sisters. I gave all four of them a Personalized Necklace. Return them all to me when the deed is done. May the Tribunal watch over you.");
 	end
@@ -34,5 +34,3 @@ function event_waypoint_arrive(e)
 		e.self:Say("Please.. Can anyone spare some coppers? <Hic>.. Anyone?");
 	end
 end
-
--- END of FILE Zone:gfaydark  ID:54059 -- a_drunkard

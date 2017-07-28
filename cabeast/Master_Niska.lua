@@ -11,7 +11,7 @@ function event_say(e)
 		e.self:Say("Very good Broodling. Display your adornment with pride so that the enemies of the Brood may see our might as you rip through the weak will of their ranks. Now be gone from my sight.");
 	elseif(e.message:findi("shackle of rock")) then
 		e.self:Emote("strikes within inches of your snout with amazing speed.");
-		e.self:Say("The Shackle of Rock is your interest? Then learn well our ways and prepare yourself. If the stone embraces your wrist, you are ready indeed. To complete the second rung you must find for me the [Fists of Talon].");
+		e.self:Say("The Shackle of Rock is your interest? Then learn well our ways and prepare yourself. If the stone embraces your wrist, you are ready indeed. To complete the second rung you must find for me the [" .. eq.say_link("Fists of Talon") .. "].");
 	elseif(e.message:findi("fists of talon")) then
 		e.self:Emote("points to the Court Chronicler.");
 		e.self:Say("All that is known of Talon has been chronicled. Should you obtain the fists then you shall hand them to me. This shall earn you the Shackle of Rock.");
@@ -26,12 +26,12 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 12797, item2 = 12798, item3 = 12799})) then -- Iksar Right Hand, Iksar Left Hand and Iksar Left Hand
-		e.self:Emote("removes a crudley hewn shackle. 'This is yours. It is one of the keys to the third rung. I see that you are truely a great monk and have studied your disciplines well. I have need of one as you. I have heard of [troubles with an outlander].'");
+		e.self:Emote("removes a crudley hewn shackle. 'This is yours. It is one of the keys to the third rung. I see that you are truely a great monk and have studied your disciplines well. I have need of one as you. I have heard of [" .. eq.say_link("troubles with an outlander") .. "].'");
 		e.other:Faction(317,20); -- Swift Tails
 		e.other:Faction(193,10); -- Legion of Cabilis
 		e.other:QuestReward(e.self,0,0,0,0,4193,20000); -- Shackle of Rock
 	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 12821, item2 = 4192, item3 = 4193})) then -- An Outlanders Head, Shackle of Stone and Shackle of Rock
-		e.self:Say("Very good!! Here is your Shackle of Copper. The Emperor shall be pleased that I, Mistress Niska, have slain the outlander. Do you have some time? I need someone to be my [personal courier]. Will you?");
+		e.self:Say("Very good!! Here is your Shackle of Copper. The Emperor shall be pleased that I, Mistress Niska, have slain the outlander. Do you have some time? I need someone to be my [" .. eq.say_link("personal courier") .. "]. Will you?");
 		e.other:Faction(317,20); -- Swift Tails
 		e.other:Faction(193,10); -- Legion of Cabilis
 		e.other:QuestReward(e.self,0,0,0,0,4194,40000); -- Shackle of Copper

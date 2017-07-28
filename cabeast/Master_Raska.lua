@@ -1,13 +1,13 @@
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Hmmph!! Expect to be a great master such as I? Maybe. You still appear to be a [whiff].");
+		e.self:Say("Hmmph!! Expect to be a great master such as I? Maybe. You still appear to be a [" .. eq.say_link("whiff") .. "].");
 	elseif(e.message:findi("whiff")) then
-		e.self:Say("A whiff is the sound of a tail striking air. A whiff is you. Inexperienced. I can help you, if you want to earn the [second shackle].");
+		e.self:Say("A whiff is the sound of a tail striking air. A whiff is you. Inexperienced. I can help you, if you want to earn the [" .. eq.say_link("second shackle") .. "].");
 	elseif(e.message:findi("second shackle")) then
 		e.self:Say("Then you shall perform the first rite. Take this pack. To the Outlands you will go. You will fill and combine the pack with one of each of the following: goblin scout beads, a large scorpion pincer, a froglok skipper skipping stone, and a sabertooth cub canine. Bring these to me and you shall prove yourself a monk.");
 		e.other:SummonItem(17026); -- First Rite Pack
 	elseif(e.message:findi("shackle of stone")) then
-		e.self:Say("Interested in the shackle of stone are we? They are made for monks who have earned their first two shackles and are ready to climb up to the next rung. A monk who feels he is ready to wear the shackle of stone must first perform the [task of cleansing].");
+		e.self:Say("Interested in the shackle of stone are we? They are made for monks who have earned their first two shackles and are ready to climb up to the next rung. A monk who feels he is ready to wear the shackle of stone must first perform the [" .. eq.say_link("task of cleansing") .. "].");
 	elseif(e.message:findi("task of cleansing")) then
 		e.self:Say("Go forth to the outer gates and seek out the Iksar bandits. They have refused to bow to the will of the empire and shall pay dearly for their traitorous ways. They often wear bandit masks. If you return with two bandit masks and the shackles of dust and clay then I shall reward you with the shackle of stone.");
 	elseif(e.message:findi("gandan tailfist")) then
@@ -18,7 +18,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 12427})) then -- Full First Rite Pack
-		e.self:Say("You have succeeded, young " .. e.other:GetName() .. "! You have proven yourself a skilled monk. You will now wear the shackle of clay. You will now be required to increase your intensity of training in hopes that you may soon be able to earn your [shackle of stone].");
+		e.self:Say("You have succeeded, young " .. e.other:GetName() .. "! You have proven yourself a skilled monk. You will now wear the shackle of clay. You will now be required to increase your intensity of training in hopes that you may soon be able to earn your [" .. eq.say_link("shackle of stone") .. "].");
 		e.other:Faction(317,20); -- Swift Tails
 		e.other:Faction(193,10); -- Legion of Cabilis
 		e.other:QuestReward(e.self,0,0,0,0,4191,5000); -- Shackle of Clay

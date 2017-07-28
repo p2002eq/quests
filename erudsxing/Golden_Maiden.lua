@@ -23,7 +23,7 @@ function event_waypoint_arrive(e)
 				return false;
 			end
 		);
-	-- Erud
+		-- Erud
 	elseif(e.self:GetGrid() == 7 and e.wp == 19) then
 		eq.debug("Boat to Erud (7) has reached its destination! Name is: " .. e.self:GetName() .. " Time is: " .. hour ..":" .. minute .. "", 1);
 		eq.get_entity_list():ForeachClient(

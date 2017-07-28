@@ -1,9 +1,9 @@
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Emote("waves her hands as if to cast a spell.  'GREETINGS!!  I am the Luminare of Firiona.  By decree of his royal highness, King Thex, I am here to research spells and artifacts.  I have much to do.  I welcome any enchanter who offers to [assist the great Luminare].'");
+		e.self:Emote("waves her hands as if to cast a spell.  'GREETINGS!!  I am the Luminare of Firiona.  By decree of his royal highness, King Thex, I am here to research spells and artifacts.  I have much to do.  I welcome any enchanter who offers to [" .. eq.say_link("assist the great Luminare") .. "].'");
 		e.self:DoAnim(43);
 	elseif(e.message:findi("assist")) then
-		e.self:Say("And great I am, indeed!! Alas, not great enough to be everywhere at once. I would gladly reward you if you would [collect] components for me.");
+		e.self:Say("And great I am, indeed!! Alas, not great enough to be everywhere at once. I would gladly reward you if you would [" .. eq.say_link("collect") .. "] components for me.");
 		e.self:DoAnim(42);
 	elseif(e.message:findi("collect")) then
 		e.self:Say("Then go into the wilds beyond the outpost and upon your return, you shall give me one Nok Shaman Powder, one Heart of Ice, one Ton Warrior Totem, and one Sabertooth Tiger Mane. This shall earn you knowledge of an enchanter spell I recently scribed.");
@@ -26,8 +26,3 @@ function event_trade(e)
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------

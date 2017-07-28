@@ -4,9 +4,9 @@ end
 
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("My thanks for destroying these minions of Befallen's masters. This accursed place rends my soul trying to twist me to its purposes. My time here is short, so i must get this [task] done quikly.");
+		e.self:Say("My thanks for destroying these minions of Befallen's masters. This accursed place rends my soul trying to twist me to its purposes. My time here is short, so i must get this [" .. eq.say_link("task") .. "] done quikly.");
 	elseif(e.message:findi("task")) then
-		e.self:Say("I have this parchment that must be delivered to either the Knights of Truth in Freeport or to the Queen of Neriak. The contents of the note concern them both and I am desperate to have this matter addressed so ask that you take it to which ever of the cities will accept your presence. Will you take the note to the [Knights of Truth] or to [The Dead]?");
+		e.self:Say("I have this parchment that must be delivered to either the Knights of Truth in Freeport or to the Queen of Neriak. The contents of the note concern them both and I am desperate to have this matter addressed so ask that you take it to which ever of the cities will accept your presence. Will you take the note to the [" .. eq.say_link("Knights of Truth") .. "] or to [" .. eq.say_link("The Dead") .. "]?");
 	elseif(e.message:findi("truth")) then
 		e.self:Say("It must be delivered to Sir Artanis in the city of Freeport. It details a terrible plan of the masters of this place to restore life to a foul necromancer named Marnek. The Burning Dead must not be allowed to achieve this goal. So that you may ride swiftly with news of this nefarious scheme, take this as well, the bridle to the noble steed that was entombed alive with me here. He has strength enough for one final ride.");
 		e.other:SummonItem(31492); -- Ghostly Bridle

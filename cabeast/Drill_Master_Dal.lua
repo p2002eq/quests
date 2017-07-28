@@ -1,9 +1,9 @@
 function event_say(e)
 	if(e.message:findi("Hail")) then
-		e.self:Say("Yes, yes!!  What do I have here?!!  Another [new recruit]?  If so, then speak up!  If not, then leave and do not waste my time nor risk your life.  I also seek a [legion soldier] if you be one.");
+		e.self:Say("Yes, yes!!  What do I have here?!!  Another [" .. eq.say_link("new recruit") .. "]?  If so, then speak up!  If not, then leave and do not waste my time nor risk your life.  I also seek a [" .. eq.say_link("legion soldier") .. "] if you be one.");
 	elseif(e.other:GetFaction(e.self) < 5) then
 		if(e.message:findi("new recruit")) then
-			e.self:Say("Yes.  You have the look of the Partisan.  I trust you have begun your blacksmith training.  If not, then do so.  Also, you should read all the books available to you in Fortress Talishan.  We are not dimwitted broodlings here.  You shall need the knowledge soon. That, or a coffin.  Ha!!  Here is your task, are you [ready for your task]?");
+			e.self:Say("Yes.  You have the look of the Partisan.  I trust you have begun your blacksmith training.  If not, then do so.  Also, you should read all the books available to you in Fortress Talishan.  We are not dimwitted broodlings here.  You shall need the knowledge soon. That, or a coffin.  Ha!!  Here is your task, are you [" .. eq.say_link("ready for your task") .. "]?");
 		elseif(e.message:findi("soldier")) then
 			e.self:Say("Good news to my ears!!  I seek to prove to the War Baron that the infamous forsaken band of thieves who call themselves Marrtail's Marauders are operating within earshot of our city.  You must bring me proof that you encountered no fewer than four of these thieves.  Do so and I shall offer you an armor item unavailable to most.");
 		elseif(e.message:findi("ready")) then

@@ -29,7 +29,7 @@ function event_trade(e)
 		e.other:Faction(63,-25,0); -- crushbone orcs
 		e.other:QuestReward(e.self,0,0,0,0,0,10000); -- Faction, EXP and Spawn
 	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 20882})) then -- A Poachers Head
-		e.self:Say(string.format("You, %s, are a worthy forester. It brings me great pride to present you this scroll that I have only passed to the finest in all of Norrath. Now you, too, may call the flames.",e.other:GetName()));
+		e.self:Say(string.format("You, %s, are a worthy forester. It brings me great pride to present you this scroll that I have only passed to the finest in all of Norrath. Now you, too, may [" .. eq.say_link("call the flames") .. "].",e.other:GetName()));
 		e.other:Faction(99,100,0); -- faydarks champion
 		e.other:Faction(178,25,0); -- king tearis thex
 		e.other:Faction(43,25,0); -- cleric of tunare

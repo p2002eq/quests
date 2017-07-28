@@ -1,10 +1,10 @@
 -- monk epic and Whistling Fists
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Emote("turns toward you. A transparent human face materializes upon the skull. As he speaks the smells of rotted rat corpses rushes into your face. You must fight the urge to vomit. 'What discipline do you [follow]?'");
-		e.self:Say("What discipline do you follow?");
+		e.self:Emote("turns toward you. A transparent human face materializes upon the skull. As he speaks the smells of rotted rat corpses rushes into your face. You must fight the urge to vomit. 'What discipline do you [" .. eq.say_link("") .. "][follow]?'");
+		e.self:Say("follow");
 	elseif(e.message:findi("lost circle")) then
-		e.self:Say("Then we are one. The rebirth of our circle shall start with you. I have waited decades for your arrival. You should seek the living brothers within Tunaria. When you have earned your garb then you will be ready for the [true drape].");
+		e.self:Say("Then we are one. The rebirth of our circle shall start with you. I have waited decades for your arrival. You should seek the living brothers within Tunaria. When you have earned your garb then you will be ready for the [" .. eq.say_link("true drape") .. "].");
 	elseif(e.message:findi("true drape")) then
 		e.self:Say("Seek the broken flute of our master. Taken from us by the Iksar twins of Vistrei. To me they will come and to me your robe and you will come the dawning of the new brotherhood.");
 	end

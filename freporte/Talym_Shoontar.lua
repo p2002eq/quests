@@ -15,8 +15,3 @@ function event_signal(e)
 		e.self:Say("Antonius Bayle is a blithering fool.");
 	end
 end
-
--- END of FILE Zone:freporte  ID:10182 -- Talym_Shoontar
-
-
-

@@ -1,8 +1,8 @@
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Most call me Gandari the Terse.  You here for [ivy armor]?");
+		e.self:Say("Most call me Gandari the Terse.  You here for [" .. eq.say_link("ivy armor") .. "]?");
 	elseif(e.message:findi("ivy armor")) then
-		e.self:Say("I reward brave rangers with ivy etched armor - [Helm]s. [Tunic]s. [Sleeves] and [Bracers]. [Interested]?");
+		e.self:Say("I reward brave rangers with ivy etched armor - [" .. eq.say_link("Helms") .. "], [" .. eq.say_link("Tunics") .. "], [" .. eq.say_link("Sleeves") .. "] and [" .. eq.say_link("Bracers") .. "]. Interested?");
 	elseif(e.message:findi("bracer")) then
 		e.self:Say("I do not haggle, I do not bargain. The Bottom of the Rune of Ivy from the plains of Everfrost, a Watery Ring from the Cauldron of Tears and a Fire Emerald to warm my heart. Bring these to me and you shall earn your reward.");
 	elseif(e.message:findi("helm")) then
@@ -16,7 +16,7 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	
+
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 10569, item2 = 10546, item3 = 10033})) then -- bracers
 		e.self:Say("Well done. May Karana bless your soul.");
 		e.other:Faction(182,5); -- kithicor residence
@@ -48,9 +48,3 @@ function event_trade(e)
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
--- END of FILE Zone:kithicor  ID:20095 -- Gandari
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------

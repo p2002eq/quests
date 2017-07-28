@@ -1,12 +1,12 @@
 --The other NPC for the Iksar Shadowknight low- to mid-level armors.
 function event_say(e)
 	if(e.message:findi("Hail")) then
-		e.self:Emote("eyes you intently. 'So, yet another hatchling approaches us. I am known as Sirtha and that is Sarth. We are of [Rile's] children. Who do you call your father, broodling?'");
+		e.self:Emote("eyes you intently. 'So, yet another hatchling approaches us. I am known as Sirtha and that is Sarth. We are of [" .. eq.say_link("Rile's") .. "] children. Who do you call your father, broodling?'");
 	elseif(e.message:findi("Rile")) then
-		e.self:Say("Very good. We are smiths for the Crusaders of the Greenmist and I shall make [armor] for you, provided you prove your worth. Fail these simple tasks, and you shall not be worthy to bear the title of crusader!");
+		e.self:Say("Very good. We are smiths for the Crusaders of the Greenmist and I shall make [" .. eq.say_link("armor") .. "] for you, provided you prove your worth. Fail these simple tasks, and you shall not be worthy to bear the title of crusader!");
 	elseif(e.message:findi("armor")) then
-		e.self:Say("I will make [helms], [gauntlets], [boots], and [vambraces]. My broodmate shall make the bracers, greaves, masks, and breastplate.");
-	elseif(e.message:findi("helm")) then
+		e.self:Say("I will make [" .. eq.say_link("helms") .. "], [" .. eq.say_link("gauntlets") .. "], [" .. eq.say_link("boots") .. "], and [" .. eq.say_link("vambraces") .. "]. My broodmate shall make the bracers, greaves, masks, and breastplate.");
+	elseif(e.message:findi("helms")) then
 		e.self:Say("The sarnak are a mockery of the Iksar. They are nothing more than beasts fit only to do our bidding! I require you to bring me the sword of one of their Order of Knights and the head of a sarnak berserker. These beasts have been attacking our patrols of late. I also require a stone called a ruby and a banded helm. Do this and I shall make a helm for you.");
 	elseif(e.message:findi("boots")) then
 		e.self:Say("Cactus quills can be very lethal. I seek to work them into my new boots. Find me these quills, a pair of skeletal feet, an emerald of fire, and some banded boots so that I may start working on them. Why are you still here?! Begone!");

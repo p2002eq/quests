@@ -2,9 +2,9 @@
 
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Hail, " .. e.other:GetName() .. "! Are you the champion Najena sent for?");
+		e.self:Say("Hail, " .. e.other:GetName() .. "! Are you the [" .. eq.say_link("") .. "]champion Najena sent for?");
 	elseif(e.message:findi("champion of Najena")) then
-		e.self:Say("Very well champion.  Have you heard of The Staff of Ankexfen?"); -- Not real text
+		e.self:Say("Very well champion.  Have you [" .. eq.say_link("I have not heard of the staff",false,"heard") .. "] of The Staff of [" .. eq.say_link("What happened to the Ankexfen",false,"Ankexfen") .. "]?"); -- Not real text
 	elseif(e.message:findi("not heard of the staff")) then
 		e.self:Say("No? Why am I not surprised? You look too weak and frail to be of any use. You probably could not even best one of those intoxicated, weak-minded goblins controlled by that pathetic eye called Xxorb. Away with you, useless creature!");
 	elseif(e.message:findi("happened to the Ankexfen")) then
@@ -33,5 +33,3 @@ function event_trade(e)
 	end
 	item_lib.return_items(e.self, e.other, e.trade,false);
 end
-
--- END of FILE Zone:najena ID:44107 -- a_visiting_priestess 

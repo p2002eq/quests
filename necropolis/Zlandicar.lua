@@ -1,6 +1,6 @@
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Hrmm, who have we here?  A fleshling that managed to work past my guards...apparently, then, you have your wits about yourself.  In that case, perhaps you might be useful.  I need you to kill a ratman named Neb, because I cannot find him and he resides in an area too small for me to reach.  He and his clan of Paebala rats are of great annoyance to me, and need to be eradicated so that I may focus on greater tasks at hand.");
+		e.self:Say("Hrmm, who have we here?  A fleshling that managed to work past my guards...apparently, then, you have your wits about yourself.  In that case, perhaps you might be useful.  I need you to kill a ratman named [" .. eq.say_link("who is neb",false,"Neb") .. "], because I cannot find him and he resides in an area too small for me to reach.  He and his clan of Paebala rats are of great annoyance to me, and need to be eradicated so that I may focus on greater tasks at hand.");
   
 	elseif(e.message:findi("who is neb")) then
 		e.self:Say("Neb is an enemy of my clan of Chetari ratmen, and a thorn in my side.  Slaughter him and bring me his head, and I will give you the key to Jaled-Dar's Tomb.");

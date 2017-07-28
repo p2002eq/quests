@@ -1,6 +1,6 @@
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Hello, " .. e.other:GetName() .. ". I welcome you to the Temple of Divine Light. I am the resident healer. If you should ever require the power of Quellious to [bind wounds], [cure disease] or [cure poison], speak with me and I shall help you.");
+		e.self:Say("Hello, " .. e.other:GetName() .. ". I welcome you to the Temple of Divine Light. I am the resident healer. If you should ever require the power of Quellious to [" .. eq.say_link("bind wounds") .. "], [" .. eq.say_link("cure disease") .. "] or [" .. eq.say_link("cure poison") .. "], speak with me and I shall help you.");
 	elseif(e.message:findi("bind wounds")) then
 		e.self:Say("I shall be pleased to help you with your wounds. The Temple of Divine Light requires a tribute of four gold before I may perform the service.");
 	elseif(e.message:findi("cure disease")) then
@@ -22,5 +22,3 @@ function event_trade(e)
 	end
 	item_lib.return_items(e.self, e.other, e.trade);
 end
-  
--- END of FILE Zone:erudnext

@@ -7,9 +7,3 @@ function event_trade(e)
 		eq.depop_with_timer();
 	end
 end
-
--- Quest by mystic414
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------

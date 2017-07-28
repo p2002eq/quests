@@ -10,9 +10,9 @@ function event_say(e)
 				e.self:Say("What business do you have here?!! Trying to keep safe? Expecting us to fight your battles? Bah!!");
 			end
 		elseif(e.message:findi("chalice of conquest")) then
-			e.self:Say("Looking for the chalice, are you? Ha!! I don't know where it is, but I know a [lost soul] who does and he could lead you right to it. He had a taste of it and now he can't get enough. He is sort of under the weather, or do I mean under the ground? Ha!!");
+			e.self:Say("Looking for the chalice, are you? Ha!! I don't know where it is, but I know a [" .. eq.say_link("lost soul") .. "] who does and he could lead you right to it. He had a taste of it and now he can't get enough. He is sort of under the weather, or do I mean under the ground? Ha!!");
 		elseif(e.message:findi("lost soul")) then
-			e.self:Say("The orc named Captain Klunga knows where it's buried. Unfortunately, his time on Norrath has passed. I happen to know two things... one, he is buried somewhere in this territory and two, I can [raise Klunga] and he can show you where the chalice is.");
+			e.self:Say("The orc named Captain Klunga knows where it's buried. Unfortunately, his time on Norrath has passed. I happen to know two things... one, he is buried somewhere in this territory and two, I can [" .. eq.say_link("raise Klunga") .. "] and he can show you where the chalice is.");
 		elseif(e.message:findi("raise klunga")) then
 			e.self:Say("I can raise Captain Klunga if I have a portion of his blood, an item he once owned and the most important part, 100 gold coins!! Hehe!! A gnome's got to make a living, you know?");
 		end

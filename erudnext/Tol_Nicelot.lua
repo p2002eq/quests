@@ -7,5 +7,3 @@ function event_say(e)
 		e.self:Say("Nolusia is a member of the Craftkeepers. She lives as a guildmaster in Erudin Palace.");
 	end
 end
-
--- END of FILE Zone:erudnext  ID:98035 -- Tol_Nicelot

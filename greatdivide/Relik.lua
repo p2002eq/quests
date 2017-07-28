@@ -1,6 +1,6 @@
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Huh? What are ya needin'? Speak up! I ain't got all day. Are you here to help out or just eat up valuable time chatting?");
+		e.self:Say("Huh? What are ya needin'? Speak up! I ain't got all day. Are you here to [" .. eq.say_link("I am here to help",false,"help") .. "] out or just eat up valuable time chatting?");
     elseif(e.message:findi("here to help")) then
 		e.self:Say("Ah, good. That's what I wanted to hear. We be needin' help with supplies. I been needin' pickheads for a while now but the minin' guild hasn't had the stock ta send 'em. We're gonna need ta improvise. I've seen the gashes left in rock after a shardwurm crawled over it and I think that be the thing we need. If ya can bring me four shardwurm claws, maybe I can rig 'em up into enough picks to keep us runnin' on time with our crystal mining.");
     end

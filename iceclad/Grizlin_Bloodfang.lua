@@ -2,7 +2,7 @@ function event_say(e)
 	if(e.message:findi("hail")) then
 		e.self:Say("Lo outlander. Grizlin weaponsmaker for tribe. Make mighty blade from bone. Very important now.. need make many spear for hunter. Not make spear, then hunter not bring meat. Now my friend Keref sad, his pack gone north and Keref alone. Want to find way to help Keref but must make weapon for tribe. Maybe you go find what Keref need to make happy?");
 	elseif(e.message:findi("harpoon")) then
-		e.self:Say("Ahh, Harpoon hard to make. Grizlin need many thing to make true harpoon. Will need strong staff, strong bone, strong rope.");
+		e.self:Say("Ahh, Harpoon hard to make. Grizlin need many thing to make true harpoon. Will need [" .. eq.say_link("strong staff") .. "], [" .. eq.say_link("strong bone") .. "], [" .. eq.say_link("strong rope") .. "].");
 	elseif(e.message:findi("strong staff")) then
 		e.self:Say("Good staff always properly carved with totem and rune. Strong and mighty, very good for harpoon making. Not make in many moons here. All wood kept for fire. Perhaps find among outland gnoll tribe where wood is plentiful");
 	elseif(e.message:findi("bone")) then

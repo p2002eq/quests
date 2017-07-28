@@ -1,9 +1,9 @@
 function event_say(e)
 	if(e.message:findi("Hail")) then
-		e.self:Say("Welcome. friend!  If armor is what you seek. let the house of Gaxx provide you with the finest.  Our metalwork is second to none.  Every now and again we may even create [rare armor] for the general public to purchase.");
+		e.self:Say("Welcome. friend!  If armor is what you seek. let the house of Gaxx provide you with the finest.  Our metalwork is second to none.  Every now and again we may even create [" .. eq.say_link("rare armor") .. "] for the general public to purchase.");
 		e.self:DoAnim(29);
 	elseif(e.message:findi("rare armor?")) then
-		e.self:Say("I have found many exotic materials in Kunark with which I can create rare armor.  I currently am working on the [Guard of Ik] and the [Hate Tail Guard] shields.  I have no armor as of yet. but I am experimenting with new designs.");
+		e.self:Say("I have found many exotic materials in Kunark with which I can create rare armor.  I currently am working on the [" .. eq.say_link("Guard of Ik") .. "] and the [" .. eq.say_link("Hate Tail Guard") .. "] shields.  I have no armor as of yet. but I am experimenting with new designs.");
 	elseif(e.message:findi("guard of ik")) then
 		e.self:Say("The Guards of Ik are made from shields found in the jungles.  I would be selling them if it were not for the unfortunate fact that the shields are spectral and vanish overnight.  Another bit of bad news is that the formula I was working on to stabilize the essence of the metal was stolen by local pirates.  I need two more shields and my formula.  Bring these to me and I shall not charge you.");
 	elseif(e.message:findi("hate tail guard")) then
@@ -18,8 +18,3 @@ function event_trade(e)
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------

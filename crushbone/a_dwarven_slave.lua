@@ -1,8 +1,8 @@
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Slavedrivers are just lackeys for the [taskmaster]. He is the real orc in charge.");
+		e.self:Say("Slavedrivers are just lackeys for the [" .. eq.say_link("taskmaster") .. "]. He is the real orc in charge.");
 	elseif(e.message:findi("taskmaster")) then
-		e.self:Say("The taskmaster?? He is that large orc who runs around with that [bronze earring] in his ear.");
+		e.self:Say("The taskmaster?? He is that large orc who runs around with that [" .. eq.say_link("bronze earring") .. "] in his ear.");
 	elseif(e.message:findi("bronze earring")) then
 		e.self:Say("Yeah, a bronze earring; He wears it like a newly crowned king. If I ever had that earring I know I would stand a chance at escape.");
 	end

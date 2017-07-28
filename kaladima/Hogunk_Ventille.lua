@@ -1,9 +1,9 @@
 function event_say(e)
 	if(e.message:findi("Hail")) then
-		e.self:Say("Hail. and welcome to Stormguard Hall. home to all great warriors! Are you also a [warrior of the Stormguard] or do you [follow another guild]?");
-	elseif(e.message:findi("i am a warrior of the stormguard")) then
+		e.self:Say("Hail. and welcome to Stormguard Hall. home to all great warriors! Are you also a [" .. eq.say_link("warrior of the Stormguard") .. "] or do you [" .. eq.say_link("follow another guild") .. "]?");
+	elseif(e.message:findi("warrior of the stormguard")) then
 		e.self:Say("As I thought. You do not appear to be one who relies on wits rather than brawn. no offense. I have word that a Stormguard on duty has deserted his post at one of the guardposts in the Butcherblocks. I want you to go and seek him out. He is Guard Bundin. Return his Stormguard axe to me. along with his head. There shall be no cowards in the Stormguard!!");
-	elseif(e.message:findi("i follow another guild")) then
+	elseif(e.message:findi("follow another guild")) then
 		e.self:Say("Then go to your guild. This is the hall of the dwarven warriors - not a place for common folk to lounge around.");
 	end
 end
@@ -24,8 +24,3 @@ function event_trade(e)
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------

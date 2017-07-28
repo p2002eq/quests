@@ -2,7 +2,7 @@
 function event_say(e)
 	if(e.other:GetCharacterFactionLevel(342) > -83) then
 		if(e.message:findi("Hail")) then
-			e.self:Say("Please help me get out of here! My companion, Kyrenna, and I are trapped in this hellish place!");
+			e.self:Say("Please help me get out of here! My companion, [" .. eq.say_link("Who is Kyrenna",false,"Kyrenna") .. "], and I are trapped in this hellish place!");
 		elseif(e.message:findi("Who is Kyrenna")) then
 			e.self:Say("I was with Kyrenna when she attempted to revive the corpse of Glohnor the Valiant. Like fools, we rushed into a trap. Now we sit here and await our deaths.");
 		elseif(e.message:findi("Where is Kyrenna")) then
@@ -23,9 +23,3 @@ function event_trade(e)
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
--- Quest by mystic414
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------

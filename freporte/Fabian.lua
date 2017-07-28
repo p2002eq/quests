@@ -7,7 +7,6 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	local fabian = eq.get_qglobals(e.other);
-
 	if(item_lib.check_turn_in(e.self, e.trade, {gold = 2})) then
 		e.self:Say("Rat spittle! Busted another string! You seem like a good music loving citizen, could you please run to the Wind Spirit's Song and grab me a fresh set of lute strings?");
 		e.other:Ding();

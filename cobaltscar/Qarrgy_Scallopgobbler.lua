@@ -2,9 +2,9 @@
 function event_say(e)
 	if(e.message:findi("hail")) then
 		e.self:Emote("sets down several large crustacean shells covered in foreign runes, then extends his large, coarse hands in a gesture of friendship.");
-		e.self:Say("I am pleased to see friendly visitors to our villages. I am the head craftsman of the village. The crustacean shell armor worn by the warriors of our village was crafted by me and by my apprentices. I will craft other materials as well when they are available.");
+		e.self:Say("I am pleased to see friendly visitors to our villages. I am the head craftsman of the village. The [" .. eq.say_link("crustacean shell armor") .. "] worn by the warriors of our village was crafted by me and by my apprentices. I will craft [" .. eq.say_link("other materials") .. "] as well when they are available.");
 	elseif(e.message:findi("crustacean shell armor")) then	
-		e.self:Say("It takes awhile to make each piece. It has to go through a long burning process to clean away all old meat and dirt. Then it needs shaping and etching with runes.");
+		e.self:Say("It takes awhile to make each piece. It has to go through a long [" .. eq.say_link("burning process") .. "] to clean away all old meat and dirt. Then it needs shaping and etching with runes.");
 	elseif(e.message:findi("burning process")) then	
 		e.self:Say("Usually I use a mixture made from the livers of barraccudas. Their liquids are very strong and make good burning liquid. If you want some you need to bring me two barraccuda livers.");
 	elseif(e.message:findi("other materials")) then	
@@ -13,8 +13,7 @@ function event_say(e)
 		e.self:Say("I will craft an emerald dragonscale tunic for emerald dragon scales, ulthork tusks, and an unstained fine plate breastplate.");
 	elseif(e.message:findi("sea dragon scale")) then	
 		e.self:Say("Should you slay Kelorek'Dar, the sea dragon, I would craft you a sea dragon bracer from his scales. All I ask for are the scales of the dragon, an ornately runed shell necklace, and an unstained bracer crafted of the metal you strange ones call fine steel.");
-	end  
-
+	end
 end
 
 function event_trade(e)

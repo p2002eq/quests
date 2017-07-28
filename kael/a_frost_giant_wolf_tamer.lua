@@ -3,7 +3,7 @@
 function event_say(e)
 	if(e.other:GetFaction(e.self) < 7) then
 		if(e.message:findi("hail")) then
-			e.self:Say("Yes? Do you have a wolf choker for me or are you looking for more [work]?");
+			e.self:Say("Yes? Do you have a wolf choker for me or are you looking for more [" .. eq.say_link("work") .. "]?");
 		elseif(e.message:findi("work")) then
 			e.self:Say("Yes. I was charged with a certain... delivery. Apparently one of our good friends named Erdarf in Thurgadin needs a shipment of one karsin acid bottle. You can find such a thing in Crystal Caverns. Maybe one of the orc dogs has it. Find a way to get one of those bottles to our good friend eh? When you do, let me see whatever it is you find on him.");
 		end

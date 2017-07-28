@@ -1,10 +1,10 @@
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("How are you? Welcome to the Academy of Arcane Science. Please feel free to roam. May knowledge be your goal. Be you a [fellow scientist] or visitor, I am sure you will find whatever you seek.");
+		e.self:Say("How are you? Welcome to the Academy of Arcane Science. Please feel free to roam. May knowledge be your goal. Be you a [" .. eq.say_link("fellow scientist") .. "] or visitor, I am sure you will find whatever you seek.");
 	elseif(e.message:findi("fellow scientist")) then
-		e.self:Say("That is good. I hope you can handle the knowledge of arcane science. Some have gone mad conducting research. Such a person is [Lydl Mastat].");
+		e.self:Say("That is good. I hope you can handle the knowledge of arcane science. Some have gone mad conducting research. Such a person is [" .. eq.say_link("Lydl Mastat") .. "].");
 	elseif(e.message:findi("lydl mastat")) then
-		e.self:Say("Lydl Mastat is nothing more than a young apprentice of mine. He went mad working on a formula for deep water breathing. He now roams the outskirts of Freeport boasting of power he does not have. Someone should [teach Lydl a lesson].");
+		e.self:Say("Lydl Mastat is nothing more than a young apprentice of mine. He went mad working on a formula for deep water breathing. He now roams the outskirts of Freeport boasting of power he does not have. Someone should [" .. eq.say_link("teach Lydl a lesson") .. "].");
 	elseif(e.message:findi("teach lydl a lesson")) then
 		e.self:Say("Then go. He appears near the gates of Freeport from time to time. He is not powerful, but he has a secret. Nothing save magic can harm him. This was the result of an experimental potion he drank. Slay him and return his locked spellbook to me.");
 	end
@@ -25,5 +25,3 @@ function event_trade(e)
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
--- END of FILE Zone:freportw -- Hemia_Skemner

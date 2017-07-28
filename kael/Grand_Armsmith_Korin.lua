@@ -2,7 +2,7 @@ function event_say(e)
 
 	if (e.other:GetFaction(e.self) <= 3) then --kindly or lower
 		if (e.message:findi("hail")) then	
-			e.self:Say("What do you want from me "..e.other:Race().."? I can only imagine that you are here to ask me to use my obviously superior smithing talents to create some [special helmets] to help protect your obviously frail body.");
+			e.self:Say("What do you want from me "..e.other:Race().."? I can only imagine that you are here to ask me to use my obviously superior smithing talents to create some [" .. eq.say_link("special helmets") .. "] to help protect your obviously frail body.");
 		elseif (e.message:findi("special helmets")) then	
 			e.self:Say("Just as I suspected "..e.other:Race()..". Using my superior skills I can customize a plate helmet to help better protect you. Give me your Malevolent Crown, Warlord's Crown, Shining Helm, Templar's Crown, Troubadour's Helm, Frostreaver's Velium Crown, Crown of the Kromzek Kings or a Cowl of Mortality and I shall make you a new helm that will better protect you.");
 		end

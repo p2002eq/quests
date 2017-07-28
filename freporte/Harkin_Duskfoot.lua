@@ -11,7 +11,7 @@ end
 
 function event_signal(e)
 	-- Signal from Beur_Tenlah
-	e.self:Say("Bah! Don't listen to this fool. Listen, I've something a little more important for you to do than buy ales. I need you to take a [message] to my friend Janam over in West Freeport.");
+	e.self:Say("Bah! Don't listen to this fool. Listen, I've something a little more important for you to do than buy ales. I need you to take a [" .. eq.say_link("message") .. "] to my friend Janam over in West Freeport.");
 end
 
 function event_trade(e)

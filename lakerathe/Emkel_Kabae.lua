@@ -11,7 +11,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 20643, item2 = 20649})) then -- Give the Rolling Stone Moss and the Twisted Symbol of the Apprentice to Emkel Kabae in Lake Rathetear
-		e.self:Emote("says, 'Very good, " .. e.other:GetName() .. ", you have done as the master asked yet again, take this as a reward.' Emkel reaches into his robes and pulls out a small symbol. He holds it out and the tiny symbol floats to your hand.");
+		e.self:Emote("says, 'Very good, " .. e.other:GetName() .. ", you have done as the master asked yet again, take this as a reward.' Emkel reaches into his robes and pulls out a small [" .. eq.say_link("symbol of the serpent",false,"symbol") .. "]. He holds it out and the tiny symbol floats to your hand.");
 		e.other:AddEXP(500);
 		e.other:SummonItem(20644);
 		e.other:Ding();
@@ -24,9 +24,3 @@ function event_trade(e)
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
--- Quest by: Solid11  Zone:lakerathe  ID:51047 -- Emkel_Kabae
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------

@@ -3,7 +3,7 @@ function event_say(e)
 	fac = e.other:GetFaction(e.self);
 	if(fac < 6) then
 		if(e.message:findi("hail")) then
-			e.self:Say("Hail! I am Ranvigoz Tonsmith. My brother Timtok and I are some of the finest smiths this side of Kaladim. If you are interested we will happily [resize] your [Crafted Armor] down to a more manageable size.");
+			e.self:Say("Hail! I am Ranvigoz Tonsmith. My brother Timtok and I are some of the finest smiths this side of Kaladim. If you are interested we will happily [" .. eq.say_link("resize") .. "] your [" .. eq.say_link("Crafted Armor") .. "] down to a more manageable size.");
 		elseif(e.message:findi("resize")) then
 			e.self:Say("I will resize Crafted Bracers, Greaves, a Pauldron or a Breastplate. My brother will resize Crafted Gauntlets, a Vambrace, a Helm or Boots. Just give me the armor and I will resize it for you.");
 		elseif(e.message:findi("crafted armor")) then

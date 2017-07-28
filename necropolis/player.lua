@@ -41,10 +41,10 @@ function event_say(e)
 		e.self:Message(5,"Event qglobals have been reset.");
 	elseif(e.message:findi("event test seance") and e.self:GetGM() == true) then	-- command to trigger temporary qglobal flags
 		eq.set_global("garzicor","4",5,"M30");	
-		e.self:Message(14,"Seance event ready.  say [Remember, Garzicor] to begin");
+		e.self:Message(14,"Seance event ready.  say [" .. eq.say_link("Remember, Garzicor") .. "] to begin");
 	elseif(e.message:findi("event test battle") and e.self:GetGM() == true) then	-- command to trigger temporary qglobal flags
 		eq.set_global("garzicor","7",5,"M30");
-		e.self:Message(15,"Battle event ready.  say [You are one but two.  Your vengeance shall find a home]");
+		e.self:Message(15,"Battle event ready.  say [" .. eq.say_link("You are one but two.  Your vengeance shall find a home") .. "]");
 	end
 end
 

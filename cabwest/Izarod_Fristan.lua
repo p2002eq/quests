@@ -1,7 +1,7 @@
 function event_say(e)
 	if(e.message:findi("Hail")) then
-		e.self:Say("Hail there. " .. e.other:GetName() .. ". So you are ready to learn more about our ways? Do you wish to try and expand your knowledge of our arcane arts? Then venture far from here to the darkest depths of our once great empire and seek the minions that inhabit the ruins. The arcane powers will come in the form of [scrolls].");
-	elseif(e.message:findi("what scrolls?")) then
+		e.self:Say("Hail there. " .. e.other:GetName() .. ". So you are ready to learn more about our ways? Do you wish to try and expand your knowledge of our arcane arts? Then venture far from here to the darkest depths of our once great empire and seek the minions that inhabit the ruins. The arcane powers will come in the form of [" .. eq.say_link("scrolls") .. "].");
+	elseif(e.message:findi("scrolls")) then
 		e.self:Say("Besides all the ones you will find. There are some that are only in my possession. To show that you have been successful on your journey, return one of splurt, defoliation, convergence, or thrall of bones. You then will be rewarded with one of my scrolls.");
 	end
 end

@@ -1,28 +1,28 @@
 --Quest Name: Necromancer Words - X`Ta Tempi
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("We three are the [Sisters Dark] - [Necromancy] is our Art - Bonded dead, they serve our will - No beat of heart, yet faithful still.");
+		e.self:Say("We three are the [" .. eq.say_link("Sisters Dark") .. "] - [" .. eq.say_link("Necromancy") .. "] is our Art - Bonded dead, they serve our will - No beat of heart, yet faithful still.");
 	elseif(e.message:findi("sisters dark")) then
-		e.self:Say("We three are the Sisters Dark - Keepers of the shadowed Dread - [Lore of Death]. we research now - Join with us and serve [the Dead].");
+		e.self:Say("We three are the Sisters Dark - Keepers of the shadowed Dread - [" .. eq.say_link("Lore of Death") .. "]. we research now - Join with us and serve [" .. eq.say_link("the Dead") .. "].");
 	elseif(e.message:findi("lore of death")) then
-		e.self:Say("The Lore of Death is shadow bound - Its [words] are [hid]. yet shall be found - Through our research into the dark - Old hexes found and parchment marked.");
+		e.self:Say("The Lore of Death is shadow bound - Its words are [" .. eq.say_link("hid") .. "]. yet shall be found - Through our research into the dark - Old hexes found and parchment marked.");
 	elseif(e.message:findi("the dead")) then
 		e.self:Say("The Dead are the shadowknights and necromancers of Neriak. They were formed by Queen Cristanos herself. Even among the Teir'Dal they are feared and they keep to themselves within the Lodge of the Dead in the Third Gate. I have heard they take orders only from the queen.");
 	elseif(e.message:findi("necromancy")) then
-		e.self:Say("Necromancy - Art of the Dead - Binding bones to serve your will - We research now the [Lore of Death] - Ancient spells with power still.");
+		e.self:Say("Necromancy - Art of the Dead - Binding bones to serve your will - We research now the [" .. eq.say_link("Lore of Death") .. "] - Ancient spells with power still.");
 	elseif(e.message:findi("hid")) then
-		e.self:Say("The Words are hid in tomes of old - Their yielded lore worth more than gold - Though we search both 'fore and 'hind - [Components] we can not yet find.");
+		e.self:Say("The Words are hid in tomes of old - Their yielded lore worth more than gold - Though we search both 'fore and 'hind - [" .. eq.say_link("Components") .. "] we can not yet find.");
 	elseif(e.message:findi("components")) then
-		e.self:Say("We need components for research - These are things that you could find - In return for [tasks] that you perform - Words of [reward] we have in mind.");
+		e.self:Say("We need components for research - These are things that you could find - In return for [" .. eq.say_link("tasks") .. "] that you perform - Words of [" .. eq.say_link("reward") .. "] we have in mind.");
 	elseif(e.message:findi("tasks") or e.message:findi("reward")) then
-		e.self:Say("Bring us components for our research - We give [Word]s by tasks performed - [Possession], [Detachment], [Allure], [Haunting], [Rupturing], [Dark Paths], [Suffering], [Collection], [Obligation], [Requisition] and [Acquisition].");
+		e.self:Say("Bring us components for our research - We give [" .. eq.say_link("Word") .. "]s by tasks performed - [" .. eq.say_link("Possession") .. "], [" .. eq.say_link("Detachment") .. "], [" .. eq.say_link("Allure") .. "], [" .. eq.say_link("Haunting") .. "], [" .. eq.say_link("Rupturing") .. "], [" .. eq.say_link("Dark Paths") .. "], [" .. eq.say_link("Suffering") .. "], [" .. eq.say_link("Collection") .. "], [" .. eq.say_link("Obligation") .. "], [" .. eq.say_link("Requisition") .. "] and [" .. eq.say_link("Acquisition") .. "].");
 	elseif(e.message:findi("words of possession")) then
 		e.self:Say("From the Estate of Unrest, bring barbed bone chips - From Castle Mistmoore, a dagger charred - From a merchant bring a stone of blood - Words of Possession will be your reward.");
-	elseif(e.message:findi("words of haunting")) then
+	elseif(e.message:findi("haunting")) then
 		e.self:Say("From the Estate of Unrest, bring dark bone chips - From Castle Mistmoore, a dagger ebon - From a merchant bring a jasper stone - Then Words of Haunting will to you be given.");
-	elseif(e.message:findi("words of collection")) then
+	elseif(e.message:findi("collection")) then
 		e.self:Say("Two Words of Collection I possess - To obtain Beza to me you must bring - a globe of darkness, an Eye of Kor and an amber gem. To obtain Caza to me you must bring - an Eye of Guk, a globe of fear, and jade.");
-	elseif(e.message:findi("words of detachment") or e.message:findi("words of allure") or e.message:findi("words of rupturing") or e.message:findi("words of dark paths") or e.message:findi("words of suffering") or e.message:findi("words of obligation") or e.message:findi("words of requisition") or e.message:findi("words of acquisition")) then
+	elseif(e.message:findi("detachment") or e.message:findi("allure") or e.message:findi("rupturing") or e.message:findi("dark paths") or e.message:findi("suffering") or e.message:findi("obligation") or e.message:findi("requisition") or e.message:findi("acquisition")) then
 		e.self:Say("The answer to that question is held by another - Ask again of my sister...");
 	end
 end
@@ -85,9 +85,3 @@ function event_trade(e)
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
---Author: Blaz
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------

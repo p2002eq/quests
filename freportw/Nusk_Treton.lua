@@ -2,12 +2,12 @@ function event_say(e)
 	local fac = e.other:GetFaction(e.self);
 	
 	if(e.message:findi("hail")) then
-		e.self:Say("Freeport!!  Great trade city of Norrath!!  What a wondrous place!  How do you do?  You are an [arcane scientist]. are you not?");
+		e.self:Say("Freeport!!  Great trade city of Norrath!!  What a wondrous place!  How do you do?  You are an [" .. eq.say_link("arcane scientist") .. "]. are you not?");
 	elseif(fac < 5) then
 		if(e.message:findi("arcane scientist")) then
-			e.self:Say("Grand!! I remember my younger days within this great academy. I have spent many years of research here in Freeport. I compiled a [locked journal] of my research. Alas, I am still awaiting its return.");
+			e.self:Say("Grand!! I remember my younger days within this great academy. I have spent many years of research here in Freeport. I compiled a [" .. eq.say_link("locked journal") .. "] of my research. Alas, I am still awaiting its return.");
 		elseif(e.message:findi("locked journal")) then
-			e.self:Say("I lent it to an old colleague of mine in Ak'Anon. He was to send it back aboard a private vessel. One Lenka Stoutheart was to return it to me. It has already been one month and counting. I wish there was a young wizard who could [seek out Lenka].");
+			e.self:Say("I lent it to an old colleague of mine in Ak'Anon. He was to send it back aboard a private vessel. One Lenka Stoutheart was to return it to me. It has already been one month and counting. I wish there was a young wizard who could [" .. eq.say_link("seek out Lenka") .. "].");
 		elseif(e.message:findi("seek out Lenka")) then
 			e.self:Say("What luck!! I would be most appreciative if you could find Lenka Stoutheart in Freeport and inquire where the journal strongbox might be. I do so look forward to its return.");
 		end
@@ -25,7 +25,6 @@ end
 function event_trade(e)
 	local fac = e.other:GetFaction(e.self);
 	local item_lib = require("items");
-
 	if(fac < 5) then
 		if(item_lib.check_turn_in(e.self, e.trade, {item1 = 13860})) then -- A Strongbox
 			e.self:Say("Grand and fantastic!! You have made my day complete. Here is what little I can offer. Most of my money goes into my research. Thank you.");
@@ -41,5 +40,3 @@ function event_trade(e)
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
--- END of FILE Zone:freportw -- Nusk_Treton

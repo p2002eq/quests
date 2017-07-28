@@ -1,6 +1,6 @@
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Oooh.. Hello, [guard]. Please do not let the [Teir'Dal] at me again. I can take no more.");
+		e.self:Say("Oooh.. Hello, [" .. eq.say_link("guard") .. "]. Please do not let the [" .. eq.say_link("Teir'Dal") .. "] at me again. I can take no more.");
 	elseif(e.message:findi("teir'dal")) then
 		e.self:Say("The Teir'Dal are what all elves call the dark elves, such as those vile torturers. I don't know what they are doing in Highpass.");
 	elseif(e.message:findi("guard")) then

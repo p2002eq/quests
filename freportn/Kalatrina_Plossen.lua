@@ -2,7 +2,7 @@ function event_say(e)
 	local fac = e.other:GetFaction(e.self);
 	
 	if(e.message:findi("hail")) then
-		e.self:Say("Hail!  Welcome to the Hall of Truth.  We. the Knights of Truth. are all the hope this city has of loosening the grip of Lucan D'lere and his militia.  I seek a young knight to [serve the will of the Truthbringer].");
+		e.self:Say("Hail!  Welcome to the Hall of Truth.  We. the Knights of Truth. are all the hope this city has of loosening the grip of Lucan D'lere and his militia.  I seek a young knight to [" .. eq.say_link("I will serve the will of the truthbringer",false,"serve the will of the Truthbringer") .. "].");
 	elseif(e.message:findi("what serve the will of the truthbringer")) then
 		e.self:Say("Shame on you.  To set foot into the Hall of Truth and not know for whom it was built.  Still. it is never too late to see the light.  Mithaniel Marr is our deity.  He is the Truthbringer.  By living our lives in valor and crushing all those who suppress His beliefs. We serve Him.");
 	elseif(e.message:findi("i serve the will of the truthbringer") or e.message:findi("will serve the will of the truthbringer")) then
@@ -25,7 +25,7 @@ function event_trade(e)
 	local item_lib = require("items");
 
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 18818})) then -- A Tattered Flier
-		e.self:Say("Zimel's Blades?! Hmmmmm. It doesn't ring a bell and the remainder of the writing is too hard to make out. It kind of looks like a list of prices. You know, down at the Office of the People they might be able to tell us if this place exists. Go speak with Rashinda. She knows all about Freeport. If [Zimel's Blades] existed, you must report back to me what happened to it.");
+		e.self:Say("Zimel's Blades?! Hmmmmm. It doesn't ring a bell and the remainder of the writing is too hard to make out. It kind of looks like a list of prices. You know, down at the Office of the People they might be able to tell us if this place exists. Go speak with Rashinda. She knows all about Freeport. If [" .. eq.say_link("Zimel's Blades") .. "] existed, you must report back to me what happened to it.");
 		e.other:Ding();
 		e.other:Faction(105,-1,0);
 		e.other:Faction(311,1,0);

@@ -1,10 +1,10 @@
 function event_say(e)
 	if(e.message:findi("Hail")) then
-		e.self:Say("Be careful around here. " .. e.other:GetName() .. ". Injured broodlings are no use to anyone. Many of these structures are yet unstable and could fall at any time. If you're a mystic, I can teach you how to [protect] yourself.");
+		e.self:Say("Be careful around here. " .. e.other:GetName() .. ". Injured broodlings are no use to anyone. Many of these structures are yet unstable and could fall at any time. If you're a mystic, I can teach you how to [" .. eq.say_link("protect") .. "] yourself.");
 	elseif(e.message:findi("protect")) then
-		e.self:Say("Yes indeed. As a broodling, you will need some protection to avoid any... unfortunate accidents. Should you wish, I can fashion some [armor] for you from some basic components. Provided you risk your life gathering them for me first.");
+		e.self:Say("Yes indeed. As a broodling, you will need some protection to avoid any... unfortunate accidents. Should you wish, I can fashion some [" .. eq.say_link("armor") .. "] for you from some basic components. Provided you risk your life gathering them for me first.");
 	elseif(e.message:findi("armor")) then
-		e.self:Say("Armor, indeed. I can fashion protection for your [chest], [hands], [legs], or [head].");
+		e.self:Say("Armor, indeed. I can fashion protection for your [" .. eq.say_link("chest") .. "], [" .. eq.say_link("hands") .. "], [" .. eq.say_link("legs") .. "], or [" .. eq.say_link("head") .. "].");
 	elseif(e.message:findi("chest")) then
 		e.self:Say("To make a breastplate for you, you will have to bring me some banded mail, a star ruby, some watchman's spectacles, and some nectar of isolation. Now hurry back.");
 	elseif(e.message:findi("hands")) then

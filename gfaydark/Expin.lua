@@ -1,6 +1,6 @@
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("How are you, my friend?  You must be a [new scout of Kelethin].  I would hope so.  We dearly need more recruits.  Most of the Fier'Dal choose the path of the ranger.");
+		e.self:Say("How are you, my friend?  You must be a [" .. eq.say_link("new scout of Kelethin") .. "].  I would hope so.  We dearly need more recruits.  Most of the Fier'Dal choose the path of the ranger.");
 	elseif(e.message:findi("new scout of kelethin")) then
 		e.self:Say("Good. I have an easy, but very important, task for you. We require all young members to cleanse these woods of the troublesome pixie tricksters. Take this pouch, fill it with pixie dust, and when it is combined, return it to me. I just may have some used armor lying around for you.");
 		e.other:SummonItem(17957); -- Empty Pouch
@@ -13,7 +13,6 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 12109})) then -- Pouch of Pixie Dust
 		e.self:Say("Good work. scout!!  You have earned this reward.  It is all we have at the time.  I am certain you are satisfied.  If not, then do not let me hear of it.");
 		if(math.random(100) < 20) then
@@ -24,5 +23,3 @@ function event_trade(e)
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
--- END of FILE Zone:gfaydark  ID:54024 -- Expin 
