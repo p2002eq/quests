@@ -6,7 +6,6 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 28058})) then
 		e.self:Say("Life is indeed sweet! Thank you, " .. e.other:GetName() .. ", you have done me a great service this day. Take this, Stanos was kind enough to return it to me, and I have no use for it now. Know that you have the blessing of Innoruuk for this deed! But of course, I leave it to you to leave here alive. A leader has to feed his minions, you know.");
 		e.other:Faction(98,10);
@@ -15,9 +14,3 @@ function event_trade(e)
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
---Originally submitted by ShadowBlade, corrected turn-in text by Jim Mills
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------

@@ -1,9 +1,9 @@
 function event_say(e)
 	if((e.other:GetFaction(e.self) < 5) and (e.self:GetClass() == 7)) then
 		if(e.message:findi("hail")) then
-			e.self:Say("It is good to finally meet one who respects the disciplines of the Ashen Order.  All I have met are rangers.  They have interfered with my [mission in the woods].");
+			e.self:Say("It is good to finally meet one who respects the disciplines of the Ashen Order.  All I have met are rangers.  They have interfered with my [" .. eq.say_link("mission in the woods") .. "].");
 		elseif(e.message:findi("mission in the wood")) then
-			e.self:Say("I have come here to avenge my family.  One season past, they were attacked by a trio of deadly tigers.  I came here to hunt the beasts down, but then I found the local rangers and residents here protect the tigers.  They seem to be legends in these parts.  The tigers even have name's!!  They call them Eenot, Reggit and Kobb.  I wish I had help from a [fellow monk].");
+			e.self:Say("I have come here to avenge my family.  One season past, they were attacked by a trio of deadly tigers.  I came here to hunt the beasts down, but then I found the local rangers and residents here protect the tigers.  They seem to be legends in these parts.  The tigers even have name's!!  They call them Eenot, Reggit and Kobb.  I wish I had help from a [" .. eq.say_link("fellow monk") .. "].");
 		elseif(e.message:findi("fellow monk")) then
 			e.self:Say("Good!! The rangers are watching me so you must go alone.  I can only wait until the morning, then I must go.  If you find all three tigers, return their pelts to me and I shall reward you with something discovered for monks only.");
 			eq.unique_spawn(20276, 0, 0, 4184, -745, 548); -- Spawn Eenot
@@ -18,9 +18,8 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 12341, item2 = 12342, item3 = 12343})) then
-		e.self:Say("Good work.  I hope you had no run ins with the local rangers.  Here is my reward.  An object from the past which I found in my journeys.  Wish that I could reward you also with [treant fists].");
+		e.self:Say("Good work.  I hope you had no run ins with the local rangers.  Here is my reward.  An object from the past which I found in my journeys.  Wish that I could reward you also with [" .. eq.say_link("treant fists") .. "].");
 		e.other:Faction(12,5); -- Ashen Order Faction ID-12
 		e.other:Faction(184,5); -- Knights of Truth Faction ID-184
 		e.other:Faction(300,5); -- Silent Fist Clan Faction ID-300
@@ -28,9 +27,3 @@ function event_trade(e)
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
---END of FILE Zone:kithicor ID:20220 -- Grim_Oakfist
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------
