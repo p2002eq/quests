@@ -1,6 +1,6 @@
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Have you been sent by the War Baron to [assist]? The explorers from Firiona Vie draw closer.");
+		e.self:Say("Have you been sent by the War Baron to [" .. eq.say_link("assist") .. "]? The explorers from Firiona Vie draw closer.");
 	elseif(e.message:findi("assist")) then
 		e.self:Say("That is good, I will stay here to halt any advances. Head out near the lake and destroy the trespassers on our land! Bring me four of their knives that they carry for survival. Prove your allegiance to the Legion of Cabilis.");
 	end
@@ -20,8 +20,3 @@ function event_trade(e)
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------
