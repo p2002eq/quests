@@ -5,7 +5,7 @@
 
 function event_say(e)
 	if (e.message:findi("Hail")) then
-		e.self:Say("Well hello! We are great dancers. Would you like to see us dance? Or maybe you would like us to teach you to dance?");
+		e.self:Say("Well hello! We are great dancers. Would you like to see us dance? Or maybe you would like us to [" .. eq.say_link("teach me to dance",false,"teach you to dance") .. "]?");
 	elseif (e.message:findi("teach me to dance")) then
 		e.self:Say("Look at you! You can dance! Go go go! Thats the spirit, you got it! Keep up the good work! Dont get too tired now, you are looking a little pale!");
 		e.self:SpellFinished(806,e.other);
