@@ -7,7 +7,7 @@ function event_say(e)
 		end
 	elseif(e.message:findi("ready to earn mining pick 628")) then
 		if(e.other:GetFaction(e.self) < 5) then -- Requires high amiable on live
-			e.self:Say("So you have heard of Mining Pick 628 and feel you are ready to wield one? You shall earn one with the return of the ogre head of [Boog Mudtoe] and the 300 gold pieces he still owes me. Don't return unless you have the head and the 300 gold!!");
+			e.self:Say("So you have heard of Mining Pick 628 and feel you are ready to wield one? You shall earn one with the return of the ogre head of [" .. eq.say_link("Boog Mudtoe") .. "] and the 300 gold pieces he still owes me. Don't return unless you have the head and the 300 gold!!");
 		end
 		if(e.other:GetFaction(e.self) < 6) then
 			e.self:Say("Don't take this personally, but I can't quite trust you with such matters. Maybe a few less Butcherblock bandits would prove your worth.");
@@ -63,8 +63,3 @@ function event_timer(e)
 	e.self:Say("Blast all these pesky rats!! Jeet, you need to get one of the new rogues.. I mean miners, to get rid of them!!");
 	eq.signal(67018,1);
 end
-
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------
