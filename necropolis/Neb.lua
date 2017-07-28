@@ -19,7 +19,7 @@ function event_trade(e)
     local item_lib = require('items');
 
     if (item_lib.check_turn_in(e.self, e.trade, {item1 = 26033, item2 = 26009})) then
-        e.self:Say("Ika Paebala ma ri skasha, Neb`ri mi re skashi! The Paebala are joyful, Neb is joyful! Misu na tona Vaniki esa Zlandicar, no re Paebala soka mora Chetari, ika tu. With the death of Vaniki and Zlandicar, the Paebala can conquer the Chetari, and rule! Mika na so kaka rika, ug boro Neb`ri, ek val Vaniki ushta. Take this, it is Neb's fighting bone, and here, this key I took from Vaniki.");
+        e.self:Say("Ika Paebala ma ri skasha, Neb`ri mi re skashi! The Paebala are joyful, Neb is joyful! Misu na tona Vaniki esa Zlandicar, no re Paebala soka mora Chetari, ika tu. With the death of Vaniki and Zlandicar, the Paebala can conquer the [" .. eq.say_link("Chetari") .. "], and rule! Mika na so kaka rika, ug boro Neb`ri, ek val Vaniki ushta. Take this, it is Neb's fighting bone, and here, this key I took from Vaniki.");
         e.other:SummonItem(26040);
         e.other:SummonItem(28060);
         e.other:AddEXP(250000);

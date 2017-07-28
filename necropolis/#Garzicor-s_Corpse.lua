@@ -1,7 +1,5 @@
 --NPC:  Garzicor's Corpse  (Trigger for Garzicor's Wraith)
 --zone: necropolis
-
-
 function event_spawn(e)
 	eq.set_timer("depop", 20*60*1000) 	--20min depop
 end

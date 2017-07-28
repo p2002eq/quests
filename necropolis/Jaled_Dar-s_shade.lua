@@ -1,10 +1,10 @@
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say(string.format("Mortal! You MUST aid me! I will have my revenge, and my rest!"));
+		e.self:Say(string.format("Mortal! You MUST [" .. eq.say_link("aid me") .. "]! I will have my revenge, and my rest!"));
 	elseif(e.message:findi("aid you")) then
-		e.self:Say("You must wake The Sleeper. He is our salvation, he will restore a new golden age to Norrath. It was a terrible mistake to subdue him, jealousy and envy led us to do it. I see all of this clearly now.");
+		e.self:Say("You must wake [" .. eq.say_link("The Sleeper") .. "]. He is our salvation, he will restore a new golden age to Norrath. It was a terrible mistake to subdue him, jealousy and envy led us to do it. I see all of this clearly now.");
     elseif(e.message:findi("the sleeper")) then
-		e.self:Say("Kerafyrm, the best of us, what we should be. We imprsoned him in a timeless slumber aeons ago. I know how to release him, but I am no longer of the flesh, so I cannot do it myself. But you can accomplish this task!");
+		e.self:Say("Kerafyrm, the best of us, what we should be. We imprsoned him in a timeless slumber aeons ago. I know how to release him, but I am no longer of the flesh, so I cannot do it myself. But you can accomplish this [" .. eq.say_link("task") .. "]!");
     elseif(e.message:findi("task")) then
 		e.self:Say("When the tomb was closed and the entry sealed, many dragons participated in the ceremony. They invested portions of their essence into the seal. The seal is part of them now. With the right talismans, I can show you how to make a key that will allow one to pass, as if they were of the First Brood. If you do not wish to do this for the good of all, perhaps you will be willing to do it for material riches. Priceless treasures are stored in the tomb, yours for the taking, once you are inside and have released The Sleeper.");
     end
