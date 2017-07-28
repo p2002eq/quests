@@ -14,7 +14,7 @@ function event_spawn(e)
 		eq.unique_spawn(162517, 0, 0, 418, -141, 264, 0); --Spawns Arch Lich
 		eq.unique_spawn(162518, 0, 0, 448, -161, 265, 224);  -- AL guard
 		eq.unique_spawn(162519, 0, 0, 390, -161, 265, 32);  -- AL guard
-		eq.unique_spawn(162090, 0, 0, 375, -64, 257, 64);  -- AL guard
-		eq.unique_spawn(162090, 0, 0, 467, -64, 257, 192);  -- AL guard
+		eq.spawn2(162090, 0, 0, 375, -64, 257, 64);  -- AL guard
+		eq.spawn2(162090, 0, 0, 467, -64, 257, 192);  -- AL guard
 	end
 end
