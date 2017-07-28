@@ -1,5 +1,4 @@
 -- Part of SK Epic 1.0
-
 function event_say(e)
 	if(e.message:findi("hail")) then
 		e.self:Say("You want stuff? Or mebby you looks for a cure?");
@@ -20,9 +19,3 @@ function event_trade(e)
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
--- Quest by mystic414
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------

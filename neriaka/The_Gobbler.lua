@@ -1,16 +1,16 @@
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Meat!! You need meat. Me gots meat!! High elf meat, dwarf meat, human meat, [HEHE meat], [froggy legs]. Me got a lot.");
+		e.self:Say("Meat!! You need meat. Me gots meat!! High elf meat, dwarf meat, human meat, [" .. eq.say_link("HEHE meat") .. "], [" .. eq.say_link("froggy legs") .. "]. Me got a lot.");
 	elseif(e.message:findi("hehe meat")) then
 		e.self:Say("HEHE meat? It human, Erudite 'n high elf, mashed together. Mmmm. Very tasty!");
 	elseif(e.message:findi("froggy legs")) then
-		e.self:Say("Froggy legs come from far away. Me get from friend, [Chef Dooga]. It not tasty. Trolls like it. Eat it up much. They eat too much froggy. Me glad [Nerbilik] leave Neriak!! He eat way too much froggy.");
+		e.self:Say("Froggy legs come from far away. Me get from friend, [" .. eq.say_link("Chef Dooga") .. "]. It not tasty. Trolls like it. Eat it up much. They eat too much froggy. Me glad [" .. eq.say_link("Nerbilik") .. "] leave Neriak!! He eat way too much froggy.");
 	elseif(e.message:findi("chef dooga")) then
-		e.self:Say("Friend in Oggok is Chef Dooga. Chef she is. Used to work in Neriak. She beautiful. She supply the Gobbler with [froglok legs]. They very low now. Fat trolls eat too many!! Me need to [pick up froglok legs].");
+		e.self:Say("Friend in Oggok is Chef Dooga. Chef she is. Used to work in Neriak. She beautiful. She supply the Gobbler with [" .. eq.say_link("froglok legs") .. "]. They very low now. Fat trolls eat too many!! Me need to [pick up froglok legs].");
 	elseif(e.message:findi("pick up froglok legs")) then
 		e.self:Say("That good news. Oggok far away. Me got no time to go. If you go speak to Chef Dooga, say you pick up froglok legs. You bring back and me give you coin, maybe even something good.");
 	elseif(e.message:findi("nerbilik")) then
-		e.self:Say("Big and fat troll Nerbilik is. He leave to fish in tearsy ocean. Me promised to deliver him food or he come bak. The Gobbler needs some dumb person to [deliver grub locker] to Nerbilik.");
+		e.self:Say("Big and fat troll Nerbilik is. He leave to fish in tearsy ocean. Me promised to deliver him food or he come bak. The Gobbler needs some dumb person to [" .. eq.say_link("deliver grub locker") .. "] to Nerbilik.");
 	elseif(e.message:findi("deliver grub locker")) then
 		e.self:Say("Good. Me wrap order of dwarf pickles in.. HEY!! Me out of special wrapping paper!! Hmm.. Here. Me use dis. Now, <..click.. Locks grub locker> Here. You take to Nerbilik in tearsy ocean and he pay you. No think of opening locker. Only Nerbilik has key.");
 		e.other:SummonItem(12203); --Grub Locker
@@ -28,8 +28,3 @@ function event_trade(e)
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------
