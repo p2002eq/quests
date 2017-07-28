@@ -10,7 +10,7 @@ function event_trade(e)
 	local item_lib = require("items");
 	
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 12369})) then
-        e.self:Say("Ashen Order!!  Prrr.. My order.  I have been expecting one of us.  Prrr.. Help me rejoin my native land.  Take this box.  Combine all the [remains of Thipt] within the box and return it to me.  This shall aid me in my redemption.");
+        e.self:Say("Ashen Order!!  Prrr.. My order.  I have been expecting one of us.  Prrr.. Help me rejoin my native land.  Take this box.  Combine all the [" .. eq.say_link("remains of Thipt") .. "] within the box and return it to me.  This shall aid me in my redemption.");
 		e.other:QuestReward(e.self,0,0,0,0,17985,500);
 	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 12371})) then
         e.self:Say("Prrr.. Thank you brother of Ashen. I can now spend my time upon this island in peace, until my penance is serrrved. He dabs his paw into the mud and places it upon a tattered parchment. Take this message to Puab. Farrrwell.");
@@ -18,5 +18,3 @@ function event_trade(e)
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
--- END of FILE Zone:kerraridge  ID:74029 -- a_banished_Kerran
