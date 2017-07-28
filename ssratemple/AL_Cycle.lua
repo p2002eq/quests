@@ -9,7 +9,8 @@ function event_spawn(e)
 		eq.unique_spawn(162194, 0, 0, 660, -309, 146, 218);  -- Rhag 2 guard
 		eq.unique_spawn(162195, 0, 0, 660, -246, 146, 165);  -- Rhag 2 guard
 		eq.unique_spawn(162196, 0, 0, 561, -323, 138, 0);  	-- Rhag 2 guard
-	elseif (qglobals["AL_Cycle_ArchLich"] == "UP" and eq.get_entity_list():IsMobSpawnedByNpcTypeID(162517) == false) then  --checks for Rhag`Mozdezh death and verifies Rhag`Mozdezh is not already up
+	end
+	if (qglobals["AL_Cycle_ArchLich"] == "UP" and eq.get_entity_list():IsMobSpawnedByNpcTypeID(162517) == false) then  --checks for Rhag`Mozdezh death and verifies Arch Lich is not already up
 		eq.unique_spawn(162517, 0, 0, 418, -141, 264, 0); --Spawns Arch Lich
 		eq.unique_spawn(162518, 0, 0, 448, -161, 265, 224);  -- AL guard
 		eq.unique_spawn(162519, 0, 0, 390, -161, 265, 32);  -- AL guard
