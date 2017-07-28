@@ -1,12 +1,7 @@
 -- Quest for 51058 Kyralynn in Lakerathe - Shaman Totemic Armor (low 30's armor)
--- Kiladiveus - completed subevents for this NPC quest.  I created the ending statement since i can't find any. Same as exp.
--- Kiladiveus - In OOT, need to add loot "19035 Driftwood pipe" into "69148 isle goblin chieftan" need also to create lootdrop ID.
--- Kiladiveus - In southkarana, need to add loot "19044 Grizzleknot Bark" into "14142 Grizzleknot" with 100% probability. Npc already a rare spawn.
-
-
 function event_say(e)
 	if(e.message:findi("Hail")) then
-		e.self:Say("Hello. " .. e.other:GetName() .. "! I am the shaman Kyralynn. If you have a banded armor, my husband Vrynn and I can form it into a new shaman armor using this totem and some reagents for the ritual. I can use a banded [bracer], [mail], [helm] or [cloak] to form this new armor.");
+		e.self:Say("Hello. " .. e.other:GetName() .. "! I am the shaman Kyralynn. If you have a banded armor, my husband Vrynn and I can form it into a new shaman armor using this totem and some reagents for the ritual. I can use a banded [" .. eq.say_link("bracer") .. "], [" .. eq.say_link("mail") .. "], [" .. eq.say_link("helm") .. "] or [" .. eq.say_link("cloak") .. "] to form this new armor.");
 	elseif(e.message:findi("bracer")) then
 		e.self:Say("The bracer requires a banded bracer, 1 dufrenite, a cauldron shell from an aqua goblin lord in Dagnor's Cauldron, and a bull elephant tooth.");
 	elseif(e.message:findi("helm")) then
@@ -46,8 +41,3 @@ function event_trade(e)
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------

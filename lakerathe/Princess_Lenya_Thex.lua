@@ -13,9 +13,9 @@ end
 
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("I am rescued from the hands of the Teir'Dal! I am grateful.  Show me your [proof of allegiance] along with a key to remove these [dark shackles] and I shall reward thee.");
+		e.self:Say("I am rescued from the hands of the Teir'Dal! I am grateful.  Show me your [" .. eq.say_link("proof of allegiance") .. "] along with a key to remove these [" .. eq.say_link("dark shackles") .. "] and I shall reward thee.");
 	elseif(e.message:findi("proof of allegiance")) then
-		e.self:Say("When I speak of proof of allegiance, I speak of proof you were sent by one of the [Silent Watch].");
+		e.self:Say("When I speak of proof of allegiance, I speak of proof you were sent by one of the [" .. eq.say_link("Silent Watch") .. "].");
 	elseif(e.message:findi("dark shackles")) then
 		e.self:Say("My Teir'Dal captors have placed magical shackles upon me.  The shackles prevent me from using my magic to transport myself home nor do they allow me to venture far from Lake Rathetear.  I will require special shackle keys from Highkeep.");
 	elseif(e.message:findi("silent watch")) then
@@ -35,12 +35,7 @@ function event_trade(e)
 		e.other:Ding();
 		eq.depop();
 	else
-		e.self:Say("I will require both the shackle key for the [dark shackles] and some [proof of allegiance].");
+		e.self:Say("I will require both the shackle key for the [" .. eq.say_link("dark shackles") .. "] and some [proof of allegiance].");
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------
