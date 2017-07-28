@@ -2,7 +2,7 @@
 
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("I am Ssynthi, [Warder of Ro]. Would you do a simple [service] for me?");
+		e.self:Say("I am Ssynthi, [" .. eq.say_link("Warder of Ro") .. "]. Would you do a simple [" .. eq.say_link("service") .. "] for me?");
 	elseif(e.message:findi("warder of ro")) then
 		e.self:Say("I have renounced my ties to the Shadowed Men and become a follower of the one True Flame, Solusek Ro. I have hopes that one day my brethren will see the errors of their ways and cease their mindless war.");
 	elseif(e.message:findi("service")) then
