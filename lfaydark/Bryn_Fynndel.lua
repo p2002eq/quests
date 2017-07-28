@@ -1,6 +1,6 @@
 function event_say(e)
 	if(e.message:findi("morin sent me")) then
-		e.self:Say("Morin Shadowbane, the great ranger, sent you to assist us?  A strong ranger you must be if he has sent you personally.  There is a great evil stalking the land, and it has spread its tendrils into Kithicor Forest.  We believe the [shadowed men] are involved with this, somehow.");
+		e.self:Say("Morin Shadowbane, the great ranger, sent you to assist us?  A strong ranger you must be if he has sent you personally.  There is a great evil stalking the land, and it has spread its tendrils into Kithicor Forest.  We believe the [" .. eq.say_link("shadowed men") .. "] are involved with this, somehow.");
 	elseif(e.message:findi("shadowed men")) then
 		e.self:Say("The shadowed men have recently begun to appear, with vile purposes unknown to us.  Their leader wanders these woods with a contingent of guards.  Bring us his code book, and we may learn more of their plans.");
 	end
