@@ -1,11 +1,3 @@
---############
---# Quest Name: Black Burrow Stout (Northern Karana)
---# Author: Blaz
---# Converted to Lua: robregen
---# NPCs Involved: 1
---# Items Involved: 5 Gold
---#################
-
 function event_waypoint_arrive(e)
 	if(e.wp == 2) then
 		e.self:Emote("stumbles and says, 'Hey fools.  Blackburrow stout for sale five gold.  Load up now 'cause it's going fast!  Just make sure you enjoy it in privacy or you might get arrested, ha haaaa!'");
@@ -16,7 +8,7 @@ end
 
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Hey. hey! I have some Blackburrow Stout for sale. Just hand over five gold and I'll give you a bottle of it. Don't get caught though because it is considered [contraband]. [Antonius] don't like it being smuggled and all that but what does he know. anyway?");
+		e.self:Say("Hey. hey! I have some Blackburrow Stout for sale. Just hand over five gold and I'll give you a bottle of it. Don't get caught though because it is considered [" .. eq.say_link("contraband") .. "]. [" .. eq.say_link("Antonius") .. "] don't like it being smuggled and all that but what does he know. anyway?");
 	elseif(e.message:findi("contraband")) then
 		e.self:Say("Well it's brewed by gnolls, ya know. Don't know exactly why it's considered contraband but I think it's because they use the money they get from selling the stout to buy arms. I dunno. I buy low and sell high. Blackburrow Stout is good for you though! It does wonders for me! Now buy some already before someone hears us talking.");
 	elseif(e.message:findi("antonius")) then
@@ -39,5 +31,3 @@ function event_trade(e)
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
--- END of FILE Zone:northkarana  ID:13021 -- Guard_Shilster
