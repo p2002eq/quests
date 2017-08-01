@@ -1,13 +1,13 @@
 -- Part of SK Epic 1.0
 function event_say(e)
 	if(e.message:findi("Hail")) then
-		e.self:Say("Out of my way, stranger!  I am on a delicate mission; interfere with my search and I shall relieve you of your head! Bother me no more.");
+		e.self:Say("Out of my way, stranger!  I am on a delicate [" .. eq.say_link("I seek to assist your mission",false,"mission") .. "]; interfere with my search and I shall relieve you of your head! Bother me no more.");
 	elseif(e.message:findi("seek")) then
-		e.self:Say("I have traveled here in hopes of finding a soul worthy of assisting me in completing my mission.");
+		e.self:Say("I have traveled here in hopes of finding a soul [" .. eq.say_link("i am worthy",false,"worthy") .. "] of assisting me in completing my mission.");
 	elseif(e.message:findi("i am worthy")) then
-		e.self:Say("I doubt it, but I have been wrong before. Before I share with you the details of my mission, however, you must first prove your worthiness. Agreed?");
+		e.self:Say("I doubt it, but I have been wrong before. Before I share with you the details of my mission, however, you must first prove your worthiness. [" .. eq.say_link("Agreed") .. "]?");
 	elseif(e.message:findi("agreed")) then
-		e.self:Say("Very well then, my new friend. I have an acquaintance that stands in need of three pieces of Darkforge Armor. He requires the breast, greaves and helm to complete his set. I also must pay back a loan that has come due in the amount of 900 platinum. Return this to me and I shall share with you my dark mission, and the immeasurable reward that will be earned at its completion. Show your face here without fulfilling my request and I will offer you on the altar to Innoruuk himself. Be off!");
+		e.self:Say("Very well then, my new friend. I have an acquaintance that stands in need of three pieces of Darkforge Armor. He requires the breast, greaves and helm to complete his set. I also must pay back a loan that has come due in the amount of 900 platinum. Return this to me and I shall share with you my [" .. eq.say_link("dark mission") .. "], and the immeasurable reward that will be earned at its completion. Show your face here without fulfilling my request and I will offer you on the altar to Innoruuk himself. Be off!");
 	elseif(e.message:findi("mission")) then
 		if(e.other:GetFaction(e.self) < 7) then
 			e.self:Say("My mission is none of your concern!  Now you die, pitiful fool!");
@@ -31,10 +31,3 @@ function event_trade(e)
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
--- Quest by mystic414
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------
-

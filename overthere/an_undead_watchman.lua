@@ -1,5 +1,3 @@
---depop script
-
 function event_spawn(e)
 	eq.set_timer("depop",15*60*1000);
 end

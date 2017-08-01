@@ -1,17 +1,15 @@
---Dyth_X-Teria.pl
 --Brain Bite (The Overthere)
-
 function event_say(e)
 	if(e.message:findi("Hail")) then
 		e.self:Emote("appears to be the local master of wizardry. His garb clearly comes from the dark city of Neriak as it bears a black sun emblem.");
-		e.self:Say("Speak!! I am dispatched from Neriak to this land by order of the king. I shall research [new spells] and aid the adventuring wizards. My knowledge of wizardry is offered to all in hopes of gaining information about Kunark.");
+		e.self:Say("Speak!! I am dispatched from Neriak to this land by order of the king. I shall research [" .. eq.say_link("new spells") .. "] and aid the adventuring wizards. My knowledge of wizardry is offered to all in hopes of gaining information about Kunark.");
 	elseif(e.message:findi("new spells")) then
-		e.self:Say("Within this lost land could lie the knowledge of extinct civilizations. I am ordered to seek out this knowledge for the empire of Neriak. So far, all I have discovered is a way to create a spell of my own design. I call it [Brain Bite].");
+		e.self:Say("Within this lost land could lie the knowledge of extinct civilizations. I am ordered to seek out this knowledge for the empire of Neriak. So far, all I have discovered is a way to create a spell of my own design. I call it [" .. eq.say_link("Brain Bite") .. "].");
 	elseif(e.message:findi("brain bite")) then
-		e.self:Say("If you wish to own a copy of MY spell, Brain Bite, I would be glad to give you one. All I ask is that you [gather a few souls] for me.");
+		e.self:Say("If you wish to own a copy of MY spell, Brain Bite, I would be glad to give you one. All I ask is that you [" .. eq.say_link("gather a few souls") .. "] for me.");
 	elseif(e.message:findi("gather a few souls")) then
 		e.self:Emote("reveals three ornate bottles.");
-		e.self:Say("While I finished my research on Brain Bite, I encountered three [interlopers] who wished to steal my spell. I had the dragoon garrison track them down and dispatch them. Unfortunately, I forgot to instruct them to trap their souls with these bottles. Do you want to [take the bottles] and finish the job?");
+		e.self:Say("While I finished my research on Brain Bite, I encountered three [" .. eq.say_link("interlopers") .. "] who wished to steal my spell. I had the dragoon garrison track them down and dispatch them. Unfortunately, I forgot to instruct them to trap their souls with these bottles. Do you want to [" .. eq.say_link("take the bottles") .. "] and finish the job?");
 	elseif(e.message:findi("interlopers")) then
 		e.self:Say("The garrison report was sloppy, to say the least. They informed me that Hampton was slain near some ruins within a jungle infested by raptors. Mardon was slain in an ancient city found deep in a jungle. Ryla was killed in a hidden fortress guarded by fierce armored wolves who walked on their hind legs.");
 	elseif(e.message:findi("take the bottles")) then
@@ -37,8 +35,3 @@ function event_trade(e)
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------
