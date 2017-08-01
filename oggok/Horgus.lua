@@ -1,6 +1,6 @@
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("What!!? You [Craknek] or you [pest]?");
+		e.self:Say("What!!? You [" .. eq.say_link("Craknek") .. "] or you [" .. eq.say_link("pest") .. "]?");
 	elseif(e.message:findi("craknek")) then
 		e.self:Say("Good. Me not bash you. You help Horgus and Crakneks. Go smash lizards. Bring four tails. Greenbloods think they get all lizard tails. We take first. Taste good. You bring four tails. Me give you tings. Me gives armur. Now go!!");
 	elseif(e.message:findi("pest")) then
@@ -17,8 +17,3 @@ function event_trade(e)
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------
