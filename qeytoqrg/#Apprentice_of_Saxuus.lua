@@ -4,17 +4,17 @@ end
 
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say(string.format("Hello %s, nice to meet you.  I just came out to run some [errands].",e.other:GetName()));
+		e.self:Say(string.format("Hello %s, nice to meet you.  I just came out to run some [" .. eq.say_link("errands") .. "].",e.other:GetName()));
 	elseif(e.message:findi("errands")) then
-		e.self:Say("Mostly preparations, meeting with delegates from Mr. Bayle, and from Surefall to make sure all [goes well].");
+		e.self:Say("Mostly preparations, meeting with delegates from Mr. Bayle, and from Surefall to make sure all [" .. eq.say_link("goes well") .. "].");
 	elseif(e.message:findi("goes well")) then
-		e.self:Say("Oh my! You haven't heard?  Well that is a shame, it's big [news].  I would have imagined that more people would have been informed.");
+		e.self:Say("Oh my! You haven't heard?  Well that is a shame, it's big [" .. eq.say_link("news") .. "].  I would have imagined that more people would have been informed.");
 	elseif(e.message:findi("news")) then
-		e.self:Say("The big news! The powers that be are allowing access to [Jaggedpine] again.  There are dangers involved in opening the portal, but it was essential.");
+		e.self:Say("The big news! The powers that be are allowing access to [" .. eq.say_link("Jaggedpine") .. "] again.  There are dangers involved in opening the portal, but it was essential.");
 	elseif(e.message:findi("jaggedpine")) then
-		e.self:Say("Jaggedpine is the buffer between the Unkempt Forest, and Surefall.  It was closed many years ago by Antonius III to protect the outside world from the oft aggressive residents of the [Unkempt] Forest.");
+		e.self:Say("Jaggedpine is the buffer between the Unkempt Forest, and Surefall.  It was closed many years ago by Antonius III to protect the outside world from the oft aggressive residents of the [" .. eq.say_link("Unkempt") .. "] Forest.");
 	elseif(e.message:findi("Unkempt")) then
-		e.self:Say("The Unkempt are a radical sect of druids and rangers.  They are protective of their lands, so much so that they can be dangerous to all that don't follow their ways.  Honestly I believe they mean well, however they are so extreme in their convictions that I hope they remained locked away.  Even with all that in mind, we are left with very few options, allowing [access] to Jaggedpine is the best of them.");
+		e.self:Say("The Unkempt are a radical sect of druids and rangers.  They are protective of their lands, so much so that they can be dangerous to all that don't follow their ways.  Honestly I believe they mean well, however they are so extreme in their convictions that I hope they remained locked away.  Even with all that in mind, we are left with very few options, allowing [" .. eq.say_link("access") .. "] to Jaggedpine is the best of them.");
 	elseif(e.message:findi("access")) then
 		e.self:Say("Well, when Jaggedpine was sealed a few of its original denizens chose to stay there.  There is still a small colony.  Recently, the gnolls of Blackburrow managed to penetrate the seal protecting Jaggedpine.  Lord Antonious has agreed to allow access to Jaggedpine as to better protect those that are living there.");
 	end

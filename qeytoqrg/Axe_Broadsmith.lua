@@ -1,7 +1,7 @@
 -- Steel Warrior Initiation
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Greetings. The fishing is sparse here. You would fare better at [Lake Rathe].");
+		e.self:Say("Greetings. The fishing is sparse here. You would fare better at [" .. eq.say_link("Lake Rathe") .. "].");
 	elseif(e.message:findi("lake rathe")) then
 		e.self:Say("Beyond the Plains of Karana can be found a pass to Lake Rathe. I have heard stories of a giant water beast and underwater cities. I wish I knew how to swim.");
 	end

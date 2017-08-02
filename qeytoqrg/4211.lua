@@ -1,7 +1,7 @@
 local drink = 0;
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("What are you looking at? I ran out of [drink]");
+		e.self:Say("What are you looking at? I ran out of [" .. eq.say_link("drink") .. "]");
 	elseif(e.message:findi("drink")) then
 		e.self:Say("Tumpy Tonic, what did you think I meant. Someone brought me a bunch but I drank it all?");
 	end
