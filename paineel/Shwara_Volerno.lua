@@ -1,33 +1,33 @@
 function event_say(e)
 	if(e.message:findi("Hail")) then
-		e.self:Say("Welcome to The Abattoir fellow Cazicite. I am Shwara Volerno. Mistress of Necromancy. If you have just begun to study the Necromantic arts I will assist you with obtaining some [clothing] and a robe that will be most useful when conducting research outside of The Abattoirs walls. We members of the Abattoir are the most feared of the residents of Paineel by the citizens of Erudin. to venture too far beyond the safety of our city unprepared would be foolish.");
+		e.self:Say("Welcome to The Abattoir fellow Cazicite. I am Shwara Volerno. Mistress of Necromancy. If you have just begun to study the Necromantic arts I will assist you with obtaining some [" .. eq.say_link("clothing") .. "] and a robe that will be most useful when conducting research outside of The Abattoirs walls. We members of the Abattoir are the most feared of the residents of Paineel by the citizens of Erudin. to venture too far beyond the safety of our city unprepared would be foolish.");
 	elseif(e.message:findi("clothing")) then
-		e.self:Say("You will require this Curing Kit that has been specially prepared for the crafting of a suit and robe of Abattoir Initiate Clothing. The components necessary to craft the clothing vary according to the article that  you desire to fabricate. Once you have been outfitted in the proper attire return to me and you may assist with some [important research]. Do you desire to fabricate an [abattoir initiate cap]. [abattoir initiate wristband]. [abattoir initiate gloves]. [abattoir initiate boots]. [abattoir initiate sleeves]. [abattoir initiate pantaloons]. or [abattoir initiate robe]?");
+		e.self:Say("You will require this Curing Kit that has been specially prepared for the crafting of a suit and robe of Abattoir Initiate Clothing. The components necessary to craft the clothing vary according to the article that  you desire to fabricate. Once you have been outfitted in the proper attire return to me and you may assist with some [" .. eq.say_link("important research") .. "]. Do you desire to fabricate an [" .. eq.say_link("abattoir initiate cap") .. "], [" .. eq.say_link("abattoir initiate wristband") .. "], [" .. eq.say_link("abattoir initiate gloves") .. "], [" .. eq.say_link("abattoir initiate boots") .. "], [" .. eq.say_link("abattoir initiate sleeves") .. "], [" .. eq.say_link("abattoir initiate pantaloons") .. "], or [" .. eq.say_link("abattoir initiate robe") .. "]?");
 		e.other:SummonItem(17125);
 	elseif(e.message:findi("important research")) then
-		e.self:Say("We Cazicites of the Abattoir are the most advanced Necromancers in all of Norrath. Our greatness is due to the diligence and studiousness we apply to our research. and our powers over fear. The foolish sorcerers in Erudin are afraid of the knowledge we possess. They fear the magic we wield and control. for their minds are too weak to harness it themselves. Despite our vast knowledge there is always more to learn that can prove to be beneficial to The Abattoir. I require your assistance in obtaining some [new information].");
+		e.self:Say("We Cazicites of the Abattoir are the most advanced Necromancers in all of Norrath. Our greatness is due to the diligence and studiousness we apply to our research. and our powers over fear. The foolish sorcerers in Erudin are afraid of the knowledge we possess. They fear the magic we wield and control. for their minds are too weak to harness it themselves. Despite our vast knowledge there is always more to learn that can prove to be beneficial to The Abattoir. I require your assistance in obtaining some [" .. eq.say_link("new information") .. "].");
 	elseif(e.message:findi("new information")) then
 		e.self:Say("The Abattoir has recently discovered a Kobold Spiritist that wields necromantic powers. We believe this unusual kobold resides in the Warrens of Clan Kolbok as he has been sighted entering and exiting those ruinous caverns. It is possible that this kobold has somehow acquired this necromantic knowledge from Paineel but I would not like to rule out the possibility that it is a rare form of kobold sorcery. Find this Kobold Spiritist and bring me whatever arcane parchments you discover in his possession.");
 	elseif(e.message:findi("cap")) then
-		e.self:Say("To craft an Abattoir Initiate Cap you must obtain two [silk thread]. woven widow silk. and a briar snake skin. Once you have the necessary components combine them in your Curing Kit with this Tattered Cap Pattern.");
+		e.self:Say("To craft an Abattoir Initiate Cap you must obtain two [" .. eq.say_link("silk thread") .. "]. woven widow silk. and a briar snake skin. Once you have the necessary components combine them in your Curing Kit with this Tattered Cap Pattern.");
 		e.other:SummonItem(19555);
 	elseif(e.message:findi("glove")) then
-		e.self:Say("To craft Abattoir Initiate Gloves you must obtain two [silk thread]. woven widow silk. two briar snake skins. Once you have the necessary components combine them in your Curing Kit with this Tattered Glove Pattern.");
+		e.self:Say("To craft Abattoir Initiate Gloves you must obtain two [" .. eq.say_link("silk thread") .. "]. woven widow silk. two briar snake skins. Once you have the necessary components combine them in your Curing Kit with this Tattered Glove Pattern.");
 		e.other:SummonItem(19559);
 	elseif(e.message:findi("wristband")) then
-		e.self:Say("To craft an Abattoir initiate Wristband you must obtain a [silk thread]. woven widow silk. and a briar snake skin. Once you have the necessary components combine them in your Curing Kit with this Tattered Wristband Pattern.");
+		e.self:Say("To craft an Abattoir initiate Wristband you must obtain a [" .. eq.say_link("silk thread") .. "]. woven widow silk. and a briar snake skin. Once you have the necessary components combine them in your Curing Kit with this Tattered Wristband Pattern.");
 		e.other:SummonItem(19558);
 	elseif(e.message:findi("sleeve")) then
-		e.self:Say("To craft Abattoir Initiate Sleeves you must obtain two [silk thread]. woven widow silk. and two large briar snake skins. Once you have the necessary components combine them in your Curing Kit with this Tattered Sleeves Pattern.");
+		e.self:Say("To craft Abattoir Initiate Sleeves you must obtain two [" .. eq.say_link("silk thread") .. "]. woven widow silk. and two large briar snake skins. Once you have the necessary components combine them in your Curing Kit with this Tattered Sleeves Pattern.");
 		e.other:SummonItem(19557);
 	elseif(e.message:findi("boot")) then
-		e.self:Say("To craft Abattoir Initiate Boots you must obtain two [silk thread]. two woven widow silk. and two briar snake skins. Once you have the necessary components combine them in your Curing Kit with this Tattered Boot Pattern.");
+		e.self:Say("To craft Abattoir Initiate Boots you must obtain two [" .. eq.say_link("silk thread") .. "]. two woven widow silk. and two briar snake skins. Once you have the necessary components combine them in your Curing Kit with this Tattered Boot Pattern.");
 		e.other:SummonItem(19561);
 	elseif(e.message:findi("pantaloon")) then
-		e.self:Say("To craft Abattoir Initiate Pantaloons you must obtain two [silk thread]. woven widow silk. and four large briar snake skins. Once you have the necessary components combine them in your Curing Kit with this Tattered Leggings Pattern.");
+		e.self:Say("To craft Abattoir Initiate Pantaloons you must obtain two [" .. eq.say_link("silk thread") .. "]. woven widow silk. and four large briar snake skins. Once you have the necessary components combine them in your Curing Kit with this Tattered Leggings Pattern.");
 		e.other:SummonItem(19560);
 	elseif(e.message:findi("robe")) then
-		e.self:Say("To craft an Abattoir Initiate Robe you must obtain three [silk thread]. two woven widow silks. and two giant briar snake skins. Once you have the necessary components combine them in your Curing Kit with this Tattered Robe Pattern.");
+		e.self:Say("To craft an Abattoir Initiate Robe you must obtain three [" .. eq.say_link("silk thread") .. "]. two woven widow silks. and two giant briar snake skins. Once you have the necessary components combine them in your Curing Kit with this Tattered Robe Pattern.");
 		e.other:SummonItem(11395);
 	end
 end
@@ -53,9 +53,3 @@ function event_trade(e)
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
---END of FILE Zone:paineel  ID:75015 -- Shwara_Volerno
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------
