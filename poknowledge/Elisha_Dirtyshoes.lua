@@ -10,13 +10,8 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 28086})) then--Letter to Elisha
-		e.self:Emote("reads the letter and says, 'Oh happy day! Boiron will be visiting me soon. You may take Narik's ring back to him now. If you'll excuse me, I have some cleaning up to do.'");
+		e.self:Emote("reads the letter and says, 'Oh happy day! Boiron will be visiting me soon. You may take Narik's [" .. eq.say_link("ring") .. "] back to him now. If you'll excuse me, I have some cleaning up to do.'");
 		e.other:QuestReward(e.self,0,0,0,0,28087,250);--Narik's Ring
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------

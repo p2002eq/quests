@@ -1,6 +1,6 @@
 function event_say(e)
 	if(e.message:findi("Hail")) then
-		e.self:Say("Good day to you, " .. e.other:GetName() .. ". New Tanaan holds a wealth of knowledge and opportunities to further yourself in more ways than mere talent of the mind. If you are a craftsman of steel and armor and seek to further progress your trade, then you have come to the right place. My inventory is quite plentiful and holds the necessary elements for any blacksmith's trade. I am also willing to pay those [willing to help] me restock my supply of high quality ore.");
+		e.self:Say("Good day to you, " .. e.other:GetName() .. ". New Tanaan holds a wealth of knowledge and opportunities to further yourself in more ways than mere talent of the mind. If you are a craftsman of steel and armor and seek to further progress your trade, then you have come to the right place. My inventory is quite plentiful and holds the necessary elements for any blacksmith's trade. I am also willing to pay those [" .. eq.say_link("willing to help") .. "] me restock my supply of high quality ore.");
 	elseif(e.message:findi("willing to help")) then
 		e.self:Say("Excellent! Simply fill this crate with either four large bricks or four small bricks of unrefined ore from Norrath and return it to me. I will provide you with coin and refine the ore for sale to the smiths of New Tanaan.");
 		e.other:SummonItem(17814);--Empty Ore Crate
@@ -21,8 +21,3 @@ function event_trade(e)
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------

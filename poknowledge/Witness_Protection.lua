@@ -4,7 +4,7 @@ function event_say(e)
                 if(qglobals["Name_Changed"] == "1") then
 			e.self:Say("My oh my, we have already changed your identity once in the past. Sadly you will need to commune with a God. I highly doubt they will make the requested change if we have assisted you in the last 6 months. I suggest you start with a forum post about your request.")
 		else
-                	e.self:Say("Shhhh, Be quiet! I hear you would like a new life, however we do not take this change lightly. To prove your dedication to this change. Please gather the following [items]. Please also heed our [Warnings].")
+                	e.self:Say("Shhhh, Be quiet! I hear you would like a new life, however we do not take this change lightly. To prove your dedication to this change, Please gather the following [" .. eq.say_link("items") .. "]. Please also heed our [" .. eq.say_link("Warnings") .. "].")
                 end
 	elseif(e.message:findi("items")) then
                 e.self:Say("Locate four ground spawns and combine them in a bag found at the base of a waterfall where the river in Stonebrunt Starts. First item is located in front of a throne in a dangerous Arena. Second item is located in a room full of firepots. Third is located near a very large gorillia. The last item is located near a very large lizard.")

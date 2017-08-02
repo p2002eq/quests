@@ -1,9 +1,8 @@
-
 function event_say(e)
 		if(e.message:findi("hail")) then
-			e.self:Say("Hello! I'm Keebley and Santa has asked me to hand out presents to all the [nice] boys and girls!");
+			e.self:Say("Hello! I'm Keebley and Santa has asked me to hand out presents to all the [" .. eq.say_link("nice") .. "] boys and girls!");
 		elseif(e.message:findi("nice")) then
-			e.self:Say("Prove to me you are one of the nice ones by going and feeding a short slave in Crushbone a ration, bringing bandages to an injured Halfling in Najena, giving water to a Translocator in Oasis, and delivering a pie to the Chancellor of the Plane of Knowledge. You will get one of my [presents] as a reward for your kindness.");
+			e.self:Say("Prove to me you are one of the nice ones by going and feeding a short slave in Crushbone a ration, bringing bandages to an injured Halfling in Najena, giving water to a Translocator in Oasis, and delivering a pie to the Chancellor of the Plane of Knowledge. You will get one of my [" .. eq.say_link("presents") .. "] as a reward for your kindness.");
 		elseif(e.message:findi("presents")) then
 			e.self:Say("Oh what wondrous bounties I have from extraordinary adventuring weapons to exotic foods. And if you are extra special, you might be granted something rare to this world!");
 		end

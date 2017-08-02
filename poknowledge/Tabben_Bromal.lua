@@ -18,7 +18,7 @@ function event_trade(e)
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 28283})) then
 		e.self:Say("Oh, you've returned! Very good, " .. e.other:GetName() .. "! Saria and I have made some real progress on the document that you brought us. Watch this and you'll see what I mean!");
 		e.self:Emote("quickly opens the small case and removes the parts. He takes a tiny spanner, several small bolts, and a long wire and quickly pieces together what appears to be a small clockwork talisman. He pulls a leather string through the top of it and offers it to you.");
-		e.self:Say("That should work for you, but from what we gathered, there's another layer of mechanics that works to shield and envelope the existing talisman. It's going to require more parts. So take this container and let me know when you're [ready] to write down the names of the next set of parts.");
+		e.self:Say("That should work for you, but from what we gathered, there's another layer of mechanics that works to shield and envelope the existing talisman. It's going to require more parts. So take this container and let me know when you're [" .. eq.say_link("ready") .. "] to write down the names of the next set of parts.");
 		e.other:QuestReward(e.self,0,0,0,0,28284,100000);
 	end
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 28289})) then
@@ -29,8 +29,3 @@ function event_trade(e)
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------

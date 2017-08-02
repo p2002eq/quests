@@ -4,7 +4,7 @@ function event_signal(e)
 		e.self:Say("Nothing at all. Do you think that he led us astray?");
 	end
 	if(e.signal == 2) then
-		e.self:Say("I think we should just do what [Tarerd] wants us to do.");
+		e.self:Say("I think we should just do what [" .. eq.say_link("Tarerd") .. "] wants us to do.");
 	end
 end
 
@@ -18,8 +18,3 @@ function event_trade(e)
 	local item_lib = require("items");
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------
