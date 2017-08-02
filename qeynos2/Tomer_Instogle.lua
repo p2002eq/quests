@@ -3,15 +3,15 @@ function event_say(e)
 	-- You must be flagged by Seta_Bakindo for this quest
 	if(qglobals["FindTomer"] == "1") then
 		if(e.message:findi("Hail")) then
-			e.self:Say("Ahhhgggg.. Those mangy [dogs] put up a tough fight.. If I don't make it back to the [Clan House] soon, it'll all be over for me.");
+			e.self:Say("Ahhhgggg.. Those mangy [" .. eq.say_link("dogs") .. "] put up a tough fight.. If I don't make it back to the [" .. eq.say_link("Clan House") .. "] soon, it'll all be over for me.");
 		elseif(e.message:findi("dogs") or e.message:findi("mutts")) then
 			e.self:Say("It's those Darkpaws.. They've beat me pretty badly.. but they'll get theirs soon enough!");
 		elseif(e.message:findi("clan house")) then
 			e.self:Say("I am a new member of the Silent Fist Clan.. I need someone from my guild to help me find my way back.");
 		elseif(e.message:findi("Seta sent me to find you")) then
-			e.self:Say("Oh.. Thank goodness you found me.. I'm lost and weak, those [mutts] are a vicious lot.. an you carry my [backpack] for me?");
+			e.self:Say("Oh.. Thank goodness you found me.. I'm lost and weak, those [" .. eq.say_link("mutts") .. "] are a vicious lot.. an you carry my [" .. eq.say_link("backpack") .. "] for me?");
 		elseif(e.message:findi("backpack")) then
-			e.self:Say("Thank you, friend.. Now, can you [lead me back to Master Seta] of the Silent Fist Clan? ");
+			e.self:Say("Thank you, friend.. Now, can you [" .. eq.say_link("lead me back to Master Seta") .. "] of the Silent Fist Clan? ");
 			e.other:SummonItem(20459); -- Bag of Provisions ID-20456
 		elseif(e.message:findi("lead you back")) then
 			e.self:Say("Lead the way, and I shall follow. When we make it back, please inform Seta that you have rescued me.");
@@ -42,9 +42,3 @@ function event_trade(e)
 		eq.stop_follow(); -- Release Tomer from following the player... he will walk back to his spawn point
 	end
 end
-
--- DEVELOPER: Congdar
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------

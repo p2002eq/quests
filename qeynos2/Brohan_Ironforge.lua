@@ -1,8 +1,8 @@
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Please, leave me be alone. I have such sorrow in my heart.. I wish to be alone with my thoughts.");
+		e.self:Say("Please, leave me be alone. I have such [" .. eq.say_link("sorrow") .. "] in my heart.. I wish to be alone with my thoughts.");
 	elseif(e.message:findi("sorrow")) then
-		e.self:Say("My daughter Tayla has left and I fear she will not return. If only I could find someone.. Hey, would you like to do a favor for an old man or are you too busy?");
+		e.self:Say("My daughter [" .. eq.say_link("Tayla") .. "] has left and I fear she will not return. If only I could find someone.. Hey, would you like to do a [" .. eq.say_link("favor") .. "] for an old man or are you too busy?");
 	elseif(e.message:findi("tayla")) then
 		e.self:Say("Tayla is my oldest and youngest daughter. Unlike the rest she is of a different mother. She is part elven. She appears to be physicaly younger than the rest, but she has spent more years as my daughter than all the others. Tayla is from my first marriage to Weleana.");
 	elseif(e.message:findi("where")) then

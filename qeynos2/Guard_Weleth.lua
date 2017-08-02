@@ -2,11 +2,11 @@ function event_say(e)
 	if(e.message:findi("hail")) then
 		e.self:Say(string.format("Hail, %s. My name is Weleth Nagoh. In addition to my patrol, I am in charge of keeping the guardhouse stocked with supplies. I must get back to my duties. Farewell.",e.other:GetName()));
 	elseif(e.message:findi("crate")) then
-		e.self:Say("Oh, we just received a shipment of arrows from [Nesiff] in South Qeynos. The arrows in this box are missing their fletchings and I can't leave my patrol to take them back.");
+		e.self:Say("Oh, we just received a shipment of [" .. eq.say_link("arrows") .. "] from [" .. eq.say_link("Nesiff") .. "] in South Qeynos. The arrows in this box are missing their fletchings and I can't leave my patrol to take them back.");
 	elseif(e.message:findi("nesiff")) then
 		e.self:Say("Nesiff Tallaherd owns the wooden weapons shop in Merchant's Square in South Qeynos.");
 	elseif(e.message:findi("arrows")) then
-		e.self:Say("Oh, thank you! Here is the crate. Make sure [Nesiff] sends me back a new invoice. [Lieutenant Dagarok] would have my head if he found out this happened again!");
+		e.self:Say("Oh, thank you! Here is the crate. Make sure [" .. eq.say_link("Nesiff") .. "] sends me back a new invoice. Lieutenant Dagarok would have my head if he found out this happened again!");
 		e.other:SummonItem(13925); -- Crate of Defective Arrows
 	end
 end
@@ -31,6 +31,6 @@ end
 
 function event_waypoint_arrive(e)
 	if(e.wp == 8) then
-		e.self:Say("Argh. Not again. This whole crate needs to be returned!");
+		e.self:Say("Argh. Not again. This whole [" .. eq.say_link("crate") .. "] needs to be returned!");
 	end
 end

@@ -23,7 +23,7 @@ end
 
 function event_signal(e)
 	if(e.wp == 14) then
-		e.self:Say("Ooooh.. Bllaughhh.. Ooh.. I need some tonic.");
+		e.self:Say("Ooooh.. Bllaughhh.. Ooh.. I need some [" .. eq.say_link("tonic") .. "].");
 	end
 end
 
@@ -49,7 +49,7 @@ function event_trade(e)
 		e.self:Say("Well, what do you have?!!");
 		e.other:SummonItem(random_card);
 	elseif(item_lib.check_turn_in(e.self, e.trade, {gold = 2})) then
-		e.self:Say("HA!! I hope you enjoy the book. It is missing pages 30 and 34. It is nothing more than garbage without them. A rogue ripped them from their bindings and sold them to [Ran].");
+		e.self:Say("HA!! I hope you enjoy the book. It is missing [" .. eq.say_link("where is page 34",false,"pages 30 and 34") .. "]. It is nothing more than garbage without them. A rogue ripped them from their bindings and sold them to [" .. eq.say_link("Ran") .. "].");
 		e.other:Ding();
 		e.other:SummonItem(17918);
 	end

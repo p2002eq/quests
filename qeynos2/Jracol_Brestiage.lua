@@ -5,7 +5,7 @@ function event_say(e)
 		e.self:Say("You'd better run along, if ya know what's best for ya!");
 	elseif(e.message:findi("lovely night for a stroll")) then
 		if(e.other:GetFaction(e.self) < 6) then
-			e.self:Say("Yes, it is a lovely night for a walk, especially with a good friend. Tell me, are you a [friend]?");
+			e.self:Say("Yes, it is a lovely night for a walk, especially with a good friend. Tell me, are you a [" .. eq.say_link("friend") .. "]?");
 		else
 			e.self:Say("Carson hates you, and I hate you... I'd kill you where you stand, but I just polished my dagger last night.");
 		end

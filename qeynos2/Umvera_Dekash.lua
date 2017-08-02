@@ -1,11 +1,11 @@
 function event_say(e)
 
 	if(e.message:findi("hail")) then
-		e.self:Say(string.format("What, %s? Do I look like a merchant to you? Just because all these merchants are in my library, it doesn't mean that I am one. If you are [interested] in something other than spell scrolls, then, we can talk.",e.other:GetName()));
+		e.self:Say(string.format("What, %s? Do I look like a merchant to you? Just because all these merchants are in my library, it doesn't mean that I am one. If you are [" .. eq.say_link("interested") .. "] in something other than spell scrolls, then, we can talk.",e.other:GetName()));
 	elseif(e.message:findi("interested")) then
-		e.self:Say("Ah, so you do have half a wit about you! Very well. As you can clearly see, I am the librarian here. I keep track of all of the mystic tomes that enter this divine building. I also take care of all of the purchasing. Have you something to [offer]?");
+		e.self:Say("Ah, so you do have half a wit about you! Very well. As you can clearly see, I am the librarian here. I keep track of all of the mystic tomes that enter this divine building. I also take care of all of the purchasing. Have you something to [" .. eq.say_link("offer") .. "]?");
 	elseif(e.message:findi("offer")) then
-		e.self:Say("Excellent! You have no idea how difficult it is to get good help these days. Do you think you would have the time to gather some [information] for me? ");
+		e.self:Say("Excellent! You have no idea how difficult it is to get good help these days. Do you think you would have the time to gather some [" .. eq.say_link("information") .. "] for me? ");
 	elseif(e.message:findi("information")) then
 		e.self:Say("Even better! Well, it has been some time since the Tesch Val gnolls moved in on the Split Paw. That being said, we still know little to nothing of their origins. If you can bring me back the four scrolls that our diviners speak of, I believe I can reward you well.");
 	end

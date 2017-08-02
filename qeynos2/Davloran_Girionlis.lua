@@ -1,12 +1,12 @@
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Good day " .. e.other:GetName() .. ". I am Davloran Girionlis Holy Knight in service to the Prime Healer Rodcet Nife. I pride myself on being responsible for ridding my homeland of unimaginable evil during my fighting days. Nowadays I just like to train new Temple of Life paladin [recruits].");
+		e.self:Say("Good day " .. e.other:GetName() .. ". I am Davloran Girionlis Holy Knight in service to the Prime Healer Rodcet Nife. I pride myself on being responsible for ridding my homeland of unimaginable evil during my fighting days. Nowadays I just like to train new Temple of Life paladin [" .. eq.say_link("recruits") .. "].");
 	elseif(e.message:findi("recruit")) then
-		e.self:Say("We have a number of new recruits entering our guild hall every single day. For this reason I have developed a set of exercises that test the hunting and gathering skils of all young paladins. If you are a [Paladin of Rodcet] I might be able to present these tests to you as well.");
+		e.self:Say("We have a number of new recruits entering our guild hall every single day. For this reason I have developed a set of exercises that test the hunting and gathering skils of all young paladins. If you are a [" .. eq.say_link("Paladin of Rodcet") .. "] I might be able to present these tests to you as well.");
 	elseif(e.message:findi("paladin of rodcet")) then
-		e.self:Say("Fantastic " .. e.other:GetName() .. ", let me explain to you how the exercises work. You will combine a number of magical items that you will gather from our city and in the training areas and combine them in a Lightbringers Assembly Kit. Certain items used in certain quantities will combine into a specific armor material. These materials can then be taken with the appropriate mold to a forge and be combined together to create a piece of Lightbringers Armor. I can present you with the material recipes along with the correct armor molds for each armor piece once you are [ready to begin your exercises].");
+		e.self:Say("Fantastic " .. e.other:GetName() .. ", let me explain to you how the exercises work. You will combine a number of magical items that you will gather from our city and in the training areas and combine them in a Lightbringers Assembly Kit. Certain items used in certain quantities will combine into a specific armor material. These materials can then be taken with the appropriate mold to a forge and be combined together to create a piece of Lightbringers Armor. I can present you with the material recipes along with the correct armor molds for each armor piece once you are [" .. eq.say_link("ready to begin your exercises") .. "].");
 	elseif(e.message:findi("ready to begin")) then
-		e.self:Say("Very well " .. e.other:GetName() .. ". Please take this Lightbringers Assembly Kit. When you are ready to gather the items for a specific armor piece you must only tell me what piece you want to craft. I can provide you with the recipes and armor molds for Lightbringers Platemail [Helms], [Bracers], [Armguards], [Boots], [Greaves], [Gauntlets] and [Breastplates].");
+		e.self:Say("Very well " .. e.other:GetName() .. ". Please take this Lightbringers Assembly Kit. When you are ready to gather the items for a specific armor piece you must only tell me what piece you want to craft. I can provide you with the recipes and armor molds for Lightbringers Platemail [" .. eq.say_link("Helms") .. "], [" .. eq.say_link("Bracers") .. "], [" .. eq.say_link("Armguards") .. "], [" .. eq.say_link("Boots") .. "], [" .. eq.say_link("Greaves") .. "], [" .. eq.say_link("Gauntlets") .. "] and [" .. eq.say_link("Breastplates") .. "].");
 		e.other:SummonItem(17266);
 	elseif(e.message:findi("helm")) then
 		e.self:Say("To create your helm material you will need to combine 2 Bricks of Crude Iron, 1 Whiskered Bat Backbone, 1 Chunk of Meat and 1 Ale in your assembly kit. Once you have created the proper material take it to a forge along with this mold to fashion your very own Helm of the Lightbringer.");
@@ -27,10 +27,10 @@ function event_say(e)
 		e.self:Say("To create your gauntlet material you will need to combine 3 Bricks of Crude Iron, 1 Black Wolf Tooth, 1 Mist Wolf Pelt, and 2 Spider Legs in your assembly kit. Once you have created the proper material take it to a forge along with this mold to fashion your very own Gauntlets of the Lightbringer.");
 		e.other:SummonItem(22615);
 	elseif(e.message:findi("breastplate")) then
-		e.self:Say("To create your breastplate material you will need to combine 5 Bricks of Crude Iron, 1 Rat Eyes, 1 Fire Beetle Eye, 1 Golden Bandit Tooth, 1 Medium Quality Bear Skin and 1 Severed Gnoll Foot in your assembly kit. Once you have created the proper material take it to a forge along with this mold to fashion your very own Breastplate of the Lightbringer. Please come back to see me after you have completed your breastplate. I have a [job] that I can only entrust to one of my finest knights in training.");
+		e.self:Say("To create your breastplate material you will need to combine 5 Bricks of Crude Iron, 1 Rat Eyes, 1 Fire Beetle Eye, 1 Golden Bandit Tooth, 1 Medium Quality Bear Skin and 1 Severed Gnoll Foot in your assembly kit. Once you have created the proper material take it to a forge along with this mold to fashion your very own Breastplate of the Lightbringer. Please come back to see me after you have completed your breastplate. I have a [" .. eq.say_link("job") .. "] that I can only entrust to one of my finest knights in training.");
 		e.other:SummonItem(22616);
 	elseif(e.message:findi("job")) then
-		e.self:Say("I have been working for quite some time at my blacksmithing skills in my spare time. My initial interest was to make armor for our new recruits. However. after I discovered these armor recipes there has been more of a need for weaponry rather then armor. I have began to construct weapons suitable for all those that pass the training exercises but I have run short on supplies. I need someone to [gather the necessary supplies] for me.");
+		e.self:Say("I have been working for quite some time at my blacksmithing skills in my spare time. My initial interest was to make armor for our new recruits. However. after I discovered these armor recipes there has been more of a need for weaponry rather then armor. I have began to construct weapons suitable for all those that pass the training exercises but I have run short on supplies. I need someone to [" .. eq.say_link("gather the necessary supplies") .. "] for me.");
 	elseif(e.message:findi("necessary supplies")) then
 		e.self:Say("That's great news " .. e.other:GetName() .. ", I applaud your willingness to help me gather these items. I would go get them myself but I must always be available here should any of the other newcomers need my help. Please collect 2 Flawless Gnoll Hides and 2 Wisp Essences for me and I will do my best to fashion you a weapon together for your trouble.");
 	end
@@ -51,5 +51,3 @@ function event_trade(e)
 	end
 	item_lib.return_items(e.self, e.other, e.trade);
 end
-
--- END of FILE Zone:qeynos2  ID:2033 -- Davloran_Girionlis

@@ -2,11 +2,11 @@ function event_say(e)
 	local fac = e.other:GetFaction(e.self);
 
 	if(e.message:findi("hail")) then
-		e.self:Say("Greetings. I am Astaed Wemor of the Paladins of the Temple of Life. We are the defenders of the all-giving Prime Healer.  Are you [here to pray] or are you [here to assist the temple]?");
+		e.self:Say("Greetings. I am Astaed Wemor of the Paladins of the Temple of Life. We are the defenders of the all-giving Prime Healer.  Are you [" .. eq.say_link("here to pray") .. "] or are you [" .. eq.say_link("here to assist the temple") .. "]?");
 	elseif(e.message:findi("here to pray")) then
 		e.self:Say("Then pray long and silently, " .. e.other:GetName() .. ".  Fill your soul with the breath of life.");
 	elseif(e.message:findi("assist the temple")) then
-		e.self:Say("Good.  There are a few in the congregation who require assistance.  Will you be [traveling afar] or are you [staying close to Qeynos]?");
+		e.self:Say("Good.  There are a few in the congregation who require assistance.  Will you be [" .. eq.say_link("traveling afar") .. "] or are you [" .. eq.say_link("staying close to Qeynos") .. "]?");
 	elseif(e.message:findi("traveling afar")) then
 		if (fac <= 4) then
 			e.self:Say("Then outfit yourself well. We will require you to visit Rivervale, the village of the halflings. There you shall find an herb merchant named Kizzie Mintopp. She has an ingredient we require. Tell her you are from the Temple of Life");
@@ -64,5 +64,3 @@ function event_trade(e)
 	end
 	item_lib.return_items(e.self, e.other, e.trade);
 end
-
--- END of FILE Zone:qeynos2  ID:2094 -- Astaed_Wemor 
