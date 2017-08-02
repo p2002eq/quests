@@ -5,21 +5,21 @@
 
 function event_waypoint_arrive(e)
 	if(e.wp == 1) then
-		e.self:Say("I believe here is where I am to wait for the [blessed oil].");
+		e.self:Say("I believe here is where I am to wait for the [" .. eq.say_link("blessed oil") .. "].");
 	elseif(e.wp == 2 or e.wp == 5) then
-		e.self:Say("Cleanse your souls, sinners! The way of life is found through the [Prime Healer]. Repent and join us!");
+		e.self:Say("Cleanse your souls, sinners! The way of life is found through the [" .. eq.say_link("Prime Healer") .. "]. Repent and join us!");
 	end
 end
 
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Greetings, child of life. The way of the [Prime Healer] shall set you free and cleanse your soul. I hope to see you at [mass].");
+		e.self:Say("Greetings, child of life. The way of the [" .. eq.say_link("Prime Healer") .. "] shall set you free and cleanse your soul. I hope to see you at [" .. eq.say_link("mass") .. "].");
 	elseif(e.message:findi("prime healer")) then
 		e.self:Say("Rodcet Nife is the Prime Healer. His way is the path of healing and life. There can be no true life until your soul is healed by healing others. This will take you into the eternal when your time comes.");
 	elseif(e.message:findi("mass")) then
-		e.self:Say("Mass is not being held out here as yet. I am waiting for the [blessed oil] from the Temple of Life. You may attend services there.");
+		e.self:Say("Mass is not being held out here as yet. I am waiting for the [" .. eq.say_link("blessed oil") .. "] from the Temple of Life. You may attend services there.");
 	elseif(e.message:findi("blessed oil")) then
-		e.self:Say("The blessed oil is necessary during services. It is blessed by High Priestess Jahnda at the [Temple of Life]. If you are going in that direction, please stop at the temple and remind High Priestess Jahnda that brother Estle is waiting for his blessed oil.");
+		e.self:Say("The blessed oil is necessary during services. It is blessed by High Priestess Jahnda at the [" .. eq.say_link("Temple of Life") .. "]. If you are going in that direction, please stop at the temple and remind High Priestess Jahnda that brother Estle is waiting for his blessed oil.");
 	elseif(e.message:findi("temple of life")) then
 		e.self:Say("The Temple of Life is the center of worship for the followers of Rodcet Nife. It is located in North Qeynos and is one of the greatest temples ever created. Be sure to visit and attend services.");
 	end

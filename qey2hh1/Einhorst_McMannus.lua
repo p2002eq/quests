@@ -1,14 +1,3 @@
--- ###########################################
--- ## DEVELOPER: KOVOU
--- ## CONVERTED TO LUA BY: robregen
--- ## *** NPC INFORMATION ***
--- ##
--- ## NAME: Einhorst McMannus
--- ## ID: 12091
--- ## ZONE: qey2hh1
--- ##
--- ############################################
-
 function event_say(e)
 	if(e.message:findi("hail")) then
 		e.self:Say(string.format("Greetings, %s. Welcome to the fishing village of Clan McMannus. We sell what we can here. Have a look around but, please do not buy too much. We must save most of our stock for delivery to our home.",e.other:GetName()));
