@@ -1,10 +1,10 @@
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say(string.format("Greetings and blessings to you, %s. Karana offers you his protection and guidance. All who accept the offer shall find safe haven within our Temple of Thunder, If you are a cleric of Karana, you must have a [desire to serve Karana]'s flock.",e.other:GetName()));
+		e.self:Say(string.format("Greetings and blessings to you, %s. Karana offers you his protection and guidance. All who accept the offer shall find safe haven within our Temple of Thunder, If you are a cleric of Karana, you must have a [" .. eq.say_link("desire to serve Karana") .. "]'s flock.",e.other:GetName()));
 	elseif(e.message:findi("serve karana")) then
-		e.self:Say("If you are a young acolyte, you may [deliver blessings to the flock] and if you are a skilled cleric, we need you to [hunt bandit binders].");
+		e.self:Say("If you are a young acolyte, you may [" .. eq.say_link("deliver blessings to the flock") .. "] and if you are a skilled cleric, we need you to [" .. eq.say_link("hunt bandit binders") .. "].");
 	elseif(e.message:findi("blessings to the flock")) then
-		e.self:Say("Then go to the Plains of Karana. It is there that the blessings are needed. Ask every resident of the plains if they are followers of Karana. If they are, then ask them if they [require Karana's blessings]. Let them drink from this temple chalice. Return the empty chalice to me and you shall never go thirsty again.");
+		e.self:Say("Then go to the Plains of Karana. It is there that the blessings are needed. Ask every resident of the plains if they are followers of Karana. If they are, then ask them if they [" .. eq.say_link("require Karana's blessings") .. "]. Let them drink from this temple chalice. Return the empty chalice to me and you shall never go thirsty again.");
 		e.other:SummonItem(12103);
 	elseif(e.message:findi("hunt bandit binders")) then
 		e.self:Say("Go to the Plains of Karana and seek out the Karana Bandits. Among them can be found their bandit binders. They are healers of sorts. Which evil deity granted them this power is unknown to us. Each carries a binder spectacle. I shall reward clerics for every two returned spectacles. Perhaps a new power may even be bestowed.");

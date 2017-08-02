@@ -14,7 +14,7 @@ end
 
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Greetings!!  Moran here.  I just love this city.  I traveled from Freeport to Qeynos to stay far from the [Freeport Militia].");
+		e.self:Say("Greetings!!  Moran here.  I just love this city.  I traveled from Freeport to Qeynos to stay far from the [" .. eq.say_link("Freeport Militia") .. "].");
 	elseif(e.message:findi("freeport militia")) then
 		e.self:Say("The Freeport Militia are nothing more than thugs.  I have seen them lay waste to more than a dozen adventurers at once.  For no reason other than to flex their muscles!");
 	end

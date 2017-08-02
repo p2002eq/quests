@@ -1,8 +1,8 @@
 function event_say(e)
   if(e.message:findi("hail")) then
-    e.self:Say("Hail!  What do think of [Lisera]?  She aint' much to look at, but soon she will be singing again.");
+    e.self:Say("Hail!  What do think of [" .. eq.say_link("Lisera") .. "]?  She aint' much to look at, but soon she will be singing again.");
   elseif(e.message:findi("Lisera")) then
-    e.self:Say("Lisera is my lute.  She sounds horrible.  I need to get her tuned by a master tuner, but the League's Master Tuner is in the Plains of Karana for a while.  If only..  hey!!  You look like a fellow bard...  You [interested in the job]?");
+    e.self:Say("Lisera is my lute.  She sounds horrible.  I need to get her tuned by a master tuner, but the League's Master Tuner is in the Plains of Karana for a while.  If only..  hey!!  You look like a fellow bard...  You [" .. eq.say_link("interested in the job") .. "]?");
   elseif(e.message:findi("interested in the job")) then
     e.self:Say("Great!!  Here.  Take Lisera to Vhalen Nostrolo.  He is in the plains near the well, composing.  He must tune it for me.  Be very careful! Lisera is all I've got.  If you complete this task and return with good news. I shall be glad to pass along an extra songsheet for a tune entitled 'Hymn of Restoration.");
     e.other:SummonItem(13114); -- Lisera Lute

@@ -2,8 +2,8 @@ function event_say(e)
 	local fac = e.other:GetFaction(e.self);
 	
 	if(e.message:findi("Hail")) then
-		e.self:Say("What?  What?!!  Are we a [young steel warrior]..  Or another [spectator] for the Arena?");
-	elseif(e.message:findi("i am a spectator")) then
+		e.self:Say("What?  What?!!  Are we a [" .. eq.say_link("young steel warrior") .. "]..  Or another [" .. eq.say_link("spectator") .. "] for the Arena?");
+	elseif(e.message:findi("spectator")) then
 		e.self:Say("As I thought!!  You shall be better off upon the ramparts of the arena.  It would be dreadful to see a fine citizen injured in the arena.");
 	elseif(e.message:findi("young steel warrior")) then
 		--  confirmed live, says this even with apprehensive, might be class based
@@ -41,5 +41,3 @@ function event_trade(e)
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
--- end -- quests/qeynos/Brin_Stolunger

@@ -18,15 +18,15 @@ function BrunoConversation()
 	if(bruno.null) then
 		return;
 	end
-	
+
 	trumpy:Say("Outta my way, ya big lummox!");
 	ThreadManager:Wait(0.65);
-	
+
 	bruno = eq.get_entity_list():GetMobByNpcTypeID(1075);
 	if(bruno.null) then
 		return;
 	end
-	
+
 	bruno:Say("Yeah, Yeah. I hope you fall in, you little creep.");
 end
 
@@ -36,15 +36,15 @@ function GuardBerenConversationOne()
 	if(beren.valid and beren:GetX() == -145 and beren:GetY() == -247) then
 		trumpy:Say("<BURP!> Heh heh.. Enjoy that one, boys!");
 		ThreadManager:Wait(0.65);
-	
+
 		beren = eq.get_entity_list():GetMobByNpcTypeID(1090);
 		beren:Say("Curse you, [Trumpy]!!!");
 		ThreadManager:Wait(0.65);
-		
+
 		local corshin = eq.get_entity_list():GetMobByNpcTypeID(1091);
 		if(corshin.valid) then
 			corshin:Say("Shhhhh. What are you, crazy?! I saw Kane talking to him yesterday. I sure don't want to find you washed up under the docks because of that little gnoll dropping.");
-		end		
+		end
 	end
 end
 
@@ -56,10 +56,10 @@ function FarenConversation()
 	if(faren.null) then
 		return;
 	end
-	
+
 	trumpy:Say("Hey, Fishboy! You dropped something! Bwah ha ha ha!");
 	ThreadManager:Wait(0.65);
-	
+
 	faren = eq.get_entity_list():GetMobByNpcTypeID(1159);
 	if(faren.null) then
 		return;
@@ -67,20 +67,20 @@ function FarenConversation()
 
 	faren:Say("Huh? What? My [tacklebox]? You know I can't swim, you rotten [dwarf]!");
 	ThreadManager:Wait(0.65);
-	
+
 	faren = eq.get_entity_list():GetMobByNpcTypeID(1159);
 	if(faren.null) then
 		return;
 	end
-	
+
 	trumpy:Say("Better start learning, [Skippy].");
 	ThreadManager:Wait(10.0);
-	
+
 	faren = eq.get_entity_list():GetMobByNpcTypeID(1159);
 	if(faren.null) then
 		return;
 	end
-	
+
 	faren:Say("My name is not Skippy.");
 end
 
@@ -92,7 +92,7 @@ function GuardBerenConversationTwo()
 	if(beren.valid and beren:GetX() == -145 and beren:GetY() == -247) then
 		beren:Say("If you ever talk that way about my [brother] again, I will throw your butt into the dungeon. I don't care who you know!");
 		ThreadManager:Wait(0.65);
-		
+
 		trumpy:Say("Peh! What have you been eating? Your brother's bait? You are lucky I don't have time to give you the beating you so richly deserve.");
 	end
 end

@@ -36,6 +36,5 @@ function event_timer(e)
 end
 
 function event_signal(e)
-  e.self:Say("Hmmm.. Let's see if we can find someone to help relenish our stock of [rat whiskers] and [bat fur]. I need these items for a new little experiment I'm working on.");
+  e.self:Say("Hmmm.. Let's see if we can find someone to help relenish our stock of [" .. eq.say_link("rat whiskers") .. "] and [" .. eq.say_link("bat fur") .. "]. I need these items for a new little experiment I'm working on.");
 end
-

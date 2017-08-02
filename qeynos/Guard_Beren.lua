@@ -1,8 +1,8 @@
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("What do you want? Are you friends with that lousy [dwarf]?! You had better not be unless you want to spend the rest of the week bleeding!");
+		e.self:Say("What do you want? Are you friends with that lousy [" .. eq.say_link("dwarf") .. "]?! You had better not be unless you want to spend the rest of the week bleeding!");
 	elseif(e.message:findi("dwarf")) then
-		e.self:Say("That dwarf, Trumpy, who Corshin here thinks is a friend of Commander Bayle's, keeps pestering my poor brother Faren. I have had just about enough of him and [his kind].");
+		e.self:Say("That dwarf, Trumpy, who Corshin here thinks is a friend of Commander Bayle's, keeps pestering my poor brother Faren. I have had just about enough of him and [" .. eq.say_link("his kind") .. "].");
 	elseif(e.message:findi("his kind")) then
 		e.self:Say("You know... thieves, drunks and murderers. Decent folk just don't have a chance anymore.");
 	end
@@ -21,7 +21,7 @@ function event_signal(e)
 	if(e.signal == 1 and xloc == -145 and yloc == -247) then
 		e.self:Say("Yes, sir!");
 	elseif(e.signal == 2) then
-		e.self:Say("Don't you worry about him! I will take care of [Trumpy] Irontoe once and for all!");
+		e.self:Say("Don't you worry about him! I will take care of Trumpy Irontoe once and for all!");
 	elseif(e.signal == 5 and xloc == -145 and yloc == -247) then
 		e.self:Say("Heh, Speak for yourself, Corshin. That one looks like a troublemaker to me.");
 	end

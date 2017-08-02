@@ -1,6 +1,6 @@
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Hello, have you seen my daughter?");
+		e.self:Say("Hello, have you seen my [" .. eq.say_link("daughter") .. "]?");
 	elseif(e.message:findi("daughter")) then
 		e.self:Say("Yes, my daughter. She went to play near the aqueducts with her doll and now she is gone. If only there was some sign of her..");
 	end

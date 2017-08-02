@@ -1,8 +1,8 @@
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Hail, noble " .. e.other:GetName() .. ". Remember to spread the words of Karana throughout the faraway lands on which you shall tread. We of the Temple of Thunder are looking for new members - good people who [wish to join our cause]. Let the call go out!");
+		e.self:Say("Hail, noble " .. e.other:GetName() .. ". Remember to spread the words of Karana throughout the faraway lands on which you shall tread. We of the Temple of Thunder are looking for new members - good people who [" .. eq.say_link("I will join the cause",false,"wish to join our cause") .. "]. Let the call go out!");
 	elseif(e.message:findi("join the cause")) then
-		e.self:Say("That IS good news! If you walk the righteous path of the Rainkeeper, Karana, then you are truly noble. I have need of someone like that. I must find someone to perform a [dangerous mission] or perhaps you would rather seek out the [Rat King] or [crush the undead].");
+		e.self:Say("That IS good news! If you walk the righteous path of the Rainkeeper, Karana, then you are truly noble. I have need of someone like that. I must find someone to perform a [" .. eq.say_link("dangerous mission") .. "] or perhaps you would rather seek out the [" .. eq.say_link("Rat King") .. "] or [" .. eq.say_link("crush the undead") .. "].");
 	elseif(e.message:findi("crush the undead")) then
 		e.self:Say("Those who passed generations ago have had their bones exhumed and enchanted. Some evil force plagues this land with these evil skeletons. You will fight for us and crush the skeletons. Take this box and fill it with the bones of those creatures. We will not allow them to rise again and you shall earn our respect. Go forth and fight for Karana!");
 		e.other:SummonItem(17941); -- Box for bones
@@ -64,6 +64,3 @@ function event_trade(e)
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
--- END of FILE Zone:qeynos  ID:1043 -- Wolten_Grafe 
-

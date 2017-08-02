@@ -1,9 +1,9 @@
 function event_say(e)
 	local fac = e.other:GetFaction(e.self);
 	if(e.message:findi("hail")) then
-		e.self:Say(string.format("Welcome, %s. I am Deadet Losaren, faithful priest of Karana. You appear to be in search of [guidance] or perhaps you are merely a [visitor to the temple of thunder] wishing the blessing of [holy armor]?", e.other:GetName()));
+		e.self:Say(string.format("Welcome, %s. I am Deadet Losaren, faithful priest of Karana. You appear to be in search of [" .. eq.say_link("guidance") .. "] or perhaps you are merely a [" .. eq.say_link("visitor to the temple of thunder") .. "] wishing the blessing of [" .. eq.say_link("holy armor") .. "]?", e.other:GetName()));
 	elseif(e.message:findi("guidance")) then
-		e.self:Say("So it is guidance you seek. You will begin on the bottom rung. There is much more to our temple than the bashing of foes. We will need you to [collect donations].");
+		e.self:Say("So it is guidance you seek. You will begin on the bottom rung. There is much more to our temple than the bashing of foes. We will need you to [" .. eq.say_link("collect donations") .. "].");
 	elseif(e.message:findi("collect donation")) then
 		if(fac < 5) then
 			e.self:Say("Then you are a new acolyte. Take this Chest of Faith into Qeynos and Qeynos Hills. Find me six residents will to donate to the Temple of Thunder. Combine these donations within the Chest of Faith and return it to me. Do so and I shall reward you with the spell 'Ward Undead.' Now go and spread the Word of Karana.");
@@ -14,12 +14,12 @@ function event_say(e)
 	elseif(e.message:findi("visitor to the temple of thunder")) then
 		e.self:Say("Then feel free to look around and speak with the priests and paladins of Thunder. May you find ways to serve the Rainkeeper.");
 	elseif(e.message:findi("holy armor")) then
-		e.self:Say("Holy Armor? I offer the blessing of Holy Armor to members in good standing of the Knights of Thunder. I must charge ten gold for the service. [Components] are expensive these days!");
+		e.self:Say("Holy Armor? I offer the blessing of Holy Armor to members in good standing of the Knights of Thunder. I must charge ten gold for the service. [" .. eq.say_link("Components") .. "] are expensive these days!");
 	elseif(e.message:findi("components")) then
-		e.self:Say("Components are required for my daily tribute to the Rainkeeper. It is he whose power flows from my body. I require a faithful acolyte to [gather the required items].");
+		e.self:Say("Components are required for my daily tribute to the Rainkeeper. It is he whose power flows from my body. I require a faithful acolyte to [" .. eq.say_link("gather the required items") .. "].");
 	elseif(e.message:findi("gather the required items")) then
 		if(fac < 5) then
-			e.self:Say("Very noble of you. Take this chest. I will require it to be filled with flame beetle eyes. Four normal beetles and four [Kerra Isle beetles]. Combine these items within the chest and return it to me. I shall reward you with the protection of Holy Armor.");
+			e.self:Say("Very noble of you. Take this chest. I will require it to be filled with flame beetle eyes. Four normal beetles and four [" .. eq.say_link("Kerra Isle beetles") .. "]. Combine these items within the chest and return it to me. I shall reward you with the protection of Holy Armor.");
 			e.other:SummonItem(17934); -- Beetle Eye Chest (container)
 		else
 			e.self:Say("You have proven yourself not only an enemy of the Knights of Thunder, but an enemy of Karana himself. Now leave, sewer rat!");
