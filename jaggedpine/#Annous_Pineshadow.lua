@@ -1,7 +1,7 @@
 ---- Quest:The Gale Weaver
 function event_say(e)
     local qglobals = eq.get_qglobals(e.self,e.other);
-    fac = e.other:GetFaction(e.self);
+    local fac = e.other:GetFaction(e.self);
     if(fac == 1) then
         if(e.message:findi("hail")) then
             e.self:Say("Good day to you, " .. e.other:GetName() .. ". I am Annous Pineshadow, high priest of The Rainkeeper and ambassador of Qeynos. It has been a [" .. eq.say_link("long") .. "] time since I last set foot within the Jaggedpine, and although not surprised, I am amazed and awestruck at the untouched purity of these sacred grounds. It is very much a relief to know that the forest has been sparred the taint of the venomous world that has become Norrath.");
@@ -32,31 +32,34 @@ end
 
 function event_trade(e)
     local qglobals = eq.get_qglobals(e.self,e.other);
-    fac = e.other:GetFaction(e.self);
+    local fac = e.other:GetFaction(e.self);
     local item_lib = require("items");
-    if(item_lib.check_turn_in(e.self, e.trade, {item1 = 8956}) and fac == 1) then -- Azure Idol of Karana
-        e.self:Say("Marvelously done, my friend. The idol's return by your hand bodes well indeed toward the success of your quest. Now, it shall remain without a hand to possess it -- but in time, perhaps, it may find a suitable possessor in you. If [" .. eq.say_link("you wish to prove yourself worthy") .. "] of the idol and further prove your faith as notable enough to belong to the sacred order of The Gale Weavers, then speak your pledge and your test shall continue.");
-        e.other:Faction(271,10); -- Residents of Jaggedpine
-        e.other:Faction(159,5); -- Jaggedpine Treefolk
-        e.other:Faction(265,5); -- Protectors of Pine
-        e.other:Faction(135,1); -- Guards of Qeynos
-        eq.set_global("galeweaver","1",0,"F"); -- Globals
-        e.other:QuestReward(e.self,0,0,0,0,17135,10000); -- Dormant Gale Stone
-    elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 8964,item2 = 8963,item3 = 8962}) and tonumber(qglobals.galeweaver) == 1) then -- The Rainkeepers Writ, Dormant Crystal Sphere & Ancient White Scroll
-        e.self:Say("You have done well, my child. The ancient scroll has impressed upon it a small mirror of your faith. As it was with you through your travels, the runes have changed to reflect your own heart and what lies within it. I have woven for you the Orb of the Gale -- your Orb of the Gale, but do not think that your journey ends here. It is still hollow -- the winds are dormant and the clouds lie in wait. Their lifeblood is missing, and you must seek it. To do this, you must venture to the realm where the Gale thrives -- the Plane of Sky. There are ethereal creatures known as Gale Weavers that dwell there. You must extinguish their temporary tangible form and from that, take the essence of the Gale that they have woven. Do not feel remorse for destroying these planar creatures, for you do not truly destroy them. Once you have obtained the Essence of the Gale, place it into the orb and seal it, creating the Orb of the Gale that must be returned to me.");
-        e.other:Faction(271,10); -- Residents of Jaggedpine
-        e.other:Faction(159,5); -- Jaggedpine Treefolk
-        e.other:Faction(265,5); -- Protectors of Pine
-        e.other:Faction(135,1); -- Guards of Qeynos
-        eq.set_global("galeweaver","2",0,"F"); -- Globals
-        e.other:QuestReward(e.self,0,0,0,0,17135,10000); -- Dormant Gale Stone
-    elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 8966}) and tonumber(qglobals.galeweaver) == 2) then -- Orb of the Gale
-        e.self:Say("You astound me, my child. Well done indeed, and I am very pleased to know that you have been successful in these endeavors. It is an honor to bestow upon you this, our sacred symbol, and welcome you into the order of The Gale Weavers. Bear it proudly, but do not flaunt pride. Keep your sacred duties to The Rainkeeper first and foremost in your thoughts and actions -- the Gale Weaver shall guide you when you need guidance most, and it shall protect you when your time for failure has not yet come. The idol shall remain with me, where I shall bury it at the Shrine of Karana in honor of your coming into our ranks. When the time comes for you to pass beyond, it shall be unearthed by another who has taken my place as high priest of our order, for I will likely have passed into the Eye of Karana's Storm before your final day.");
-        e.other:Faction(271,10); -- Residents of Jaggedpine
-        e.other:Faction(159,5); -- Jaggedpine Treefolk
-        e.other:Faction(265,5); -- Protectors of Pine
-        e.other:Faction(135,1); -- Guards of Qeynos
-        e.other:QuestReward(e.self,0,0,0,0,8967,10000); -- The Gale Weaver
-    end
+	
+	if(fac == 1) then
+		if(item_lib.check_turn_in(e.self, e.trade, {item1 = 8956})) then -- Azure Idol of Karana
+			e.self:Say("Marvelously done, my friend. The idol's return by your hand bodes well indeed toward the success of your quest. Now, it shall remain without a hand to possess it -- but in time, perhaps, it may find a suitable possessor in you. If [" .. eq.say_link("I wish to prove myself worthy",false,"you wish to prove yourself worthy") .. "] of the idol and further prove your faith as notable enough to belong to the sacred order of The Gale Weavers, then speak your pledge and your test shall continue.");
+			e.other:Faction(271,10); -- Residents of Jaggedpine
+			e.other:Faction(159,5); -- Jaggedpine Treefolk
+			e.other:Faction(265,5); -- Protectors of Pine
+			e.other:Faction(135,1); -- Guards of Qeynos
+			eq.set_global("galeweaver","1",0,"F"); -- Globals
+		elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 8964,item2 = 8963,item3 = 8962}) and tonumber(qglobals.galeweaver) == 1) then -- The Rainkeepers Writ, Dormant Crystal Sphere & Ancient White Scroll
+			e.self:Say("You have done well, my child. The ancient scroll has impressed upon it a small mirror of your faith. As it was with you through your travels, the runes have changed to reflect your own heart and what lies within it. I have woven for you the Orb of the Gale -- your Orb of the Gale, but do not think that your journey ends here. It is still hollow -- the winds are dormant and the clouds lie in wait. Their lifeblood is missing, and you must seek it. To do this, you must venture to the realm where the Gale thrives -- the Plane of Sky. There are ethereal creatures known as Gale Weavers that dwell there. You must extinguish their temporary tangible form and from that, take the essence of the Gale that they have woven. Do not feel remorse for destroying these planar creatures, for you do not truly destroy them. Once you have obtained the Essence of the Gale, place it into the orb and seal it, creating the Orb of the Gale that must be returned to me.");
+			e.other:Faction(271,10); -- Residents of Jaggedpine
+			e.other:Faction(159,5); -- Jaggedpine Treefolk
+			e.other:Faction(265,5); -- Protectors of Pine
+			e.other:Faction(135,1); -- Guards of Qeynos
+			eq.set_global("galeweaver","2",0,"F"); -- Globals
+			e.other:QuestReward(e.self,0,0,0,0,17135,10000); -- Dormant Gale Stone
+		elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 8966}) and tonumber(qglobals.galeweaver) == 2) then -- Orb of the Gale
+			e.self:Say("You astound me, my child. Well done indeed, and I am very pleased to know that you have been successful in these endeavors. It is an honor to bestow upon you this, our sacred symbol, and welcome you into the order of The Gale Weavers. Bear it proudly, but do not flaunt pride. Keep your sacred duties to The Rainkeeper first and foremost in your thoughts and actions -- the Gale Weaver shall guide you when you need guidance most, and it shall protect you when your time for failure has not yet come. The idol shall remain with me, where I shall bury it at the Shrine of Karana in honor of your coming into our ranks. When the time comes for you to pass beyond, it shall be unearthed by another who has taken my place as high priest of our order, for I will likely have passed into the Eye of Karana's Storm before your final day.");
+			e.other:Faction(271,10); -- Residents of Jaggedpine
+			e.other:Faction(159,5); -- Jaggedpine Treefolk
+			e.other:Faction(265,5); -- Protectors of Pine
+			e.other:Faction(135,1); -- Guards of Qeynos
+			e.other:QuestReward(e.self,0,0,0,0,8967,10000); -- The Gale Weaver
+			eq.set_global("galeweaver","3",0,"F"); -- Globals
+		end
+	end
     item_lib.return_items(e.self, e.other, e.trade)
 end
