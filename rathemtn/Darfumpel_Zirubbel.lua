@@ -1,6 +1,6 @@
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Hail, " .. e.other:GetName() .. ". I am Darfumpel, master jeweler and proprietor of this shop. How might I assist you today? Perhaps you need a stone [cut] or some jewelry [repaired]?");
+		e.self:Say("Hail, " .. e.other:GetName() .. ". I am Darfumpel, master jeweler and proprietor of this shop. How might I assist you today? Perhaps you need a stone [" .. eq.say_link("cut") .. "] or some jewelry [" .. eq.say_link("repaired") .. "]?");
 	elseif(e.message:findi("cut")) then
 		e.self:Say("Yes, I use a new gemcutting technique I designed myself. It will bring out the beauty of any gem. However, as arrogant as this may sound, I do not cut just any ordinary stone. They must be rare or of extraordinary quality. Have you an exceptional stone that requires faceting? If so, what type of gem is it?");
 	elseif(e.message:findi("repaired")) then
@@ -19,9 +19,3 @@ function event_trade(e)
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
---END of FILE Zone:rathemtn  ID:50270 -- Darfumpel_Zirubbel
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------

@@ -1,6 +1,6 @@
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Hello, " .. e.other:GetName() .. ". Oh, I wish I had a prickly pear. I just have this insatiable craving for a prickly pear. But Permafrost is just so far! <Sigh.>");
+		e.self:Say("Hello, " .. e.other:GetName() .. ". Oh, I wish I had a prickly pear. I just have this insatiable craving for a [" .. eq.say_link("prickly pear") .. "]. But Permafrost is just so far! <Sigh.>");
 	elseif(e.message:findi("prickly pear")) then
 		e.self:Say("Yes, yes! Prickly pears! Do you have any? I just love prickly pears but Permafrost is just so far away even for us druids.");
 	end
@@ -19,9 +19,3 @@ function event_trade(e)
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
---END of FILE Zone:rathemtn  ID:50271 -- Xenyari_Lisariel
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------

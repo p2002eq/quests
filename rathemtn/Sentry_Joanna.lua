@@ -1,6 +1,6 @@
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Love and passion to you. my friend.  Seek you the [Gauntlets of Ro]?  If not. then I offer you the safety of this camp.");
+		e.self:Say("Love and passion to you. my friend.  Seek you the [" .. eq.say_link("Gauntlets of Ro") .. "]?  If not. then I offer you the safety of this camp.");
 	elseif(e.message:findi("gauntlets of ro")) then
 		if(e.other:GetFaction(e.self) < 5) then
 			e.self:Say("I will give you the mold. but first you will complete a task in the name of Erollisi Marr.  My fellow Sentry. Alechin. was bitten by a wolf while he journeyed to Qeynos.  He now turns into a werewolf at night. forced to kill innocent travelers.  Go toward Qeynos.  Release him from life and his curse and return his locket to me.");
@@ -22,9 +22,3 @@ function event_trade(e)
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
---END of FILE Zone:rathemtn  ID:50111 -- Sentry_Joanna
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------
