@@ -1,8 +1,8 @@
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Greetings. stranger. Please excuse my melancholy state.  I have had some [bad news] that has brought me great sorrow.");
+		e.self:Say("Greetings. stranger. Please excuse my melancholy state.  I have had some [" .. eq.say_link("bad news") .. "] that has brought me great sorrow.");
 	elseif(e.message:findi("bayle list")) then
-		e.self:Say("The Bayle List is gone. It lies inside the belly of that beast, Mammoth");
+		e.self:Say("The Bayle List is gone. It lies inside the belly of that beast, [" .. eq.say_link("Mammoth") .. "]");
 	elseif(e.message:findi("mammoth")) then
 		e.self:Say("Mammoth is the great bear which inhabits the caves. It was he that swallowed my son whole. My son was using the scroll case as a play sword when Mammoth approached. I know you need the list but my vows as a Protector of the Pine forbid me to harm the bear. Help me ease my pain. Kill Mammoth and bring me his hide. You will find the list inside the beast.");
 	elseif(e.message:findi("bad news")) then

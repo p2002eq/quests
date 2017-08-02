@@ -17,9 +17,9 @@ end
 
 function event_say(e)
 	if(e.message:findi("tune") or e.message:findi("humming")) then
-		e.self:Say("Ohh. Just a little song my mother taught me when I was young. It speaks of the earth, the sky, and the sparkling stars above, always there.");
+		e.self:Say("Ohh. Just a little song my mother taught me when I was young. It speaks of the earth, the sky, and the sparkling stars above, [" .. eq.say_link("always there") .. "].");
 	elseif(e.message:findi("always there")) then
-		e.self:Say("Aye, always there. Like this small bag I wear around my neck. The last gift of my dying mother. It holds a fine dust, a dust she collected during her short life, that she believed brought her luck. It's speckled, flecked as the night sky is with stars.");
+		e.self:Say("Aye, always there. Like this small bag I wear around my neck. The last gift of my dying mother. It holds a fine dust, a dust she collected during her short life, that she believed brought her luck. It's [" .. eq.say_link("speckled flecked dust",false,"speckled") .. "], flecked as the night sky is with stars.");
 	elseif(e.message:findi("speckled flecked dust")) then
 		e.self:Say("I've had this little bit of dust, all I have of my mother, for many years now. It's the only reminder I have of her. She said it was special, magical, a warmth to help me through the nights. Even if my life were in the balance, I would have a hard time giving it up.");
 	end
