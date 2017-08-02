@@ -20,13 +20,13 @@ end
 function event_trade(e)
     local item_lib = require("items");
     if(item_lib.check_turn_in(e.self, e.trade, {item1 = 4747})) then -- Bag of Rations
-        e.self:Say("Ah these must be from ol Coggo! Ye see I had sent out a few men to gather some new picks an such for the mining operation ere but they haven't returned yet. I'm really in need of some picks that are being held in Katta by a friend of mine. Will you [retrieve the mining picks] for me?");
+        e.self:Say("Ah these must be from ol Coggo! Ye see I had sent out a few men to gather some new picks an such for the mining operation ere but they haven't returned yet. I'm really in need of some picks that are being held in Katta by a friend of mine. Will you [" .. eq.say_link("retrieve the mining picks") .. "] for me?");
         e.other:Faction(154,5); -- house of stout
         e.other:Faction(338,1); -- traders of the haven
         picks = 1;
         e.other:QuestReward(e.self,0,0,0,0,0,2500); --
     elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 4755})) then -- A Bundle of Mining Picks
-        e.self:Say("Ye did it, " .. e.other:GetName() .. "! Ye hear dat boys! Dis outlander ere jess delivered us our new minin picks! You have no idea how much these supplies will aid our operation! As a final task would you be able to [return a letter] to me wife back home?");
+        e.self:Say("Ye did it, " .. e.other:GetName() .. "! Ye hear dat boys! Dis outlander ere jess delivered us our new minin picks! You have no idea how much these supplies will aid our operation! As a final task would you be able to [" .. eq.say_link("return a letter") .. "] to me wife back home?");
         e.other:Faction(154,5); -- house of stout
         e.other:Faction(338,1); -- traders of the haven
         eq.signal(156064,1,1); -- Noppta Mottun
