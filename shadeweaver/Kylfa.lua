@@ -1,9 +1,9 @@
 ---- Quest:Saurek Claws
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Greetings, young one, what is it that you [seek]?");
+		e.self:Say("Greetings, young one, what is it that you [" .. eq.say_link("I seek a club",false,"seek") .. "]?");
 	elseif(e.message:findi("seek a club")) then
-		e.self:Say("Ahh, so you seek the Shredder Claw Club, aye? Indeed, I am the apprentice to Captain Alim who was trained to make that item. I will craft one for you if you wish to gather the [components].");
+		e.self:Say("Ahh, so you seek the Shredder Claw Club, aye? Indeed, I am the apprentice to Captain Alim who was trained to make that item. I will craft one for you if you wish to gather the [" .. eq.say_link("components") .. "].");
 	elseif(e.message:findi("components")) then
 		e.self:Say("Return to me with three Shredder Claws, and a wooden practice flail, and I will attach the claws to the flail and create a Shredder Claw Club for you to use out here in the Thicket.");
 	end
@@ -17,8 +17,3 @@ function event_trade(e)
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------

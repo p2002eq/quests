@@ -31,20 +31,20 @@ end
 
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Welcome, friend. Come dance by our warm fire or have a seat and [learn] a little bit about the ways of the spiritist.");
+		e.self:Say("Welcome, friend. Come dance by our warm fire or have a seat and [" .. eq.say_link("learn") .. "] a little bit about the ways of the spiritist.");
 	elseif(e.message:findi("learn")) then
-		e.self:Say("We are those in tune with the spirits that surround us. Ancestral spirits with knowledge of the ancients dance around us by this very fire. They guide is through the darkness. Protect us from pain. But a terrible [curse] has befallen the spirits of this thicket, and so it is my duty to train these young Dar Khura in order to aid in the battle that lies ahead.");
+		e.self:Say("We are those in tune with the spirits that surround us. Ancestral spirits with knowledge of the ancients dance around us by this very fire. They guide is through the darkness. Protect us from pain. But a terrible [" .. eq.say_link("curse") .. "] has befallen the spirits of this thicket, and so it is my duty to train these young Dar Khura in order to aid in the battle that lies ahead.");
 	elseif(e.message:findi("curse")) then
-		e.self:Say("The spirits are corrupted by foul magic. The souls of our ancestors have been twisted into an abomination known as [shades]. The corpses of long passed friends and relatives walk through the night seeking to destroy the living. We must destroy the corrupted remains of their old bodies and allow the spirits to roam free once more. Will you help us [release the souls] of our kindred spirits?");
+		e.self:Say("The spirits are corrupted by foul magic. The souls of our ancestors have been twisted into an abomination known as [" .. eq.say_link("shades") .. "]. The corpses of long passed friends and relatives walk through the night seeking to destroy the living. We must destroy the corrupted remains of their old bodies and allow the spirits to roam free once more. Will you help us [" .. eq.say_link("release the souls") .. "] of our kindred spirits?");
 	elseif(e.message:findi("shades")) then
-		e.self:Say("The shades are a deeper form of corruption of the spirit. I can sense great anguish in the spirits that have been twisted into such a creation. Their horror burns my heart so deeply that I cannot bear it. I would not normally ask another to place themselves in danger, but it is important that the souls are released from these shadowed prisons of torture and darkness. Please help us [release the souls] of our ancestral spirits.");
+		e.self:Say("The shades are a deeper form of corruption of the spirit. I can sense great anguish in the spirits that have been twisted into such a creation. Their horror burns my heart so deeply that I cannot bear it. I would not normally ask another to place themselves in danger, but it is important that the souls are released from these shadowed prisons of torture and darkness. Please help us [" .. eq.say_link("release the souls") .. "] of our ancestral spirits.");
 	elseif(e.message:findi("release the souls")) then
-		e.self:Say("I am relieved that you have accepted this dangerous task. I can feel the strength of the spirit within you. There are many kindred spirits aiding us in this battle. If you are in tune with the spiritual realm, you will find that your rituals of magic will result in aid from our spiritual allies. Return to me with the [darkened jawbones] of the lesser shades so that I may release the spirit once more.");
+		e.self:Say("I am relieved that you have accepted this dangerous task. I can feel the strength of the spirit within you. There are many kindred spirits aiding us in this battle. If you are in tune with the spiritual realm, you will find that your rituals of magic will result in aid from our spiritual allies. Return to me with the [" .. eq.say_link("darkened jawbones") .. "] of the lesser shades so that I may release the spirit once more.");
 	elseif(e.message:findi("darkened jawbones")) then
 		e.self:Say("The jawbones will aid me in tuning to the essence of the corrupted spirits. When you return to me with them, you are enabling me to place the lost soul to rest. I am able to release four of these spirits at one time in much the same way I am training these four young trainees. It is best to bring me four of them at one time if you are able.");
 		e.self:Say("Always pay attention to your surroundings. There are many opponents that will ambush you while you are out in the field. It is wise to take companions with you when venturing far.");
 	elseif(e.message:findi("loda kai")) then
-		e.self:Say("Loda Kai left Shar Vahl many years ago. He had set off for the distant city of Katta Castellum just north of the tenebrous mountains. We have not seen him since, but the brigands wear his family emblem. [Kedra Kai] has banished himself from our city in shame.");
+		e.self:Say("Loda Kai left Shar Vahl many years ago. He had set off for the distant city of Katta Castellum just north of the tenebrous mountains. We have not seen him since, but the brigands wear his family emblem. [" .. eq.say_link("Kedra Kai") .. "] has banished himself from our city in shame.");
 	elseif(e.message:findi("Kedra Kai")) then
 		e.self:Say("He stands vigil at the crossroads of the trading routes. Kedra has sworn to destroy the brigands and his brother before returning to Shar Vahl. There are many skeletal brigands within the thicket. If you are able to acquire their rotting jawbones, please bring them to me. I will try to learn what I can from the magic within them.");
 	end
@@ -53,13 +53,13 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 30872, item2 = 30872, item3 = 30872, item4 = 30872})) then -- 4x A Darkened Jawbone
-		e.self:Say("I can see that you have a brave heart. You have rescued many of the fallen spirits with little regard to your own welfare. Such selfless acts should not go unrewarded. Please take these gloves and wear them with pride. It is a symbol of [rebirth].");
+		e.self:Say("I can see that you have a brave heart. You have rescued many of the fallen spirits with little regard to your own welfare. Such selfless acts should not go unrewarded. Please take these gloves and wear them with pride. It is a symbol of rebirth.");
 		e.other:Faction(132,5); -- Guardians of Shar Vahl
 		e.other:QuestReward(e.self,0,0,0,0,30879,1000); -- Rebirth Leather Gloves
 	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 30873, item2 = 30873, item3 = 30873, item4 = 30873})) then -- 4x A Sharp Toothed Jawbone
 		e.self:Say("Thank you for bringing these to me " .. e.other:GetName() .. ".");
 		e.self:Emote("Karina closes her eyes and meditates over the jawbones for a moment.");
-		e.self:Say("I can sense the mark of the [Loda Kai] within these jawbones. This is a horror, for Loda Kai was once a member of my people. I do not know how he came about these strange magical forces but it can not be good news. Please wear these sleeves for protection. This new discovery worries me deeply.");
+		e.self:Say("I can sense the mark of the [" .. eq.say_link("Loda Kai") .. "] within these jawbones. This is a horror, for Loda Kai was once a member of my people. I do not know how he came about these strange magical forces but it can not be good news. Please wear these sleeves for protection. This new discovery worries me deeply.");
 		e.other:Faction(132,5); -- Guardians of Shar Vahl
 		e.other:QuestReward(e.self,0,0,0,0,30877,1000); -- Rebirth Leather Sleeves
 	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 30874, item2 = 30874, item3 = 30874, item4 = 30874})) then -- 4x A Rotting Jawbone
@@ -71,8 +71,3 @@ function event_trade(e)
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------

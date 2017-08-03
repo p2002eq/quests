@@ -36,11 +36,11 @@ end
 
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Well met, have you [come to aid] us in hunting the hoppers of the thicket?");
+		e.self:Say("Well met, have you [" .. eq.say_link("come to aid") .. "] us in hunting the hoppers of the thicket?");
 	elseif(e.message:findi("come to aid")) then
-		e.self:Say("If you are preparing to hunt, then there are a few things you should know. Some of the hoppers have unique abilities. Knowledge of these abilities can mean the difference between life and death. I will tell you a little bit about them if you [wish to listen].");
+		e.self:Say("If you are preparing to hunt, then there are a few things you should know. Some of the hoppers have unique abilities. Knowledge of these abilities can mean the difference between life and death. I will tell you a little bit about them if you [" .. eq.say_link("wish to listen") .. "].");
 	elseif(e.message:findi("wish to listen")) then
-		e.self:Say("A wise choice, it is good to learn all that you can of the prey before initiating the hunt. Such a tactic is vital when you set out for larger game. Learn of your prey's strengths and weaknesses and you shall have the upper hand. Saureks may all seem similar to one another at first glance, but this is not the case. Such a mistake has left many Taruun dead. I have learned that the darkclaw saureks have venom dripping from their claws. There are a few other [unique qualities] to the saureks as well.");
+		e.self:Say("A wise choice, it is good to learn all that you can of the prey before initiating the hunt. Such a tactic is vital when you set out for larger game. Learn of your prey's strengths and weaknesses and you shall have the upper hand. Saureks may all seem similar to one another at first glance, but this is not the case. Such a mistake has left many Taruun dead. I have learned that the darkclaw saureks have venom dripping from their claws. There are a few other [" .. eq.say_link("unique qualities") .. "] to the saureks as well.");
 	elseif(e.message:findi("unique qualities")) then
 		e.self:Say("Each of the saureks have their own unique set of scales. I am able to tell which saurek my trainees have managed to hunt successfully by the scale they return to me. Feel free to join in our lesson or the hunt. I hope that you will benefit from my advice. Hunt well, " .. e.other:GetName() .. ".");
 	end
@@ -68,8 +68,3 @@ function event_trade(e)
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------

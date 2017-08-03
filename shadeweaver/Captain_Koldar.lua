@@ -39,7 +39,7 @@ end
 
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Stand back hunter! Not all of my men are properly trained in the use of their spears. You may find yourself losing an eye if you get too close. Now then, I assume you have [come to help.] Is that correct?");
+		e.self:Say("Stand back hunter! Not all of my men are properly trained in the use of their spears. You may find yourself losing an eye if you get too close. Now then, I assume you have [" .. eq.say_link("come to help.") .. "] Is that correct?");
 	elseif(e.message:findi("come to help")) then
 		e.self:Say("Then why are you standing around! Can't you see the invading forces of the Shak Dratha approach our town? Destroy them and bring me four of their bloody hearts as proof of your deed. Snap to it!");
 	end
@@ -54,8 +54,3 @@ function event_trade(e)
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------

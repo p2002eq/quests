@@ -1,9 +1,9 @@
 ---- Quest:Saurek Claws
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Welcome " .. e.other:GetName() .. "! Have you been sent to speak with me by [Captain Alim]?");
+		e.self:Say("Welcome " .. e.other:GetName() .. "! Have you been sent to speak with me by [" .. eq.say_link("Captain Alim") .. "]?");
 	elseif(e.message:findi("captain alim")) then
-		e.self:Say("Excellent, I presume you wish to speak with me about the [Firefall Club]?");
+		e.self:Say("Excellent, I presume you wish to speak with me about the [" .. eq.say_link("Firefall Club") .. "]?");
 	elseif(e.message:findi("firefall club")) then
 		e.self:Say("If you provide me with three firefall claws, and a wooden practice flail, I am able to fashion them together into a Firefall Claw Club, for you to use.");
 	end
@@ -17,8 +17,3 @@ function event_trade(e)
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------
