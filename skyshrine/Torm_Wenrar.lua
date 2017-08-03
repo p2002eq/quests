@@ -1,8 +1,8 @@
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Hail to you my friend "..e.other:GetName().."! I am Torm Wenrar, proud warrior of the Draconic Loyalist Fellowship. The dragons and dragon-kin of Skyshrine have need of capable warriors to aid in the war with the giants of Kael Drakkel. Do not consider this a sign of weakness, even the most powerful beings benefit from having friends and allies. The Giants too have many beings in their service, Ogres, Trolls, and unfortunately even Northmen like myself have been hired into the service of the Kromzek. These mercenaries must be put down, perhaps if enough of them are slain, other sell swords would be deterred from seeking employment of the Kromzek. The dragon-kin have placed a [bounty] on the lives of the Kromzeks mercenaries, any aid you can provide to the Skyshrine would be well rewarded.");
+		e.self:Say("Hail to you my friend "..e.other:GetName().."! I am Torm Wenrar, proud warrior of the Draconic Loyalist Fellowship. The dragons and dragon-kin of Skyshrine have need of capable warriors to aid in the war with the giants of Kael Drakkel. Do not consider this a sign of weakness, even the most powerful beings benefit from having friends and allies. The Giants too have many beings in their service, Ogres, Trolls, and unfortunately even Northmen like myself have been hired into the service of the Kromzek. These mercenaries must be put down, perhaps if enough of them are slain, other sell swords would be deterred from seeking employment of the Kromzek. The dragon-kin have placed a [" .. eq.say_link("bounty") .. "] on the lives of the Kromzeks mercenaries, any aid you can provide to the Skyshrine would be well rewarded.");
 	elseif(e.message:findi("bounty")) then
-		e.self:Say("You shall be rewarded from skyshrines treasure hordes for the Kromzek Mercenary Brooches of every three mercenaries in the Kromzeks employment you slay. If you manage to locate and slay the [mercenary captains], or the more [notorious mercenaries] the rewards will be greater.");
+		e.self:Say("You shall be rewarded from skyshrines treasure hordes for the Kromzek Mercenary Brooches of every three mercenaries in the Kromzeks employment you slay. If you manage to locate and slay the [" .. eq.say_link("mercenary captains") .. "], or the more [" .. eq.say_link("notorious mercenaries") .. "] the rewards will be greater.");
 	elseif(e.message:findi("mercenary captains")) then
 		e.self:Say("There are four mercenaries that have been promoted by the Kromzek to the position of mercenary captain. These captains command various units of mercenaries, usually those of their own race. The military prowess of the Kromzek, Kromrif, and their followers should not be underestimated. These individuals are very good at what they have been hired to achieve. There is a bounty available for the personalized mercenary brooches of Captain Glarg, Captain Ulmog, and Captain Mc'Hersh. Recover all three of the brooches and return them to me as proof of the captains deaths and I shall reward you from the treasure coffers of Skyshrine.");
 	elseif(e.message:findi("notorious mercenaries")) then
@@ -34,5 +34,4 @@ function event_trade(e)
 
 	item_lib.return_items(e.self, e.other, e.trade);
 end
-
 

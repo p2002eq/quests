@@ -16,9 +16,9 @@ local QUEST_ITEMS = {
 function event_say(e)
 	if (e.other:GetFaction(e.self) < 2) then --Must be ally
 		if(e.message:findi("hail")) then
-			e.self:Say("Greetings, I am looking for one who is one with the wild beasts of the world. Do you call yourself a Beastlord?");
+			e.self:Say("Greetings, I am looking for one who is one with the wild beasts of the world. Do you call yourself a [" .. eq.say_link("i am a Beastlord",false,"Beastlord") .. "]?");
 		elseif(e.message:findi("i am a Beastlord")) then
-			e.self:Say("I have been waiting for one such as you to arrive. I have some equipment that is worthy of a great Beastlord. I have a cap, leggings, tunic, bracer, boots, sleeves, and gloves if you think you are worthy.");
+			e.self:Say("I have been waiting for one such as you to arrive. I have some equipment that is worthy of a great Beastlord. I have a [" .. eq.say_link("cap") .. "], [" .. eq.say_link("leggings") .. "], [" .. eq.say_link("tunic") .. "], [" .. eq.say_link("bracer") .. "], [" .. eq.say_link("boots") .. "], [" .. eq.say_link("sleeves") .. "], and [" .. eq.say_link("gloves") .. "] if you think you are worthy.");
 		elseif(e.message:findi("cap")) then
 			e.self:Say("I shall weave one of exceptional quality for you but you must gather the items first. I require an unadorned leather cap and three pieces of crushed coral.");
 		elseif(e.message:findi("tunic")) then

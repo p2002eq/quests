@@ -16,11 +16,11 @@ local QUEST_ITEMS = {
 function event_say(e)
     if(e.other:GetFaction(e.self) < 2) then -- Must be ally
         if(e.message:findi("hail")) then
-            e.self:Say("Greetings to you. I seek one who calls himself a wizard. What do you call yourself, manling?");
-        elseif(e.message:findi("i am a wizard")) then
-            e.self:Say("Excellent. Are you sure enough of your skills to undertake my tasks? If not, get out of my sight!");
-        elseif(e.message:findi("undertake your tasks")) then
-            e.self:Say("I thought so. One should never back down from a challenge. Once you have completed them I will have a cap, a robe, sleeves, wristbands, gloves, leggings and boots.");
+            e.self:Say("Greetings to you. I seek one who calls himself a [" .. eq.say_link("wizard") .. "]. What do you call yourself, manling?");
+        elseif(e.message:findi("wizard")) then
+            e.self:Say("Excellent. Are you sure enough of your skills to undertake my [" .. eq.say_link("tasks") .. "]? If not, get out of my sight!");
+        elseif(e.message:findi("tasks")) then
+            e.self:Say("I thought so. One should never back down from a challenge. Once you have completed them I will have a [" .. eq.say_link("cap") .. "], a [" .. eq.say_link("robe") .. "], [" .. eq.say_link("sleeves") .. "], [" .. eq.say_link("wristbands") .. "], [" .. eq.say_link("gloves") .. "], [" .. eq.say_link("leggings") .. "] and [" .. eq.say_link("boots") .. "].");
         elseif(e.message:findi("cap")) then
             e.self:Say("For you to receive my gift, I shall require three crushed flame opals and a tattered silk turban.");
         elseif(e.message:findi("robe")) then

@@ -17,9 +17,9 @@ function event_say(e)
   if (e.other:GetFaction(e.self) < 2) then --must be ally
     if (e.message:findi("hail")) then
       e.self:Emote("speaks in a deep tone.");
-      e.self:Say("Greetings. I wish to speak only to a shaman, so I might aid them with protection from the world in the form of armor.");
+      e.self:Say("Greetings. I wish to speak only to a shaman, so I might aid them with protection from the world in the form of [" .. eq.say_link("") .. "]armor.");
     elseif(e.message:findi("armor")) then
-      e.self:Say("For you I shall make a coif, breastplate, sleeves, bracers, gauntlets, leggings, and boots. Each piece is a quest unto itself. To seek the components, you must search the lands for them and test the power of the spirit within.");
+      e.self:Say("For you I shall make a [" .. eq.say_link("coif") .. "], [" .. eq.say_link("breastplate") .. "], [" .. eq.say_link("sleeves") .. "], [" .. eq.say_link("bracers") .. "], [" .. eq.say_link("gauntlets") .. "], [" .. eq.say_link("leggings") .. "], and [" .. eq.say_link("boots") .. "]. Each piece is a quest unto itself. To seek the components, you must search the lands for them and test the power of the spirit within.");
     elseif(e.message:findi("coif")) then
       e.self:Say("For you I shall make a coif, breastplate, sleeves, bracers, gauntlets, leggings, and boots. Each piece is a quest unto itself. To seek the components, you must search the lands for them and test the power of the spirit within.");
     elseif(e.message:findi("breastplate")) then
