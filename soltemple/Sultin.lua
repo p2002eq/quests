@@ -2,9 +2,9 @@
 
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("I am Sultin - keeper of the three [Incandescent]s of power and the [Rod] of Insidious Glamour. If you are an Enchanter, perhaps we can deal.");
+		e.self:Say("I am Sultin - keeper of the three [" .. eq.say_link("Incandescent") .. "]s of power and the [" .. eq.say_link("Rod") .. "] of Insidious Glamour. If you are an Enchanter, perhaps we can deal.");
 	elseif(e.message:findi("incandescent")) then
-		e.self:Say("There are three Incandescent items of power - [Wand], [Mask] and [Gloves]. Are you [interested] in any of them?");
+		e.self:Say("There are three Incandescent items of power - [" .. eq.say_link("Wand") .. "], [" .. eq.say_link("Mask") .. "] and [" .. eq.say_link("Gloves") .. "]. Are you [" .. eq.say_link("interested") .. "] in any of them?");
 	elseif(e.message:findi("wand")) then
 		e.self:Say("Ahh, the Incandescent Wand. If you will get the components to make another, I will give you mine. I will need a Pouch of Silver Dust, found on the dusty Werebat in the Estate of Unrest. I will also need a Silver wand, found on a Silvered Guard in the Temple of Cazic Thule. This wand will not be enchanted - you will need to pay Esmirella of the Northern Karana Gypsy Camp 50 gold to enchant it for you. When the Wand is fully enchanted, bring it and the pouch to me and I will give you the Incandescent Wand.");
 	elseif(e.message:findi("mask")) then
@@ -12,7 +12,7 @@ function event_say(e)
 	elseif(e.message:findi("gloves")) then
 		e.self:Say("My personal favorite - Incandescent Gloves. If you bring me the components to make another pair, I will give you my gloves. Incandescent Gloves are made by sewing together four other sets of gloves. Glowing Gloves can be found on our mortal enemies - the Shadowed Men. Radiant Gloves can be found on Radiant in the Feerrott. Enchanted and Gleaming gloves can be purchased for 50 golden coins from Tizina of the Lavastrom Gypsies and a bloodstone from Tarn Vislin of HighKeep. Bring me all four sets of gloves and I will give you a pair of Incadescent ones.");
 	elseif(e.message:findi("rod")) then
-		e.self:Say("I am keeper of the Rod of Insidious Glamour - a device of guile and deceit. The rod will increase the Charisma of whomever holds it. Are you [interested] in obtaining the [rod]?");
+		e.self:Say("I am keeper of the Rod of Insidious Glamour - a device of guile and deceit. The rod will increase the Charisma of whomever holds it. Are you [" .. eq.say_link("interested") .. "] in obtaining the [rod]?");
 	elseif(e.message:findi("interested")) then
 		e.self:Say("If I am to give you this rod, you must bring me the parts to make another. I will need the Golden Rod from the froglok priest in Guk, as well as a Shining Stone from our mortal enemies, the Shadowed Men. Once you have obtained the Shining Stone, you will need to get it enchanted. Cynthia of the Rathe Mountain Gypsy Clan will enchant the Shining Stone for you - give it to her with 50 golden coins. When the Stone is fully enchanted, bring it and the rod to me and I will give you a Rod of Insidious Glamour.");
 	end
@@ -50,9 +50,3 @@ function event_trade(e)
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
--- Quest by mystic414
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------
