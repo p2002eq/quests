@@ -5,7 +5,7 @@ function event_say(e)
 	elseif(e.message:findi("master rinmark")) then
 		e.self:Emote("squints one eye open, then returns to his meditation.");
 	elseif(e.message:findi("talon southpaw")) then
-		e.self:Emote("waves his arms in the air. 'The great master. His soul is the wind. He speaks to us in words of thunder. He strikes Norrath with bolts of lightning. I seek to be as he is. I have traveled the globe in search of his fists. I have found only one. Another is said to be with [Gomoz]. I shall return it when I am finished with my seasons-long meditation or perhaps I shall find a monk to [return the hand to Cabilis].'");
+		e.self:Emote("waves his arms in the air. 'The great master. His soul is the wind. He speaks to us in words of thunder. He strikes Norrath with bolts of lightning. I seek to be as he is. I have traveled the globe in search of his fists. I have found only one. Another is said to be with [" .. eq.say_link("Gomoz") .. "]. I shall return it when I am finished with my seasons-long meditation or perhaps I shall find a monk to [" .. eq.say_link("return the hand to Cabilis") .. "].'");
 	elseif(e.message:findi("Gomoz")) then
 		e.self:Say("Disciple Gomoz was once Talon Southpaw's pupil. It is rumored that he has only one hand. Unfortunately, a horde of ogre raiders swiped his bones, along with others, from their place in Kurn's Tower. What those simple oafs plan to do with them is a mystery. Only one who has studied the arcane sciences could use them. They most likely used them as soup bones.");
 	elseif(e.message:findi("return the hand to Cabilis")) then
@@ -34,21 +34,15 @@ function event_trade(e)
 		e.other:Faction(193,10);
 		e.other:SummonItem(12797,20000);
 	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 12829})) then
-		e.self:Emote("opens the box to reveal a variety of pebbles. 'How grand!! My pebbles!! Now I can continue with my rock garden!! Hmmm. You look familiar. Hey!! I bet you can help me complete my garden!! Would you please [assist old Rinmark in completing his rock garden]?'");
+		e.self:Emote("opens the box to reveal a variety of pebbles. 'How grand!! My pebbles!! Now I can continue with my rock garden!! Hmmm. You look familiar. Hey!! I bet you can help me complete my garden!! Would you please [" .. eq.say_link("assist old Rinmark in completing his rock garden") .. "]?'");
 		e.other:Faction(317,20);
 		e.other:Faction(193,10);
 		e.other:QuestReward(e.self,0,0,0,0,0,30000);
 	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 12836})) then
-		e.self:Emote("graciously accepts the tin box filled with precious rocks and gems. 'Thank you greatly, young " .. e.other:GetName() .. ". For your deed, I bestow upon you the shackle of bronze!! You have completed the third rung. Alas, there is no time for celebration. I need your help in rescuing a [student] of mine.'");
+		e.self:Emote("graciously accepts the tin box filled with precious rocks and gems. 'Thank you greatly, young " .. e.other:GetName() .. ". For your deed, I bestow upon you the shackle of bronze!! You have completed the third rung. Alas, there is no time for celebration. I need your help in rescuing a [" .. eq.say_link("student") .. "] of mine.'");
 		e.other:Faction(317,20);
 		e.other:Faction(193,10);
 		e.other:QuestReward(e.self,0,0,0,0,4195,30000);
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
---Submitted by: Jim Mills
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------

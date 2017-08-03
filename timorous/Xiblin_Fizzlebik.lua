@@ -11,11 +11,11 @@ end
 
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Hello, " .. e.other:GetName() .. "! I am Xiblin Fizzlebik, renowned archeologist and historian of Ak'Anon. I'm currently in search of artifacts and relics on the Iksar [Jarsath tribe]. If you stumble upon anything, please bring it to me.");
+		e.self:Say("Hello, " .. e.other:GetName() .. "! I am Xiblin Fizzlebik, renowned archeologist and historian of Ak'Anon. I'm currently in search of artifacts and relics on the Iksar [" .. eq.say_link("Jarsath tribe") .. "]. If you stumble upon anything, please bring it to me.");
 	elseif(e.message:findi("Jarsath tribe")) then
 		e.self:Say("About two thousand years ago, there were five different tribes of Iksar who dwelled on the continent of Kunark. One of these tribes was the Jarsath. They were a very primitive sort, proud and tribal, but also cannibalistic. Often, they went to war with the other tribes that co-existed with them back then. The ruins found on this island were of structures created by the Jarsath. I've been excavating for quite some time now, but haven't been able to find anything of significance.");
 	elseif(e.message:findi("looking for")) then
-		e.self:Say("In my studies, I have learned that the Jarsath believed they could draw power from a holy symbol... specifically a medallion that represented their tribe. When Salthir became king of the Iksar empire Sebilis, he had the medallion broken into three pieces and hid them on the Kunark continent so that they would never be found. I'm searching for the pieces so that I can put it back together and learn more about this tribe. Perhaps you wish to help?");
+		e.self:Say("In my studies, I have learned that the Jarsath believed they could draw power from a holy symbol... specifically a medallion that represented their tribe. When Salthir became king of the Iksar empire Sebilis, he had the medallion broken into three pieces and hid them on the Kunark continent so that they would never be found. I'm searching for the pieces so that I can put it back together and learn more about this tribe. Perhaps you wish to [" .. eq.say_link("help") .. "]?");
 	elseif(e.message:findi("help")) then
 		e.self:Say("All I know is that the pieces were most likely hidden in water regions. If you manage to find them, bring them to me and I will be able to put the medallion of the Jarsath back together. I am sure there is much to be learned from it.");
 	end
@@ -42,9 +42,3 @@ function event_signal(e)
 		e.self:Say("I didn't say anything! Now get back on your side of the island, you're getting dirt and junk all over mine!");
 	end
 end
-
--- Quest by mystic414
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------

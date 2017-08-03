@@ -1,13 +1,13 @@
 --Quest Name: McMerrin's Feast - "Evil" Races, or any with VS faction
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Emote("gestures as if casting a powerful spell...'Come forward, adventurer! Come and [see the dancing skeleton]. I shall cast a powerfull spell and bring forth this operatic, clattering jumble of bones and he shall do a fine dance for you. From the nether regions and planes beyond, I call forth this bardic, magical, rhyming, tap-dancing hunk of undead!! I am Oowomp the Great!!'");
+		e.self:Emote("gestures as if casting a powerful spell...'Come forward, adventurer! Come and [" .. eq.say_link("see the dancing skeleton") .. "]. I shall cast a powerfull spell and bring forth this operatic, clattering jumble of bones and he shall do a fine dance for you. From the nether regions and planes beyond, I call forth this bardic, magical, rhyming, tap-dancing hunk of undead!! I am Oowomp the Great!!'");
 		e.self:DoAnim(43);
 	elseif(e.message:findi("see the dancing skeleton")) then
-		e.self:Say("Oh!!  You wish to see the great Oowomp perform his magic!! I have studied with the grand mages and wise [McMerin clan] of Norrath. as my speech implies. I can call forth the skeleton with but a twinkling of my power and five of your gold.");
+		e.self:Say("Oh!!  You wish to see the great Oowomp perform his magic!! I have studied with the grand mages and wise [" .. eq.say_link("McMerin clan") .. "] of Norrath. as my speech implies. I can call forth the skeleton with but a twinkling of my power and five of your gold.");
 		e.self:DoAnim(49);
 	elseif(e.message:findi("McMerin clan")) then
-		e.self:Say("Clan McMerin were wise shamans from the North. They allowed me to study with them. I learned many spells while I communed with them.  From them, I sto.., I mean, I learned the secret of McMerin's Feast. If you want to know the secret, you could [help gather components] for future rituals.");
+		e.self:Say("Clan McMerin were wise shamans from the North. They allowed me to study with them. I learned many spells while I communed with them.  From them, I sto.., I mean, I learned the secret of McMerin's Feast. If you want to know the secret, you could [" .. eq.say_link("help gather components") .. "] for future rituals.");
 		e.self:DoAnim(48);
 	elseif(e.message:findi("gather components")) then
 		e.self:Say("Actually... Not so much help as do - ALL - of the gathering. In the lands of Kunark are clay of Ghiosk, crushed dread diamond and powder of Yun. A rare find would be the bones of one who touched the Bath of Obulus. Find and return these to me and the shaman secret of McMerin's Feast is yours.");
@@ -37,9 +37,3 @@ function event_timer(e)
 		eq.stop_timer(1);
 	end
 end
-
---Author: BWStripes
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------
