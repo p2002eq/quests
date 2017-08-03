@@ -1,7 +1,7 @@
 ---- Quest:Snarla's Friendship
 function event_say(e)
     fac = e.other:GetFaction(e.self);
-    if(fac <= 5) then
+    if(fac <= 6) then
         if(e.message:findi("hail")) then
             e.self:Say("Shhh. quiet! This is place of solitude and peace! You [" .. eq.say_link("respect temple") .. "] while you here if you know what good for you!");
         elseif(e.message:findi("respect temple")) then

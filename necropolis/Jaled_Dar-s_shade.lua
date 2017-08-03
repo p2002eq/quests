@@ -14,22 +14,22 @@ function event_trade(e)
 	local item_lib = require("items");
 
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 9296})) then 
-		e.self:Say("Thank you so much. Tiny gets quite tired doing this by himself. Here you go.");
+		e.self:Say("Very well done. Here is how you unlock the entry. Seek out a great dragon statue in the Eastern Wastes, and use this key there. Not very different from how you entered my old domain, Veeshan's Peak, now, is it? Haha, yes, I know many things, even dead.");
 		e.other:QuestReward(e.self,0,0,0,0,27265,500000);
 	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 27255})) then 
-	    e.self:Say("Thank you so much. Tiny gets quite tired doing this by himself. Here you go.");
+	    e.self:Say("Very well done. Here is how you unlock the entry. Seek out a great dragon statue in the Eastern Wastes, and use this key there. Not very different from how you entered my old domain, Veeshan's Peak, now, is it? Haha, yes, I know many things, even dead.");
 		e.other:QuestReward(e.self,0,0,0,0,27265,500000);
 	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 27256})) then 
-		e.self:Say("Thank you so much. Tiny gets quite tired doing this by himself. Here you go.");
+		e.self:Say("Very well done. Here is how you unlock the entry. Seek out a great dragon statue in the Eastern Wastes, and use this key there. Not very different from how you entered my old domain, Veeshan's Peak, now, is it? Haha, yes, I know many things, even dead.");
 		e.other:QuestReward(e.self,0,0,0,0,27265,500000);
 	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 27258})) then 
-		e.self:Say("Thank you so much. Tiny gets quite tired doing this by himself. Here you go.");
+		e.self:Say("Very well done. Here is how you unlock the entry. Seek out a great dragon statue in the Eastern Wastes, and use this key there. Not very different from how you entered my old domain, Veeshan's Peak, now, is it? Haha, yes, I know many things, even dead.");
 		e.other:QuestReward(e.self,0,0,0,0,27265,500000);
 	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 27259})) then
-		e.self:Say("Thank you so much. Tiny gets quite tired doing this by himself. Here you go.");
+		e.self:Say("Very well done. Here is how you unlock the entry. Seek out a great dragon statue in the Eastern Wastes, and use this key there. Not very different from how you entered my old domain, Veeshan's Peak, now, is it? Haha, yes, I know many things, even dead.");
 		e.other:QuestReward(e.self,0,0,0,0,27265,500000);
 	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 27266})) then 
-		e.self:Say("Thank you so much. Tiny gets quite tired doing this by himself. Here you go.");
+		e.self:Say("Very well done. Here is how you unlock the entry. Seek out a great dragon statue in the Eastern Wastes, and use this key there. Not very different from how you entered my old domain, Veeshan's Peak, now, is it? Haha, yes, I know many things, even dead.");
 		e.other:QuestReward(e.self,0,0,0,0,27265,500000);
 	end
 	item_lib.return_items(e.self, e.other, e.trade)  

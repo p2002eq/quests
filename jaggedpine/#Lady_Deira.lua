@@ -1,7 +1,8 @@
 ---- Quest:Crown of the Tempest Guard
 function event_say(e)
-    fac = e.other:GetFaction(e.self);
-    if(fac <= 2) then
+    local fac = e.other:GetFaction(e.self);
+	
+	if(fac == 1) then	--requires Ally faction to Residents of Jaggedpine	
         if(e.message:findi("hail")) then
             e.self:Emote("closes her eyes and gives a formal, polite bow to " .. e.other:GetName() .. ".");
             e.self:Say("I am Lady Deira, Veteran of Thunder and one of several ambassadors to the Jaggedpine from Qeynos. It is a pleasure to make your acquaintance, although I fear that I am not one for words or company at the moment. I have [" .. eq.say_link("duties") .. "] to uphold and must give the fullest of my attentions to the fort.");
@@ -42,29 +43,32 @@ function event_say(e)
         elseif(e.message:findi("would not have his tale")) then
             e.self:Say("The order knew of Anumnan's grief and was saddened by the priest's sudden confusion, doubt, and questions. They kept his confidence well, however, and did not speak beyond their own circle of Anumnan's account of the rogue, but his madness would twist his allies' compassion into callous ignorance. Anumnan grew to believe that the corruption the rogue had spoken unto him had already seeped into the order and he began to nurture a festering lust for vengeance. Anumnan was never caught by Qeynos, but it is said that he sought refuge within the city of Freeport. Our intelligence was only able to find the remnants of Anumnan's tale reduced to that of a pitiable madman who dwells in the southern desert of Ro. Seek Anumnan and return him to the Eye of Karana's Storm that his caged spirit has sought for so long. Anumnan will also carry the rune that you seek, for as he destroyed the others, including his own, he still wears the one that had once belonged to his departed son.");
         end
-    else
+    elseif(e.message:findi("hail")) then
         e.self:Say("Leave my presence at once. Your ways of life are not acceptable to one who follows the Rainkeeper.");
     end
 end
 
 function event_trade(e)
     local item_lib = require("items");
-    fac = e.other:GetFaction(e.self);
-    if(item_lib.check_turn_in(e.self, e.trade, {item1 = 8918, item2 = 8917}) and (fac <= 2)) then -- Nyreins Tome & Earthen Crown of the Underfoot
-        e.self:Say("You have done well thus far and I commend your actions and success. Now, the trials shall continue and this shall be the walk that tests your faith -- judging its suitability to bear the symbol. Take this, Nyrein's Prayer, to one known as Lord Mrallon in the city of Qeynos. He is aware of the rites of the Tempest Guard and will know full well of the path that has been set before you. With the prayer, he will expect the [" .. eq.say_link("Tempest Rune") .. "] that you must obtain before seeking him. Once you have the rune, you shall return it and the prayer to Lord Mrallon and should you prove successful in this task and thus worthy of the final trial, he shall guide you further.");
-        e.other:Faction(271,50); -- Residents of Jaggedpine
-        e.other:Faction(159,50); -- Jaggedpine Treefolk
-        e.other:Faction(265,50); -- Protectors of Pine
-        e.other:Faction(135,50); -- Guards of Qeynos
-        e.other:QuestReward(e.self,0,0,0,0,8919,1000); -- Nyrein's Prayer
-    elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 34038}) and (fac <= 2)) then -- Tempest Guard Stone
-        e.self:Emote("gives a warm, gentle smile and a deep bow of respect to " .. e.other:GetName() .. " as she extends a white steel crown ornamented with a single blue gem.");
-        e.self:Say("Welcome to the Veterans of the Storm, and we honor you as Tempest Guard " .. e.other:GetName() .. ". Bear this symbol in humility and as a sign of your eternal pledge in service and protection of all that The Rainkeeper holds dear and sacred.");
-        e.other:Faction(271,100); -- Residents of Jaggedpine
-        e.other:Faction(159,100); -- Jaggedpine Treefolk
-        e.other:Faction(265,100); -- Protectors of Pine
-        e.other:Faction(135,100); -- Guards of Qeynos
-        e.other:QuestReward(e.self,0,0,0,0,8954,2000); -- Crown of the Tempest Guard
-    end
+    local fac = e.other:GetFaction(e.self);
+	
+	if(fac == 1) then	--requires Ally faction to Residents of Jaggedpine	
+		if(item_lib.check_turn_in(e.self, e.trade, {item1 = 8918, item2 = 8917})) then -- Nyreins Tome & Earthen Crown of the Underfoot
+			e.self:Say("You have done well thus far and I commend your actions and success. Now, the trials shall continue and this shall be the walk that tests your faith -- judging its suitability to bear the symbol. Take this, Nyrein's Prayer, to one known as Lord Mrallon in the city of Qeynos. He is aware of the rites of the Tempest Guard and will know full well of the path that has been set before you. With the prayer, he will expect the [" .. eq.say_link("Tempest Rune") .. "] that you must obtain before seeking him. Once you have the rune, you shall return it and the prayer to Lord Mrallon and should you prove successful in this task and thus worthy of the final trial, he shall guide you further.");
+			e.other:Faction(271,50); -- Residents of Jaggedpine
+			e.other:Faction(159,50); -- Jaggedpine Treefolk
+			e.other:Faction(265,50); -- Protectors of Pine
+			e.other:Faction(135,50); -- Guards of Qeynos
+			e.other:QuestReward(e.self,0,0,0,0,8919,1000); -- Nyrein's Prayer
+		elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 34038})) then -- Tempest Guard Stone
+			e.self:Emote("gives a warm, gentle smile and a deep bow of respect to " .. e.other:GetName() .. " as she extends a white steel crown ornamented with a single blue gem.");
+			e.self:Say("Welcome to the Veterans of the Storm, and we honor you as Tempest Guard " .. e.other:GetName() .. ". Bear this symbol in humility and as a sign of your eternal pledge in service and protection of all that The Rainkeeper holds dear and sacred.");
+			e.other:Faction(271,100); -- Residents of Jaggedpine
+			e.other:Faction(159,100); -- Jaggedpine Treefolk
+			e.other:Faction(265,100); -- Protectors of Pine
+			e.other:Faction(135,100); -- Guards of Qeynos
+			e.other:QuestReward(e.self,0,0,0,0,8954,2000); -- Crown of the Tempest Guard
+		end
+	end
     item_lib.return_items(e.self, e.other, e.trade)
 end
