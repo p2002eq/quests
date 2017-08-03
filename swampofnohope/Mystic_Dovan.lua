@@ -2,7 +2,7 @@
 function event_say(e)
 	local qglobals = eq.get_qglobals(e.self,e.other);
 	if(e.message:findi("Hail")) then
-		e.self:Emote("shows the signs of a great mystic. You can feel the power resonating from his aura. 'Greetings and may the cursed blessings of Cazic-Thule be yours. What may I do for you this fine evening? Perhaps I can [cure disease] or [heal] you, perhaps even [purge toxins] from your system?");
+		e.self:Emote("shows the signs of a great mystic. You can feel the power resonating from his aura. 'Greetings and may the cursed blessings of Cazic-Thule be yours. What may I do for you this fine evening? Perhaps I can [" .. eq.say_link("cure disease") .. "] or [" .. eq.say_link("heal") .. "] you, perhaps even [" .. eq.say_link("purge toxins") .. "] from your system?");
 	elseif(e.message:findi("cure disease")) then
 		e.self:Say("Your malady shall dissipate once you deliver to me one giant blood sac.");
 	elseif(e.message:findi("heal")) then
