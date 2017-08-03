@@ -1,18 +1,8 @@
--- DEVELOPER: KOVOU
--- DEVELOPER: UNKOWN Gem Turn in text was already present
-
--- *** NPC INFORMATION ***
-
--- NAME: Ortallius
--- ID: 35036
--- ZONE: sro
--- Converted to .lua by Speedz
-
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Welcome to the lands of Ro. Stand and fight with me. We shall fight to reclaim the desert in the name of Solusek Ro. Death to all [dervish cutthroats]!!");
+		e.self:Say("Welcome to the lands of Ro. Stand and fight with me. We shall fight to reclaim the desert in the name of Solusek Ro. Death to all [" .. eq.say_link("dervish cutthroats") .. "]!!");
 	elseif(e.message:findi("dervish cutthroats")) then
-		e.self:Say("The dervish cutthroats are the vile scum who inhabit the desert. They are rogues who assault wayward travelers. Solusek Ro has commanded their extermination!! Do you wish to [join the crusade]?");
+		e.self:Say("The dervish cutthroats are the vile scum who inhabit the desert. They are rogues who assault wayward travelers. Solusek Ro has commanded their extermination!! Do you wish to [" .. eq.say_link("join the crusade") .. "]?");
 	elseif(e.message:findi("join the crusade")) then
 		e.self:Emote("grins enthusiastically. 'The scum rarely wander far from their camps. Hunt them down and I will reward you for every three insignia rings you bring as proof of their deaths.'");
 	end

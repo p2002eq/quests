@@ -1,5 +1,3 @@
--- Converted to .lua by Speedz
-
 function event_death_complete(e)
     xloc = e.self:GetX();
     yloc = e.self:GetY();
