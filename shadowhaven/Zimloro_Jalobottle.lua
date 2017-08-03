@@ -1,11 +1,11 @@
 ---- Quest:Daksins' Vampyre Antidote & Zimloro's Potion Quest
 function event_say(e)
     if(e.message:findi("hail")) then
-        e.self:Say("Oi there, " .. e.other:GetName() .. ". If you are lookin for a potion or an antidote I got just what the doctor ordered. Step right up! I also have many other special potions but sadly I do not have the correct [components] for them.");
+        e.self:Say("Oi there, " .. e.other:GetName() .. ". If you are lookin for a potion or an antidote I got just what the doctor ordered. Step right up! I also have many other special potions but sadly I do not have the correct [" .. eq.say_link("components") .. "] for them.");
     elseif(e.message:findi("components")) then
-        e.self:Say("Well you see I can make some very magnificent potions. Unfortunately, I am in need of a few [ingredients] that I lost in a lab accident a few days back.");
+        e.self:Say("Well you see I can make some very magnificent potions. Unfortunately, I am in need of a few [" .. eq.say_link("ingredients") .. "] that I lost in a lab accident a few days back.");
     elseif(e.message:findi("ingredients")) then
-        e.self:Say("You sure seem interested in my work there, " .. e.other:GetName() .. ". So interested that I think you would be willing to go fetch the components I require for my studies for me! Am I correct? Will you [retrieve these components] for me?");
+        e.self:Say("You sure seem interested in my work there, " .. e.other:GetName() .. ". So interested that I think you would be willing to go fetch the components I require for my studies for me! Am I correct? Will you [" .. eq.say_link("retrieve these components") .. "] for me?");
     elseif(e.message:findi("retrieve these components")) then
         e.self:Say("Fantastic, " .. e.other:GetName() .. "! Elefan, my apprentice, is currently studying under my wing. He had been collecting samples in Shadeweaver lately and he probably has the items that I need. If you could go and speak with him and present him with this ingredient list, hopefully he will have what I need. Please bring the components back to me as soon as possible!");
         e.other:SummonItem(4758); -- Zimloro Ingredient List
