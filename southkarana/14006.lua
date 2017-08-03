@@ -1,10 +1,4 @@
 -- #Quillmane spawn
--- #npc - #a_lioness - randomly spawns 1 of 3 Quilmane locs around the zone)
--- #zone - SouthKarana
--- #Angelox
--- # Updated by Kilelen
--- # 2nd Updated and converted to Lua by robregen
-
 function event_death_complete(e)
 	local random_result = math.random(100);
 	local quillmane = 14139;
