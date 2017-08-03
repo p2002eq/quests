@@ -5,7 +5,7 @@
 
 function event_say(e)
 	if e.message:findi("hail") then
-		e.self:Say("Oh, hello there. Sorry I didn't notice you before I was thinking of an [old friend]. This used to be his room. I guess no one else has been assigned to these quarters.");
+		e.self:Say("Oh, hello there. Sorry I didn't notice you before I was thinking of an [" .. eq.say_link("old friend") .. "]. This used to be his room. I guess no one else has been assigned to these quarters.");
 	elseif e.message:findi("old friend") then
 		e.self:Say("His name was Bregun Dorey. What a funny little halfling he was. He had a good heart and worked hard. That is up until one day he just started acting odd, very nervous like he was hiding something. Then all he would talk about was Bixie Treats and then show off some weird heirloom charm bracelet. His time for the question came and due to his odd behavior he was sent to Marus Seru. I sure wish I knew how he was doing.");
 	end
