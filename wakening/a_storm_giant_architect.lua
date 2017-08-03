@@ -1,6 +1,6 @@
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Hmmm, I didn't know refuse could speak. Are you here to annoy me or are you planning on making yourself useful, if the latter is even possible?");
+		e.self:Say("Hmmm, I didn't know refuse could speak. Are you here to annoy me or are you planning on [" .. eq.say_link("make myself useful",false,"making yourself useful") .. "], if the latter is even possible?");
 	elseif(e.message:findi("make myself useful")) then
 		e.self:Say("A feeble creature like yourself is near worthless. If you must insist on serving the mighty Kromzek then go to the caverns of the geonids and bring me four blocks of living granite so that I may perform some tests on its value as a resource in the expansion of Kael.");
 	end
@@ -19,5 +19,3 @@ function event_trade(e)
 	
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
--- fiddle

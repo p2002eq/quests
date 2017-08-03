@@ -3,9 +3,9 @@ function event_say(e)
     if(e.other:GetFaction(e.self) < 5) then -- indiff?
         if(e.message:findi("hail")) then
             e.self:Emote("curtsies politely.");
-            e.self:Say("Welcome to our home! I am the Countess Silveana of the Tunarean Court.");
+            e.self:Say("Welcome to our home! I am the Countess Silveana of the Tunarean [" .. eq.say_link("Court") .. "].");
         elseif(e.message:findi("court")) then
-		    e.self:Say("The Tunarean Court consists of several of Tunare's most blessed creatures. We Sifaye help defend the wakening land from the invading giants to the east and watch for threats from the dragons to the west.");
+		    e.self:Say("The Tunarean Court consists of several of Tunare's most blessed creatures. We Sifaye help defend the wakening land from the invading [" .. eq.say_link("giants") .. "] to the east and watch for threats from the dragons to the west.");
 	    elseif(e.message:findi("giants")) then
 		    e.self:Say("There is a giant with a strange metal stick that has been the largest threat as of late. He wanders further into our lands than the other with the stick to his eye and squashes my Sifaye when he finds them. If you eliminate him for us I would like to see that stick he carries.");
         end
@@ -25,5 +25,3 @@ function event_trade(e)
     end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
---fiddle

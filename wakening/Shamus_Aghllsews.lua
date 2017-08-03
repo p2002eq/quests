@@ -1,7 +1,7 @@
 -- Friend of the Tunarean Court
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Welcome to my fiefdom, wayward " .. e.other:Race() .. ". I am Duke Shamus Aghllsews of the Tunarean Court. Only those who pledge friendship or membership to the Court are allowed sanctuary in the Wakening Lands.");
+		e.self:Say("Welcome to my fiefdom, wayward " .. e.other:Race() .. ". I am Duke Shamus Aghllsews of the Tunarean Court. Only those who [" .. eq.say_link("pledge friendship") .. "] or membership to the Court are allowed sanctuary in the Wakening Lands.");
     elseif(e.message:findi("pledge friendship")) then
 		e.self:Say("You must first prove your intentions to the Tunarean Court. I will permit you to participate in an oath of friendship only after you bring me four picks used by the Kromrif Laborers that are attempting to build into our lands.");
     end
