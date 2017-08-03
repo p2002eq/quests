@@ -1,7 +1,7 @@
 ---- Quest:Custodus Helms
 function event_say(e)
     if(e.message:findi("hail")) then
-        e.self:Say("So " .. e.other:Race() .. ", you dare to stand before the mighty Tymoz?  I am the Governor of this village of the Coterie of the Eternal Night.  Do you wish to [assist the Coterie], or will you better serve us as sustenance for our eternal lives?");
+        e.self:Say("So " .. e.other:Race() .. ", you dare to stand before the mighty Tymoz?  I am the Governor of this village of the Coterie of the Eternal Night.  Do you wish to [" .. eq.say_link("assist the Coterie") .. "], or will you better serve us as sustenance for our eternal lives?");
     elseif(e.message:findi("assist the Coterie")) then
         e.self:Say("You have made an intelligent decision my friend.  Our primary foe is the meddling Validus Custodus, the militia of Katta Castellum.  I will reward you for every two damaged custodus legionnaire helms or two damaged custodus centurion helms that you present to me as proof that you have slain members of our enemies ranks.");
     end

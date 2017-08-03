@@ -1,7 +1,7 @@
 ---- Quest:Coterie Mask of the Dead
 function event_say(e)
     if(e.message:findi("hail")) then
-        e.self:Say("Greetings mortal. The aura of death that surrounds you is the only reason you are not already a feast for my minions. Have you come to me as a sacrifice or are you offering your [services] to the Coterie of the Eternal Night?");
+        e.self:Say("Greetings mortal. The aura of death that surrounds you is the only reason you are not already a feast for my minions. Have you come to me as a sacrifice or are you offering your [" .. eq.say_link("services") .. "] to the Coterie of the Eternal Night?");
     elseif(e.message:findi("services")) then
         e.self:Say("If you are powerful enough to be of use to me you will journey to the Twilight regions on the south side of Luclin and fill this wineskin with the blood of Akheva. Failure is final death, either at the hands of the Akheva or the hands of the Coterie.");
         e.other:SummonItem(17096); -- Empty Blood Skin
