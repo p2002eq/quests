@@ -1,5 +1,4 @@
 -- Arms_Historian_Qua (155050) in Shar Vahl for BST epic
-
 function event_waypoint_arrive(e)
 	if(e.wp == 1) then
 		e.self:Emote("hums while he sorts through the books that rest on the various shelves.");

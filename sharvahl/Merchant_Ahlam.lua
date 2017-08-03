@@ -21,19 +21,19 @@ function event_trade(e)
 		e.other:QuestReward(e.self,0,0,0,0,17098); -- An Empty Pouch
 	end
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 31764})) then -- Pouch of Gravel tea leaves
-		e.self:Say("Many thanks " .. e.other:GetName() .. ", I'll be going to brew this tea up for the guards now. Take this seal as proof of your helping me. You wouldn't happen to know anyone who would be [interested] in learning the art of Vah Shir Brewing would you? I could really use the help in these hard times, I can barely keep up with all the demand.");
+		e.self:Say("Many thanks " .. e.other:GetName() .. ", I'll be going to brew this tea up for the guards now. Take this seal as proof of your helping me. You wouldn't happen to know anyone who would be [" .. eq.say_link("interested") .. "] in learning the art of Vah Shir Brewing would you? I could really use the help in these hard times, I can barely keep up with all the demand.");
 		e.other:QuestReward(e.self,0,0,0,0,31774); -- Ahlams seal
 	end
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 31774})) then -- Ahlams seal
-		e.self:Say("Well done, it is now time to start down the path of learning the art of Vah Shir brewing. You'll need a steady hand if you are to master the brew barrel. The first thing you'll need to learn is how to purify the water we use for all our finest brews. Take this Acrylia filter and use it to [purify water]. Bring me 4 flasks of crystal clear water and I'll teach you how to make the tea from the gravel tea leaves.");
+		e.self:Say("Well done, it is now time to start down the path of learning the art of Vah Shir brewing. You'll need a steady hand if you are to master the brew barrel. The first thing you'll need to learn is how to purify the water we use for all our finest brews. Take this Acrylia filter and use it to [" .. eq.say_link("purify water") .. "]. Bring me 4 flasks of crystal clear water and I'll teach you how to make the tea from the gravel tea leaves.");
 		e.other:QuestReward(e.self,0,0,0,0,31760); -- Acrylia sand purifier
 	end
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 31762, item2 = 31762, item3 = 31762, item4 = 31762})) then -- 4x Crystal clear water
-		e.self:Say("Very good " .. e.other:GetName() .. ", this water is perfect for making Gravel leaf tea. I've just received a message from Guard Jabbar under the arena needs a shipment of [Gravel leaf tea] to help sedate the prisoners. Fill a crate with bottles of Gravel leaf tea and take it to Guard Jabbar.");
+		e.self:Say("Very good " .. e.other:GetName() .. ", this water is perfect for making Gravel leaf tea. I've just received a message from Guard Jabbar under the arena needs a shipment of [" .. eq.say_link("Gravel leaf tea") .. "] to help sedate the prisoners. Fill a crate with bottles of Gravel leaf tea and take it to Guard Jabbar.");
 		e.other:QuestReward(e.self,0,0,0,0,17099); -- An Empty Crate
 	end
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 31775})) then -- Jabbars seal
-		e.self:Say("Very good " .. e.other:GetName() .. ", the guards had been waiting for that tea all day. I think you're ready to move on to something a bit more challenging now. Take this strainer, it will allow you to create some very potent brews from some of the more rare herbs to be found near the city. You'll want to start by making some [Hollow palm tea] to get used to how the strainer works.");
+		e.self:Say("Very good " .. e.other:GetName() .. ", the guards had been waiting for that tea all day. I think you're ready to move on to something a bit more challenging now. Take this strainer, it will allow you to create some very potent brews from some of the more rare herbs to be found near the city. You'll want to start by making some [" .. eq.say_link("Hollow palm tea") .. "] to get used to how the strainer works.");
 		e.other:QuestReward(e.self,0,0,0,0,31768); -- Metal Strainer
 	end
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 31769, item2 = 31768})) then -- Hollow palm tea & Metal Strainer
@@ -51,8 +51,3 @@ function event_trade(e)
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------

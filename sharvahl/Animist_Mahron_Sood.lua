@@ -1,7 +1,7 @@
 -- Feed the Hopper Quest
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Hail mate. Did you need something from me or are you looking to do me a [favor]?");
+		e.self:Say("Hail mate. Did you need something from me or are you looking to do me a [" .. eq.say_link("favor") .. "]?");
 	elseif(e.message:findi("favor")) then
 		e.self:Say("I've been playing with this little hopper for a while with the hopes of maybe domesticating him. He's fond of grimling parts, so that's what I bring him when I come over here to sit around and work on my leatherwork. I'll make you a deal... If you bring me four grimling toes or finger bones, I'll trade them for one of my leather pieces. Don't mix them up though.... I'm trying to see which he likes best... fingers bones or toes.");
 	end
@@ -25,8 +25,3 @@ function event_trade(e)
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------

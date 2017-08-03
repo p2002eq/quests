@@ -2,8 +2,7 @@
 function event_say(e)
 	if(e.message:findi("Hail")) then
 		e.self:Say("Greetings friend. If you're in the business for some herbs or shamanistic supplies you've come to the right place. Please take a look around for yourself or if you're looking for something feel free to ask and we may have you need somewhere behind the counter.");
-	end
-	if(e.message:findi("sealed medicine")) then
+	elseif(e.message:findi("sealed medicine")) then
 		e.self:Say("I may have just the thing you are looking for. I recently purchased quite an old and interesting sealed medicine pouch of superb craftsmanship. I will part with it for one-thousand gold pieces.");
 	end
 end
@@ -19,8 +18,3 @@ function event_trade(e)
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------

@@ -44,7 +44,7 @@ function event_say(e)
 		e.self:Say("Hi there, I am headed home before I get in trouble.  I got a little lost, but I am ok now.  I hope Daddy isn't too mad.  Bye bye!");
 	end
 	if(((Shainaiwaypoint > 16) and (Shainaiwaypoint < 61)) and (e.message:findi("Hail"))) then
-		e.self:Say("Hi. I was getting some buttons for Daddy and I got a little lost. I know the way, I mean it...but if you wanted to [follow] me home to make sure I got there safe and all, you could.");
+		e.self:Say("Hi. I was getting some buttons for Daddy and I got a little lost. I know the way, I mean it...but if you wanted to [" .. eq.say_link("follow") .. "] me home to make sure I got there safe and all, you could.");
 	end
 	if(((Shainaiwaypoint > 16) and (Shainaiwaypoint < 61)) and (e.message:findi("follow"))) then
 		e.self:Say("You will?!? Oh good, now I won't be so lonesome. Here hold my bag of buttons if you please, my arms are tired. Ready? Follow me now, I know the way.  'Shainai pauses and looks around, ' Hmmmm...");
@@ -72,8 +72,3 @@ function event_trade(e)
 	local item_lib = require("items");
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------

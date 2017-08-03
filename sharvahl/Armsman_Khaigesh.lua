@@ -7,7 +7,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 3452})) then -- Buckler of the Recruit
-		e.self:Say("I can see by your armaments, that Hebijeb has started you along the path of bravery. That's a very good foundation for a young Khala Dun recruit to build upon. Bravery is an important trait, but you will need to learn discipline and patience. The blacksmithing that we do as Khala Dun helps to reinforce and reflect upon those traits. Take this bag and I will help you with your next [lesson].");
+		e.self:Say("I can see by your armaments, that Hebijeb has started you along the path of bravery. That's a very good foundation for a young Khala Dun recruit to build upon. Bravery is an important trait, but you will need to learn discipline and patience. The blacksmithing that we do as Khala Dun helps to reinforce and reflect upon those traits. Take this bag and I will help you with your next [" .. eq.say_link("lesson") .. "].");
 		e.other:SummonItem(17604); -- Dusty Pouch
 		e.other:QuestReward(e.self,0,0,0,0,3452); -- Buckler of the Recruit
 	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 5553, item2 = 3454})) then -- Pouch of Nuggets & Skeletonbane Short Sword
@@ -23,8 +23,3 @@ function event_trade(e)
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------
