@@ -1,12 +1,11 @@
 --Quest: Leatherfoot Raiders
-
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Stand at attention!! You don't look fit enough to toe-wrestle my grandma!! You cannot be in my squad!! Are you [petitioning] or are you a [visitor]?");
+		e.self:Say("Stand at attention!! You don't look fit enough to toe-wrestle my grandma!! You cannot be in my squad!! Are you [" .. eq.say_link("petitioning") .. "] or are you a [" .. eq.say_link("visitor") .. "]?");
 	elseif(e.message:findi("visitor")) then
-		e.self:Say("Well, why didn't you say so?! Forgive me for hollering. Allow me to introduce myself. I am Marshal Anrey Leadladle, commander of the [Leatherfoot Raiders].");
+		e.self:Say("Well, why didn't you say so?! Forgive me for hollering. Allow me to introduce myself. I am Marshal Anrey Leadladle, commander of the [" .. eq.say_link("Leatherfoot Raiders") .. "].");
 	elseif(e.message:findi("petitioning")) then
-		e.self:Say("So you want to be a [Leatherfoot Raider]? What kind of joke is this? Look at you! You're a mess! Where are you [from]?");
+		e.self:Say("So you want to be a [" .. eq.say_link("Leatherfoot Raider") .. "]? What kind of joke is this? Look at you! You're a mess! Where are you [" .. eq.say_link("from rivervale",false,"from") .. "]?");
 	elseif(e.message:findi("leatherfoot raiders")) then
 		e.self:Say("You must be a visitor. The Leatherfoot Raiders are the elite force of the Guardians of the Vale. I command them. It is good to meet an outsider.");
 	elseif(e.message:findi("from rivervale")) then
@@ -32,5 +31,3 @@ function event_trade(e)
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
--- END of FILE Zone:rivervale  ID:19059 -- Marshal_Anrey
