@@ -3,9 +3,9 @@
 function event_say(e)
 	if e.other:GetFaction(e.self) == 1 then  -- req ally CoV
 		if e.message:findi("hail") then
-			e.self:Say(string.format("The Strong seek me out, for one reason or another. It seems you have come here in peace. Perhaps you wish to prove yourself a mighty %s? I respect only might!", e.other:GetClass()));
+			e.self:Say(string.format("The Strong seek me out, for one reason or another. It seems you have come here in peace. Perhaps you wish to [" .. eq.say_link("") .. "]prove yourself a mighty %s? I respect only might!", e.other:GetClass()));
 		elseif e.message:findi("wish to prove") then
-			e.self:Say("For the mighty I have four tests. The test of the tooth, the test of the flame, the test of the fire storm, and the test of protection. Which test do you wish to undertake?");
+			e.self:Say("For the mighty I have four tests. The [" .. eq.say_link("test of the tooth") .. "], the [" .. eq.say_link("test of the flame") .. "], the [" .. eq.say_link("test of the fire storm") .. "], and the [" .. eq.say_link("test of protection") .. "]. Which test do you wish to undertake?");
 		elseif e.message:findi("test of the tooth") then
 			e.self:Say("With tooth and nail you must fight, deep into the halls of testing. Recover the white tear of power, the white symbol for purity, the silver symbol to calm ones self, and a glowing orb. If you can return these to me I will know you are a mighty fighter indeed.");
 		elseif e.message:findi("test of the flame") then

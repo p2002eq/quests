@@ -3,13 +3,13 @@
 function event_say(e)
 	if e.other:GetFaction(e.self) == 1 then  -- req ally CoV
 		if e.message:findi("hail") then
-			e.self:Say(string.format("Greetings, %s. If you seek wisdom or the arcane I have tasks in the halls of testing you may complete to gain what you seek.", e.other:GetCleanName()));
-		elseif e.message:findi("the arcane") then
-			e.self:Say("To garner a reward fit for one who walks the arcane path return to me the poison tear and the poison symbol. Along with these return the serrated symbol and the runed symbol. If this task is not hard enough for you, I have a second quest for you.");
-		elseif e.message:findi("the second quest") then
+			e.self:Say(string.format("Greetings, %s. If you seek [" .. eq.say_link("wisdom") .. "] or the [" .. eq.say_link("arcane") .. "] I have tasks in the halls of testing you may complete to gain what you seek.", e.other:GetCleanName()));
+		elseif e.message:findi("arcane") then
+			e.self:Say("To garner a reward fit for one who walks the arcane path return to me the poison tear and the poison symbol. Along with these return the serrated symbol and the runed symbol. If this task is not hard enough for you, I have a [" .. eq.say_link("second quest") .. "] for you.");
+		elseif e.message:findi("second quest") then
 			e.self:Say("Tears may fall to the ground but not the ones you seek now. The black tear and the ruby tear you must seek. For more power I require the ruby symbol and a white symbol to bind the powers together. Upon the return of these four objects you will receive a wondrous reward.");
 		elseif e.message:findi("wisdom") then
-			e.self:Say(string.format("Wisdom can be gleaned from battle and that is what I wish you to do. Battle in the halls of testing may give you a different outlook on life. Which do you seek, the short battle or the long %s?", e.other:GetCleanName()));
+			e.self:Say(string.format("Wisdom can be gleaned from battle and that is what I wish you to do. Battle in the halls of testing may give you a different outlook on life. Which do you seek, the [" .. eq.say_link("short battle") .. "] or the [" .. eq.say_link("long battle",false,"long") .. "] %s?", e.other:GetCleanName()));
 		elseif e.message:findi("long battle") then
 			e.self:Say("You will spend much time in the halls of testing. Seek out a runed tear and a flame kissed tear, bring them back to me with a symbol black as midnight and a glowing orb of the ancient drakes.");
 		elseif e.message:findi("short battle") then
