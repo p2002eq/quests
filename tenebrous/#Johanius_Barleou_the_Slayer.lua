@@ -1,7 +1,7 @@
 ---- Quest:Johanius Stake of Slaying
 
 function event_spawn(e)
-    e.self:Say("Who is the most fearless [vampyre slayer] of your fellowship?");
+    e.self:Say("Who is the most fearless [" .. eq.say_link("vampyre slayer") .. "] of your fellowship?");
     eq.set_timer("jbts", 300 * 1000);
 end
 

@@ -1,14 +1,12 @@
--- Converted to .lua and GM event mods by Speedz
-
 local slot;
 local spell;
 local status = 0;
 function event_say(e)
 	if(e.message:findi("Hail")) then
 		e.other:SetLanguageSkill(0,100);
-		e.self:Say("Greetings " .. e.other:GetName() .. ". When a hero of our world is slain their soul returns to the place it was last bound and the body is reincarnated. As a member of the Order of Eternity  it is my duty to [bind your soul] to this location if that is your wish.");
+		e.self:Say("Greetings " .. e.other:GetName() .. ". When a hero of our world is slain their soul returns to the place it was last bound and the body is reincarnated. As a member of the Order of Eternity  it is my duty to [" .. eq.say_link("bind your soul") .. "] to this location if that is your wish.");
 		if(e.other:Admin() >= status) then
-			e.other:Message(14,"If you are attending the raid, I can help you [prepare] or I can send you to [fight] if you are of worthy level.");
+			e.other:Message(14,"If you are attending the raid, I can help you [" .. eq.say_link("prepare") .. "] or I can send you to [fight] if you are of worthy level.");
 		end
 	elseif(e.message:findi("bind my soul")) then
 		e.self:Say("Binding your soul. You will return here when you die.");

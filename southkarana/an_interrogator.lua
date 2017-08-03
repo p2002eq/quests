@@ -73,13 +73,13 @@ end
 
 function event_signal(e)
 	if(e.signal == 1) then
-		e.self:Say("Theodore Exanthem, you will [take us to the location] of Marcus Cachexia and Morley Murrain immediately.");
+		e.self:Say("Theodore Exanthem, you will take us to the location of Marcus Cachexia and Morley Murrain immediately.");
 		eq.signal(14146,1,5000); -- #Theodore_Exanthem
 	elseif(e.signal == 2) then
 		e.self:Say("Vile beast! You are withholding information on two men guilty of terrible atrocities, not the least of which was causing the death of one of Qeynos' most respected and well known citizens, Cros Treewind! As an Interrogator I am authorized to use physical force if necessary.");
 		eq.signal(14146,2,5000); -- #Theodore_Exanthem
 	elseif(e.signal == 3) then
-		e.self:Say("[Take us to the location] of Markus Cachexia and Morley Murrain!");
+		e.self:Say("Take us to the location of Markus Cachexia and Morley Murrain!");
 		eq.signal(14146,3,5000); -- #Theodore_Exanthem
 	elseif(e.signal == 4) then
 		e.self:Say("Take us to Markus Chachexia and Morley Murrain this instant or I'll turn you over to my friend here who appears to be much stronger than I am!");
@@ -88,7 +88,7 @@ function event_signal(e)
 		e.self:Emote("smiles and says, 'Well, I'm getting tired. Why don't you hit him for a while. Maybe you will be more convincing then I have been.");
 		eq.signal(14146,5,5000); -- #Theodore_Exanthem
 	elseif(e.signal == 6) then
-		e.self:Say("[Take us to the location] of Markus Cachexia and Morley Murrain!");
+		e.self:Say("Take us to the location of Markus Cachexia and Morley Murrain!");
 		--eq.signal(14146,6,5000); using this for wp 2.
 	--elseif(e.signal == 7) then
 		--e.self:ResumeWandering();  This is not working as intended.  this cause the mob to depop.

@@ -1,10 +1,10 @@
 function event_say(e)
 	if(e.message:findi("Hail")) then
-		e.self:Say("Welcome to our kitchen! As you can tell we stay pretty busy in here.  There are a lot of people to feed and a vast number of delicious meals to feed them.  I'm in charge of preparing [stews], [broth], and [vegetables].  If you ever have any questions about those areas. please let me know.");
+		e.self:Say("Welcome to our kitchen! As you can tell we stay pretty busy in here.  There are a lot of people to feed and a vast number of delicious meals to feed them.  I'm in charge of preparing [" .. eq.say_link("stews") .. "], [" .. eq.say_link("broth") .. "], and [" .. eq.say_link("vegetables") .. "].  If you ever have any questions about those areas. please let me know.");
 	elseif(e.message:findi("vegetables")) then
 		e.self:Say("I could go on forever about vegetables. There is such a huge variety to choose from and so much that you can do with... well... come back a bit later and we can talk about them in greater detail.");
 	elseif(e.message:findi("stews")) then
-		e.self:Say("Stews are a staple in this kitchen. When a cook can't think of a real meal or needs to feed a large number of people in a hurry, they can always whip up a stew. You have to be able to adapt and provide, friend. That's our role here. We're here to make sure people eat. When food is abundant, we can be as lavish as we please. When I'm in a hurry or out of supplies, I like to throw some [beetle claws] in some boiling broth and... bam! It's soup!");
+		e.self:Say("Stews are a staple in this kitchen. When a cook can't think of a real meal or needs to feed a large number of people in a hurry, they can always whip up a stew. You have to be able to adapt and provide, friend. That's our role here. We're here to make sure people eat. When food is abundant, we can be as lavish as we please. When I'm in a hurry or out of supplies, I like to throw some [" .. eq.say_link("beetle claws") .. "] in some boiling broth and... bam! It's soup!");
 	elseif(e.message:findi("beetle claws")) then
 		e.self:Say("Beetle claw stew is quick, easy, and fills stomachs. The main ingredient comes from the Rhino Beetles that can be found in abundance around the city. We use the claws in a variety of dishes, so we can always use a few more. Here, I can give you a bag if you want to go gather some for me. Just fill it up and come back.");
 		e.other:SummonItem(17074); -- Stained Mesh Bag
@@ -38,8 +38,3 @@ function event_trade(e)
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------

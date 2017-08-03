@@ -1,7 +1,7 @@
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Mmmph!!  Who you?  Oh. you " .. e.other:GetName() .. ".  You supposed to be promising Craknek.  Me need you.  There bad things in swamp.  You want [help Crakneks] or you [want Guntrik bash your face]!!?");
-	elseif(e.message:findi("what help crakneks")) then
+		e.self:Say("Mmmph!!  Who you?  Oh. you " .. e.other:GetName() .. ".  You supposed to be promising Craknek.  Me need you.  There bad things in swamp.  You want [" .. eq.say_link("help Crakneks") .. "] or you [" .. eq.say_link("want Guntrik bash your face") .. "]!!?");
+	elseif(e.message:findi("help crakneks")) then
 		e.self:Say("Crakneks warriors!!  They be far back.  Through last caves.  They smash and bash.  They no like Greenbloods.  Bouncers keep thems from bashing.");
 	elseif(e.message:findi("bash")) then
 		e.self:Say("OK!! Me bash!!  You hurt!!");
@@ -29,8 +29,3 @@ function event_trade(e)
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------

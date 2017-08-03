@@ -2,7 +2,7 @@ function event_say(e)
 	if(e.message:findi("hail")) then
 		e.self:Emote("heaves a great sigh.");
 	elseif(e.message:findi("wrong")) then
-		e.self:Say("Boz like to grow perty flowers in her [garden]. But [garden] no more.");
+		e.self:Say("Boz like to grow perty flowers in her [" .. eq.say_link("garden") .. "]. But [" .. eq.say_link("garden") .. "] no more.");
 	elseif(e.message:findi("garden")) then
 		e.self:Say("Boz not know what happen. Only see der biggins footprints in it. Me perty sure my puppy not smash garden. He has tiny feets. Right, puppy?");
 		eq.signal(49022,1);
@@ -23,8 +23,3 @@ function event_trade(e)
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------

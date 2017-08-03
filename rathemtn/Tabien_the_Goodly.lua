@@ -1,6 +1,6 @@
 function event_say(e)
 	if(e.message:findi("hail")) then --Part of Shaman Epic 1.0
-		e.self:Say("Oh thank Marr you are here, " .. e.other:GetName() .. ". I was beginning to think I would be abandoned in my time of need. I have a [task] for you to complete in the name of my patron Mithaniel Marr.");
+		e.self:Say("Oh thank Marr you are here, " .. e.other:GetName() .. ". I was beginning to think I would be abandoned in my time of need. I have a [" .. eq.say_link("task") .. "] for you to complete in the name of my patron Mithaniel Marr.");
 	elseif(e.message:findi("task")) then --Part of Shaman Epic 1.0
 		e.self:Emote("displays his shield that must once have been shining and regal but is now scoured in cuts, dents, and chipped paint. He says, 'This shield is known as Marr's Promise. It is a sacred relic that was actually used by one of Mithaniel's angels on the Plane of Valor. Its value to our church is immeasurable and I have been charged with the protection of it. However, a patriarch of the false god, Bertoxxulous, is after my shield and me. He must be stopped! Please, destroy him and bring me proof of his death.");
 	end
@@ -15,9 +15,3 @@ function event_trade(e)
 		eq.depop_with_timer();
 	end
 end
-
---Submitted by: Jim Mills (Gilmore Girls`Is`Awesome`XOXO)
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------

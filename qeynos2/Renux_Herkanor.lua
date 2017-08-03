@@ -15,10 +15,8 @@ end
 
 function event_signal(e)
 	if(e.signal == 1) then
-		e.self:Say("Ok, I'll send someone out to meet [Lomarc] behind the [Mermaid's Lure] tonight.");
+		e.self:Say("Ok, I'll send someone out to meet [" .. eq.say_link("Lomarc") .. "] behind the [Mermaid's Lure] tonight.");
 	elseif(e.signal == 2) then
 		e.self:Say("Very well, Father is as good as dead. Did I ever mention that I really hate family reunions? <chuckle>. I am gone!");
 	end
 end
-
--- END of FILE Zone:qeynos2  ID:2020 -- Renux_Herkanor

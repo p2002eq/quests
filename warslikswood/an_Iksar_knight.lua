@@ -3,9 +3,9 @@ function event_say(e)
 	if(e.message:findi("hail")) then
 		e.self:Emote("wipes the sweat from his forehead and spits some flarefire seeds on the ground near your feet. 'Whew!! Good to be back and safe at the Cabilis Gate. The troopers will protect us.'");
 	elseif(e.message:findi("chalp diagram")) then --Test of the Zealot (Greenmist Quest 4/8)
-		e.self:Emote("spits out some flarefire seeds. 'Great!! Sent to retrieve the Chalp diagram. I will give them to you, but I want you to do me a little favor first. I want you to [retrieve some spells] I lost. They are incorrectly scribed and useless, but I yearn for their return nonetheless.'");
+		e.self:Emote("spits out some flarefire seeds. 'Great!! Sent to retrieve the Chalp diagram. I will give them to you, but I want you to do me a little favor first. I want you to [" .. eq.say_link("retrieve some spells") .. "] I lost. They are incorrectly scribed and useless, but I yearn for their return nonetheless.'");
 	elseif(e.message:findi("retrieve some spells")) then --Test of the Zealot (Greenmist Quest 4/8)
-		e.self:Emote("spits flarefire seeds on you. 'Oops!! Sorry. Yeah!! You go to Chalp and get two incorrectly scribed spells which they grabbed from me. The third one, I threw in a river crossing by Chalp. It was in a bottle and probably drifted way down the river. Bring me all three and also a shovel and I will make it worth your while.'");
+		e.self:Emote("spits [" .. eq.say_link("flarefire seeds") .. "] on you. 'Oops!! Sorry. Yeah!! You go to Chalp and get two incorrectly scribed spells which they grabbed from me. The third one, I threw in a river crossing by Chalp. It was in a bottle and probably drifted way down the river. Bring me all three and also a shovel and I will make it worth your while.'");
 	elseif(e.message:findi("flarefire seeds")) then --Test of the Zealot (Greenmist Quest 4/8)
 		e.self:Emote("spits some flarefire seeds on your face. 'What? Interested in flarefire seeds? There you go. Ha!!'");
 	end
@@ -24,9 +24,3 @@ function event_trade(e)
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
---Submitted by: Jim Mills
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------

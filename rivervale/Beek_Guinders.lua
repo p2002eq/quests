@@ -1,8 +1,8 @@
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Emote("waves enthusiastically and says, Hay, ho, there, young " .. e.other:Race() .. "!  I'd love to yak it up with you but I'm a bit busy at the moment, trying to find some [help].");
+		e.self:Emote("waves enthusiastically and says, Hay, ho, there, young " .. e.other:Race() .. "!  I'd love to yak it up with you but I'm a bit busy at the moment, trying to find some [" .. eq.say_link("help") .. "].");
 	elseif(e.message:findi("help")) then
-		e.self:Say("Well, we're experimenting with some tanning methods but we're running low on supplies. We need to find someone to go out and [gather some things]. Seems no one wants to do an honest day's work any more. I'd do it myself but, errrr, my, uhhh, foot hair has been hurting lately... yes, that's it.");
+		e.self:Say("Well, we're experimenting with some tanning methods but we're running low on supplies. We need to find someone to go out and [" .. eq.say_link("gather some things") .. "]. Seems no one wants to do an honest day's work any more. I'd do it myself but, errrr, my, uhhh, foot hair has been hurting lately... yes, that's it.");
 	elseif(e.message:findi("gather some thing")) then
 		e.self:Say("Ahhh, excellent! Okay, first, we'll need a couple of wolf pelts. They don't have to be perfect, completely ruined would work just fine, hehe. I'll also need a black wolf skin and a handful of berries. The berries you should be able to find out in the Thicket. I hear they grow in a small canyon near the lone tower. Hurry, hurry!");
 	end
@@ -33,5 +33,3 @@ function event_trade(e)
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
--- END of FILE Zone:rivervale  ID:19111 -- Beek_Guinders

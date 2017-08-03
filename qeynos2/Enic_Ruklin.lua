@@ -1,10 +1,10 @@
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Hail! These are the sacred grounds of the Temple of Life. Please do not cause any disturbances while on our grounds. I would hate to have to hurt you. In the name of Rodcet Nife, of course. Now excuse me, I have a [problem] to attend to.");
+		e.self:Say("Hail! These are the sacred grounds of the Temple of Life. Please do not cause any disturbances while on our grounds. I would hate to have to hurt you. In the name of Rodcet Nife, of course. Now excuse me, I have a [" .. eq.say_link("problem") .. "] to attend to.");
 	elseif(e.message:findi("problem")) then
-		e.self:Say("I have been charged with the duty of protecting the [Pool of Jahnda] and its fish. Now it seems as though a beast by the name of [Frostbite] has slurped up another one of the sacred fish, the [Koalindl]. If I do not get the little corpse of this fish back, I could be in trouble. Any respected member of this temple who aids me will be rewarded greatly.");
+		e.self:Say("I have been charged with the duty of protecting the [" .. eq.say_link("Pool of Jahnda") .. "] and its fish. Now it seems as though a beast by the name of [" .. eq.say_link("Frostbite") .. "] has slurped up another one of the sacred fish, the [" .. eq.say_link("Koalindl") .. "]. If I do not get the little corpse of this fish back, I could be in trouble. Any respected member of this temple who aids me will be rewarded greatly.");
 	elseif(e.message:findi("pool of jahnda")) then
-		e.self:Say("The Pool of Jahnda is not meant for public use. It is a sacred pool created for the [Koalindl]. They say that, every so often, the Prime Healer visits our plane in the guise of a Koalindl. He swims in our pool.");
+		e.self:Say("The Pool of Jahnda is not meant for public use. It is a sacred pool created for the [" .. eq.say_link("Koalindl") .. "]. They say that, every so often, the Prime Healer visits our plane in the guise of a Koalindl. He swims in our pool.");
 	elseif(e.message:findi("koalindl")) then
 		e.self:Say("The fish called Koalindl were a gift to Priestess Jahnda from the Prime Healer. They come from the plane of health. To kill one Koalindl is to bring the wrath of Rodcet Nife and the Priests of Life down upon you.");
 	elseif(e.message:findi("frostbite")) then

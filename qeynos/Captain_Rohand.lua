@@ -3,9 +3,9 @@ function event_say(e)
 	local tax = eq.get_qglobals(e.other);
 	
 	if(e.message:findi("hail")) then
-		e.self:Say("Greetings, friend, and welcome to the Mermaid's Lure. Here, we sell fishing supplies and some imported goods from far-off lands. And, if you've got a few minutes, I could even tell you a [story] or two.");
+		e.self:Say("Greetings, friend, and welcome to the Mermaid's Lure. Here, we sell fishing supplies and some imported goods from far-off lands. And, if you've got a few minutes, I could even tell you a [" .. eq.say_link("story") .. "] or two.");
 	elseif(e.message:findi("story")) then
-		e.self:Say("Stories? Stories? I saw more adventure before I was ten years tall than you'll see in your whole miserable existence. I've been everywhere, [Odus], [Faydwer], [Kunark]. . . You name it, and I can tell ya a little something 'bout it. . . If you buy me a sip of brandy, of course!");
+		e.self:Say("Stories? Stories? I saw more adventure before I was ten years tall than you'll see in your whole miserable existence. I've been everywhere, [" .. eq.say_link("Odus") .. "], [" .. eq.say_link("Faydwer") .. "], [" .. eq.say_link("Kunark") .. "]. . . You name it, and I can tell ya a little something 'bout it. . . If you buy me a sip of brandy, of course!");
 	elseif(e.message:findi("odus")) then
 		e.self:Say("You haven't lived until you've seen Odus. Erud was the first human to cross the sea, and he founded the great city of Erudin. The trade routes from here to Odus are busy and prosperous, but can also be very dangerous.");
 	elseif(e.message:findi("faydwer")) then
@@ -47,5 +47,4 @@ function event_trade(e)
 		until brandy == 0
 	end		 
 	item_lib.return_items(e.self, e.other, e.trade, e.text)
-  
 end

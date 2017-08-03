@@ -1,5 +1,3 @@
--- Mizr_N'Mar
-
 function event_say(e)
 	if(e.message:findi("hail")) then
 		e.self:Say("Have you come to buy a scroll from me?");

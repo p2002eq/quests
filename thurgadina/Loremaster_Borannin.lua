@@ -10,7 +10,7 @@ function event_say(e)
 		e.self:Say("The council agrees that you have demonstrated a disdain for our enemy, the Kromrif, that rivals our own. They now ask that you demonstrate your loyalty to the Dain by humbling yourself and serving our people. Give this, my seal, to Mordin. He will instruct you further.");
 		e.other:SummonItem(1420);	
 	elseif(e.message:findi("brewing")) then	
-		e.self:Say("Ahh yes, good to see you again, "..e.other:GetName()..". I wish it were under better circumstances that we meet today. For some time now we have sent teams of our finest rogues to gather intelligence for the Dain. Tanik Greskil is one of our best. He was recently sent into the heart of Kael Drakkel on a very important mission and has not returned. He is now long overdue, and fearing the worst, our wise council has asked me to dispatch a rescue party to determine what has become of him and return him to safety. I have decided to give you this opportunity to build upon the trust you have earned from the council. Will you accept this mission?");
+		e.self:Say("Ahh yes, good to see you again, "..e.other:GetName()..". I wish it were under better circumstances that we meet today. For some time now we have sent teams of our finest rogues to gather intelligence for the Dain. Tanik Greskil is one of our best. He was recently sent into the heart of Kael Drakkel on a very important mission and has not returned. He is now long overdue, and fearing the worst, our wise council has asked me to dispatch a rescue party to determine what has become of him and return him to safety. I have decided to give you this opportunity to build upon the trust you have earned from the council. Will you [" .. eq.say_link("accept this mission") .. "]?");
 	elseif(e.message:findi("accept this mission")) then	
 		e.self:Say("The council will be pleased to hear of your acceptance. Scour the regions surrounding the city of the Giants. Discover what happened to Tanik and, if possible, return him to Thurgadin. If you are successful, remember to hand me your woven shawl. We seem to be running low on them, but I must say Mordin has never had so much help in the kitchen. Anyway, I will eagerly await word of your findings. Good luck, and may Brell protect you.");
 	elseif(e.message:findi("advance my reputation")) then	
@@ -22,7 +22,7 @@ function event_trade(e)
 	local item_lib = require('items');
 
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 29125, item2 = 29125, item3 = 29125, item4 = 29125})) then
-		e.self:Say("Ahh, well done! On behalf of the Dain I thank you for making a dent in the number of our sworn enemy. Please accept this as a token of our appreciation. It is trivial, I know, but if you are as loyal as you claim to be, it will increase in power over time. It just so happens I have a [task] to further demonstrate your loyalty, "..e.other:GetName()..".");
+		e.self:Say("Ahh, well done! On behalf of the Dain I thank you for making a dent in the number of our sworn enemy. Please accept this as a token of our appreciation. It is trivial, I know, but if you are as loyal as you claim to be, it will increase in power over time. It just so happens I have a [" .. eq.say_link("task") .. "] to further demonstrate your loyalty, "..e.other:GetName()..".");
 		e.other:SummonItem(1175);
 		e.other:AddEXP(50000);
 		e.other:Faction(49, 10); --coldain
@@ -30,7 +30,7 @@ function event_trade(e)
 		e.other:Faction(188, -30); --kromrif
 		e.other:Faction(189, -30); --kromzek
 	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 1175, item2 = 1174 })) then	
-		e.self:Say("Ahh, some fine specimens indeed, "..e.other:GetName()..". I will have the best of these mounted at once, wish me luck in the contest! Here is the Cloth Prayer Shawl of our people. Before I forget, the council has issued yet another [chore] for you to complete.");
+		e.self:Say("Ahh, some fine specimens indeed, "..e.other:GetName()..". I will have the best of these mounted at once, wish me luck in the contest! Here is the Cloth Prayer Shawl of our people. Before I forget, the council has issued yet another [" .. eq.say_link("chore") .. "] for you to complete.");
 		e.other:SummonItem(1176);
 		e.other:AddEXP(100000);
 		e.other:Faction(49, 10); --coldain
@@ -38,7 +38,7 @@ function event_trade(e)
 		e.other:Faction(188, -30); --kromrif
 		e.other:Faction(189, -30); --kromzek
 	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 1176, item2 = 1422 })) then	
-		e.self:Say("Well done, "..e.other:GetName()..", the council will be impressed with your effort. Here is the woven prayer shawl, wear it with pride. I know there is talk of great plans for you, be sure to come back and ask me what the council has [brewing].");
+		e.self:Say("Well done, "..e.other:GetName()..", the council will be impressed with your effort. Here is the woven prayer shawl, wear it with pride. I know there is talk of great plans for you, be sure to come back and ask me what the council has [" .. eq.say_link("brewing") .. "].");
 		e.other:SummonItem(1177);
 		e.other:SummonItem(1422);
 		e.other:AddEXP(200000);
@@ -47,7 +47,7 @@ function event_trade(e)
 		e.other:Faction(188, -30); --kromrif
 		e.other:Faction(189, -30); --kromzek
 	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 1560, item2 = 1177 })) then	
-		e.self:Say("Words cannot express our gratitude for your deeds outlander, you have saved a hero of our people from certain death. Please accept this, the Fur-lined shawl, as a token of our sincere appreciation. You are indeed among the most highly regarded " .. e.other:Race() .. " to set foot in Thurgadin. The next time we meet be sure to ask me how to further advance your reputation with the coldain.");
+		e.self:Say("Words cannot express our gratitude for your deeds outlander, you have saved a hero of our people from certain death. Please accept this, the Fur-lined shawl, as a token of our sincere appreciation. You are indeed among the most highly regarded " .. e.other:Race() .. " to set foot in Thurgadin. The next time we meet be sure to ask me how to further [" .. eq.say_link("advance my reputation",false,"advance your reputation") .. "] with the coldain.");
 		e.other:SummonItem(1178);
 		e.other:AddEXP(300000);
 		e.other:Faction(49, 10); --coldain

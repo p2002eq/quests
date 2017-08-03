@@ -1,6 +1,6 @@
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Hail, there, "..e.other:Race()..". How goes it? Much fairer than I, I'll wager. Me troops can't hit the broad side of a mammoth with their crossbows. Oh, by the way, I'm Lieutenant Ulfur, Commander of the 23rd Coldain crossbow regiment, if ye kin call it a regiment.");
+		e.self:Say("Hail, there, "..e.other:Race()..". How goes it? Much fairer than I, I'll wager. Me troops can't hit the broad side of a mammoth with their crossbows. Oh, by the way, I'm Lieutenant Ulfur, Commander of the 23rd Coldain crossbow [" .. eq.say_link("regiment") .. "], if ye kin call it a regiment.");
 	elseif(e.message:findi("regiment")) then	
 		e.self:Say("Yes. we assist our troops in military endeavors. Although we're almost more harm than good. All me troops have soldier envy. They want in the middle of the rumble, face ta face with their enemies stompin them into the ground. That's all well and good but a contingent of crossbowmen can be the difference in winning or losing. Do you favor ranged weapons, "..e.other:GetName().."?");
 	elseif(e.message:findi("yes")) then	

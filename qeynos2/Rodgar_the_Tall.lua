@@ -2,7 +2,7 @@ function event_say(e)
 	if(e.message:findi("hail")) then
 		e.self:Say(string.format("Greetings. %s!  You look like you could use some new footwear.",e.other:GetName()));
 	elseif(e.message:findi("treant wood")) then
-		e.self:Say("What is all this talk of Treant Wood? I can get you some. In about two months, I shall have a new stock. Perhaps I may have some to trade... if you do me a [favor]...");
+		e.self:Say("What is all this talk of Treant Wood? I can get you some. In about two months, I shall have a new stock. Perhaps I may have some to trade... if you do me a [" .. eq.say_link("favor") .. "]...");
 	elseif(e.message:findi("favor")) then
 		e.self:Say("I will be glad to part with some Treant Wood for an Odus Pearl from the waters surrounding Erudin. On second thought... make that four Odus Pearls.");
 	end

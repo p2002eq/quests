@@ -50,7 +50,7 @@ function event_say(e)
         end
     elseif(e.message:findi("love potion")) then
         e.self:Emote("sort of calms as he speaks very clearly, very deliberately,");
-        e.self:Say("Do not trifle with me on this. A luclin clover, a drop of moonlight and the essence of sonnet- bring me these things and you will share eternity with whomever you treasure most.' ");
+        e.self:Say("Do not trifle with me on this. A [" .. eq.say_link("luclin clover") .. "], a [" .. eq.say_link("drop of moonlight") .. "] and the [" .. eq.say_link("essence of sonnet") .. "] bring me these things and you will share eternity with whomever you treasure most.' ");
     elseif(e.message:findi("Luclin clover")) then
         e.self:Say("These are abundant throughout the thicket, now go.");
     elseif(e.message:findi("Drop of moonlight")) then

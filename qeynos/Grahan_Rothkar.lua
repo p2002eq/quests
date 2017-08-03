@@ -1,10 +1,10 @@
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Hail, " .. e.other:GetName() .. "! What business do you have in the pens of the Qeynos Arena? Have you a report of the [escaped catman]?");
+		e.self:Say("Hail, " .. e.other:GetName() .. "! What business do you have in the pens of the Qeynos Arena? Have you a report of the [" .. eq.say_link("escaped catman") .. "]?");
 	elseif(e.message:findi("escaped catman")) then
-		e.self:Say("We had a catman imprisoned here for use in future gladiator battles. He escaped. In the process, he bit off my assistant's hand which held the key to pen number seven. I now seek to hire a warrior to [retrieve key seven].");
+		e.self:Say("We had a catman imprisoned here for use in future gladiator battles. He escaped. In the process, he bit off my assistant's hand which held the key to pen number seven. I now seek to hire a warrior to [" .. eq.say_link("retrieve key seven") .. "].");
 	elseif(e.message:findi("retrieve key seven")) then
-		e.self:Say("Hmmm. You seem a bit young, but I shall give you a chance. Seek out the catman named Nomala. He most likely returned to [Kerra Isle]. He is not very powerful, but his people are surely watching over him. Retrieve the key for me and be rewarded.");
+		e.self:Say("Hmmm. You seem a bit young, but I shall give you a chance. Seek out the catman named Nomala. He most likely returned to [" .. eq.say_link("Kerra Isle") .. "]. He is not very powerful, but his people are surely watching over him. Retrieve the key for me and be rewarded.");
 	elseif(e.message:findi("kerra isle")) then
 		e.self:Say("Kerra Isle is a dangerous place. The Kerra are not a friendly race. There is an island between Erudin and Qeynos which is inhabited by a more docile tribe of Kerra. I hear they took some of their Kerra beetles along with them to the island, too.");
 	elseif(e.message:findi("second escaped gladiator")) then
@@ -16,7 +16,7 @@ function event_trade(e)
 	local item_lib = require("items");
 
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 20031})) then
-		e.self:Say("I thank you. I must admit I had my doubts, but you have proven yourself a true warrior. I salute you. You can be of some assistance to me.It see ms as though there has been a [second escaped gladiator] and I have a reward waiting for a human warrior.");
+		e.self:Say("I thank you. I must admit I had my doubts, but you have proven yourself a true warrior. I salute you. You can be of some assistance to me.It see ms as though there has been a [" .. eq.say_link("second escaped gladiator") .. "] and I have a reward waiting for a human warrior.");
 		e.other:SummonItem(5033);
 		e.other:Ding();
 		e.other:Faction(311,5,0); -- Steel Warriors
@@ -63,5 +63,3 @@ function event_timer(e)
 		eq.signal(1005,1);
 	end
 end
-
--- quests/qeynos/Grahan_Rothkar.pl 

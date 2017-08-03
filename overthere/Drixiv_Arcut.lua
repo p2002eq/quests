@@ -1,15 +1,15 @@
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Begone unless you seek the armor of the [trooper]");
+		e.self:Say("Begone unless you seek the armor of the [" .. eq.say_link("trooper") .. "]");
 	elseif(e.message:findi("trooper")) then
-		e.self:Say("I can provide [boots], [bracer], [guantlets], or [greaves]");
+		e.self:Say("I can provide [" .. eq.say_link("boots") .. "], [" .. eq.say_link("bracer") .. "], [" .. eq.say_link("gauntlets") .. "], or [" .. eq.say_link("greaves") .. "]");
 	elseif(e.message:findi("boots")) then
 		e.self:Say("You wish the boots worn by the ancients? Then you must first master the virtue of confidence. For our brothers of the dead, confidence is the virtue that allows them to control the forces that would tear them apart if they knew it not. When a warrior steps, he must be confident, for a weak step cannot crush your enemies. Take this note to the current Harbinger in Cabilis and learn from him.");
 		e.other:SummonItem(14794);
 	elseif(e.message:findi("bracer")) then
 		e.self:Say("The bracers of our ancestors embody righteousness. When we strike, and our forearms are soaked in the blood of our enemies, our purpose must be pure. Else that blood will burn our souls and anger that which we live for. Go and find the Archduke in Cabilis and give him my note. He will teach you of righteousness. For if our chosen did not know righteousness, our people would not be. Go!");
 		e.other:SummonItem(14791);
-	elseif(e.message:findi("guantlets")) then
+	elseif(e.message:findi("gauntlets")) then
 		e.self:Say("Our hands are our most useful and deadly instruments, after our minds. When we use them other than in service of our lord and ancestors, our actions are false. Without knowing righteousness we can never be sure if our actions are in the name of fear. The Chosen, the Crusaders of Greenmist, know fear intimately. Their actions are never without the blessing of our lord. Take this note to the Archduke. He will recognize my writing and instruct you.");
 		e.other:SummonItem(14792);
 	elseif(e.message:findi("greaves")) then
@@ -33,8 +33,3 @@ function event_trade(e)
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------

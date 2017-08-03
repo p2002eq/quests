@@ -1,10 +1,10 @@
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Its nice to meet you " .. e.other:GetName() .. ". Allow me to introduce myself. I am Lendel Deeppockets master Assassin of Rivervale. I am personally in charge of all [training] we have the new recruits go through before they are sent out on specific missions.");
+		e.self:Say("Its nice to meet you " .. e.other:GetName() .. ". Allow me to introduce myself. I am Lendel Deeppockets master Assassin of Rivervale. I am personally in charge of all [" .. eq.say_link("training") .. "] we have the new recruits go through before they are sent out on specific missions.");
 	elseif(e.message:findi("training")) then
-		e.self:Say("There are many steps that a young rouge must take on the road to stealth. The most important part of your training is learning how to use the tools around you such as the forge. From the looks of you I can tell you could use some more [enchanted armor] as well so I think this would be a good learning experience.");
+		e.self:Say("There are many steps that a young rouge must take on the road to stealth. The most important part of your training is learning how to use the tools around you such as the forge. From the looks of you I can tell you could use some more [" .. eq.say_link("enchanted armor") .. "] as well so I think this would be a good learning experience.");
 	elseif(e.message:findi("enchanted armor")) then
-		e.self:Say("I am pleased to hear that you are interested in making your own armor " .. e.other:GetName() .. ". I have some instructions for you so please listen closely. First, I will present you with your Dusty Mail Assembly kit when you are ready. After that, simply tell me what piece of Slickfinger Chainmail you [want] to craft and I will give you a pattern along with a recipe for  [Coifs], [Bracers], [Sleeves], [Boots], [Legplates], [Gauntlets] and [Tunics]. The recipe I will give you for specific items will need to me combined in the assembly kit to create the magical material necessary. Once you have this material and pattern that I gave you when you told me what item you wanted to craft, put both in the nearest forge to create the armor piece you asked for. Here is your Dusty Mail Assembly Kit.");
+		e.self:Say("I am pleased to hear that you are interested in making your own armor " .. e.other:GetName() .. ". I have some instructions for you so please listen closely. First, I will present you with your Dusty Mail Assembly kit when you are ready. After that, simply tell me what piece of Slickfinger Chainmail you want to craft and I will give you a pattern along with a recipe for [" .. eq.say_link("Coifs") .. "], [" .. eq.say_link("Bracers") .. "], [" .. eq.say_link("Sleeves") .. "], [" .. eq.say_link("Boots") .. "], [" .. eq.say_link("Legplates") .. "], [" .. eq.say_link("Gauntlets") .. "] and [" .. eq.say_link("Tunics") .. "]. The recipe I will give you for specific items will need to me combined in the assembly kit to create the magical material necessary. Once you have this material and pattern that I gave you when you told me what item you wanted to craft, put both in the nearest forge to create the armor piece you asked for. Here is your Dusty Mail Assembly Kit.");
 		e.other:SummonItem(17247); -- Dusty Mail Assembly Kit
 	elseif(e.message:findi("coifs")) then
 		e.self:Say("Protecting the ole noggin is probably the smartest move you will make young " .. e.other:GetName() .. ". Here is your pattern, once you have combined 2 Bricks of Crude Iron Ore, 2 Ruined Thorn Drakeling Scales and 1 Carrot in your kit place it in a forge along with this pattern to create your Slickfinger Chainmail Coif.");
@@ -25,7 +25,7 @@ function event_say(e)
 		e.self:Say("Your gauntlets may possibly be the most important part of armor. One should always be sure that their hands are not exposed, because taking a blow to the hand is a lot worse then getting hurt anywhere else! To create the gauntlet material please collect 3 Bricks of Crude Iron Ore, 2 Bixie Wings, 1 Large Snake Skin and 1 Red Wine.");
 		e.other:SummonItem(22676);
 	elseif(e.message:findi("tunic")) then
-		e.self:Say("I'm happy to see that your training is coming along so well " .. e.other:GetName() .. ". I have no doubt in my mind that you are ready to craft your tunic. Please collect 5 Bricks of Crude Iron Ore, 1 Giant Wood Spider Femurs, 1 Embalming Dusts, 1 Dark Elf Skin and 1 Giant Yellowjacket Thorax. Come back after you are finished. I have a [job] for you.");
+		e.self:Say("I'm happy to see that your training is coming along so well " .. e.other:GetName() .. ". I have no doubt in my mind that you are ready to craft your tunic. Please collect 5 Bricks of Crude Iron Ore, 1 Giant Wood Spider Femurs, 1 Embalming Dusts, 1 Dark Elf Skin and 1 Giant Yellowjacket Thorax. Come back after you are finished. I have a [" .. eq.say_link("job") .. "] for you.");
 		e.other:SummonItem(22677);
 	elseif(e.message:findi("job")) then
 		e.self:Say("Orcs is the job " .. e.other:GetName() .. ". Plain and simple I cannot stand these homewreckers. They have moved into our land and continue to storm our front gate. I seek out bone fragments and fractured jawbones from these nasty Orcs. Once we have 1 of each we will be able to create a weapon for you to use.");
@@ -36,7 +36,7 @@ function event_trade(e)
 	local item_lib = require("items");
 
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 18732})) then -- Tattered Note
-		e.self:Say("HA! I asked that fool Denry to send me a professional, and this is what I get?!? Oh diddlepicks! That crotchety old coot never liked me anyway. And after all I've done for him! Hrrmf! Ah well, let's get you started and see what ya got, huh, kid? Here, wear this. Maybe I'll have Toelia break you in, huh? Yeah, that'll work! Go find her, and she'll put you to work. Just remember, we all earn our keep around here, or else it's back to hay farm for you! Oh yeah, tell her you're the [new dishwasher] so she knows you are on the level.");
+		e.self:Say("HA! I asked that fool Denry to send me a professional, and this is what I get?!? Oh diddlepicks! That crotchety old coot never liked me anyway. And after all I've done for him! Hrrmf! Ah well, let's get you started and see what ya got, huh, kid? Here, wear this. Maybe I'll have Toelia break you in, huh? Yeah, that'll work! Go find her, and she'll put you to work. Just remember, we all earn our keep around here, or else it's back to hay farm for you! Oh yeah, tell her you're the [" .. eq.say_link("new dishwasher") .. "] so she knows you are on the level.");
 		e.other:SummonItem(13539); -- Old Brown Vest*
 		e.other:Ding();
 		e.other:Faction(77,100,0); -- Deeppockets
@@ -56,5 +56,3 @@ end
 function event_signal(e)
 	e.self:Say("Find somebody to go see what he wants. I don't like the idea of making Hanns mad at us, but I also don't like the idea of looking over my shoulder for Stanos. He is not somebody I would care to dance with, and I DO owe him.");
 end
-
--- END of FILE Zone:rivervale  ID:19066 -- Lendel_Deeppockets

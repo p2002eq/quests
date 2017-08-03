@@ -1,12 +1,3 @@
--- Zone: Southern Ro
--- Short Name: sro
--- Zone ID: 35
-
--- NPC Name: Andad Filla
--- NPC ID: 35030
--- Quest Status: finished
--- Converted to .lua by Speedz
-
 function event_say(e)
 	if(e.message:findi("hail")) then
 		e.self:Say("Hello traveler, please do not bother me right now; I am waiting for someone.");

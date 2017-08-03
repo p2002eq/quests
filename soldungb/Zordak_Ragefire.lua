@@ -16,5 +16,3 @@ function event_trade(e)
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
--- End of File, Zone:soldungb  NPC:32038 -- Zordak_Ragefire

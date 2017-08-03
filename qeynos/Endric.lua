@@ -1,8 +1,8 @@
 function event_say(e)
 	if(e.message:findi("aqueducts")) then
-		e.self:Say("Aye, the aqueducts are a horrible place. I have heard rumors of horrible [beasts] who live under the city in the water and just the other day, a child playing in the water just up and disappeared!");
+		e.self:Say("Aye, the aqueducts are a horrible place. I have heard rumors of horrible [" .. eq.say_link("beasts") .. "] who live under the city in the water and just the other day, a child playing in the water just up and disappeared!");
 	elseif(e.message:findi("beasts")) then
-		e.self:Say("I know nothing of what or where they may be, just rumors, friend. However, should you foolishly choose to enter the waters to brave the possibilities and return with some evidence of the [child's] fate, I would be most appreciative.");
+		e.self:Say("I know nothing of what or where they may be, just rumors, friend. However, should you foolishly choose to enter the waters to brave the possibilities and return with some evidence of the [" .. eq.say_link("child's") .. "] fate, I would be most appreciative.");
 	end
 end
 

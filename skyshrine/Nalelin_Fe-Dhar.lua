@@ -16,9 +16,9 @@ local QUEST_ITEMS={
 function event_say(e)
 	if (e.other:GetFaction(e.self) < 2) then --Must be ally
 		if (e.message:findi("hail")) then
-			e.self:Say("Greetings, I seek the ones who stalk through the forests protecting it. If you are one known as a ranger, submit to my will and become stronger. The tasks I set forth will not be easy. Are you ready to submit to my will?");
+			e.self:Say("Greetings, I seek the ones who stalk through the forests protecting it. If you are one known as a ranger, submit to my will and become stronger. The tasks I set forth will not be easy. Are you ready to [" .. eq.say_link("submit to your will",false,"submit to my will") .. "]?");
 		elseif(e.message:findi("submit to your will")) then
-			e.self:Say("That is good, for there is nothing like the wrath of nature, woodland warrior. And Nature's wrath shall you be, with this armor to protect you in your struggle. I shall forge a coif, breastplate, sleeves, bracers, gauntlets, leggings, and boots for you.");
+			e.self:Say("That is good, for there is nothing like the wrath of nature, woodland warrior. And Nature's wrath shall you be, with this armor to protect you in your struggle. I shall forge a [" .. eq.say_link("coif") .. "], [" .. eq.say_link("breastplate") .. "], [" .. eq.say_link("sleeves") .. "], [" .. eq.say_link("bracers") .. "], [" .. eq.say_link("gauntlets") .. "], [" .. eq.say_link("leggings") .. "], and [" .. eq.say_link("boots") .. "] for you.");
 		elseif(e.message:findi("coif")) then
 			e.self:Say("This coif shall protect you from battle and the elements. What I require of you are these: an unadorned chain coif and three pieces of crushed coral. Do not waste precious time!");
 		elseif(e.message:findi("breastplate")) then

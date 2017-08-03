@@ -17,10 +17,10 @@ function event_say(e)
  if(e.other:GetFaction(e.self) == 1 ) then --Must be ally
   if(e.message:findi("hail")) then
   	e.self:Emote(" looks around.");
-  	e.self:Say("Who dares address me? Oh, it is you. What is it you want? Some armor perhaps? To make a pretty corpse? There is something exquisite about a well-dressed meal. If you are not a shadowknight leave me now or you may end up as my next meal.");
+  	e.self:Say("Who dares address me? Oh, it is you. What is it you want? Some [" .. eq.say_link("armor") .. "] perhaps? To make a pretty corpse? There is something exquisite about a well-dressed meal. If you are not a shadowknight leave me now or you may end up as my next meal.");
   elseif(e.message:findi("armor")) then
   	e.self:Emote(" laughs deeply.");
-  	e.self:Say("You manlings are so transparent. Well, if armor is what you wish, then only the best shall you have for I will not waste my time on less than the best. This is what I will make for you, granted that you can acquire the components for me - a helm, breastplate, armplates, bracers, gauntlets, leggings, and boots.");
+  	e.self:Say("You manlings are so transparent. Well, if armor is what you wish, then only the best shall you have for I will not waste my time on less than the best. This is what I will make for you, granted that you can acquire the components for me - a [" .. eq.say_link("helm") .. "], [" .. eq.say_link("breastplate") .. "], [" .. eq.say_link("armplates") .. "], [" .. eq.say_link("bracers") .. "], [" .. eq.say_link("gauntlets") .. "], [" .. eq.say_link("leggings") .. "], and [" .. eq.say_link("boots") .. "].");
   elseif(e.message:findi("helm")) then
    e.self:Say("For the helm I shall require an unadorned plate helmet and three pieces of crushed coral for my trouble. Does your tiny mind comprehend the task set before you? If so, then get them immediately! I am beginning to get hungry and you are looking all the better as a snack.");
   elseif(e.message:findi("breastplate")) then

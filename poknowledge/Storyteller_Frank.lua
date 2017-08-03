@@ -57,7 +57,7 @@ end
 
 function event_say(e)
 	if(e.message:findi("Hail")) and (started == false) then
-	    e.self:Say("Well, hello there Traveler, do you wish to hear the [story] of the Server?");
+	    e.self:Say("Well, hello there Traveler, do you wish to hear the [" .. eq.say_link("story") .. "] of the Server?");
 	elseif(e.message:findi("story")) and (started == false) then
 	    e.self:Say("Stay awhile, this story will take some time.");
 	    eq.set_timer("story1", 8000);

@@ -1,30 +1,26 @@
--- 
-
-
-
 function event_say(e)
 	if(e.message:findi("hail")) then
 	    e.self:Emote("appears to fade in and out. The ghostly figure seems to stare through you, as though he is not aware of your presence.");
-		e.self:Say("Do you know who I am?");
+		e.self:Say("Do you know [" .. eq.say_link("who are you",false,"who I am") .. "]?");
 		e.self:Emote("asks, as if he is inquiring for his own benefit.");
 	elseif(e.message:findi("who are you")) then
 	    e.self:Emote("begins to smile.");
 		e.self:Say("It has come back to me, just now. I am the Dragon Sage. I lived in the once great elven city of Takish Hiz, where I studied the dragons of Norrath.");
 	    e.self:Say("The figure appears to be concentrating on something in the distance. His image begins to fade as he says,");
-	    e.self:Say("If I am among the world of the living again, then Norrath must be in great [danger].");
+	    e.self:Say("If I am among the world of the living again, then Norrath must be in great [" .. eq.say_link("danger") .. "].");
 	elseif(e.message:findi("danger")) then
-		e.self:Say("Thousands of years ago, Veeshan, the mother of all wurms, made her mark upon the face of a young world called Norrath. She struck the planet with her godly might, laying her claim to the world, and created the beings known as dragons. This began the [Age of Scale].");
+		e.self:Say("Thousands of years ago, Veeshan, the mother of all wurms, made her mark upon the face of a young world called Norrath. She struck the planet with her godly might, laying her claim to the world, and created the beings known as dragons. This began the [" .. eq.say_link("Age of Scale") .. "].");
 	    
 	elseif(e.message:findi("age of scale")) then
-		e.self:Say("The Age of Scale was the time when dragons ruled supreme. They controlled the lands, the sea, and the sky for some 3000 years. That was when [other gods] took notice.");
+		e.self:Say("The Age of Scale was the time when dragons ruled supreme. They controlled the lands, the sea, and the sky for some 3000 years. That was when [" .. eq.say_link("other gods") .. "] took notice.");
 	    
 	elseif(e.message:findi("other gods")) then
-		e.self:Say("Tunare, the Mother of All, Prexus, the Oceanlord, and Brell Serilis, the Duke of Below formed a pact in response to Veeshans claim to Norrath. The elves, the dwarves, and the aquatic kedge were all created to help keep the dragons in check. Rallos Zek, the Warlord, learned of this pact and created the giants. This began the [Elder Age].");
+		e.self:Say("Tunare, the Mother of All, Prexus, the Oceanlord, and Brell Serilis, the Duke of Below formed a pact in response to Veeshans claim to Norrath. The elves, the dwarves, and the aquatic kedge were all created to help keep the dragons in check. Rallos Zek, the Warlord, learned of this pact and created the giants. This began the [" .. eq.say_link("Elder Age") .. "].");
 		
 	elseif(e.message:findi("elder age")) then
-		e.self:Say("The Elder Age was the time of the first humanoid races, the oldest on Norath, next to the dragons. The elves prospered, while the giants struggled to survive. The giants on the frozen continent of Velious were in constant skirmishes with the dragons. It was at this point that the [observations] began.");
+		e.self:Say("The Elder Age was the time of the first humanoid races, the oldest on Norath, next to the dragons. The elves prospered, while the giants struggled to survive. The giants on the frozen continent of Velious were in constant skirmishes with the dragons. It was at this point that the [" .. eq.say_link("observations") .. "] began.");
 	elseif(e.message:findi("observations")) then
-		e.self:Say("The giants, smarter than expected, began watching and observing the habits of the dragons. They paid close attention to the things the dragons avoided... certain plants and watering holes. It was determined that a particular type of [plant], when mixed with other reagents, was deadly to the dragons. The giants adapted their technique to specifically harm Yelinaks brood in order to give them an advantage. The ancient Kromzek king, Porlos, used this to aid in his battle with Hsagra, Yelinaks mate. Porlos killed Hsagra, forever bringing Yelinaks vengeance upon his family. Thus began the eternal war between the giants and the dragons.");
+		e.self:Say("The giants, smarter than expected, began watching and observing the habits of the dragons. They paid close attention to the things the dragons avoided... certain plants and watering holes. It was determined that a particular type of [" .. eq.say_link("plant") .. "], when mixed with other reagents, was deadly to the dragons. The giants adapted their technique to specifically harm Yelinaks brood in order to give them an advantage. The ancient Kromzek king, Porlos, used this to aid in his battle with Hsagra, Yelinaks mate. Porlos killed Hsagra, forever bringing Yelinaks vengeance upon his family. Thus began the eternal war between the giants and the dragons.");
 	elseif(e.message:findi("plant")) then
 		e.self:Say("The name of the plant eludes me at this time, for my thoughts have grown cold through the ages. The findings of the giants were written in a book of lore by some of our sages. You should seek out one of the giants Tomekeepers. If you find a Tomekeeper, ask him about the herb that harms dragons. Perhaps if you give him this trinket he will assist you. Maybe they will remember my tired soul.");    
 	    e.other:SummonItem(1782);
@@ -45,6 +41,3 @@ function event_trade(e)
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
-
--- fiddle

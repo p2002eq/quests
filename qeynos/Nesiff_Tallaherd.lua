@@ -3,7 +3,7 @@ function event_say(e)
 	local tax = eq.get_qglobals(e.other);
 	
 	if(e.message:findi("hail")) then
-		e.self:Say(string.format("Greetings, %s! Nesiff Tallaherd, owner and operator of Nesiff's Wooden Weapons, at your service. I am the finest woodworker in all of Qeynos. Even the Qeynos Guard uses my arrows, thanks to [Guard Weleth].",e.other:GetName()));
+		e.self:Say(string.format("Greetings, %s! Nesiff Tallaherd, owner and operator of Nesiff's Wooden Weapons, at your service. I am the finest woodworker in all of Qeynos. Even the Qeynos Guard uses my arrows, thanks to [" .. eq.say_link("Guard Weleth") .. "].",e.other:GetName()));
 	elseif(e.message:findi("guard weleth")) then
 		e.self:Say("Guard Weleth is like a son to me. He is responsible for purchasing supplies for the Qeynos Guard. He buys arrows from me. He is usually stationed near the North Gate.");
 	elseif(e.message:findi("tax collection") and tax.tax_collection ~= nil) then

@@ -3,9 +3,9 @@ function event_say(e)
 	local tax = eq.get_qglobals(e.other);
 	
 	if(e.message:findi("hail")) then
-		e.self:Say("Greetings, adventurer!  A mighty warrior such as yourself deserves only the finest in armor and we here at Firepride's were trained by the finest dwarven smiths.  We shall be branching out and crafting [other items] soon, also.");
+		e.self:Say("Greetings, adventurer!  A mighty warrior such as yourself deserves only the finest in armor and we here at Firepride's were trained by the finest dwarven smiths.  We shall be branching out and crafting [" .. eq.say_link("other items") .. "] soon, also.");
 	elseif(e.message:findi("other items")) then
-		e.self:Say("Well, soon I shall be showing my fantastic art inweapons making. I would hate to have the good people of Qeynos continue purchasing inferior weapons from that so-called blacksmith at [Ironforge Estates].");
+		e.self:Say("Well, soon I shall be showing my fantastic art inweapons making. I would hate to have the good people of Qeynos continue purchasing inferior weapons from that so-called blacksmith at [" .. eq.say_link("Ironforge Estates") .. "].");
 	elseif(e.message:findi("ironforge estate")) then
 		e.self:Say("The Ironforge family has called Qeynos their own for far too long. He was never trained inthe dwarven techniques as I was. He will not be cornering the weapons market very much longer.");
 	elseif(e.message:findi("tax collection") and tax.tax_collection ~= not nil) then
@@ -37,5 +37,3 @@ function event_trade(e)
 	item_lib.return_items(e.self, e.other, e.trade)
 	
 end
-
-

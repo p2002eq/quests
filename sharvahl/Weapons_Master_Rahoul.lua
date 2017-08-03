@@ -2,7 +2,7 @@
 
 function event_say(e)
 	if(e.message:findi("Hail")) then
-		e.self:Say("Hail friend, are you a new recruit or have you been at it for a bit?");
+		e.self:Say("Hail friend, are you a [" .. eq.say_link("i am a new recruit",false,"new recruit") .. "] or have you been at it for a bit?");
 	elseif(e.message:findi("i am a new recruit")) then
 		e.self:Say("Well... perhaps you should head to the combat training grounds and pick up a few pointers.  Walk west along the ledge that runs just outside of the city's walls and you shouldn't be able to miss it.");
 	elseif(e.message:findi("i have been at it for a bit")) then
@@ -21,7 +21,7 @@ function event_trade(e)
 	
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 9050})) then -- Qua's Receipt
 		e.self:Say("You are just in time. The weapon that Elder Dumul requested has almost been completed. We need you to gather a few items in order to complete the weapon. These items will not require much effort to acquire, but I will need to tell you where to look. Place all of the items that I request in this box and return it to me as quickly as possible.");
-		e.self:Say("Now, seek out a large chunk of perfect acrylia [ore], two [Gems of the Void], and chunk of dense [fungal padding]. Once I have those items, I can finish the weapon that you will need to use to kill the dark animist.");
+		e.self:Say("Now, seek out a large chunk of perfect acrylia [" .. eq.say_link("ore") .. "], two [" .. eq.say_link("Gems of the Void") .. "], and chunk of dense [" .. eq.say_link("fungal padding") .. "]. Once I have those items, I can finish the weapon that you will need to use to kill the dark animist.");
 		e.other:QuestReward(e.self,0,0,0,0,17363); -- Rahouls Collection Box
 	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 9051})) then -- Sealed Collection Box
 		e.self:Say("These claws should work well for you. The design was research by Historian Qua. They should work to neutralize the magical field that protects the dark animist and allow you to tear his scaly flesh from his frame. Remember that all of this is theoretical. Those claws are an original creation. You will be the first to prove their effectiveness in combat.");

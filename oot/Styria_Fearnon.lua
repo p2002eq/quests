@@ -1,8 +1,8 @@
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Welcome to my island. I always welcome visitors, but I would prefer that your stay not last too long. My warriors are sometimes tempted by others. That is why they all wear purity belts. I should warn you, also, to be on the lookout for the [Pirates of Gunthak].");
+		e.self:Say("Welcome to my island. I always welcome visitors, but I would prefer that your stay not last too long. My warriors are sometimes tempted by others. That is why they all wear purity belts. I should warn you, also, to be on the lookout for the [" .. eq.say_link("Pirates of Gunthak") .. "].");
 	elseif(e.message:findi("pirates of gunthak")) then
-		e.self:Say("The Pirates of Gunthak have been stranded on a nearby island. Their ship was sunk by some unknown water beast. They now attempt to take over this island and commandeer the first ship they encounter. I am looking for brave [adventurers] to hunt the rogues. Do you wish to hunt the pirates or are you waiting for the next ship?");
+		e.self:Say("The Pirates of Gunthak have been stranded on a nearby island. Their ship was sunk by some unknown water beast. They now attempt to take over this island and commandeer the first ship they encounter. I am looking for brave [" .. eq.say_link("adventurers") .. "] to hunt the rogues. Do you wish to hunt the pirates or are you waiting for the next ship?");
 	elseif(e.message:findi("adventurer")) then
 		e.self:Say("Go and seek them out. They are on a nearby island. You will have to swim if you have no boat. Each pirate wears the pirate earring of the Pirates of Gunthak. I shall reward you for each earring you return to me. They have also stolen the Bracers of Erollisi from us. Their leader may have the pair. Return it to me and I shall be very appreciative.");
 	elseif(e.message:findi("sentry xyrin")) then

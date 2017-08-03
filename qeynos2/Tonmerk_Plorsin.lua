@@ -1,6 +1,6 @@
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Hello. child.  Welcome to the Temple of Life. Here. you may pay homage to the [Prime Healer]. [Rodcet Nife].  If you are in need of [healing] or require me to [cure disease] or [cure poison]. please inform me.  I am the resident healer of all Qeynos citizens.");
+		e.self:Say("Hello. child.  Welcome to the Temple of Life. Here. you may pay homage to the [" .. eq.say_link("Prime Healer") .. "]. [" .. eq.say_link("Rodcet Nife") .. "].  If you are in need of [" .. eq.say_link("healing") .. "] or require me to [" .. eq.say_link("ure disease") .. "][ or [" .. eq.say_link("cure poison") .. "]. please inform me.  I am the resident healer of all Qeynos citizens.");
 	elseif(e.message:findi("cure disease")) then
 		e.self:Say("Yes. we can do that.  First. you must fetch me some bandages and brew me some bog juice.  I.. err.. require the bog juice to.. to dampen the bandages.. Yes that's it!  To dampen the bandages.");
 	elseif(e.message:findi("cure poison")) then
@@ -8,9 +8,9 @@ function event_say(e)
 	elseif(e.message:findi("healing")) then
 		e.self:Say("You must pay a tribute of five gold coins before I perform the binding of your wounds.");
 	elseif(e.message:findi("prime healer") or e.message:findi("rodcet nife")) then
-		e.self:Say("He is the sustaining force of all life.  It is in honor of Him that the Temple of Life was built.  Engineered with the help of the [Academy of Arcane Science].");
+		e.self:Say("He is the sustaining force of all life.  It is in honor of Him that the Temple of Life was built.  Engineered with the help of the [" .. eq.say_link("Academy of Arcane Science") .. "].");
 	elseif(e.message:findi("academy of arcane science")) then
-		e.self:Say("The Academy of Arcane Science is the greatest school of magic in Antonica.  It houses a wealth of resources and knowledge pertaining to any of the circles of magic.  It is also a marvel of magical engineering.  If you should ever visit Freeport. be sure to let me know.  I seek a faithful cleric to [pickup a reagent].");
+		e.self:Say("The Academy of Arcane Science is the greatest school of magic in Antonica.  It houses a wealth of resources and knowledge pertaining to any of the circles of magic.  It is also a marvel of magical engineering.  If you should ever visit Freeport. be sure to let me know.  I seek a faithful cleric to [" .. eq.say_link("pickup a reagent") .. "].");
 	elseif(e.message:findi("pickup a reagent")) then
 		e.self:Say("Please deliver this potion to Serna Tasknon in The Academy of Arcane Science, she will know what it is that I require.");
 		e.other:SummonItem(13983);

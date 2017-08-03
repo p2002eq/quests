@@ -1,6 +1,6 @@
 function event_say(e)
 	if(e.message:findi("Hail")) then
-		e.self:Say("Why. hello there!!  Welcome to the Church of Mischief.  I am Hendi Mrubble. The 'R' is silent.  I am the resident healer of the church. so if you are in [need of healing]. or want me to [cure poison] or [cure disease]. let me know.  If you've got a touch of the crazy brain. I can't do a thing for you.");
+		e.self:Say("Why. hello there!!  Welcome to the Church of Mischief.  I am Hendi Mrubble. The 'R' is silent.  I am the resident healer of the church. so if you are in [" .. eq.say_link("need of healing") .. "]. or want me to [" .. eq.say_link("cure poison") .. "] or [" .. eq.say_link("cure disease") .. "]. let me know.  If you've got a touch of the crazy brain. I can't do a thing for you.");
 	elseif(e.message:findi("healing")) then
 		e.self:Say("Hmmm.  I would love to help you with that. but you will have to make a donation to the temple.  The Guardians asked me to charge one of the Rivervale piranha teeth.");
 	elseif(e.message:findi("cure disease")) then
@@ -12,7 +12,6 @@ end
 
 function event_trade(e)
 local item_lib = require("items");
-
 	if(item_lib.check_turn_in(e.self, e.trade, {gold = 10})) then
 		e.self:Say("May the swift and silent spirit of Fizzlethorpe Bristlebane smile upon your frail soul.");
 		eq.SelfCast(213);
@@ -26,5 +25,3 @@ local item_lib = require("items");
 		item_lib.return_items(e.self, e.other, e.trade);
 	end
 end
---END of FILE Zone:rivervale  ID:19067 -- Hendi_Mrubble 
-

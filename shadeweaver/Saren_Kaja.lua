@@ -1,7 +1,7 @@
 ---- Quest: Chialle's Friendship Ring
 function event_say(e)
 	if(e.message:findi("Hail")) then
-		e.self:Say("Hello there friend, would you like to buy some of my delicious [Payala] goodies?");
+		e.self:Say("Hello there friend, would you like to buy some of my delicious [" .. eq.say_link("Payala") .. "] goodies?");
 	elseif(e.message:findi("Payala")) then
 		e.self:Say("Payala has the sweetest nectar in all the lands. You can find them throughout the thicket beneath the blue leafed Payala tree. Try some. I have many Payala goodies for sale. I always say, 'the quickest way to someones heart is a freshly baked Payala tart!");
 	end
@@ -16,7 +16,3 @@ function event_trade(e)
 		e.other:QuestReward(e.self,0,0,0,0,30625,1000); -- Sweet Payala Nectar
 	end
 end
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------

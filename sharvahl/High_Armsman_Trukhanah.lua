@@ -26,16 +26,10 @@ function event_trade(e)
 		e.self:Say("I know that you may be nervous right now... after all. this should be a very exciting first step for you.  If you happen to get lost while looking for the registrar. just ask one of the other citizens or guards for directions.  They will most likely know where to find the place or person that you are looking for.");
 		eq.set_global("Shar_Vahl_Cit","1",5,"F");
 		e.other:QuestReward(e.self,0,0,0,0,2873,100); -- Application for Citizenship
-	end
-	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 2897})) then -- Notarized Application
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 2897})) then -- Notarized Application
 		e.self:Say("Congratulations " .. e.other:GetName() .. "! Welcome to your new life as an official citizen of Shar Vahl. This cloak symbolizes your commitment to serving this people through continuous self-improvement. For now, you must strenghten yourself until you become worthy to train in the way of the Khala Dun. Show your acylia slate to Guard Hebijeb. He will direct you further. May the spirits of our ancestors be your guide.");
 		eq.set_global("Shar_Vahl_Cit","7",5,"F");
 		e.other:QuestReward(e.self,0,0,0,0,2878,100); -- Initiate's Cloak of Shar Vahl
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------

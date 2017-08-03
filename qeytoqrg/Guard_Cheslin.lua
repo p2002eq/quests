@@ -18,7 +18,7 @@ function event_say(e)
 		e.other:SummonItem(13295);
 	elseif(e.message:findi("illusion")) then
 		if(illusionResponse == 0) then
-			e.self:Say("Yes!! I seem to have dropped some of my [Illusion] cards.");
+			e.self:Say("Yes!! I seem to have dropped some of my Illusion cards.");
 			illusionResponse = 1;
 		else
 			e.self:Say("h!! Do you play Illusion, too? I love that game. I have some very rare cards in my deck. I seem to have dropped four of them somewhere during my last patrol. Darn it! They probably blew away the minute I dropped them! I will never find those cards again.");
@@ -30,7 +30,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	local correcthandin = 0;
-	local wowwie = e.self:Say("Wow!! I thought I lost this for good. All together I lost the [illusion] cards: Ebon Lotus, Library of Erudin, Chrono Cyclone and Diamond Vale. Man!! Those are rare cards!");
+	local wowwie = e.self:Say("Wow!! I thought I lost this for good. All together I lost the [" .. eq.say_link("illusion") .. "] cards: Ebon Lotus, Library of Erudin, Chrono Cyclone and Diamond Vale. Man!! Those are rare cards!");
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 = chrono})) then
 		chronoReturned = 1;
 		correctHandin = 1;
@@ -91,7 +91,6 @@ function event_waypoint_arrive(e)
 		eq.create_ground_object(chrono,xloc,yloc,zloc,0,300000);
 		e.self:Say("Hey! Did I just drop something?");
 	elseif(e.wp == 11) then
-		e.self:Say("I lost some of my [illusion] playing cards. And they were the rare ones too! Darn it! If anyone finds them, please return them to me.");
+		e.self:Say("I lost some of my [" .. eq.say_link("illusion") .. "] playing cards. And they were the rare ones too! Darn it! If anyone finds them, please return them to me.");
 	end
 end
-

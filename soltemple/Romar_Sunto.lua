@@ -1,6 +1,6 @@
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("I am Romar Sunto, servant of Solusek Ro.  I am searching for the [coin] of the mighty enchanter [Tash] - if you are interested in helping me acquire it, I will [reward] you with a powerful spell.  I am also a dispenser of the Staff of Ro, sometimes also called [darkwood staves].");
+		e.self:Say("I am Romar Sunto, servant of Solusek Ro.  I am searching for the [" .. eq.say_link("coin") .. "] of the mighty enchanter [" .. eq.say_link("Tash") .. "] - if you are interested in helping me acquire it, I will [" .. eq.say_link("reward") .. "] you with a powerful spell.  I am also a dispenser of the Staff of Ro, sometimes also called [" .. eq.say_link("darkwood staves") .. "].");
 	elseif(e.message:findi("darkwood staves")) then
 		e.self:Say("Bring me a lambent stone from a hill giant, a sand giant or a griffon and I will give you a darkwood staff.");
 	elseif(e.message:findi("tash")) then
@@ -11,7 +11,7 @@ function event_say(e)
 		e.self:Say("I will gladly lend you this coin pouch - put all 10 antique silver coins into it and combine them into the Coin of Tash.");
 		e.other:SummonItem(17511); -- A coin pouch - to combine the coins in
 	elseif(e.message:findi("coin")) then
-		e.self:Say("Tash had a collection of ten antique silver coins that were left in different cities around the world.  If you were to collect all 10 coins, I would give you a [coin pouch] that would let you combine them into the master coin of Tash.  If you are interested, I will sell you a copy of the Tome of Tash, detailing where the coins were reportedly left, for a mere 50 gold.");
+		e.self:Say("Tash had a collection of ten antique silver coins that were left in different cities around the world.  If you were to collect all 10 coins, I would give you a [" .. eq.say_link("coin pouch") .. "] that would let you combine them into the master coin of Tash.  If you are interested, I will sell you a copy of the Tome of Tash, detailing where the coins were reportedly left, for a mere 50 gold.");
 	end
 end
 

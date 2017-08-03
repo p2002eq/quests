@@ -1,8 +1,8 @@
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Why, hello there, " .. e.other:GetName() .. "! I am Jusean, loyal member of the League of Antonican Bards. You look like the reliable sort, maybe you could help me out for a bit, huh? It's about time for our field agents to turn in their [watch reports], and I need someone to go pick them up for me.");
+		e.self:Say("Why, hello there, " .. e.other:GetName() .. "! I am Jusean, loyal member of the League of Antonican Bards. You look like the reliable sort, maybe you could help me out for a bit, huh? It's about time for our field agents to turn in their [" .. eq.say_link("watch reports") .. "], and I need someone to go pick them up for me.");
 	elseif(e.message:findi("watch report")) then
-		e.self:Say("We always have someone stationed on watch duty at the two main entries to the city to keep an eye on what is happening around Qeynos. We have [Anehan and Behroe] down at the docks, and [Leanon and Quinon] working the North Gate.");
+		e.self:Say("We always have someone stationed on watch duty at the two main entries to the city to keep an eye on what is happening around Qeynos. We have [" .. eq.say_link("Anehan and Behroe") .. "] down at the docks, and [" .. eq.say_link("Leanon and Quinon") .. "] working the North Gate.");
 	elseif(e.message:findi("anehan and behroe")) then
 		e.self:Say("Here, if you take this to Anehan or Behroe down at the docks, and then return their report to me as soon as you can, I will give you a small reward.");
 		e.other:SummonItem(18021);

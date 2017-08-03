@@ -10,11 +10,11 @@ end
 
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say(string.format("Greetings, %s.  My name is Vicus Nonad. <cough>  I am the official tax collector for the fine city of Qeynos. <cough>  I serve the will of Antonius Bayle, our glorious leader.  <cough>  <cough>  Please excuse my [cough].  <cough>",e.other:GetName()));
+		e.self:Say(string.format("Greetings, %s.  My name is Vicus Nonad. <cough>  I am the official tax collector for the fine city of Qeynos. <cough>  I serve the will of Antonius Bayle, our glorious leader.  <cough>  <cough>  Please excuse my [" .. eq.say_link("cough") .. "].  <cough>",e.other:GetName()));
 	elseif(e.message:findi("cough")) then
-		e.self:Say("Oh, <cough> I am sorry, but it seems I have fallen a bit ill.  I was caught out in the rain the other day and my chills have gotten the best of me. <cough>  If only someone would [help] me with today's [collections]..  <cough>");
+		e.self:Say("Oh, <cough> I am sorry, but it seems I have fallen a bit ill.  I was caught out in the rain the other day and my chills have gotten the best of me. <cough>  If only someone would [" .. eq.say_link("help") .. "] me with today's collections..  <cough>");
 	elseif(e.message:findi("help")) then
-		e.self:Say("Oh thank <cough> you so <cough> <cough> much <cough>..  Here is the official collection box.  Please collect from each merchant on the <cough> [list].  Then bring me back the combined total of all your collections.");
+		e.self:Say("Oh thank <cough> you so <cough> <cough> much <cough>..  Here is the official collection box.  Please collect from each merchant on the <cough> [" .. eq.say_link("list") .. "].  Then bring me back the combined total of all your collections.");
 		e.other:SummonItem(17012);
 		eq.set_global("tax_collection","0",5,"F");
 	elseif(e.message:findi("list")) then
@@ -38,10 +38,10 @@ function event_trade(e)
 		e.other:AddEXP(500);
 		e.other:GiveCash(0,1,2,0);
 	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 13181})) then
-		e.self:Say("Very good <cough> work. But I need both the full tax collection box and the list of debtors. You did get the [list] from me before you left, right? <cough>");
+		e.self:Say("Very good <cough> work. But I need both the full tax collection box and the list of debtors. You did get the [" .. eq.say_link("list") .. "] from me before you left, right? <cough>");
 		e.other:SummonItem(13181);
 	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 18009})) then
-		e.self:Say("Very good <cough> work. But I need both the full tax collection box and the list of debtors. You did get the [list] from me before you left, right? <cough>");
+		e.self:Say("Very good <cough> work. But I need both the full tax collection box and the list of debtors. You did get the [" .. eq.say_link("list") .. "] from me before you left, right? <cough>");
 	end
 	
 	item_lib.return_items(e.self, e.other, e.trade)

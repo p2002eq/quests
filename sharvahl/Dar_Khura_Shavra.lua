@@ -1,7 +1,7 @@
 ---- Quest:The Whisperlings
 function event_say(e)
 	if(e.message:findi("Hail")) then
-		e.self:Say("Lo there wanderer. Something is amiss within the region, have you not felt it? I sense a [whisperling] nearby.");
+		e.self:Say("Lo there wanderer. Something is amiss within the region, have you not felt it? I sense a [" .. eq.say_link("whisperling") .. "] nearby.");
 	elseif(e.message:findi("whisperling")) then
 		e.self:Say("A whisperling, who brings us dreams, you cannot see them. They do no harm, but I sense anger in them. They have made an enemy. If you are willing to aid us in our research, please seek Groo McManus in the shadeweavers thicket, he has some insight on these whisperlings.");
 	end
@@ -15,8 +15,3 @@ function event_trade(e)
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------

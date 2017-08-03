@@ -1,12 +1,11 @@
 -- Quests for Bard Lambent armor
-
 function event_say(e)
 	if(e.message:findi("hail")) then
 		e.self:Say("Well met " .. e.other:GetName() .. ". I am Cryssia Stardreamer of the Temple of Solusek Ro, protector of a powerful armor that will aid any bard in their journey across Norrath.  Are you a bard that desires this armor?");
 	elseif(e.message:findi("no")) then
 		e.self:Say("Very well then.");
 	elseif(e.message:findi("yes")) then
-		e.self:Say("Very well. I can craft a special type of bardic armor called lambent.  I can craft for you a set of [bracers], a [breastplate], a [helm], and [vambraces]. I require a special kind of lambent stone for each of my armor pieces.  Find my friends Orstorm, Genni, Gardern, and Vilissia within the temple and they will help you create them.");
+		e.self:Say("Very well. I can craft a special type of bardic armor called lambent.  I can craft for you a set of [" .. eq.say_link("bracers") .. "], a [" .. eq.say_link("breastplate") .. "], a [" .. eq.say_link("helm") .. "], and [" .. eq.say_link("vambraces") .. "]. I require a special kind of lambent stone for each of my armor pieces.  Find my friends Orstorm, Genni, Gardern, and Vilissia within the temple and they will help you create them.");
 	elseif(e.message:findi("bracers")) then
 		e.self:Say("Alright, I will be needing some items. Return to me with them and I will craft your bracers. I will be needing a Dark Boned Bracelet, a Griffenne Charm, and a Lambent Fire Opal.");
 	elseif(e.message:findi("breastplate")) then
@@ -45,8 +44,3 @@ function event_trade(e)
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------

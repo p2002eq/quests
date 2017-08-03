@@ -59,6 +59,3 @@ function event_timer(e)
 	end
 
 end
-
-
--- fiddle

@@ -16,9 +16,9 @@ local QUEST_ITEMS = {
 function event_say(e)
   if(e.other:GetFaction(e.self) < 2) then -- Must be Ally
     if(e.message:findi("hail")) then
-      e.self:Say("What do we have here? A cutthroat, perhaps? If you are a rogue, I may have use for you. I am in need of certain components and will reward you well if they are brought to me. Do I have your services?");
-    elseif(e.message:findi("you have my services")) then
-      e.self:Say("Excellent. Now, down to business. I shall pay you in trade for the items I seek. What I have for you is as such, a coif, a breastplate, armplates, bracers, gauntlets, greaves and boots. These should aid you in your skullduggery.");
+      e.self:Say("What do we have here? A cutthroat, perhaps? If you are a rogue, I may have use for you. I am in need of certain components and will reward you well if they are brought to me. Do I have your [" .. eq.say_link("services") .. "]?");
+    elseif(e.message:findi("services")) then
+      e.self:Say("Excellent. Now, down to business. I shall pay you in trade for the items I seek. What I have for you is as such, a [" .. eq.say_link("coif") .. "], a [" .. eq.say_link("breastplate") .. "], [" .. eq.say_link("armplates") .. "], [" .. eq.say_link("bracers") .. "], [" .. eq.say_link("gauntlets") .. "], [" .. eq.say_link("greaves") .. "] and [" .. eq.say_link("boots") .. "]. These should aid you in your skullduggery.");
     elseif(e.message:findi("coif")) then
       e.self:Say("I am in need of an unadorned chain coif and three crushed pieces of coral. For your services I shall give you a coif suitable for one such as you.");
     elseif(e.message:findi("breastplate")) then

@@ -17,5 +17,3 @@ function event_timer(e)
 	eq.depop();
 	eq.stop_timer("depop");
 end
-
---fiddle

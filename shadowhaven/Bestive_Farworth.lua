@@ -1,7 +1,7 @@
 ---- Quest:Pristine Beetle Box
 function event_say(e)
     if(e.message:findi("hail")) then
-        e.self:Say("Hello, " .. e.other:GetName() .. ". I have some heavy duty ruff 'n tuff storage devices for sale. You may not want to carry them 'round much, unless you're the burly type. Even the beetle box I made is kinda heavy.");
+        e.self:Say("Hello, " .. e.other:GetName() .. ". I have some heavy duty ruff 'n tuff storage devices for sale. You may not want to carry them 'round much, unless you're the burly type. Even the [" .. eq.say_link("beetle box") .. "] I made is kinda heavy.");
     elseif(e.message:findi("beetle box")) then
         e.self:Say("You're interested in it? Great! I made this beetle box from the undamaged carapace of a Rhino Beetle. It was sold to me for a very fair price in the Bazaar. Should you discover one of these pristine, undamaged carpaces, bring it to me along with 10 gold and I will make you one of your own.");
     end

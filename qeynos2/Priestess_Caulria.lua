@@ -2,7 +2,7 @@ function event_say(e)
 	local fac = e.other:GetFaction(e.self);
 	
 	if(e.message:findi("hail")) then
-		e.self:Say("Welcome to the holy Temple of Life. Your presence shows an interest in our ways. We are the followers of the [Prime Healer] and would gladly open our arms to any who [serve Rodcet Nife]. Do we not all owe our lives to the sustaining force of the Prime Healer?");
+		e.self:Say("Welcome to the holy Temple of Life. Your presence shows an interest in our ways. We are the followers of the [" .. eq.say_link("Prime Healer") .. "] and would gladly open our arms to any who [" .. eq.say_link("serve Rodcet Nife") .. "]. Do we not all owe our lives to the sustaining force of the Prime Healer?");
 	elseif(e.message:findi("serve the prime healer") or e.message:findi("serve the rodcet nife")) then
 		if(fac < 5) then
 			e.self:Say("Then you are commanded by the Prime Healer to go into the surrounding terrirories of Qeynos and destroy any rabid creatures you may encounter. There will not be an outbreak of disease within reach of the Temple of Life, see to it! Bring me pelts of any rabid beast as proof of your good deed.");
@@ -10,7 +10,7 @@ function event_say(e)
 			e.self:Say("The Temple of Life smiles upon you, friend.. but such a delicate matter can only be entrusted to our most loyal members.");
 		end
 	elseif(e.message:findi("prime healer") or e.message:findi("rodcet nife")) then
-		e.self:Say("The Prime Healer is Rodcet Nife. The one whose power flows through your body. He is the air that you breathe. To serve Him is to serve every living creature. Do you wish to [serve the Prime Healer] or do you [need more time for contemplation]?");
+		e.self:Say("The Prime Healer is Rodcet Nife. The one whose power flows through your body. He is the air that you breathe. To serve Him is to serve every living creature. Do you wish to [" .. eq.say_link("serve the Prime Healer") .. "] or do you [" .. eq.say_link("need more time for contemplation") .. "]?");
 	elseif(e.message:findi("contemplation")) then
 		e.self:Say("I understand. Sometimes a person can be filled with the lies of so many other false deities that he cannot see the truth when it lies in front of him.");
 	end

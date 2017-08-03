@@ -1,17 +1,8 @@
--- Zone: West Karana
--- Short Name: qey2hh1
--- Zone ID: 12
---
--- NPC Name: Konia Swiftfoot
--- NPC ID: 12117
--- Quest Status: Finished
---
-
 function event_say(e)
 	if(e.message:findi("hail")) then
 		e.self:Say(string.format("Hello there, %s.  I am hosting a relay running contest.  Would you like to participate?",e.other:GetName()));
 	elseif(e.message:findi("like to participate")) then
-		e.self:Say("Great!  The prize will be this silly old music sheet.  Let me know when you are ready and I will pass you the torch and tell you where the next stop is.");
+		e.self:Say("Great!  The prize will be this silly old music sheet.  Let me know when you are [" .. eq.say_link("ready") .. "] and I will pass you the torch and tell you where the next stop is.");
 	elseif(e.message:findi("ready")) then
 		e.self:Say("Here you go.  Run with this torch as fast as you can to the Misty Thicket and hand this torch off to Fajio Knejo.  He will tell you where to go from there.  Hurry!  You do not have much time!");
 		e.other:SummonItem(20532);
@@ -34,6 +25,3 @@ function event_trade(e)
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
--- END of FILE Zone:qey2hh1  ID:12117 -- Konia Swiftfoot
-

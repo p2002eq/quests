@@ -1,7 +1,7 @@
 ---- Quest:Saurek Claws
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Hello there, young one, has the Captain sent you to speak with me about the [Deathmaw Club]?");
+		e.self:Say("Hello there, young one, has the Captain sent you to speak with me about the [" .. eq.say_link("Deathmaw Club") .. "]?");
 	elseif(e.message:findi("deathmaw club")) then
 		e.self:Say("Ahh, well, since you do not know of the Deathmaw club, then I will tell you about it. Captain Alim has taught me how to make this club. In order to make one, I will require three deathmaw claws, and a wooden practice flail. Return to me these components, and I will craft a Deathmaw Club for you.");
 	end
@@ -15,8 +15,3 @@ function event_trade(e)
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------

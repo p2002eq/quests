@@ -1,6 +1,4 @@
-----a_leatherfoot_spy.pl
 --Part of Innoruuk Disciple
-
 function event_spawn(e)
 	e.self:Say("I have been discovered!!! You will never stop us from reclaiming the Nektulos for Karana, " .. e.other:GetName() .. "!!");
 	eq.set_timer("depop", 3600000);
@@ -12,8 +10,3 @@ function event_timer(e)
 		eq.depop();
 	end
 end
-
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------

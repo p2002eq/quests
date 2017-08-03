@@ -1,12 +1,8 @@
--- Evil Research
--- The xp from this quest was what made it worthwhile, more than the concordance. -Kilelen
--- Converted to .lua by Speedz
-
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("I am Tv`ysa, guardian of the [Concordance of Research].");
+		e.self:Say("I am Tv`ysa, guardian of the [" .. eq.say_link("Concordance of Research") .. "].");
 	elseif(e.message:findi("Concordance of Research")) then
-		e.self:Say("The 'Concordance of Research' is an aid to those who follow the path of academia. It, and its sister books, 'Runes and Research', volumes I and II, help those who are [interested] in researching spells.");
+		e.self:Say("The 'Concordance of Research' is an aid to those who follow the path of academia. It, and its sister books, 'Runes and Research', volumes I and II, help those who are [" .. eq.say_link("interested") .. "] in researching spells.");
 	elseif(e.message:findi("interested")) then
 		e.self:Say("I have several copies of each book. If you want a copy of 'Runes and Research', volume I or II, bring me a lightstone and I will give you whichever book I have more of at the moment. Bring me a greater lightstone, and I will give you a copy of the 'Concordance of Research.");
 	end

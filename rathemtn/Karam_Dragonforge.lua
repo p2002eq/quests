@@ -1,10 +1,10 @@
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Welcome. I have a number of platemail items, if you are interested. I am also a master [smith] of exotic materials such as dragon scales.");
+		e.self:Say("Welcome. I have a number of platemail items, if you are interested. I am also a master [" .. eq.say_link("smith") .. "] of exotic materials such as dragon scales.");
 	elseif(e.message:findi("smith")) then
-		e.self:Say("Dragon scales make terrific armor. I can make a [white dragonscale cloak] and [red dragonscale armor]. I have not seen any other colored dragon variants around. But if you see any, be sure to let me know. I would be interested in what can be made from their scales.");
+		e.self:Say("Dragon scales make terrific armor. I can make a [" .. eq.say_link("white dragonscale cloak") .. "] and [" .. eq.say_link("red dragonscale armor") .. "]. I have not seen any other colored dragon variants around. But if you see any, be sure to let me know. I would be interested in what can be made from their scales.");
 	elseif(e.message:findi("white dragonscale cloak")) then
-		e.self:Say("Hrmmm. A white dragonscale cloak eh? Hrmmm. Well, I will make you a deal. You can save me some footwork and I will craft your cloak. I want to propose to my [fiancee] but I have neither a [wedding ring] nor a [present] for her. So, return with a white dragon hide, a wedding ring, and a present for my fiancee, and I will fashion your cloak for you.");
+		e.self:Say("Hrmmm. A white dragonscale cloak eh? Hrmmm. Well, I will make you a deal. You can save me some footwork and I will craft your cloak. I want to propose to my [" .. eq.say_link("fiancee") .. "] but I have neither a [" .. eq.say_link("wedding ring") .. "] nor a [" .. eq.say_link("present") .. "] for her. So, return with a white dragon hide, a wedding ring, and a present for my fiancee, and I will fashion your cloak for you.");
 	elseif(e.message:findi("fiancee")) then
 		e.self:Say("My fiancee...AHHHH.... The love of my life. My purpose for existing. She is a real woman. Long, golden blonde hair with a similarly colored full beard. A stout broad she is, kind and warm at heart. She knows every nook of my essence. But do not let that fool you. She is as strong as many dwarven men. Between you and me, she has even beaten me once or twice arm-wrestling over who gets the last ale and who has to go to the market.");
 	elseif(e.message:findi("wedding ring")) then
@@ -28,9 +28,3 @@ function event_trade(e)
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
---END of FILE : Zone : rathemtn : NPC_ID : 50119 : Karam Dragonforge
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------

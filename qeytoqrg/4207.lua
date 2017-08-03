@@ -1,7 +1,7 @@
 local drink = 0;
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("If you aren't going to buy me a [drink] than get lost");
+		e.self:Say("If you aren't going to buy me a [" .. eq.say_link("drink") .. "] than get lost");
 	elseif(e.message:findi("drink")) then
 		e.self:Say("Tumpy Tonic, of course. The brewry shut down last year....can you find me a few cases?");
 	end

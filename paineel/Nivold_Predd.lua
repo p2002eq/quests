@@ -1,8 +1,8 @@
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("What do you want? Do not disturb me lest you plan to assist in my [summoning of Dread].");
+		e.self:Say("What do you want? Do not disturb me lest you plan to assist in my [" .. eq.say_link("summoning of Dread") .. "].");
 	elseif(e.message:findi("summoning of dread")) then
-		e.self:Say("There are some components essential to the summoning of the avatar of Dread. I require the eye of a griffon. some [powder of reanimation]. the brain of the Ishva Mal. and the toes of an ice giant. Fetch me these reagents so that we may summon the avatar to forge a shield worn only by the mightiest apostles of Cazic-Thule.");
+		e.self:Say("There are some components essential to the summoning of the avatar of Dread. I require the eye of a griffon. some [" .. eq.say_link("powder of reanimation") .. "]. the brain of the Ishva Mal. and the toes of an ice giant. Fetch me these reagents so that we may summon the avatar to forge a shield worn only by the mightiest apostles of Cazic-Thule.");
 	elseif(e.message:findi("powder of reanimation")) then
 		e.self:Say("There is a gnome necromancer who has been experimenting with a powder used in reanimating long dead organic tissue. He is known to frequent places populated by undead in order to pursue his research. Seek him out and procure a bit of his powder.");
 	end
@@ -24,5 +24,3 @@ function event_trade(e)
 	item_lib.return_items(e.self, e.other, e.trade, false);
 	e.self:Say("I require all four reagents, anything less is useless. Incompetence will get you nowhere amongst the faithful of Cazic-Thule!");
 end
-
--- END of FILE Zone:paineel  ID:75071 -- Nivold_Predd 

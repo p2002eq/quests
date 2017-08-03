@@ -4,13 +4,13 @@ function event_say(e)
 	if(e.message:findi("Hail")) then
 		e.self:Say("Well hello... How may I help you?");
 	elseif(e.message:findi("love potion")) then
-		e.self:Say("Love potion? Never been done and not worth the risk to try after [what happened to Kanaad]. ");
+		e.self:Say("Love potion? Never been done and not worth the risk to try after [" .. eq.say_link("what happened to Kanaad") .. "]. ");
 	elseif(e.message:findi("what happened to Kanaad")) then
-		e.self:Say("Old Kanaad taught me a lot of what I know- he was about the greatest potions expert in the city back then. He started gathering legends and lore about some infamous love potion. Not some silly thing to make the girl of your dreams fall in love mind you- this fabled tonic was intended to be shared only between two who had found true love. If their feelings were strong enough it would... well, that was part of the problem, no one knew what it was supposed to do. Kanaad learned of some crazy human in the mountains that had supposedly figured out the secret to the potion. The [results] were not what anyone had hoped for.");
+		e.self:Say("Old Kanaad taught me a lot of what I know- he was about the greatest potions expert in the city back then. He started gathering legends and lore about some infamous love potion. Not some silly thing to make the girl of your dreams fall in love mind you- this fabled tonic was intended to be shared only between two who had found true love. If their feelings were strong enough it would... well, that was part of the problem, no one knew what it was supposed to do. Kanaad learned of some crazy human in the mountains that had supposedly figured out the secret to the potion. The [" .. eq.say_link("results") .. "] were not what anyone had hoped for.");
 	elseif(e.message:findi("results")) then
 		if (fac <= 4) then
 			e.self:Emote("shuffles a bit uncomfortably, considering whether or not he should be telling you this");
-			e.self:Say("This is not something that I would normally talk about, but Soroush came by and told me that you are on the trail of Behari- if this will help you find him, then I will tell you all that I know... Kanaad had a time getting the ingredients and was only to make just a very little bit. He sat down with his love, alone in a room and intended to share the elixir. Well, that was the last anyone saw of her, and he was manic, out of his mind... The mixture had driven him from his senses and he snapped. It took quite a bit to restrain him and figure out what to do [next].");
+			e.self:Say("This is not something that I would normally talk about, but Soroush came by and told me that you are on the trail of Behari- if this will help you find him, then I will tell you all that I know... Kanaad had a time getting the ingredients and was only to make just a very little bit. He sat down with his love, alone in a room and intended to share the elixir. Well, that was the last anyone saw of her, and he was manic, out of his mind... The mixture had driven him from his senses and he snapped. It took quite a bit to restrain him and figure out what to do [" .. eq.say_link("next") .. "].");
 		else
 			e.self:Say("'I am sorry, but I am right in the middle or something.");
 		end
@@ -62,8 +62,3 @@ function event_trade(e)
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------

@@ -1,4 +1,3 @@
---Edited by anubisrwml
 function event_say(e)
 	if(e.message:findi("Hail")) then
 		e.self:Say("Greetings. did you need assistance with something or are you just browsing?");
@@ -13,7 +12,7 @@ function event_trade(e)
 	local item_lib = require("items");
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 3495})) then -- Treated Hopperhide Buckler
 		e.self:Emote("cuts the cloth big enough to cover your buckler twice over and folds it neatly. She puts the cloth on the buckler and hands it to you. She looks around for a moment...");
-		e.self:Say("Sometimes I feel as if the spirits are playing tricks on me. I'm out of spores. I never seem to run out of spores until the times when I need them most. You'll need to gather them on your own to make the [soaking solution].");
+		e.self:Say("Sometimes I feel as if the spirits are playing tricks on me. I'm out of spores. I never seem to run out of spores until the times when I need them most. You'll need to gather them on your own to make the [" .. eq.say_link("soaking solution") .. "].");
 		e.other:SummonItem(5538); -- Large Folded Cloth
 		e.other:QuestReward(e.self,0,0,0,0,3495); -- Treated Hopperhide Buckler
 	end
@@ -29,8 +28,3 @@ function event_trade(e)
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------

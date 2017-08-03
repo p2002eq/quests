@@ -1,6 +1,6 @@
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Welcome to the Tabernacle of Terror. Perhaps you can control your fear long enough to be of [service] to us.");
+		e.self:Say("Welcome to the Tabernacle of Terror. Perhaps you can control your fear long enough to be of [" .. eq.say_link("service") .. "] to us.");
 	elseif(e.message:findi("service")) then
 		e.self:Say("I need some things fetched from the creatures just outside our city for some ritual experimentation. Bring me two tufts of bat fur and two fire beetle legs and I will school you in the ways of terror.");
 	end
@@ -20,9 +20,3 @@ function event_trade(e)
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
---END of FILE Zone:paineel  ID:75018 -- Dzan_Amo
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------

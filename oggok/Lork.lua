@@ -1,6 +1,6 @@
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("You " .. e.other:GetName() .. ". We hear of you. We need help. You [help Crakneks] or you [help self]?");
+		e.self:Say("You " .. e.other:GetName() .. ". We hear of you. We need help. You [" .. eq.say_link("help Crakneks") .. "] or you [" .. eq.say_link("help self") .. "]?");
 	elseif(e.message:findi("help crakneks")) then
 		e.self:Say("Ha!! We hear of great adventurer. You?!! Me no think so. You prove self to Crakneks before you help us. Go to Innoth.. Innotu.. Innooth.. Arghh!! You go to outside Oggok. Find fat alligator bit Lork brother in two. Bring brother, Nork, body back. Then me know you strong.");
 	elseif(e.message:findi("help self")) then
@@ -17,7 +17,7 @@ function event_trade(e)
 		e.self:Say("Ay danks. Take dis to Uglan.");
 		e.other:QuestReward(e.self,0,0,0,0,16547);
 	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 13356})) then
-		e.self:Say("Ahhh!! Boohoohoo. Nork!! That you arm. Me will take care of you now. Thank you for killing gator. You must be strong. Now you help Crakneks. We hear.. ohh, poor Nork, we hear trouble begins. Find ogre warrior [Uglan]. Give him this. It broken. He know where you from. Go. Nork.. Poor Nork.");
+		e.self:Say("Ahhh!! Boohoohoo. Nork!! That you arm. Me will take care of you now. Thank you for killing gator. You must be strong. Now you help Crakneks. We hear.. ohh, poor Nork, we hear trouble begins. Find ogre warrior [" .. eq.say_link("Uglan") .. "]. Give him this. It broken. He know where you from. Go. Nork.. Poor Nork.");
 		e.other:Faction(57,10);
 		e.other:Faction(46,1);
 		e.other:Faction(128,-1);
@@ -37,8 +37,3 @@ function event_trade(e)
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------

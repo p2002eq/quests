@@ -1,9 +1,6 @@
---Draxiz N-Ryt.pl
 --Part of Innoruuk Disciple
-
 function event_trade(e)
 	local item_lib = require("items");
-	
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 12807})) then--Halfling Druid Master's Head
 		e.self:Say("I have foreseen your arrival, " .. e.other:GetName() .. ". I see from the mind of this lesser creature you have slain that he was receiving orders from beyond the boundaries of Nektulos. I see an armored Leatherfoot moving cautiously through the commonlands attempting to avoid the eyes of travelers and guard posts. Find this Leatherfoot I see in my visions and return any pertinent information he may be carrying to me so that I may decipher it. I have skinned the face of this druid and enchanted it so that you may learn what you must through your skills of subterfuge. Go now, " .. e.other:GetName() .. ", and do not disappoint me!");
 		e.other:Faction(331, 1);--The Spurned
@@ -19,8 +16,3 @@ function event_trade(e)
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------

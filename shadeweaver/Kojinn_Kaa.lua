@@ -1,7 +1,7 @@
 ---- Champion of the Vah Shir
 function event_say(e)
 	if(e.message:findi("Hail")) then
-		e.self:Emote("waits patiently for a hero to emerge, one that will deliver a crippling blow to those that would hunt the cats of these lands. His eyes look deep to your soul as if to ask, 'Is this the hero I await?' ");
+		e.self:Emote("waits patiently for a hero to emerge, one that will deliver a crippling blow to those that would hunt the cats of these lands. His eyes look deep to your soul as if to ask, 'Is this the [" .. eq.say_link("hero") .. "] I await?' ");
 	elseif(e.message:findi("hero")) then
 		e.self:Say("Many have come before me and made such claims. Your fervor is appreciated, but I require proof that you are a hero whose heart is with us before I can entrust you with such a sacred mission. Have you something to show that you have earned our trust?");
 	end
@@ -17,8 +17,3 @@ function event_trade(e)
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------

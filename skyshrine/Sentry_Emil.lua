@@ -7,7 +7,7 @@
 function event_say(e)
     if (e.other:GetFaction(e.self) <= 6) then 	--check faction to verify PC is apphrehensive or higher to start quest.  Otherwise, no response
 		if(e.message:findi("hail")) then
-			e.self:Say("Ah, hello, you must be the strangers that call yourselves friend to the Kin. Perhaps you would be interested in proving your worth?");
+			e.self:Say("Ah, hello, you must be the strangers that call yourselves friend to the Kin. Perhaps you would be interested in [" .. eq.say_link("proving") .. "] your worth?");
 		elseif(e.message:findi("proving")) then
 			e.self:Say("Good, then perhaps you wouldn't mind performing a small task then? With the betrayal of Kragen Morshire, the kin retreated from the Skyshrine and have taken up residence in the Tunare Court. Before I was called to guard the gate, I had been assigned to deliver a report to them. If you indeed wish to be friend to the kin, take this report to the Wakening. Eysa Florawhisper. She will give you a token indicating that she has received the message, return this to me and we may see a reward.");
 			e.other:SummonItem(29067);	--Note to Tunares Court

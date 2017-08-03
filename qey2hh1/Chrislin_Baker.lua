@@ -2,9 +2,9 @@
 
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Emote("slowly lifts her head.'Have you brought any writing materials for me? The last few supplies I had were stolen.'");
+		e.self:Emote("slowly lifts her head.'Have you brought any [" .. eq.say_link("writing materials") .. "] for me? The last few supplies I had were stolen.'");
 	elseif(e.message:findi("writing materials")) then
-		e.self:Say("A passing illusionist gave me some enchanted writing materials. He said they would help inspire me to capture my mind's images on paper. If you would just be so kind as to bring me plain old paper and a quill from Qeynos, I can get back to writing.");
+		e.self:Say("A passing illusionist gave me some enchanted writing materials. He said they would help inspire me to capture my mind's images on paper. If you would just be so kind as to bring me plain old [" .. eq.say_link("paper") .. "] and a quill from Qeynos, I can get back to writing.");
 	elseif(e.message:findi("paper")) then
 		e.self:Say("I don't know who might be selling those these days. Just ask around. I am sure someone will know.");
 	end
@@ -22,5 +22,3 @@ function event_trade(e)
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
--- EOF Zone: qey2hh1 ID: 12074 NPC: Chrislin_Baker

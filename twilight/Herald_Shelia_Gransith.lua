@@ -1,13 +1,13 @@
 ---- Twilight Armor - Bard
 function event_say(e)
 	if(e.message:findi("Hail")) then
-		e.self:Say("Welcome to the Twilight Sea!  This is the docking entrance to Katta Castellum. ".. e.other:GetName() .. ", Tell me do you know any [songs]?");
+		e.self:Say("Welcome to the Twilight Sea!  This is the docking entrance to Katta Castellum. ".. e.other:GetName() .. ", Tell me do you know any [" .. eq.say_link("songs") .. "]?");
 	elseif(e.message:findi("songs")) then
-		e.self:Say("Ah you do. You don't happen to be a [bard] do you?");
+		e.self:Say("Ah you do. You don't happen to be a [" .. eq.say_link("bard") .. "] do you?");
 	elseif(e.message:findi("bard")) then
-		e.self:Say("Great. I have just what you need. Would you like to earn some [armor]?");
+		e.self:Say("Great. I have just what you need. Would you like to earn some [" .. eq.say_link("armor") .. "]?");
 	elseif(e.message:findi("armor")) then
-		e.self:Say("I thought so I have a [helm], [breastplate], [vambraces], [greaves], [pauldrons], [bracer], and [boots]. For the rest speak to Brolan over there about armor.");
+		e.self:Say("I thought so I have a [" .. eq.say_link("helm") .. "], [" .. eq.say_link("breastplate") .. "], [" .. eq.say_link("vambraces") .. "], [" .. eq.say_link("greaves") .. "], [" .. eq.say_link("pauldrons") .. "], [" .. eq.say_link("bracer") .. "], and [" .. eq.say_link("boots") .. "]. For the rest speak to Brolan over there about armor.");
 	elseif(e.message:findi("breastplate")) then
 		e.self:Say("For the breastplate you must bring me an astral jewel, a mark of music, a diamond studded medal, and a glorious flower.");
 	elseif(e.message:findi("vambraces")) then

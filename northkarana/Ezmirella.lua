@@ -16,5 +16,3 @@ function event_trade(e)
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
--- Quest by mystic414 / converted to lua by robregen

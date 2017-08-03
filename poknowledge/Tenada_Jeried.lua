@@ -2,10 +2,10 @@
 --Giren found text for the Three Manuals quest, thanks. -Kilelen
 function event_say(e)
 	if(e.message:findi("Hail")) then
-		e.self:Say("I am afraid I have little that I can talk about right now.  If you like you may speak to my [instructor] he can probably tell you about our work.");
-	elseif(e.message:findi("who is your instructor")) then
+		e.self:Say("I am afraid I have little that I can talk about right now.  If you like you may speak to my [" .. eq.say_link("instructor") .. "] he can probably tell you about our work.");
+	elseif(e.message:findi("instructor")) then
 		e.self:Say("My instructor is Sage Balic; you will be able to find him upstairs.  Ask him about his research. I'm sure he would love to tell you about his work.");
-	elseif(e.message:findi("interested in learning")) then
+	elseif(e.message:findi("learning")) then
 		e.self:Emote("considers for a moment and continues, 'Very well, but first you must prove that you are a student of the advanced arts. In order to do this, you will need to collect each of the advanced manuals in combat, stealth, and magic. You will also need to seek out a prized possession known as a Hope Stone. I believe it currently lies somewhere in the elemental planes. Return to me with these four tools of learning, and only then will you be truly worthy of what secrets the planes have to offer.'");
 	end
 end
@@ -18,8 +18,3 @@ function event_trade(e)
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------

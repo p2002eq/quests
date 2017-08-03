@@ -1,9 +1,9 @@
 -- Heretic Heads - Rognarog's Head
 function event_say(e)
 	if(e.message:findi("Hail")) then
-		e.self:Say("Shalom, " .. e.other:GetCleanName() .. "!  I welcome you to our humble village in these [trying times].");
+		e.self:Say("Shalom, " .. e.other:GetCleanName() .. "!  I welcome you to our humble village in these [" .. eq.say_link("trying times") .. "].");
 	elseif(e.message:findi("trying times")) then
-		e.self:Say("There are many threats currently facing this village. The kobolds of Clan Kolbok are becoming bolder in pushing the boundaries of the territory in which they usually hunt. A few of the kobolds now hunt recklessly, killing for pleasure instead of sustenance. [Rognarog] the Infuriated is the most murderous of such kobolds. Then there are the [heretics] that have been invading both Clan Kolbok and Kejek territories alike, practicing their dark sorceries as a show of devotion to their faceless god.");
+		e.self:Say("There are many threats currently facing this village. The kobolds of Clan Kolbok are becoming bolder in pushing the boundaries of the territory in which they usually hunt. A few of the kobolds now hunt recklessly, killing for pleasure instead of sustenance. [" .. eq.say_link("Rognarog") .. "] the Infuriated is the most murderous of such kobolds. Then there are the [" .. eq.say_link("heretics") .. "] that have been invading both Clan Kolbok and Kejek territories alike, practicing their dark sorceries as a show of devotion to their faceless god.");
 	elseif(e.message:findi("heretics")) then
 		e.self:Say("The heretics have not only corrupted their own spirits but they defile the spirits of the dead with their evil sorceries. Fill this satchel with the heads of invading heretics and I shall reward you for your allegiance to Kejek.");
 		e.other:SummonItem(17883); -- Burlap Satchel

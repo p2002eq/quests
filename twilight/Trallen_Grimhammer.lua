@@ -3,9 +3,9 @@ function event_say(e)
 	if(e.message:findi("Hail")) then
 		e.self:Say("Greetings and well met, ".. e.other:GetName() .. ". Don't listen to ol' Latrag over there. He'll never stop brewin' the best durn ale to be found.");
 	elseif(e.message:findi("armor")) then
-		e.self:Say("Latrag is goin' on 'bout his armor again isn't he. Well friend, be ye a [paladin]?");
+		e.self:Say("Latrag is goin' on 'bout his armor again isn't he. Well friend, be ye a [" .. eq.say_link("paladin") .. "]?");
 	elseif(e.message:findi("paladin")) then
-		e.self:Say("Of course ya are ".. e.other:GetName() .. ". Why would ya have asked me about the armor if ye wasn't, eh? I have the [boots], [mask], [cloak], [gauntlets], [gorget], [girdle], and a [sword]. Which do ye want?");
+		e.self:Say("Of course ya are ".. e.other:GetName() .. ". Why would ya have asked me about the armor if ye wasn't, eh? I have the [" .. eq.say_link("boots") .. "], [" .. eq.say_link("mask") .. "], [" .. eq.say_link("cloak") .. "], [" .. eq.say_link("gauntlets") .. "], [" .. eq.say_link("gorget") .. "], [" .. eq.say_link("girdle") .. "], and a [" .. eq.say_link("sword") .. "]. Which do ye want?");
 	elseif(e.message:findi("boots")) then
 		e.self:Say("For the boots yer gonna have to get me a sun jewel, a mark of destiny, and a fleshy vine.");
 	elseif(e.message:findi("mask")) then

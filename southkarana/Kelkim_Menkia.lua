@@ -1,10 +1,8 @@
--- BEGIN FILE: southkarana\Kelkim_Menika.lua
-
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Emote("sighs as she looks over her lute. 'My lute was mangled by those damnable gnolls. I have no idea how I'm going to get a new set of strings for it. They were so rare.'");
+		e.self:Emote("sighs as she looks over her lute. 'My lute was mangled by those damnable gnolls. I have no idea how I'm going to get a new set of strings for it. They were so [" .. eq.say_link("rare") .. "].'");
 	elseif(e.message:findi("rare")) then
-		e.self:Say("I only use the finest lute strings on my lute. My uncle got them for me from across the world. His name was Zendrik the Wurmslayer. As his name implies, he killed many wurms and drakes. The strings for my lute were all made from the guts of the wurms and drakes he slew.");
+		e.self:Say("I only use the finest lute strings on my lute. My uncle got them for me from across the world. His name was Zendrik the Wurmslayer. As his name implies, he killed many wurms and drakes. The strings for my lute were all made from the guts of the [" .. eq.say_link("wurms and drakes") .. "] he slew.");
 	elseif(e.message:findi("wurms and drakes")) then
 		e.self:Say("The strings were from a chromodrac, a red wurm and a huge onyx drake. It always sounded so wonderful.' Kelkim sighs, looking off to the horizon. As she shakes her lute angrily, she says, 'I'll kill all of you dirty gnolls!");
 	end
@@ -21,5 +19,3 @@ function event_trade(e)
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
--- END of FILE Zone:southkarana  ID:14082 -- Kelkim_Menika

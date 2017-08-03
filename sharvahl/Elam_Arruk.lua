@@ -7,7 +7,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 5558})) then -- Cloak of the Taruun Apprentice
-		e.self:Say("see that you have experienced some training from Elder Ternq. He is an amazing scout and very exciting to watch in combat. Years prior to being commissioned to act in this role, I served with the young Scout Ternq. Of course we were both much younger and more agile back in those days. Much like you are now. Ah well, enough with this chatter. Take this bag and stow it somewhere safe. I have a [task] for you.");
+		e.self:Say("see that you have experienced some training from Elder Ternq. He is an amazing scout and very exciting to watch in combat. Years prior to being commissioned to act in this role, I served with the young Scout Ternq. Of course we were both much younger and more agile back in those days. Much like you are now. Ah well, enough with this chatter. Take this bag and stow it somewhere safe. I have a [" .. eq.say_link("task") .. "] for you.");
 		e.other:SummonItem(5558); -- Cloak of the Taruun Apprentice
 		e.other:QuestReward(e.self,0,0,0,0,17117); -- Black Cloth Bag
 	end
@@ -20,8 +20,3 @@ function event_trade(e)
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------

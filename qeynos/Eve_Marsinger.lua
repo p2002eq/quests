@@ -1,14 +1,13 @@
 --Quest Name: Bard Mail Quest
-
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say(string.format("Hail, %s - Are you [interested] in helping the League of Antonican Bards by delivering some [mail]?",e.other:GetName()));
+		e.self:Say(string.format("Hail, %s - Are you [" .. eq.say_link("interested") .. "] in helping the League of Antonican Bards by delivering some [" .. eq.say_link("mail") .. "]?",e.other:GetName()));
 	elseif(e.message:findi("interested")) then
-		e.self:Say("'I have messages that need to go to - well, right now I have one that needs to go to Highpass. Will you [deliver] mail to [Highpass] for me?");
+		e.self:Say("'I have messages that need to go to - well, right now I have one that needs to go to Highpass. Will you [" .. eq.say_link("deliver") .. "] mail to [" .. eq.say_link("Highpass") .. "] for me?");
 	elseif(e.message:findi("agents")) then
 		e.self:Say("Sivina Lutewhisper, Marton Stringsinger, Ticar Lorestring and Mistrana Two-Notes all report to my husband, Tralyn.");
 	elseif(e.message:findi("mail")) then
-		e.self:Say("'The League of Antonican Bards has a courier system made up of travelers, adventurers and [agents]. We pay good gold to anyone who will take messages from bards such as myself to one of our more distant offices. Are you [interested]");
+		e.self:Say("'The League of Antonican Bards has a courier system made up of travelers, adventurers and [" .. eq.say_link("agents") .. "]. We pay good gold to anyone who will take messages from bards such as myself to one of our more distant offices. Are you [" .. eq.say_link("interested") .. "]");
 	elseif(e.message:findi("deliver") or e.message:findi("Highpass")) then
 		e.self:Say("Take this pouch to Lislia Goldtune in Highpass. You can find her at the entrance to HighKeep. I am sure she will compensate you for your troubles.");
 		e.other:SummonItem(18152);

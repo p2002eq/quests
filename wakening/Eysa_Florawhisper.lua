@@ -4,9 +4,9 @@
 function event_say(e)
     if (e.other:GetFaction(e.self) <= 6) then 	--check faction to verify PC is apphrehensive or higher to start quest.  Otherwise, no response
 		if(e.message:findi("hail")) then
-			e.self:Say("A pleasure to meet you. I am Countess Eysa Florawhisper of the Tunarean Court. Are you a friend of the court?");
+			e.self:Say("A pleasure to meet you. I am Countess Eysa Florawhisper of the Tunarean Court. Are you a [" .. eq.say_link("friend of the court") .. "]?");
 		elseif(e.message:findi("friend of the court")) then
-			e.self:Say("You appear to be a creature that has seen many foreign lands. There are a number of fruits and seeds that I desire in order to plant them and preserve their species here in the wakening land. I will provide a bag for you that will preserve the seeds until they can be returned to me. Will you gather seeds for me? ");
+			e.self:Say("You appear to be a creature that has seen many foreign lands. There are a number of fruits and seeds that I desire in order to plant them and preserve their species here in the wakening land. I will provide a bag for you that will preserve the seeds until they can be returned to me. Will you [" .. eq.say_link("gather") .. "] seeds for me? ");
 		elseif(e.message:findi("gather")) then
 			e.self:Say("I seek the following fruits and seeds. A misty acorn, emerald orange, bag of caynar nuts, vineclinger berries, ripened heartfruit, rathe berries, marr cherries, and flarefire seeds.");
 			e.other:SummonItem(17864);	-- Empty Seed Collection Bag

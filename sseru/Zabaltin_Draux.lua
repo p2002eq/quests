@@ -1,7 +1,7 @@
 ---- Quest:Poisoning Brendar
 function event_say(e)
     if(e.message:findi("hail")) then
-        e.self:Say("Enough with the chit chat. Are you or are you not a rogue?");
+        e.self:Say("Enough with the chit chat. Are you or are you not a [" .. eq.say_link("rogue") .. "]?");
     elseif(e.message:findi("rogue")) then
         e.self:Say("Good, I need you to serve Seru. There is a member of the Shoulder that is cutting the delivery of supplies to us and he must be stopped. He is a traitor to this city. He must be a sympathizer with the loyalists of Katta. What I need from you is poison. Go make me four vials of Aching Blood. We will see how he likes his wine with some of that in it!");
     end

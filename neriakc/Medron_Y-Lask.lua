@@ -14,9 +14,3 @@ function event_trade(e)
 		e.other:QuestReward(e.self,0,0,0,0,19610,1000);
 	end
 end
-
---END of FILE Zone:neriakc  ID:42060 -- Medron_Y`Lask
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------

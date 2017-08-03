@@ -25,7 +25,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 18324})) then -- Kalilaa Diary
-		e.self:Emote("Elder Hymnist Hortitosh opens the diary and reads. Before long he is utterly engrossed in the story of purest love that you have given him, and it begins. You are something less than fully aware of what happens next, the wind whistles and you could swear that the room fills with light though you could not prove it. A moment later, a sense of completeness has filled you. All you know for sure is that Hortitosh stands before you, fully spent, and you hold in your hand what could only be an essence of sonnet. ");
+		e.self:Emote("Elder Hymnist Hortitosh opens the diary and reads. Before long he is utterly engrossed in the story of purest love that you have given him, and it begins. You are something less than fully aware of what happens next, the wind whistles and you could swear that the room fills with light though you could not prove it. A moment later, a sense of completeness has filled you. All you know for sure is that Hortitosh stands before you, fully spent, and you hold in your hand what could only be an [" .. eq.say_link("essence of sonnet") .. "]. ");
 		e.other:QuestReward(e.self,0,0,0,0,5991); -- Essence of Sonnet
 	end
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 18552})) then -- Hymnist Guild Summons
@@ -46,8 +46,3 @@ function event_trade(e)
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------

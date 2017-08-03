@@ -1,8 +1,8 @@
 function event_say(e)
 	if(e.message:findi("Hail")) then
-		e.self:Say("Greetings noble one. I am Jala, Master weaver of Shar Vahl. I have been perfecting the art of [Xakra] weaving lately. Please have a look at what I have crafted, maybe you will find something to suit your fashion needs.");
+		e.self:Say("Greetings noble one. I am Jala, Master weaver of Shar Vahl. I have been perfecting the art of [" .. eq.say_link("Xakra") .. "] weaving lately. Please have a look at what I have crafted, maybe you will find something to suit your fashion needs.");
 	elseif(e.message:findi("xakra")) then
-		e.self:Say("Xakra is the mystical ethereal silk woven by the Shak Dratha. I believe they use the mystical ethereal shadow silk woven by the Xakra worms. Although this magical silk is quite beautiful, it is also highly unstable if you weave them in large quantities. I have discovered that the hides of rock hoppers manages to hold the silk together fairly well. I can use some help in collecting the silks to continue my craft, if you are [willing].");
+		e.self:Say("Xakra is the mystical ethereal silk woven by the Shak Dratha. I believe they use the mystical ethereal shadow silk woven by the Xakra worms. Although this magical silk is quite beautiful, it is also highly unstable if you weave them in large quantities. I have discovered that the hides of rock hoppers manages to hold the silk together fairly well. I can use some help in collecting the silks to continue my craft, if you are [" .. eq.say_link("willing") .. "].");
 	elseif(e.message:findi("willing")) then
 		e.self:Say("Wonderful! I'm not much of a hunter myself, so as you can see it can be quite difficult for me to obtain these silks. If you can bring me four of them. I would greatly appreciate it.");
 	end
@@ -21,8 +21,3 @@ function event_trade(e)
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------

@@ -7,7 +7,5 @@ function event_say(e)
 end
 
 function event_signal(e)
-	e.self:Say("Settle down there, [Mangler].. Hey! I told you to stay off of that table!");
+	e.self:Say("Settle down there, [" .. eq.say_link("Mangler") .. "].. Hey! I told you to stay off of that table!");
 end
-
--- END of FILE Zone:rivervale  ID:19053 -- Kevlin_Diggs

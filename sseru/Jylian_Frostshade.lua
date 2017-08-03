@@ -1,11 +1,11 @@
 ---- Quest:Jylian's Research
 function event_say(e)
     if(e.message:findi("hail")) then
-        e.self:Say("Greetings, as you can see I am quite busy with my [research]. If you don't mind I need silence to concentrate.");
+        e.self:Say("Greetings, as you can see I am quite busy with my [" .. eq.say_link("research") .. "]. If you don't mind I need silence to concentrate.");
     elseif(e.message:findi("research")) then
-        e.self:Say("I am researching what went wrong in Mons Letalis. The spires constructed there should allow us passage back to Norrath freely. Upon completion of them something [went wrong].");
+        e.self:Say("I am researching what went wrong in Mons Letalis. The spires constructed there should allow us passage back to Norrath freely. Upon completion of them something [" .. eq.say_link("went wrong") .. "].");
     elseif(e.message:findi("went wrong")) then
-        e.self:Say("Suddenly the spires were overwhelmed with eerie beings that seemed to have no essence to them. These spirits now plague the spires. Due to our lack of knowledge of these creatures we do not know how to deal with them. Fighting them seems useless because as soon as one is destroyed more would materialize. They seemed to feed off of death, especially ours. We must [find out more] about them.");
+        e.self:Say("Suddenly the spires were overwhelmed with eerie beings that seemed to have no essence to them. These spirits now plague the spires. Due to our lack of knowledge of these creatures we do not know how to deal with them. Fighting them seems useless because as soon as one is destroyed more would materialize. They seemed to feed off of death, especially ours. We must [" .. eq.say_link("find out more") .. "] about them.");
     elseif(e.message:findi("find out more")) then
         e.self:Say("If you think you can help, I charge you with the task of gathering information. Seek out these creatures, and if you can manage to destroy them bring me their robes. I will study the garment to see if I can determine its origin. Now please, leave me be so that I can get to my research.");
     end

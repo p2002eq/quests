@@ -33,7 +33,7 @@ function event_trade(e)
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 3493})) then -- Cask of Sweetwater
 		e.self:Emote("takes a sip from the cask and furrows his brow.");
 		e.self:Say("Well, it's a start I suppose. With a little practice you are certain to get better. Here is some hide treatment I just made, it will make your buckler stronger. It just needs some time to ferment before I apply it.");
-		e.self:Say("Citizens often need assistance and the Dar Khura must be available whenever possible. [Merchant Ayyad] has requested someone to run an errand and I am sending you. Return to me with Ayyad's seal, the hide treatment, your buckler, and your initiate's cloak.");
+		e.self:Say("Citizens often need assistance and the Dar Khura must be available whenever possible. [" .. eq.say_link("Merchant Ayyad") .. "] has requested someone to run an errand and I am sending you. Return to me with Ayyad's seal, the hide treatment, your buckler, and your initiate's cloak.");
 		e.other:QuestReward(e.self,0,0,0,0,3494,500); -- Hopperhide Treatment
 	end
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 3489, item2 = 3494, item3 = 3499, item4 = 2878})) then -- Hopperhide Buckler, Hopperhide Treatment, Ayyads seal & Initiate's Cloak of Shar Vahl

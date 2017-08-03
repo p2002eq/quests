@@ -1,13 +1,13 @@
 ---- Twilight Armor - Beastlord
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Emote("looks over you examining you from head to toe. 'Ye have the look of an adventurer. I have a [tale] to tell if you would like to hear it.'");
+		e.self:Emote("looks over you examining you from head to toe. 'Ye have the look of an adventurer. I have a [" .. eq.say_link("tale") .. "] to tell if you would like to hear it.'");
 	elseif(e.message:findi("tale")) then
-		e.self:Say("Years ago I and Jilan were traveling around the far reaches of this land. One day we came upon an old vah shir who was injured in the mountains. He implored us to help him. Do you wish me to [continue]?");
+		e.self:Say("Years ago I and Jilan were traveling around the far reaches of this land. One day we came upon an old vah shir who was injured in the mountains. He implored us to help him. Do you wish me to [" .. eq.say_link("continue") .. "]?");
 	elseif(e.message:findi("continue")) then
-		e.self:Say("As I was saying this old vah shir required assistance.  We bound his wounds and he asked us to take his armor and give it to a Beastlord worthy of wearing it.  Are you a worthy [beastlord]?");
+		e.self:Say("As I was saying this old vah shir required assistance.  We bound his wounds and he asked us to take his armor and give it to a Beastlord worthy of wearing it.  Are you a worthy [" .. eq.say_link("beastlord") .. "]?");
 	elseif(e.message:findi("beastlord")) then
-		e.self:Say("Then you must want the armor I have. I have the [cap], [tunic], [sleeves], [leggings], [mantle], [Bracer] and [boots].");
+		e.self:Say("Then you must want the armor I have. I have the [" .. eq.say_link("cap") .. "], [" .. eq.say_link("tunic") .. "], [" .. eq.say_link("sleeves") .. "], [" .. eq.say_link("leggings") .. "], [" .. eq.say_link("mantle") .. "], [" .. eq.say_link("bracer") .. "] and [" .. eq.say_link("boots") .. "].");
 	elseif(e.message:findi("cap")) then
 		e.self:Say("For the cap you must prove your worth. Go gather up a sun jewel, a mark of feral spirits, an embedded copper figurine, and a frosted stone.");
 	elseif(e.message:findi("tunic")) then

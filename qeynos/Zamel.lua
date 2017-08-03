@@ -7,18 +7,18 @@ function event_timer(e)
 	if(e.timer == "help") then
 		endicRandom = math.random(100);
 		if(endicRandom < 16) then
-			e.self:Say("Clean the [aqueducts] they tell me. Peh, they don't pay me enough to climb into that filth!");
+			e.self:Say("Clean the [" .. eq.say_link("aqueducts") .. "] they tell me. Peh, they don't pay me enough to climb into that filth!");
 		end		
 	end
 end
 
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say(string.format("Greetings, good %s.  My name is Zamel and I have the much coveted duty of pulling sludge up out of the pools and [aqueducts] of Qeynos..",e.other:GetName()));
+		e.self:Say(string.format("Greetings, good %s.  My name is Zamel and I have the much coveted duty of pulling sludge up out of the pools and [" .. eq.say_link("aqueducts") .. "] of Qeynos..",e.other:GetName()));
 	elseif(e.message:findi("aqueducts")) then
-		e.self:Say("Aye, the aqueducts are a horrible place.  I have heard rumors of horrible [beasts] who live under the city in the water and just the other day, a child playing in the water just up and disappeared!");
+		e.self:Say("Aye, the aqueducts are a horrible place.  I have heard rumors of horrible [" .. eq.say_link("beasts") .. "] who live under the city in the water and just the other day, a child playing in the water just up and disappeared!");
 	elseif(e.message:findi("beasts")) then
-		e.self:Say("I know nothing of what or where they may be, just rumors, friend.  However, should you foolishly choose to enter the waters to brave the possibilities and return with some evidence of the [child's] fate, I would be most appreciative.");
+		e.self:Say("I know nothing of what or where they may be, just rumors, friend.  However, should you foolishly choose to enter the waters to brave the possibilities and return with some evidence of the [" .. eq.say_link("child's") .. "] fate, I would be most appreciative.");
 	elseif(e.message:findi("child")) then
 		e.self:Say("The daughter of one of our own guardsmen is missing.  He has offered me a reward for any information about her disappearance.  So, if you find out anything, let me know and I will cut you in on the reward.");
 	end

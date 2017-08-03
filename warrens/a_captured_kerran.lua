@@ -14,5 +14,3 @@ function event_trade(e)
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
--- END of FILE Zone:warrens  ID:101085 -- a_captured_kerran

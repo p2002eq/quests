@@ -3,9 +3,9 @@ function event_say(e)
 	if(e.message:findi("Hail")) then
 		e.self:Say("Hey there!");
 	elseif(e.message:findi("armor")) then
-		e.self:Say("Oh, you've decided you're going to help Lara out with her visions? If so I can reward you with armor if you happen to be an [enchanter].");
+		e.self:Say("Oh, you've decided you're going to help Lara out with her visions? If so I can reward you with armor if you happen to be an [" .. eq.say_link("enchanter") .. "].");
 	elseif(e.message:findi("enchanter")) then
-		e.self:Say("I have the [sandals], [mask], [cloak], [gloves], [choker], [belt], and [staff].");
+		e.self:Say("I have the [" .. eq.say_link("sandals") .. "], [" .. eq.say_link("mask") .. "], [" .. eq.say_link("cloak") .. "], [" .. eq.say_link("gloves") .. "], [" .. eq.say_link("choker") .. "], [" .. eq.say_link("belt") .. "], and [" .. eq.say_link("staff") .. "].");
 	elseif(e.message:findi("sandals")) then
 		e.self:Say("For the sandals you must get for me a meteor jewel, a mark of refinement, and a hope onyx.");
 	elseif(e.message:findi("mask")) then
