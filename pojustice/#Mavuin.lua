@@ -14,11 +14,11 @@ function event_say(e)
         e.self:Say("Oh, excuse me... The Tribunal is not a being who deals with parchment and quills, he will test you to allow me to [" .. eq.say_link("plea your case",false,"plea my case") .. "].  When you tell him of my request, be prepared, ".. e.other:GetName() .. ".");
     elseif(e.message:findi("plea your case") and (qglobals["pop_poj_mavuin"] ~= "1")) then
         e.self:Say("Thank you! Oh I wish you luck.");
-        eq.set_global("pop_poj_mavuin",1,5,"F");
+        eq.set_global("pop_poj_mavuin","1",5,"F");
         e.other:Message(7,"You receive a character flag!");
     elseif(e.message:findi("plea your case") and (qglobals["pop_poj_mavuin"] == "1") and (qglobals["pop_poj_tribunal"] == "1")) then
         e.self:Say("So you have pleaded my case to the Tribunal, I am most thankful. I hope that they will listen to my case soon and release me. The knowledge that I promised you is this. The followers in the Plane of Tranquility are trying to find information on what has happened to Zebuxoruk. What I know is that he has been captured for a second time. If you want to find out more information I believe you should seek an audience with Karana and Mithaniel Marr. I can only assume that they were present at the time of his capture and know why this has taken place. Also seek from Marr a way to translate the divine language. Only with it can you understand the writing of the gods. There is no more that I can tell you, but thank you once again for your attempt in returning my freedom.");
-        eq.set_global("pop_poj_valor_storms",1,5,"F");
+        eq.set_global("pop_poj_valor_storms","1",5,"F");
         e.other:Message(7,"You receive a character flag!");
     end
 
