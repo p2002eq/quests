@@ -1,11 +1,9 @@
 -- Quest for Staff of the Observers
--- Changed text slightly since Borxx no longer spawns on live.
-
 function event_say(e)
 	if(e.message:findi("Hail")) then
-		e.self:Say("Well met, " .. e.other:GetName() .. "!  What brings you out this way?  Are you interested in becoming an observer?  No, you look like the adventuring type.  The wilds of the Steamfont Mountains is as far as my body goes.  But through my [duties] as an observer, my mind travels the cosmos.");
+		e.self:Say("Well met, " .. e.other:GetName() .. "!  What brings you out this way?  Are you interested in becoming an observer?  No, you look like the adventuring type.  The wilds of the Steamfont Mountains is as far as my body goes.  But through my [" .. eq.say_link("duties") .. "] as an observer, my mind travels the cosmos.");
 	elseif(e.message:findi("duties")) then
-		e.self:Say("Well, I am quite an accomplished enchanter but most of my time now is spent crafting the magical lenses that enable us to see beyond the ceiling of Norrath and into other realms and dimensions.  Say, in your travels have you encountered any [evil eyes]?");
+		e.self:Say("Well, I am quite an accomplished enchanter but most of my time now is spent crafting the magical lenses that enable us to see beyond the ceiling of Norrath and into other realms and dimensions.  Say, in your travels have you encountered any [" .. eq.say_link("evil eyes") .. "]?");
 	elseif(e.message:findi("evil eyes")) then
 		e.self:Say("Evil eyes are dangerous creatures of great magical power.  You will know one if you see one.  I believe that with the lens from an evil eye and some expert tinkering, I could create a device that will enable me to observe the gods themselves in their native planes.  If you were to bring me one of these lenses, the Eldritch Collective would reward you greatly.");
 	end
@@ -21,10 +19,3 @@ function event_trade(e)
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
--- Quest by mystic414
-
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------

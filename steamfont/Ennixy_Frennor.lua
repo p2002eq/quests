@@ -1,6 +1,3 @@
---Ennixy_Frennor.pl
---Part of Innoruuk Regent
-
 function event_say(e)
 	if(e.message:findi("hail")) then
 		e.self:Say("Unless you have something to tell me about yourself that I could possibly be interested in, be gone!");
@@ -17,10 +14,3 @@ function event_trade(e)
 	local item_lib = require("items");
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
---END of FILE Zone:steamfont  ID:56099 -- Ennixy_Frennor
-
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------
