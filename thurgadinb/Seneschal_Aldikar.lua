@@ -3,7 +3,7 @@ function event_say(e)
 	if(e.other:GetFaction(e.self) <= 4) then --Amiable or lower
 		if(e.message:findi("hail")) then	
 			e.self:Say("And a good day to you, "..e.other:Race()..". I must say that i'm impressed that your people were even able to make it to our continent, let alone survive the frigid temperatures of it. I am Seneschal Aldikar, Commander of the Armies of Thurgadin, known by some as the Sword of the Dain. My armies are currently undergoing intensive training and are ready for a full assault on Kael Drakkel as soon as his majesty gives the order.");
-		elseif(e.message:findi("accept this task") and (qglobals["ring9"] == "1")) then	
+		elseif(e.message:findi("accept this task") and (qglobals["ring9"] == "1")) then
 			eq.stop_all_timers(e.self);
 			e.self:Say("In this box, place the accursed dirk of the fallen Rodrick. With it combine the heads of every traitor you dispose of. When this is done give the box and the velium insignia ring to the Dain directly. On behalf of the crown and all good Coldain, I thank you ... May Brell be with you.");
 			e.self:Say("Farewell.");
@@ -37,7 +37,7 @@ function event_timer(e)
 		e.self:Say("These traitors are poisoning the minds of our citizens, promising great rewards to those who will betray the Dain. It will take an unbiased eye of an outlander to flush out masterminds behind this plan. Once again we turn to you.");
 		eq.set_timer("5",10000);
 	elseif(e.timer == "5") then
-		e.self:Say("Will you [accept this task], outlander?");
+		e.self:Say("Will you [" .. eq.say_link("accept this task") .. "], outlander?");
 	end
 	eq.stop_timer(e.timer);
 end
