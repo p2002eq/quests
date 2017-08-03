@@ -1,6 +1,6 @@
 function event_say(e)
     if(e.message:findi("Hail")) then
-        e.self:Say("Shalom friend. My mate Kalaaro is the primary blacksmith of our village. I mostly create his tools, do touch ups and refurbishes, and maintain the [kejek forge].");
+        e.self:Say("Shalom friend. My mate Kalaaro is the primary blacksmith of our village. I mostly create his tools, do touch ups and refurbishes, and maintain the [" .. eq.say_link("kejek forge") .. "].");
     elseif(e.message:findi("kejek forge")) then
         e.self:Say("'Our forge has received the blessings of the Titan Spirits to burn with a supernatural flame! This flame has many beneficial properties but most importantly it can aid in freeing the spirits that have been imprisoned in materials by evil sorcerers.");
     elseif(e.message:findi("purification process")) then

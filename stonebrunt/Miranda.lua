@@ -1,6 +1,6 @@
 function event_say(e)
     if(e.message:findi("Hail")) then
-        e.self:Say("I'm not supposed to talk to strangers but if my parents let you in here I guess it's ok. Do you like [candy]? I could give you some [candy] to play a game with me but my [dice] are gone now.");
+        e.self:Say("I'm not supposed to talk to strangers but if my parents let you in here I guess it's ok. Do you like [" .. eq.say_link("candy") .. "]? I could give you some [" .. eq.say_link("candy") .. "] to play a game with me but my [" .. eq.say_link("dice") .. "] are gone now.");
     elseif(e.message:findi("candy")) then
         e.self:Say("Khonza Ayssla went away one time and came back with chocolate covered cherries and pixie powder cinnesticks for my sister and I. I like the chocolates the best.");
     elseif(e.message:findi("dice")) then
