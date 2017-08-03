@@ -1,15 +1,11 @@
--- 
-
-
-
 function event_say(e)
     if(e.other:GetFaction(e.self) <= 4) then
 	    if(e.message:findi("hail")) then
 		    e.self:Say("We are aware of your presence, fleshling.");
 	    elseif(e.message:findi("who")) then
-		    e.self:Say("We are those who have been in hiding. We are those who have been in waiting. We are those who await the return of our Master.");
+		    e.self:Say("We are those who have been in hiding. We are those who have been in waiting. We are those who await the return of our [" .. eq.say_link("Master") .. "].");
 	    elseif(e.message:findi("master")) then
-		    e.self:Say("Our Master? Surely all know of our Master now. It was he who was sleeping. It is he who is now freed. We give him honor, loyalty, and our lives. Jaled'Dar, first of our order, set in motion the events that freed our Master. But the Master has departed quickly, perhaps to challenge the Mother herself, such is his power. We wish to aid our Master, but we fear he is not aware that we exist, for his last memory of Wyrmkind was one of treachery and defeat. We believe we know where he has gone, but we do not know how to reach him.");
+		    e.self:Say("Our Master? Surely all know of our Master now. It was he who was sleeping. It is he who is now freed. We give him honor, loyalty, and our lives. Jaled'Dar, first of our order, set in motion the events that freed our Master. But the Master has departed quickly, perhaps to challenge the Mother herself, such is his power. We wish to aid our Master, but we fear he is not aware that we exist, for his last memory of Wyrmkind was one of treachery and defeat. We believe we know [" .. eq.say_link("where") .. "] he has gone, but we do not know how to reach him.");
 	    elseif(e.message:findi("where")) then
 		    e.self:Say("We believe that he is in a far distant plane, beyond the powers of even the mightiest dragon to reach. He goes places only Veeshan herself was able to visit. We believe he searches for our long departed Mother, to challenge her for rule of the very heavens. If only we had some means of reaching him, we would give him all our aid! We doubt your pitiful mammal brain is capable of devising a plan where we have failed, but we will listen to your chatter, such is our desperation.");
 	    elseif(e.message:findi("prismatic dragon scale")) then

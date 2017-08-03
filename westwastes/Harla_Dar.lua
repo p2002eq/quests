@@ -1,11 +1,7 @@
--- 
-
-
-
 function event_say(e)
     if(e.other:GetFaction(e.self) <= 4) then
 	    if(e.message:findi("hail")) then
-		    e.self:Say("I do not have time for you now. My son is lost, and you can not help me.");
+		    e.self:Say("I do not have time for you now. My [" .. eq.say_link("son") .. "] is lost, and you can not help me.");
 		elseif(e.message:findi("son")) then
 		    e.self:Say("Have you seen him? I must find him, he has been gone far to long! If you have harmed him, I will slay you and all of your race! Tell me where he is!");
 	    end
