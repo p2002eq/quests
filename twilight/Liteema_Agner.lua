@@ -3,9 +3,9 @@ function event_say(e)
 	if(e.message:findi("Hail")) then
 		e.self:Emote("looks up and smiles. 'Hiya. I just love fishing, don't you?'");
 	elseif(e.message:findi("armor")) then
-		e.self:Say("Oh! Tolli sent you over here didn't he. If you're a [rogue] and want some armor just let me know.");
+		e.self:Say("Oh! Tolli sent you over here didn't he. If you're a [" .. eq.say_link("rogue") .. "] and want some armor just let me know.");
 	elseif(e.message:findi("rogue")) then
-		e.self:Say("This stuff isn't free, no sir! I have a mask. [cloak], [gauntlets], [gorget], [waistband] and a [dirk]. Just ask and I'll tell ya what ya have to do to get it.");
+		e.self:Say("This stuff isn't free, no sir! I have a mask. [" .. eq.say_link("cloak") .. "], [" .. eq.say_link("gauntlets") .. "], [" .. eq.say_link("gorget") .. "], [" .. eq.say_link("waistband") .. "] and a [" .. eq.say_link("dirk") .. "]. Just ask and I'll tell ya what ya have to do to get it.");
 	elseif(e.message:findi("mask")) then
 		e.self:Say("For the mask of concealment you're going to have to go get me an astral jewel, a mark of deceit, and an engraved fire opal statuette.");
 	elseif(e.message:findi("cloak")) then

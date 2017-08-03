@@ -3,9 +3,9 @@ function event_say(e)
 	if(e.message:findi("Hail")) then
 		e.self:Say("Well met friend lovely day isn't it?");
 	elseif(e.message:findi("armor")) then
-		e.self:Say("Yes Shelia told me I may have some people asking me about the armor I have. Are ya a [bard]?");
+		e.self:Say("Yes Shelia told me I may have some people asking me about the armor I have. Are ya a [" .. eq.say_link("bard") .. "]?");
 	elseif(e.message:findi("bard")) then
-		e.self:Say("Good, I have a [mask], [cloak], [gauntlets], [gorget], [girdle], and a [sword].");
+		e.self:Say("Good, I have a [" .. eq.say_link("mask") .. "], [" .. eq.say_link("cloak") .. "], [" .. eq.say_link("gauntlets") .. "], [" .. eq.say_link("gorget") .. "], [" .. eq.say_link("girdle") .. "], and a [" .. eq.say_link("sword") .. "].");
 	elseif(e.message:findi("cloak")) then
 		e.self:Say("For the cloak you must gather these things. An Astral jewel, a mark of melody, an onyx studded medal, and a porous rock.");
 	elseif(e.message:findi("gauntlets")) then

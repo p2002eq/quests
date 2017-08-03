@@ -2,15 +2,15 @@
 function event_say(e)
 	if(e.message:findi("Hail")) then
 		e.self:Emote("lets out a resounding belch.");
-		e.self:Say("Har there lad! Ye be sure 'nuff to tell em all that Brewmaster Latrag is [retiring].");
+		e.self:Say("Har there lad! Ye be sure 'nuff to tell em all that Brewmaster Latrag is [" .. eq.say_link("retiring") .. "].");
 	elseif(e.message:findi("retiring")) then
-		e.self:Say("Ya got that right. I'm goin' to concentrate more on me devotion to Brell as a [holy knight]!");
+		e.self:Say("Ya got that right. I'm goin' to concentrate more on me devotion to Brell as a [" .. eq.say_link("holy knight") .. "]!");
 	elseif(e.message:findi("holy knight")) then
-		e.self:Say("I be a paladin of Brell thar Daias. Might ye be a [paladin] yerself?");
+		e.self:Say("I be a paladin of Brell thar Daias. Might ye be a [" .. eq.say_link("paladin") .. "] yerself?");
 	elseif(e.message:findi("paladin")) then
-		e.self:Say("That's good. Ya know, I have some [armor] ye might be interested in.");
+		e.self:Say("That's good. Ya know, I have some [" .. eq.say_link("armor") .. "] ye might be interested in.");
 	elseif(e.message:findi("armor")) then
-		e.self:Say("Yar! I have me a [helm], [breastplate], [vambraces], [greaves], [pauldrons], and a [bracer]. If ye want the rest talk to the mighty holy warrior Trallen over there about armor.");
+		e.self:Say("Yar! I have me a [" .. eq.say_link("helm") .. "], [" .. eq.say_link("breastplate") .. "], [" .. eq.say_link("vambraces") .. "], [" .. eq.say_link("greaves") .. "], [" .. eq.say_link("pauldrons") .. "], and a [" .. eq.say_link("bracer") .. "]. If ye want the rest talk to the mighty holy warrior Trallen over there about armor.");
 	elseif(e.message:findi("breastplate")) then
 		e.self:Say("For the breastplate ye gotta bring me a star jewel, a mark of courage, a white marble bowl, and a jagged reed.");
 	elseif(e.message:findi("vambraces")) then

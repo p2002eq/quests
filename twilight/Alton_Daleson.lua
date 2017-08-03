@@ -3,9 +3,9 @@ function event_say(e)
 	if(e.message:findi("Hail")) then
 		e.self:Say("Welcome to Jern's Rest! I'm the owner and proprietor of this inn, its been in my family for generations. My great grandaddy, Jern, built it back when Katta Castellum was first being built. If ya be wantin' of anything dont hesitate to ask.");
 	elseif(e.message:findi("armor")) then
-		e.self:Say("His armor has also been in the family for generations, if ye be a [ranger] I dont have much use for it running this inn. I'll just need something in return for it.");
+		e.self:Say("His armor has also been in the family for generations, if ye be a [" .. eq.say_link("ranger") .. "] I dont have much use for it running this inn. I'll just need something in return for it.");
 	elseif(e.message:findi("ranger")) then
-		e.self:Say("Excellent! If you are interested I have the Woodsman's [Helm], Woodsman's [Mail], Woodsman's [Vambraces], Woodsman's [Greaves], Woodsman's [Bracer], Woodsman's [Boots], and the Woodsman's [Axe]. If you are interested in the rest of his armor youll have to ask my wife Ellen, shell have some errands you can run for her.");
+		e.self:Say("Excellent! If you are interested I have the Woodsman's [" .. eq.say_link("Helm") .. "], Woodsman's [" .. eq.say_link("Mail") .. "], Woodsman's [" .. eq.say_link("Vambraces") .. "], Woodsman's [" .. eq.say_link("Greaves") .. "], Woodsman's [" .. eq.say_link("Bracer") .. "], Woodsman's [" .. eq.say_link("Boots") .. "], and the Woodsman's [" .. eq.say_link("Axe") .. "]. If you are interested in the rest of his armor youll have to ask my wife Ellen, shell have some errands you can run for her.");
 	elseif(e.message:findi("axe")) then
 		e.self:Say("If you want the Woodsman's Axe you will have to acquire these items a sun jewel, a mark of the naturalist, some ancient pottery, and a fossillized skull.");
 	elseif(e.message:findi("boots")) then

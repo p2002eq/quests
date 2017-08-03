@@ -1,13 +1,13 @@
 ---- Twilight Armor - Wizard
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Who are you?! Why are you on MY island?! If you have [business] with me then speak! Otherwise, leave at once.");
+		e.self:Say("Who are you?! Why are you on MY island?! If you have [" .. eq.say_link("business") .. "] with me then speak! Otherwise, leave at once.");
 	elseif(e.message:findi("business")) then
-		e.self:Say("I'll only deal with a wizard! And you look like no real [wizard] I've ever met!");
+		e.self:Say("I'll only deal with a wizard! And you look like no real [" .. eq.say_link("wizard") .. "] I've ever met!");
 	elseif(e.message:findi("wizard")) then
-		e.self:Say("You're a wizard you say? Hrmph! If so, let's see you prove it to me. I need some items collected for my research. In return, I will give you some [armor] I have laying around.");
+		e.self:Say("You're a wizard you say? Hrmph! If so, let's see you prove it to me. I need some items collected for my research. In return, I will give you some [" .. eq.say_link("armor") .. "] I have laying around.");
 	elseif(e.message:findi("armor")) then
-		e.self:Say("I have a [bracer], [cap], [pants], [robe], [sandals], [shawl], and [sleeves]. I gave some of the other ones to Trizpo if you desire those as well, oh great 'wizard'");
+		e.self:Say("I have a [" .. eq.say_link("bracer") .. "], [" .. eq.say_link("cap") .. "], [" .. eq.say_link("pants") .. "], [" .. eq.say_link("robe") .. "], [" .. eq.say_link("sandals") .. "], [" .. eq.say_link("shawl") .. "], and [" .. eq.say_link("sleeves") .. "]. I gave some of the other ones to Trizpo if you desire those as well, oh great 'wizard'");
 		e.self:Emote("laughs extremely loud");
 	elseif(e.message:findi("bracer")) then
 		e.self:Say("For the bracer bring me a Cloud Jewel, Mark of Potency and a Book of Applied Magic.");

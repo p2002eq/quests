@@ -3,7 +3,7 @@ function event_say(e)
 	if(e.message:findi("Hail")) then
 		e.self:Say("Hail and well met friend.  I'm one of master Vornol's four apprentices.  I am being trained to be an expert on all things dealing with the element of fire.'");
 	elseif(e.message:findi("armor")) then
-		e.self:Say("This armor is indeed mighty. If you wish to have it, you must do some tasks for me. I have the [coif], [mail], [vambraces], [greaves], [pauldrons], [bracer], and [boots]. My sister, Sarah, has the rest. Just ask her about armor and she will help you.");
+		e.self:Say("This armor is indeed mighty. If you wish to have it, you must do some tasks for me. I have the [" .. eq.say_link("coif") .. "], [" .. eq.say_link("mail") .. "], [" .. eq.say_link("vambraces") .. "], [" .. eq.say_link("greaves") .. "], [" .. eq.say_link("pauldrons") .. "], [" .. eq.say_link("bracer") .. "], and [" .. eq.say_link("boots") .. "]. My sister, Sarah, has the rest. Just ask her about armor and she will help you.");
 	elseif(e.message:findi("boots")) then
 		e.self:Say("To get the boots you must fetch for me a moon jewel, a mark of the seer, and a hewed augury stone.");
 	elseif(e.message:findi("bracer")) then

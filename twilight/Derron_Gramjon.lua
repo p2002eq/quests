@@ -3,9 +3,9 @@ function event_say(e)
 	if(e.message:findi("Hail")) then
 		e.self:Emote("piercing eyes meets yours. Are ye a guest of Vornol's too? Have faith my friend but don't let that durn mage fool you, I know him better than anyone else. Well except for Valana of course.");
 	elseif(e.message:findi("cleric")) then
-		e.self:Say("I thought you might be. I have some [armor] to reward those that prove to be most holy.");
+		e.self:Say("I thought you might be. I have some [" .. eq.say_link("armor") .. "] to reward those that prove to be most holy.");
 	elseif(e.message:findi("armor")) then
-		e.self:Say("The armor I have is a [helm], [breastplate], [vambraces], [greaves], [pauldrons], [bracer], and [boots]. The rest you will have to get from my friend and guard Kayn. Just ask him about armor.");
+		e.self:Say("The armor I have is a [" .. eq.say_link("helm") .. "], [" .. eq.say_link("breastplate") .. "], [" .. eq.say_link("vambraces") .. "], [" .. eq.say_link("greaves") .. "], [" .. eq.say_link("pauldrons") .. "], [" .. eq.say_link("bracer") .. "], and [" .. eq.say_link("boots") .. "]. The rest you will have to get from my friend and guard Kayn. Just ask him about armor.");
 	elseif(e.message:findi("boots")) then
 		e.self:Say("For the boots you must prove yourself by bringing me a star jewel, a mark of belief and a light etched sapphire.");
 	elseif(e.message:findi("bracer")) then

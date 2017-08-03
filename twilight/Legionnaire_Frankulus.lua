@@ -3,7 +3,7 @@ function event_say(e)
 	if(e.message:findi("hail")) then
 		e.self:Say("Another traveler to our fair city of Katta Castellum, you be careful now.");
 	elseif(e.message:findi("armor")) then
-		e.self:Say("Yes I am one of the keepers of the soldier's armor. The pieces I have are the [helm], [breastplate], [vambraces], [greaves], [pauldrons], [bracer], and [boots]. Eandalion keeps the other pieces just ask him about armor.");
+		e.self:Say("Yes I am one of the keepers of the soldier's armor. The pieces I have are the [" .. eq.say_link("helm") .. "], [" .. eq.say_link("breastplate") .. "], [" .. eq.say_link("vambraces") .. "], [" .. eq.say_link("greaves") .. "], [" .. eq.say_link("pauldrons") .. "], [" .. eq.say_link("bracer") .. "], and [" .. eq.say_link("boots") .. "]. Eandalion keeps the other pieces just ask him about armor.");
 	elseif(e.message:findi("boots")) then
 		e.self:Say("For the boots you will have to bring to me a cloud jewel, a mark of the martial, and a hope ruby.");
 	elseif(e.message:findi("bracer")) then

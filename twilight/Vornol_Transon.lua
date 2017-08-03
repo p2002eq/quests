@@ -3,7 +3,7 @@ function event_say(e)
 	if(e.message:findi("hail")) then
 		e.self:Emote("pauses for a second staring off into the distance. 'Ah welcome friend. I am Vornol, a summoner of sorts, and master of this tower.'");
 	elseif(e.message:findi("armor")) then
-		e.self:Say("Most excellent what I have is some armor, if you will do few errands for me it is yours. The pieces I have are the [cap], [robe], [sleeves], [pants], [shawl], and [bracer]. My apprentice, the lady Galdara, has the rest. Just ask her about armor and she will tell you what you need to do.");
+		e.self:Say("Most excellent what I have is some armor, if you will do few errands for me it is yours. The pieces I have are the [" .. eq.say_link("cap") .. "], [" .. eq.say_link("robe") .. "], [" .. eq.say_link("sleeves") .. "], [" .. eq.say_link("pants") .. "], [" .. eq.say_link("shawl") .. "], and [" .. eq.say_link("bracer") .. "]. My apprentice, the lady Galdara, has the rest. Just ask her about armor and she will tell you what you need to do.");
 	elseif(e.message:findi("cap")) then
 		e.self:Say("For the cap you will have to bring back to me a sun jewel, a fire idol, a fire marked scroll and a runed ring of fire.");
 	elseif(e.message:findi("robe")) then

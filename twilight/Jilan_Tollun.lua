@@ -3,9 +3,9 @@ function event_say(e)
 	if(e.message:findi("Hail")) then
 		e.self:Say("Hello there. please leave me alone I would like some peace and quiet.'");
 	elseif(e.message:findi("armor")) then
-		e.self:Say("amben must have told you about the old beastlord we came upon. So tell me are you a worthy [beastlord]?");
+		e.self:Say("amben must have told you about the old beastlord we came upon. So tell me are you a worthy [" .. eq.say_link("beastlord") .. "]?");
 	elseif(e.message:findi("beastlord")) then
-		e.self:Say("Then you must want the armor I have. I have the [veil], [cape], [gloves], [talisman], [belt], and [claws].");
+		e.self:Say("Then you must want the armor I have. I have the [" .. eq.say_link("veil") .. "], [" .. eq.say_link("cape") .. "], [" .. eq.say_link("gloves") .. "], [" .. eq.say_link("talisman") .. "], [" .. eq.say_link("belt") .. "], and [" .. eq.say_link("claws") .. "].");
 	elseif(e.message:findi("belt")) then
 		e.self:Say("For the belt you must bring me a sky jewel, a mark of the wolf, an embedded steel figurine, and ancient wrappings.");
 	elseif(e.message:findi("cape")) then

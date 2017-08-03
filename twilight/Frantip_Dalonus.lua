@@ -3,9 +3,9 @@ function event_say(e)
 	if(e.message:findi("Hail")) then
 		e.self:Emote("smiles briefly. ''Greetings to ye. If you be needin' the goods Ive got 'em.'");
 	elseif(e.message:findi("armor")) then
-		e.self:Say("Ah yes, I've been trying to get rid of this armor for some time. Do you happen to be a [necromancer]?");
+		e.self:Say("Ah yes, I've been trying to get rid of this armor for some time. Do you happen to be a [" .. eq.say_link("necromancer") .. "]?");
 	elseif(e.message:findi("I am a necromancer")) then
-		e.self:Say("Very good! I have the [veil], [cloak], [gloves], [choker], [belt], and [staff]. Which do you want?");
+		e.self:Say("Very good! I have the [" .. eq.say_link("veil") .. "], [" .. eq.say_link("cloak") .. "], [" .. eq.say_link("gloves") .. "], [" .. eq.say_link("choker") .. "], [" .. eq.say_link("belt") .. "], and [" .. eq.say_link("staff") .. "]. Which do you want?");
 	elseif(e.message:findi("veil")) then
 		e.self:Say("For the veil of pestilence you will have to go retrieve for me a sky jewel, a jeweled rod, and a bronze brazier.");
 	elseif(e.message:findi("cloak")) then

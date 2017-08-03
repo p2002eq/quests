@@ -1,11 +1,11 @@
 ---- Twilight Armor - Rogue
 function event_say(e)
 	if(e.message:findi("Hail")) then
-		e.self:Emote("looks at ".. e.other:GetName() .. " and smirks. 'I be Bolli and it's sure an honor to meet such a fine person such as yourself! I have plenty of [deals] for any stealthy types'");
+		e.self:Emote("looks at ".. e.other:GetName() .. " and smirks. 'I be Bolli and it's sure an honor to meet such a fine person such as yourself! I have plenty of [" .. eq.say_link("deals") .. "] for any stealthy types'");
 	elseif(e.message:findi("deals")) then
-		e.self:Say("Ah ".. e.other:GetName() .. ", you fancy yerself to be a rogue.  Well I can cut ya a deal on some [armor] if you be wantin' some.");
+		e.self:Say("Ah ".. e.other:GetName() .. ", you fancy yerself to be a rogue.  Well I can cut ya a deal on some [" .. eq.say_link("armor") .. "] if you be wantin' some.");
 	elseif(e.message:findi("armor")) then
-		e.self:Emote("smiles widely. ''Ah excellent. I have a [coif], [tunic], [vambraces], [greaves], [mantle], [bracer], and [boots]. Just ask about each one and I'll tell ya just what I want in return. You'll have to talk to my partner Liteema if you want the rest of the armor.");
+		e.self:Emote("smiles widely. ''Ah excellent. I have a [" .. eq.say_link("coif") .. "], [" .. eq.say_link("tunic") .. "], [" .. eq.say_link("vambraces") .. "], [" .. eq.say_link("greaves") .. "], [" .. eq.say_link("mantle") .. "], [" .. eq.say_link("bracer") .. "], and [" .. eq.say_link("boots") .. "]. Just ask about each one and I'll tell ya just what I want in return. You'll have to talk to my partner Liteema if you want the rest of the armor.");
 	elseif(e.message:findi("boots")) then
 		e.self:Say("If you want the Boots of Concealment go gather for me a meteor jewel, a mark of silence, and an engraved fire emerald statuette.");
 	elseif(e.message:findi("bracer")) then

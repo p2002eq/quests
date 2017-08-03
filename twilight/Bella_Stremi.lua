@@ -1,9 +1,9 @@
 ---- Twilight Armor - Necromancer
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Ah hello and welcome ".. e.other:GetName() .. ". tis a pleasure to see some new faces.  I have the finest wares to be found. be sure to check them out. Are ya by chance a [necromancer]");
+		e.self:Say("Ah hello and welcome ".. e.other:GetName() .. ". tis a pleasure to see some new faces.  I have the finest wares to be found. be sure to check them out. Are ya by chance a [" .. eq.say_link("necromancer") .. "]");
 	elseif(e.message:findi("necromancer")) then
-		e.self:Say("I have a [cap], [robes], [sleeves], [pants], [shawl], [bracer], and [sandals] for a necromancer. Frantip has the rest just ask him about armor and I'm sure he'll help you. Which are you interested in?");
+		e.self:Say("I have a [" .. eq.say_link("cap") .. "], [" .. eq.say_link("robes") .. "], [" .. eq.say_link("sleeves") .. "], [" .. eq.say_link("pants") .. "], [" .. eq.say_link("shawl") .. "], [" .. eq.say_link("bracer") .. "], and [" .. eq.say_link("sandals") .. "] for a necromancer. Frantip has the rest just ask him about armor and I'm sure he'll help you. Which are you interested in?");
 	elseif(e.message:findi("cap")) then
 		e.self:Say("For the cap of pestilence you'll have to bring me a sky jewel, an aged gold coin, a dark gem, and a priceless book.");
 	elseif(e.message:findi("robe")) then

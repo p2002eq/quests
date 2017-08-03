@@ -1,9 +1,9 @@
 ---- Twilight Armor - Shaman
 function event_say(e)
 	if(e.message:findi("Hail")) then
-		e.self:Emote("closes her eyes and sighs wistfully as if remembering some long forgotten bittersweet memory. 'Hafron must have told you about our dearly missed friend Hadon. Very well, are you a [shaman]?");
+		e.self:Emote("closes her eyes and sighs wistfully as if remembering some long forgotten bittersweet memory. 'Hafron must have told you about our dearly missed friend Hadon. Very well, are you a [" .. eq.say_link("shaman") .. "]?");
 	elseif(e.message:findi("shaman")) then
-		e.self:Say("Aye, you have the look of one who communes with spirits. The pieces that I have are the [mask], [cloak], [gauntlets], [talisman], [girdle] and [spear].");
+		e.self:Say("Aye, you have the look of one who communes with spirits. The pieces that I have are the [" .. eq.say_link("mask") .. "], [" .. eq.say_link("cloak") .. "], [" .. eq.say_link("gauntlets") .. "], [" .. eq.say_link("talisman") .. "], [" .. eq.say_link("girdle") .. "] and [" .. eq.say_link("spear") .. "].");
 	elseif(e.message:findi("cloak")) then
 		e.self:Say("For the cloak you must get me a cloud jewel, mark of auspice, an avatar's tome, and a rockhopper spirit fetish.");
 	elseif(e.message:findi("gauntlets")) then

@@ -1,15 +1,15 @@
 ---- Twilight Armor - Shadow Knight
 function event_say(e)
 	if(e.message:findi("Hail")) then
-		e.self:Say("Why hello. I'm in charge of the fishing operations here on Jern's Isle.  [Fish] are my area of expertise.'");
+		e.self:Say("Why hello. I'm in charge of the fishing operations here on Jern's Isle.  [" .. eq.say_link("Fish") .. "] are my area of expertise.'");
 	elseif(e.message:findi("fish")) then
-		e.self:Say("We have fish come in here all the time. Sometimes we catch an [oddity] now and again.");
+		e.self:Say("We have fish come in here all the time. Sometimes we catch an [" .. eq.say_link("oddity") .. "] now and again.");
 	elseif(e.message:findi("oddity")) then
-		e.self:Say("Once we pulled up this ancient chest filled with this dark plate [armor].");
+		e.self:Say("Once we pulled up this ancient chest filled with this dark plate [" .. eq.say_link("armor") .. "].");
 	elseif(e.message:findi("armor")) then
-		e.self:Say("Looked the like kind of armor a dark knight would wear. if ya want it I'm sure we could arrange a [trade] of some sort.");
+		e.self:Say("Looked the like kind of armor a dark knight would wear. if ya want it I'm sure we could arrange a [" .. eq.say_link("trade") .. "] of some sort.");
 	elseif(e.message:findi("trade")) then
-		e.self:Say("Since Trevor and I are the ones that found it we split it between ourselves. I have a [helm], [breastplate], [vambraces], [greaves], [pauldrons], [bracer], and [boots]. Ask Trevor about the rest of the armor.");
+		e.self:Say("Since Trevor and I are the ones that found it we split it between ourselves. I have a [" .. eq.say_link("helm") .. "], [" .. eq.say_link("breastplate") .. "], [" .. eq.say_link("vambraces") .. "], [" .. eq.say_link("greaves") .. "], [" .. eq.say_link("pauldrons") .. "], [" .. eq.say_link("bracer") .. "], and [" .. eq.say_link("boots") .. "]. Ask Trevor about the rest of the armor.");
 	elseif(e.message:findi("breastplate")) then
 		e.self:Say("For the darkened knight's breastplate fetch me a cloud jewel, a mark of fear, a delicate glass sculpture, and a painted ornament.");
 	elseif(e.message:findi("vambraces")) then
