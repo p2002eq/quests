@@ -15,11 +15,11 @@ function event_say(e)
     elseif(e.message:findi("plea your case") and (qglobals["pop_poj_mavuin"] ~= "1")) then
         e.self:Say("Thank you! Oh I wish you luck.");
         eq.set_global("pop_poj_mavuin","1",5,"F");
-        e.other:Message(7,"You receive a character flag!");
+        e.other:Message(15,"You receive a character flag!");
     elseif(e.message:findi("plea your case") and (qglobals["pop_poj_mavuin"] == "1") and (qglobals["pop_poj_tribunal"] == "1")) then
         e.self:Say("So you have pleaded my case to the Tribunal, I am most thankful. I hope that they will listen to my case soon and release me. The knowledge that I promised you is this. The followers in the Plane of Tranquility are trying to find information on what has happened to Zebuxoruk. What I know is that he has been captured for a second time. If you want to find out more information I believe you should seek an audience with Karana and Mithaniel Marr. I can only assume that they were present at the time of his capture and know why this has taken place. Also seek from Marr a way to translate the divine language. Only with it can you understand the writing of the gods. There is no more that I can tell you, but thank you once again for your attempt in returning my freedom.");
         eq.set_global("pop_poj_valor_storms","1",5,"F");
-        e.other:Message(7,"You receive a character flag!");
+        e.other:Message(15,"You receive a character flag!");
     end
 
 
