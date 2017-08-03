@@ -5,9 +5,3 @@ function event_trade(e)
 		e.other:SummonItem(20370);
 	end
 end
-
---ID:31080 -- Marfen_Binkdirple
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------
