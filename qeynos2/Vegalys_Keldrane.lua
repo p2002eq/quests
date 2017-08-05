@@ -42,9 +42,9 @@
 function event_say(e)
 	local qglobals = eq.get_qglobals(e.self,e.other);
 	if(e.message:findi("hail")) then
-		e.self:Say("Greetings to you, citizen. By order of the Council of Qeynos I have been given the duty of apprehending the individuals [responsible] for unleashing this terrible plague upon the people and the lands of Antonius Bayle. The more I look into this matter, the more I come to find that this will be no easy task.");
+		e.self:Say("Greetings to you, citizen. By order of the Council of Qeynos I have been given the duty of apprehending the individuals [" .. eq.say_link("responsible") .. "] for unleashing this terrible plague upon the people and the lands of Antonius Bayle. The more I look into this matter, the more I come to find that this will be no easy task.");
 	elseif(e.message:findi("responsible")) then
-		e.self:Say("The plague unleashed upon the Plains of Karana is the work of the followers of Bertoxxulous. Those responsible belong to group known as the Bloodsabers though there were others involved as well. Some time back, they launched a plot to overthrow Antonius Bayle and our ruling council. Their [plan] failed.");
+		e.self:Say("The plague unleashed upon the Plains of Karana is the work of the followers of Bertoxxulous. Those responsible belong to group known as the Bloodsabers though there were others involved as well. Some time back, they launched a plot to overthrow Antonius Bayle and our ruling council. Their [" .. eq.say_link("plan") .. "] failed.");
 	elseif(e.message:findi("plan")) then
 		e.self:Say("Their plan was to unleash a plague so deadly and virulent that it would wipe out all life from here to Highpass Hold. They planned to brand themselves and their foul allies with a rune that would have rendered them immune to the effects of this plague. From that point they would have been able to simply walk in, easily defeat the weakened stragglers and declare themselves the rulers of this kingdom by default. But they were [" .. eq.say_link("careless") .. "].");
 	elseif(e.message:findi("careless")) then
@@ -64,7 +64,7 @@ function event_say(e)
 	elseif(e.message:findi("help")) then
 		e.self:Say("Excellent! The more I learn from my investigators the more I find that these Bloodsabers have stretched their tendrils of influence all throughout our beloved city. Nevertheless, we are committed to exposing these fiends once and for all. Perhaps you would like to become an [" .. eq.say_link("investigator") .. "]?");
 elseif(e.message:findi("investigator")) then
-		e.self:Say(string.format("Very well then, %s. We will not allow just anyone to wear the official Investigator's Badge and please forgive me. . . But it is hard to tell where one's loyalties lie these days. If you are truly [serious] then there is a duty you must perform first to show you are on the side of Antonius Bayle, the council and the good people Qeynos.",e.other:GetName()));
+		e.self:Say(string.format("Very well then, %s. We will not allow just anyone to wear the official Investigator's Badge and please forgive me. . . But it is hard to tell where one's loyalties lie these days. If you are truly [" .. eq.say_link("serious") .. "] then there is a duty you must perform first to show you are on the side of Antonius Bayle, the council and the good people Qeynos.",e.other:GetName()));
 	elseif(e.message:findi("serious")) then
 		e.self:Say("There is a guard by the name of Robbie Shilster that patrols the Northern Plains of Karana. He is allied with our enemies and completely corrupt. He is flagrant in his trafficking of contraband goods. His orders are to guard the great wooden bridge to stave off the insect swarms. But our investigators report that he simply stands to the side and watches as the swarm rolls through. You are to execute this man for his treason and bring me his helm. Then, we will talk.");
     elseif(e.message:findi("advance further") and tonumber(qglobals.qeynos_badge3) == 3) then
