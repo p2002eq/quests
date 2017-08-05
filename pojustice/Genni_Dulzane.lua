@@ -5,7 +5,7 @@
 
 function event_say(e)
     if(e.message:findi("Hail")) then
-        e.self:Emote("turns her face to you; the expression is one of compassion.  'Hail to thee, Mythsong.  'Tis a fearful dread that ye carry, fearful indeed.  I am not fearful any more.  In death, one learns tranquility.  Did not the old ones of Quellious always put it so?  Let me stay your fears; wouldst ye [" .. eq.say_link("talk a while") .. "]?");
+        e.self:Emote("turns her face to you; the expression is one of compassion.  'Hail to thee, ".. e.other:GetName() .. ".  'Tis a fearful dread that ye carry, fearful indeed.  I am not fearful any more.  In death, one learns tranquility.  Did not the old ones of Quellious always put it so?  Let me stay your fears; wouldst ye [" .. eq.say_link("talk a while") .. "]?");
     elseif(e.message:findi("talk a while")) then
         e.self:Say("It is well, the librarians used to say that we were to learn from history.  Learn well!'  She chuckles, the laugh a hollow sound carried away on the chill breeze.  'Together, we three were brought to this place.  Much like the others here, we were innocent all three.  Is not every one of us innocent, even in crime?  Ours is a Fate [" .. eq.say_link("cheated") .. "], though.");
     elseif(e.message:findi("cheated")) then

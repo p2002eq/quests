@@ -1,11 +1,11 @@
 ----------------------------------------------------------------------
 -- Zone: PoJustice
--- NPC: Captain Nyra (201350)
+-- NPC: Mystic Bamina (201372)
 ----------------------------------------------------------------------
 
 function event_say(e)
     if(e.message:findi("Hail")) then
-        e.self:Emote("glares coldly upon ".. e.other:GetName() .. ", a seemingly deadened emotion of hate briefly resurrected in her gaze, 'Move along, traveler. We are nothing for your interests -- merely prisoners. Stay and observe us if you will -- perhaps one day, you will join us.");
+        e.self:Say("Help me!  Help, please!  I do not belong here!  Mine is but a task of innocence!  Sent to trap he of the Darkwater, not to share in his Fate!   Surely you can see that!  Surely the blood that is upon his hands has not stained my own destiny!  Help me, get word to my people!");
     end
 end
 

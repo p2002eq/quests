@@ -1,11 +1,11 @@
 ----------------------------------------------------------------------
 -- Zone: PoJustice
--- NPC: Captain Nyra (201350)
+-- NPC: Jegard Q`Nacat (201361)
 ----------------------------------------------------------------------
 
 function event_say(e)
     if(e.message:findi("Hail")) then
-        e.self:Emote("glares coldly upon ".. e.other:GetName() .. ", a seemingly deadened emotion of hate briefly resurrected in her gaze, 'Move along, traveler. We are nothing for your interests -- merely prisoners. Stay and observe us if you will -- perhaps one day, you will join us.");
+        e.self:Emote("opens his mouth and utters a sound as if two slates were grinding across one another.  He creaks his huge, stone wings and settles back into his motionless crouch.");
     end
 end
 
