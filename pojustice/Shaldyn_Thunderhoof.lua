@@ -5,7 +5,7 @@
 
 function event_say(e)
     if(e.message:findi("Hail")) then
-        e.self:Emtoe("looks up at you with a curious gleam in his eyes. 'Ahh, a visitor.  Is there something you need or are you here for a [" .. eq.say_link("I want to hear a story",false,"story") .. "]?'");
+        e.self:Emote("looks up at you with a curious gleam in his eyes. 'Ahh, a visitor.  Is there something you need or are you here for a [" .. eq.say_link("I want to hear a story",false,"story") .. "]?'");
     elseif(e.message:findi("story")) then
         e.self:Say("Well I'll tell you my story then.  I was once a master fletcher, my arrows flew straighter and farther than any made before and any that have come since.  I was a master of my craft; a bowman with a quiver of my arrows and one of my bows could drop a griffon at 20 paces with a single shot.  One day a [" .. eq.say_link("ranger") .. "] came with a special order, one that I couldn't let pass.");
     elseif(e.message:findi("ranger")) then
