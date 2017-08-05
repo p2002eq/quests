@@ -19,12 +19,32 @@
 -- 6 = have the Interrogators Badge
 -- Death of the an_investigator section will reset you back to QGlobal 1 so you can restart the escort portion
 
+---- Quest:Researcher's Badge (Badge #3)
+-- QGlobal Helpers for Badge Quest #3 (qeynos_badge3)
+-- 1 = Started Badge Quest #3 (Completed Quest #2 and turned in badge)
+-- 2 = Handed in Research Briefing to start Enchanted Rat Experiment
+-- 3 = Successfully completed Experiment (Badge Complete)
+
+---- Quest:Qeynos Badge of Honor (Badge #4)
+-- QGlobal Helpers for Badge Quest #4 (qeynos_badge4)
+-- 1 = Started Badge Quest #4 (Turned in Researcher's Badge to Vegalys and received Vegalys' Seal)
+-- 2 = Vegalys' Seal handed to an_investigator in Qeynos Catacombs
+-- 3 = Vegalys' Seal handed to Guard Helminth in Qeynos Catacombs
+-- 4 = have Qeynos Badge of Honor
+
+---- Quest:Qeynos Badge of Nobility (Badge #5)  -- JAGGEDPINE via Sergeant Caelin 
+-- QGlobal Helpers for Badge Quest #5 (qeynos_badge5)
+-- 1 = Started Badge Quest 5 (Received Marked Badge of Honor and Official Warning to Guard Finewine)
+-- 2 = Handed Official Warning to Guard Finewine
+-- 3 = 
+-- 4 = 
+
 function event_say(e)
 	local qglobals = eq.get_qglobals(e.self,e.other);
 	if(e.message:findi("hail")) then
-		e.self:Say("Greetings to you, citizen. By order of the Council of Qeynos I have been given the duty of apprehending the individuals [" .. eq.say_link("responsible") .. "] for unleashing this terrible plague upon the people and the lands of Antonius Bayle. The more I look into this matter, the more I come to find that this will be no easy task.");
+		e.self:Say("Greetings to you, citizen. By order of the Council of Qeynos I have been given the duty of apprehending the individuals [responsible] for unleashing this terrible plague upon the people and the lands of Antonius Bayle. The more I look into this matter, the more I come to find that this will be no easy task.");
 	elseif(e.message:findi("responsible")) then
-		e.self:Say("The plague unleashed upon the Plains of Karana is the work of the followers of Bertoxxulous. Those responsible belong to group known as the Bloodsabers though there were others involved as well. Some time back, they launched a plot to overthrow Antonius Bayle and our ruling council. Their [" .. eq.say_link("plan") .. "] failed.");
+		e.self:Say("The plague unleashed upon the Plains of Karana is the work of the followers of Bertoxxulous. Those responsible belong to group known as the Bloodsabers though there were others involved as well. Some time back, they launched a plot to overthrow Antonius Bayle and our ruling council. Their [plan] failed.");
 	elseif(e.message:findi("plan")) then
 		e.self:Say("Their plan was to unleash a plague so deadly and virulent that it would wipe out all life from here to Highpass Hold. They planned to brand themselves and their foul allies with a rune that would have rendered them immune to the effects of this plague. From that point they would have been able to simply walk in, easily defeat the weakened stragglers and declare themselves the rulers of this kingdom by default. But they were [" .. eq.say_link("careless") .. "].");
 	elseif(e.message:findi("careless")) then
@@ -40,18 +60,20 @@ function event_say(e)
 	elseif(e.message:findi("alarm")) then
 		e.self:Say("Well, he succeeded in whipping the populace into a frenzy. He even got the famous wizard Al'Kabor to help him out by determining the nature of the strange items many of our citizens were finding. Getting that man to do anything not directly related to his research is not an easy thing to accomplish either. Needless to say, at that point I saw the truth and the Prime Healer forgive me for not seeing it sooner. Were it not for the investigations and general outcry of [" .. eq.say_link("concerned citizens") .. "], we might not be standing here talking today.");
 	elseif(e.message:findi("concerned citizens")) then
-		e.self:Say("Yes, it was citizens like you that helped to save Qeynos that day. We uncovered their plot, captured the man who was in charge and put him to death. Of course, the Bloodsabers retaliated and using their incomplete research still managed to unleash the [" .. eq.say_link("individual that unleashed this plague",false,"plague") .. "] we face now. Though devastating in its own right, you must admit it is rather mild compared to what it might have been. I thank you for your interest. Perhaps you would be willing to [" .. eq.say_link("help") .. "] me?");
+		e.self:Say("Yes, it was citizens like you that helped to save Qeynos that day. We uncovered their plot, captured the man who was in charge and put him to death. Of course, the Bloodsabers retaliated and using their incomplete research still managed to unleash the plague we face now. Though devastating in its own right, you must admit it is rather mild compared to what it might have been. I thank you for your interest. Perhaps you would be willing to [" .. eq.say_link("help") .. "] me?");
 	elseif(e.message:findi("help")) then
 		e.self:Say("Excellent! The more I learn from my investigators the more I find that these Bloodsabers have stretched their tendrils of influence all throughout our beloved city. Nevertheless, we are committed to exposing these fiends once and for all. Perhaps you would like to become an [" .. eq.say_link("investigator") .. "]?");
-	elseif(e.message:findi("individual that unleashed this plague")) then
-		e.self:Say("A woman named Azibelle Spavin unleashed the plague. She was the bodyguard and some say concubine of Mordavin Telase. He was put to death for his long list of crimes against Qeynos, which included murder, treason and attempted genocide.  The plague was apparently her revenge. I sent one of my investigators and one of the best guardsmen we have to try and find her and bring her to justice. They are [" .. eq.say_link("still missing") .. "].");
-	elseif(e.message:findi("still missing")) then
-		e.self:Say("Kane recommended Guard Helminth personally as one of his best. They must have run into serious trouble. These were two of Qeynos' finest. I am only willing to send those with both strength and intelligence down there to complete this mission and find our people's whereabouts. Give me your Researcher's Badge should you wish to accept this mission.");
-	elseif(e.message:findi("investigator")) then
-		e.self:Say(string.format("Very well then, %s. We will not allow just anyone to wear the official Investigator's Badge and please forgive me. . . But it is hard to tell where one's loyalties lie these days. If you are truly [" .. eq.say_link("serious") .. "] then there is a duty you must perform first to show you are on the side of Antonius Bayle, the council and the good people Qeynos.",e.other:GetName()));
+elseif(e.message:findi("investigator")) then
+		e.self:Say(string.format("Very well then, %s. We will not allow just anyone to wear the official Investigator's Badge and please forgive me. . . But it is hard to tell where one's loyalties lie these days. If you are truly [serious] then there is a duty you must perform first to show you are on the side of Antonius Bayle, the council and the good people Qeynos.",e.other:GetName()));
 	elseif(e.message:findi("serious")) then
 		e.self:Say("There is a guard by the name of Robbie Shilster that patrols the Northern Plains of Karana. He is allied with our enemies and completely corrupt. He is flagrant in his trafficking of contraband goods. His orders are to guard the great wooden bridge to stave off the insect swarms. But our investigators report that he simply stands to the side and watches as the swarm rolls through. You are to execute this man for his treason and bring me his helm. Then, we will talk.");
-    elseif(e.message:findi("advance further") and tonumber(qglobals.qeynos_badge2) == 6) then
+    elseif(e.message:findi("advance further") and tonumber(qglobals.qeynos_badge3) == 3) then
+        e.self:Say("Interested in helping us further? We continue to gather valuable information. We still require [" .. eq.say_link("interrogators") .. "] that are able to pry the information we require out those less then willing to talk. Also, Velarte Selire at the Temple of Life is looking for help with his [" .. eq.say_link("research") .. "] so you may wish to talk with him. Lastly, we now have information we believe may lead us to the [" .. eq.say_link("individual that unleashed this plague") .. "] in the first place");
+ 	elseif(e.message:findi("individual that unleashed this plague") and tonumber(qglobals.qeynos_badge3) == 3) then
+		e.self:Say("A woman named Azibelle Spavin unleashed the plague. She was the bodyguard and some say concubine of Mordavin Telase. He was put to death for his long list of crimes against Qeynos, which included murder, treason and attempted genocide.  The plague was apparently her revenge. I sent one of my investigators and one of the best guardsmen we have to try and find her and bring her to justice. They are [" .. eq.say_link("still missing") .. "].");
+	elseif(e.message:findi("still missing") and tonumber(qglobals.qeynos_badge3) == 3) then
+		e.self:Say("Kane recommended Guard Helminth personally as one of his best. They must have run into serious trouble. These were two of Qeynos' finest. I am only willing to send those with both strength and intelligence down there to complete this mission and find our people's whereabouts. Give me your Researcher's Badge should you wish to accept this mission.");   
+	elseif(e.message:findi("advance further") and tonumber(qglobals.qeynos_badge2) == 6) then
         e.self:Say("Interested in advancing further are you? Excellent, we are ready to begin the next phase of our operation. We have gathered a great deal of information as a result of the latest series of arrests. We do require [" .. eq.say_link("interrogators") .. "] that are able to pry the information we require out those less than willing to talk. Also, Velarte Selire at the Temple of Life is looking for help with his [" .. eq.say_link("research") .. "]. You may wish to talk with him.");
     elseif(e.message:findi("advance further") and tonumber(qglobals.qeynos_badge1) == 7) then
         e.self:Say("Interested in advancing further are you? Excellent, we are ready to begin the next phase of our operation. We have gathered a great deal of information as a result of the latest series of arrests. What we require most now are [" .. eq.say_link("interrogators") .. "] that are able to pry the information we require out those less then willing to talk.");
@@ -66,6 +88,8 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
+	local qglobals = eq.get_qglobals(e.self,e.other);
+	
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 2173})) then -- Cracked Corrupt Guard Helm
 		e.self:Say("Thank you for bringing this person to justice. Please read this manual very, VERY carefully. Commit it to memory. We do everything strictly by the book. We are a people of law and order and I simply won't tolerate a breach of protocol. Investigators are expected to accurately report findings, are authorized to issue warrants and to notarize official documents for all lands under the jurisdiction of Antonius Bayle and the council. I sincerely hope you can earn your Investigator's Badge.");
 		e.other:Faction(9,1); -- Antonius Bayle
@@ -79,6 +103,14 @@ function event_trade(e)
 		e.self:Say("Very well, here is the briefing document. Please read it very carefully. I wish you luck friend, this mission could prove to be dangerous.");
 		eq.set_global("qeynos_badge2","1",5,"F"); -- Badge Globals
 		e.other:QuestReward(e.self,0,0,0,0,18292,2000); -- Interrogator's Briefing
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 2583})) then -- Researcher's Badge
+		e.self:Say("Here is my personal seal. Go to the sewers and locate my investigator and show him this seal if he yet lives. Find out what happened to he and guard Helminth. Then if at all possible, complete this operation by finding Azibelle Spavin and execute her. Bring me her head and return me my seal and you shall be rewarded.");
+		eq.set_global("qeynos_badge4","1",5,"F"); -- Badge Gloebals
+		e.other:QuestReward(e.self,0,0,0,0,2694,2000); -- Seal of Vegalys
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 2694, item2 = 2392 })) then -- Seal of Vegalys and Head of Azibelle Spavin
+		e.self:Say("Good work " .. e.other:GetName() .. "! So Guard Helminth was corrupt? So crafty are these black hearted souls that they can fool even the righteous Kane Bayle himself! I'm sure he will be saddened to hear of this. I too am saddenned by the loss of one of my best investigators. At least we've served justice this day by sending Azibelle Spavin to her dark master. May she rot with her god. Take this Badge of Honor and wear it with pride and distinction.");
+		eq.set_global("qeynos_badge4","4",5,"F"); -- Badge Globals
+		e.other:QuestReward(e.self,0,0,0,0,2388,10000); -- Qeynos Badge of Honor
 	end
 	
 	item_lib.return_items(e.self, e.other, e.trade)
