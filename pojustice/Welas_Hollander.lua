@@ -1,12 +1,12 @@
 ----------------------------------------------------------------------
 -- Zone: PoJustice
--- NPC: Lasiya (201362)
+-- NPC: Welas Hollander (201326)
 ----------------------------------------------------------------------
 
 function event_say(e)
-    if(e.language == 23 and e.other:GetLanguageSkill(23) >= 100) then
+    if(e.language == 11 and e.other:GetLanguageSkill(11) >= 100) then
         if(e.message:findi("Hail")) then
-            e.self:Say("in Dark Speech, '" .. e.other:Race() .. "...'  She tucks her long, beautiful hair behind her ears and meets your gaze.  In her eyes you see...  desire?  'The Dark Tower always has need for new...  blood.   Come closer, little " .. e.other:Race() .. ".  Lasiya won't hurt you, not a bit.  Come and lose yourself in my arms...   I can guarantee you an eternity from which you will never wish to escape...''");
+            e.self:Say("in Old Erudian, 'Unnnn...'  He fades and then rematerializes, as if talking is causing great effort.  'Hail to thee, ".. e.other:GetName() .. ".  Be careful!  Ware!  Careful who to trust in here, or ye'll find one day waking with a blade in your chest, as I did!  Watch ye!");
         end
     else
         e.self:Emote('does not appear to understand you.');
