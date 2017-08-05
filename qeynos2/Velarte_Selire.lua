@@ -5,7 +5,7 @@
 -- 3 = Successfully completed Experiment (Badge Complete)
 
 local jars = 0;
-local spawner = 999106; -- NPC control script ID
+local spawner = 2178; -- NPC control script ID
 
 function event_spawn(e)
 	jars = 0;
@@ -43,11 +43,11 @@ function event_trade(e)
         e.self:Say("It seems Vegalys trusts you, so I guess I can trust you as well. Take this briefing. It explains the current state of our research and it explains the test you will be conducting. If you can conduct the test successfully, the Temple of Life shall be in your debt and we shall use the findings to continue our work. However, we have a [".. eq.say_link("problem") .. "] we need assistance with first.");
         eq.set_global("qeynos_badge3","1",5,"F"); -- Badge Globals
         e.other:QuestReward(e.self,0,0,0,0,18295,1000); -- Research Briefing
-    elseif(tonumber(qglobals.qeynos_badge3) >= 1 and item_lib.check_turn_in(e.self, e.trade, {item1 = 18295})) then -- starts event when Research Briefing handed in
+    elseif(tonumber(qglobals.qeynos_badge3) == 1 and item_lib.check_turn_in(e.self, e.trade, {item1 = 18295})) then -- starts event when Research Briefing handed in
 		eq.spawn2(spawner,0,0,-225,-236,3,0)  -- spawns game control NPC script
 		e.self:Say("Well done " .. e.other:GetName() .. "!  Now you must recall what you learned in the research briefing to successfully complete the experiment.  Time is of the essence!");
 		eq.set_global("qeynos_badge3","2",5,"F"); -- Badge Globals
-	elseif(jars == 3 and not eq.get_entity_list():IsMobSpawnedByNpcTypeID(2179) and tonumber(qglobals.qeynos_badge3) >= 2 and (item_lib.check_turn_in(e.self, e.trade, {item1 = 2587, item2 = 2588 , item3 = 2589}))) then -- many checks to confirm event is a sucess!
+	elseif(jars == 3 and not eq.get_entity_list():IsMobSpawnedByNpcTypeID(2179) and tonumber(qglobals.qeynos_badge3) == 2 and (item_lib.check_turn_in(e.self, e.trade, {item1 = 2587, item2 = 2588 , item3 = 2589}))) then -- many checks to confirm event is a sucess!
 		e.self:Say("You did it! You have proven you have the intelligence required and you may wear this Researcher's Badge with pride! Thank you for returning the jars.");
 		e.other:QuestReward(e.self,0,0,0,0,2583,10000); -- Research Briefing
 		eq.set_global("qeynos_badge3","3",5,"F"); -- Badge Globals

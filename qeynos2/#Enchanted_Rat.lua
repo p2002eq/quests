@@ -1,3 +1,4 @@
+
 local diseased = 2179  --NPC ID for diseased rat
 local healthy = 2180 -- NPC ID for healthy rat
 
@@ -11,12 +12,67 @@ function event_spawn(e)
 	e.self:Emote("scurries happily out of the jar");
 	
 	local npc_list = eq.get_entity_list():GetNPCList();
-	if(npc_list ~= nil) then
-		for npc in npc_list.entries do
-			if npc:CalculateDistance(x, y, z) <= 15 and npc:GetNPCTypeID() == diseased then
-				npc:Depop();		--depop diseased rat
-				eq.spawn2(healthy,0,0,npc:GetX(),npc:GetY(),npc:GetZ(),0);	--spawns healthy rat
+	local minNorth;	--heading to target 128
+	local minSouth;	--heading to target 256
+	local minWest;	--heading to target 192
+	local minEast;	--heading to target 64
+	
+	if(npc_list ~= nil) then		-- first loop to establish minimum distance to healthy rats
+		for npc in npc_list.entries do	
+			if npc:GetNPCTypeID() == healthy then
+				if (npc:CalculateHeadingToTarget(x,y) == 128) then --Checks north of tile 
+					if minNorth == nil then
+						minNorth = npc:CalculateDistance(x,y,z);
+					elseif(npc:CalculateDistance(x,y,z) < minNorth) then
+						minNorth = npc:CalculateDistance(x,y,z);
+					end
+				elseif(npc:CalculateHeadingToTarget(x,y) == 256) then  --Checks south of tile 
+					if minSouth == nil then
+						minSouth = npc:CalculateDistance(x,y,z);
+					elseif(npc:CalculateDistance(x,y,z) < minSouth) then
+						minSouth = npc:CalculateDistance(x,y,z);
+					end
+				elseif(npc:CalculateHeadingToTarget(x,y) == 192) then  --Checks west of tile 
+					if minWest == nil then
+						minWest = npc:CalculateDistance(x,y,z);
+					elseif(npc:CalculateDistance(x,y,z) < minWest) then
+						minWest = npc:CalculateDistance(x,y,z);
+					end
+				elseif(npc:CalculateHeadingToTarget(x,y) == 64) then  --Checks east of tile 
+					if minEast == nil then
+						minEast = npc:CalculateDistance(x,y,z);
+					elseif(npc:CalculateDistance(x,y,z) < minEast) then
+						minEast = npc:CalculateDistance(x,y,z);
+					end	
+				end
 			end
 		end
+		
+		for npc in npc_list.entries do			--second loop to use minimum values to determine which diseased rats can be cured in all four directions
+			if npc:GetNPCTypeID() == diseased then
+				if (npc:CalculateHeadingToTarget(x,y) == 128) then --Checks north of tile 
+					if (minNorth ~= nil) and (npc:CalculateDistance(x,y,z) < minNorth) then
+						npc:Depop();		--depop diseased rat
+						eq.spawn2(healthy,0,0,npc:GetX(),npc:GetY(),npc:GetZ(),0);	--spawns healthy rat
+					end
+				elseif(npc:CalculateHeadingToTarget(x,y) == 256) then  --Checks south of tile 
+					if (minSouth ~= nil) and (npc:CalculateDistance(x,y,z) < minSouth) then
+						npc:Depop();		--depop diseased rat
+						eq.spawn2(healthy,0,0,npc:GetX(),npc:GetY(),npc:GetZ(),0);	--spawns healthy rat
+					end
+				elseif(npc:CalculateHeadingToTarget(x,y) == 192) then  --Checks west of tile 
+					if (minWest ~= nil) and (npc:CalculateDistance(x,y,z) < minWest) then
+						npc:Depop();		--depop diseased rat
+						eq.spawn2(healthy,0,0,npc:GetX(),npc:GetY(),npc:GetZ(),0);	--spawns healthy rat
+					end
+				elseif(npc:CalculateHeadingToTarget(x,y) == 64) then  --Checks east of tile 
+					if (minEast ~= nil) and (npc:CalculateDistance(x,y,z) < minEast) then
+						npc:Depop();		--depop diseased rat
+						eq.spawn2(healthy,0,0,npc:GetX(),npc:GetY(),npc:GetZ(),0);	--spawns healthy rat
+					end
+				end
+			end
+		end
+	
 	end
 end
