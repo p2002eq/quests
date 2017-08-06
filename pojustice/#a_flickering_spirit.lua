@@ -6,5 +6,5 @@
 ----------------------------------------------------------------------
 
 function event_death_complete(e)
-	eq.signal(201449, 9); -- #Event_Lashing_Control
+	eq.signal(201462, 9); -- #Event_Lashing_Control
 end
