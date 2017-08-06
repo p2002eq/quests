@@ -42,17 +42,18 @@ function event_signal(e)
       eq.signal(201453, 2); -- Lashing Tribunal
 		-- Depop the Scourge of Honor as they are immune to damage and despawned
 		-- by the controller we are about to depop.
-		eq.depop_all(201467);
+		eq.depop_all(201458); -- #A_Scourge_of_Honor
       eq.depop();
    elseif (e.signal == 9) then
       -- A Flickering Spirit has died; if all three are dead
       -- despawn a scourge of honor
       if ( eq.get_entity_list():IsMobSpawnedByNpcTypeID(201469) == false ) then
-         eq.depop_all( 201458 );
+         eq.depop_all( 201458 ); -- #A_Scourge_of_Honor
+         despawn_spirits();
          if (trial_wave < 4) then 
-            eq.set_timer("next_wave", 60000);
+            eq.set_timer("next_wave", 60000); -- 60 Sec
          elseif(trial_wave == 4) then
-            eq.set_timer("next_wave", 1000);
+            eq.set_timer("next_wave", 1000); -- 1 Sec
          end
       end
    end
@@ -97,8 +98,15 @@ function spawn_prisoners()
 end
 
 function despawn_prisoners() 
-   local prisoners = { 201455 }
+   local prisoners = { 201455 } -- #a_tormented_prisoner
    for k,v in pairs(prisoners) do
+      eq.depop_all(v);
+   end
+end
+
+function despawn_spirits()
+   local spirits = { 201459 } -- #a_flickering_spirit
+   for k,v in pairs(spirits) do
       eq.depop_all(v);
    end
 end
