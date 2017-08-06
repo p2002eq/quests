@@ -65,7 +65,7 @@ function event_trade(e)
 	elseif(fac <= 4 and tonumber(qglobals.qeynos_badge5) == 3 and item_lib.check_turn_in(e.self, e.trade, {item1 = 8287})) then -- Orders for Sergeant Caelin
         e.self:Emote("'s face grows pale as he reads the orders. 'Bossamir was right. The gnolls are far stronger than we expected. We lack the resources for a frontal assault so we have no choice to but to resort to covert operations and strike the gnolls at their heart. Their leader must fall and you look like the one for the job. Take this Writ of Execution and carry out the sentence. Your target is the leader of the gnolls, Barducks Darkpaw. Affix the Writ of Execution to the Head of Barducks Darkpaw and seal it in this Black Satchel. Return to me with the Closed Black Satchel and your Marked Qeynos Badge of Honor for your just reward.'");
         e.other:QuestReward(e.self,0,0,0,0,8282,1000); -- Writ of Execution
-		e.other:SummonItem(8286); --Black Satchel
+		e.other:SummonItem(17160); --Black Satchel
 		eq.set_global("qeynos_badge5","4",5,"F"); -- Badge Globals
 	elseif(fac <= 4 and tonumber(qglobals.qeynos_badge5) == 4 and item_lib.check_turn_in(e.self, e.trade, {item1 = 8285, item2 = 8286})) then -- Marked Qeynos Badge of Honor and Closed Black Satchel
         e.self:Say("A job well done! Perhaps now that will throw the gnolls into disarray and show them that we are not to be trifled with! The people of Qeynos and it's surrounding territories are in a great debt to you. You have proved time and again your willingness to take great risks to protect those who can't protect themselves. I am hereby empowered to grant to you an honorary rank of nobility. Take this and wear it proudly.");
