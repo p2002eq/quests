@@ -29,6 +29,8 @@ function event_death_complete(e)
 	eq.spawn2(162491, 0, 0, 799, -333, 407, 190);
 	eq.spawn2(162491, 0, 0, 828, -381, 407, 190);
 	eq.spawn2(162491, 0, 0, 908, -384, 407, 190);
+	
+	eq.set_global("Emp_Cycle", "2",3,"D8");
 end
 
 function event_slay(e)
