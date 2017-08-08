@@ -1,6 +1,6 @@
 function event_say(e)
   if(e.message:findi("hail")) then
-    e.self:QuestSay(e.other,string.format("Ah, greetings, %s!  How are you this evening?  Hopefully, you are faring much better than I..  I'm stuck on the night watch here, and never get to see my lovely [Aenia].  Ah..  she is so sweet..  I wrote her this beautiful [ballad], but I fear she may never hear it.",e.other:GetName()));
+    e.self:QuestSay(e.other,string.format("Ah, greetings, %s!  How are you this evening?  Hopefully, you are faring much better than I..  I'm stuck on the night watch here, and never get to see my lovely [" .. eq.say_link("Aenia") .. "].  Ah..  she is so sweet..  I wrote her this beautiful [" .. eq.say_link("ballad") .. "], but I fear she may never hear it.",e.other:GetName()));
   elseif(e.message:findi("aenia")) then
     e.self:QuestSay(e.other,"Aenia lives in North Qeynos in a little blue house near the Temple of Life with her overprotective father.  Last time he caught me there, he nearly killed me!");
   elseif(e.message:findi("ballad")) then

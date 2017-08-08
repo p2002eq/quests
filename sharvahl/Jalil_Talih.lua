@@ -4,19 +4,19 @@ end
 
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Oh, hello there " .. e.other:GetName() .. ". Thank you for stopping by, but this is just not a very good time for visitors. My daughter is very upset over what has [happened].");
+		e.self:Say("Oh, hello there " .. e.other:GetName() .. ". Thank you for stopping by, but this is just not a very good time for visitors. My daughter is very upset over what has [" .. eq.say_link("happened") .. "].");
 	elseif(e.message:findi("happened")) then
 		e.self:Say("Oh my, I thought everyone had heard by now. Behari has gone missing. Been quite some time now, in fact. Even the king had gotten involved in the search for him, but...");
-		e.self:Emote("lowers his voice to a whisper so as not to upset his [daughter].");
-		e.self:Say("Everyone has about given up hope. [Soroush] was the last we know of that had seen him, but he had very little helpful information.");
+		e.self:Emote("lowers his voice to a whisper so as not to upset his [" .. eq.say_link("daughter") .. "].");
+		e.self:Say("Everyone has about given up hope. [" .. eq.say_link("Soroush") .. "] was the last we know of that had seen him, but he had very little helpful information.");
 	elseif(e.message:findi("soroush")) then
 		e.self:Say("Soroush has taken over Behari's duties... temporarily, at least. He can usually be found right in the throne room in case he is needed.");
 	elseif(e.message:findi("daughter")) then
 		e.self:Emote("looks proudly towards his daughter,");
-		e.self:Say("She has [Aisha]'s eyes, that girl does. Having grown up in the palace, I feared she would never find love but this is far worse. She has now found and lost one so dear to her. At her age, I was just training to be a guard and had not a care in the world.");
+		e.self:Say("She has [" .. eq.say_link("Aisha") .. "]'s eyes, that girl does. Having grown up in the palace, I feared she would never find love but this is far worse. She has now found and lost one so dear to her. At her age, I was just training to be a guard and had not a care in the world.");
 	elseif(e.message:findi("aisha")) then
 		e.self:Emote("stares longingly into space at the sound of Aisha's name,");
-		e.self:Say("Ahh, she was my treasure, rest her spirit. From the moment I laid eyes upon her I wanted nothing more than to care for her, shower her with everything her heart desired. I was a very modest man at the time and she wed me all the same. Who would have guessed back then that someday we would live in the [palace] together. Do you know how i came to live in the palace?");
+		e.self:Say("Ahh, she was my treasure, rest her spirit. From the moment I laid eyes upon her I wanted nothing more than to care for her, shower her with everything her heart desired. I was a very modest man at the time and she wed me all the same. Who would have guessed back then that someday we would live in the [" .. eq.say_link("palace") .. "] together. Do you know how i came to live in the palace?");
 		eq.signal(155082,1,1); -- Kalila_Talih
 	elseif(e.message:findi("palace")) then
 		e.self:Emote("'s chest swells with pride though his eyes reveal a hint of modest embarrassment at the attention,");

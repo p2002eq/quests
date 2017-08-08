@@ -46,7 +46,6 @@ end
 function event_timer(e)
 	local xloc = e.self:GetX();
 	local yloc = e.self:GetY();
-
 	if(xloc == -693 and yloc == -279 and Bakery == 1) then
 		Bakery = 2;
 		eq.pause(60);
@@ -70,5 +69,3 @@ function event_signal(e)
 		eq.signal(9058,3);
 	end
 end
-
--- End of File, Zone:freportw -- Pandos_Flintside

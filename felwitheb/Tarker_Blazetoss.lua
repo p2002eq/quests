@@ -1,6 +1,6 @@
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Hail and well met, " .. e.other:GetName() .. "!  Have you come to study. or can you [perform a task] for me this day?");
+		e.self:Say("Hail and well met, " .. e.other:GetName() .. "!  Have you come to study. or can you [" .. eq.say_link("perform a task") .. "] for me this day?");
 	elseif(e.message:findi("perform a task")) then
 		e.self:Say("That is the spirit.  There are many black wolves wandering Faydark these days.  One of my brethren needs a black wolf skin as a component for his magic.  Bring me a black wolf skin. and I shall reward you for your efforts."); 
 	end
@@ -8,7 +8,6 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 18779})) then -- Enrollment Letter
 		e.self:Say("Welcome to the wizards' guild of the Keepers of the Art. My name's Tarker, and I run this guild. You've got a lot of training ahead of you, so let's get started. Here, take this - it's our guild tunic. Wear it with honor, friend.");
 		e.other:SummonItem(13594); -- Singed Training Robe*
@@ -30,5 +29,3 @@ function event_trade(e)
 	end
 	item_lib.return_items(e.self, e.other, e.trade);
 end
-
--- END of FILE Zone:felwitheb  ID:62019 -- Tarker_Blazetoss

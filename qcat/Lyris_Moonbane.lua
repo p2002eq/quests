@@ -1,6 +1,6 @@
 function event_say(e)
 	if(e.message:findi("assignment")) then
-		e.self:Say("We have just the thing for your friends back home. It will take some doing, but the pay off will be lovely indeed. In that jar you must combine 4 substances. You'll need two portions of a [goblin..source], one portion of [green river sludge], and one [portion of an experimental nature] that an agent of ours is working on. Bring the mixture back to me and we'll speak again.");
+		e.self:Say("We have just the thing for your friends back home. It will take some doing, but the pay off will be lovely indeed. In that jar you must combine 4 substances. You'll need two portions of a [" .. eq.say_link("goblin source") .. "], one portion of [" .. eq.say_link("green river sludge") .. "], and one [" .. eq.say_link("portion of an experimental nature") .. "] that an agent of ours is working on. Bring the mixture back to me and we'll speak again.");
 	elseif(e.message:findi("goblin source")) then
 		e.self:Say("The goblins of Antonica are known for their filthy habits and unclean practices. They often carry a menagerie of diseases and conditions. A more concentrated form of this aspect of goblin life cannot be found anywhere else but in the sewers of their citadel in the Sepent Spine. They must have workers who maintain the sewers. Find them and find the substance.");
 	elseif(e.message:findi("green river sludge")) then
@@ -24,10 +24,10 @@ function event_trade(e)
 		e.other:Faction(53,5); -- Corrupt Qeynos Guards
 		e.other:QuestReward(e.self,0,0,0,0,13552,100); -- Dark Stained Purple Robe*
 	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 1792})) then -- Heavy Locked Chest
-		e.self:Emote("examines the lock on the chest and pulls a black key from a pouch at her hip. The lock clicks open. Her eyes widen as she carefully opens the chest, revealing a pile of platinum coins and a small note. After admiring the coins she takes the note and reads it. The necromancer glances up, then at her spectral pet who then hands you a glass jar. She says, 'Are you ready for your first [assignment], " .. e.other:Race() .. "?");
+		e.self:Emote("examines the lock on the chest and pulls a black key from a pouch at her hip. The lock clicks open. Her eyes widen as she carefully opens the chest, revealing a pile of platinum coins and a small note. After admiring the coins she takes the note and reads it. The necromancer glances up, then at her spectral pet who then hands you a glass jar. She says, 'Are you ready for your first [" .. eq.say_link("assignment") .. "], " .. e.other:Race() .. "?");
 		e.other:QuestReward(e.self,0,0,0,0,17060); -- Thick Glass Jar
 	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 1795})) then -- Sealed Jar
-		e.self:Emote("'s light up with childish glee as she takes the jar containing the disgusting and deadly substance. From her pouch she removes a gob of putty and a gem carved into the likeness of a flying insect. After sticking the putty to the lid of the jar, she mashes the carved gem into the putty and hands the jar back to you. She then says, 'This is enchant the substance. You must then [deliver] the substance.");
+		e.self:Emote("'s light up with childish glee as she takes the jar containing the disgusting and deadly substance. From her pouch she removes a gob of putty and a gem carved into the likeness of a flying insect. After sticking the putty to the lid of the jar, she mashes the carved gem into the putty and hands the jar back to you. She then says, 'This is enchant the substance. You must then [" .. eq.say_link("deliver") .. "] the substance.");
 		e.other:QuestReward(e.self,0,0,0,0,1799); -- Harbinger of Bertoxxulous
 	end
 	item_lib.return_items(e.self, e.other, e.trade)

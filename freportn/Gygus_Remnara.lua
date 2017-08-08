@@ -18,5 +18,3 @@ function event_trade(e)
 	end
 	item_lib.return_items(e.self, e.other, e.trade);
 end
-
--- END of FILE Zone:freportn  ID:8028 -- Gygus_Remnara

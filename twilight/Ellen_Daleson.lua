@@ -3,7 +3,7 @@ function event_say(e)
 	if(e.message:findi("Hail")) then
 		e.self:Say("Oh hello there, I'm in charge of the docks here and wife to Alton.");
 	elseif(e.message:findi("ranger")) then
-		e.self:Say("Very well. If you want the Woodsman's [Mantle], Woodsman's [Mask], Woodsman's [Cape], Woodsman's [Guantlets], Woodsman's [Choker], or Woodsman's [Belt] I have some errands that need to be done.");
+		e.self:Say("Very well. If you want the Woodsman's [" .. eq.say_link("Mantle") .. "], Woodsman's [" .. eq.say_link("Mask") .. "], Woodsman's [" .. eq.say_link("Cape") .. "], Woodsman's [" .. eq.say_link("Gauntlets") .. "], Woodsman's [" .. eq.say_link("Choker") .. "], or Woodsman's [" .. eq.say_link("Belt") .. "] I have some errands that need to be done.");
 	elseif(e.message:findi("armor")) then
 		e.self:Say("Oh you wish to get the armor that Alton's great granddaddy used to wear. If you are a ranger just let me know.");
 	elseif(e.message:findi("belt")) then

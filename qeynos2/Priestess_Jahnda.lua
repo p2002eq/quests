@@ -4,8 +4,8 @@ function event_say(e)
 	elseif(e.message:findi("blessed oil")) then
 		e.self:Say("I do not distribute the blessed oil of life. Please speak with Nomsoe Jusagta. Tell Nomsoe that Brother Estle needs the blessed oil.");
 	elseif(e.message:findi("hayle mool")) then
-		e.self:Say("Brother Hayle Mool is one of our finest clerics. He could convert anyone to the ways of Rodcet Nife. Recently, he has been out in the [Plains of Karana] trying to befriend the [Splitpaw clan]. I pray he has not become their prisoner or even worse, their dinner.");
-	elseif(e.message:findi("paw")) then
+		e.self:Say("Brother Hayle Mool is one of our finest clerics. He could convert anyone to the ways of Rodcet Nife. Recently, he has been out in the Plains of Karana trying to befriend the [" .. eq.say_link("Splitpaw clan") .. "]. I pray he has not become their prisoner or even worse, their dinner.");
+	elseif(e.message:findi("splitpaw")) then
 		e.self:Say("Paw is a gnoll burrow. It is said to be located somewhere in the Plains of Karana. The gnolls of this burrow is rarely seen. The fur of these gnolls is white, unlike their brothers in Blackburrow.");
 	end
 end

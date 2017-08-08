@@ -1,6 +1,4 @@
--- beginning of the main portion of the enchanter epic quest - staff of the serpent
-
-
+-- Enchanter Epic
 function event_say(e)
 	if(e.message:findi("are you jeb lumsed")) then
 		e.self:Say("Yes, I am. Use your most enlightened magic to seek the truth of what is around you. When that is done, you will know what you seek.");
@@ -18,24 +16,19 @@ function event_say(e)
 		e.self:Say("Master of the Phantasms - he is the last one you will seek out. Hmm...Polzin is native to Erudin, however, after the incident near Paineel, no one has heard from him. I hope that he is well.");
 	elseif(e.message:findi("I need a sack")) then
 		e.self:Say("Take this sack and combine the items I requested in it. Then return it to me.");
-		e.other:QuestReward(e.self,0,0,0,0,17861);
+		e.other:QuestReward(e.self,0,0,0,0,17861,0); -- An Enchanters Sack
 	end
 end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 10603})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 10603})) then -- Copy of Notes
 		e.self:Say("I see that you have what I was waiting for. Stofo does do excellent work. It seems that you are to start on a long journey. Take this seal and it will guide you on your next step. Seek out the masters of enchantment. In time we will craft the Serpent for you. When you have collected the four parts of the staff, you must combine them in a bundle for me.");
-		e.other:QuestReward(e.self,0,0,0,0,10604);
-	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 10639})) then
+		e.other:QuestReward(e.self,0,0,0,0,10604,100); -- Jeb's Seal
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 10639})) then -- A Bundle of Staves
 		e.self:Say("The path you trod was long and hard. Now you are worthy to bear the Serpent. Use it well.");
-		e.other:Faction(342,30);
-		e.other:QuestReward(e.self,0,0,0,0,10650,1500000);
+		e.other:Faction(342,30); -- True Spirit
+		e.other:QuestReward(e.self,0,0,0,0,10650,1500000); -- Staff of the Serpent
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------

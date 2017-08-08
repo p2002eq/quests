@@ -2,7 +2,7 @@
 
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say(string.format("Greetings, %s. Welcome to the Miller Farmstead. [Cleet] and I have lived out here on the plains of Karana for thirty years now. We grow the finest grains in all of Norrath. Admire the grains all you like, but steer clear of those [scarecrows].",e.other:GetName()));
+		e.self:Say(string.format("Greetings, %s. Welcome to the Miller Farmstead. [" .. eq.say_link("Cleet") .. "] and I have lived out here on the plains of Karana for thirty years now. We grow the finest grains in all of Norrath. Admire the grains all you like, but steer clear of those [" .. eq.say_link("scarecrows") .. "].",e.other:GetName()));
 	elseif(e.message:findi("cleet")) then
 		e.self:Say("Cleet is my husband. He is a hard worker and provides for the kids and me.");
 	elseif(e.message:findi("scarecrow")) then
@@ -25,5 +25,3 @@ function event_trade(e)
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
--- END of FILE zone: ID:12026 -- Henina_Miller.pl 

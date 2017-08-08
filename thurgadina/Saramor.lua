@@ -22,8 +22,8 @@ function event_waypoint_arrive(e)
 	elseif (e.wp == 9) then
 		eq.stop()
 		e.self:Say("So good to see you, Rumagur. I hope you're feelin better today.");
-		e.signal(115011,3,8000);
-		e.signal(115187,3,8000);
+		eq.signal(115011,3,8000);
+		eq.signal(115187,3,8000);
 	end
 
 end

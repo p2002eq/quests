@@ -1,7 +1,7 @@
 -- Lord Rak`Ashiir for shaman epic (KOS version)
 
 function event_spawn(e)
-	eq.set_timer("depop", 3600000);
+	eq.set_timer("depop", 3600000); -- 60 Minutes
 end
 
 function event_timer(e)

@@ -3,9 +3,9 @@ function event_say(e)
 	local qglobals = eq.get_qglobals(e.other);
 	if(qglobals["AidEinoDone"] ~= nil and (qglobals["AidEinoDone"] == 1)) then --Can't do the turn in without getting the bowl, so I'm not worried about restricting the turn ins on the flag, just this text and getting the bowl.
 		if(e.message:findi("hail")) then
-			e.self:Say("Greetings " .. e.other:GetName() .. "! It pleases me very much that you were able to help Eino out in his time of need.' Councilwoman Kerasha glances at Eino, 'Tunare only knows what I would do without him at my side. There is another matter at hand that has come to the attention of the council that is beyond even our combined power and requires the aid of a powerful alliance. Would you be willing to aid Tanaan?");
+			e.self:Say("Greetings " .. e.other:GetName() .. "! It pleases me very much that you were able to help Eino out in his time of need.' Councilwoman Kerasha glances at Eino, 'Tunare only knows what I would do without him at my side. There is another matter at hand that has come to the attention of the council that is beyond even our combined power and requires the aid of a powerful alliance. Would you be willing to [" .. eq.say_link("aid") .. "] Tanaan?");
 		elseif(e.message:findi("aid")) then
-			e.self:Say("A rift in this plane at the point of harmony upon which the city of Tanaan is built is crumbling. The other council members do not see it happening for they lack the sight that I possess. Granted it will take time but it is something that must be set to right or our home will fall to waste among the tides of the Planes.' Councilwoman Kerasha's body grows rigid. 'I did not spend my life in defense of this city to watch it crumble to dust! The way to repair the breach is difficult but I feel Tunare will grant me the strength once I have the four essences of power in my grasp.");
+			e.self:Say("A rift in this plane at the point of harmony upon which the city of Tanaan is built is crumbling. The other council members do not see it happening for they lack the sight that I possess. Granted it will take time but it is something that must be set to right or our home will fall to waste among the tides of the Planes.' Councilwoman Kerasha's body grows rigid. 'I did not spend my life in defense of this city to watch it crumble to dust! The way to repair the breach is difficult but I feel Tunare will grant me the strength once I have the four [" .. eq.say_link("essences of power") .. "] in my grasp.");
 		elseif(e.message:findi("essences of power")) then
 			e.self:Say("The powers that watch over the four elemental planes all guard their respective essence of power. You must defeat each of them in turn and place them all within this sacred bowl. Once I have the combined power of the planes I can begin the ceremony and set the foundation of the city to rights. Thank you for your offer to assist me " .. e.other:GetName() .. ".");
 			e.other:SummonItem(17183); --Sacred Bowl
@@ -45,8 +45,3 @@ function event_trade(e)
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------

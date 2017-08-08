@@ -1,13 +1,13 @@
 -- Avatar of Fear for Ring of Fear in CT
 
--- Amy, TT, spider, Gorgon, gorilla
+-- an Amygdalan Knight, a tentacle tormentor, a Spinechill Spider, a Gorgon, a Shiverback
 mobs = { 48390, 48392, 48354, 48382, 48383 }
 
 function event_spawn(e)
 	inactive(e.self);
 	e.self:ModifyNPCStat("runspeed","0.4");
 	eq.start(150);
-	e.self:SpellFinished(2128, e.self);
+	e.self:SpellFinished(2128, e.self); -- Avatar of Fear
 	e.self:Shout("Minions of fear hear me now! The temple of the great Cazic Thule has been defiled. I summon you to assist me in its cleansing!");
 	wave = 1;
 end
@@ -16,24 +16,24 @@ function event_waypoint_arrive(e)
 	if e.wp == 1 then	
 		if wave == 6 then
 			e.self:Shout("In the name of the fearful one, prepare yourselves! I shall rend your minds with fright, dread, and terror!");
-			inactive(eq.unique_spawn(48384, 0, 0, 651, 1130, -90, 170)); -- Dread
-			inactive(eq.unique_spawn(48385, 0, 0, 523, 1130, -90, 85)); -- Fright
-			inactive(eq.unique_spawn(48386, 0, 0, 595, 1005, -90, 0)); -- Terror
+			inactive(eq.unique_spawn(48384, 0, 0, 651, 1130, -90, 170)); -- Avatar of Dread
+			inactive(eq.unique_spawn(48385, 0, 0, 523, 1130, -90, 85)); -- Avatar of Fright
+			inactive(eq.unique_spawn(48386, 0, 0, 595, 1005, -90, 0)); -- Avatar of Terror
 			spawn_wave();
 		elseif wave == 12 then
 			e.self:Shout("In the name of the fearful one, I call forth from the abyss... DREAD!");
-			active(eq.get_entity_list():GetMobByNpcTypeID(48384)); -- activate Dread
+			active(eq.get_entity_list():GetMobByNpcTypeID(48384)); -- Avatar of Dread
 		elseif wave == 18 then
 			e.self:Shout("In the name of the fearful one, I call forth from the abyss... FRIGHT!");
-			active(eq.get_entity_list():GetMobByNpcTypeID(48385)); -- activate Fright
+			active(eq.get_entity_list():GetMobByNpcTypeID(48385)); -- Avatar of Fright
 		elseif wave == 24 then
 			e.self:Shout("In the name of the fearful one, I call forth from the abyss... TERROR!");
-			active(eq.get_entity_list():GetMobByNpcTypeID(48386)); -- activate Terror
+			active(eq.get_entity_list():GetMobByNpcTypeID(48386)); -- Avatar of Terror
 		elseif wave == 25 then
 			e.self:Shout("In the name of the fearful one, face the wrath of FEAR itself!");
 			active(e.self);
 			e.self:ModifyNPCStat("runspeed","1.5");
-			eq.set_timer("depop", 1800000);
+			eq.set_timer("depop", 1800000); -- 30 Minutes
 		else
 			e.self:Shout("In the name of the faceless, I command you, the minions of fear, ARISE!");
 			spawn_wave();	

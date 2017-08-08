@@ -20,17 +20,17 @@ function event_trade(e)
 	local item_lib = require("items");
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 20932, item2 = 20780, item3 = 20781})) then 	--necromancer test of flight using verdant tessera, ebon shard, griffon's beak
 		e.self:Say("Very good. Now take this and leave me.");
-		e.other:QuestReward(e.self,0,0,0,0,27712,1000000); --bloody griffon-hide wrist guard
+		e.other:QuestReward(e.self,0,0,0,0,27712,10000); --bloody griffon-hide wrist guard
 		eq.stop_timer("depop");
 		eq.depop();
 	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 20938, item2 = 20782, item3 = 20783})) then --necromancer test of power using silver disc, spiroc feathers, black silk cape
 		e.self:Say("Very good. Now take this and leave me.");
-		e.other:QuestReward(e.self,0,0,0,0,1278,1000000); --cloak of spiroc feathers
+		e.other:QuestReward(e.self,0,0,0,0,1278,10000); --cloak of spiroc feathers
 		eq.stop_timer("depop");
 		eq.depop();
 	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 20945, item2 = 20784, item3 = 20785})) then --necromancer test of mind using rogous globe, djinni blood, fine cloth raiment
 		e.self:Say("Very good. Now take this and leave me.");
-		e.other:QuestReward(e.self,0,0,0,0,1279,1000000); --bloodsoaked raiment
+		e.other:QuestReward(e.self,0,0,0,0,1279,10000); --bloodsoaked raiment
 		eq.stop_timer("depop");
 		eq.depop();
 	end
@@ -41,8 +41,3 @@ function event_timer(e)
 	eq.stop_timer("depop");
 	eq.depop();
 end
-
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------

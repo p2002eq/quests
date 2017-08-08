@@ -1,10 +1,8 @@
---------------------------
 --Quest Name:Bug Collection
 --NPCs Involved:Blixkin Entopop
 --Items Involved:Bug Collection Box, Complete Bug Collection, Fire Beetle Eye
 --Giant Fire Beetle Leg, Giant Scarab Egg Sack, Giant Wasp Wing,
 --Spiderling Eye, Spiderling Silk
-----------------------------------
 
 function event_waypoint_arrive(e)
 	if((e.wp == 2) or (e.wp == 9) or (e.wp == 14) or (e.wp == 21) or (e.wp == 24)) then
@@ -23,17 +21,17 @@ end
 
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Hail, " .. e.other:GetName() .. "! My name is Blixkin Entopop. Have you seen the wonderful assortment of [spiders] and [beetles] that inhabit the thicket? I have quite an extensive [bug collection]. Be careful, though. I have seen many brave halflings fall beneath a [swarm] of clicking and hissing bugs.");
+		e.self:Say("Hail, " .. e.other:GetName() .. "! My name is Blixkin Entopop. Have you seen the wonderful assortment of [" .. eq.say_link("spiders") .. "] and [beetles] that inhabit the thicket? I have quite an extensive [bug collection]. Be careful, though. I have seen many brave halflings fall beneath a [" .. eq.say_link("swarm") .. "] of clicking and hissing bugs.");
 	elseif(e.message:findi("spiders")) then
-		e.self:Say("There are many species of bugs out here. The most common are the fire beetles. If you are hunting them, make sure their queen is not around or you will be in deep trouble. Their eyes are a popular item for adventurers because they give off light as if they were on fire. I even had one warrior try to kill [Ember] for her eyes!!");
+		e.self:Say("There are many species of bugs out here. The most common are the fire beetles. If you are hunting them, make sure their queen is not around or you will be in deep trouble. Their eyes are a popular item for adventurers because they give off light as if they were on fire. I even had one warrior try to kill [" .. eq.say_link("Ember") .. "] for her eyes!!");
 	elseif(e.message:findi("ember")) then
 		e.self:Say("I raised Ember from an egg. She is my faithful pet and quite smart for a beetle. There are plenty of other bugs to squish, out in the thicket, so you had best leave her alone or I will have to SQUISH you!");
 	elseif(e.message:findi("swarms")) then
-		e.self:Say("Bugs tend to swarm and defend others of their species when they are attacked. So keep your eyes peeled if you intend to squish any of them.. And you'd better not even THINK of squishing [Ember] or you will be sorry!");
+		e.self:Say("Bugs tend to swarm and defend others of their species when they are attacked. So keep your eyes peeled if you intend to squish any of them.. And you'd better not even THINK of squishing [" .. eq.say_link("Ember") .. "] or you will be sorry!");
 	elseif(e.message:findi("beetles")) then
-		e.self:Say("There are many species of bugs out here. The most common are the fire beetles. If you are hunting them, make sure their queen is not around or you will be in deep trouble. Their eyes are a popular item for adventurers because they give off light as if they were on fire. I even had one warrior try to kill [Ember] for her eyes!!");
+		e.self:Say("There are many species of bugs out here. The most common are the fire beetles. If you are hunting them, make sure their queen is not around or you will be in deep trouble. Their eyes are a popular item for adventurers because they give off light as if they were on fire. I even had one warrior try to kill [" .. eq.say_link("Ember") .. "] for her eyes!!");
 	elseif(e.message:findi("collection")) then
-		e.self:Say("Here you go. Just follow the instructions on the [list] so you know what to collect and how to prepare the collection for me.");
+		e.self:Say("Here you go. Just follow the instructions on the [" .. eq.say_link("list") .. "] so you know what to collect and how to prepare the collection for me.");
 		e.other:SummonItem(17922);
 	elseif(e.message:findi("list")) then
 		e.self:Say("What did you do, lose the list? Here is another one. Hold onto it because I will want it back when you are done.");
@@ -59,7 +57,3 @@ function event_trade(e)
 end
 
 --Author:Shaznito
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------

@@ -1,7 +1,7 @@
 --Quest: Garbage Collecting
 function event_say(e)
 	if(e.message:findi("Hail")) then
-		e.self:Say("Greetings friend, please mind your [garbage]. They attract the hoppers who can be a danger to our young ones.");
+		e.self:Say("Greetings friend, please mind your [" .. eq.say_link("garbage") .. "]. They attract the hoppers who can be a danger to our young ones.");
 	elseif(e.message:findi("garbage")) then
 		e.self:Say("Careless travelers from Shadow Haven leave their rubbish along our roads. They attract vermin and can smell just horrid. I try my best to keep the road clean, but it seems that I cannot keep up with the filth.");
 	end

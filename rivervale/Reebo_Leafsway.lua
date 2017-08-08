@@ -2,32 +2,32 @@ function event_say(e)
 	if(e.message:findi("hail") and e.other:HasItem(52355) == true) then
 		e.self:Say("You took care of our problem, " .. e.other:GetName() .. ", and for that you have my eternal thanks. With the new head you supplied, we should be able to squeeze a few more years out of Shakey. Not sure what you'd want to do with the old one. That dilapidated pumpkin is worthless. Moldy, dried out . . . doesnt hold a light. He shrugs empahtically. Go ahead and hold onto the thing if that tickles your fancy, though. May Karana watch over you in your travels!");
 	elseif(e.message:findi("hail")) then
-		e.self:Say("Greetings and salutations, " .. e.other:GetName() .. "! My name is Reebo Leafsway, loyal Druid of [Karana]. I am in charge of helping young druids who wish to get started down the [trail to Karana's wisdom]. I also do my share of tending the [crops].");
+		e.self:Say("Greetings and salutations, " .. e.other:GetName() .. "! My name is Reebo Leafsway, loyal Druid of [" .. eq.say_link("Karana") .. "]. I am in charge of helping young druids who wish to get started down the [" .. eq.say_link("trail to Karana's wisdom") .. "]. I also do my share of tending the [" .. eq.say_link("crops") .. "].");
 	elseif(e.message:findi("shakey")) then
-		e.self:Say("Shakey is our protector and friend. He is just getting old. Losing his [stuffing]. His [head] is getting very cracked and dry as well.");
+		e.self:Say("Shakey is our protector and friend. He is just getting old. Losing his [" .. eq.say_link("stuffing") .. "]. His [" .. eq.say_link("head") .. "] is getting very cracked and dry as well.");
 	elseif(e.message:findi("stuffing")) then
-		e.self:Say("The hay he requires is difficult to obtain. It must have been harvested from the Plains of Karana, then cursed by a high priest of the Faceless, [Cazic-Thule]. Finally, you must cast the hay and a flask of blessed Oil of Life into an armorer's forge. Only then will the hay be ready. We Stormreapers will reward you greatly if you could accomplish this task. Remember, you must give the scarecrow stuffing to Shakey only after it has been properly prepared.");
+		e.self:Say("The hay he requires is difficult to obtain. It must have been harvested from the Plains of Karana, then cursed by a high priest of the Faceless, [" .. eq.say_link("Cazic-Thule") .. "]. Finally, you must cast the hay and a flask of blessed Oil of Life into an armorer's forge. Only then will the hay be ready. We Stormreapers will reward you greatly if you could accomplish this task. Remember, you must give the scarecrow stuffing to Shakey only after it has been properly prepared.");
 	elseif(e.message:findi("cazic")) then
-		e.self:Say("Cazic-Thule is the dark deity of fear. He is worshiped by many evil beings. There is believed to be a ruined temple dedicated to him deep in the [Feerrott]. That would be a good place to look for one of his high priests.");
+		e.self:Say("Cazic-Thule is the dark deity of fear. He is worshiped by many evil beings. There is believed to be a ruined temple dedicated to him deep in the [" .. eq.say_link("Feerrott") .. "]. That would be a good place to look for one of his high priests.");
 	elseif(e.message:findi("feerrott")) then
 		e.self:Say("The Feerrott is a vast rain forest in southwestern Antonica. It is home to many lizardman tribes.");
 	elseif(e.message:findi("trail to karana's wisdom")) then
 		e.self:Say("Good. First you should learn that Karana's work is just that.. work. Karana provides us with the tools but it is by the sweat of our brows that we prosper. Common sense and hard work are two things that are highly prized by our people. Time for you to sweat, young one. Take this crate of carrots over to Blinza Toepopal in the Fool's Gold. They need our finest carrots for Mayor Gubbin's stew. When you return I will teach you a lesson of the Rainkeeper.");
 		e.other:SummonItem(13971); 
 	elseif(e.message:findi("karana")) then
-		e.self:Say("Karana is known as the Rainkeeper. It is through His will that our [crops] and our children grow big and healthy. He watches over us and protects us. calling down the fury of a tempest on those who wish harm upon His followers.");
+		e.self:Say("Karana is known as the Rainkeeper. It is through His will that our [" .. eq.say_link("crops") .. "] and our children grow big and healthy. He watches over us and protects us. calling down the fury of a tempest on those who wish harm upon His followers.");
 	elseif(e.message:findi("crops")) then
 		e.self:Say("The crops we grow here are mostly carrots, lettuce and squash. We also are the only place on all of Norrath where the soil can support the mystical Jumjum Stalk.");
 	elseif(e.message:findi("head")) then
-		e.self:Say("The head of a scarecrow is difficult to replace. We do not know what is needed and all of our attempts have failed. Perhaps you could [research] this for us and bring back a new head for our old friend Shakey?");
+		e.self:Say("The head of a scarecrow is difficult to replace. We do not know what is needed and all of our attempts have failed. Perhaps you could [" .. eq.say_link("research") .. "] this for us and bring back a new head for our old friend Shakey?");
 	elseif(e.message:findi("research")) then
 		e.self:Say("We have heard of a great forbidden tome penned by an evil necromancer that holds the secrets of instilling life into scarecrows. We have recovered pages from that book. That is how we know about Shakey's hay. But the pages detailing the creation of a scarecrow's head are missing. We believe that the Erudites possess at least some of the pages and might know where the rest of them may be found. Start your search in their city of Erudin.");
 	elseif(e.message:findi("nillipuss")) then
-		e.self:Say("Nillipuss is a brownie that lives in the area who often steals and destroys our JumJum Stalk. Will you teach him a [lesson]?");
+		e.self:Say("Nillipuss is a brownie that lives in the area who often steals and destroys our JumJum Stalk. Will you teach him a [" .. eq.say_link("lesson") .. "]?");
 	elseif(e.message:findi("lesson")) then
 		e.self:Say("Good. Bring me back some of the JumJum he has stolen and I will reward you for your trouble.");
 	elseif(e.message:findi("acknowledgment")) then
-		e.self:Emote("shakes his head sadly, 'Poor old [Shakey] just isn't what he used to be.'");
+		e.self:Emote("shakes his head sadly, 'Poor old [" .. eq.say_link("Shakey") .. "] just isn't what he used to be.'");
 	end
 end
 
@@ -61,7 +61,5 @@ function event_waypoint_arrive(e)
 end
 
 function event_signal(e)
-	e.self:Say("Old [Shakey] hasn't been feeling like himself lately, I'm afraid.");
+	e.self:Say("Old [" .. eq.say_link("Shakey") .. "] hasn't been feeling like himself lately, I'm afraid.");
 end
-
--- END of FILE Zone:rivervale  ID:19056 -- Reebo_Leafsway

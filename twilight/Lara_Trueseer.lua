@@ -1,11 +1,11 @@
 ---- Twilight Armor - Enchanter
 function event_say(e)
 	if(e.message:findi("Hail")) then
-		e.self:Emote("grimaces in pain. 'The [visions] are so strong they hurt...please make them stop.'");
+		e.self:Emote("grimaces in pain. 'The [" .. eq.say_link("visions") .. "] are so strong they hurt...please make them stop.'");
 	elseif(e.message:findi("visions")) then
-		e.self:Say("I...can't describe them, they are too disturbing. I think I have enough strength to assist a fellow [enchanter], are you one?");
+		e.self:Say("I...can't describe them, they are too disturbing. I think I have enough strength to assist a fellow [" .. eq.say_link("enchanter") .. "], are you one?");
 	elseif(e.message:findi("enchanter")) then
-		e.self:Say("Very good. I have a [cap], [robe], [sleeves], [pants], [shawl], and [bracer]. My friend Xavier has the rest just ask him about the armor.");
+		e.self:Say("Very good. I have a [" .. eq.say_link("cap") .. "], [" .. eq.say_link("robe") .. "], [" .. eq.say_link("sleeves") .. "], [" .. eq.say_link("pants") .. "], [" .. eq.say_link("shawl") .. "], and [" .. eq.say_link("bracer") .. "]. My friend Xavier has the rest just ask him about the armor.");
 	elseif(e.message:findi("cap")) then
 		e.self:Say("For the cap I will need an astral jewel, a golden flower, a grail of enchantment, and a mark of beauty.");
 	elseif(e.message:findi("robe")) then

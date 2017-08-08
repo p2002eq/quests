@@ -7,7 +7,7 @@ end
 
 function event_say(e)
     if(e.message:findi("hail")) then
-        e.self:Say("The bloody Kromrif ambushed me! I escaped, but I am near death. They'll be tracking me down to finish me off at any moment. Without [help], I'm as good as dead.");
+        e.self:Say("The bloody Kromrif ambushed me! I escaped, but I am near death. They'll be tracking me down to finish me off at any moment. Without [" .. eq.say_link("help") .. "], I'm as good as dead.");
 
     elseif e.message:findi("help") and not started then
         started = true;

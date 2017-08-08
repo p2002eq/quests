@@ -9,7 +9,7 @@ function event_say(e)
 	if(qglobals["RegalBandBathezid"] ~= nil and (qglobals["RegalBandBathezid"] == "1")) then -- we handed the Signet of Service yet
 		-- the goblin won't talk to the player unless we did the beginning of the quest
 		if(e.message:findi("hail")) then
-			e.self:Say("If yer not my contact ya best be movin' on. Got no time to waste on ya.");
+			e.self:Say("If yer not my [" .. eq.say_link("I am your contact",false,"contact") .. "] ya best be movin' on. Got no time to waste on ya.");
 		elseif(e.message:findi("I am your contact")) then
 			e.self:Say("Are ya? Hum, let me see yer insignia then, and the note Skargus gave ya.");
 		end
@@ -29,8 +29,3 @@ function event_trade(e)
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------

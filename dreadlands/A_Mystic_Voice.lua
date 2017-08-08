@@ -24,7 +24,7 @@ function event_timer(e)
 	elseif (e.timer == "dreadlands_opened") then
 		eq.stop_timer("dreadlands_opened");
 		e.self:SetGlobal("nexus_dre", "1", 3, "F");
-		eq.signal(86051, 101); -- Flavor casting
+		eq.signal(86051, 101); -- Kunark Spires
 	elseif (e.timer == "dreadlands_closed") then
 		eq.stop_timer("dreadlands_closed");
 		eq.set_timer("dreadlands_timer", 60 * 1000);

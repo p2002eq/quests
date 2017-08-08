@@ -1,9 +1,9 @@
 --Renni's Rock Collection
 function event_say(e)
 	if(e.message:findi("Hail")) then
-		e.self:Say("Har har, " .. e.other:GetName() .. "! I see yer curious mind has brought ye to what will be the most fabulous and fascinating museum display of them all, the geological exhibit. Behold the [rocks] of Norrath! I'd be most delighted to show them to ye, eh, but I'm afraid it's not quite ready yet, you see. Some pieces of my collection have gone missing and I haven't gone to get replacements yet.");
+		e.self:Say("Har har, " .. e.other:GetName() .. "! I see yer curious mind has brought ye to what will be the most fabulous and fascinating museum display of them all, the geological exhibit. Behold the [" .. eq.say_link("rocks") .. "] of Norrath! I'd be most delighted to show them to ye, eh, but I'm afraid it's not quite ready yet, you see. Some pieces of my collection have gone missing and I haven't gone to get replacements yet.");
 	elseif(e.message:findi("rocks")) then
-		e.self:Say("Eh, let's see. I'm missing a Whirling Crystal, A Scarlet Stone, Icy Geoduck, and A Pulsating Rock. Might ye have these on ye? If ye do, go and get a Collector's Box from [Merri], and put them inside. Close the box and bring it to me. The display will be most grand if ye do!");
+		e.self:Say("Eh, let's see. I'm missing a Whirling Crystal, A Scarlet Stone, Icy Geoduck, and A Pulsating Rock. Might ye have these on ye? If ye do, go and get a Collector's Box from [" .. eq.say_link("Merri") .. "], and put them inside. Close the box and bring it to me. The display will be most grand if ye do!");
 	elseif(e.message:findi("Merri")) then
 		e.self:Say("Curator Merri is the founder of the museum in the Selia district of New Tanaan. She is a true visionary and a wonderful person as well. It is her dream to turn life's love into something truly grand. She also carries with her the Collector's Boxes. If you need one, be sure to ask her for it.");
 	end--Text taken from Holly Longtail's related quest.  It's out of character coming from this guy, but there's no reference on alla's.
@@ -17,8 +17,3 @@ function event_trade(e)
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------

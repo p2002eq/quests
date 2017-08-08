@@ -1,14 +1,9 @@
 function event_death_complete(e)
 	e.self:Say("All Iksar residents.. shall learn.. of my demise. Ungghh!!");
-	eq.signal(87101,1);
+	eq.signal(87101,1); -- Atheling Plague
 end
 
 function event_trade(e)
 	local item_lib = require("items");
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------

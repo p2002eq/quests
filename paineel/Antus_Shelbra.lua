@@ -1,6 +1,6 @@
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Greetings, " .. e.other:GetName() .. ". You have come to me searching for tasks and tasks I have. Would you judge yourself an [experienced heretic] or one who has [much to learn]?");
+		e.self:Say("Greetings, " .. e.other:GetName() .. ". You have come to me searching for tasks and tasks I have. Would you judge yourself an [" .. eq.say_link("experienced heretic") .. "] or one who has [" .. eq.say_link("much to learn") .. "]?");
 	elseif(e.message:findi("much to learn")) then
 		e.self:Say("Very well, " .. e.other:GetName() .. ". I do have a task for you. There is an old and frail Erudite male who now lives in Toxxulia named Aglthin Dasmore. He has left the ways of Cazic-Thule and no longer practices our craft. He has been stripped of his power and wealth, so he spends his time fishing by the river. Our great Lord of Fear has decreed that his life is forfeit. Slay him, and bring me proof of the deed.");
 	elseif(e.message:findi("experienced heretic")) then
@@ -31,8 +31,3 @@ function event_trade(e)
 	item_lib.return_items(e.self, e.other, e.trade)
 end
 --END of FILE Zone:paineel  ID:75089 -- Antus_Shelbra
-
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------

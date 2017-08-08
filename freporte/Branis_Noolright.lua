@@ -37,5 +37,3 @@ function event_signal(e)
 		eq.signal(10182,4);
 	end
 end
-
--- END of FILE Zone:freporte -- Branis_Noolright

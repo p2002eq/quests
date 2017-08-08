@@ -11,8 +11,3 @@ function event_spawn(e)
 	eq.spawn_condition("butcher",0,1,0);
 	eq.spawn_condition("butcher",0,2,0);
 end
-
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------

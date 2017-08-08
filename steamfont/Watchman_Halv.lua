@@ -7,9 +7,3 @@ function event_signal(e)
 	e.self:Say("What a glorious machine the cargo clockwork is!!");
 	eq.signal(56105,1);
 end
-
-
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------

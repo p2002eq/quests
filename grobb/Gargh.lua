@@ -1,10 +1,8 @@
--- Converted to .lua by Speedz
-
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("You [friend of Gardunk]? Meez friend of Gardunk.");
+		e.self:Say("You [" .. eq.say_link("I am a friend of Gardunk",false,"friend of Gardunk") .. "]? Meez friend of Gardunk.");
 	elseif(e.message:findi("i am a friend of gardunk")) then
-		e.self:Say("Dat good. He tell meez you was comin'. Meez learn you to fight like alligator. Dominate through fear. Dat is what we do. Strike fear into heart of enemies. You [ready to start]?");
+		e.self:Say("Dat good. He tell meez you was comin'. Meez learn you to fight like alligator. Dominate through fear. Dat is what we do. Strike fear into heart of enemies. You [" .. eq.say_link("I am ready to start",false,"ready to start") .. "]?");
 	elseif(e.message:findi("i am ready to start")) then
 		e.self:Say("Good. We start easy. You go and kill snakes. Skin da snake and bring me da Snake Scales and a Fang. Dat your first task.");
 	elseif (e.message:findi("learn about da animals")) then
@@ -21,28 +19,28 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	if (item_lib.check_turn_in(e.self, e.trade, {item1 = 13070, item2 = 13067})) then
-		e.self:Say("You done good. You begin to know fear by causing fear. Next you learn about da animals. You learn about da animals by fighting dem and tearing them apart. You ready to [learn about da animals]?");
+		e.self:Say("You done good. You begin to know fear by causing fear. Next you learn about da animals. You learn about da animals by fighting dem and tearing them apart. You ready to [" .. eq.say_link("learn about da animals") .. "]?");
 		e.other:SummonItem(7380);
 		e.other:Ding();
 		e.other:Faction(70,10,0);
 		e.other:Faction(292,10,0);
 		e.other:Faction(106,-10,0);
 	elseif (item_lib.check_turn_in(e.self, e.trade, {item1 = 13782, item2 = 13782, item3 = 13782, item4 = 13782})) then
-		e.self:Say("So you know all about da wolf now. Dat is good. Next step is important. You need to learn to [fight like da alligator].");
+		e.self:Say("So you know all about da wolf now. Dat is good. Next step is important. You need to learn to [" .. eq.say_link("fight like da alligator") .. "].");
 		e.other:SummonItem(7381);
 		e.other:Ding();
 		e.other:Faction(70,10,0);
 		e.other:Faction(292,10,0);
 		e.other:Faction(106,-10,0);
 	elseif (item_lib.check_turn_in(e.self, e.trade, {item1 = 13417, item2 = 13417})) then
-		e.self:Say("Ok meez believe you. Here your reward. Meez think you just about ready for [next part of your training].");
+		e.self:Say("Ok meez believe you. Here your reward. Meez think you just about ready for [" .. eq.say_link("What next part of my training",false,"next part of your training") .. "].");
 		e.other:SummonItem(7382);
 		e.other:Ding();
 		e.other:Faction(70,10,0);
 		e.other:Faction(292,10,0);
 		e.other:Faction(106,-10,0);
 	elseif (item_lib.check_turn_in(e.self, e.trade, {item1 = 13060})) then
-		e.self:Say("You did it! You cause lots of fear for them. Dat good. Even da spirits are starting to tremble. Soon you will be able to make dem do what you want. But there is [one more task] meez want you to do.");
+		e.self:Say("You did it! You cause lots of fear for them. Dat good. Even da spirits are starting to tremble. Soon you will be able to make dem do what you want. But there is [" .. eq.say_link("one more task") .. "] meez want you to do.");
 		e.other:SummonItem(7383);
 		e.other:Ding();
 		e.other:Faction(70,10,0);

@@ -6,22 +6,14 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 21815})) then
-		e.other:SummonItem(21820);
-
-	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 21816})) then
-		e.other:SummonItem(21821);
-
-	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 21817})) then
-		e.other:SummonItem(21822);
-
-	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 21818})) then
-		e.other:SummonItem(21823);
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 21815})) then -- Brown Rope Bridle
+		e.other:SummonItem(21820); -- Bag of Platinum Pieces
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 21816})) then -- Brown Leather Bridle
+		e.other:SummonItem(21821); -- Heavy Bag of Platinum
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 21817})) then -- Brown Silken Bridle
+		e.other:SummonItem(21822); -- Big Bag of Platinum
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 21818})) then -- Brown Chain Bridle
+		e.other:SummonItem(21823); -- Huge Bag of Platinum
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------

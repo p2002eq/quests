@@ -6,7 +6,7 @@ function event_signal(e)
 	if(e.signal == 1) then
 		e.self:Emote("Chuga.. Chug..Chug.. 'This unit requires maintenance.'");
 	elseif(e.signal == 2) then
-		if(qglobal["CargoClockwork"] == nil) then
+		if(qglobal[" .. eq.say_link(""CargoClockwork"") .. "] == nil) then
 			eq.set_global("CargoClockwork","1",7,"H2");
 			eq.start(5); --Path to windmills
 		end	

@@ -4,13 +4,13 @@ function event_say(e)
 	local qglobals = eq.get_qglobals(e.self,e.other);
 	if qglobals.bstepic ~= nil and tonumber(qglobals.bstepic) > 0 then
 		if e.message:findi("ready") then
-			e.self:Say("As you may have gathered during our first meeting, we have been dealing with a situation that differs from any that we have dealt with in the past. We dismissed the situation as improbable at first, but unfortunately we have just attained certain proof. Our scouts have found that an individual has discovered a means of manipulating elder spirits. These spirits have a great deal of power over their natural environments. This person has used some new magic to take that power for himself.");
+			e.self:Say("As you may have gathered during our first meeting, we have been dealing with a situation that differs from any that we have dealt with in the past. We dismissed the situation as improbable at first, but unfortunately we have just attained certain proof. Our scouts have found that an individual has discovered a means of manipulating elder spirits. These spirits have a great deal of power over their natural environments. This person has used some [" .. eq.say_link("new magic") .. "] to take that power for himself.");
 		elseif e.message:findi("new magic") then
-			e.self:Say("The scouts were able to witness some of the rituals used to capture the spirits. They described a process that involved the use of a wooden totem, shaped in the image of the spirit's true form. The magic-user is able to use that totem to siphon the power of the spirit. He then uses that power to transform the spirit into an entity of malign intent. Fortunately, our research has given us the name of this vile magic-user.");
+			e.self:Say("The scouts were able to witness some of the rituals used to capture the spirits. They described a process that involved the use of a wooden totem, shaped in the image of the spirit's true form. The magic-user is able to use that totem to siphon the power of the spirit. He then uses that power to transform the spirit into an entity of malign intent. Fortunately, our research has given us the [" .. eq.say_link("name") .. "] of this vile magic-user.");
 		elseif e.message:findi("name") then
-			e.self:Say("His name is Draz Nurakk. It appears that he has learned the ways of the Khati Sha to the point of mastery. His magic and will seem to defy even the darkest secular beliefs of his people. We harbor no ill will toward the Iksar, but this individual must be stopped. This leads us to your mission.");
+			e.self:Say("His name is Draz Nurakk. It appears that he has learned the ways of the Khati Sha to the point of mastery. His magic and will seem to defy even the darkest secular beliefs of his people. We harbor no ill will toward the Iksar, but this individual must be stopped. This leads us to your [" .. eq.say_link("mission") .. "].");
 		elseif e.message:findi("mission") then
-			e.self:Say("We need you to meet our scouts and assist them in releasing the spirits that have already been affected by this magic. None of the scouts have reported in for some time, so you will need to find them. Once you find them, show them the seal that I gave you. They will help you to release the spirits and capture the totems. Please have the scouts help you to place the totems in the case that I gave you. If you lose the seal or damage it in combat, please return to me for another. Good luck, " .. e.other:GetName() .. ". You must succeed if we are to maintain the balance of the spiritual realm.");
+			e.self:Say("We need you to meet our scouts and assist them in releasing the spirits that have already been affected by this magic. None of the scouts have reported in for some time, so you will need to find them. Once you find them, show them the [" .. eq.say_link("seal") .. "] that I gave you. They will help you to release the spirits and capture the totems. Please have the scouts help you to place the totems in the case that I gave you. If you lose the seal or damage it in combat, please return to me for another. Good luck, " .. e.other:GetName() .. ". You must succeed if we are to maintain the balance of the spiritual realm.");
 		elseif e.message:findi("seal") then
 			e.self:Say("Here you go.  Keep this one safe.");
 			e.other:SummonItem(9031);
@@ -30,7 +30,7 @@ function event_trade(e)
 	
 	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 4393})) then -- Copper Medal of War
 		if e.other:GetClass() == 15 then
-			e.self:Say("You have returned at a most opportune time, " .. e.other:GetName() .. ". If this medal is indicative of your abilities in combat, I may be able to find a slight amount of hope soon. We have learned answers for many of the questions that we had prior to your last visit. Please take this seal and this container. Place them somewhere safe, while I gather the information that we've accumulated so far. Let me know when you have the seal packed and are [ready to be briefed]. Should you ever lose it, just ask for another.");
+			e.self:Say("You have returned at a most opportune time, " .. e.other:GetName() .. ". If this medal is indicative of your abilities in combat, I may be able to find a slight amount of hope soon. We have learned answers for many of the questions that we had prior to your last visit. Please take this seal and this container. Place them somewhere safe, while I gather the information that we've accumulated so far. Let me know when you have the seal packed and are [" .. eq.say_link("ready to be briefed") .. "]. Should you ever lose it, just ask for another.");
 			e.other:SummonItem(17361);
 			e.other:QuestReward(e.self,0,0,0,0,9031); -- Official Seal of the Khati Sha
 			eq.set_global("bstepic","1",5,"F"); -- bstepic 1 indicates totems started
@@ -64,9 +64,8 @@ function event_trade(e)
 		eq.zone_emote(1, "A glorious cheer rises from the streets of Shar Vahl to greet the city's newest hero.");
 		e.other:SummonItem(8495); -- Claw of the Savage Spirit 1
 		e.other:QuestReward(e.self,0,0,0,0,8496,10000000); -- Claw of the Savage Spirit 2 + big XP hit!
-		qglobals["bstepic"] = nil;
+		qglobals[" .. eq.say_link(""bstepic"") .. "] = nil;
 	end
 	
 	item_lib.return_items(e.self, e.other, e.trade);
 end
-

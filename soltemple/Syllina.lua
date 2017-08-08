@@ -2,19 +2,19 @@
 
 function event_say(e)
 	if(e.message:findi("Hail")) then
-		e.self:Say("Hello, I am Syllina, follower of Solusek Ro and keeper of the [Shadow Lore].");
+		e.self:Say("Hello, I am Syllina, follower of Solusek Ro and keeper of the [" .. eq.say_link("Shadow Lore") .. "].");
 	elseif(e.message:findi("lore")) then
-		e.self:Say("I hold the secrets to the Shadow Lore so highly prized by Necromancers. If you are interested, I can tell you about [ShadowBound Boots], [ShadowBound Gloves], the [Robe of Enshroudment] or the secrets to the making of [Shadow Silk].");
+		e.self:Say("I hold the secrets to the Shadow Lore so highly prized by Necromancers. If you are interested, I can tell you about [" .. eq.say_link("ShadowBound Boots") .. "], [" .. eq.say_link("ShadowBound Gloves") .. "], the [" .. eq.say_link("Robe of Enshroudment") .. "] or the secrets to the making of [" .. eq.say_link("Shadow Silk") .. "].");
 	elseif(e.message:findi("shadowbound boots")) then
-		e.self:Say("ShadowBound Boots are boots woven from purest shadow. If you are interested, I will weave you a pair - but I will need [boot components].");
+		e.self:Say("ShadowBound Boots are boots woven from purest shadow. If you are interested, I will weave you a pair - but I will need [" .. eq.say_link("boot components") .. "].");
 	elseif(e.message:findi("boot components")) then
 		e.self:Say("I will need the following items to make you a pair of ShadowBound Boots: Shadow Silk, The Scepter of Sorrow from Castle Mistmoore, an Eye of Shadow from our mortal enemies the Shadowed Men and a Skeletal toe from a Rathe Giant Skeleton.");
 	elseif(e.message:findi("shadowbound gloves")) then
-		e.self:Say("ShadowBound Gloves are gloves woven from the purest shadow. If you are interested, I will weave you a pair - but I will need [glove components].");
+		e.self:Say("ShadowBound Gloves are gloves woven from the purest shadow. If you are interested, I will weave you a pair - but I will need [" .. eq.say_link("glove components") .. "].");
 	elseif(e.message:findi("glove components")) then
 		e.self:Say("I will need the following items to make you a pair of ShadowBound Gloves: Inky Shadow Silk, The Scepter of Tears from the circle-stair-waterfall of Guk, a Hand of Shadow from our mortal enemies the Shadowed Men and a Skeletal finger from a Rathe Giant Skeleton.");
 	elseif(e.message:findi("robe of enshroudment")) then
-		e.self:Say("The Robe of Enshroudment is a robe woven from the purest of shadow. If you are interested, I will weave you a robe - but I will need the following [robe components].");
+		e.self:Say("The Robe of Enshroudment is a robe woven from the purest of shadow. If you are interested, I will weave you a robe - but I will need the following [" .. eq.say_link("robe components") .. "].");
 	elseif(e.message:findi("robe components")) then
 		e.self:Say("I will need the following items to make you a Robe of Enshroudment: Large Shadow Silk, A Werebat Wing from the Estate of Unrest, A Mask of Shadow from our mortal enemies the Shadowed Men and a Globe of Shadow from a Nokta Shaman in Guk.");
 	elseif(e.message:findi("shadow silk")) then
@@ -52,9 +52,3 @@ function event_trade(e)
 		e.other:QuestReward(e.self,0,0,0,0,3317,1000);
 	end
 end
-
--- Quest by mystic414
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------

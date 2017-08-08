@@ -3,7 +3,7 @@
 
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("State your business!!  I have no time for chitchat.  Well..  speak up. toad!!  What?!!..  Have you come here to [return goblin beads]?");
+		e.self:Say("State your business!!  I have no time for chitchat.  Well..  speak up. toad!!  What?!!..  Have you come here to [" .. eq.say_link("return goblin beads") .. "]?");
 	elseif(e.message:findi("return goblin beads")) then
 		e.self:Say("If you wish to return Runnyeye Warbeads you best have at least four of them.  Do not waste my time with any less.  If I am in a good mood I just may reward you with some trash, err..  I mean equipment from our armory.");
 	elseif((e.message:findi("Zarchoomi")) or (e.message:findi("Corflunk"))) then
@@ -28,7 +28,7 @@ function event_trade(e)
 		e.other:Ding();
 	end
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 13741, item2 = 13740})) then
-		e.self:Say("I underestimated you.  You are truly a great warrior.  I reward you with a piece of my own Bloodforge armor.  You would be fine Bloodforge Brigade material!  How would you like to [take a little trip] in the name of the Bloodforge Brigade?");
+		e.self:Say("I underestimated you.  You are truly a great warrior.  I reward you with a piece of my own Bloodforge armor.  You would be fine Bloodforge Brigade material!  How would you like to [" .. eq.say_link("take a little trip") .. "] in the name of the Bloodforge Brigade?");
 		e.other:SummonItem(eq.ChooseRandom(3090,3090,3090,3090,3090,3090,3091,3092,3093,3094,3095,3096));
 		e.other:Faction(314,15);   -- StormGuard better
 		e.other:Faction(169,15);   -- KazonStormhammer better
@@ -51,8 +51,3 @@ function event_trade(e)
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------

@@ -6,7 +6,7 @@ function event_say(e)
 		e.self:Say("Take this sack and combine the items I requested in it. Then return it to me.");
 		e.other:SummonItem(17861); --An Enchanters Sack
 	elseif(e.message:findi("gems")) then
-		e.self:Say("I have prepared some gems that you will need to trap the essence. You will need to force a diamond, sapphire, ruby and emerald onto special creatures to obtain their essence.");
+		e.self:Say("I have prepared some gems that you will need to trap the essence. You will need to force a [" .. eq.say_link("diamond") .. "], [" .. eq.say_link("sapphire") .. "], [" .. eq.say_link("ruby") .. "] and [" .. eq.say_link("emerald") .. "] onto special creatures to obtain their essence.");
 	elseif(e.message:findi("diamond")) then
 		e.self:Say("Here is the diamond that I have prepared for you. Its only purpose is to trap the essence of a particular book worm. If you should fail in your first attempt, do not worry. I will provide you with another.");
 		e.other:SummonItem(10631); --Dull Diamond
@@ -26,7 +26,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 10604})) then --Jeb's Seal
-		e.self:Say("Oh it must be time to reveal the staff! The piece I will help you craft is encrusted with magical gems. These gems contain the essence of various creatures. Alone they have very little power. Combined together they are much more powerful. They must be combined in a sack. Just ask if you don't have one.");
+		e.self:Say("Oh it must be time to reveal the staff! The piece I will help you craft is encrusted with magical [" .. eq.say_link("gems") .. "]. These gems contain the essence of various creatures. Alone they have very little power. Combined together they are much more powerful. They must be combined in a sack. Just ask if you don't have one.");
 		e.other:QuestReward(e.self,0,0,0,0,10604); --Jeb's Seal
 	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 10637})) then --A Sack For Nadia
 		e.self:Say("Lovely! You are indeed quite the charmer. Here, take the third part, and seek out the last master. The time draws near.");
@@ -35,8 +35,3 @@ function event_trade(e)
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------

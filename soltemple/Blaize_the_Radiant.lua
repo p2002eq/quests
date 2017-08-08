@@ -1,10 +1,9 @@
 -- Cleric quests
-
 function event_say(e)
 	if(e.message:findi("Hail")) then
-		e.self:Say("Hail, faithful one. I am Blaize the Radiant. Brother Gavel and I are well known among clerics for our forging skills, but special payment is required for our services. Special [Ingots and Icons] given to our members have been lost, and we will reward whoever retrieves them for us.");
+		e.self:Say("Hail, faithful one. I am Blaize the Radiant. Brother Gavel and I are well known among clerics for our forging skills, but special payment is required for our services. Special [" .. eq.say_link("Ingots and Icons") .. "] given to our members have been lost, and we will reward whoever retrieves them for us.");
 	elseif(e.message:findi("ingots and icons")) then
-		e.self:Say("The Ingots and Icons are all named after the virtues of the cleric who held them. The virtues I require are those of the [Reliant], the [Ardent], the [Fervent] and the [Penitent].");
+		e.self:Say("The Ingots and Icons are all named after the virtues of the cleric who held them. The virtues I require are those of the [" .. eq.say_link("Reliant") .. "], the [" .. eq.say_link("Ardent") .. "], the [" .. eq.say_link("Fervent") .. "] and the [" .. eq.say_link("Penitent") .. "].");
 	elseif(e.message:findi("reliant")) then
 		e.self:Say("Turgan the Reliant lived in a cabin in the Kithicor woods until there was a great fire. Searching the burned cabins there may turn something up. He always loved Lake Rathetear as well. Bring me the Ingot of the Reliant, the Icon of the Reliant, and one Enchanted Platinum Bar and I will forge them into a reward for you.");
 	elseif(e.message:findi("ardent")) then
@@ -43,9 +42,3 @@ function event_trade(e)
 		e.other:QuestReward(e.self,0,0,0,0,4923,1000); -- vambraces of the fervent
 	end
 end
-
--- Quest by mystic414
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------

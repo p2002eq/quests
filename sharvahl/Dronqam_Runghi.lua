@@ -1,6 +1,6 @@
 function event_say(e)
 	if(e.message:findi("Hail")) then
-		e.self:Say("Good day friend! I'm glad you've stopped by. I am in need of some assistance. Please direct anyone seeking work to me.");
+		e.self:Say("Good day friend! I'm glad you've stopped by. I am in need of some assistance. Please direct anyone seeking [" .. eq.say_link("i seek work",false,"work") .. "] to me.");
 	elseif(e.message:findi("i seek work")) then
 		e.self:Say("Excellent! I practice the art of alchemy and I am currently working on some new recipes. I require a few special ingredients. Fortunately they grow in the crater just outside our city walls. Bring me a  redcapped mushroom. a pinch of scarlet moss and a bluecapped mushroom. I'll be most grateful.");
 	end
@@ -14,8 +14,3 @@ function event_trade(e)
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------

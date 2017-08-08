@@ -1,11 +1,11 @@
 ---- Quest:Traders of The Haven
 function event_say(e)
     if(e.message:findi("hail")) then
-        e.self:Say("Hello there, traveler. I don't believe that I have seen you around these parts before- then again, I could have and simply forgotten since there have been so many new faces around here. However, if you are a newcomer to Shadowhaven, please make sure that you [register for trading] in the Haven. Registering with the Traders of the Haven will legitimize you in the eyes of local merchants and customers.");
+        e.self:Say("Hello there, traveler. I don't believe that I have seen you around these parts before- then again, I could have and simply forgotten since there have been so many new faces around here. However, if you are a newcomer to Shadowhaven, please make sure that you [" .. eq.say_link("register for trading") .. "] in the Haven. Registering with the Traders of the Haven will legitimize you in the eyes of local merchants and customers.");
     elseif(e.message:findi("register for trading")) then
-        e.self:Say("It's great that you are interested " .. e.other:GetName() .. ", you will surely be glad you did. I have some simple [deliveries] that I need completed if you wish to be a registered trader in Shadowhaven.");
+        e.self:Say("It's great that you are interested " .. e.other:GetName() .. ", you will surely be glad you did. I have some simple [" .. eq.say_link("deliveries") .. "] that I need completed if you wish to be a registered trader in Shadowhaven.");
     elseif(e.message:findi("deliveries")) then
-        e.self:Say("The deliveries are simple enough, I just need you to bring some letters to some merchants of the Haven that are currently working in other locations. Will you [deliver these letters]?");
+        e.self:Say("The deliveries are simple enough, I just need you to bring some letters to some merchants of the Haven that are currently working in other locations. Will you [" .. eq.say_link("deliver these letters") .. "]?");
     elseif(e.message:findi("deliver these letters")) then
         e.self:Say("I surely do appreciate the help, " .. e.other:GetName() .. " - clearly you understand the value of solid relations with the locals. First, I will need you to take this newsletter to Sateal. He is currently on assignment in the Bazaar and has been out of the loop on the happenings of Shadowhaven because of his heavy workload. Bring this to him and then return to me with his sales report. I look forward to seeing you soon.");
         e.other:SummonItem(26055); -- Tattered Newsletter

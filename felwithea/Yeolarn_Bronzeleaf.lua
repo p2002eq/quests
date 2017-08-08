@@ -1,6 +1,6 @@
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Hail, " .. e.other:GetName() .. "! We of Tunare are charged with protecting the Great Mother from the forces of Innoruuk. Even now, the evil minions of this foul deity are despoiling our great forest. Will you help us [protect the Mother]?");
+		e.self:Say("Hail, " .. e.other:GetName() .. "! We of Tunare are charged with protecting the Great Mother from the forces of Innoruuk. Even now, the evil minions of this foul deity are despoiling our great forest. Will you help us [" .. eq.say_link("protect the Mother") .. "]?");
 	elseif(e.message:findi("protect")) then
 		e.self:Say("Just outside the gates of Felwithe, the forces of Innoruuk gather in the guise of decaying skeletons. Bring me four sets of bone chips as proof of your vigilance. I assure you, your faith shall not go unrewarded.");
 	elseif(e.message:findi("initiate of tunare")) then
@@ -17,7 +17,7 @@ function event_trade(e)
 	local item_lib = require("items");
 
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 13073,item2 = 13073,item3 = 13073,item4 = 13073})) then --Bone Chips x 4
-		e.self:Say("Praise Tunare! I knew you would be victorious. I reward you with this spell, and pray that it will help you in your fight against the unholy forces of Innoruk. When you are ready you will make a fine [Initiate of Tunare].");
+		e.self:Say("Praise Tunare! I knew you would be victorious. I reward you with this spell, and pray that it will help you in your fight against the unholy forces of Innoruk. When you are ready you will make a fine [" .. eq.say_link("Initiate of Tunare") .. "].");
 		e.other:SummonItem(15014); --Spell: Strike
 		e.other:Ding();
 		e.other:Faction(43,15,0);  --Clerics of Tunare
@@ -25,7 +25,7 @@ function event_trade(e)
 		e.other:Faction(8,15,0);   --Anti-mage
 		e.other:AddEXP(2500);
 	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 10199,item2 = 10199,item3 = 10199,item4 = 10199})) then --Putrescent Heart x 4
-		e.self:Say("Praise Tunare!! You have done well young Initiate. Here the symbol of your station within our faith. Return to me when you are ready to [slay the necromancer] that has been creating the undead.");
+		e.self:Say("Praise Tunare!! You have done well young Initiate. Here the symbol of your station within our faith. Return to me when you are ready to [" .. eq.say_link("slay the necromancer") .. "] that has been creating the undead.");
 		e.other:SummonItem(1570); --Initiate Symbol of Tunare
 		e.other:Ding();
 		e.other:Faction(43,15,0);  --Clerics of Tunare
@@ -33,7 +33,7 @@ function event_trade(e)
 		e.other:Faction(8,15,0);   --Anti-mage
 		e.other:AddEXP(3250);
 	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 1570,item2 = 12514,item3 = 19065,item4 = 12513})) then --Initiate Symbol of Tunare, Larik Z`Vole's Head, Teir`Dal Couriers Head, Teir`Dal Crate
-		e.self:Say("Praise Tunare! The Mother smiles on you this day Disciple Angelsyn! I present you with the symbol of your new station among the Priests of Tunare. Return to me when you are ready to become a [Warden of Tunare]?");
+		e.self:Say("Praise Tunare! The Mother smiles on you this day Disciple Angelsyn! I present you with the symbol of your new station among the Priests of Tunare. Return to me when you are ready to become a [" .. eq.say_link("Warden of Tunare") .. "]?");
 		e.other:SummonItem(1571); -- Disciple Symbol of Tunare
 		e.other:Ding();
 		e.other:Faction(43,15,0);  --Clerics of Tunare
@@ -59,5 +59,3 @@ function event_trade(e)
 	end
 	item_lib.return_items(e.self, e.other, e.trade);
 end
-
---END of FILE Zone:felwithea  ID:61025 -- Yeolarn_Bronzeleaf.pl

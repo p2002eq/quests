@@ -1,12 +1,8 @@
 function event_signal(e)
-    if(e.signal == 66) then
-        eq.world_emote(13, "The Sleeper shouts, I AM FREE!");
-        local clientList = eq.get_entity_list():GetClientList();
-        if ( clientList ) then
-            for client in clientList.entries do
-                e.self:AddToHateList(client);
-            end
-        end
+    if(e.signal == 66) then		--signal from #The_Sleeper
+        eq.world_emote(13, "The Sleeper shouts, 'I AM FREE!'");
+		eq.spawn2(128136,0,0,-1499,-2344.8,-1052.8,0);		--spawn Kerafyrm
+		eq.depop();
     end
 end
 
@@ -16,7 +12,7 @@ end
 
 function event_timer(e)
     if(e.timer == 'sleeper_spawn') then
-        eq.stop_timer(e.timer)
+        eq.stop_timer(e.timer);
         e.self:SetAppearance(1);
     end
 end

@@ -1,6 +1,4 @@
---Dran_-Slug-_Rembor.pl
 --Part of Innoruuk Regent
-
 function event_say(e)
 	if(e.message:findi("ithvol") and e.other:HasItem( 1370)) then --Disciple Symbol of Innoruuk
 		e.self:Say("So you're the lucky errand boy, eh?! Let's hope you are more successful than the last chump who was sent. From what I hear, there was something pretty important in that last crate that was sent out. It just looked like a bunch of junk to me. Anyhow, we ran out of steel boning. Bring me two bonings so we can bind up the crate and be quick about it! Both of our necks are on the line!");
@@ -19,8 +17,3 @@ function event_trade(e)
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------

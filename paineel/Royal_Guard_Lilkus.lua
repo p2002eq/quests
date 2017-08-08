@@ -1,6 +1,6 @@
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("You tread upon sacred ground, " .. e.other:Race() .. ". None may go further unless they [have business with the Overlord], or, if you're looking to gain favor with the heretics and need a little coin, I have a [job] for you.");
+		e.self:Say("You tread upon sacred ground, " .. e.other:Race() .. ". None may go further unless they [" .. eq.say_link("have business with the Overlord") .. "], or, if you're looking to gain favor with the heretics and need a little coin, I have a [" .. eq.say_link("job") .. "] for you.");
 	elseif(e.message:findi("business")) then
 		e.self:Say("The Overlord only sees those he calls forward. If you have a summons from him, I will escort you and announce your arrival. If not, then forget whatever business you may have had here. If you wish an audience, then go speak to Sheltian below. He may be able to help you.....if you help him.");
 	elseif(e.message:findi("job")) then
@@ -39,9 +39,3 @@ function event_trade(e)
 	
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
---END of FILE Zone:paineel  ID:75074 -- Royal_Guard_Lilkus
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------

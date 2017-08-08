@@ -1,10 +1,3 @@
---#############
---#Quest Name: Sir Morgan's Armor
---#Author: Blaz
---#NPCs Involved: 1
---#Items Involved: 5 Gold for a random reward
---#################
-
 function event_waypoint_arrive(e)
 	if(e.wp == 1) then
 		e.self:Say("Hello, Wimbley, old chap!");
@@ -28,18 +21,13 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-
-	if(item_lib.check_turn_in(e.self, e.trade, {gold = 5})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {gold = 5})) then -- 5 Gold
 		e.self:Say("What a grand donation!! You must be a rich noble to be making such a donation. Here, I am but a simple warrior, but I found this lying on the highway to Highpass Hold. The lifeless corpse next to it had no more need of it.");
-		e.other:SummonItem(eq.ChooseRandom(2106,2112,2041,13944,2307,3829,1331,17002,7012,8306,10006,10019,5013,5019,5021,5022,6011,5023,7007,7008)); --Patchwork cloak, Patchwork boots, Rusty Weapons, Silver Earring, Bloodstone, Halfling knife, Bronze Dagger, Belt pouch, Damask cap, Mountain Lion Cape, Highkeep Flask, Snakeskin Mask, Drom's Champagne
-		e.other:Ding();
 		e.other:Faction(135,1,0); -- Guards of Qeynos
 		e.other:Faction(167,1,0); -- Karana Residents
 		e.other:Faction(257,1,0); -- Priests of Life
 		e.other:Faction(183,1,0); -- Knights of Thunder
-		e.other:AddEXP(500);
+		e.other:QuestReward(e.self,0,0,0,0,eq.ChooseRandom(2106,2112,2041,13944,2307,3829,1331,17002,7012,8306,10006,10019,5013,5019,5021,5022,6011,5023,7007,7008),500); -- Patchwork cloak, Patchwork boots, Rusty Weapons, Silver Earring, Bloodstone, Halfling knife, Bronze Dagger, Belt pouch, Damask cap, Mountain Lion Cape, Highkeep Flask, Snakeskin Mask or Drom's Champagne
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
--- END of FILE Zone:eastkarana  ID:15048 -- Sir_Morgan

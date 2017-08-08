@@ -1,6 +1,6 @@
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("May the power of Underfoot be with you. Welcome. I am here to serve the will of the king as should you. If you [need healing], then speak. Or perhaps you are here to [return skunk glands]?");
+		e.self:Say("May the power of Underfoot be with you. Welcome. I am here to serve the will of the king as should you. If you [" .. eq.say_link("need healing") .. "], then speak. Or perhaps you are here to [" .. eq.say_link("return skunk glands") .. "]?");
 	elseif(e.message:findi("healing")) then
 		e.self:Say("Before the power of Underfoot can attempt to bind your wounds you must pay tribute. Three gold coins!!");
 	elseif(e.message:findi("glands")) then
@@ -26,8 +26,3 @@ function event_trade(e)
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------

@@ -3,9 +3,9 @@ function event_say(e)
 	if(e.message:findi("Hail")) then
 		e.self:Say("Hiya, I be a fishin', what ya need somethin?");
 	elseif(e.message:findi("armor")) then
-		e.self:Say("Oh ya want some of the [druid] equipment that Rilla and I make?");
+		e.self:Say("Oh ya want some of the [" .. eq.say_link("druid") .. "] equipment that Rilla and I make?");
 	elseif(e.message:findi("druid")) then
-		e.self:Say("I can make ya a [mask], [cloak], [gloves], [talisman], [belt], and a [crook]. Just ask about each one and I'll tell ya what ya need to bring so I can make it.");
+		e.self:Say("I can make ya a [" .. eq.say_link("mask") .. "], [" .. eq.say_link("cloak") .. "], [" .. eq.say_link("gloves") .. "], [" .. eq.say_link("talisman") .. "], [" .. eq.say_link("belt") .. "], and a [" .. eq.say_link("crook") .. "]. Just ask about each one and I'll tell ya what ya need to bring so I can make it.");
 	elseif(e.message:findi("mask")) then
 		e.self:Say("'For the earth blessed mask you need to bring me a moon jewel, a mark of storms, and an etched fire opal of nature.");
 	elseif(e.message:findi("cloak")) then

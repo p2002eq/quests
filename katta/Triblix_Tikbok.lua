@@ -1,9 +1,9 @@
 ---- Quest:Acrylia Phosphate & Zelniak Oil
 function event_say(e)
     if(e.message:findi("hail")) then
-        e.self:Say("Pleasure to meet ya! Have you come to the Illuminarium Industria to gaggle about or have you come looking for [some work]?");
+        e.self:Say("Pleasure to meet ya! Have you come to the Illuminarium Industria to gaggle about or have you come looking for [" .. eq.say_link("some work") .. "]?");
     elseif(e.message:findi("some work")) then
-        e.self:Say("Well in that case I sure could use the assistance of a powerful " .. e.other:Race() .. " such as yourself. You see my job here is to construct the lighting for Katta Castellum and I'm always in need of more supplies. I need a fresh supply of [zelniak oil] for the standard city street lanterns and a fresh supply of [acrylian phosphate] to construct more phosporous lanterns and torches.");
+        e.self:Say("Well in that case I sure could use the assistance of a powerful " .. e.other:Race() .. " such as yourself. You see my job here is to construct the lighting for Katta Castellum and I'm always in need of more supplies. I need a fresh supply of [" .. eq.say_link("zelniak oil") .. "] for the standard city street lanterns and a fresh supply of [" .. eq.say_link("acrylian phosphate") .. "] to construct more phosporous lanterns and torches.");
     elseif(e.message:findi("acrylian phosphate")) then
         e.self:Say("Acrylian phosphate is an uncommon mineral deposit containing the same mineral compound that provides acrylia ore with its self luminescence. The acrylian phosphate also burns very well and at extremely high temperatures for very long periods of time. I will trade with you for every four piles of acrylian phosphate you can supply me.");
     elseif(e.message:findi("zelniak oil")) then

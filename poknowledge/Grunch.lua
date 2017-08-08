@@ -1,10 +1,9 @@
-
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Hello! I'm Grunch and I have presents that I stole from Santa! They're in my special bag! Are you [naughty]? If you help me sow a little mayhem, you can have one!");
+		e.self:Say("Hello! I'm Grunch and I have presents that I stole from Santa! They're in my special bag! Are you [" .. eq.say_link("naughty") .. "]? If you help me sow a little mayhem, you can have one!");
 	elseif(e.message:findi("naughty")) then
 		e.self:Emote("cackles wildly.");
-		e.self:Say("Prove to me you are one of the naughty ones! Bring me the matted hide of a Halfling, a gnome kabob, brownie parts, and the blood of a human, and you will get one of my [presents].");
+		e.self:Say("Prove to me you are one of the naughty ones! Bring me the matted hide of a Halfling, a gnome kabob, brownie parts, and the blood of a human, and you will get one of my [" .. eq.say_link("presents") .. "].");
 	elseif(e.message:findi("presents")) then
 		e.self:Say("I stole all the good presents! They're all in my bag! HAHAHAHA! Quick quick!");
 	end
@@ -25,7 +24,6 @@ function event_trade(e)
 	else
 		e.self:Say("You can't have another yet! Come back later!");
 	end
-	
 	item_lib.return_items(e.self, e.other, e.trade);
 end
 

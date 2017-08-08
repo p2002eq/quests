@@ -1,11 +1,11 @@
 ---- Quests:Beriol's Research & The Conspiracists: Arbogast and Miller
 function event_say(e)
     if(e.message:findi("hail")) then
-        e.self:Say("Hail, " .. e.other:GetName() .. ". And good day to you. What brings you to my quarters today? Do you wish to learn more about the [magic] that we study in our hallowed section of the Shadowhaven?");
+        e.self:Say("Hail, " .. e.other:GetName() .. ". And good day to you. What brings you to my quarters today? Do you wish to learn more about the [" .. eq.say_link("magic") .. "] that we study in our hallowed section of the Shadowhaven?");
     elseif(e.message:findi("magic")) then
-        e.self:Say("It's always a pleasure to meet someone that shows interest in the magic we practice here. Our magic studies consist mostly of teleportation and the arts of elemental mastery. I'm Actually conducting a study now, but I' missing a few [books].");
+        e.self:Say("It's always a pleasure to meet someone that shows interest in the magic we practice here. Our magic studies consist mostly of teleportation and the arts of elemental mastery. I'm Actually conducting a study now, but I' missing a few [" .. eq.say_link("books") .. "].");
     elseif(e.message:findi("books")) then
-        e.self:Say("Well, I have an old student that is now serving as an advisor to one of the most respected residents of Katta Castelleum. He has some specific books that i need to further my research, but i cannot take the time to travel so far away from my home to retrieve them. I seek out one who will [bring my research] to me from Dersino.");
+        e.self:Say("Well, I have an old student that is now serving as an advisor to one of the most respected residents of Katta Castelleum. He has some specific books that i need to further my research, but i cannot take the time to travel so far away from my home to retrieve them. I seek out one who will [" .. eq.say_link("bring your research",false,"bring my research") .. "] to me from Dersino.");
     elseif(e.message:findi("bring your research")) then
         e.self:Say("You are exactly the one I am looking for. After presenting this seal to Dersino, inform him that you wish to take the research and I am sure that he will know i have sent you. I loook forward to seeing you soon.");
         e.other:SummonItem(4769); -- Seal of Beriol

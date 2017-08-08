@@ -1,5 +1,3 @@
--- Converted to .lua by Speedz
-
 function event_say(e)
 	if(e.message:findi("hail")) then
 		e.self:Say("You look like you could use a copy of the Tinker's News and World report. " .. e.other:GetName() .. ". Find out everything that is happening both below ground and above. Buy a copy now. It's cheap.");

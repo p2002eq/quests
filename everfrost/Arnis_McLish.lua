@@ -16,7 +16,7 @@ function event_trade(e)
 	local item_lib = require("items");
 
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 13243})) then -- One Half Bottle of Elixir
-		e.self:Say("Mmmm.. Thank you stranger. I feel a lot warmer now. You should now go and find [Megan] O'Reilly.");
+		e.self:Say("Mmmm.. Thank you stranger. I feel a lot warmer now. You should now go and find [" .. eq.say_link("Megan") .. "] O'Reilly.");
 		e.other:SummonItem(13244); -- One Quarter of Elixir
 		e.other:Ding();
 		e.other:Faction(213,1,0); -- Merchants of Halas

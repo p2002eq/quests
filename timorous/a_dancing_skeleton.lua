@@ -8,7 +8,7 @@ function event_say(e)
 		eq.stop_timer(100);
 		eq.set_timer(100,40000); -- Get the conversation out the way in 40s, or depop
 	elseif(e.message:findi("talon southpaw")) then
-		e.self:Say("Master Talon Southpaw!! He was my master. Dead, he became. Off to the elements. I keep his special hand with me. Perhaps I should have it returned. Maybe I shall find a young adventurer to [return the hand to Cabilis].");
+		e.self:Say("Master Talon Southpaw!! He was my master. Dead, he became. Off to the elements. I keep his special hand with me. Perhaps I should have it returned. Maybe I shall find a young adventurer to [" .. eq.say_link("return the hand to Cabilis") .. "].");
 		eq.stop_timer(100);
 		eq.set_timer(100,30000); -- Get the conversation out the way in 30s, or depop
 	elseif(e.message:findi("return the hand to cabilis")) then
@@ -61,16 +61,3 @@ function event_trade(e)
 	local item_lib = require("items");
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
---Quest Name: Talon Southpaw's fate
---Author: BWStripes
---
--- Updated by BWStripes
--- The text and dialog was in the original file, credit to original author. I've never tried collecting the fingers. -Stripes
---
---Original submission:
---Submitted by: Senzo aka Fatty Beerbelly
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------

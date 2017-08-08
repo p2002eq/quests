@@ -13,7 +13,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 4766})) then -- Assorted Tailoring Supplies
-		e.self:Say("Ah you were sent from Steaon I see. So what's that tall drink of water up too? He must be busy at the store if he has you delivering his supplies for him. Well enough about all that. If he has trusted you to bring his supplies here I suppose I can give you these gems I picked up for him. Will you [take the gems] to him?");
+		e.self:Say("Ah you were sent from Steaon I see. So what's that tall drink of water up too? He must be busy at the store if he has you delivering his supplies for him. Well enough about all that. If he has trusted you to bring his supplies here I suppose I can give you these gems I picked up for him. Will you [" .. eq.say_link("take the gems") .. "] to him?");
 		e.other:Faction(338, 25); -- Traders of the Haven
 		e.other:Faction(152, 2); -- House of Fordel
 		e.other:Faction(153, 2); -- House of Midst

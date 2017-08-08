@@ -1,12 +1,12 @@
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("I hope you have a good reason for disturbing my contemplations. Perhaps you [seek the knowledge] of those who meditate within this Temple of Fear?");
+		e.self:Say("I hope you have a good reason for disturbing my contemplations. Perhaps you [" .. eq.say_link("I seek knowledge",false,"seek the knowledge") .. "] of those who meditate within this Temple of Fear?");
 	elseif(e.message:findi("I seek knowledge")) then
 		e.self:Say("It is the secrets of Fear you seek, but first you must prove your devotion to our temple. There are pack rats within the city that have a habit of getting into things. Some of these rats have ingested a concoction developed by the necromancers of this great city. The rats have since died and, due to the concoction, their undead corpses now roam the fields. Bring me four livers from these undead rats so that we may examine them.");
 	elseif(e.message:findi("duties")) then
-		e.self:Say("The primary duty of this temple is to spread terror, fright, and dread as a symbol of your devotion to our lord Cazic Thule. We are currently researching a means of summoning avatars of Fright, Terror and Dread, the primary minions of the Faceless in his home plane. Will you [assist me in summoning] the avatar of Fright?");
+		e.self:Say("The primary duty of this temple is to spread terror, fright, and dread as a symbol of your devotion to our lord Cazic Thule. We are currently researching a means of summoning avatars of Fright, Terror and Dread, the primary minions of the Faceless in his home plane. Will you [" .. eq.say_link("assist me in summoning") .. "] the avatar of Fright?");
 	elseif(e.message:findi("assist")) then
-		e.self:Say("In order to summon the avatar of Fright. I require some special components for the ritual. Fetch me the flesh of a zombie. the dust used in the process of mummification. [charred bone chips]. and a [vial of Tunare's Breath].");
+		e.self:Say("In order to summon the avatar of Fright. I require some special components for the ritual. Fetch me the flesh of a zombie. the dust used in the process of mummification. [" .. eq.say_link("charred bone chips") .. "]. and a [" .. eq.say_link("vial of Tunare's Breath") .. "].");
 	elseif(e.message:findi("chips")) then
 		e.self:Say("Some time ago a necromancer by the name of Obretl was sent to slay Rathmana Allin and his abomination of an adopted son. Ortallius. Obretl failed in his task and now haunts a small ruin in the desert of Ro cursed by Solusek to wallow in his failure in the form of a burning skeleton. Slay Obretl to free him from his pathetic existence and gather his charred remains.");
 	elseif(e.message:findi("vial")) then
@@ -25,7 +25,7 @@ function event_trade(e)
 		e.other:Faction(60,-100); -- Crimson Hands
 		e.other:QuestReward(e.self,0,0,0,0,13573,100); -- Blood Splattered Tunic
 	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 13270, item2 = 13270, item3 = 13270, item4 = 13270})) then
-		e.self:Say("Well done, go now and continue your contemplations of fear. Keep up with your [duties] and you will soon be reaping the rewards granted by our Lord Cazic-Thule!!");
+		e.self:Say("Well done, go now and continue your contemplations of fear. Keep up with your [" .. eq.say_link("duties") .. "] and you will soon be reaping the rewards granted by our Lord Cazic-Thule!!");
 		e.other:Faction(143,10);
 		e.other:Faction(56,-10);
 		e.other:Faction(60,-10);
@@ -43,9 +43,3 @@ function event_trade(e)
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
---END of FILE Zone:paineel  ID:75072 -- Sern_Adolia
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------

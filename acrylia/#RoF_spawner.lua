@@ -1,4 +1,5 @@
 -- #RoF_spawner (154372) for Ring of Fire in Acrylia
+--Original script written by Kalaylus
 
 -- NPCs used in event
 trash_mobs = { 154353, 154354, 154355, 154356, 154363 } -- 50 war, 50 SK, 55 war, 55 sk, priest
@@ -8,9 +9,10 @@ warder = 154377 -- 2857 is the banish spell
 
 -- locations used in event, using {x,y,z,h} format
 -- trash_spawns = randomly inside the ring
-boss_locs = { {-83, 13, -29, 0}, {-104, 62, -30, 0} } -- Only final wave boss spawns out here
+boss_locs = { {-83, 13, -30, 0}, {-104, 62, -30, 0} } -- Only final wave boss spawns out here
 grim_locs = { {-86, 99, -30, 172}, {-100, 112, -29, 147}, {-139, 102, -29, 96}, {-135, 59, -29, 26} }
 warder_loc = { -96, -15, -30, 15 }
+local wave = 0;
 
 function event_spawn(e)
 	reset_event();
@@ -30,7 +32,7 @@ function event_timer(e)
 			local next_timer = process_wave(); -- increments round/wave counters, spawns wave, returns timer for next wave
 			eq.set_timer('main', next_timer * 1000);
 		else
-			reset_event()
+			reset_event();
 		end
 	end
 end
@@ -77,7 +79,9 @@ function process_wave()
 			return 60;
 		end
 	else -- should only get here if round > 6 i.e. event is over!
-		reset_event()
+		eq.depop_all(warder);	--depops warder so doesn't shout since event completed
+		reset_event();
+		return 5*60;	--avoids returning nil value error on main timer (5 min reset on event completion
 	end
 	
 end
@@ -121,7 +125,8 @@ end
 function spawn_boss(rnd)
 	local boss = eq.spawn2(boss_mobs[rnd], 0, 0, unpack(boss_locs[1]));
 	boss:Say("I now serve the master of the grimling horde. You too shall be reborn!");
-	boss:CastToNPC():MoveTo(unpack(boss_locs[2]), true);
+	--boss:CastToNPC():MoveTo(unpack(boss_locs[2]), true);
+	boss:CastToNPC():MoveTo(-104,62,-28,0, true);
 end
 
 function reset_event()
@@ -147,7 +152,7 @@ end
 
 function cleanup()
 	eq.stop_all_timers();
-	eq.depop_all(warder); -- depop warder
+	eq.signal(warder,1,3*1000);	--depop warder
 	for _, v in pairs(grims) do -- depop grims
 		eq.depop_all(v);
 	end

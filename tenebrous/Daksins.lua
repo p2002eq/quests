@@ -21,7 +21,7 @@ function event_trade(e)
         e.other:Faction(338,10); -- traders of the haven
         e.other:QuestReward(e.self,0,0,0,0,0,1000); --
     elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 2693})) then -- Vampyre Blood
-        e.self:Say("The blood of one of the cursed! You have done it, " .. e.other:GetName() .. ". You must be a very skilled fighter to have bested one of these vile creatures. All that needs to be done now is to return this extract along with the other antidote supplies that I have prepared to Zimloro. Will you [return this extract]?");
+        e.self:Say("The blood of one of the cursed! You have done it, " .. e.other:GetName() .. ". You must be a very skilled fighter to have bested one of these vile creatures. All that needs to be done now is to return this extract along with the other antidote supplies that I have prepared to Zimloro. Will you [" .. eq.say_link("return the extract",false,"return this extract") .. "]?");
         e.other:Faction(154,10); -- house of stout
         e.other:Faction(338,10); -- traders of the haven
         gaveblood = 1;

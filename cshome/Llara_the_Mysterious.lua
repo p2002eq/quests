@@ -1,6 +1,6 @@
 function event_say(e)
  if(e.message:findi("hail"))then
-		e.self:Say("Might you be an [apprentice] or a [guide]?' Llara then grins evilly...");
+		e.self:Say("Might you be an [" .. eq.say_link("apprentice") .. "] or a [" .. eq.say_link("guide") .. "]?' Llara then grins evilly...");
 	elseif(e.message:findi("apprentice"))then
 		e.self:Say("Welcome to the Guide Program, " .. e.other:GetName() .. ". I am sure you will enjoy your time here. Do not worry about being only an apprentice right now, I'm sure that in time you will be ready for promotion. This is truly the best place to be in the world. Good luck to you, " .. e.other:GetName() .. "!");
 	elseif(e.message:findi("guide"))then
@@ -13,6 +13,3 @@ function event_say(e)
 		e.self:Say("Llara was a Guide on Erollisi Marr server. She was there for 6 months and was also the training Co-Ordinator. David, her controller, was a private person but we did learn that he was married with a family and had a dry sense of humour that tickled us all. Llara was one of those Guides, who hardly ever missed a shift and if she did, she never missed posting it. She never complained, not about a petitioner, a peer or the weather. On one Sunday while waiting for new candidates for buffing Llara hadn't been in touch with us like she always was. The Guide Board was checked and it was noticed that she hadn't guided since Wednesday and for someone who was -always- around it seemed very strange. GM Valtron was called to ask when he might be in to buff the new apprentices and if he had heard anything from Llara. While talking to him, an email from Heather, David's daughter arrived. She explained that David had a heart attack on the Tuesday night and had sadly not survived.");
 	end
 end
-
---Submitted by: Jim Mills
---Converted to LUA by Speedz

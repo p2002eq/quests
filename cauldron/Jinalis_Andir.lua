@@ -6,15 +6,9 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-
-	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 11569,item2 = 28040,item3 = 28041})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 11569,item2 = 28040,item3 = 28041})) then -- Staff of Elemental Mastery: Water, Tears of Erollisi and Rain of Karana
 		e.self:Say("You have the control needed in order to manipulate the water which surrounds us. Take this Element and guard it well, you will need it in the times to come.");
-		e.other:SummonItem(28006);
-		e.other:Ding();
-		e.other:AddEXP(3000);
+		e.other:QuestReward(e.self,0,0,0,0,28006,3000); -- Element of Water
 	end
 	item_lib.return_items(e.self, e.other, e.trade);
 end
-
--- END of FILE Zone: cauldron -- Jinalis_Andir
-

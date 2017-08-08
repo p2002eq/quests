@@ -8,22 +8,13 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 30146})) then	--The Broken Glacier Souvenir Mug
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 30146})) then -- The Broken Glacier Souvenir Mug
 		e.self:Say("Well, as promised, here's your Foot of the candlestick.");
-		e.other:SummonItem(12852);	--Foot of Candlestick
-		e.other:Ding();
+		e.other:QuestReward(e.self,0,0,0,0,12852,100); -- Foot of Candlestick
 	end
-	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 12609, item2 = 12609, item3 = 12609, item4 = 12609})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 12609, item2 = 12609, item3 = 12609, item4 = 12609})) then -- 4x Cabilis Pale Ale
 		e.self:Emote("swallows the whole bottle in one gulp. 'Here, go buy yourself a brain. What?!! You expecting something? How about this.. <BUUURRRPPPP!!> Thanks for helping me get through my dry spell, croak!! Never mess with a Blue Talon!!");
-		e.other:AddEXP(100);
-		e.other:GiveCash(1,0,0,0);
-		e.other:Ding();
+		e.other:QuestReward(e.self,1,0,0,0,0,100); --
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
--- Cabilis Pale Ale by Kovou
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------

@@ -16,13 +16,13 @@ function event_say(e)
 		elseif (e.other:GetFaction(e.self < 5)) and (e.other:GetFaction(e.self) >= 3) then --Kindly or Amiable
 			e.self:Emote("smiles at you and nods his head indicating he has been pleased with your progress.");
 		else --Ally or Warmly
-			e.self:Say("Greetin's and good fortune to yerself, "..e.other:Race()..". Chamberlain Krystorf speaks highly of the deeds you have performed for our people and so I welcome you to my Keep. I ask you now to take up a most dangerous duty for our people. Would you accept such a challenge from the King of a people not your own?");
+			e.self:Say("Greetin's and good fortune to yerself, "..e.other:Race()..". Chamberlain Krystorf speaks highly of the deeds you have performed for our people and so I welcome you to my Keep. I ask you now to take up a most dangerous duty for our people. Would you [" .. eq.say_link("accept") .. "] such a challenge from the King of a people not your own?");
 		end
 	elseif (e.message:findi("accept")) and e.other:GetFaction(e.self) < 3 then --Must be Warmly or ally
 			e.self:Emote("smiles at you with pride");
 			e.self:Say("Something told me you would, "..e.other:GetName()..". For years upon years the plagues of King Tormax have been unleashed upon my people. And indeed it was also by Tormax's hand that me own father, Dain Frostreaver the Third was slain. My attempts at assassinating him have only met with failure, and our forces, while strong, are not yet mighty enough to assault Kael Drakkel. Therefore I have ye and yer companions as my last hope, "..e.other:GetName()..". Kill that bastard who calls himself King Tormax... and bring me his head!");
 	elseif(e.message:findi("mission")) and (e.other:HasItem(8898)) then 
-		e.self:Say("After General Bragmur has equipped the armor you have created for him, give him these orders. He is a skilled diplomat and will need to reach the pirate Gnomes. We must enter into a pact with them. We will supply them the velium that they need to build their silly gadgets, and they will take their ship back to Antonica and call for reinforcements from out ancestors. We hope they will acceppt this pact, after all Brell has been known to align himself with Bristlebane whom the Gnomes of Iceclad follow. You may be an important [factor] in their success.");
+		e.self:Say("After General Bragmur has equipped the armor you have created for him, give him these orders. He is a skilled diplomat and will need to reach the pirate Gnomes. We must enter into a pact with them. We will supply them the velium that they need to build their silly gadgets, and they will take their ship back to Antonica and call for reinforcements from out ancestors. We hope they will acceppt this pact, after all Brell has been known to align himself with Bristlebane whom the Gnomes of Iceclad follow. You may be an important [" .. eq.say_link("factor") .. "] in their success.");
 	elseif(e.message:findi("factor")) and (e.other:HasItem(8898)) then
 		e.self:Say("I fear that spies lurk in every corner. You may need to help the General reach the gnomish camp if the Kromrif have gotten word of our efforts. You should call on any allies that you have to assist in case they ambush you. Brell bless you "..e.other:GetName()..", good luck.");
 		
@@ -56,7 +56,7 @@ function event_trade(e)
 		e.other:Faction(188, -50); --Kromrif
 		e.other:Faction(189, -50); --Kromzek
 		e.other:SummonItem(1465); --Dirk of the Dain
-		e.other:QuestReward(e.self, 0, 0, 0, 0, 30369, 4000000); --9th Ring
+		e.other:QuestReward(e.self, 0, 0, 0, 0, 30369, 1000000); --9th Ring
 	end
 	
 	-- no faction required
@@ -65,7 +65,7 @@ function event_trade(e)
 		e.other:SummonItem(8895); --Runed Prayer Prayer Shawl (Dain approved)
 		e.other:SummonItem(8896); --Royal Coldain Orders
 	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 8886})) then	
-		e.self:Say("Excellent work "..e.other:GetName()..". If I didn't know I would assume this was made by our most skilled artisans.  You must hurry, General Bragmur has formed camp in Iceclad. Take the kit to the General, he had to drudge forward without any armor. His [mission] must be a success if we hope to successfully defend Thurgadin against the Giants.");
+		e.self:Say("Excellent work "..e.other:GetName()..". If I didn't know I would assume this was made by our most skilled artisans.  You must hurry, General Bragmur has formed camp in Iceclad. Take the kit to the General, he had to drudge forward without any armor. His [" .. eq.say_link("mission") .. "] must be a success if we hope to successfully defend Thurgadin against the Giants.");
 		e.other:SummonItem(8898); --Approved Issue Kit
 		e.other:SummonItem(8897); --Expedition Orders
 	elseif item_lib.check_turn_in(e.self, e.trade, {item1 = 30385}) and e.other:GetFaction(e.self) == 1 then -- 10th ring, note that he INTENTIONALLY EATS IT IF FAIL
@@ -77,4 +77,3 @@ function event_trade(e)
 	item_lib.return_items(e.self, e.other, e.trade)	
 		
 end
-

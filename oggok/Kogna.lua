@@ -1,8 +1,8 @@
 function event_say(e)
 	if(e.message:findi("Hail")) then
-		e.self:Say("You be tinking you be [real tuff Craknek]?");
-	elseif(e.message:findi("i am a real tuff craknek")) then
-		e.self:Say("Me not tinking so. but maybe me wrongs.. no.. me neber wrongs.  You no tuff. only liddle Craknek is you.  You tink you be tuff Craknek. you bringed me four lizard meats.  Me like lizard meats.  You no tuff.  You bringed me lizard [meats].  I make you tuffer Craknek.  Me bestest Craknek.");
+		e.self:Say("You be tinking you be [" .. eq.say_link("real tuff Craknek") .. "]?");
+	elseif(e.message:findi("real tuff craknek")) then
+		e.self:Say("Me not tinking so. but maybe me wrongs.. no.. me neber wrongs.  You no tuff. only liddle Craknek is you.  You tink you be tuff Craknek. you bringed me four lizard meats.  Me like lizard meats.  You no tuff.  You bringed me lizard [" .. eq.say_link("meats") .. "].  I make you tuffer Craknek.  Me bestest Craknek.");
 	elseif(e.message:findi("meats")) then
 		e.self:Say("Yup, meats.  You brings me four, me gives you sumting.");
 	end
@@ -18,8 +18,3 @@ function event_trade(e)
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------

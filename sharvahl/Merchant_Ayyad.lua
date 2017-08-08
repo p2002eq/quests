@@ -1,7 +1,7 @@
 --Changes by Kagehi
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Hello " .. e.other:GetName() .. ", sorry but I have no time to chitchat. I'm looking for the help of a citizen.");
+		e.self:Say("Hello " .. e.other:GetName() .. ", sorry but I have no time to chitchat. I'm looking for the help of a [" .. eq.say_link("citizen") .. "].");
 	elseif(e.message:findi("citizen")) then
 		e.self:Emote("looks at you excitedly, 'Show me your acrylia slate and I'll explain my situation.'");
 	elseif(e.message:findi("additional instructions"))	then
@@ -27,7 +27,7 @@ function event_trade(e)
 		e.self:Say("You're progressing nicely, " .. e.other:GetName() .. " Take this sculpting tool and add it to the set you already have. This new quill set will be able to make some very nice urns that should help ease the burden of moving all that heavy clay around. Take a gray jar and use the new set of tools I've given you to etch Xakra blood into runes on the side of the jars. These should prove to be very useful in your labors in the future. Once you have mastered those runes, bring back your runequill set to me for another addition.");
 		e.other:QuestReward(e.self,0,0,0,0,3632,200); -- Novices Runequill Set
 	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 3632})) then -- Novices Runequill Set
-		e.self:Say("You continue to amaze me with your progress, " .. e.other:GetName() .. ". Here is the final pen to add to your set of runequills. I have just received word that the king has need of your particular talents. Take this note to Guard Fareed and he will instruct you further. Also, this runequill set is able to mark a set of runes on the Grey Jars with Sonic Wolf Blood. This will enchant the jar and make a great container. I trust your artistic instincts to guide you. You should also tell me when you're ready for some [additional instructions].");
+		e.self:Say("You continue to amaze me with your progress, " .. e.other:GetName() .. ". Here is the final pen to add to your set of runequills. I have just received word that the king has need of your particular talents. Take this note to Guard Fareed and he will instruct you further. Also, this runequill set is able to mark a set of runes on the Grey Jars with Sonic Wolf Blood. This will enchant the jar and make a great container. I trust your artistic instincts to guide you. You should also tell me when you're ready for some [" .. eq.say_link("additional instructions") .. "].");
 		e.other:SummonItem(3647); -- Ayyads Note to Fareed
 		e.other:QuestReward(e.self,0,0,0,0,3641,200); -- Finely Crafted Runequill Set
 	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 3643})) then -- Fareeds Note to Ayyad
@@ -36,8 +36,3 @@ function event_trade(e)
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------

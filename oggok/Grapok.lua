@@ -1,6 +1,6 @@
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Hi " .. e.other:GetName() .. ". Did [Bordag send you]?");
+		e.self:Say("Hi " .. e.other:GetName() .. ". Did [" .. eq.say_link("bordag sent me",false,"Bordag send you") .. "]?");
 	elseif(e.message:findi("bordag sent me")) then
 		e.self:Say("So you want learn about how to fight like bear and crush enemy with bare hand? That good. Best way to start is just go out and do it. Biggest enemy around here lizard men. You go practice. Fight against lizard men. Bring me their tasty meat. You bring four.");
 	end
@@ -8,7 +8,6 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 13410, item2 = 13410, item3 = 13410, item4 = 13410})) then
 		e.self:Say("Hmm, you do good against the lizard men. Here you go. If you want hat for head, bring four silk thread.");
 		e.other:QuestReward(e.self,0,0,0,0,7375,500);
@@ -27,8 +26,3 @@ function event_trade(e)
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------

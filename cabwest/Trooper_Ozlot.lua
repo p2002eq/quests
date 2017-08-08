@@ -8,35 +8,25 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 18246, item2 = 12670, item3 = 12670})) then --Legion Order (6 signed), Sabertooth Kitten Canine x 2
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 18246, item2 = 12670, item3 = 12670})) then -- Legion Order (6 signed), Sabertooth 2x Kitten Canine
 		e.self:Say("I suppose you were sent by the legion. I will sign. Here is the legion order back. Now, leave, so I can finish my watch.");
-		e.other:SummonItem(18247); 	--Legion Order (7 signed)
-		e.other:Faction(193,5); 	--Legion of Cabilis
-		e.other:Faction(30,5); 		--Cabilis Residents
-		e.other:Faction(282,5); 	--Scaled Mystics
-		e.other:Faction(62,5); 		--Crusaders of Greenmist
-		e.other:Faction(317,5); 	--Swift Tails
-		e.other:AddEXP(800);
-		e.other:Ding();
-	end
-	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 12670, item2 = 12670})) then
+		e.other:Faction(193,5); -- Legion of Cabilis
+		e.other:Faction(30,5); -- Cabilis Residents
+		e.other:Faction(282,5); -- Scaled Mystics
+		e.other:Faction(62,5); -- Crusaders of Greenmist
+		e.other:Faction(317,5); -- Swift Tails
+		e.other:QuestReward(e.self,0,0,0,0,18247,800); -- Legion Order (7 signed)
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 12670, item2 = 12670})) then -- 2x Sabertooth Kitten Canine
 		e.self:Say("I told you that I need two sabertooth kitten canines and the legion order.");
-		e.other:SummonItem(12670);
-		e.other:SummonItem(12670);
-	end
-	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 18246, item2 = 12670})) then
+		e.other:SummonItem(12670); -- Sabertooth Kitten Canine
+		e.other:QuestReward(e.self,0,0,0,0,12670,0); -- Sabertooth Kitten Canine
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 18246, item2 = 12670})) then -- Legion Order and Sabertooth Kitten Canine
 		e.self:Say("I told you that I need two sabertooth kitten canines and the legion order.");
-		e.other:SummonItem(18246);
-		e.other:SummonItem(12670);
-	end
-	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 18246})) then
+		e.other:SummonItem(18246);-- Legion Order
+		e.other:QuestReward(e.self,0,0,0,0,12670,0); -- Sabertooth Kitten Canine
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 18246})) then -- Legion Order
 		e.self:Say("I told you that I need two sabertooth kitten canines and the legion order.");
-		e.other:SummonItem(18246);
+		e.other:QuestReward(e.self,0,0,0,0,18246,0); -- Legion Order
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------

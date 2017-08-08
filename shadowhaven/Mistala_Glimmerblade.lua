@@ -1,12 +1,12 @@
 ---- Quest:Smuggler Reports
 function event_say(e)
     if(e.message:findi("hail")) then
-        e.self:Say("Hello there, " .. e.other:GetName() .. "! I am Lady Mistala Glimmerblade of the House of Fordel. I reside over this great city of Shadowhaven along with my husband Daloran. I take great pride in knowing that our city has come so far and became a place of free trade and freedom for all of its inhabitants. We also are lucky to have some of the finest guardspersons in the land. Which reminds me I need to collect my [report].");
-    elseif(e.message:findi("report")) then
-        e.self:Say("I have a report that I collect every few days from my first Lieutentant Broansas. This report contains information about each guard, his performance, and usually notes on suggestions upon how to limit the number of smugglers passing through our town. However, Lieutenant Broansas is currently on assignment investigating a smugglers ring. I need someone to retrieve his reports of the latest information that he gathered for me. Will you [retrieve the daily reports]?");
-    elseif(e.message:findi("reports")) then
+        e.self:Say("Hello there, " .. e.other:GetName() .. "! I am Lady Mistala Glimmerblade of the House of Fordel. I reside over this great city of Shadowhaven along with my husband Daloran. I take great pride in knowing that our city has come so far and became a place of free trade and freedom for all of its inhabitants. We also are lucky to have some of the finest guardspersons in the land. Which reminds me I need to collect my [" .. eq.say_link("report") .. "].");
+    elseif(e.message:findi("retrieve the daily reports")) then
         e.self:Say("Many thanks, " .. e.other:GetName() .. ". The last I heard from Broansas he was heading for the Dawnshroud peaks. Please seek him out there and present him with this notorized letter so that he will know that I have sent you. Return to me with his report as soon as you can. I await your return.");
         e.other:SummonItem(4760); -- A Notorized Letter
+    elseif(e.message:findi("report")) then
+        e.self:Say("I have a report that I collect every few days from my first Lieutentant Broansas. This report contains information about each guard, his performance, and usually notes on suggestions upon how to limit the number of smugglers passing through our town. However, Lieutenant Broansas is currently on assignment investigating a smugglers ring. I need someone to retrieve his reports of the latest information that he gathered for me. Will you [" .. eq.say_link("retrieve the daily reports") .. "]?");
     end
 end
 

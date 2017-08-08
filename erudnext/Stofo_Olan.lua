@@ -1,9 +1,8 @@
 -- Enchanter epic weapon Staff of the Serpent lead-in quest
-
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Good day, I have discovered something truly wonderful! If I only had the materials required so I can copy my notes and send them to my teacher.");
-	elseif(e.message:findi("discover")) then
+		e.self:Say("Good day, I have [" .. eq.say_link("discovered") .. "] something truly wonderful! If I only had the materials required so I can copy my notes and send them to my teacher.");
+	elseif(e.message:findi("discovered")) then
 		e.self:Say("I was researching a new spell, and discovered new information concerning the history of the Serpent.");
 	elseif(e.message:findi("materials")) then
 		e.self:Say("The materials I need are a mechanical pen, ink of the dark, and white paper. Bring me those and I will give you a copy of this information.");
@@ -23,7 +22,7 @@ function event_trade(e)
 
 	--  check for ink of the dark, mechanical pen and white paper
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 10600,item2 = 10601,item3 = 10602})) then
-		e.self:Say("Yes, that is what I wanted. Here, take these notes. My teacher will be very interested if he is shown what I have found.");
+		e.self:Say("Yes, that is what I wanted. Here, take these notes. My [" .. eq.say_link("teacher") .. "] will be very interested if he is shown what I have found.");
 		e.other:Ding();
 		e.other:Faction(342,10,0);
 		e.other:SummonItem(10603);
@@ -31,5 +30,3 @@ function event_trade(e)
 	end
 	item_lib.return_items(e.self, e.other, e.trade);
 end
-
---  EOF Zone: erudnext ID: 24013 NPC: Stofo_Olan

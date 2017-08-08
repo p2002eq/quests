@@ -1,12 +1,12 @@
 function event_say(e)
     fac = e.other:GetFaction(e.self);
     if(e.message:findi("Hail")) then
-        e.self:Say("Oh yes. hello there. I am sorry to be so short, but Governor Erikal had asked me to investigate the [Recuso] and... well, the going has been slow as of yet.");
+        e.self:Say("Oh yes. hello there. I am sorry to be so short, but Governor Erikal had asked me to investigate the [" .. eq.say_link("Recuso") .. "] and... well, the going has been slow as of yet.");
     elseif(e.message:findi("recuso")) then
-        e.self:Say("The Recuso are a delitescent people that wander the lands outside Sanctus Seru. They do not have the most open society, so gathering information on them has been tricky. We have reason to believe that they are quite hostile towards Seru and therefore our potential allies- the enemy of my enemy is my friend and all of that. To learn more about them, it was decided we send someone in to try to blend into their society, but he is more than a week past due checking in and we can spare no one to [go after him].");
+        e.self:Say("The Recuso are a delitescent people that wander the lands outside [" .. eq.say_link("Sanctus Seru") .. "]. They do not have the most open society, so gathering information on them has been tricky. We have reason to believe that they are quite hostile towards Seru and therefore our potential allies- the enemy of my enemy is my friend and all of that. To learn more about them, it was decided we send someone in to try to blend into their society, but he is more than a week past due checking in and we can spare no one to [" .. eq.say_link("go after him") .. "].");
     elseif(e.message:findi("go after him")) then
         if(fac <= 2) then
-            e.self:Say("It is quite the journey, are you sure that you are up for it? Your best bet would be to start the search in Marus Seru where the Recuso can be found. Legionnaire Marais had a lead in Shadowhaven as well, but I do not believe it had gotten him anywhere yet. You will need to give him this, he has the other half and will recognize it as a signal that you were sent directly by me. Oh, and let me give you a file to hold your evidence in, do you have [room] for it, my friend?");
+            e.self:Say("It is quite the journey, are you sure that you are up for it? Your best bet would be to start the search in Marus Seru where the Recuso can be found. Legionnaire Marais had a lead in Shadowhaven as well, but I do not believe it had gotten him anywhere yet. You will need to give him this, he has the other half and will recognize it as a signal that you were sent directly by me. Oh, and let me give you a file to hold your evidence in, do you have [" .. eq.say_link("room") .. "] for it, my friend?");
             e.other:SummonItem(18332); -- torn half of a note
         else
             e.self:Say("I am not sure I should discuss this matter any further, I hope you understand.");

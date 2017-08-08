@@ -1,15 +1,14 @@
 function event_say(e)
 	local fac = e.other:GetFaction(e.self);
-
 	if(e.message:findi("hail")) then
-		e.self:Say("I am Toala Nehron. You must be another young warrior aspiring to join the ranks of the Steel Warriors. We welcome all who would try. When you [have time] there is a friend of mine I would like you to check on.");
+		e.self:Say("I am Toala Nehron. You must be another young warrior aspiring to join the ranks of the Steel Warriors. We welcome all who would try. When you [" .. eq.say_link("have time") .. "] there is a friend of mine I would like you to check on.");
 	elseif(e.message:findi("opal")) then
-		e.self:Say("Opal Darkbriar is a little plague rat.  She has used her knowledge of arcane arts to charm [Cain Darkmoore].  I know that is what happened.  Why else would he be in love with her?  He is a mighty warrior and she is nothing more than a sickly little librarian for the Academy of Arcane Science.  He must truly yearn for a bold hearted female warrior such as myself.  Not that I care, of course.");
+		e.self:Say("Opal Darkbriar is a little plague rat.  She has used her knowledge of arcane arts to charm [" .. eq.say_link("Cain Darkmoore") .. "].  I know that is what happened.  Why else would he be in love with her?  He is a mighty warrior and she is nothing more than a sickly little librarian for the Academy of Arcane Science.  He must truly yearn for a bold hearted female warrior such as myself.  Not that I care, of course.");
 	elseif(e.message:findi("cain darkmoore")) then
 		e.self:Say("Cain Darkmoore is only the most handsome of warriors!  He is also the strongest and most bold.  He has slain the mightiest of fiends.  He is truly the manliest man around.  It is no wonder he is the guildmaster of the Steel Warriors.");
 	elseif(fac < 5) then
 		if(e.message:findi("have time")) then
-			e.self:Say("I have A friend by the name of [Lenka Stoutheart]. She reported to me that her ship was broken into and someone stole a pouch of hers. Could you go look into it for me? Just tell her Toala sent you. Oh, and pay no mind to the walking mountain by her. That will only be Bronto, her navigator. Thanks friend.");
+			e.self:Say("I have A friend by the name of [" .. eq.say_link("Lenka Stoutheart") .. "]. She reported to me that her ship was broken into and someone stole a pouch of hers. Could you go look into it for me? Just tell her Toala sent you. Oh, and pay no mind to the walking mountain by her. That will only be Bronto, her navigator. Thanks friend.");
 		elseif(e.message:findi("lenka stoutheart")) then
 			e.self:Say("Lenka Stoutheart is an old friend of mine. I met her in my younger days when the Steel Warriors sent me to train in the ways of the Wolves of the North, the barbarian warriors of Halas. She is now an adventurer of great renown. She travels from continent to continent aboard her ship,the Blue Beast, her ship.");
 		end
@@ -27,7 +26,6 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	local fac = e.other:GetFaction(e.self);
-
 	if(fac < 5) then
 		if(item_lib.check_turn_in(e.self, e.trade, {item1 = 18814})) then -- A Sealed Letter ID-18814 filename "NERtoShintl"
 			e.self:Say("Why, that little trollop! What is she up to? Cain will never believe this! She must be in league with some faction of the dark elves, but why? Neither the Academy of Arcane Science nor Cain will believe this note. I will see what I can do. As for you, I command you to kill this Shintl and her dark elf courier Hollish!! Put their heads into this box and combine them. We shall cut the link. Bring me thier heads.");
@@ -67,5 +65,3 @@ function event_trade(e)
 	end
 	item_lib.return_items(e.self, e.other, e.trade);
 end
-
--- END of FILE Zone:freportw -- Toala_Nehron

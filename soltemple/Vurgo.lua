@@ -1,12 +1,12 @@
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Welcome! I am Vurgo, follower of Solusek Ro and holder of the [harvester] and the [Words of Darkness].");
+		e.self:Say("Welcome! I am Vurgo, follower of Solusek Ro and holder of the [" .. eq.say_link("harvester") .. "] and the [" .. eq.say_link("Words of Darkness") .. "].");
 	elseif(e.message:findi("harvester")) then
-		e.self:Say("I can forge you one, but you will need to bring me the correct [scythe components].");
+		e.self:Say("I can forge you one, but you will need to bring me the correct [" .. eq.say_link("scythe components") .. "].");
 	elseif(e.message:findi("scythe components")) then
 		e.self:Say("The first thing I need is a shadowed scythe from our mortal enemies, the shadowed men.");
 	elseif(e.message:findi("words of darkness")) then
-		e.self:Say("I can scribe for you the Words of Darkness, but you will need to bring me the correct [word components].");
+		e.self:Say("I can scribe for you the Words of Darkness, but you will need to bring me the correct [" .. eq.say_link("word components") .. "].");
 	elseif(e.message:findi("word components")) then
 		e.self:Say("The first thing that I need is a shadowed book from our mortal enemies, the shadowed men.");
 	end
@@ -38,9 +38,3 @@ function event_trade(e)
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-			
---END of FILE Zone:soltemple  ID:80016 -- Vurgo
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------

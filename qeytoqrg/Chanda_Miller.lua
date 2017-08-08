@@ -22,13 +22,13 @@ function event_say(e)
 		if(e.message:findi("hail")) then
 			e.self:Say("Um.. I do not know you. Please um.. leave me be.");
 		elseif(e.message:findi("baobob sent me")) then
-			e.self:Say(string.format("Oh.. Hello. My name is Chanda. %s is your name? That's a nice name. My [brother] sent you to talk to me? You must want some bear.. um.. [clothes].",e.other:GetName()));
+			e.self:Say(string.format("Oh.. Hello. My name is Chanda. %s is your name? That's a nice name. My [" .. eq.say_link("brother") .. "] sent you to talk to me? You must want some bear.. um.. [" .. eq.say_link("") .. "][clothes].",e.other:GetName()));
 		elseif(e.message:findi("brother")) then
 			e.self:Say("umm.. My brother.. Um.. I mean my BROTHER.. He is the finest tanner there is. His name is Baobob and I love him very much.");
 		elseif(e.message:findi("clothes")) then
-			e.self:Say("I um.. know how to make.. umm.. [cloaks] and [boots]. Oh yes! and belts! I love to make bear skin belts! Um.. I really like [belts]. My [brother] says I have to start charging more gold for my stuff though..");
+			e.self:Say("I um.. know how to make.. umm.. [" .. eq.say_link("cloaks") .. "] and [" .. eq.say_link("boots") .. "]. Oh yes! and belts! I love to make bear skin belts! Um.. I really like [" .. eq.say_link("belts") .. "]. My [" .. eq.say_link("brother") .. "] says I have to start charging more gold for my stuff though..");
 		elseif(e.message:findi("cloak")) then
-			e.self:Say("I.. um.. can make.. um.. a good cloak for you. You have to get me a bear skin of high quality and my brother says I should not make them unless you also give me 21 gold pieces. I used to give them away but [Baobob] got mad at me so I don't do that anymore.");
+			e.self:Say("I.. um.. can make.. um.. a good cloak for you. You have to get me a bear skin of high quality and my brother says I should not make them unless you also give me 21 gold pieces. I used to give them away but Baobob got mad at me so I don't do that anymore.");
 		elseif(e.message:findi("belt")) then
 			e.self:Say("Oh, yes, I like making belts! They are easy! All I need is a bear skin and 5 gold pieces. The bear skin doesn't have to be that great but don't bring me a ruined one. The gold was my brother's idea.. sorry.");
 		elseif(e.message:findi("boot")) then

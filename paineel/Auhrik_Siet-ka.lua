@@ -1,4 +1,3 @@
---BeginFile: Auhrik_Siet`ka.pl
 --Quest for Paineel - Auhrik Siet`ka: Neonate Cowardice
 function event_say(e)
 	if(e.message:findi("understand common")) then
@@ -11,7 +10,7 @@ function event_trade(e)
 	local item_lib = require("items");
 	
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 14041})) then --A Rolled Up Note
-		e.self:Say("Why are you giving this to me? Oh I see. I forgot that rats don't know how to read. Haha! Well, then. I shall read it for you. You do [understand common] don't you? Haha.");
+		e.self:Say("Why are you giving this to me? Oh I see. I forgot that rats don't know how to read. Haha! Well, then. I shall read it for you. You do [" .. eq.say_link("understand common") .. "] don't you? Haha.");
 	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 12993})) then --Small Sealed Bag
 		e.self:Say("My revenge has been satisfied. Thank you, my child. You have proven yourself to be a most worthy asset to our cause. Here, I no longer have any use for this, my ties to the old life are now severed.");
 		e.other:Faction(143,5);  --Heretics
@@ -23,9 +22,3 @@ function event_trade(e)
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
---EndFile: Auhrik_Siet`ka.pl
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------

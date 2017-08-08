@@ -10,21 +10,20 @@ function event_say(e)
 	if(e.message:findi("hail")) then
 		e.self:Say("Hail, traveller! I am Karg of Clan Icebear, lone hunter of the Everfrost Peaks. Have you seen any polar bears about?");
 	elseif(e.message:findi("yes")) then
-		e.self:Say("I hunt polar bears and furnish cloaks from their [pelts]. They keep you warm in this cold weather.");
-	elseif(e.message:findi("pel")) then
+		e.self:Say("I hunt polar bears and furnish cloaks from their [" .. eq.say_link("pelts") .. "]. They keep you warm in this cold weather.");
+	elseif(e.message:findi("pelts")) then
 		e.self:Say("Have you some polar bear pelts? You know I can furnish warm cloaks from them, and for you I will do it for the measly sum of 5 platinum pieces.");
 	elseif(e.message:findi("werewolf")) then
-		e.self:Say("Werewolf?! I have not seen a werewolf in years. Have you slain one and collected its [skin] or [claws]?");
+		e.self:Say("Werewolf?! I have not seen a werewolf in years. Have you slain one and collected its [" .. eq.say_link("skin") .. "] or [" .. eq.say_link("claws") .. "]?");
 	elseif(e.message:findi("skin")) then
 		e.self:Say("You have managed to procure a werewolf skin?? Amazing! Well then, I will let you know that for a fee of 100 platinum, I can craft a hearty cloak for you if you leave the skin and the coin with me.");
- 	elseif(e.message:findi("claw")) then
+ 	elseif(e.message:findi("claws")) then
 		e.self:Say("Oh, a werewolf claw? If you were to give me the claw and 75 platinum, I could craft excellent gauntlets.");
 	end
 end
 
 function event_trade(e)
 	local item_lib = require("items");
-
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 13761,platinum = 5})) then -- Polar Bear Skin and 5 plat
 		e.other:SummonItem(2912); -- Polar Bear Cloak
 		e.other:Ding();
@@ -40,5 +39,3 @@ function event_trade(e)
 	end
 	item_lib.return_items(e.self, e.other, e.trade);
 end
-
--- End of Karg_Icebear

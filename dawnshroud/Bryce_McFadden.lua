@@ -1,7 +1,7 @@
 ---- Quest:Gant's Remains
 function event_say(e)
     if(e.message:findi("hail")) then
-        e.self:Say("What are you doing here? Can't you see we're trying to get some rest. It's not easy trying to find [Gant's Remains].");
+        e.self:Say("What are you doing here? Can't you see we're trying to get some rest. It's not easy trying to find [" .. eq.say_link("Gant's Remains") .. "].");
     elseif(e.message:findi("Remains")) then
         e.self:Say("We're looking for Gant's Remains. We've heard that they can be found somewhere in the caves not to far from here. Though. it's not easy getting into those caves. Those dawnhoppers are a vicious bunch. Maybe you'd like to help us. If you can find Gant's Remains bring it back to me and you'll get a handsome reward.");
     end

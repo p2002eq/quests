@@ -1,7 +1,7 @@
 --Tome of Dark Power
 function event_say(e)
 	if(e.message:findi("Hail")) then
-		e.self:Emote("regards you with narrow eyes, then smiles. 'Greetings. I am Councilman Srethix of Kartis. It is good to see some new visitors to our little corner of the cosmos. I certainly hope you can find what you are looking for here in the Myrist library. Unfortunately, I'm sorry to say that I am quite busy seeking some rare books at the moment, and I do not have much time for light conversation. Otherwise, I believe my aid Garuuk may have some chores he could use help with. That is, if you feel up to it.'");
+		e.self:Emote("regards you with narrow eyes, then smiles. 'Greetings. I am Councilman Srethix of Kartis. It is good to see some new visitors to our little corner of the cosmos. I certainly hope you can find what you are looking for here in the Myrist library. Unfortunately, I'm sorry to say that I am quite busy seeking some [" .. eq.say_link("rare books") .. "] at the moment, and I do not have much time for light conversation. Otherwise, I believe my aid Garuuk may have some chores he could use help with. That is, if you feel up to it.'");
 	elseif(e.message:findi("rare books")) then
 		e.self:Emote("glares at Garuuk and turns back to you. 'You are interested in a job seeking knowledge, yes? Very well, I think I may have something suitable for you. I happen to be seeking an ancient tome containing some valuable information about artifacts of power. I have learned this book is somewhere in our very own library but so far Garuuk has been unable to locate it. Find me the Tome of Dark Power and I may see what other jobs I can pass along to you.' ");
 	end
@@ -21,8 +21,3 @@ function event_trade(e)
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------

@@ -1,17 +1,16 @@
 function event_say(e)
 	local fac = e.other:GetFaction(e.self);
-
 	if(e.message:findi("hail") and (fac <= 5)) then
 		e.self:Say("Hi, kid! You seem to be a stranger in these parts. Heed my words, this city is dangerous to new blood!");
 		eq.signal(10135,10);
 	elseif(e.message:findi("hail") and (fac > 5)) then
 		e.self:Say("Run while ye still can!!  The Wolves o' the North will not tolerate yer presence!");
 	elseif(e.message:findi("toala sent me")) then
-		e.self:Say("She does not even have the courtesy to come herself. Some old friend!! Listen, some rogue in this city broke into the [Beast] and stole a pouch containing a voucher ticket for a part I need to repair the Beast. I can't get the part back without the ticket. I did not see the rogue. I did not sleep on the Beast that night. Bronto was there. Ask him if he saw the rogue.");
-	elseif(e.message:findi("what beast")) then
-		e.self:Say("You're joking, right? You have never heard of the Blue Beast?!! She is the fastest ship in Norrath. She made the [Kunark run] in under three weeks. She was designed by [Bronto].");
+		e.self:Say("She does not even have the courtesy to come herself. Some old friend!! Listen, some rogue in this city broke into the [" .. eq.say_link("Beast") .. "] and stole a pouch containing a voucher ticket for a part I need to repair the Beast. I can't get the part back without the ticket. I did not see the rogue. I did not sleep on the Beast that night. Bronto was there. Ask him if he saw the rogue.");
+	elseif(e.message:findi("beast")) then
+		e.self:Say("You're joking, right? You have never heard of the Blue Beast?!! She is the fastest ship in Norrath. She made the [" .. eq.say_link("Kunark run") .. "] in under three weeks. She was designed by [Bronto].");
 	elseif(e.message:findi("kunark run")) then
-		e.self:Say("The Kunark run is the most dangerous run between Freeport and [Firiona Vie], in Kunark. If the seas don't rip your hull to splinters and the pirates and sea wyrms don't kill you, you can make a quick run back and forth, avoiding any unwanted inspections.");
+		e.self:Say("The Kunark run is the most dangerous run between Freeport and [" .. eq.say_link("Firiona Vie") .. "], in Kunark. If the seas don't rip your hull to splinters and the pirates and sea wyrms don't kill you, you can make a quick run back and forth, avoiding any unwanted inspections.");
 	elseif(e.message:findi("Firiona Vie")) then
 		e.self:Say("Firiona Vie is an elven outpost on the continent of Kunark. Every so often I run supplies to and from there. Do not even think about asking me to take you there. It will be months before I can make improvements on the Blue Beast to make it impervious to aerial attacks.");
 	elseif(e.message:findi("journal strongbox")) then

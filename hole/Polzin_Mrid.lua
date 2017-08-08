@@ -2,8 +2,8 @@
 function event_say(e)
 	if(e.message:findi("hail")) then
 		e.self:Say("Yes, young one?");
-	elseif(e.message:findi("i am ready for the test of the phantasm")) then
-		e.self:Say("It will be simple, go collect these items and return them to me. Head of a serpent, essence of a ghost, essence of a vampire, and sands of the mystics. Do so and you will receive the last of the pieces. Be sure to combine them in a sack first. Just ask and I will provide you with one.");
+	elseif(e.message:findi("test of the phantasm")) then
+		e.self:Say("It will be simple, go collect these items and return them to me. [" .. eq.say_link("Head of a serpent") .. "], [" .. eq.say_link("essence of a ghost") .. "], [" .. eq.say_link("essence of a vampire") .. "], and [" .. eq.say_link("sands of the mystics") .. "]. Do so and you will receive the last of the pieces. Be sure to combine them in a sack first. Just ask and I will provide you with one.");
 	elseif(e.message:findi("head of a serpent")) then
 		e.self:Say("Serpent is probably not an accurate term for what you must return to me. It is actaully the reminants of a spirit. The spirit is one which was erradicated long long ago by the Iksar. I believe they were called the Shissar. You may need to travel to the Iksar city to learn more about these creatures.");
 	elseif(e.message:findi("essence of a ghost")) then
@@ -18,7 +18,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 10604})) then
-		e.self:Say("Jeb has spoken with you already, excellent. Tell me are you ready for the test of the phantasm?");
+		e.self:Say("Jeb has spoken with you already, excellent. Tell me are you ready for the [" .. eq.say_link("test of the phantasm") .. "]?");
 		e.other:SummonItem(10604);
 		e.other:QuestReward(e.self,0,0,0,0,17861);
 	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 10638})) then
@@ -28,8 +28,3 @@ function event_trade(e)
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------

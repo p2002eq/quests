@@ -1,9 +1,9 @@
 ---- Twilight Armor - Monk
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Are you the [monk] that was sent?");
+		e.self:Say("Are you the [" .. eq.say_link("monk") .. "] that was sent?");
 	elseif(e.message:findi("monk")) then
-		e.self:Say("'The armor that I have to reward you is a [headband], [gi], [arm wraps], [leggings], [shawl], [wrist wraps], and [sandals]. My friend and guard Allise has the rest. If you wish to speak with her, just ask about the armor.");
+		e.self:Say("'The armor that I have to reward you is a [" .. eq.say_link("headband") .. "], [" .. eq.say_link("gi") .. "], [" .. eq.say_link("arm wraps") .. "], [" .. eq.say_link("leggings") .. "], [" .. eq.say_link("shawl") .. "], [" .. eq.say_link("wrist wraps") .. "], and [" .. eq.say_link("sandals") .. "]. My friend and guard Allise has the rest. If you wish to speak with her, just ask about the armor.");
 	elseif(e.message:findi("headband")) then
 		e.self:Say("For the headband you must retrieve for me a sun jewel, a mark of peace, an oblong clay bowl, and a great gem.");
 	elseif(e.message:findi("arm wraps")) then

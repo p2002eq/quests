@@ -1,6 +1,6 @@
 function event_say(e)--need correct text for all parts
 	if(e.message:findi("hail")) then
-		e.self:Say("I do not have time to talk to you, I am looking for something that I [lost]");
+		e.self:Say("I do not have time to talk to you, I am looking for something that I [" .. eq.say_link("lost") .. "]");
 	elseif(e.message:findi("lost")) then
 		e.self:Say("Yes, lost.  I am missing my robes if you could bring them to me I would reward you.");
 	end
@@ -14,8 +14,3 @@ function event_trade(e)
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------

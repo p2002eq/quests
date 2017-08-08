@@ -11,7 +11,7 @@ function event_combat(e)
         inCombat = false;
         if (timerUp) then
             eq.stop_timer("MASS");
-            eq.depop_all(48322);
+            eq.depop_all(48322); -- an acidic mass
         end
     else
         inCombat = true;
@@ -24,7 +24,7 @@ function event_timer(e)
         if (inCombat) then
             timerUp = true;
         else
-            eq.depop_all(48322);
+            eq.depop_all(48322); -- an acidic mass
         end
     end
 end

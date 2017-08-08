@@ -8,3 +8,10 @@ function event_enter(e)
 	e.self:Say("A fine sacrifice you make! Say hello to the master!");
 	e.other:SpellFinished(2857, e.other);
 end
+
+function event_signal(e)
+	if (e.signal == 1) then
+		e.self:Shout("Master! The sacred ring of fire has been cleansed of trespassers.");
+		eq.depop();
+	end
+end

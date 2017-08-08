@@ -3,9 +3,9 @@ function event_say(e)
 	if(e.message:findi("Hail")) then
 		e.self:Say("Can't ya see I'm busy working.  Leave me be.");
 	elseif(e.message:findi("armor")) then
-		e.self:Say("Bah, Brodlan should know better than opening his big mouth. Anyway, this looks like armor for a dark knight if ye want to [trade] for it.");
+		e.self:Say("Bah, Brodlan should know better than opening his big mouth. Anyway, this looks like armor for a dark knight if ye want to [" .. eq.say_link("trade") .. "] for it.");
 	elseif(e.message:findi("trade")) then
-		e.self:Say("Good ya want to trade. I have the [mask], [cloak], [gauntlets], [gorget], [girdle], and [mace]. Just tell me what piece you want to trade for and Ill tell ya what I want.");
+		e.self:Say("Good ya want to trade. I have the [" .. eq.say_link("mask") .. "], [" .. eq.say_link("cloak") .. "], [" .. eq.say_link("gauntlets") .. "], [" .. eq.say_link("gorget") .. "], [" .. eq.say_link("girdle") .. "], and [" .. eq.say_link("mace") .. "]. Just tell me what piece you want to trade for and Ill tell ya what I want.");
 	elseif(e.message:findi("cloak")) then
 		e.self:Say("For the darkened knight's cloak you'll have to bring me a cloud jewel, a mark of twisted souls, a chilled brazier, and a gem of blue skies.");
 	elseif(e.message:findi("gauntlets")) then

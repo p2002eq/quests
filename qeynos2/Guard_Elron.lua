@@ -1,6 +1,6 @@
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Greetings. I am sorry but I can't concentrate on my post and talk to you at the same time. Especially when I should be out searching for [Lucie]..  Please excuse me.");
+		e.self:Say("Greetings. I am sorry but I can't concentrate on my post and talk to you at the same time. Especially when I should be out searching for [" .. eq.say_link("Lucie") .. "]..  Please excuse me.");
 	elseif(e.message:findi("lucie")) then
 		e.self:Say(string.format("Lucie is my only daughter. Her mother was killed by gnolls a little over a year ago, now Lucie is missing. Ton Firepride said he saw her playing in the south pond.  I have told her a million times to stay out of the aqueducts..  She never listens..  Now I spend every free moment searching for my little girl, if only I could find some clue to her fate. Well, I need to get back to work. Fare well, %s.",e.other:GetName()));
 	end

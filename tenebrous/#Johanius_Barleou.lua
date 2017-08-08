@@ -4,12 +4,12 @@ function event_say(e)
     fac = e.other:GetFaction(e.self);
     if(e.message:findi("hail")) then
         if(fac < 6) then
-            e.self:Say("Greetings traveler! You seem like a brave individual for having dared the Tenebrous Mountains without a patrol of Validus Custodus to defend you! I am need of some assistance in an [urgent matter]!");
+            e.self:Say("Greetings traveler! You seem like a brave individual for having dared the Tenebrous Mountains without a patrol of Validus Custodus to defend you! I am need of some assistance in an [" .. eq.say_link("urgent matter") .. "]!");
         elseif(fac > 5) then
             e.self:Say("You are a brave individual but unfortunately I cannot trust that you will use what I have to offer to its fullest potential against the foes of Katta Castellum. Perhaps when you have established a stronger reputation as a vampyre slayer I will aid you further.");
         end
     elseif(e.message:findi("urgent matter") and (fac < 6)) then
-        e.self:Say("My sister and my beloved Lyrra have been captured by the vile blood suckers and are being held in the largest of their dark settlements. I can not face that number of blood suckers alone. Are you prepared to slay the wicked undead?");
+        e.self:Say("My sister and my beloved Lyrra have been captured by the vile blood suckers and are being held in the largest of their dark settlements. I can not face that number of blood suckers alone. Are you [" .. eq.say_link("prepared to slay") .. "] the wicked undead?");
     elseif(e.message:findi("prepared to slay") and (fac < 6)) then
         e.self:Say("Excellent, I commend you in advance for your courage. Let us make haste lest something awful happen to my loved ones!");
         eq.start(2);

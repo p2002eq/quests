@@ -24,8 +24,3 @@ function event_spawn(e)
 	eq.spawn_condition("freporte",0,3,0);
 	eq.spawn_condition("freporte",0,4,0);
 end
-
--- END of FILE Zone:freporte -- Olunea_Miltin
-
-
-

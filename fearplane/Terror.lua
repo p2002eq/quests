@@ -1,5 +1,4 @@
 --Spawns an iksar broodling on the death of the golems 75% of the time.
-
 function event_signal(e)
 	entity_list = eq.get_entity_list();
 
@@ -27,9 +26,3 @@ function event_death_complete(e)
 	-- local h = e.self:GetHeading();
 	eq.spawn2(a,0,0,e.self:GetX(),e.self:GetY(),e.self:GetZ(),e.self:GetHeading());
 end
-
---Submitted by: Jim Mills (Gilmore Girls`Is`Awesome`XOXO)
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------

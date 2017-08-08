@@ -1,17 +1,17 @@
 function event_say(e)
 	if(e.other:GetFaction(e.self) <= 3) then --Warmly or better
 		if(e.message:findi("hail")) then
-			e.self:Say("Welcome to the castle of King Tormax. It is quite an accomplishment for one of your kind to have lived this long in the service of our great King Tormax. You must be powerful indeed. My power is like a storm - I may rage and destroy my foes with great fury.");
+			e.self:Say("Welcome to the castle of King Tormax. It is quite an accomplishment for one of your kind to have lived this long in the service of our great King Tormax. You must be powerful indeed. My power is like a storm - I may rage and destroy my [" .. eq.say_link("foes") .. "] with great fury.");
 		elseif(e.message:findi("foes")) then
-			e.self:Say("The dragons are the greatest threat to Kael Drakkel. For some reason they believe that this land we inhabit is holy and should not be tread upon. I cannot count the number of wurms I have beaten back from the gates of Kael Drakkel in the past. We giants will live on, though, for each year their numbers thin and ours only grow. With the help of mercenaries such as yourself we may be able to eradicate them from the face of Velious.");
+			e.self:Say("The dragons are the greatest threat to Kael Drakkel. For some reason they believe that this land we inhabit is holy and should not be tread upon. I cannot count the number of wurms I have beaten back from the gates of Kael Drakkel in the past. We giants will live on, though, for each year their numbers thin and ours only grow. With the help of mercenaries such as yourself we may be able to [" .. eq.say_link("eradicate") .. "] them from the face of Velious.");
 		elseif(e.message:findi("eradicate")) then
-			e.self:Say("I dream of the day when the only dragons in Velious are the ones whose skins line my boots. Some day my dream will come true. Until the day I can gather a force powerful enough to assault their homes, I will slay whatever foul beasts tread near Kael Drakkel.");
+			e.self:Say("I dream of the day when the only dragons in Velious are the ones whose skins line my boots. Some day my dream will come true. Until the day I can gather a force powerful enough to [" .. eq.say_link("assault") .. "] their homes, I will slay whatever foul beasts tread near Kael Drakkel.");
 		elseif(e.message:findi("assault")) then	
-			e.self:Say("That is an aspiration of King Tormax. One day, it may be possible for us to do so. Encountering so many dragons at once may very well be suicide though. Enough of my banter about dragons. What is it that brings you to Dragon Death Keep? Do you seek more challenging tasks?");
+			e.self:Say("That is an aspiration of King Tormax. One day, it may be possible for us to do so. Encountering so many dragons at once may very well be suicide though. Enough of my banter about dragons. What is it that brings you to Dragon Death Keep? Do you seek more [" .. eq.say_link("challenging tasks") .. "]?");
 		elseif(e.message:findi("challenging task")) then		
-			e.self:Say("If you are as mighty as I believe you to be, travel out from this city and fight off the draconian menace. For the head of an elder dragon you will be handsomely rewarded.");
+			e.self:Say("If you are as mighty as I believe you to be, travel out from this city and fight off the draconian menace. For the head of an elder dragon you will be handsomely [" .. eq.say_link("rewarded") .. "].");
 		elseif(e.message:findi("reward")) then
-			e.self:Emote("pats the huge axe at his side and drapes his shimmering cloak over his shoulders.");
+			e.self:Emote("pats the huge [" .. eq.say_link("axe") .. "] at his side and drapes his shimmering [" .. eq.say_link("cloak") .. "] over his shoulders.");
 		elseif(e.message:findi("axe")) then	
 			e.self:Say("My axe is named Frostbringer. It was given to me by the great King Tormax for my service to him. Serving the king can be quite advantageous.");
 		elseif(e.message:findi("cloak")) then

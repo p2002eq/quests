@@ -1,8 +1,8 @@
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say(string.format("Hello, %s.  My name is Bren Treeclimber and I am a Protector of the Pine.  We have sworn our lives to protecting all the animals of Surefall Glade.  [Poachers], beware!",e.other:GetName()));
+		e.self:Say(string.format("Hello, %s.  My name is Bren Treeclimber and I am a Protector of the Pine.  We have sworn our lives to protecting all the animals of Surefall Glade.  [" .. eq.say_link("Poachers") .. "], beware!",e.other:GetName()));
 	elseif(e.message:findi("poacher")) then
-		e.self:Say("Heh?  Oh.  Poachers are constantly after our bears for their valuable skins.  I wish those darn [Millers] would move on. Then, maybe, our bears would be left alone.  I have seen far too many of my friends die.  I will kill anyone I see harming my bears.");
+		e.self:Say("Heh?  Oh.  Poachers are constantly after our bears for their valuable skins.  I wish those darn [" .. eq.say_link("Millers") .. "] would move on. Then, maybe, our bears would be left alone.  I have seen far too many of my friends die.  I will kill anyone I see harming my bears.");
 	elseif(e.message:findi("millers")) then
 		e.self:Say("The Millers?!  Those butchers!  We have caught that Baobob and his sister trying to poach more than once.  And to think we took them in and gave them shelter when they were in need.  All the while, they were just trying to get to our bears.");
 	end

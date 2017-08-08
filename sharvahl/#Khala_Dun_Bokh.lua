@@ -1,18 +1,18 @@
 function event_say(e)
 	if(e.message:findi("Hail")) then
-		e.self:Say("Greetings traveler. if you are headed through these gates you should be aware that there are many [dangers] you may encounter.");
-	elseif(e.message:findi("what dangers?")) then
-		e.self:Say("Recently there have been numerous [brigand] encounters. the [Shak Dratha] have also taken arms against our people.");
-	elseif(e.message:findi("what shak dratha?")) then
+		e.self:Say("Greetings traveler. if you are headed through these gates you should be aware that there are many [" .. eq.say_link("dangers") .. "] you may encounter.");
+	elseif(e.message:findi("dangers")) then
+		e.self:Say("Recently there have been numerous [" .. eq.say_link("brigand") .. "] encounters. the [" .. eq.say_link("Shak Dratha") .. "] have also taken arms against our people.");
+	elseif(e.message:findi("shak dratha")) then
 		e.self:Say("Very little is known about the Shak Dratha. They appeared shortly after the explosion heard in the thicket. Although they are not really our enemies. they have been known to attack when those unknown to them approach.");
 	elseif(e.message:findi("who are the shak dratha")) then
-		e.self:Say("The Khala Dun are the king's warriors. They are charged with defending the city of Shar Vahl and commanding any offensives necessary. They are named after Khala Dun who was King Vah Kerrath's protec");
+		e.self:Say("The Khala Dun are the king's warriors. They are charged with defending the city of Shar Vahl and commanding any offensives necessary. They are named after Khala Dun who was King Vah Kerrath's protector");
 	elseif(e.message:findi("what brigand")) then
-		e.self:Say("The brigands arrived shortly after the disappearance [Loda Kai.] Although it shames me to say it. I believe he may in some way be involved with these attacks. I can not bear to think about such an atrocity. Nevertheless there is a bounty on the brigands.");
+		e.self:Say("The brigands arrived shortly after the disappearance [" .. eq.say_link("Loda Kai.") .. "] Although it shames me to say it. I believe he may in some way be involved with these attacks. I can not bear to think about such an atrocity. Nevertheless there is a bounty on the brigands.");
 	elseif(e.message:findi("who is loda kai")) then
-		e.self:Say("[Loda Kai] was a strong member of the Taruun. he was off to investigate the spirit deaths in shadeweavers thicket when a strong explosion was felt throughout the thickets. He has not been seen since. It was around the time of his disappearance that the brigands began to raid our trade route to shadow haven.");
+		e.self:Say("[" .. eq.say_link("Loda Kai") .. "] was a strong member of the Taruun. he was off to investigate the spirit deaths in shadeweavers thicket when a strong explosion was felt throughout the thickets. He has not been seen since. It was around the time of his disappearance that the brigands began to raid our trade route to shadow haven.");
 	elseif(e.message:findi("what is loda kai")) then
-		e.self:Say("[Loda Kai] was a strong member of the Taruun. he was off to investigate the spirit deaths in shadeweavers thicket when a strong explosion was felt throughout the thickets. He has not been seen since. It was around the time of his disappearance that the brigands began to raid our trade route to shadow haven.");
+		e.self:Say("[" .. eq.say_link("Loda Kai") .. "] was a strong member of the Taruun. he was off to investigate the spirit deaths in shadeweavers thicket when a strong explosion was felt throughout the thickets. He has not been seen since. It was around the time of his disappearance that the brigands began to raid our trade route to shadow haven.");
 	elseif(e.message:findi("assigned")) then --Quest: Beetle Eyes
 		e.self:Say("Thank you for coming to assist. We are always looking for hungry new soldiers. Young soldiers get old much too fast these days. Just look at me.' He smiles at this comment. 'Do this old soldier a favor and go down there and gather up a handful of rhino beetle eyes', he says and looks at the mass of crawling creatures that wait below. 'Beetle eyes not only taste good... they keep your fur shiny as well.");
 	end
@@ -39,8 +39,3 @@ function event_trade(e)
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------

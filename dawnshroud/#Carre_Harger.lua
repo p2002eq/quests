@@ -1,5 +1,4 @@
 ---- Quest:Hunter's Pike
-
 function event_say(e)
     if(e.message:findi("hail")) then
         e.self:Say("Hello, traveler!");
@@ -8,7 +7,6 @@ end
 
 function event_trade(e)
     local item_lib = require("items");
-    
     if(item_lib.check_turn_in(e.self, e.trade, {item1 = 31781})) then -- Note to Carre
         e.self:Say("There's been four wolves that have been ravaging the forest. We need them killed. When you are done bring me back their pelts. I know one to be bloodthristy, while the other is enraged. The other two I haven't even seen. But I can hear 'em.");
         eq.spawn2(174322,0,0,e.self:GetX()+20,e.self:GetY()+10,e.self:GetZ(), 176); -- An_Enraged_Beast
@@ -20,6 +18,5 @@ function event_trade(e)
         e.other:QuestReward(e.self,0,0,0,0,31782,10000); -- Note to Wils
         eq.depop_with_timer();
     end
-    
     item_lib.return_items(e.self, e.other, e.trade)
 end

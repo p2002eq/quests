@@ -1,6 +1,6 @@
 function event_say(e)
 	if(e.message:findi("Hail")) then
-		e.self:Say("Hello. " .. e.other:GetName() .. ". I am Mignah. a humble acrylia specialist. If you have a form of acrylia that merchants will not buy please hand it to me and I will pay you whatever it may be worth.");
+		e.self:Say("Hello. " .. e.other:GetName() .. ". I am Mignah. a humble [" .. eq.say_link("acrylia slate",false,"acrylia") .. "] specialist. If you have a form of acrylia that merchants will not buy please hand it to me and I will pay you whatever it may be worth.");
 	elseif(e.message:findi("acrylia slate")) then
 		e.self:Emote("pulls a smoldering piece of forged acrylia from a nearby oven and, before you can react, presses your hand into the still soft metal.");
 		e.self:Say("This may hurt a bit, but it'll heal.");
@@ -13,8 +13,3 @@ function event_trade(e)
 	local item_lib = require("items");
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------

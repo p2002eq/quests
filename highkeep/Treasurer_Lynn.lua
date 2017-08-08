@@ -2,7 +2,7 @@ function event_say(e)
 	if(e.message:findi("hail")) then
 		e.self:Say("Greetings!!  Welcome to Highkeep. home of the greatest casino in all of Norrath.  Please visit our fine casino on the second floor."); 
 	elseif(e.message:findi("highpass lottery")) then
-		e.self:Say("Interested in the Highkeep lotter, are we?  I am afraid it as been put on hold.  We found last season's winner to be holding a counterfeit ticket.  We now await [last season's winner] to step foward with the winning ticket - ticket number 16568.  His prize is the key to the royal suite."); 
+		e.self:Say("Interested in the Highkeep lotter, are we?  I am afraid it as been put on hold.  We found last season's winner to be holding a counterfeit ticket.  We now await [" .. eq.say_link("last season's winner") .. "] to step foward with the winning ticket - ticket number 16568.  His prize is the key to the royal suite."); 
 	elseif(e.message:findi("last season")) then
 		e.self:Say("Last season's winner is not known.  I have heard from my sources that he was some sort of merchant of used goods."); 
 	end
@@ -24,5 +24,3 @@ function event_trade(e)
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
--- END of FILE Zone:highkeep  Treasurer_Lynn

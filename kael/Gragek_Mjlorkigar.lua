@@ -17,11 +17,11 @@ local QUEST_ITEMS = {
 function event_say(e)
 	if(e.other:GetFaction(e.self) < 2) then --Must be ally
 		if(e.message:findi("hail")) then
-			e.self:Say("Greetings to you. I seek one who is a protector of nature. A ranger is what you call them I believe. Are you a ranger?");
+			e.self:Say("Greetings to you. I seek one who is a protector of nature. A ranger is what you call them I believe. Are you a [" .. eq.say_link("ranger") .. "]?");
 		elseif(e.message:findi("ranger")) then
-			e.self:Say("I have not seen your kind in quite some time. Do you seek aid in your never-ending fight against those who do nature harm? There is no need to answer for I see within your eyes, the commitment and the conviction. None the less, the tasks I set before you shall be none the easier. Are you ready to submit to my will?");
+			e.self:Say("I have not seen your kind in quite some time. Do you seek aid in your never-ending fight against those who do nature harm? There is no need to answer for I see within your eyes, the commitment and the conviction. None the less, the tasks I set before you shall be none the easier. Are you [" .. eq.say_link("I ready to submit to your will",false,"ready to submit to my will") .. "]?");
 		elseif(e.message:findi("ready to submit to your will")) then
-			e.self:Say("That is good for there is nothing like the wrath of nature, woodlands warrior. And Natures wrath shall you be, with this armor to protect you in your struggle. I shall forge a coif, breastplate, sleeves, bracers, gauntlets, leggings, and boots for you.");
+			e.self:Say("That is good for there is nothing like the wrath of nature, woodlands warrior. And Natures wrath shall you be, with this armor to protect you in your struggle. I shall forge a [" .. eq.say_link("coif") .. "], [" .. eq.say_link("breastplate") .. "], [" .. eq.say_link("sleeves") .. "], [" .. eq.say_link("bracers") .. "], [" .. eq.say_link("gauntlets") .. "], [" .. eq.say_link("leggings") .. "], and [" .. eq.say_link("boots") .. "] for you.");
 		elseif(e.message:findi("coif")) then
 			e.self:Say("This coif shall protect you from battle and the elements. What I require of you is this. Three crushed coral pieces and a ancient tarnished chain coif.");
 		elseif(e.message:findi("breastplate")) then

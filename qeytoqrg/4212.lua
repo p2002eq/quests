@@ -1,7 +1,7 @@
 local drink = 0;
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Huh....whadjuu saaaaay? I need some more [tonic]");
+		e.self:Say("Huh....whadjuu saaaaay? I need some more [" .. eq.say_link("tonic") .. "]");
 	elseif(e.message:findi("tonic")) then
 		e.self:Say("Tumpy Tonic, you wanker");
 	end

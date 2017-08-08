@@ -16,9 +16,9 @@ local QUEST_ITEMS = {
 function event_say(e)
  if(e.other:GetFaction(e.self) == 1 ) then --Must be ally
   if(e.message:findi("hail")) then
-  	e.self:Say("Hail! What news and stories have you from the New World? Perhaps if you are a bard you can spin me stories of those lands. Oh, I forget my manners. We shall exchange talk another time. You seek something, do you not? A new outfit perhaps?");
+  	e.self:Say("Hail! What news and stories have you from the New World? Perhaps if you are a bard you can spin me stories of those lands. Oh, I forget my manners. We shall exchange talk another time. You seek something, do you not? A new [" .. eq.say_link("outfit") .. "] perhaps?");
   elseif(e.message:findi("outfit")) then
-  	e.self:Say("Well, then I have just what you need. Now, my terms of payment are thus, you gather some things for me and in return I shall craft you the finest armor a bard has ever seen! A new outfit comprised of a helm, breastplate, armplates, bracers, gauntlets, greaves, and boots shall make you the envy of your peers, my little friend.");
+  	e.self:Say("Well, then I have just what you need. Now, my terms of payment are thus, you gather some things for me and in return I shall craft you the finest armor a bard has ever seen! A new outfit comprised of a [" .. eq.say_link("helm") .. "], [" .. eq.say_link("breastplate") .. "], [" .. eq.say_link("armplates") .. "], [" .. eq.say_link("bracers") .. "], [" .. eq.say_link("gauntlets") .. "], [" .. eq.say_link("greaves") .. "], and [" .. eq.say_link("boots") .. "] shall make you the envy of your peers, my little friend.");
   elseif(e.message:findi("helm")) then
    e.self:Say("A brand new shiny helm shall be yours once I have an unadorned plate helmet and three pieces of crushed coral. May the audience swoon in your presence.");
   elseif(e.message:findi("breastplate")) then

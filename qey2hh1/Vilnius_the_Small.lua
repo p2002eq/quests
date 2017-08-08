@@ -1,5 +1,4 @@
 -- Rogue Epic NPC -- Vilnius_the_Small
-
 function event_say(e)
 	if(e.message:findi("hail")) then
 		e.self:Say(string.format("%s, just because I am short don't mean I can't bounce your %s rump all over these hills. Now, do you have something for me, or are you just in search of a rump bouncing?",e.other:GetName(),e.other:Race()));
@@ -44,5 +43,3 @@ function event_trade(e)
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
--- END of FILE  Zone:qey2hh1  ID:12019 -- Vilnius_the_Small

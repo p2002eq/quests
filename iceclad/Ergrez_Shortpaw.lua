@@ -2,7 +2,7 @@ function event_say(e)
 	if(e.message:findi("hail")) then
 	    e.self:Say("works at skinning and cleaning the raw furs around him.");
     elseif(e.message:findi("what armor")) then
-	    e.self:Say("Many armors.  All of animal hides from the islands.  If you wanting armor then I can make for you.  All I ask is you do me favor.");
+	    e.self:Say("Many armors.  All of animal hides from the islands.  If you wanting armor then I can make for you.  All I ask is you do me [" .. eq.say_link("favor") .. "].");
     elseif(e.message:findi("what favor")) then
 		e.self:Say("Snowfangs in need of much help lately.  Once we mighty but now weak.  You help us get stronger.  If you want armor of wolves or cougar then I need you bring twice as many materials.  For each thing you wanting I need thing.  Just tell me what furs you have and I tell you what I need.");
 	elseif(e.message:findi("medium quality dire wolf fur")) then

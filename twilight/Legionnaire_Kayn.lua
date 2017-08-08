@@ -1,9 +1,9 @@
 ---- Twilight Armor - Cleric
 function event_say(e)
 	if(e.message:findi("Hail")) then
-		e.self:Say("You must have been speaking to Derron, a mightier cleric ye couldnt find. Except for Donal the Wise of course. So tell me are ye also a cleric like Derron?");
-	elseif(e.message:findi("I am a cleric")) then
-		e.self:Say("Ah then you must want the mask, cloak, gauntlets, talisman, girdle, and hammer that I be holdin'.");
+		e.self:Say("You must have been speaking to Derron, a mightier cleric ye couldnt find. Except for Donal the Wise of course. So tell me are ye also a [" .. eq.say_link("cleric") .. "] like Derron?");
+	elseif(e.message:findi("cleric")) then
+		e.self:Say("Ah then you must want the [" .. eq.say_link("mask") .. "], [" .. eq.say_link("cloak") .. "], [" .. eq.say_link("gauntlets") .. "], [" .. eq.say_link("talisman") .. "], [" .. eq.say_link("girdle") .. "], and [" .. eq.say_link("hammer") .. "] that I be holdin'.");
 	elseif(e.message:findi("cloak")) then
 		e.self:Say("To get the cloak you must bring me a sky jewel, a mark of credence, a light etched fire opal, and a polished stone statuette.");
 	elseif(e.message:findi("gauntlets")) then

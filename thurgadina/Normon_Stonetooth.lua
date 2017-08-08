@@ -1,13 +1,13 @@
 function event_say(e)
 
 	if(e.message:findi("hail")) then	
-		e.self:Emote("seems to ignore your greeting, peering at the stone in front of him intently as if reading some invisible text. After a long while he sighs deeply and says, 'Somethin I kin help ye with, whoever you are?");
+		e.self:Emote("seems to ignore your greeting, peering at the stone in front of him intently as if reading some invisible text. After a long while he sighs deeply and says, 'Somethin I kin help ye with, [" .. eq.say_link("who are you",false,"whoever you are") .. "]?");
 	elseif(e.message:findi("who are you")) then		
-		e.self:Emote("speaks as he continues staring at the stone, 'I mine. So they call me a miner. Name's Normon, Normon Stonetooth, Normon the miner.. Did I say I mine?")	
+		e.self:Emote("speaks as he continues staring at the stone, 'I mine. So they call me a miner. Name's Normon, Normon Stonetooth, Normon the miner.. Did I say I [" .. eq.say_link("what do you mine",false,"mine") .. "]?")
 	elseif(e.message:findi("what do you mine")) then	
-		e.self:Say("Well I look fer velium o'course. But ye know, I pull very little of it out o the mundane rock these days. Sometimes I hear it whisperin' to me. The stone, the velium, everything down here talks to each other. If ye're lucky enough they tell ya secrets. That be why I listen more these days than pull velium.");
+		e.self:Say("Well I look fer velium o'course. But ye know, I pull very little of it out o the mundane rock these days. Sometimes I hear it whisperin' to me. The stone, the velium, everything down here talks to each other. If ye're lucky enough they tell ya [" .. eq.say_link("secrets") .. "]. That be why I listen more these days than pull velium.");
 	elseif(e.message:findi("secrets")) then	
-		e.self:Say("Now if'n I told ye that it wouldn't be a secret no more now would it? No, I can't tell ya what they tells me, but I kin help ya ta listen. But first ye'll need ta do me a favor heheh.");
+		e.self:Say("Now if'n I told ye that it wouldn't be a secret no more now would it? No, I can't tell ya what they tells me, but I kin help ya ta listen. But first ye'll need ta do me a [" .. eq.say_link("favor") .. "] heheh.");
 	elseif(e.message:findi("favor")) then	
 		e.self:Say("Ahh, well me pick is a bit dull, don't cut like it should. Up in the city proper ye kin find a weapons smith named Hakon. Take me pick axe and and tell him Stonetooth sent ye. Then give it to him, wait fer him ta sharpen it, an bring it back to me. Then I'll help ya ta listen to the stone.");
 		e.other:SummonItem(1690);

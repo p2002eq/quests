@@ -42,6 +42,9 @@ function event_trade(e)
 		e.other:Faction(33,-1,0); -- Circle of Unseen Hands
 		e.other:Faction(217,1,0); -- Merchants of Qeynos
 		e.other:QuestReward(e.self,math.random(10),math.random(9),math.random(5),0,0,500);
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 8280})) then  -- compiled report  (Qeynos Badge #5)
+		e.self:Emote("scans the report with a furrowed brow. 'So the threat is worse then we had anticipated. The intelligence we have gathered is true. We have little time, return to Seargeant Caelin and give him these orders. Time is of the essence. Hurry now, these people are in grave danger and something must be done to stop this!'");
+		e.other:QuestReward(e.self,0,0,0,0,8287,1000); -- Orders for Sergeant Caelin
 	end
 	
 	if(fang > 0) then

@@ -1,11 +1,11 @@
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Hello. I would shake your hand, but it would [hurt]. Ooooh! Owwy!");
+		e.self:Say("Hello. I would shake your hand, but it would [" .. eq.say_link("hurt") .. "]. Ooooh! Owwy!");
 	elseif(e.message:findi("hurt")) then
 		--Bandages for Honeybugger (START)
 		e.self:Say("I was attacked by the bixies. They swarmed on me!! I think I got too near their queen. I need that honey to make a living! Get me a bandage and I will tell you where all their worker bee's buzz around.");
-	elseif(e.message:findi("I need the honeycomb")) then
-		e.self:Say("If you're looking for the honeycombs, I don't have any right now. I have been unable to get any since I was attacked by the little [buggers]. I will tell you where to get some if you will only get me a bandage for my bites.");
+	elseif(e.message:findi("honeycomb")) then
+		e.self:Say("If you're looking for the honeycombs, I don't have any right now. I have been unable to get any since I was attacked by the little [" .. eq.say_link("buggers") .. "]. I will tell you where to get some if you will only get me a bandage for my bites.");
 	elseif(e.message:findi("what buggers")) then
 		e.self:Say("I was attacked by the bixies. They swarmed on me!! I think I got too near their queen. I need that honey to make a living! Get me a bandage and I will tell you where all their worker bees buzz around.");
 	end
@@ -30,7 +30,7 @@ function event_trade(e)
 	if(bandage > 0) then
 		for i = 1, bandage do
 			--Bandages for Honeybugger (END)
-			e.self:Say("Oh thank you, " .. e.other:GetName() .. ". If you are ever going to gather bixie honeycomb's pray you do not run into the queen. The only way I know of collecting the honey is by intercepting the drone's and taking the honeycomb's they sometime's carry. Good luck!!");
+			e.self:Say("Oh thank you, " .. e.other:GetName() .. ". If you are ever going to gather bixie honeycomb's pray you do not run into the queen. The only way I know of collecting the honey is by intercepting the drone's and taking the [" .. eq.say_link("honeycomb") .. "]'s they sometime's carry. Good luck!!");
 			e.other:AddEXP(10);
 			e.other:Faction(77,10);   -- +Deeppockets
 			e.other:Faction(133,10);  -- +Guardians of the Vale
@@ -42,8 +42,3 @@ function event_trade(e)
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------

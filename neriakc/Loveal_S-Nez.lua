@@ -1,11 +1,8 @@
---Loveal_S-Nez.pl
---Sir Lindeal's Testimony/Thex Mallet/SK Trainer
-
 function event_say(e)
 	if(e.message:findi("Hail")) then
-		e.self:Say("What is this I see before me? A would-be hero of the Dead? You reek of false bravado. I have seen others much stronger than you meet their fate at the end of a blade. I see no reason to continue our conversation. How can one such as you assist with my [delegated duties]?");
+		e.self:Say("What is this I see before me? A would-be hero of the Dead? You reek of false bravado. I have seen others much stronger than you meet their fate at the end of a blade. I see no reason to continue our conversation. How can one such as you assist with my [" .. eq.say_link("delegated duties") .. "]?");
 	elseif(e.message:findi("delegated duties")) then
-		e.self:Say("Why do you ask? I know why. Glory has captured your affections. Those who seek glory find death. Still, you may be of some use. Before I assign you a task, I must be assured of your power. I require you to [perform a test].");
+		e.self:Say("Why do you ask? I know why. Glory has captured your affections. Those who seek glory find death. Still, you may be of some use. Before I assign you a task, I must be assured of your power. I require you to [" .. eq.say_link("perform a test") .. "].");
 	elseif(e.message:findi("perform a test")) then
 		e.self:Say("In the Lavastorm Mountain Range there have been sightings of a paladin, one Sir Lindeal. He has compromised our routes between.. well, that is none of your concern. All you need to know is that this paladin of the Temple of Marr must be sent to his everlasting life. Do so and prove your worth to us. I await your proof. Use no assistance. If you are truly his equal then I shall know. I know all.");
 	elseif(e.message:findi("appointed tasks")) then
@@ -18,11 +15,12 @@ function event_say(e)
 		e.self:Say("A competent and powerful warrior, but a warrior nonetheless. He has suppressed the true glory of the Teir'Dal. Perhaps it is time for a new ruler of Neriak.");
 	end
 end
+
 function event_trade(e)
 	local item_lib = require("items");
 	
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 18828})) then--Testimony
-		e.self:Say("So you have succeeded where others have failed. You show promise. Take this then. You shall be a valuable asset to the Dead and soon this shall be of value to one so great. This will help you on your way. Are you still interested in my [appointed tasks]?");
+		e.self:Say("So you have succeeded where others have failed. You show promise. Take this then. You shall be a valuable asset to the Dead and soon this shall be of value to one so great. This will help you on your way. Are you still interested in my [" .. eq.say_link("appointed tasks") .. "]?");
 		e.other:Faction(322,15); --The Dead
 		e.other:Faction(268,2); --Queen Cristanos Thex
 		e.other:Faction(177,-2); --King Naythox Thex
@@ -42,9 +40,3 @@ function event_trade(e)
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
---END of FILE Zone:neriakc  ID:42043 -- Loveal_S`Nez
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------

@@ -19,9 +19,8 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 13887})) then
-		e.self:Say("Very nice work. Here are some provisions. Now are you [ready for the second test]?");
+		e.self:Say("Very nice work. Here are some provisions. Now are you [" .. eq.say_link("ready for the second test") .. "]?");
 		e.other:Faction(155, 5); --Indigo Brotherhood
 		e.other:Faction(92,-1); --Emerald Warriors
 		e.other:Faction(311,-1); --Steel Warriors
@@ -40,9 +39,3 @@ function event_trade(e)
 	end	
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
---END of FILE Zone:neriakb  ID:41031 -- Yegek_B`Larin
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------

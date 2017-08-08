@@ -8,15 +8,9 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 18241, item2 = 13051})) then --Legion Order (1 signed), Quill
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 18241, item2 = 13051})) then -- Legion Order and A Quill
 		e.self:Emote("signs the order and hands it back to you. 'Well... At least I now have this fancy writing quill.'");
-		e.other:SummonItem(18242); --Legion Order (2 signed)
-		e.other:AddEXP(500);
+		e.other:QuestReward(e.self,0,0,0,0,18242,500); -- Legion Order
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------

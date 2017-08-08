@@ -19,11 +19,11 @@ function event_say(e)
 
 	if(fac < 6) then
 		if(e.message:findi("hail")) then
-			e.self:Say("Hello, there. My name is Baobob Miller. My [sister] and I are the best tanners in all of Norath. Wolves are my specialty. A nice wolf skin [garment] would be the perfect accessory to your stylish ensemble.");
+			e.self:Say("Hello, there. My name is Baobob Miller. My [" .. eq.say_link("sister") .. "] and I are the best tanners in all of Norath. Wolves are my specialty. A nice wolf skin [" .. eq.say_link("garment") .. "] would be the perfect accessory to your stylish ensemble.");
 		elseif(e.message:findi("sister")) then
 			e.self:Say("My little sister Chanda is the second best tanner around!. Seriously though, she is a very skilled artisan and people travel far and wide to acquire one of her fine bear skin cloaks. I am proud of her. She doesn't really like to meet new people, but if you tell her [Baobob sent you], I am sure she can help get you into some nice bear skin boots.");
 		elseif(e.message:findi("garment")) then
-			e.self:Say("I make the finest wolf skin [boots],[cloaks] and [belts] in all of Antonica.");
+			e.self:Say("I make the finest wolf skin [" .. eq.say_link("boots") .. "],[" .. eq.say_link("cloaks") .. "] and [" .. eq.say_link("belts") .. "] in all of Antonica.");
 		elseif(e.message:findi("boot")) then
 			e.self:Say("If you can bring me a wolf skin of medium quality and pay me a fee of say.. hmmmm.. for you.. 15 gold pieces, I think I can make you a pair of boots that will make all of Qeynos envy you.");
 		elseif(e.message:findi("cloak")) then

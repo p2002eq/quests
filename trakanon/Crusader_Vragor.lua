@@ -1,9 +1,9 @@
 --Crusader Vragor is used for spawning Zhaoku, a Trakasaur who drops one of the pieces for the Whistling Fists quest.
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Perhaps you would care to hear a tale, and perhaps you could help me with the ending. It is the tale of the end of Grandmaster Tynn. We all know that Tynn came into Sebilis with no rebirth. I suppose you know he created the caste of Iksar monks, but I doubt you know where he now [rests] do you?");
+		e.self:Say("Perhaps you would care to hear a tale, and perhaps you could help me with the ending. It is the tale of the end of Grandmaster Tynn. We all know that Tynn came into Sebilis with no rebirth. I suppose you know he created the caste of Iksar monks, but I doubt you know where he now [" .. eq.say_link("rests") .. "] do you?");
 	elseif(e.message:findi("rests")) then
-		e.self:Say("Then I shall tell you. Master Tynn chose a place of rest in his old age. While deep in meditation he slipped away and breathed no more. His corpse remained in the stance of meditation for many years unyielding to the elements. This brings us to recent times. A Trakanasaur that has been named Zhaoku came along the remains and devoured them. The bones too hard to be chewed, he swallowed them whole. To this day he wanders with them lodged in his stomach. Are you interested in knowing [where] Zhaoku is?");
+		e.self:Say("Then I shall tell you. Master Tynn chose a place of rest in his old age. While deep in meditation he slipped away and breathed no more. His corpse remained in the stance of meditation for many years unyielding to the elements. This brings us to recent times. A Trakanasaur that has been named Zhaoku came along the remains and devoured them. The bones too hard to be chewed, he swallowed them whole. To this day he wanders with them lodged in his stomach. Are you interested in knowing [" .. eq.say_link("where") .. "] Zhaoku is?");
 	elseif(e.message:findi("where")) then
 		e.self:Say("I will tell you but you must help me first. I have been tied to this plane because of deeds unfinished. I was questing for the stupendous tome for ages to no avail. Without this tome I can not pass on in peace. Finish my quest, bring me the stupendous tome and a crusader coffin. I will tell you where the beast rests before I pass on. I doubt you can finish this, but I can always hope.");
 	end
@@ -22,9 +22,3 @@ function event_trade(e)
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
---Submitted by: Jim Mills
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------

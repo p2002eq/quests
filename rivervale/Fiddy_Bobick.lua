@@ -1,9 +1,4 @@
---------------------------
   --Quest Name:The Fishslayers
-  --Author:Shaznito
-  --NPCs Involved:Fiddy Bobick, Marshall Lanena
-  --Items Involved:Bag of Piranha Teeth, Piranha Bag, Piranha Tooth
-  ----------------------------------
 function event_waypoint_arrive(e)
 	if(wp == 6) then
 		e.self:Say("When will Wickystick send help?!");
@@ -34,4 +29,3 @@ local item_lib = require("items");
 		item_lib.return_items(e.self, e.other, e.trade); -- return unused items
 	end
 end
- --END of FILE Zone:rivervale  ID:19086 -- Fiddy_Bobick

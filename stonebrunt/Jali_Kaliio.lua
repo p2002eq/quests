@@ -1,14 +1,14 @@
 function event_say(e)
     if(e.message:findi("Hail")) then
-        e.self:Say("Greetings outsider. I trust you have [peaceful intentions] while visiting our village?");
+        e.self:Say("Greetings outsider. I trust you have [" .. eq.say_link("peaceful intentions") .. "] while visiting our village?");
     elseif(e.message:findi("peaceful intentions")) then
         e.self:Say("That is good to hear. Those filthy kobolds have caused enough trouble. We do not need more enemies.");
         e.self:Emote("Jali turns around and glances at another Kejekan. This one seems somewhat ill. Her fur is coming out in patches and strange sores cover her body.");
         e.self:Say("That is my wife, Yuio. She has come down with a sickness, no doubt caused by those accursed kobolds.");
         e.self:Emote("Anger wracks Jali's face as he speaks.");
-        e.self:Say("I would ask you for [help] but you are a stranger and owe us nothing. Of course if you did assist me, I would be forever greatful.");
+        e.self:Say("I would ask you for [" .. eq.say_link("help") .. "] but you are a stranger and owe us nothing. Of course if you did assist me, I would be forever greatful.");
     elseif(e.message:findi("help")) then
-        e.self:Say("Oh thank you! You are most kind. I fear that there is not much time left for my dear Yuio. Please speak to [Khonza Ayssla]. She is most wise and perhaps can find some cure for this affliction.");
+        e.self:Say("Oh thank you! You are most kind. I fear that there is not much time left for my dear Yuio. Please speak to [" .. eq.say_link("Khonza Ayssla") .. "]. She is most wise and perhaps can find some cure for this affliction.");
     elseif(e.message:findi("khonza ayssla")) then
         e.self:Say("Khonza Ayssla is the village's High Shaman. She teaches the ancient ways of Okanjo and is most wise. If she cannot assist you I do not know who can. I would go myself but I am too worried to leave my dear wife behind. When you find Khonza, tell her that Jali sent you. Please hurry, friend!");
     end

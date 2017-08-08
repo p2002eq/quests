@@ -35,9 +35,9 @@ end
 
 function event_say(e)
 	if(e.message:findi("Hail")) then
-		e.self:Say("Step up. step up! Please take a moment to purchase some supplies from me. Times are hard and my [luck] has been bad.");
+		e.self:Say("Step up. step up! Please take a moment to purchase some supplies from me. Times are hard and my [" .. eq.say_link("luck") .. "] has been bad.");
 	elseif(e.message:findi("luck")) then
-		e.self:Say("I have just come from Hollowshade Moor a few weeks ago. My fishing days have been very unprosperous. The lures that I have now are made of low quality Acrylia and scare the fish away rather than attract them. I want to make a new lure, and on my way in I noticed the dull color of the [scorpions].  I would have moved closer to them but unfortunately I am deathly allergic to the poisons found in scorpion venom.");
+		e.self:Say("I have just come from Hollowshade Moor a few weeks ago. My fishing days have been very unprosperous. The lures that I have now are made of low quality Acrylia and scare the fish away rather than attract them. I want to make a new lure, and on my way in I noticed the dull color of the [" .. eq.say_link("scorpions") .. "].  I would have moved closer to them but unfortunately I am deathly allergic to the poisons found in scorpion venom.");
 	elseif(e.message:findi("scorpions")) then
 		e.self:Say("The scorpions are at the bottom of the canyon surrounding the city. If you can bring me four shells to make a few lures, I will give you my old lure. Be careful making your way down the ledges as there are many steep drops.");
 	end
@@ -51,8 +51,3 @@ function event_trade(e)
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------

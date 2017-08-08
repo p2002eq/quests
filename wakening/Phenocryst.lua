@@ -6,8 +6,8 @@ function event_say(e)
 	elseif(e.message:findi("help you")) then
 		e.self:emote("speaks from within your mind as well as conveys a sense of joy empathically. It is said that the harbringer will find all of our people and unite them. When we join we will know all of our experiences and perhaps then be aware of how to proceed with the next step in our asscention. We implore you to find others like us and make them aware of us. You know the language of the stone and can tell them. We await your return with proof that you have spoken to them.");
 	elseif(qglobals["veliumfocus"] == "1" and e.message:findi("find what")) then
-		e.self:emote("says in the form of thoughts, We must call to it. We must make ourselves heard past these rocks though. A menhir must be constructed to amplify our voice. The stones we will need are not found in this area though. We hear whispers of stones far away that have the ability to channel and amplify our thoughts. We ask you to gather these stones for us harbinger.");
-	elseif(qglobals["veliumfocus"] == "1" and e.message:findi("gather these stones for you")) then
+		e.self:emote("says in the form of thoughts, We must call to it. We must make ourselves heard past these rocks though. A menhir must be constructed to amplify our voice. The stones we will need are not found in this area though. We hear whispers of stones far away that have the ability to channel and amplify our thoughts. We ask you to [" .. eq.say_link("gather these stones") .. "] for us harbinger.");
+	elseif(qglobals["veliumfocus"] == "1" and e.message:findi("gather these stones")) then
 		e.self:emote("thoughts flood your mind, 'Thank you Harbinger. We need 3 crystals. One of Beryl, one of Stibnite, and one of the purest Iron. These minerals will only be found deep within the earth where the geology is relatively stable. This Focus will aid you in finding the right crystals. Return it to me with the 3 crystals and we will construct our Menhir. Please hurry Harbinger, our prophecy awaits.");
 	    e.other:SummonItem(1694);
 	end
@@ -21,7 +21,7 @@ function event_trade(e)
             e.other:Faction(116,15);
             e.other:SummonItem(1701);
     elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 1694,item2 = 1695,item3 = 1697, item4 = 1696})) then -- Elbaite Focus, The Reddish Crystal, Heavy Metal Crystal, Bent Metallic Crystal
-            e.self:emote("speaks to you from within your mind, You know the stone! This is wonderful! The fullfillment of the prophecy is now one step closer. The most ancient of the stone tells us that one not of stone will come forth and act as our harbringer of asscention. We believe you to be our harbringer. Please help us!");
+            e.self:emote("speaks to you from within your mind, You know the stone! This is wonderful! The fullfillment of the prophecy is now one step closer. The most ancient of the stone tells us that one not of stone will come forth and act as our harbringer of asscention. We believe you to be our harbringer. Please [" .. eq.say_link("help you",false,"help us") .. "]!");
             e.other:Faction(116,15);
             eq.set_global("veliumfocus","1",5,"F");
     elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 1693})) then

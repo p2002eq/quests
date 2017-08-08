@@ -1,8 +1,8 @@
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Finally, a servant worthy of my needs! Apparently you are of high status, which perhaps means you might know a master [jeweler] capable of faceting a very magical, yet fragile stone?");
+		e.self:Say("Finally, a servant worthy of my needs! Apparently you are of high status, which perhaps means you might know a master [" .. eq.say_link("jeweler") .. "] capable of faceting a very magical, yet fragile stone?");
 	elseif(e.message:findi("jeweler")) then
-		e.self:Say("You must provide me with 2000 platinum pieces as a deposit, then you must take this stone to a master jeweler or [Darfumpel], have it faceted and return it to me along with an orb of pure crystal, a gold necklace the color of snow, and the [blood of Xenyari]. Do that and I will provide you with magic beyond that of most knights of darkness.");
+		e.self:Say("You must provide me with 2000 platinum pieces as a deposit, then you must take this stone to a master jeweler or [" .. eq.say_link("Darfumpel") .. "], have it faceted and return it to me along with an orb of pure crystal, a gold necklace the color of snow, and the [" .. eq.say_link("blood of Xenyari") .. "]. Do that and I will provide you with magic beyond that of most knights of darkness.");
 	elseif(e.message:findi("darfumpel")) then
 		e.self:Say("Darfumpel is a gnomish shopkeeper here in the Rathe Mountains. He apparently has a new technique for gemcutting, however, he will not deal with me due to my affiliation with necromancy. Speak with him. Perhaps he might be willing to aid you for a price, but make sure you hide your true nature. He despises dark magic.");
 	elseif(e.message:findi("blood of xenyari")) then
@@ -29,9 +29,3 @@ function event_trade(e)
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
---END of FILE Zone:rathemtn  ID:50272 -- Kazzel_D-Leryt
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------

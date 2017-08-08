@@ -1,5 +1,4 @@
 -- #Tahia_Felwah, coordinates ring of fear event in CT
-
 local ThreadManager = require("thread_manager");
 
 function event_spawn(e)
@@ -27,7 +26,7 @@ function Talking(e)
 	ThreadManager:Wait(15);
 	eq.zone_emote(1,"An unstable rift glows, and dissipates.");
 	eq.zone_emote(1,"A piercing, disembodied scream echos from deep within the temple. Your body begins to tremble uncontrollably with fear.");
-	eq.unique_spawn(48381, 0, 0, 587, 1090, -98, 0);
+	eq.unique_spawn(48381, 0, 0, 587, 1090, -98, 0); -- Avatar of Fear
 	e.self:Say("Prepare youselves! You must repel the denizens of Fear itself! Good luck brave souls, I will remain here until my task is fulfilled.");
 	eq.stop_timer("TMHB");
 end
@@ -35,9 +34,9 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	
-	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 8234})) then
-		e.other:SpellFinished(2697,e.other);
-		e.other:SpellFinished(2698,e.other);	-- instant casts it from turn in player because her aoe cast won't land on players.
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 8234})) then -- Rune of the Faceless
+		e.other:SpellFinished(2697,e.other); -- Beta Complete Healing
+		e.other:SpellFinished(2698,e.other); -- Beta AE Gain Mana -- instant casts it from turn in player because her aoe cast won't land on players.
 		rune_total = rune_total + 1;
 	end
 	

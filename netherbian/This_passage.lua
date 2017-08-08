@@ -1,5 +1,3 @@
--- flavor mob (netherbian)
-
 function event_spawn(e)
     eq.set_timer('idle_chat', 1000);
 end

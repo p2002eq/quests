@@ -1,9 +1,9 @@
 --Merri's Artifact Collection/The Collector's Box
 function event_say(e)
 	if(e.message:findi("Hail")) then
-		e.self:Emote("beams a smile as you approach. 'Welcome " .. e.other:GetName() .. ". This building will be the site of New Tanaan's greatest museum ever. I realize it looks a bit empty now, but just imagine how beautiful it will look after we fill it with rare and exotic treasures from all over. It's a very exciting time, no? Of course, we still need to obtain a few more [artifacts].'");
+		e.self:Emote("beams a smile as you approach. 'Welcome " .. e.other:GetName() .. ". This building will be the site of New Tanaan's greatest museum ever. I realize it looks a bit empty now, but just imagine how beautiful it will look after we fill it with rare and exotic treasures from all over. It's a very exciting time, no? Of course, we still need to obtain a few more [" .. eq.say_link("artifacts") .. "].'");
 	elseif(e.message:findi("artifacts")) then
-		e.self:Say("Each of the people you see working here has their own exhibit to build and maintain. If you speak to them, they can tell you about which items they are looking for to add to their collection. Any items you collect will need to be placed inside one of my storage containers. If you [need a Collector's Box] at any time, just ask me. Also know I could use some help in retrieving some [special items] for my own exhibit.");
+		e.self:Say("Each of the people you see working here has their own exhibit to build and maintain. If you speak to them, they can tell you about which items they are looking for to add to their collection. Any items you collect will need to be placed inside one of my storage containers. If you [" .. eq.say_link("need a Collector's Box") .. "] at any time, just ask me. Also know I could use some help in retrieving some [" .. eq.say_link("special items") .. "] for my own exhibit.");
 	elseif(e.message:findi("special items")) then
 		e.self:Say("My display will showcase the many interesting religious idols and artifacts from Norrath's history. Most of my gallery is complete, but I still need a few more items. I am looking for a Forlorn Totem of Rolfron Zek, Idol of Woven Grass, Coldain Fetish, and a Petrified Totem. Once you have these holy artifacts, close them up inside a Collector's Box and return it to me. Good luck.");
 	elseif(e.message:findi("need a Collector\'s Box")) then
@@ -20,8 +20,3 @@ function event_trade(e)
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------

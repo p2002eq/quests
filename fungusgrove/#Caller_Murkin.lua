@@ -8,7 +8,7 @@ end
 
 function event_say(e)
 	if e.message:findi("hail") then
-		e.self:Say("Ho ho! You come to hunt beasties? I bet so, many o' you kinda people come to hunt beasties. I call beasties fer ya, yub yub. Werk hard, work cheap too yub. You wanna hunt beasties, you bring blargrot here yub! More blargrot, me work harder yub.");
+		e.self:Say("Ho ho! You come to hunt beasties? I bet so, many o' you kinda people come to hunt beasties. I call beasties fer ya, yub yub. Werk hard, work cheap too yub. You wanna hunt beasties, you bring blargrot here yub! More [" .. eq.say_link("blargrot") .. "], me work harder yub.");
 	elseif e.message:findi("blargrot") then
 		e.self:Emote("grins and rubs his belly, 'Blargrot! Loves it, yub! You bring blargrot and me call beasties outta tha cave for ya, yub. Bring me a lil' jug, I call a few beasties. Bring a big ol' hruge jug, me call more beasties than ya ever see, yub!");
 	end

@@ -1,6 +1,6 @@
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Emote("looks up irritably. 'I do not have time to speak with thee. I have a problem on my hands. Feel free to speak with any of my trainers.'");
+		e.self:Emote("looks up irritably. 'I do not have time to speak with thee. I have a [" .. eq.say_link("problem") .. "] on my hands. Feel free to speak with any of my trainers.'");
 	elseif(e.message:findi("problem")) then
 		e.self:Say("My problems are of no concern of yours. but if you must know it deals with Nolusia's brother. I can tell you no more. Leave me be.");
 	end

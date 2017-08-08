@@ -14,7 +14,7 @@ function event_trade(e)
 	local item_lib = require("items");
 
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 12102})) then
-		e.self:Say("Thank you, protector of Karana. This will be handy when the cold rushes into the valley. Allow me to offer you some provisions for your journey. And, might I add, the [Karana bandits] have begun to operate much closer to Qeynos.");
+		e.self:Say("Thank you, protector of Karana. This will be handy when the cold rushes into the valley. Allow me to offer you some provisions for your journey. And, might I add, the [" .. eq.say_link("Karana bandits") .. "] have begun to operate much closer to Qeynos.");
 		e.other:Ding();
 		e.other:Faction(167,1,0);
 		e.other:Faction(135,1,0);

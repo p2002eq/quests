@@ -1,7 +1,7 @@
 ---- Quest:Vampyre Fangs
 function event_say(e)
     if(e.message:findi("hail")) then
-        e.self:Say("I am Governor Kroldar Strongarm of Katta Castellum. It is my duty to command the Validus Custodus in matters of Warfare. The Empire of the Loyalist Combine is currently engaged in a long lasting war with the Inquisition Combine of Sanctus Seru and the vile undead of the [Coterie of the Eternal Night].");
+        e.self:Say("I am Governor Kroldar Strongarm of Katta Castellum. It is my duty to command the Validus Custodus in matters of Warfare. The Empire of the Loyalist Combine is currently engaged in a long lasting war with the Inquisition Combine of Sanctus Seru and the vile undead of the [" .. eq.say_link("Coterie of the Eternal Night") .. "].");
     elseif(e.message:findi("coterie of the eternal night")) then
         e.self:Say("The Coterie of the Eternal Night are not an enemy to be taken lightly. Our vampyre hunters must be dedicated to the annihilation of the undead. These vampyres tend to hold grudges that may last several of our lifetimes and their twisted vengeance may be inflicted on your descendents unless every one of the twisted abominations is destroyed. Should you bring me the fangs of four vampyres I will know you have taken the first step and are dedicated to the cause.");
     end

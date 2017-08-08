@@ -1,6 +1,6 @@
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say(string.format("Greetings friend %s! I am a provider of the highest quality steel ore known to Norrath! This ore is in such demand that I often run low and find it difficult to restock my supplies. If you're [looking for a job] I will gladly pay you for some of your time.",e.other:GetName()));
+		e.self:Say(string.format("Greetings friend %s! I am a provider of the highest quality steel ore known to Norrath! This ore is in such demand that I often run low and find it difficult to restock my supplies. If you're [" .. eq.say_link("looking for a job") .. "] I will gladly pay you for some of your time.",e.other:GetName()));
 	elseif(e.message:findi("looking for a job")) then
 		e.self:Say("I need you to take this crate and fill it with either Small Bracks of Unrefined Ore or Large Bricks of Unrefined Ore then return it to me so that I may refine it and sell it. The unrefined ore that I require is often mined by the goblins in the ruins of Permafrost Keep.");
 		e.other:SummonItem(17814) -- Empty Ore Crate

@@ -8,7 +8,7 @@ function event_trade(e)
 	local item_lib = require("items");
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 5545})) then -- Leather Gripped Short Sword
 		e.self:Emote("examines the hilt for a moment and hands the sword back to you.");
-		e.self:Say("This looks like it will work fine.' He says. 'If you are up to doing me a favor, I can teach you how to modify your shield as well. Take this bag and these files and come back to me when you have some spare time and want to learn [more about shields].");
+		e.self:Say("This looks like it will work fine.' He says. 'If you are up to doing me a favor, I can teach you how to modify your shield as well. Take this bag and these files and come back to me when you have some spare time and want to learn [" .. eq.say_link("more about shields") .. "].");
 		e.other:SummonItem(5545); -- Leather Gripped Short Sword
 		e.other:SummonItem(5546); -- Set of Engraved Files
 		e.other:QuestReward(e.self,0,0,0,0,17605); -- Grime Covered Bag
@@ -25,8 +25,3 @@ function event_trade(e)
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------

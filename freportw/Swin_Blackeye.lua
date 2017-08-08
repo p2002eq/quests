@@ -8,7 +8,6 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 12147})) then -- Hog Key
 		e.self:Say("Here you go then.");
 		e.other:SummonItem(18814); -- A Sealed Letter
@@ -25,5 +24,3 @@ end
 function event_signal(e)
 	e.self:Say("Hmmph !! If you're here to get the mail for room two, you'll need to show me the room key.");
 end
-
--- END of FILE Zone:freportw -- Swin_Blackeye

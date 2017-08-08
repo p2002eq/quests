@@ -1,12 +1,12 @@
 --Rytan's Progressive Fletching Quest
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Hello " .. e.other:GetName() .. ", I trust all is well with you today. Come in and have a look around, just let me know if you see anything you like. By the way, I am in need of the assistance of an official Shar Vahl citizen. If you know of any please send them my way.");
+		e.self:Say("Hello " .. e.other:GetName() .. ", I trust all is well with you today. Come in and have a look around, just let me know if you see anything you like. By the way, I am in need of the assistance of an official Shar Vahl [" .. eq.say_link("citizen") .. "]. If you know of any please send them my way.");
 	elseif(e.message:findi("citizen")) then
 		e.self:Say("Wonderful! Please, show me your acrylia slate and I'll disclose my errand.");
 	elseif(e.message:findi("grimling fang darts")) then
-		e.self:Say("A grimling fang combined with a bone shard will make a dart slightly better than the xakra tooth dart, which will also sell for slightly more.");
-	elseif(e.message:findi("grimling fangs")) then
+		e.self:Say("A [" .. eq.say_link("grimling fang") .. "] combined with a bone shard will make a dart slightly better than the xakra tooth dart, which will also sell for slightly more.");
+	elseif(e.message:findi("grimling fang")) then
 		e.self:Say("The grimlings are the beings who attack our people around the Acrylia mines. They have the ability to use magic against us. Be careful if you wish to travel north. We have been waging war in that area.");
 	elseif(e.message:findi("rockhopper talon darts")) then
 		e.self:Say("Rockhopper talon darts are slightly better than grimling fang darts and will sell for a little more. The hooked dart crafting tool and a rockhopper foot will yield one of these darts.")
@@ -30,12 +30,12 @@ function event_trade(e)
 		e.other:QuestReward(e.self,0,0,0,0,3467,1000); -- Xakra Dart Crafting Tool
 	end
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 3467})) then -- Xakra Dart Crafting Tool
-		e.self:Say("I assume you are ready to make more challenging darts. Very well, attach this shaft to your crafting tool in a fletching kit and you will be able to make grimling fang darts. Keep in mind that once this is done you will lose the ability to craft xakra tooth darts. When the grimling fang darts become trivial you may wish to upgrade your tool again by giving me the grimling dart crafting tool.");
+		e.self:Say("I assume you are ready to make more challenging darts. Very well, attach this shaft to your crafting tool in a fletching kit and you will be able to make [" .. eq.say_link("grimling fang darts") .. "]. Keep in mind that once this is done you will lose the ability to craft xakra tooth darts. When the grimling fang darts become trivial you may wish to upgrade your tool again by giving me the grimling dart crafting tool.");
 		e.other:SummonItem(3467); -- Xakra Dart Crafting Tool
 		e.other:QuestReward(e.self,0,0,0,0,3471); -- Crafting Tool Shaft Attachment
 	end
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 3472})) then -- Grimling Dart Crafting Tool
-		e.self:Say("Your skill is increasing rapidly, " .. e.other:GetName() .. ". Here is a hook to place on the end of your crafting tool that will enable you to fashion rockhopper talon darts. Once the tool is modified it will not be able to make other types of darts. When creating rockhopper talon darts becomes trivial to you, feel free to give it to me for another upgrade.");
+		e.self:Say("Your skill is increasing rapidly, " .. e.other:GetName() .. ". Here is a hook to place on the end of your crafting tool that will enable you to fashion [" .. eq.say_link("rockhopper talon darts") .. "]. Once the tool is modified it will not be able to make other types of darts. When creating rockhopper talon darts becomes trivial to you, feel free to give it to me for another upgrade.");
 		e.other:SummonItem(3472); -- Grimling Dart Crafting Tool
 		e.other:QuestReward(e.self,0,0,0,0,3473); -- Crafting Tool Hook Attachment
 	end
@@ -46,8 +46,3 @@ function event_trade(e)
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------

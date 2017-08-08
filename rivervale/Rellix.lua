@@ -1,7 +1,4 @@
 -- Chef Chowderly's Award-Winning Recipes
--- created by Gonner
--- converted to lua by robregen
-
 function event_say(e)
 	if(e.message:findi("hail")) then
 		e.self:Say("All these dirty dishes stinking up the place.");
@@ -19,6 +16,3 @@ function event_trade(e)
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
--- END of FILE zone:rivervale ID:19117 -- Rellix.pl
-

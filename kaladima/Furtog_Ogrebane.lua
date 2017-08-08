@@ -1,12 +1,12 @@
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Hail, mighty " .. e.other:GetName() .. "! Welcome to Stormguard Hall. I am Captain Furtog Ogrebane, only surviving descendant of the legendary Trondle Ogrebane, slayer of the [Mudtoes]. If you wish to serve the grand city of Kaladim. I urge you to speak with any of the trainers. Good day.");
+		e.self:Say("Hail, mighty " .. e.other:GetName() .. "! Welcome to Stormguard Hall. I am Captain Furtog Ogrebane, only surviving descendant of the legendary Trondle Ogrebane, slayer of the [" .. eq.say_link("Mudtoes") .. "]. If you wish to serve the grand city of Kaladim. I urge you to speak with any of the trainers. Good day.");
 	elseif(e.message:findi("mudtoes") and not e.message:findi("searching")) then
-		e.self:Say("The Mudtoes were a small but mighty clan of ogres. My great father [Trondle] destroyed them. I have heard disturbing rumors of one Mudtoe surviving. Would you mind [searching for the Mudtoes] or have you other duties to perform?");
+		e.self:Say("The Mudtoes were a small but mighty clan of ogres. My great father [" .. eq.say_link("Trondle") .. "] destroyed them. I have heard disturbing rumors of one Mudtoe surviving. Would you mind [" .. eq.say_link("searching for the Mudtoes") .. "] or have you other duties to perform?");
 	elseif(e.message:findi("trondle")) then
 		e.self:Say("Trondle was my great father and slayer of the Mudtoes. He was killed by those vile Crushbone orcs. If you truly wish to help Kaladim remain safe. speak with trainer Canloe Nusback. Say that you are ready to serve Kaladim.");
 	elseif(e.message:findi("searching")) then
-		e.self:Say("I have heard persistent rumors of two Mudtoe ogres who survived the slaughter.  Go to the port of Butcherblock.  Those dock hands must have heard of the name [Mudtoe].  Bring me the remaining heads of the Mudtoes!!  I want all the Mudtoes dead!!  Do not return until you have them both!!");
+		e.self:Say("I have heard persistent rumors of two Mudtoe ogres who survived the slaughter.  Go to the port of Butcherblock.  Those dock hands must have heard of the name [" .. eq.say_link("Mudtoe") .. "].  Bring me the remaining heads of the Mudtoes!!  I want all the Mudtoes dead!!  Do not return until you have them both!!");
 	end
 end
 
@@ -36,8 +36,3 @@ function event_trade(e)
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------

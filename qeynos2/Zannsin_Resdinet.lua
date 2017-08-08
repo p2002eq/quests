@@ -7,17 +7,17 @@ end
 
 function event_signal(e)
 	if(e.signal == 1 and e.self:GetX() == 163 and e.self:GetY() == 144) then
-		e.self:Say("Yeah, whatever, Knarg. If I were you, I wouldn't mess around with [Renux]. She's in tight with [Hanns], and you know how he is.");
+		e.self:Say("Yeah, whatever, Knarg. If I were you, I wouldn't mess around with Renux. She's in tight with Hanns, and you know how he is.");
 	elseif(e.signal == 2) then
-		e.self:Say("[Rujahn] Tahslek, huh? I've never heard of him, but those bandits seem to have a new leader every month or so.");
+		e.self:Say("Rujahn Tahslek, huh? I've never heard of him, but those bandits seem to have a new leader every month or so.");
 	elseif(e.signal == 3) then
-		e.self:Say("I'll send one of our best men to Highpass and eliminate [Rujahn]'s spy.");
+		e.self:Say("I'll send one of our best men to Highpass and eliminate Rujahn's spy.");
 	end
 end
 
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Hey..  My name's Zannsin. but you can call me [Zan].");
+		e.self:Say("Hey..  My name's Zannsin. but you can call me [" .. eq.say_link("Zan") .. "].");
 	elseif(e.message:findi("men to prak in highpass")) then
 		if(e.other:GetFaction(e.self) < 3) then
 			e.self:Say("Hmm, I see. Maybe you can help us out with this, " .. e.other:GetName() .. ", huh? I think it'd be a perfect opportunity for you to prove just how valuable you are to our little organization. Take this letter to Prak at Golden Rooster in Highpass, and see what you can do to help him out.");
@@ -39,5 +39,3 @@ function event_trade(e)
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
--- END of FILE Zone:qeynos2  ID:2077 -- Zannsin_Resdinet

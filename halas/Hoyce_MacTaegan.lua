@@ -1,6 +1,6 @@
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Greetings to you brother. Did [Keven] send you?");
+		e.self:Say("Greetings to you brother. Did [" .. eq.say_link("Keven") .. "] send you?");
 	elseif(e.message:findi("keven")) then
 		e.self:Say("Very well, then let us begin. We are at home in the wilderness and thus it is important that we learn all we can about our surroundings. Now is the time of your learning. You are to venture out, hunt and learn about Everfrost. Return to me with a White Wolf Skin as proof of your successful hunt. We will then continue your training.");
 	elseif(e.message:findi("the land")) then
@@ -17,7 +17,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 13768})) then	--White Wolf Skin
-		e.self:Say("Very good! I am sure by now you are learning much about your local surroundings. It is now time for you to learn to [live off the land].");
+		e.self:Say("Very good! I am sure by now you are learning much about your local surroundings. It is now time for you to learn to [" .. eq.say_link("live off the land") .. "].");
 		e.other:Ding();
 		e.other:SummonItem(7365);								--Field Priest's Bracer
 		e.other:Faction(294, 5);      							-- Shamen of Justice
@@ -27,7 +27,7 @@ function event_trade(e)
 		e.other:Faction(90, -3);     							-- Ebon Mask
 		e.other:AddEXP(300);
 	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 16486, item2 = 16486, item3 = 16486, item4 = 2125})) then 					--Silk Thread x 3, Large Tattered Skullcap
-		e.self:Say("'I see your wisdom grows, as does your skill. Wear this cap I have made for you. I believe you are now skilled enough to begin to pursue justice and to fight against our enemies. Are you [willing to fight]?");
+		e.self:Say("'I see your wisdom grows, as does your skill. Wear this cap I have made for you. I believe you are now skilled enough to begin to pursue justice and to fight against our enemies. Are you [" .. eq.say_link("willing to fight") .. "]?");
 		e.other:Ding();
 		e.other:SummonItem(7366); 								--Field Priest's Cap
 		e.other:Faction(294, 5);      							-- Shamen of Justice
@@ -37,7 +37,7 @@ function event_trade(e)
 		e.other:Faction(90, -3);     							-- Ebon Mask
 		e.other:AddEXP(300);
 	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 13897, item2 = 13897, item3 = 13897, item4 = 13897})) then	--Goblin Ice necklacess x 4
-		e.self:Say("'I see you have brought many of our enemies to justice. You have done an excellent job and should be proud. No doubt your efforts saved lives. It is now time for you to venture out and fight stronger foes. Are you [up to the challenge]?");
+		e.self:Say("'I see you have brought many of our enemies to justice. You have done an excellent job and should be proud. No doubt your efforts saved lives. It is now time for you to venture out and fight stronger foes. Are you [" .. eq.say_link("up to the challenge") .. "]?");
 		e.other:Ding();
 		e.other:SummonItem(7367); 								--Field Priest's Kilt
 		e.other:Faction(294, 5);      							-- Shamen of Justice
@@ -47,7 +47,7 @@ function event_trade(e)
 		e.other:Faction(90, -3);     							-- Ebon Mask
 		e.other:AddEXP(300);
 	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 13915, item2 = 7005, item3 = 8011})) then 									--Gnoll Fang, Giant Snake Fang, Hunting Bow
-		e.self:Say("You truly have justice in your heart. The spirits know this too. No doubt you are now beginning to hear their faint whispers. Soon you shall hear them clearly and you shall no longer need my guidance. I have one more [favor] to ask of you if you are [willing].");
+		e.self:Say("You truly have justice in your heart. The spirits know this too. No doubt you are now beginning to hear their faint whispers. Soon you shall hear them clearly and you shall no longer need my guidance. I have one more [" .. eq.say_link("favor") .. "] to ask of you if you are [willing].");
 		e.other:Ding();
 		e.other:SummonItem(7368); 								--Field Priest's Claw
 		e.other:Faction(294, 5);      							-- Shamen of Justice
@@ -71,7 +71,3 @@ function event_trade(e)
 end
 
 --Note: Completed and tested on April 17, 2010 by mrhodes
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------

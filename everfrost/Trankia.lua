@@ -1,5 +1,4 @@
 -- Part of the quest for Tishan's Kilt
-
 function event_say(e)
 	if(e.message:findi("hail")) then
 		e.self:Say("Hmmph.");
@@ -12,7 +11,7 @@ function event_trade(e)
 	local item_lib = require("items");
 
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 10528})) then
-		e.self:Say("You must be another one from Vilissia. I will tell you what I tell all the others--you must help me [avenge] my [brother] before I will help you attain Tishan's Kilt.");
+		e.self:Say("You must be another one from Vilissia. I will tell you what I tell all the others--you must help me [" .. eq.say_link("I will avenge your brother",false,"avenge my brother") .. "] before I will help you attain Tishan's Kilt.");
 		e.other:QuestReward(e.self,0,0,0,0,18797,500);
 	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 10556})) then
 		e.self:Say("Oh Wulfthan, look what has become of you. I told you that you should not have trusted Martar.  " .. e.other:GetName() .. ", as a final service, I want you to kill Martar IceBear for me. He is known to roam these parts. Bring me the Warthread Kilt that he wears and my two reminder notes, and I will give to you Tishan's Kilt.");
@@ -23,5 +22,3 @@ function event_trade(e)
 	end
 	item_lib.return_items(e.self, e.other, e.trade);
 end
-
--- Trankia

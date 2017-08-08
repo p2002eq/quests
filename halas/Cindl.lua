@@ -1,6 +1,6 @@
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Welcome to my humble shop. I offer fine items fashioned from the skins of the beasts of Everfrost. Leather is my specialty and I can always use [extra hides].");
+		e.self:Say("Welcome to my humble shop. I offer fine items fashioned from the skins of the beasts of Everfrost. Leather is my specialty and I can always use [" .. eq.say_link("extra hides") .. "].");
 	elseif(e.message:findi("extra hides")) then
 		e.self:Say("I will offer any hunter some used Tattered Armor for every Polar Bear Skin. I am sure that even you can wrestle the skins from the back of a polar bear cub.");
 	elseif(e.message:findi("second job")) then
@@ -14,7 +14,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 13761})) then
-		e.self:Say("This is much appreciated.  Please accept this used armor in return and also a gold piece for yer troubles.  You have done well! I may have a [second job] fer ye, if ye like?");
+		e.self:Say("This is much appreciated.  Please accept this used armor in return and also a gold piece for yer troubles.  You have done well! I may have a [" .. eq.say_link("second job") .. "] fer ye, if ye like?");
 		e.other:SummonItem(eq.ChooseRandom(2131, 2134, 2127, 2126, 2129, 2125, 2133));
 		e.other:GiveCash(0,0,1,0);
 		e.other:AddEXP(150);
@@ -35,8 +35,3 @@ function event_trade(e)
 		item_lib.return_items(e.self, e.other, e.trade)
 	end
 end
-
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------

@@ -8,8 +8,20 @@
 -- 6 = have the Interrogators Badge
 -- Death of the an_investigator section will reset you back to QGlobal 1 so you can restart the escort portion
 
+local trigger;
+
 function event_spawn(e)
 	eq.signal(14050,1,5000); -- an_interrogator
+	trigger = 0;		--dialogue checkpoint
+end
+
+function event_say(e)
+    if(e.message:findi("location") and trigger == 1) then
+		e.self:Say("Fine, follow me creeps.");
+		eq.move_to(-3098,-5872,94,160,true);
+		eq.signal(14050,7,1);  --this calls for an interrogator to continue its waypoint. 
+		trigger = 0;
+	end
 end
 
 function event_signal(e)
@@ -22,6 +34,7 @@ function event_signal(e)
 		eq.signal(14050,3,5000); -- an_interrogator
 	elseif(e.signal == 3) then
 		e.self:Emote("reels back, his eyes wide with shock. 'Ow,' he says nervously.");
+		e.self:DoAnim(14);
 		eq.signal(14050,4,5000); -- an_interrogator
 	elseif(e.signal == 4) then
 		e.self:Emote("winces and says, 'Oh. Yeah right. Like I'm afraid of that moron or something.' Theodore glances nervously over at you");
@@ -29,9 +42,7 @@ function event_signal(e)
 	elseif(e.signal == 5) then
 		e.self:Emote("gulps nervously");
 	elseif(e.signal == 6) then
-		e.self:Say("Fine, follow me creeps.");
-		eq.move_to(-3098,-5872,94,160,true);
-		-- eq.signal(14050,7,5000);  this call for an interrogator to continue its waypoint.   the eq.resume() or e.self:ResumeWandering() currently isn't working as intended.
+		trigger = 1;	--sets dialogue checkpoint
 	elseif(e.signal == 7) then
 		e.self:Say("There... They are hiding out just down the hill here... Now release me!");
 		eq.signal(14050,8,5000); -- an_interrogator
@@ -40,7 +51,7 @@ end
 
 function event_combat(e)
 	if(e.joined == true) then
-		eq.set_timer("defeat",3000);
+		eq.set_timer("defeat",500);
 	end
 end
 
@@ -50,14 +61,14 @@ function event_timer(e)
 		eq.stop_timer("defeat");
 		e.self:WipeHateList();
 		eq.signal(14050,6,5000);  -- an_interrogator
-        eq.set_global("qeynos_badge2","3",5,"F"); -- Badge Globals
+        --eq.set_global("qeynos_badge2","3",5,"F"); -- Badge Globals
 	end
 end
 
 function event_trade(e)
     local qglobals = eq.get_qglobals(e.self,e.other);
 	local item_lib = require("items");
-	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 2344}) and tonumber(qglobals.qeynos_badge2) == 4) then -- confession document
+	if(tonumber(qglobals.qeynos_badge2) >= 2 and item_lib.check_turn_in(e.self, e.trade, {item1 = 2344})) then -- confession document
 		e.self:Emote("makes a big X at the bottom of the document and hands it back saying, 'A bunch of worthless thugs is all you folks are!'");
 		e.other:QuestReward(e.self,0,0,0,0,2395,1000); -- Theodore's Confession
         eq.set_global("qeynos_badge2","5",5,"F"); -- Badge Globals

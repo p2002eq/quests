@@ -1,13 +1,13 @@
 ---- Quest:The Pulsating Rock
 function event_say(e)
     if(e.message:findi("hail")) then
-        e.self:Say("Good day to you adventurer. Is there something I can assist you with? I have been quite busy as of late with the study of this [mysterious glowing rock] I was presented with and I do not have much time for small talk.");
+        e.self:Say("Good day to you adventurer. Is there something I can assist you with? I have been quite busy as of late with the study of this [" .. eq.say_link("mysterious glowing rock") .. "] I was presented with and I do not have much time for small talk.");
     elseif(e.message:findi("glowing")) then
-        e.self:Say("Well, if you look closely, I have it right here. It has been glowing since I first received it. But since it was delivered to me it has lost a lot of it's aura. I feel I will need another sample soon, it seems to lose its [energy] as time goes on.");
+        e.self:Say("Well, if you look closely, I have it right here. It has been glowing since I first received it. But since it was delivered to me it has lost a lot of it's aura. I feel I will need another sample soon, it seems to lose its [" .. eq.say_link("energy") .. "] as time goes on.");
     elseif(e.message:findi("energy")) then
-        e.self:Say("This I do not know and I am trying to discover. However, as I said before, this rock is slowly losing its energy it seems. I will need another [sample rock] soon.");
+        e.self:Say("This I do not know and I am trying to discover. However, as I said before, this rock is slowly losing its energy it seems. I will need another [" .. eq.say_link("sample rock") .. "] soon.");
     elseif(e.message:findi("sample rock")) then
-        e.self:Say("I believe these rocks are from the Paludal Caverns, if my sources were correct. Beetles that crawl over and feed off the rock structures there might explain the glowing, if they are the origins of these mysterious rocks. To further my studies I will need another pulsating rock. Will you [retrieve this rock] for me?");
+        e.self:Say("I believe these rocks are from the Paludal Caverns, if my sources were correct. Beetles that crawl over and feed off the rock structures there might explain the glowing, if they are the origins of these mysterious rocks. To further my studies I will need another pulsating rock. Will you [" .. eq.say_link("retrieve this rock") .. "] for me?");
     elseif(e.message:findi("retrieve this rock")) then
         e.self:Say("Fantastic, " .. e.other:GetName() .. ". Please return to me at once with a pulsating rock. We will conclude our dealings at that time.");
     end

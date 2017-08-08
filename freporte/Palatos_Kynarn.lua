@@ -1,10 +1,10 @@
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("What do you want?  Can't you see that I wish to be alone?!  I have no need nor desire to speak with anyone.  I have a minor dilemma to ponder and the only person I wish to speak with is the [captain].");
+		e.self:Say("What do you want?  Can't you see that I wish to be alone?!  I have no need nor desire to speak with anyone.  I have a minor dilemma to ponder and the only person I wish to speak with is the [" .. eq.say_link("captain") .. "].");
 	elseif(e.message:findi("captain")) then
 		e.self:Say("If you have to ask that. you should not be in this fine establishment.");
 	elseif(e.message:findi("danaria sent me")) then
-		e.self:Say("If you are working for Danaria, you have been misguided. You will go back to her empty handed. Now leave. The [captain] and I have some business to discuss.");
+		e.self:Say("If you are working for Danaria, you have been misguided. You will go back to her empty handed. Now leave. The [" .. eq.say_link("captain") .. "] and I have some business to discuss.");
 	end
 end
 
@@ -34,8 +34,3 @@ function event_trade(e)
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
--- END of FILE Zone:freporte  ID:10112 -- Palatos_Kynarn
-
-
-

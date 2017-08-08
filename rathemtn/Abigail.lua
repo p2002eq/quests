@@ -1,6 +1,6 @@
 function event_say(e)
 	if(e.message:findi("Hail")) then
-		e.self:Say("Greetings!  I am the holder of the secret of the [Breastplate of Ro].  You may rest here.  You are quite safe within this camp of paladins.");
+		e.self:Say("Greetings!  I am the holder of the secret of the [" .. eq.say_link("Breastplate of Ro") .. "].  You may rest here.  You are quite safe within this camp of paladins.");
 	
 	elseif(e.message:findi("breastplate of ro")) then
 		if(e.other:GetFaction(e.self) < 5) then -- requires amiable
@@ -15,7 +15,7 @@ function event_trade(e)
 	local item_lib = require("items");
 
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 12309, item2 = 12309}) and e.other:GetFaction(e.self) < 5) then -- A Dark Cauldron
-		e.self:Say("You have earned the mold.  You will now need go and speak with Thomas about [Lord Searfire].");
+		e.self:Say("You have earned the mold.  You will now need go and speak with Thomas about [" .. eq.say_link("Lord Searfire") .. "].");
 		e.other:Faction(43,1);  -- Clerics of Tunare
 		e.other:Faction(178,1); -- King Tearis Thex
 		e.other:Faction(8,1); -- Anti-Mage
@@ -25,9 +25,3 @@ function event_trade(e)
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
---END of FILE Zone:rathemtn  ID:50113 -- Abigail
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------

@@ -1,11 +1,10 @@
 function event_say(e)
 	local fac = e.other:GetFaction(e.self);
-	
 	if(fac < 3) then -- need warmly
 		if(e.message:findi("hail")) then
 			e.self:Say("Frroooaaaaaakkkk!");
 		elseif(e.message:findi("mask")) then
-			e.self:Say("Frroooaaaaaakkkk! Speciaaal maaask I maaake for sneaky types! Lost long ago! Baaad frogs taaake! I too old to maaake more! Frroooaaaaaakkkk! Maaagic aaalmost used up! So cold! You help me! I help you!");
+			e.self:Say("Frroooaaaaaakkkk! Speciaaal maaask I maaake for sneaky types! Lost long ago! Baaad frogs taaake! I too old to maaake more! Frroooaaaaaakkkk! Maaagic aaalmost used up! So cold! You [" .. eq.say_link("help") .. "] me! I help you!");
 		elseif(e.message:findi("help")) then
 			e.self:Say("Frroooaaaaaakkkk! So cold! You bring me waaarm velium mastodon fur cloaaak! I need supplies! You bring me maaana juice! You bring me elf essence! You bring me sturdy froglock crown those naaasty big frogs stole! Frroooaaaaaakkkk! I maaake you something nice! So cold! You bring me all those things, don't forget cloaaak!");
 		end
@@ -15,7 +14,6 @@ end
 function event_trade(e)
 	local fac = e.other:GetFaction(e.self);
 	local item_lib = require("items");
-
 	if(fac < 3) then -- need warmly for turn in
 		if(item_lib.check_turn_in(e.self, e.trade, {item1 = 11275})) then
 			e.self:Say("Frroooaaaaaakkkk! I'm in this book! You see me! Owww that flip hurt my old bones! Frroooaaaaaakkkk! Look there is a picture of my maaask from long ago! Frroooaaaaaakkkk! I keep book! You taaake this recipe! Maaaybe more! I'm in book! Frroooaaaaaakkkk!");

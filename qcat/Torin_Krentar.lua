@@ -1,5 +1,4 @@
 -- Bertoxxulous cleric quest armor
-
 function event_say(e)
 	if(e.message:findi("hail")) then
 		e.self:Say("The dead are watching you young one, yet you are safe under their otherworldly gaze. Is there something I can do for you?");
@@ -31,7 +30,7 @@ function event_trade(e)
 	local item_lib = require("items");
 	
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 20207})) then
-		e.self:Say("Well met young disciple of Bertoxxulous. Perhaps one day you shall serve the Plague Lord in his realm, but for now you will serve the Bloodsabers, his mortal agents on Norrath. The armor you seek must be assembled using this Mail Assembly Kit. The materials necessary to construct the armor vary depending on the piece being crafted. Do you wish to craft [Gauntlets] of the Pestilence Priests, [Boots] of the Pestilence Priests, a [Bracer] of the Pestilence Priests, a [Helm] of the Pestilence Priests, [Greaves] of the Pestilence Priests, [Vambraces] of the Pestilence Priests, or a [Breastplate] of the Pestilence Priests?");
+		e.self:Say("Well met young disciple of Bertoxxulous. Perhaps one day you shall serve the Plague Lord in his realm, but for now you will serve the Bloodsabers, his mortal agents on Norrath. The armor you seek must be assembled using this Mail Assembly Kit. The materials necessary to construct the armor vary depending on the piece being crafted. Do you wish to craft [" .. eq.say_link("Gauntlets") .. "] of the Pestilence Priests, [" .. eq.say_link("Boots") .. "] of the Pestilence Priests, a [" .. eq.say_link("Bracer") .. "] of the Pestilence Priests, a [" .. eq.say_link("Helm") .. "] of the Pestilence Priests, [" .. eq.say_link("Greaves") .. "] of the Pestilence Priests, [" .. eq.say_link("Vambraces") .. "] of the Pestilence Priests, or a [" .. eq.say_link("Breastplate") .. "] of the Pestilence Priests?");
 		e.other:QuestReward(e.self,0,0,0,0,17124);
 	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 20199, item2 = 19946})) then
 		e.self:Say("Well done, " .. e.other:GetName() .. ". Now go, spread the gifts of the Plague Lord upon the world.");
@@ -39,9 +38,3 @@ function event_trade(e)
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
--- EOF zone: qcat ID: 45074 NAME: Torin_Krentar
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------

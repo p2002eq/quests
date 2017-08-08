@@ -6,7 +6,6 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 18782})) then -- Recruitment Letter
 		e.self:Say("Welcome to the Emerald Warriors. Hmmm, you have a lot of training to do, so let's get started right away. Here's our guild tunic, represent us well, young " .. e.other:GetName() .. ".");
 		e.other:Faction(92,100); -- Emerald Warriors
@@ -24,5 +23,3 @@ function event_trade(e)
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
--- END of FILE Zone:gfaydark  ID:54093 -- Regren

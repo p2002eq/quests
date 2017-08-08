@@ -2,9 +2,9 @@ function event_say(e)
 	local fac = e.other:GetFaction(e.self);
 
 	if(e.message:findi("hail")) then
-		e.self:Say("Peace and tranquility be with you. " .. e.other:GetName() .. ".  Are you a [new acolyte of peace] or are you [here to pay homage] to the child of tranquility?");
+		e.self:Say("Peace and tranquility be with you. " .. e.other:GetName() .. ".  Are you a [" .. eq.say_link("new acolyte of peace") .. "] or are you [" .. eq.say_link("here to pay homage") .. "] to the child of tranquility?");
 	elseif(e.message:findi("new acolyte of peace")) then
-		e.self:Say("Then you shall learn the ways of Quellious and learn to do as you are told by higher ranking members. It is time for you to do the lesser duties of a young priest. Which will it be? [Retrieve the Peacekeeper staffs] or [battle the undead]?")
+		e.self:Say("Then you shall learn the ways of Quellious and learn to do as you are told by higher ranking members. It is time for you to do the lesser duties of a young priest. Which will it be? [" .. eq.say_link("Retrieve the Peacekeeper staffs") .. "] or [" .. eq.say_link("battle the undead") .. "]?")
 	elseif(e.message:findi("retrieve the Peacekeeper staffs")) then
 		e.self:Say("Then take this note to the woodworker in Toxxulia Forest. His name is Emil Parsini. He shall have the staff to be returned to the temple.");
 		e.other:SummonItem(18833); -- A Sealed Letter for Emil Parsini
@@ -13,7 +13,7 @@ function event_say(e)
 		e.other:SummonItem(17941); -- Box for Bones
 	elseif(fac <= 4) then
 		if(e.message:findi("important missions")) then
-			e.self:Say("We have need of skilled priests. We have learned that a High Guard battle staff has been stolen. We require a priest to [track down the staff].")
+			e.self:Say("We have need of skilled priests. We have learned that a High Guard battle staff has been stolen. We require a priest to [" .. eq.say_link("track down the staff") .. "].")
 		elseif(e.message:findi("here to pay homage")) then
 			e.self:Say("Then respect our temple and keep your prayers silent.");
 		else
@@ -35,7 +35,7 @@ function event_trade(e)
 		e.other:GiveCash(0,12,3,0); -- 12 silver 3 gold per Allakhazam
 		e.other:SummonItem(eq.ChooseRandom(17005,17002,10018,2144,2145,2146,6011,6016,15203,15207,15201,15208,15209,15014,15205,15210,6012));
 	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 13816})) then -- The completed Peacekeeper Staff
-		e.self:Say("You have done well, neophyte.Let me add the touch of harmony to finish the job.. Here, then. Take these supplies. I am sure you'll need them. Soon you may be able to assist us in [important missions].");
+		e.self:Say("You have done well, neophyte.Let me add the touch of harmony to finish the job.. Here, then. Take these supplies. I am sure you'll need them. Soon you may be able to assist us in [" .. eq.say_link("important missions") .. "].");
 		e.other:Faction(247,10,0);  -- Peace Keepers (Quellious temple)      
 		e.other:Faction(145,5,0);  -- High Council of Erudin      
 		e.other:Faction(143,-10,0);  -- Heretics      

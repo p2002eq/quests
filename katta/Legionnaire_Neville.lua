@@ -1,7 +1,7 @@
 function event_say(e)
     if(e.message:findi("Hail")) then
         e.self:Emote("coughs a bit and looks up at you with tired, bleary eyes,");
-        e.self:Say("Ugh, I have not had such a cold as this since I was a boy. I have heard of a [tea-maker] in the city of the Vah Shir that makes a stamina enhancing tea. I would like to try some and see if it might help.");
+        e.self:Say("Ugh, I have not had such a cold as this since I was a boy. I have heard of a [" .. eq.say_link("tea maker") .. "] in the city of the Vah Shir that makes a stamina enhancing tea. I would like to try some and see if it might help.");
     elseif(e.message:findi("tea maker")) then
         e.self:Say("ACHOO! Excuse me. It was some kind of root tea... saucy greyroot... sparkly greenroot... something like that I think. The brewer's name was... Adam... Lama... Oh I just cannot think straight.");
     end

@@ -6,6 +6,6 @@ end
 
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Greetings! I am Delharn. from [Freeport]. I'm trying to earn some extra coin while passing through Highpass. I figure this is a pretty honorable way to do so.");
+		e.self:Say("Greetings! I am Delharn, from Freeport. I'm trying to earn some extra coin while passing through Highpass. I figure this is a pretty honorable way to do so.");
 	end
 end

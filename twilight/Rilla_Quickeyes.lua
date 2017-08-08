@@ -3,9 +3,9 @@ function event_say(e)
 	if(e.message:findi("Hail")) then
 		e.self:Say("OH HI! This is soooo boring, I wish I had something else to do.");
 	elseif(e.message:findi("armor")) then
-		e.self:Say("Oh you want me to make some armor? If you're a [druid] I could make you some.");
+		e.self:Say("Oh you want me to make some armor? If you're a [" .. eq.say_link("druid") .. "] I could make you some.");
 	elseif(e.message:findi("druid")) then
-		e.self:Say("can make you a [cap], [tunic], [sleeves], [leggings], [mantle], [bracer], and [boots]. If you want other druid armor you'll have to talk to Edgar.");
+		e.self:Say("can make you a [" .. eq.say_link("cap") .. "], [" .. eq.say_link("tunic") .. "], [" .. eq.say_link("sleeves") .. "], [" .. eq.say_link("leggings") .. "], [" .. eq.say_link("mantle") .. "], [" .. eq.say_link("bracer") .. "], and [" .. eq.say_link("boots") .. "]. If you want other druid armor you'll have to talk to Edgar.");
 	elseif(e.message:findi("cap")) then
 		e.self:Say("For the earth blessed cap you will have to go get me a moon jewel, a mark of the wild, a braided vine bracelet, and an aged dark wood shaft.");
 	elseif(e.message:findi("tunic")) then

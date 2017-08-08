@@ -31,7 +31,6 @@ function event_say(e)
     quest_helper.quest_text(e, QUEST_TEXT, 3);
 end
 
---
 function event_trade(e)
 
 	local item_lib = require('items');

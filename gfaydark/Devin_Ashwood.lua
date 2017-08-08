@@ -2,11 +2,11 @@ function event_say(e)
 	if(e.message:findi("hail")) then
 		e.self:Say("Good day to you. " .. e.other:GetName() .. "!  I am Devin Ashwood.  Pleased to make your acquaintance."); 
 	elseif(e.message:findi("Ganelorn Oast")) then
-		e.self:Say("Ganelorn Oast! For he has single-handedly caught more poachers than any other ranger. He is credited for helping numerous endangered species recover from certain extinction. I suppose I am lucky he is fond of my sister, as I am soon to train under him as an apprentice. Perhaps one day I will even [call upon the flames] in the way that he does.");
+		e.self:Say("Ganelorn Oast! For he has single-handedly caught more poachers than any other ranger. He is credited for helping numerous endangered species recover from certain extinction. I suppose I am lucky he is fond of my sister, as I am soon to train under him as an apprentice. Perhaps one day I will even [" .. eq.say_link("call upon the flames") .. "] in the way that he does.");
 		eq.signal(54086,2);
 	elseif(e.message:findi("call upon the flames")) then
 		if(e.other:GetLevel() >= 50) then
-			e.self:Say("Aye, Ganelorn is renowned not only for his abilities as an archer and a master of melee combat, but also for his use of powerful magics. Never before have I seen a forester evoke a fireball of such great force. It would be any ranger's dream to become his pupil just to study that one spell. Ganelorn doesn't train just anyone, though. If you want to learn from him, I'm certain you would have to prove yourself as a forester.");
+			e.self:Say("Aye, Ganelorn is renowned not only for his abilities as an archer and a master of melee combat, but also for his use of powerful magics. Never before have I seen a forester evoke a fireball of such great force. It would be any ranger's dream to become his pupil just to study that one spell. Ganelorn doesn't train just anyone, though. If you want to [" .. eq.say_link("I want to learn",false,"learn") .. "] from him, I'm certain you would have to prove yourself as a forester.");
 		else
 			e.self:Say("This matter is far too advanced for you to handle. Come back after you've killed a few more large rats.");
 		end
@@ -26,5 +26,3 @@ function event_signal(e)
 		eq.signal(54086,1);
 	end
 end
-
--- END of FILE Zone:gfaydark  ID:54081 -- Devin_Ashwood

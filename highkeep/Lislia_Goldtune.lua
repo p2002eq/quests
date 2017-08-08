@@ -2,11 +2,11 @@
 
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Hail. " .. e.other:GetName() .. " - Are you [interested] in helping the League of Antonican Bards by delivering some [mail]?");
+		e.self:Say("Hail. " .. e.other:GetName() .. " - Are you [" .. eq.say_link("interested") .. "] in helping the League of Antonican Bards by delivering some [" .. eq.say_link("mail") .. "]?");
 	elseif(e.message:findi("mail") and not e.message:findi("deliver") and not e.message:findi("freeport") and not e.message:findi("qeynos")) then
-		e.self:Say("The League of Antonican Bards has a courier system made up of travelers and adventurers.  We pay good gold to anyone who will take messages from bards such as myself to one of our more distant offices.  Are you [interested]?");
+		e.self:Say("The League of Antonican Bards has a courier system made up of travelers and adventurers.  We pay good gold to anyone who will take messages from bards such as myself to one of our more distant offices.  Are you [" .. eq.say_link("interested") .. "]?");
 	elseif(e.message:findi("interested")) then
-		e.self:Say("I have messages that need to go to Freeport and to Qeynos.  Will you [deliver] mail [to Freeport] or [to Qeynos] for me?");
+		e.self:Say("I have messages that need to go to Freeport and to Qeynos.  Will you [" .. eq.say_link("deliver") .. "] mail [" .. eq.say_link("I would like to deliver mail to Freeport",false,"to Freeport") .. "] or [" .. eq.say_link("I would like to deliver mail to Qeynos",false,"to Qeynos") .. "] for me?");
 	elseif(e.message:findi("deliver") and e.message:findi("Freeport")) then
 		e.self:Say("Take this pouch of mail to Ton Twostring. You can find him at the bard guild hall. I'm sure he will compensate you for your trouble.");
 		e.other:SummonItem(18164);

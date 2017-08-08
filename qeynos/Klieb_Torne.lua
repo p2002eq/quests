@@ -3,7 +3,7 @@ function event_spawn(e)
 end
 
 function event_timer(e)
-	e.self:Say("Can you believe that? That guy actually thinks he is going to find the [Paw of Opolla!]! Bwah ha ha ha!");
+	e.self:Say("Can you believe that? That guy actually thinks he is going to find the [" .. eq.say_link("Paw of Opolla!") .. "]! Bwah ha ha ha!");
 	eq.signal(1072,1);
 end
 

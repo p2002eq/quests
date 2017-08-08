@@ -1,11 +1,11 @@
 function event_say(e)
 	if (e.other:GetFaction(e.self) <= 3) then
 		if(e.message:findi("hail")) then	
-			e.self:Say("Huh? Don't you know better than to interrupt a Coldain enjoying his ale? I may be a user of priestly magic but that doesnt mean I can't bash your head in.");
+			e.self:Say("Huh? Don't you know better than to interrupt a Coldain enjoying his ale? I may be a user of [" .. eq.say_link("priestly magic") .. "] but that doesnt mean I can't bash your head in.");
 		elseif(e.message:findi("priestly magic")) then	
-			e.self:Say("Aye. An old one not much taken with idle chit chat.");
+			e.self:Say("Aye. An [" .. eq.say_link("old one") .. "] not much taken with idle chit chat.");
 		elseif(e.message:findi("old one")) then	
-			e.self:Say("Very old, very wise, and on and on. You must have some point to bothering me. I'm not a merchant and I don't contract myself out for work. I've performed works for the Dain. There isn't much I haven't done..");
+			e.self:Say("Very old, very wise, and on and on. You must have some point to bothering me. I'm not a merchant and I don't contract myself out for work. I've performed works for the Dain. There isn't much I [" .. eq.say_link("haven't done") .. "]..");
 		elseif(e.message:findi("haven't done")) then	
 			e.self:Emote("chuckles at you.");
 			e.self:Say("If you want to impress me, and let me make certain you understand I doubt you can, then you can do what I never was able. For years I adventured and attempted to venture to the bottom of the Crystal Caverns in search of ancient artifacts from my people. Do that, show me that you have, and I will be impressed.");

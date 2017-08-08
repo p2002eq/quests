@@ -1,10 +1,8 @@
 -- Grandmaster Assassin's Seal
--- NPC Name: Renux Herkanor
-
 function event_say(e)
 	if(e.other:GetFaction(e.self) < 3 and e.other:HasItem(24071)) then
 		if(e.message:findi("hail")) then
-			e.self:Say("Master Hanns is going to kill me! I let that dark assassin look at his prized poison collection and he lifted it all when I wasn't looking! He even snatched his Grandmaster's Vial! Master Hanns was so furious he grabbed one of his old blades from his collection and jabbed it at the wall so hard it shattered! I really need some help replacing all that was [ruined] or I have a feeling Master Hanns is going to send me on a suicide mission!");
+			e.self:Say("Master Hanns is going to kill me! I let that dark assassin look at his prized poison collection and he lifted it all when I wasn't looking! He even snatched his Grandmaster's Vial! Master Hanns was so furious he grabbed one of his old blades from his collection and jabbed it at the wall so hard it shattered! I really need some help replacing all that was [" .. eq.say_link("ruined") .. "] or I have a feeling Master Hanns is going to send me on a suicide mission!");
 		elseif(e.message:findi("ruined")) then
 			e.self:Say("Fantastic! I need to replace all those old poisons, the vial and that old scareling blade. I think the bottles had the following written on them Bane, Burn, Essence, Sloth, Rage, Swiftness, Disorientation, and Dimethyl. Please hurry!");
 			e.other:SummonItem(17148);
@@ -36,5 +34,3 @@ function event_trade(e)
 	
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
--- END of FILE zone: ID:12 -- Renux_Herkanor.pl

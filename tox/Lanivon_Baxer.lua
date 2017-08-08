@@ -1,5 +1,4 @@
 -- Al'Kabor's Research - Ring of the Messenger
---
 
 function event_say(e)
 	if(e.message:findi("hail")) then
@@ -15,11 +14,3 @@ function event_trade(e)
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
--- EOF zone: tox ID: 38064 NPC: Lanivon_Baxer
-
-
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------

@@ -1,9 +1,8 @@
 -- Part of SK Epic 1.0
-
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Hello " .. e.other:GetName() .. ", it's good to see another shadowknight around here. I'm Teydar. I've made it my life to fashion suitable scabbards and sheaths for our order.");
-	elseif(e.message:findi("decrepit sheath")) then
+		e.self:Say("Hello " .. e.other:GetName() .. ", it's good to see another shadowknight around here. I'm Teydar. I've made it my life to fashion suitable scabbards and [" .. eq.say_link("") .. sheaths"] for our order.");
+	elseif(e.message:findi("sheath")) then
 		e.self:Say("The object you desire is very difficult to fashion. Nearly impossible, really. All I can offer to do is try. The real difficulty is the contents that give the sheath its power. They have to be of an almost equal evil. I think some kind of decrepit hide and a drake spine, along with a bar of enchanted platinum, should prove enough to make this item.");
 	end
 end
@@ -21,9 +20,3 @@ function event_trade(e)
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
--- Quest by mystic414
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------

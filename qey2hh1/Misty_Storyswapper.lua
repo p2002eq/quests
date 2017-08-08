@@ -1,6 +1,6 @@
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Nice to meet you. " .. e.other:GetName() .. ". If you are a fellow bard. I must inform you that you will make no profit around here. Not with Guard McCluskey around.");
+		e.self:Say("Nice to meet you. " .. e.other:GetName() .. ". If you are a fellow bard. I must inform you that you will make no profit around here. Not with [" .. eq.say_link("Guard McCluskey") .. "] around.");
 	elseif(e.message:findi("Guard McCluskey")) then
 		e.self:Say("I will tell you no more. I do not wish to end up boxed and buried. Just stay away from Guard McCluskey. He is no honorable man.");
 	end
@@ -12,5 +12,3 @@ function event_signal(e)
 		eq.signal(12090,2); -- Guard_McCluskey
 	end
 end
-
--- END of FILE Zone:qey2hh1  ID:3574 -- Misty_Storyswapper 

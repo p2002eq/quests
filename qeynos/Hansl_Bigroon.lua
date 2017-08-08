@@ -1,14 +1,14 @@
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say(string.format("Greetings, %s! Are you a [citizen of Qeynos] or are you a [traveler of sorts]?",e.other:GetName()));
+		e.self:Say(string.format("Greetings, %s! Are you a [" .. eq.say_link("citizen of Qeynos") .. "] or are you a [" .. eq.say_link("traveler of sorts") .. "]?",e.other:GetName()));
 	elseif(e.message:findi("traveler of sorts")) then
-		e.self:Say("Ah, yes! Traveling can be truly dangerous. Have you ever been to Erudin or do you not care for that place?");
+		e.self:Say("Ah, yes! Traveling can be truly dangerous. Have you ever been to [" .. eq.say_link("Erudin") .. "] or do you not care for that place?");
 	elseif(e.message:findi("erudin")) then
-		e.self:Say("The trip to Erudin takes far too long. I have been designing a [titanic bridge] which will shorten the trip. Well, I cannot take full credit, most of the plans are being designed by [three great engineers].");
+		e.self:Say("The trip to Erudin takes far too long. I have been designing a [" .. eq.say_link("titanic bridge") .. "] which will shorten the trip. Well, I cannot take full credit, most of the plans are being designed by [" .. eq.say_link("three great engineers") .. "].");
 	elseif(e.message:findi("three great engineers")) then
 		e.self:Say("They are some of the finest engineers in all of Norrath. Young, they may be, but as smart as the wisest architects I have ever met. That reminds me.. I must have a list of the engineers somewhere.. where is it?");
 	elseif(e.message:findi("citizen of qeynos")) then
-		e.self:Say("Then you are aware of how few ships come and go to the continent of Erudin. The port authority is even planning to tax all passage aboard the ships. You will be happy to know that a few other engineers and I are designing a [titanic bridge].");
+		e.self:Say("Then you are aware of how few ships come and go to the continent of Erudin. The port authority is even planning to tax all passage aboard the ships. You will be happy to know that a few other engineers and I are designing a [" .. eq.say_link("titanic bridge") .. "].");
 	elseif(e.message:findi("titanic bridge")) then
 		e.self:Say("My grand plan has always been to erect a bridge which would span the distance between Qeynos and Odus. It would bypass the city of Erudin. Antonius Bayle would take full control of the bridge and its adjacent territories. This has had some opposition in Erudin, but for the most part, they just believe it is impossible to build such a bridge.");
 	elseif(e.message:findi("donation")) then

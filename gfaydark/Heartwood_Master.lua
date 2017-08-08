@@ -1,12 +1,11 @@
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Greetings, child of Tunare. As druids of the Mother of all, we may only use blunt weapons and the scimitar, all other blades are forbidden. Prove your devotion by bringing me a [rusty short sword], a [rusty long sword], a [rusty broad sword], and a [rusty bastard sword]. I will destroy them and reward your faith.");
+		e.self:Say("Greetings, child of Tunare. As druids of the Mother of all, we may only use blunt weapons and the scimitar, all other blades are forbidden. Prove your devotion by bringing me a rusty short sword, a rusty long sword, a rusty broad sword, and a rusty bastard sword. I will destroy them and reward your faith.");
 	end
 end
 
 function event_trade(e)
 	local item_lib = require("items");
-	
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 18786})) then -- Tattered Note
 		e.self:Say("Welcome! We are the Soldiers of Tunare, the sworn protectors of Faydark. I thank you for joining our cause, we can always use the help. Here, put on this tunic, and let's get started.. you have much to learn.");
 		e.other:Faction(304,100); -- soldier of Tunare
@@ -22,5 +21,3 @@ function event_trade(e)
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
--- END of FILE Zone:gfaydark  ID:54083 -- Heartwood_Master 

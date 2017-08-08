@@ -34,6 +34,3 @@ local item_lib = require("items");
 		item_lib.return_items(e.self, e.other, e.trade);
 	end
 end
-
-
---Scripted By: Fatty Beerbelly and Krich11

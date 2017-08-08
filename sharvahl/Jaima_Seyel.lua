@@ -10,7 +10,7 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 5544})) then -- Cloak of the Dar Khura Apprentice
-		e.self:Say("Very good. I am glad to have you here. I hope your studies have proven to be worthwhile thus far. Our sect is challenging, but we are vital to the survival of our people. Our research and ability to commune with the spirit world has allowed our people to overcome the challenges of the wilderness here. Here, take this bag. It is time for you to face your first real challenge.");
+		e.self:Say("Very good. I am glad to have you here. I hope your studies have proven to be worthwhile thus far. Our sect is challenging, but we are vital to the survival of our people. Our research and ability to commune with the spirit world has allowed our people to overcome the challenges of the wilderness here. Here, take this bag. It is time for you to face your first real [" .. eq.say_link("challenge") .. "].");
 		e.other:SummonItem(17116); -- Brown Leather Bag
 		e.other:QuestReward(e.self,0,0,0,0,5544); -- Cloak of the Dar Khura Apprentice
 	end
@@ -22,8 +22,3 @@ function event_trade(e)
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------

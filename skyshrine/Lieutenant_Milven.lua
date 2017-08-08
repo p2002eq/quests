@@ -1,8 +1,8 @@
 function event_say(e)
 	if (e.message:findi("hail")) then
-		e.self:Say("Hmm, the guards at the gate sent a "..e.other:Race().." to assist with the [rampant problems]? They shall have to be replaced with functional sentries so this does not occur again, but that is another matter for later.");
+		e.self:Say("Hmm, the guards at the gate sent a "..e.other:Race().." to assist with the [" .. eq.say_link("rampant problems") .. "]? They shall have to be replaced with functional sentries so this does not occur again, but that is another matter for later.");
 	elseif(e.message:findi("rampant problems")) then
-		e.self:Say("I trust that what is said here will not be repeated to outsiders, yes? Good. For some time now, we've been fortifying our position in the shrine to fend off giant attacks as they come. Though there hasn't been a major engagement between the shrine and the giants for quite some time, there have been strafing runs done by them in an attempt to test us. If you're up for it, I have a [mission] I need someone new to the shrine to complete.");
+		e.self:Say("I trust that what is said here will not be repeated to outsiders, yes? Good. For some time now, we've been fortifying our position in the shrine to fend off giant attacks as they come. Though there hasn't been a major engagement between the shrine and the giants for quite some time, there have been strafing runs done by them in an attempt to test us. If you're up for it, I have a [" .. eq.say_link("mission") .. "] I need someone new to the shrine to complete.");
 	elseif(e.message:findi("mission")) then
 		e.self:Say("We've been looking for someone that isn't from the shrine to find some of the giants that have been on these strafing runs and have them eliminated. You're of the perfect ilk because they will not recognize you as a friend to the shrine. Once you pry their steel-plated helms from their cold, dead heads and bring them back to me, your worth will be proven and you may show promise as an ally to the shrine.");
 	elseif(e.message:findi("assignment")) then
@@ -27,7 +27,7 @@ function event_trade(e)
 	
 	if (heads > 0) then
 		repeat
-			e.self:Say("Well done, "..e.other:GetName()..". You are proving to be worth the risk of sending a new recruit out on a mission such as this. If you feel this is the type of mission you're best suited for, feel free to slay more of these beasts and return their helmets to me. The fewer giants there are out there, the less chance they continue their random attacks against us. I also may have another [assignment] for you if you're interested.");
+			e.self:Say("Well done, "..e.other:GetName()..". You are proving to be worth the risk of sending a new recruit out on a mission such as this. If you feel this is the type of mission you're best suited for, feel free to slay more of these beasts and return their helmets to me. The fewer giants there are out there, the less chance they continue their random attacks against us. I also may have another [" .. eq.say_link("assignment") .. "] for you if you're interested.");
 			e.other:Faction(42, 15); --CoV
 			e.other:Faction(362, 3); --Yelinak
 			e.other:Faction(189, -7); --Kromzek

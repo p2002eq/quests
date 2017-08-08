@@ -3,7 +3,7 @@ function event_say(e)
 	if(e.message:findi("hail")) then
 		e.self:Say("Salutations to you and your own. On your way to Katta are ya?");
 	elseif(e.message:findi("armor")) then
-		e.self:Say("Frank must have told ya about the soldier's armor that we both keep to give to those worthy of wearing it. I have the [mask], [cloak], [gauntlets], [gorget], [girdle], and [swords].");
+		e.self:Say("Frank must have told ya about the soldier's armor that we both keep to give to those worthy of wearing it. I have the [" .. eq.say_link("mask") .. "], [" .. eq.say_link("cloak") .. "], [" .. eq.say_link("gauntlets") .. "], [" .. eq.say_link("gorget") .. "], [" .. eq.say_link("girdle") .. "], and [" .. eq.say_link("swords") .. "].");
 	elseif(e.message:findi("cloak")) then
 		e.self:Say("To get the cloak you will need to get me a meteor jewel, a mark of glory, a ring of wit, and some twilight fish scales.");
 	elseif(e.message:findi("Gauntlets")) then

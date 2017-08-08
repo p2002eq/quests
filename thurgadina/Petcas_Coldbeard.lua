@@ -1,6 +1,6 @@
 function event_say(e)
 	if(e.message:findi("hail")) then	
-		e.self:Say("Hail to ye as well offlander. I bid you welcome to the Icy Mug, one o' the finest establishments for a drink in Thurgadin. Whether it's [souvenirs] or stories yer lookin for, you've come to the right place.")	
+		e.self:Say("Hail to ye as well offlander. I bid you welcome to the Icy Mug, one o' the finest establishments for a drink in Thurgadin. Whether it's [" .. eq.say_link("souvenirs") .. "] or stories yer lookin for, you've come to the right place.")	
 	elseif(e.message:findi("souvenirs")) then	
 		e.self:Say("Here at the Icy Mug we have our own signature stein fer yer drinkin pleasure. For only 5 gold pieces ye can take one home to show yer kinfolk.");
 	end	

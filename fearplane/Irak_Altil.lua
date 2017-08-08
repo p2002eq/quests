@@ -1,7 +1,6 @@
 -- Paladin Epic 1.0
 -- NPCID: 72078
 -- Zone: fearplane
-
 function event_say(e)
 	if(e.message:findi("Hail")) then
 		e.self:Emote("turns its head upon its dried, cracked spine to look at you with a rictus grin. After staring through you it continues to walk on.");
@@ -38,9 +37,3 @@ function event_trade(e)
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
---END of FILE Zone:fearplane ID:72078 -- Irak_Altil
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------

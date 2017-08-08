@@ -1,7 +1,7 @@
 function event_say(e)
 	if(e.other:GetFaction(e.self) <= 3) then --Warmly or lower
 		if(e.message:findi("hail")) then	
-			e.self:Say("Welcome, "..e.other:GetName()..". I'm Slade, Royal Armorer to the Dain and his personal guardsmen. I've heard yer name once or twice in these halls and apparently ye've earned the respect of my people. In light of that I'm willin ta offer my [services] to you if'n ye need them.");
+			e.self:Say("Welcome, "..e.other:GetName()..". I'm Slade, Royal Armorer to the Dain and his personal guardsmen. I've heard yer name once or twice in these halls and apparently ye've earned the respect of my people. In light of that I'm willin ta offer my [" .. eq.say_link("services") .. "] to you if'n ye need them.");
 		elseif(e.message:findi("services")) then	
 			e.self:Say("If'n ye've had the fortune to earn any of the plate helms that are made by my people in the city then I can use my skills to custom fit and detail it for a "..e.other:Race().." of yer like. I can do this fer the Dark Runed Crown, the Runed Protector's Helm, the Resonant Helm, the Crown of Forbidden Rites, Crown of the Kromzek Kings, Frostreaver's Velium Crown, Cowl of Mortality, and the Champions Crown. Simply hand me one of these and I'll do the work for you.");
 		end
@@ -45,4 +45,3 @@ function event_trade(e)
 	item_lib.return_items(e.self, e.other, e.trade)
 		
 end
-

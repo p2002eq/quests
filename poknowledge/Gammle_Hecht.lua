@@ -1,18 +1,9 @@
---------------------------
 --Quest Name: Gammle's Display
---Author: CrabClaw
---NPCs Involved: Gammle_Hecht
---Items Involved: All from Angelox's Database
---zone: poknowledge
---Revised CrabClaw v1.0 WIP
-
-------RELATED QUESTS------
---	Curator_Merri: The Collector's Box
 function event_say(e)
 	if(e.message:findi("Hail")) then
-		e.self:Say("Good day " .. e.other:GetName() .. ".  I don't mean to be curt but I have much work to do to be ready for my museum display, and there is not much time left. I expect many young warriors to be visiting here, but it is unfortunate that I do not have the final pieces I am [missing]. They would add to the collection greatly.");
+		e.self:Say("Good day " .. e.other:GetName() .. ".  I don't mean to be curt but I have much work to do to be ready for my museum display, and there is not much time left. I expect many young warriors to be visiting here, but it is unfortunate that I do not have the final pieces I am [" .. eq.say_link("missing") .. "]. They would add to the collection greatly.");
 	elseif(e.message:findi("missing")) then
-		e.self:Say("If you would be willing to help me, I can make it worth your while. I need you to find a Minotaur Battle Axe, Goblin Two-Handed Sword, Chill Dagger, and an Ancient Sensate Shield. When you get these items, put them in a Collector's Box that you can get from [Merri], close it up and bring it to me.");
+		e.self:Say("If you would be willing to help me, I can make it worth your while. I need you to find a Minotaur Battle Axe, Goblin Two-Handed Sword, Chill Dagger, and an Ancient Sensate Shield. When you get these items, put them in a Collector's Box that you can get from [" .. eq.say_link("Merri") .. "], close it up and bring it to me.");
 	elseif(e.message:findi("merri")) then
 		e.self:Say("Curator Merri is the founder of the museum in the Selia district of New Tanaan. She is a true visionary and a wonderful person as well. It is her dream to turn life's love into something truly grand. She also carries with her the Collector's Boxes. If you need one, be sure to ask her for it.");
 	end
@@ -25,8 +16,3 @@ function event_trade(e)
 		e.other:QuestReward(e.self,0,0,0,0,28243);
 	end
 end
-
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------

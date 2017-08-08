@@ -48,8 +48,3 @@ function event_timer(e)
 	eq.stop_timer("depop");
 	eq.depop();
 end
-
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------

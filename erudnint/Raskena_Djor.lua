@@ -2,9 +2,9 @@
 
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Greetings. What brings you to Raskena? Did Ghanlin send you?"); 
+		e.self:Say("Greetings. What brings you to Raskena? Did [" .. eq.say_link("Ghanlin") .. "] send you?");
 	elseif(e.message:findi("ghanlin")) then
-      e.self:Say("Then let us begin your first task. I require some components for an experiment I have been meaning to conduct. If you could [gather] them for me, I will make sure that you are rewarded."); 
+      e.self:Say("Then let us begin your first task. I require some components for an experiment I have been meaning to conduct. If you could [" .. eq.say_link("gather") .. "] them for me, I will make sure that you are rewarded."); 
 	elseif(e.message:findi("gather")) then
       e.self:Say("In Toxxulia Forest you should be able to find some fire beetles. I require two fire beetle legs and two fire beetle eyes. Once you have collected them, bring them to me for your reward."); 
 	end

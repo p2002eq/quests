@@ -1,7 +1,7 @@
 ---- Quest:Saurek Claws
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("I suppose you are here to ask me how to create a Claw Beast Talon Club? Yes, yes, I thought you might be. So many young ones looking for these, my poor claws are sore from all the assembly. Of course, I will make one for you, so long as you return to me with the correct [items].");
+		e.self:Say("I suppose you are here to ask me how to create a Claw Beast Talon Club? Yes, yes, I thought you might be. So many young ones looking for these, my poor claws are sore from all the assembly. Of course, I will make one for you, so long as you return to me with the correct [" .. eq.say_link("items") .. "].");
 	elseif(e.message:findi("items")) then
 		e.self:Say("To assemble this club, I require only two things. The first is a wooden practice flail. The second is a talon from the great claw beasts. They are quite rare, and large, and might be a difficult kill.");
 	end
@@ -15,8 +15,3 @@ function event_trade(e)
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------

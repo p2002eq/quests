@@ -1,8 +1,8 @@
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Begone lest you seek instruction. I am very busy. I teach those who [follow the path of rage] as a Shadowknight. the leaders of the Dismal Rage.");
+		e.self:Say("Begone lest you seek instruction. I am very busy. I teach those who [" .. eq.say_link("follow the path of rage") .. "] as a Shadowknight. the leaders of the Dismal Rage.");
 	elseif(e.message:findi("follow the path of rage")) then
-		e.self:Say("As the leaders of the Dismal Rage we Shadowknights forefront of our struggles. We use the spiritual guidance of our Clerics. the Dark Arts of our Necromancers. and the tactics of our Warriors to advance the causes and secure the needs of our followers. If you aspire to be of importance to your colleagues you must first obtain a suit of armor to defend you from the aggressions of our enemies. Take this note to Quan Nektogo here in the eastern quarter of Freeport. He will aid you in the construction of your armor. When you are properly outfitted return to me and I will present you with an [important task].");
+		e.self:Say("As the leaders of the Dismal Rage we Shadowknights forefront of our struggles. We use the spiritual guidance of our Clerics. the Dark Arts of our Necromancers. and the tactics of our Warriors to advance the causes and secure the needs of our followers. If you aspire to be of importance to your colleagues you must first obtain a suit of armor to defend you from the aggressions of our enemies. Take this note to Quan Nektogo here in the eastern quarter of Freeport. He will aid you in the construction of your armor. When you are properly outfitted return to me and I will present you with an [" .. eq.say_link("important task") .. "].");
 		e.other:SummonItem(19845); -- Note to Quan Nektogo
 	elseif(e.message:findi("important task")) then
 		e.self:Say("It has come to our attention that a paladin of the Sentries of Passion. Raenna Griff. has been aiding sympathizers and wanted members of the Sentries of Passion and the Knights of Truth in the sewer tunnels beneath the western quarter of Freeport. The incompetent Freeport Militia has yet to capture these wanted followers of the Mar twins. We will wait for their capture no longer. Seek this Raenna Griff individual and slay her. I want her head presented to me this very night!");
@@ -23,5 +23,3 @@ function event_trade(e)
 	end
 	item_lib.return_items(e.self, e.other, e.trade);
 end
-
--- END of FILE Zone:freporte  ID:10099 -- Gunex_Eklar

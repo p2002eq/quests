@@ -2,7 +2,7 @@ function event_say(e)
 	if(e.message:findi("hail")) then
 		e.self:Say("This is no place for you. These Splitpaws are very fierce. Only the power of Rodcet Nife will guide them to the light. By the way, I might warn you that the cells here lock behind you.");
 	elseif(e.message:findi("proof of nobility") and e.other:GetFaction(e.self) < 3) then
-		e.self:Say("I require the returned note I gave you, a Testimony of Truth, a Sword of Faith and finally the hilt of Soulfire. The Testimony and Sword of Faith are earned in the Hall of Truth, but for the hilt of Soulfire you shall have to battle [Xicotl].");
+		e.self:Say("I require the returned note I gave you, a Testimony of Truth, a Sword of Faith and finally the hilt of Soulfire. The Testimony and Sword of Faith are earned in the Hall of Truth, but for the hilt of Soulfire you shall have to battle [" .. eq.say_link("Xicotl") .. "].");
 	elseif(e.message:findi("xicotl")) then
 		e.self:Say("Xicotl is the evil troll who attempted to steal Soulfire from the vaults of the Temple of Life. The hilt of Soulfire broke off during the battle and now rests in the hands of this troll shadowknight. From what I have heard, he is frequently an invited guest at the castle called Mistmoore. Woe to any paladin who dares set foot upon the land of Mistmoore, but should you attempt it you might search the guest rooms for the troll. May Rodcet Nife walk with you.");
 	end
@@ -22,7 +22,7 @@ function event_trade(e)
 	end
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 18936})) then -- A Sealed Note
 		if(e.other:GetFaction(e.self) < 3) then -- items will get eaten if faction not high enough.
-        	e.self:Say("Finally!! I see that Ariska has found a noble knight to retrieve Soulfire. Per Ariska's orders I am not to give Soulfire to you until you can show me [proof of nobility]. You must honor both the Temple of Life as well as the Hall of Truth and to a high degree. Only then shall you hold Soulfire.");
+        	e.self:Say("Finally!! I see that Ariska has found a noble knight to retrieve Soulfire. Per Ariska's orders I am not to give Soulfire to you until you can show me [" .. eq.say_link("proof of nobility") .. "]. You must honor both the Temple of Life as well as the Hall of Truth and to a high degree. Only then shall you hold Soulfire.");
         	e.other:Faction(257,5,0); 		-- Priest of Life
         	e.other:Faction(183,5,0); 		-- Knights of Thunder
         	e.other:Faction(135,5,0); 		-- Guards of Qeynos
@@ -42,5 +42,3 @@ function event_trade(e)
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
---END of File Zone:paw -- Brother_Hayle

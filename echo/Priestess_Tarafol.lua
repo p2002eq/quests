@@ -1,11 +1,11 @@
 ---- Quest:Helping the Forsaken
 function event_say(e)
     if(e.message:findi("hail")) then
-        e.self:Say("Oh, these poor forsaken souls. We must do whatever we can to [help] them. So far I've been unable to find anything that can [cure] their afflictions. I'm not even certain there is a cure. The least I've been able to do is ease some of their suffering.");
+        e.self:Say("Oh, these poor forsaken souls. We must do whatever we can to [" .. eq.say_link("help") .. "] them. So far I've been unable to find anything that can [" .. eq.say_link("cure") .. "] their afflictions. I'm not even certain there is a cure. The least I've been able to do is ease some of their suffering.");
     elseif(e.message:findi("cure")) then
         e.self:Say("I'm not certain what causes the disease that inflicts most of these people. I believe it's from living down in these caverns for so long. It seems most people have a natural immunity, but the few who are stricken are cursed to slowly rot to death. A most horrible and painful way to die. I wish I could do more than just ease their pain.");
     elseif(e.message:findi("help")) then
-        e.self:Say("You would be willing to do that? That would be great! I've heard of the possible curative powers of many things here on Luclin. I've been so busy here that I haven't been able to go out and search for any of the needed compounds. If you would be so kind as to [collect] some things for me I would be very appreciative.");
+        e.self:Say("You would be willing to do that? That would be great! I've heard of the possible curative powers of many things here on Luclin. I've been so busy here that I haven't been able to go out and search for any of the needed compounds. If you would be so kind as to [" .. eq.say_link("collect") .. "] some things for me I would be very appreciative.");
     elseif(e.message:findi("collect")) then
         e.self:Say("Ok, I need you to find these things... Underbulk Bile, Razorfungus Spores and Saprophyte Spores. You should be able to be find them within the nearby cavern systems. Please return to me once you have acquired all the ingredients. Thank you very much for assisting. Good luck.");
     end

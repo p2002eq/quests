@@ -1,14 +1,14 @@
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Hail to ye too " .. e.other:GetName() .. ", what brings ye to Kaladim`s hall of champions? I am Dirjadak Barbrawler and its gud to meet ye. I pride myself on being one of the finest Warlords to have ever served in Brells Army. However, my days nowadays aren't all that exciting. I just spend me time training young ones that are born into the life of a Kaladim Champion. If you are a young [warrior] of Brell I might have some work for you.");
+		e.self:Say("Hail to ye too " .. e.other:GetName() .. ", what brings ye to Kaladim`s hall of champions? I am Dirjadak Barbrawler and its gud to meet ye. I pride myself on being one of the finest Warlords to have ever served in Brells Army. However, my days nowadays aren't all that exciting. I just spend me time training young ones that are born into the life of a Kaladim Champion. If you are a young [" .. eq.say_link("warrior") .. "] of Brell I might have some work for you.");
 	elseif(e.message:findi("warrior")) then
-		e.self:Say("Excellent " .. e.other:GetName() .. ", you must surely have been sent to me to begin yer training then. Aye? If you are [interested] in beginning yer training as a Champion of Kaladim I will be happy to present you with yer instructions for crafting yer own set of Axebringers Platemail Armor.");
+		e.self:Say("Excellent " .. e.other:GetName() .. ", you must surely have been sent to me to begin yer training then. Aye? If you are [" .. eq.say_link("interested") .. "] in beginning yer training as a Champion of Kaladim I will be happy to present you with yer instructions for crafting yer own set of Axebringers Platemail Armor.");
 	elseif(e.message:findi("interested")) then
-		e.self:Say("Dats great to here dere young one. First and foremost you will need dis Dusty Mail Assembly Kit to combine all the various items that you will need to collect from different parts of the Butcherblock Mountains and in our great city of Kaladim. As you collect specific items from yer surroundings, you will use them in certain quantities in this kit to create armor materials that will then be placed in a forge with armor molds to fashion yer armor. Once you are [ready] to begin collecting the supplies for yer materials I will be happy to supply you with the necessary material recipes and molds to craft yer armor.");
+		e.self:Say("Dats great to here dere young one. First and foremost you will need dis Dusty Mail Assembly Kit to combine all the various items that you will need to collect from different parts of the Butcherblock Mountains and in our great city of Kaladim. As you collect specific items from yer surroundings, you will use them in certain quantities in this kit to create armor materials that will then be placed in a forge with armor molds to fashion yer armor. Once you are [" .. eq.say_link("ready") .. "] to begin collecting the supplies for yer materials I will be happy to supply you with the necessary material recipes and molds to craft yer armor.");
 		-- Summon: Dusty Mail Assembly Kit
 		e.other:SummonItem(17247);
 	elseif(e.message:findi("ready")) then
-		e.self:Say("Glad to ere that I am indeed Aye! When you have decided what armor piece you would like to collect please simply tell me what piece it is that you want to craft and I will supply you material recipe and mold necessary for crafting Axebringers Platemail [Helm], [Bracer], [Armguards], [Boots], [Greaves], [Gauntlets], and [Breastplate].");
+		e.self:Say("Glad to ere that I am indeed Aye! When you have decided what armor piece you would like to collect please simply tell me what piece it is that you want to craft and I will supply you material recipe and mold necessary for crafting Axebringers Platemail [" .. eq.say_link("Helm") .. "], [" .. eq.say_link("Bracer") .. "], [" .. eq.say_link("Armguards") .. "], [" .. eq.say_link("Boots") .. "], [" .. eq.say_link("Greaves") .. "], [" .. eq.say_link("Gauntlets") .. "], and [" .. eq.say_link("Breastplate") .. "].");
 	elseif(e.message:findi("armguards")) then
 		e.self:Say("To create yer armguards material you will need to combine 2 Bricks of Crude Bronze, 2 Giant Scarab Claw, and 1 Torch in yer assembly kit. Once you have created the proper material take it to a forge along with this mold to fashion yer very own Armguards of the Axebringer.");
 		-- Summon: Crude Vambraces Mold
@@ -22,7 +22,7 @@ function event_say(e)
 		-- Summon: Crude Bracer Mold
 		e.other:SummonItem(19632);
 	elseif(e.message:findi("breastplate")) then
-		e.self:Say("To create yer breastplate material you will need to combine 5 Bricks of Crude Bronze, 1 Glyndas Tongue, 1 Pristine Forest Drakeling Scale, 1 Golden Bandit Tooth, 1 Goblin Brain and 1 Aqua Goblin Headdress in yer assembly kit. Once you have created the proper material take it to a forge along with this mold to fashion yer very own Breastplate of the Axebringer. I would also like to see you after you have completed yer breastplate because I have a final [favor] to ask of ye.");
+		e.self:Say("To create yer breastplate material you will need to combine 5 Bricks of Crude Bronze, 1 Glyndas Tongue, 1 Pristine Forest Drakeling Scale, 1 Golden Bandit Tooth, 1 Goblin Brain and 1 Aqua Goblin Headdress in yer assembly kit. Once you have created the proper material take it to a forge along with this mold to fashion yer very own Breastplate of the Axebringer. I would also like to see you after you have completed yer breastplate because I have a final [" .. eq.say_link("favor") .. "] to ask of ye.");
 		-- Summon: Crude Breastplate Mold
 		e.other:SummonItem(19637);
 	elseif(e.message:findi("gauntlets")) then
@@ -51,8 +51,3 @@ function event_trade(e)
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------

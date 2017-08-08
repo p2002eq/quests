@@ -1,11 +1,11 @@
 function event_say(e)
 	if(e.other:Class() == "Warrior") then
 		if(e.message:findi("hail")) then
-			e.self:Emote(" looks up from his forge and says, 'Hello there, can I help you?' Your eyes are drawn to an extremely large red sword scabbard strapped to his back with no sword in it. Kargek speaks again, 'I said, can I help you or do you need help from Wenden?' ");
+			e.self:Emote(" looks up from his forge and says, 'Hello there, can I help you?' Your eyes are drawn to an extremely large red sword [" .. eq.say_link("scabbard") .. "] strapped to his back with no sword in it. Kargek speaks again, 'I said, can I help you or do you need help from [" .. eq.say_link("Wenden") .. "]?' ");
 		elseif(e.message:findi("wenden")) then
 			e.self:Emote("points to the other side of the forge and says, 'Wenden is my partner. He is standing right over there. If it is a question about a weapon, he will probably have the answers.'");
 		elseif(e.message:findi("scabbard")) then
-			e.self:Emote("turns to look at you and says, 'It is a family heirloom. I might tell you the story behind it if you do me a little [favor].'");
+			e.self:Emote("turns to look at you and says, 'It is a family heirloom. I might tell you the story behind it if you do me a little [" .. eq.say_link("favor") .. "].'");
 		elseif(e.message:findi("favor")) then
 			e.self:Say("An associate of mine is wandering somewhere in the Feerrott. His name is Oknoggin Stonesmacker. If you will deliver this note to him, I would appreciate it.");
 			e.other:SummonItem(20673); -- Wax Sealed Note
@@ -29,6 +29,3 @@ function event_trade(e)
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
--- END of FILE Zone:freporte -- Kargek_Redblade
-

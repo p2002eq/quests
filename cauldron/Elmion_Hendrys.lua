@@ -1,9 +1,8 @@
 function event_say(e)
 	fac = e.other:GetFaction(e.self);
-
 	if(fac < 7) then
 		if(e.message:findi("hail")) then
-			e.self:Say("How are you? Please rest. Have you [been wounded by the beasts] of this region.");
+			e.self:Say("How are you? Please rest. Have you [" .. eq.say_link("been wounded by the beasts") .. "] of this region.");
 		elseif(e.message:findi("wounded by the beast")) then
 			e.self:Say("Ah. Perhaps you should speak with Nyrien. Just inform him you [need to be healed].");
 		elseif(e.message:findi("faldor hendrys")) then
@@ -17,5 +16,3 @@ end
 function event_signal(e)
 	e.self:Say("Pipe down, Ghil!! We have no quarrel with this adventurer.");
 end
-
--- EOF Elmion Hendrys

@@ -1,16 +1,16 @@
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Hello. My name is Corun Finisc and I am one of the Jaggedpine Treefolk. It is our divine responsibility to watch over and protect Surefall Glade and its [inhabitants] from those who seek to [destroy] them.");
+		e.self:Say("Hello. My name is Corun Finisc and I am one of the Jaggedpine Treefolk. It is our divine responsibility to watch over and protect Surefall Glade and its [" .. eq.say_link("inhabitants") .. "] from those who seek to [" .. eq.say_link("destroy") .. "] them.");
 	elseif(e.message:findi("inhabitants")) then
-		e.self:Say("The bears of Surefall Glade are our brothers. We are all children of [Tunare]. We would gladly die in their defense.");
+		e.self:Say("The bears of Surefall Glade are our brothers. We are all children of [" .. eq.say_link("Tunare") .. "]. We would gladly die in their defense.");
 	elseif(e.message:findi("tunare")) then
 		e.self:Say("Tunare is the Mother of All. It is though Her will that we protect this land and its many creatures.");
 	elseif(e.message:findi("destroy")) then
-		e.self:Say("Poachers in seach of bear skins and [gnolls] who attack us unprovoked. We are doing all we can to stop them. May [Tunare] give me the strength needed to smite them dead with my [crook].");
+		e.self:Say("Poachers in seach of bear skins and [" .. eq.say_link("gnolls") .. "] who attack us unprovoked. We are doing all we can to stop them. May [Tunare] give me the strength needed to smite them dead with my [" .. eq.say_link("crook") .. "].");
 	elseif(e.message:findi("crook")) then
-		e.self:Say("My crook? The Jaggedpine crook is an enchanted weapon of the Jaggedpine Treefolk. The [Sabertooths] take great pleasure in destroying the crooks of any Treefolk they manage to slay. If you were to recover the pieces of a broken crook, I would gladly mend it for you.");
+		e.self:Say("My crook? The Jaggedpine crook is an enchanted weapon of the Jaggedpine Treefolk. The [" .. eq.say_link("Sabertooths") .. "] take great pleasure in destroying the crooks of any Treefolk they manage to slay. If you were to recover the pieces of a broken crook, I would gladly mend it for you.");
 	elseif(e.message:findi("gnolls")) then
-		e.self:Say("The Sabertooths are a vicious band of gnolls who live in Blackburrow, to the east of Surefall Glade. They constantly attack us when we only seek to share this land with them. They also send many patrols out into the Qeynos Hills to the south. We have even seen a Sabertooth skulking about in the caves behind Grizzly Falls. There is a [reward] for his hide.");
+		e.self:Say("The Sabertooths are a vicious band of gnolls who live in Blackburrow, to the east of Surefall Glade. They constantly attack us when we only seek to share this land with them. They also send many patrols out into the Qeynos Hills to the south. We have even seen a Sabertooth skulking about in the caves behind Grizzly Falls. There is a [" .. eq.say_link("reward") .. "] for his hide.");
 	elseif(e.message:findi("reward")) then
 		e.self:Say("Yes. We are offering a small reward for slaying the skulking gnoll in the bear caves. Bring me his paw to claim your bounty. The Jaggedpine Treefolk remember well those who aid their cause.");
 	elseif(e.message:findi("sabertooths")) then

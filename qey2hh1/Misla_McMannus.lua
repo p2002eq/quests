@@ -4,5 +4,3 @@ function event_say(e)
 		e.other:SummonItem(12221);
 	end
 end
-
--- END of FILE Zone:qey2hh1  ID:3563 -- Misla_McMannus 

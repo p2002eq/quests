@@ -12,13 +12,8 @@ function event_trade(e)
 		e.other:QuestReward(e.self,0,0,0,0,29807); -- Jasirs Dented Shield
 	end
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 29808})) then -- Jasirs Immaculate Shield
-		e.self:Say("Thank you very much " .. e.other:GetName() .. ", and I must apologize for the way I spoke to you earlier. We just got word of some [poachers] out in the Thicket, they really get me angry. In any case, you have done a fine job, worthy of Barkhem himself.");
+		e.self:Say("Thank you very much " .. e.other:GetName() .. ", and I must apologize for the way I spoke to you earlier. We just got word of some [" .. eq.say_link("poachers") .. "] out in the Thicket, they really get me angry. In any case, you have done a fine job, worthy of Barkhem himself.");
 		e.other:QuestReward(e.self,0,0,0,0,29809); -- Jasirs work order
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------

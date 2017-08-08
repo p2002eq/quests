@@ -1,11 +1,12 @@
---This simple script sets the glowing cliff golem to a path when he spawns
 function event_spawn(e)
-	eq.set_timer("1",640000);
+	eq.set_timer("depop",15*60*1000);  -- set depop
 	eq.start(5);
 end
 
 function event_timer(e)
-	eq.depop();
+	if (e.timer == "depop") then
+		eq.depop();
+	end
 end
 
 function event_trade(e)
@@ -13,8 +14,4 @@ function event_trade(e)
 	item_lib.return_items(e.self, e.other, e.trade)
 end
 
---Submitted by Jim Mills
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------
+

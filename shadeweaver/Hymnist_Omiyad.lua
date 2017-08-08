@@ -1,9 +1,9 @@
 ---- Quest:Talisman of the Flame
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Greetings young one, have a seat by the fire.  You will notice the dance being preformed.  This is much more than just a dance though.  It is a ritual that we preform to [purge] the evil spirits that are plaguing the thicket.");
+		e.self:Say("Greetings young one, have a seat by the fire.  You will notice the dance being preformed.  This is much more than just a dance though.  It is a ritual that we preform to [" .. eq.say_link("purge") .. "] the evil spirits that are plaguing the thicket.");
 	elseif(e.message:findi("purge")) then
-		e.self:Say("Lately there has been a surge in the number of Lodi Kai threatening our trade routes.  This ritual is preformed around a fire that burns from their [remains].  Setting their remains in the fire will free their tie with this world and shall ward off their numbers.");
+		e.self:Say("Lately there has been a surge in the number of Lodi Kai threatening our trade routes.  This ritual is preformed around a fire that burns from their [" .. eq.say_link("remains") .. "].  Setting their remains in the fire will free their tie with this world and shall ward off their numbers.");
 	elseif(e.message:findi("remains")) then
 		e.self:Emote("glances toward the fire.");
 		e.self:Say("I see the fire is dying down some. Should you come across the remains of the Loda Kai bring them to me to keep the ritual fire burning. Bring plenty though, four if you can.");
@@ -20,8 +20,3 @@ function event_trade(e)
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------

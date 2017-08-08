@@ -1,12 +1,12 @@
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Welcome, friend! I hope your stay in Surefall Glade will ease your mind and soothe your soul. While you are here, we ask you to abide by the [laws of the Jaggedpine].");
+		e.self:Say("Welcome, friend! I hope your stay in Surefall Glade will ease your mind and soothe your soul. While you are here, we ask you to abide by the [" .. eq.say_link("laws of the Jaggedpine") .. "].");
 	elseif(e.message:findi("jaggedpine")) then
-		e.self:Say("We ask that you do not start campfires on our land. Do not litter our land with any items. Do not chop down our pines or tread upon any foliage. Please do not take more than a bellyful of fish. Do not harm any other wildlife and stay clear of [the great bear]!");
+		e.self:Say("We ask that you do not start campfires on our land. Do not litter our land with any items. Do not chop down our pines or tread upon any foliage. Please do not take more than a bellyful of fish. Do not harm any other wildlife and stay clear of [" .. eq.say_link("the great bear") .. "]!");
 	elseif(e.message:findi("great bear")) then
-		e.self:Say("The great bear I speak of is Mammoth. He has lived among us for over a century. Tunare has truly blessed us with his presence. As long as Mammoth lives, so too does Surefall Glade. We are currently worried. Corun has reported that there is something [wrong with Mammoth].");
+		e.self:Say("The great bear I speak of is Mammoth. He has lived among us for over a century. Tunare has truly blessed us with his presence. As long as Mammoth lives, so too does Surefall Glade. We are currently worried. Corun has reported that there is something [" .. eq.say_link("wrong with Mammoth") .. "].");
 	elseif(e.message:findi("wrong with mammoth")) then
-		e.self:Say("Mammoth is not eating. We believe something is lodged in his throat. We require a young druid to [fetch a special potion].");
+		e.self:Say("Mammoth is not eating. We believe something is lodged in his throat. We require a young druid to [" .. eq.say_link("fetch a special potion") .. "].");
 	elseif(e.message:findi("special potion")) then
 		e.self:Say("Go to the gnome city of Ak'Anon on the continent of Faydwer. With their great zoo, you will find a gnome named Kimble Nogflop. Give him this flask of nitrates and he shall hand you a special potion which will force Mammoth to cough up whatever may be stuck inside his throat. Be sure to show me what you find inside his throat upon your return.");
 		e.other:SummonItem(13945);
@@ -36,7 +36,7 @@ function event_trade(e)
 		e.other:Faction(347, -15,0); --Unkempt Druids
 		e.other:Faction(135, 10,0);   --Guards of Qeynos
 		e.other:AddEXP(100);
-	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 18807})) then -- Sealed Letter [Note To Jaggedpine - real]
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 18807})) then -- Sealed Letter [" .. eq.say_link("Note To Jaggedpine - real") .. "]
 		e.self:Say("Aye! This is good news. We shall try to supply Qeynos with a limited number of acres to begin their lumberyard. Here, my good messenger. A token to share in the good news.");
 		e.other:Ding();
 		e.other:Faction(159, 10,0); --Jaggedpine Treefolk

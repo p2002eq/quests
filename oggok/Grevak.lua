@@ -1,6 +1,6 @@
 function event_say(e)
 	if(e.message:findi("Hail")) then
-		e.self:Say("Need new members we do not. Powerful enough are we with Grevak. Still. peons needed. Are you a [new peon] or are you an [outsider]? Speak up!! Fool!! No time Grevak has!!");
+		e.self:Say("Need new members we do not. Powerful enough are we with Grevak. Still. peons needed. Are you a [" .. eq.say_link("new peon") .. "] or are you an [" .. eq.say_link("I am an outsider",false,"outsider") .. "]? Speak up!! Fool!! No time Grevak has!!");
 	elseif(e.message:findi("new peon")) then
 		e.self:Say("So you think you can be greater than Grevak!! Touch you not and still I can smash you. I am a Greenblood shadowknight!! Peon are you. Peons go to swamps and slay lizardmen. You return with four lizardmen tails and a reward is yours. You return with two lizardman shaman dolls and a great reward is yours.");
 	elseif(e.message:findi("i am an outsider")) then
@@ -27,9 +27,3 @@ function event_trade(e)
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
--- Developer: Diuretic Effluent
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------

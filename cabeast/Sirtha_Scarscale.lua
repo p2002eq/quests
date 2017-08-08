@@ -1,13 +1,12 @@
 --The other NPC for the Iksar Shadowknight low- to mid-level armors.
-
 function event_say(e)
 	if(e.message:findi("Hail")) then
-		e.self:Emote("eyes you intently. 'So, yet another hatchling approaches us. I am known as Sirtha and that is Sarth. We are of [Rile's] children. Who do you call your father, broodling?'");
+		e.self:Emote("eyes you intently. 'So, yet another hatchling approaches us. I am known as Sirtha and that is Sarth. We are of [" .. eq.say_link("Rile's") .. "] children. Who do you call your father, broodling?'");
 	elseif(e.message:findi("Rile")) then
-		e.self:Say("Very good. We are smiths for the Crusaders of the Greenmist and I shall make [armor] for you, provided you prove your worth. Fail these simple tasks, and you shall not be worthy to bear the title of crusader!");
+		e.self:Say("Very good. We are smiths for the Crusaders of the Greenmist and I shall make [" .. eq.say_link("armor") .. "] for you, provided you prove your worth. Fail these simple tasks, and you shall not be worthy to bear the title of crusader!");
 	elseif(e.message:findi("armor")) then
-		e.self:Say("I will make [helms], [gauntlets], [boots], and [vambraces]. My broodmate shall make the bracers, greaves, masks, and breastplate.");
-	elseif(e.message:findi("helm")) then
+		e.self:Say("I will make [" .. eq.say_link("helms") .. "], [" .. eq.say_link("gauntlets") .. "], [" .. eq.say_link("boots") .. "], and [" .. eq.say_link("vambraces") .. "]. My broodmate shall make the bracers, greaves, masks, and breastplate.");
+	elseif(e.message:findi("helms")) then
 		e.self:Say("The sarnak are a mockery of the Iksar. They are nothing more than beasts fit only to do our bidding! I require you to bring me the sword of one of their Order of Knights and the head of a sarnak berserker. These beasts have been attacking our patrols of late. I also require a stone called a ruby and a banded helm. Do this and I shall make a helm for you.");
 	elseif(e.message:findi("boots")) then
 		e.self:Say("Cactus quills can be very lethal. I seek to work them into my new boots. Find me these quills, a pair of skeletal feet, an emerald of fire, and some banded boots so that I may start working on them. Why are you still here?! Begone!");
@@ -20,38 +19,18 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
-	--Dreadscale Helm for:  Head=14822  Sword=14826  Helm=3053  Ruby=10035
-	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 14822, item2 = 14826, item3 = 3053, item4 = 10035})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 14822, item2 = 14826, item3 = 3053, item4 = 10035})) then -- Sarnak Berserker Head, Sarnak Knights Sword, Banded Helm and Ruby
 		e.self:Say("Well done! Here is the item we agreed upon. May Cazic's glorious curses flow through you!");
-		e.other:SummonItem(4968);
-		e.other:AddEXP(10000);
-		e.other:Ding();
-	end
-	--Dreadscale Boots for:  Quills=14828  Boots=3064  Feet=14823  FireEmerald=10033
-	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 14828, item2 = 14823, item3 = 3064, item4 = 10033})) then
+		e.other:QuestReward(e.self,0,0,0,0,4968,10000); -- Dreadscale Helm
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 14828, item2 = 14823, item3 = 3064, item4 = 10033})) then -- Cactus Quills, Skeletal Feet, Banded Boots and Fire Emerald
 		e.self:Say("Well done! Here is the item we agreed upon. May Cazic's glorious curses flow through you!");
-		e.other:SummonItem(4974);
-		e.other:AddEXP(10000);
-		e.other:Ding();
-	end
-	--Dreadscale Gauntlets for:  Hand=14825  Gauntlets=3062  StarRuby=10032
-	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 14825, item2 = 3062, item3 = 10032, item4 = 10032})) then
+		e.other:QuestReward(e.self,0,0,0,0,4974,10000); -- Dreadscale Boots
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 14825, item2 = 3062, item3 = 10032, item4 = 10032})) then -- Skeletal Hand, Banded Gauntlets and 2x Star Ruby
 		e.self:Say("Well done! Here is the item we agreed upon. May Cazic's glorious curses flow through you!");
-		e.other:SummonItem(4972);
-		e.other:AddEXP(10000);
-		e.other:Ding();
-	end
-	--Dreadscale Vambraces for:  Hide=14830  Vambraces=3060  Sapphire=10034
-	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 14830, item2 = 3060, item3 = 10034, item4 = 10034})) then
+		e.other:QuestReward(e.self,0,0,0,0,4972,10000); -- Dreadscale Gauntlets
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 14830, item2 = 3060, item3 = 10034, item4 = 10034})) then -- Golra Skin, Banded Sleeves and 2x Sapphire
 		e.self:Say("Well done! Here is the item we agreed upon. May Cazic's glorious curses flow through you!");
-		e.other:SummonItem(4970);
-		e.other:AddEXP(10000);
-		e.other:Ding();
+		e.other:QuestReward(e.self,0,0,0,0,4970,10000); -- Dreadscale Vambraces
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
--------------------------------------------------------------------------------------------------
--- Converted to .lua using MATLAB converter written by Stryd and manual edits by Speedz
--- Find/replace data for .pl --> .lua conversions provided by Speedz, Stryd, Sorvani and Robregen
--------------------------------------------------------------------------------------------------

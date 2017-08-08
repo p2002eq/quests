@@ -1,6 +1,6 @@
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Aagggh..  Get away from here..  Go, run..  Far away..  Or I shall call [Karana's] wrath upon you!");
+		e.self:Say("Aagggh..  Get away from here..  Go, run..  Far away..  Or I shall call [" .. eq.say_link("Karana's") .. "] wrath upon you!");
 	elseif(e.message:findi("karana")) then
 		e.self:Say("Heh!..  Ignorant one!  Begone, and take your stupidity with you!");
 	end
@@ -52,4 +52,3 @@ function event_trade(e)
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
