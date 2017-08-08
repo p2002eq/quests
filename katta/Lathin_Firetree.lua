@@ -17,7 +17,7 @@ function event_trade(e)
         e.other:Faction(96,-5); -- Eye of Seru
         e.other:Faction(138,-5); -- Hand Legionnaries
         e.other:SummonItem(7271); -- Shade Figurine Sketch
-        e.other:QuestReward(e.self,0,0,0,0,7272,1000000); -- Conlegium Enchanted Glaze
+        e.other:QuestReward(e.self,0,0,0,0,7272,10000); -- Conlegium Enchanted Glaze
     elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 7273})) then -- Shade Summoning Figurine
     e.self:Say("Excellent, this figurine will work wonderfully. A group of my best summoners is gathering on the first floor at the largest of the summoning circles to call forth the shade. Please take the figurine to Theurgus Ajeea Polaja immediately.");
         e.other:Faction(206,5); -- Magus Conlegium
@@ -27,7 +27,7 @@ function event_trade(e)
         e.other:Faction(139,-5); -- Hand of Seru
         e.other:Faction(96,-5); -- Eye of Seru
         e.other:Faction(138,-5); -- Hand Legionnaries
-        e.other:QuestReward(e.self,0,0,0,0,7779,1000000); -- Shade Summoning Figurine (#2)
+        e.other:QuestReward(e.self,0,0,0,0,7779,10000); -- Shade Summoning Figurine (#2)
         eq.spawn2(160485,0,0,-75,-807,8,164); -- #Theurgus_Ajeea_Polaja
         eq.spawn2(160483,0,0,-120,-808,8,88); -- #Praecantor_Sels_Dawneyes
         eq.spawn2(160484,0,0,-97,-858,8,0); -- #Incantator_Jak_Masric

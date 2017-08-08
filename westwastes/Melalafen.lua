@@ -23,7 +23,7 @@ function event_trade(e)
 		    e.other:Faction(42,10);   --Claws of Veeshan
 		    e.other:Faction(273,10);  --Ring of Scale
 		    e.other:Faction(189,-30); --Kromzek
-		    e.other:QuestReward(e.self,0,0,0,0,2698,5000000);
+		    e.other:QuestReward(e.self,0,0,0,0,2698,50000);
 	    elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 2698})) then
 	        e.other:QuestReward(e.self,0,0,0,0,2699);
 	    elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 2699})) then

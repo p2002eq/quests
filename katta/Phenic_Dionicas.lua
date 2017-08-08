@@ -36,13 +36,13 @@ function event_trade(e)
         e.other:Faction(52,10); -- Concillium Universus
         e.other:Faction(284,-1); -- Seru
         e.other:Faction(142,-1); -- Heart of Seru
-        e.other:QuestReward(e.self,0,0,0,0,31752,1000000); -- Katta Castellum Badge of Service
+        e.other:QuestReward(e.self,0,0,0,0,31752,10000); -- Katta Castellum Badge of Service
     elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 31755})) then -- Report of Nathyns Questioning
         e.self:Say("So Valdanov had an interest in a Vah Shir vampyre?!! Perhaps we should seek out this Vah Shir and find more clues. Take these orders to Legionnaire Falion during his next shift at the Tenebrous Mountains Gate, he will question any travelers that pass by about this mysterious Vah Shir.  Should you locate the Vah Shir Vampyre attempt to present him with your Badge of Service for questioning, he just may agree to cooperate rather than anger the Validus Custodus.");
         e.other:Faction(52,10); -- Concillium Universus
         e.other:Faction(284,-1); -- Seru
         e.other:Faction(142,-1); -- Heart of Seru
-        e.other:QuestReward(e.self,0,0,0,0,31756,1000000); -- Orders for Legionnaire Falion
+        e.other:QuestReward(e.self,0,0,0,0,31756,10000); -- Orders for Legionnaire Falion
     elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 18449})) then -- A Worn Research Book
         e.self:Emote("listens to your account of the events that have occurred since last you spoke and reads through the journal. 'This investigation is getting more and more baffling the further we delve. Among other things, I am wondering if the shade that was imprisoned in the chest is the same that was providing Valdanov with the blood for his research. Take the belt that the shade was wearing with these instructions to Governor Lathin at the Magus Conlegium. In the meantime I will pay a visit to Nathyn Illuminious.");
         e.other:Faction(52,10); -- Concillium Universus
@@ -64,7 +64,7 @@ function event_trade(e)
         e.other:Faction(52,10); -- Concillium Universus
         e.other:Faction(284,-1); -- Seru
         e.other:Faction(142,-1); -- Heart of Seru
-        e.other:QuestReward(e.self,0,0,0,0,7398,1000000); -- Loyalist Shield of Honor
+        e.other:QuestReward(e.self,0,0,0,0,7398,10000); -- Loyalist Shield of Honor
         eq.set_global("ready_for_ashes","0",0,"F"); -- Set Ashes = 0
     end
     item_lib.return_items(e.self, e.other, e.trade)

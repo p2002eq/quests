@@ -56,7 +56,7 @@ function event_trade(e)
 		e.other:Faction(188, -50); --Kromrif
 		e.other:Faction(189, -50); --Kromzek
 		e.other:SummonItem(1465); --Dirk of the Dain
-		e.other:QuestReward(e.self, 0, 0, 0, 0, 30369, 4000000); --9th Ring
+		e.other:QuestReward(e.self, 0, 0, 0, 0, 30369, 1000000); --9th Ring
 	end
 	
 	-- no faction required
