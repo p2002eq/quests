@@ -1,4 +1,4 @@
--- depop script for a trap mob in VT
+--Vex Thal Shade Reanimation Script on Death
 
 function event_timer(e)
     if e.timer == 'depop' then
@@ -7,23 +7,23 @@ function event_timer(e)
     end
 end
 
-function event_death(e)
-   local ran = math.random(1, 5);
+function event_death_complete(e)
+   local ran = math.random(1, 100);
    local mob;
    local x, y, z , h = e.self:GetX(), e.self:GetY(), e.self:GetZ(), e.self:GetHeading();
-   if ran == 1 then
+   if ran <= 30 then
       --qua 
       mob = 158020;
-   elseif ran == 2 then
+   elseif ran <= 50 then
       --zov
       mob = 158063;
-   elseif ran == 3 then
+   elseif ran <= 70 then
       --zun
       mob = 158045;
-   elseif ran == 4 then
+   elseif ran <= 85 then
       --pli
       mob = 158059;
-   elseif ran == 5 then
+   else
       -- eom
       mob = 158004;
    end
