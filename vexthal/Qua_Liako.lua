@@ -1,4 +1,4 @@
--- depop script for a trap mob in VT
+--Vex Thal Shade Reanimation Script on Death( These will spawn Va Liakos (undead shade SK version)
 
 function event_timer(e)
     if e.timer == 'depop' then
@@ -7,26 +7,25 @@ function event_timer(e)
     end
 end
 
-
-function event_death(e)
-   local ran = math.random(1, 5);
+function event_death_complete(e)
+   local ran = math.random(1, 100);
    local mob;
    local x, y, z , h = e.self:GetX(), e.self:GetY(), e.self:GetZ(), e.self:GetHeading();
-   if ran == 1 then
+   if ran <= 30 then
       --qua 
-      mob = 158019;
-   elseif ran == 2 then
+      mob = 158075;
+   elseif ran <= 50 then
       --zov
-      mob = 158055;
-   elseif ran == 3 then
+      mob = 158065;
+   elseif ran <= 70 then
       --zun
-      mob = 158071;
-   elseif ran == 4 then
+      mob = 158018;
+   elseif ran <= 85 then
       --pli
-      mob = 158037;
-   elseif ran == 5 then
+      mob = 158072;
+   else
       -- eom
-      mob = 158073;
+      mob = 158057;
    end
 
    local spawned = eq.spawn2(mob, 0, 0, x, y, z, h);
@@ -34,3 +33,4 @@ function event_death(e)
     
 
 end
+

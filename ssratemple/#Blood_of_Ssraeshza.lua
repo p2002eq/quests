@@ -8,7 +8,9 @@ function event_spawn(e)
 	if eq.get_entity_list():IsMobSpawnedByNpcTypeID(162515) then
 		eq.set_timer('depop_golem', 500);
 	end
-	eq.get_entity_list():GetSpawnByID(368757):Disable();
+	eq.unique_spawn(162504,0,0,1000,-325,421,196);  -- Spawns Emp
+
+	eq.delete_global("Emp_Cycle");	--reset Emp cycle qglobals
 	
 	-- deactivate Emp if he is active for some reason
 	eq.signal(162504, 10); 
@@ -30,6 +32,7 @@ function event_timer(e)
 	elseif e.timer == 'depop_golem' then
 		eq.stop_timer(e.timer);
 		eq.depop_with_timer(162515);
+		eq.get_entity_list():GetSpawnByID(368757):Disable();	--Disable Fake Blood spawnpoint
 	end
 end
 
@@ -38,9 +41,11 @@ function event_death_complete(e)
 	-- activate emp
 	eq.signal(162504, 99);
 	-- enable fake blood spawn point
-	local fbs = eq.get_entity_list():GetSpawnByID(368757);
+	local fbs = eq.get_entity_list():GetSpawnByID(368757);	--Fake Blood Spawnpoint
 	fbs:Enable();
 	fbs:Reset();
+	
+	eq.set_global("Emp_Cycle", "1",3,"D8");	--sets Qglobal to indicate Blood killed so emp will respawn on server reset
 end
 
 function aggro_guards(mob)
