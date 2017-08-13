@@ -1,4 +1,4 @@
-local depop_list = {126158, 126227, 126200, 126157, 126295, 126251, 126178, 126323, 126342, 126211, 126254, 126324, 126327, 126338, 126334, 126252, 126248, 126335, 126331, 126606, 126607, 126608, 126609, 126610, 126611, 126605};
+ glocal depop_list = {126158, 126227, 126200, 126157, 126295, 126251, 126178, 126323, 126342, 126211, 126254, 126324, 126327, 126338, 126334, 126252, 126248, 126335, 126331, 126606, 126607, 126608, 126609, 126610, 126611, 126605};
 
 local a_trigger = 0;  --sets value to 1 once audience cycle triggered
 local p_trigger = 0;	--sets value to 1 once puppets spawn is triggered
@@ -99,7 +99,7 @@ function event_timer(e)
 	elseif (e.timer == "bristlebane") then
 		eq.stop_timer("bristlebane");
 		if (eq.get_entity_list():IsMobSpawnedByNpcTypeID(126248) == true) then  --if Geb not killed then spawns Bristlebane and starts depop timer
-			eq.spawn2(126160,0,0,163,425,153.69,255);  --Spawn Bristlebane
+			eq.unique_spawn(126160,0,0,163,425,153.69,255);  --Spawn Bristlebane
 			eq.signal(126160,1);					--send signal for Bristlebane shout about CT puppet
 			eq.signal(126160,2,3*58*1000);			--send signal for Bristlebane zone-wide shout for everyone to go home
 			eq.set_timer("depop", 3*60*1000);		--sets despawn for 11am
