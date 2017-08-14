@@ -5,7 +5,7 @@
 
 function event_say(e)
     if(e.message:findi("Hail")) then
-        e.self:Shout("SILENCE IN THE LIBRARY!!!"); --PEQ standard - not confirmed
+        e.self:Shout(string.upper(e.other:GetName()) .. "!"); 
         e.self:SpellFinished(982, e.other);  --cast Cazic Touch (10K unresistable dmg)
     end
 end
