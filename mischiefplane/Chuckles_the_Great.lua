@@ -8,7 +8,7 @@
 local count = 0;
 
 function dance()
-	eq.set_timer("dance", 800); -- dance intervals
+	eq.set_timer("dance", 500); -- dance intervals
 end
 
 function event_spawn(e)

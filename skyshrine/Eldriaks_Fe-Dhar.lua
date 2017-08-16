@@ -52,7 +52,7 @@ function event_trade(e)
 	if (e.other:GetFaction(e.self) == 1) then  	--check for ally faction
 	
 		--Quest Trade Dialog for Step 6.0
-		if (qglobals[" .. eq.say_link(""garzicor"") .. "] == "5") then	--Checks for atleast 5.0 qglobal flag from Oglard
+		if (qglobals["garzicor"] == "5") then	--Checks for atleast 5.0 qglobal flag from Oglard
 			if(item_lib.check_turn_in(e.self, e.trade, {item1 = 2053})) then	--Check for Dragon Crafted Urn (2nd version)
 				e.self:Say("Hmm? What's this? Oh! You are the " .. e.other:Race() .. " who has been helping us with the nameless one. Well, not so nameless anymore. A part of Garzicor clings to this world, eager to bring vengeance upon the giants who murdered him. We've decided a weapon must be constructed, and the restless spirit of Garzicor must be bound to it. You must be the one to construct this weapon. This dust must be used in the forging of the weapon's blade. Are you a [" .. eq.say_link("master smith") .. "] ".. e.other:GetName() .. "?"); 
 				e.other:QuestReward(e.self,0,0,0,0,2054,300);	--Sanctified Bone Dust
@@ -62,7 +62,7 @@ function event_trade(e)
 		end
 
 		--Quest Trade Dialog for Part 7.0
-		if (qglobals[" .. eq.say_link(""garzicor"") .. "] == "6") then
+		if (qglobals["garzicor"] == "6") then
 			if(item_lib.check_turn_in(e.self, e.trade, {item1 = 1868, item2 = 2055, item3 = 2056})) then	--Check for Bronzewood Staff, Finished Tsuba and Finished Naginata Blade
 				e.self:Emote("takes the staff, blade, and tsuba and looks them over. He says, 'Excellent craftsmanship. These will make a fine weapon. But one part remains to join all the pieces together. That is the fittings.' The wyvern then hands you the items back along with a vial of blood and says, 'This vial of blood will allow you to [" .. eq.say_link("awaken Garzicor's spirit") .. "]. ");
 				e.other:QuestReward(e.self,0,0,0,0,2426,300);	--Assembled Naginata
@@ -72,7 +72,7 @@ function event_trade(e)
 		end
 			
 		--Final Quest completion dialogue(no further qglobals)
-		if (qglobals[" .. eq.say_link(""garzicor"") .. "] == "7") then	
+		if (qglobals["garzicor"] == "7") then	
 			if(item_lib.check_turn_in(e.self, e.trade, {item1 = 1728})) then	--Check for Ethereal Bladed Naginata (V1)
 				e.self:Say("You have succeeded, " .. e.other:GetName() ..". Garzicor's spirit no longer calls to us from beyond. Now we ask that you do one more thing. You must wield this weapon against all giant kind to satiate Garzicor's thirst for vengeance. The Naginata has a special power against the Kromzek, they will fall easily before it. However, if you do not wish to, hand the weapon back to me and I'll give you an earring more worthy of a being of faith. If you are one of sorcerous powers, hand me the earring and Ill hand you a ring more suited to you.");
 				e.other:QuestReward(e.self,0,0,0,0,2097,500);	--Ethereal Bladed Naginata (V2)  Quest Reward Version
