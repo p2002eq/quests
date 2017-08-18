@@ -2,7 +2,7 @@ function event_say(e)
 	if(e.message:findi("hail")) then -- Part of Shaman Epic 1.0
 		e.self:Emote("burps loudly in your face and says, 'Bah! Leave me be, fool! You have nothin' I want and I certainly have nothin' you want.");
 	elseif(e.message:findi("you can buy booze")) then -- Part of Shaman Epic 1.0
-		e.self:Emote("suddenly becomes completely sober and says, 'Very well, shaman, please come with me.'");
+		e.self:Emote("suddenly becomes completely sober and says, 'Very well, ".. e.other:Class() .. ", please come with me.'");
 		eq.start(13);
 	end
 end
