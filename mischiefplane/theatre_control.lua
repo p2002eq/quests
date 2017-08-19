@@ -96,12 +96,6 @@ function event_timer(e)
 		eq.spawn2(126611,0,0,182,603,145.81,130); -- Spawns Bristlebane Puppet
 		eq.spawn2(126605,0,0,142,603,145.81,130); -- Spawns Tunare Puppet
 
-	elseif (e.timer == "bristlebane") then
-		eq.stop_timer("bristlebane");
-		if (eq.get_entity_list():IsMobSpawnedByNpcTypeID(126248) == true) then  --if Geb not killed then spawns Bristlebane and starts depop timer
-			eq.unique_spawn(126160,0,0,163,425,153.69,255);  --Spawn Bristlebane
-		end
-	
 	elseif (e.timer == "hourcheck") then
 		local ztime = eq.get_zone_time();
 		if (ztime.zone_hour == 6) then
@@ -113,10 +107,12 @@ function event_timer(e)
 		elseif (ztime.zone_hour == 9 and p_trigger ~= 1) then
 			eq.set_timer("puppets",1);  	-- puppets spawn at 9am 
 			p_trigger = 1;
-		elseif (ztime.zone_hour == 10 and b_trigger ~= 1) then	
-			eq.set_timer("bristlebane",1);	--bristlebane spawns around 10am
+		elseif (ztime.zone_hour == 10 and b_trigger ~= 1) then	--bristlebane spawns at 10am
+			if (eq.get_entity_list():IsMobSpawnedByNpcTypeID(126248) == true) then  --if Geb not killed then spawns Bristlebane and starts depop timer
+				eq.unique_spawn(126160,0,0,163,425,153.69,255);  --Spawn Bristlebane	
+			end
 			b_trigger = 1;
-		elseif (ztime.zone_hour == 11 and b_trigger == 1) then	-- if Bristlebane spawned then will depop audience at 11am
+		elseif (ztime.zone_hour == 11 and eq.get_entity_list():IsMobSpawnedByNpcTypeID(126160) == true) then	-- if Bristlebane spawned then will depop audience at 11am
 			eq.set_timer("depop",1);
 		end
 		

@@ -28,12 +28,14 @@ function depop(e)
 		eq.depop_all(guard_list[d_count])	--despawns all guards
 		d_count = d_count + 1;
 	end
-	eq.depop_with_timer();	--despawns treasure chest with timer
+	
 end
 	
 
 function event_spawn(e)
+	depop(e);	-- depop guards if already up
 	GuardsSpawned = 0;  -- reset script to allow guards to be spawned only once
+	
 end
 
 
@@ -43,6 +45,7 @@ function event_timer(e)
 		aggro_guards(e.self:GetHateRandom());
 	elseif (e.timer == 'depop') then
 		depop(e);
+		eq.depop_with_timer();	--despawns treasure chest with timer
 	end
 end
 
@@ -73,10 +76,4 @@ function event_combat(e)
 	end
 end
 
-function event_death_complete(e)
-	local d_count = 1;
-	while (guard_list[d_count] ~= nil) do
-		eq.depop_all(guard_list[d_count])	--despawns all guards
-		d_count = d_count + 1;
-	end
-end
+
