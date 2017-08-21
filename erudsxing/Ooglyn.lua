@@ -13,7 +13,7 @@ function event_trade(e)
 		e.other:Faction(342,50,0);
 		e.other:AddEXP(1000);
 		e.self:Say("Ok shaman, let us be off.");
-		eq.start(57);
+		eq.start(33);
 	end
 	item_lib.return_items(e.self, e.other, e.trade);
 end
@@ -21,7 +21,7 @@ end
 function event_waypoint_arrive(e)
 	if(e.wp == 7) then
 		e.self:Say("Ok, here is place for you to for waiting. Hab fun shaman!");
-		eq.set_timer("depop",360000);
+		eq.set_timer("depop",240000);
 	end
 end
 

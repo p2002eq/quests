@@ -2,17 +2,7 @@
 
 function event_say(e)
 	if(e.message:findi("hail")) then -- Part of Shaman Epic 1.0
-		e.self:Say("Greetings, shaman. Tell me, do you follow [" .. eq.say_link("Justice") .. "], [War], [Honor], [Fear], or [Hate]?");
-	elseif(e.message:findi("i follow justice")) then -- Part of Shaman Epic 1.0
-		e.self:Say("Ah, it does me much good to meet with one who holds respect and reverence for the spirits. [" .. eq.say_link("Trust") .. "] that your place in the whole is important. Rather than trying to enslave and command others with the powers the gods grant you, you live in harmony and balance with the world around you. There are times when we, the [true spirits] and those like you, can work together to achieve goals. Individuals who help us are known as [Heyokah].");
-	elseif(e.message:findi("i follow fear")) then -- Part of Shaman Epic 1.0
-		e.self:Say("You would be best served by speaking to my brother in the next room, " .. e.other:GetName() .. ".");
-	elseif(e.message:findi("i follow war")) then -- Part of Shaman Epic 1.0
-		e.self:Say("You would be best served by speaking to my brother in the next room, " .. e.other:GetName() .. ".");
-	elseif(e.message:findi("i follow hate")) then -- Part of Shaman Epic 1.0
-		e.self:Say("You would be best served by speaking to my brother in the next room, " .. e.other:GetName() .. ".");
-	elseif(e.message:findi("i follow honor")) then -- Part of Shaman Epic 1.0
-		e.self:Say("Ah, it does me much good to meet with one who holds respect and reverence for the spirits. [" .. eq.say_link("Trust") .. "] that your place in the whole is important. Rather than trying to enslave and command others with the powers the gods grant you, you live in harmony and balance with the world around you. There are times when we, the [true spirits] and those like you, can work together to achieve goals. Individuals who help us are known as [Heyokah].");
+		e.self:Say("'It is good to see you, " .. e.other:GetName() .. ". We're glad you trusted in our brother and did what was asked regardless of Bondl's intentions. This fills us with joy, as the [" .. eq.say_link("true spirits") .. "] work in ways most people would not understand and [" .. eq.say_link("trust") .. "] is the first lesson of the [" .. eq.say_link("Heyokah") .. "].");
 	elseif(e.message:findi("trust")) then -- Part of Shaman Epic 1.0
 		e.self:Say("Trust is the glue of the universe. When one trusts others to do their part, it allows them to focus on what they must do themselves. The trust that others have in us also gives us the confidence to do our parts effectively, thus maintaining harmony. When one becomes dissatisfied with his part and pursues his own desires, this is called greed. And greed destroys the glue of the universe. This is why we wished the bandits under the grass.");
 	elseif(e.message:findi("true spirits")) then -- Part of Shaman Epic 1.0
