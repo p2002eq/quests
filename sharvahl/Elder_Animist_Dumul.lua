@@ -64,7 +64,7 @@ function event_trade(e)
 		eq.zone_emote(1, "A glorious cheer rises from the streets of Shar Vahl to greet the city's newest hero.");
 		e.other:SummonItem(8495); -- Claw of the Savage Spirit 1
 		e.other:QuestReward(e.self,0,0,0,0,8496,10000000); -- Claw of the Savage Spirit 2 + big XP hit!
-		qglobals[" .. eq.say_link(""bstepic"") .. "] = nil;
+		qglobals["bstepic"] = nil;
 	end
 	
 	item_lib.return_items(e.self, e.other, e.trade);
