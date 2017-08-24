@@ -7,7 +7,7 @@ function event_spawn(e)
 end
 
 function event_enter(e)
-	if e.other:Admin() < 100 then
+	if (e.other:GetGM() == false) then
 		local x = e.self:GetX();
 		local y = e.self:GetY();
 		local z = e.self:GetZ();
