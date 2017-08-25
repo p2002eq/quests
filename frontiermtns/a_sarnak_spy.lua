@@ -6,7 +6,7 @@
 
 function event_say(e)
 	local qglobals = eq.get_qglobals(e.other);
-	if(qglobals[" .. eq.say_link(""RegalBandBathezid"") .. "] == "1") then -- we handed the Signet of Service yet
+	if(qglobals["RegalBandBathezid"] == "1") then -- we handed the Signet of Service yet
 		if(e.message:findi("proceed")) then
 			e.self:Say("Good, here then is what you must do. It's pretty simple actually and even one such as you should have no troubles. Skargus has been trading in slaves with the Iksar. He has a courier there visits the outskirts of Cabilis and sends weekly reports back to Droga. If we could get that report, Skargus would be finished. Will you go to Cabilis and [" .. eq.say_link("get the report") .. "]?");
 		end
