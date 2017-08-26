@@ -38,7 +38,7 @@ function event_timer(e)
 		if (ztime.zone_hour == 10 and ztime.zone_minute == 58) then	
 			if (inCombat == false) then
 				e.self:Shout("Well, there is nothing to see here!  Go home everyone!");
-				eq.set_timer("depop",3*1000);
+				eq.set_timer("depop",45*1000);
 			end
 		end
 	end
