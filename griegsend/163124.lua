@@ -1,7 +1,7 @@
 -- depop script for a trap mob in Grieg's End
 
 function event_spawn(e)
-	eq.start_timer('depop', 20 * 60 * 1000);
+	eq.set_timer('depop', 20 * 60 * 1000);
 end
 
 function event_timer(e)
