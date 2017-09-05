@@ -5,7 +5,7 @@ function event_say(e)
 	    e.self:Emote("squints at you through one eye, the other covered by a metallic eyepatch.");
 	    e.self:Say("Garrr. What `ave we here? Another beller yellied land blubber, eh? By the looks of ye someones mudder didn't know when ta throw a [" .. eq.say_link("bad fish") .. "] back. HAR HAR!");
 	elseif(e.message:findi("bad fish")) then
-	    e.self:Say("That means I'm callin ya ugly as a piece o' whale blubber but twice as bad smellin, ya son of a water treadin $race. Yer about as smart as the slime we use ta patch our [" .. eq.say_link("boat") .. "] hull, aren't ya?");
+	    e.self:Say("That means I'm callin ya ugly as a piece o' whale blubber but twice as bad smellin, ya son of a water treadin "..e.other:Race()..". Yer about as smart as the slime we use ta patch our [" .. eq.say_link("boat") .. "] hull, aren't ya?");
 	elseif(e.message:findi("boat")) then
 	    e.self:Say("'Arrrr. So we ain't got a boat right now. What's that got ta do with anythin'? Just cause we ain't got a boat, or a way to sail the waters, or even know how ta sail, don't [" .. eq.say_link("mean") .. "] we aren't crusty and dangerous. Just watch yerself cause we're mean.");
 	elseif(e.message:findi("mean")) then
