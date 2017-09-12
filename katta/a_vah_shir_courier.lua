@@ -1,6 +1,6 @@
 ---- Quest:Rakshasa Skulls
 function event_spawn(e)
-    eq.set_timer("courier", 10 * 60 * 1000); -- 10 minutes to kill all mobs
+    eq.set_timer("courier", 700000); -- 10 minutes to kill all mobs
     courier_waypoint = 0
 end
 
@@ -18,14 +18,12 @@ end
 function event_timer(e)
     if (e.timer == "courier") then
         eq.depop();
-    elseif (e.timer == "end") then
-        eq.depop();
     end
     eq.stop_timer(e.timer)
 end
 
 function event_death_complete(e)
-    if(courier_waypoint >= 7) then
+    if(courier_waypoint >= 9) then
         event_emote(e,"The Vah Shir courier slams the crate of skulls against the ground with unnatural force as he falls jarring it open.");
         event_emote(e,"With his dying breath the possessed courier mutters a dark incantation and the skulls burst from the chest sprouting new skeletal forms.");
         eq.signal(160126,3,1); -- Roshawna Rhorer - Spawn Reanimated mobs
@@ -55,9 +53,10 @@ function event_waypoint_arrive(e)
         eq.signal(160126,1,10000); -- Roshawwna_Rhorer
     elseif(e.wp==7) then
         eq.get_entity_list():GetDoorsByID(8767):ForceOpen(e.self)
+    elseif(e.wp==9) then
         courier_waypoint = e.wp
     elseif(e.wp==11) then
-        eq.set_timer("end", 10 * 60 * 1000); -- 10 minutes to kill all mobs
+        eq.depop();
     end
 end
 
