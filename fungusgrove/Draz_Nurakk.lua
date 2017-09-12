@@ -19,3 +19,13 @@ function event_hate_list(e)
 		eq.set_timer('pet', 1000);
 	end
 end
+
+function event_combat(e)
+	if(e.joined == true) then
+		eq.stop_timer('depop')
+	end
+	if(e.joined == false) then
+		eq.set_timer("depop", 60 * 60 * 1000); -- Restart 60 Minute timer when out of combat
+		cleanup()
+	end
+end
