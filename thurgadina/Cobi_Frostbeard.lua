@@ -15,7 +15,7 @@ local QUEST_ITEMS = {
 }
 
 function event_say(e)
-	if(e.other:GetFaction(e.self) <3 ) then --Warmly or lower
+	if(e.other:GetFaction(e.self) <= 3 ) then --Warmly or lower
 		if(e.message:findi("hail")) then
 			e.self:Say("Greetings to you. I seek one who calls himself a druid. What do you call yourself, manling?");
 		elseif(e.message:findi("druid")) then	
