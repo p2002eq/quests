@@ -1,4 +1,6 @@
 function event_say(e)
+	local qglobals = eq.get_qglobals(e.self,e.other);
+
 	if(e.message:findi("hail")) then
 		e.self:Say("Hmm... is there something I can help you with? I am far too [" .. eq.say_link("busy") .. "] to listen to your problems though so I take that back.");
 	elseif(e.message:findi("busy")) then
