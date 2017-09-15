@@ -6,6 +6,7 @@ local group = nil;
 local raid = nil;
 
 function event_say(e)
+    eq.zone_emote(13,instanceId);
     local instanceId = nil;  -- from the global
     if(e.message:findi('hail')) then
         e.self:Say("Greetings Traveler, recently there has been talk of rifts in space and time. These rifts have been allowing well established groups of adventurers to explore identical instances of norrath.");
