@@ -12,7 +12,7 @@ function event_say(e)
         e.self:Say("Are you [" .. eq.say_link("brave") .. "] enough to travel through these portals?");
     elseif(e.message:findi('brave')) then
         local qglobals = eq.get_qglobals(e.other);
-        local zoneGlobal = "ToV-" .. e.other:GuildID;
+        local zoneGlobal = "ToV-" .. e.other:GuildID();
         instanceId = qglobals[zoneGlobal];
         if (instanceId ~= nil) then
             entity_list = eq.get_entity_list(); --get current entity list of zone
