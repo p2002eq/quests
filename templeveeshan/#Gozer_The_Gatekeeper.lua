@@ -34,32 +34,6 @@ function event_say(e)
     end
 end
 
-
-function PortChars(cur_x, cur_y, cur_z, distance, dest_x, dest_y, dest_z, dest_h, dest_zone, dest_instance, guildId)
-    player_list = nil;
-    player_list_count = nil;
-    if (raid.valid == true) then
-        player_list = raid;
-        player_list_count = raid:RaidCount();
-    elseif (group.valid == true) then
-        player_list = group;
-        player_list_count = group:GroupCount();
-    end
-    if (player_list ~= nil) then
-        for i = 0, player_list_count - 1, 1 do --Uses a 0-n group memembers
-            local client_v = player_list:GetMember(i):CastToClient();
-            if (client_v.valid and client_v:GuildID() == guildId) then --valid client
-                if (client_v:CalculateDistance(cur_x, cur_y, cur_z) <= distance) then
-                    -- check distance and port up
-                    client_v:MovePCInstance(dest_zone, dest_instance, dest_x, dest_y, dest_z, dest_h);
-                end
-            end
-        end
-    else --not grouped
-        client_e.other:MovePCInstance(dest_zone, dest_instance, dest_x, dest_y, dest_z, dest_h);
-    end
-end
-
 function check_raid_guild(cur_raid, guildId)
     local same_guild = 0;
     player_list = nil;

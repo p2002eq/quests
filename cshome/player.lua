@@ -1,15 +1,20 @@
 function event_say(e)
+	local qglobals = eq.get_qglobals(e.self,e.other);
 	local guildid = nil
 	if(e.message:findi("help") and e.self:GetGM()) then
 		event_emote(e,"Available Options are '\Instance (GuildID)'");
 	elseif(e.message:findi("instance") and e.self:GetGM()) then
 		guildid = string.match(e.message, "%d+");
+		local zoneGlobal = "TOV-" .. tostring(e.other:GuildID());
+
 
 
 		--instance_id_kael = eq.create_instance("KAEL",0,9000000);  -- up for over 100 days 9000000
 		--eq.set_global("KAEL-" .. guildid,tostring(instance_id_kael),7,"F");
-		instance_id_tov = eq.create_instance("TEMPLEVEESHAN",0,9000000);  -- up for over 100 days 9000000
-		eq.set_global("TOV-" .. guildid,tostring(instance_id_tov),7,"F");
+		if(qglobals["TOV-" .. tostring(e.other:GuildID())] == nil) then
+			instance_id_tov = eq.create_instance("TEMPLEVEESHAN",0,9000000);  -- up for over 100 days 9000000
+			eq.set_global("TOV-" .. guildid,tostring(instance_id_tov),7,"F");
+		end
 		--instance_id_sleeper = eq.create_instance("SLEEPER",0,9000000);  -- up for over 100 days 9000000
 		--eq.set_global("SLEEPER-" .. guildid,tostring(instance_id_sleeper),7,"F");
 		--instance_id_ssra = eq.create_instance("SSRATEMPLE",0,9000000);  -- up for over 100 days 9000000
