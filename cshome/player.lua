@@ -3,7 +3,7 @@ function event_say(e)
 	if(e.message:findi("help") and e.self:GetGM()) then
 		event_emote(e,"Available Options are '\Instance (GuildID)'");
 	elseif(e.message:findi("instance") and e.self:GetGM()) then
-		guildid = e.message:match("instance%s*(%a+)")
+		guildid = string.match(e.message, "instance%s*(%a+)");
 
 
 		instance_id_kael = eq.create_instance("KAEL",0,9000000);  -- up for over 100 days 9000000
