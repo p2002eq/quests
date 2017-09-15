@@ -6,20 +6,20 @@ function event_say(e)
 		guildid = string.match(e.message, "instance%s*(%a+)");
 
 
-		instance_id_kael = eq.create_instance("KAEL",0,9000000);  -- up for over 100 days 9000000
-		eq.set_global("KAEL-" .. guildid,tostring(instance_id_kael),7,"F");
+		--instance_id_kael = eq.create_instance("KAEL",0,9000000);  -- up for over 100 days 9000000
+		--eq.set_global("KAEL-" .. guildid,tostring(instance_id_kael),7,"F");
 		instance_id_tov = eq.create_instance("TEMPLEVEESHAN",0,9000000);  -- up for over 100 days 9000000
 		eq.set_global("TOV-" .. guildid,tostring(instance_id_tov),7,"F");
-		instance_id_sleeper = eq.create_instance("SLEEPER",0,9000000);  -- up for over 100 days 9000000
-		eq.set_global("SLEEPER-" .. guildid,tostring(instance_id_sleeper),7,"F");
-		instance_id_ssra = eq.create_instance("SSRATEMPLE",0,9000000);  -- up for over 100 days 9000000
-		eq.set_global("SSRA-" .. guildid,tostring(instance_id_ssra),7,"F");
-		instance_id_sseru = eq.create_instance("SSERU",0,9000000);  -- up for over 100 days 9000000
-		eq.set_global("SSERU-" .. guildid,tostring(instance_id_sseru),7,"F");
-		instance_id_vexthal = eq.create_instance("VEXTHAL",0,9000000);  -- up for over 100 days 9000000
-		eq.set_global("VEXTHAL-" .. guildid,tostring(instance_id_vexthal),7,"F");
-		instance_id_akheva = eq.create_instance("AKHEVA",0,9000000);  -- up for over 100 days 9000000
-		eq.set_global("AKHEVA-" .. guildid,tostring(instance_id_akheva),7,"F");
+		--instance_id_sleeper = eq.create_instance("SLEEPER",0,9000000);  -- up for over 100 days 9000000
+		--eq.set_global("SLEEPER-" .. guildid,tostring(instance_id_sleeper),7,"F");
+		--instance_id_ssra = eq.create_instance("SSRATEMPLE",0,9000000);  -- up for over 100 days 9000000
+		--eq.set_global("SSRA-" .. guildid,tostring(instance_id_ssra),7,"F");
+		--instance_id_sseru = eq.create_instance("SSERU",0,9000000);  -- up for over 100 days 9000000
+		--eq.set_global("SSERU-" .. guildid,tostring(instance_id_sseru),7,"F");
+		--instance_id_vexthal = eq.create_instance("VEXTHAL",0,9000000);  -- up for over 100 days 9000000
+		--eq.set_global("VEXTHAL-" .. guildid,tostring(instance_id_vexthal),7,"F");
+		--instance_id_akheva = eq.create_instance("AKHEVA",0,9000000);  -- up for over 100 days 9000000
+		--eq.set_global("AKHEVA-" .. guildid,tostring(instance_id_akheva),7,"F");
 
 
 		--eq.set_global("TOV-Veni Vidi Vici","40",7,"F");
