@@ -1,8 +1,8 @@
 function event_say(e)
 	local guildid = nil
 	if(e.message:findi("help") and e.self:GetGM()) then
-		event_emote(e,"Available Options are [Set Instance]");
-	elseif(e.message:findi("instances") and e.self:GetGM()) then
+		event_emote(e,"Available Options are '\Set Instance (GuildID)'");
+	elseif(e.message:findi("set instance") and e.self:GetGM()) then
 		event_emote(e,"Use 'Set Instance (GuildID) to assign an instance");
 		guildid = e.message:match("set instance%s*(%a+)")
 
