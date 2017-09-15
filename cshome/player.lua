@@ -1,5 +1,5 @@
 function event_say(e)
-	local qglobals = eq.get_qglobals(e.self,e.other);
+	local qglobals = eq.get_qglobals(e.self);
 	local guildid = nil
 	if(e.message:findi("help") and e.self:GetGM()) then
 		event_emote(e,"Available Options are '\Instance (GuildID)'");
