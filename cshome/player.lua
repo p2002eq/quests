@@ -6,7 +6,7 @@ function event_say(e)
 	elseif(e.message:findi("instance") and e.self:GetGM()) then
 		guildid = string.match(e.message, "%d+");
 		local zoneGlobal = "TOV-" .. guildid;
-		local guildname = eq.get_guild_name_by_id(guildid);
+		local guildname = eq.get_guild_name_by_id(tonumber(guildid));
 
 		if(qglobals["KAEL-" .. tostring(guildid)] == nil) then
 			instance_id_kael = eq.create_instance("KAEL",0,9000000);  -- up for over 100 days 9000000
