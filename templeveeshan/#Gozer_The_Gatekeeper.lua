@@ -6,14 +6,13 @@ local group = nil;
 local raid = nil;
 
 function event_say(e)
-    eq.zone_emote(13,instanceId);
     local instanceId = nil;  -- from the global
     if(e.message:findi('hail')) then
         e.self:Say("Greetings Traveler, recently there has been talk of rifts in space and time. These rifts have been allowing well established groups of adventurers to explore identical instances of norrath.");
         e.self:Say("Are you [" .. eq.say_link("brave") .. "] enough to travel through these portals?");
     elseif(e.message:findi('brave')) then
         local qglobals = eq.get_qglobals(e.other);
-        local zoneGlobal = "ToV-" .. tostring(e.other:GuildID());
+        local zoneGlobal = "TOV-" .. tostring(e.other:GuildID());
         instanceId = qglobals[zoneGlobal];
         if (instanceId ~= nil) then
             entity_list = eq.get_entity_list(); --get current entity list of zone
