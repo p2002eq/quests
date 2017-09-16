@@ -8,8 +8,7 @@ function event_level_up(e)
 end
 
 function event_enter_zone(e)
-	local instance_id = nil;
-	instance_id = eq.get_instance_id('templeveeshan', 0);
+	local instance_id = eq.get_zone_instance_id();
 	local discs = require('disciplines');
 	discs:update_discs(e, e.self:GetLevel());
 
