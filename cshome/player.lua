@@ -11,7 +11,7 @@ function event_say(e)
 		if(qglobals["KAEL-" .. tostring(guildid)] == nil) then
 			instance_id_kael = eq.create_instance("KAEL",0,9000000);  -- up for over 100 days 9000000
 			eq.set_global("KAEL-" .. guildid,tostring(instance_id_kael),7,"F");
-			e.self:Message(string.format("Kael instance has been created, Guild Name = %s, GuildID = %s, InstanceID = %i!",guildname,guildid,instance_id_kael));
+			e.self:Message(string.format("Kael instance has been created, Guild Name = %s, GuildID = %i, InstanceID = %i!",guildname,guildid,instance_id_kael));
 		elseif(qglobals["KAEL-" .. tostring(guildid)] ~= nil) then
 			e.self:Message(string.format("Kael instance has NOT been created, Guild Name = %s, GuildID = %s, Instance has already been created for this Guild!",guildname,guildid));
 		end
