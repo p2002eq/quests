@@ -8,11 +8,12 @@ function event_level_up(e)
 end
 
 function event_enter_zone(e)
-	local instance_id = eq.get_instance_id();
+	local instance_id = eq.get_zone_instance_id();
+	local instance_version = eq.get_zone_instance_version();
 	local discs = require('disciplines');
 	discs:update_discs(e, e.self:GetLevel());
 
-	e.self:Message(1,string.format("[DEBUG], InstanceID = %i",instance_id));
+	e.self:Message(1,string.format("[DEBUG], InstanceID = %i, Instance Version = %i",instance_id,instance_version));
 
 	if(instance_id ~= 0) then
 		e.self:Message(1,"You have entered a Instanced Version of the zone.");
