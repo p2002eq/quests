@@ -12,7 +12,7 @@ function event_say(e)
         e.self:Say("Are you [" .. eq.say_link("brave") .. "] enough to travel through these portals?");
     elseif(e.message:findi('brave')) then
         local qglobals = eq.get_qglobals(e.other);
-        local zoneGlobal = "TOV-" .. tostring(e.other:GuildID());
+        local zoneGlobal = "KAEL-" .. tostring(e.other:GuildID());
         instanceId = qglobals[zoneGlobal];
         if (instanceId ~= nil) then
             entity_list = eq.get_entity_list(); --get current entity list of zone
@@ -26,7 +26,7 @@ function event_say(e)
             else
                 eq.assign_to_instance(tonumber(instanceId));
             end
-            e.other:MovePCInstance(124, tonumber(instanceId), -500, -2100, -37, 255);
+            e.other:MovePCInstance(113, tonumber(instanceId), -602, -27.5, 112.11, 194);
         else
             e.other:Message(13,"There is no instance available in this zone for your guild,");
         end
