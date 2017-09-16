@@ -10,4 +10,10 @@ end
 function event_enter_zone(e)
 	local discs = require('disciplines');
 	discs:update_discs(e, e.self:GetLevel());
+
+	e.self:Message(1,string.format("[DEBUG], InstanceID = %i",e.lua_get_instance_id));
+
+	if(e.lua_get_instance_id ~= 0) then
+		e.self:Message(1,"You have entered a Instanced Version of the zone.");
+	end
 end
