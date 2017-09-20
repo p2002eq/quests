@@ -11,6 +11,7 @@ function event_enter(e)
 end
 
 function event_say(e)
+	local qglobals = eq.get_qglobals(e.self,e.other);
 	if(e.message:findi("hail")) then
 		e.self:Emote("halts his chanting. 'You dare to interrupt me? You had best have a good reason. I care not for small talk.'");
 	elseif(e.message:findi("keepers grotto")) then
@@ -30,6 +31,8 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
+	local qglobals = eq.get_qglobals(e.self,e.other);
+
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 18207})) then -- Guild Summons
 		e.self:Say("Another apprentice has reached rebirth. You now have become one with the Brood of Kotiz. We study the ancient writing of Kotiz. Through his writing we have found the power of the dark circles. Listen well to the scholars within this tower and seek the [" .. eq.say_link("Keepers Grotto") .. "] for knowledge of our spells. This drape shall be the sign to all Iksar that you walk with the Brood. Now go speak with Xydoz.");
 		e.other:Faction(24,100); -- Brood of Kotiz
