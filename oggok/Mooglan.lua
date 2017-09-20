@@ -1,6 +1,6 @@
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Yuz come lookeeng to make sum armorz? Yuz come to da right place, if'n yuz be a shadowknight. Is you a [" .. eq.say_link("secret mission") .. "]?");
+		e.self:Say("Yuz come lookeeng to make sum armorz? Yuz come to da right place, if'n yuz be a shadowknight. Is you a [" .. eq.say_link("shadowknight") .. "]?");
 	elseif(e.message:findi("shadowknight")) then
 		e.self:Say("Mez tink dat yuz were. Letz begin yur traineeng. Da furst ting dat yuz needz to do is gather da itemz dat will be uzed in da krafteeng of da [" .. eq.say_link("armor") .. "] and den yuz can kraft dem in dis majikal assembly kit");
 	elseif(e.message:findi("armor")) then
