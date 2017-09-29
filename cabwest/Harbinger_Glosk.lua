@@ -26,6 +26,7 @@ function event_say(e)
 			e.self:Say("I have not been asked that in ages but I can recall the last person that asked me. If you are in league with that scoundrel Ixpacan, I will slay you where you stand! But if you are not, you will not mind ridding your kin of a [" .. eq.say_link("menace") .. "] as of late.");
 		elseif(e.message:findi("menace")) then
 			e.self:Say("It seems as though a rogue marauder in a jungle near here has attacked several of our trade suppliers. If you can bring me back his head I will gladly share the information you have asked for.");
+		end
 	end
 end
 
