@@ -24,8 +24,8 @@ function event_say(e)
 	elseif(tonumber(qglobals.necskullquest) >= 9) then
 		if(e.message:findi("gem of reflection") then
 			e.self:Say("I have not been asked that in ages but I can recall the last person that asked me. If you are in league with that scoundrel Ixpacan, I will slay you where you stand! But if you are not, you will not mind ridding your kin of a [" .. eq.say_link("menace") .. "] as of late.");
-		if(e.message:findi("menace") then
-			e.self:Say("It seems as though a rogue marauder in a jungle near here has attacked several of our trade suppliers. If you can bring me back his head I will gladly share the information you have asked for.")
+		elseif(e.message:findi("menace") then
+			e.self:Say("It seems as though a rogue marauder in a jungle near here has attacked several of our trade suppliers. If you can bring me back his head I will gladly share the information you have asked for.");
 	end
 end
 
@@ -52,8 +52,8 @@ function event_trade(e)
 		e.self:Emote("watches you carefully as you leave.");
 		e.other:QuestReward(e.self,0,0,0,0,14793) -- Illegible Note: Greaves
 	elseif(tonumber(qglobals.necskullquest) >= 9 and item_lib.check_turn_in(e.self, e.trade, {item1 = 34070})) then -- Rogue Marauder's Head
-		e.self:Say("You have done well in doing what I have asked. To make a gem of reflection you will need some Mt Death mineral salts, a green goblin skin, spiroc bone dust, essence of rathe, blue slumber fungus, and a vial of pure essence. Combine all of these in this container and you will have what it is you seek.")
+		e.self:Say("You have done well in doing what I have asked. To make a gem of reflection you will need some Mt Death mineral salts, a green goblin skin, spiroc bone dust, essence of rathe, blue slumber fungus, and a vial of pure essence. Combine all of these in this container and you will have what it is you seek.");
 		e.other:QuestReward(e.self,0,0,0,0,34071,0); -- Glosk's Sack
 	end
-	item_lib.return_items(e.self, e.other, e.trade)
+	item_lib.return_items(e.self, e.other, e.trade);
 end
