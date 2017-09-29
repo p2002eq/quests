@@ -22,9 +22,9 @@ function event_say(e)
 	elseif(e.message:findi("forge of dalnir")) then
 		e.self:Emote("scratches his chin. 'I know little of it other than that it once belonged to the ancient Haggle Baron, Dalnir. From what I have read, its fires require no skill, but will melt any common forge hammer used. Dalnir was said to have called upon the ancients for a hammer which could tolerate the magical flames.'");
 	elseif(tonumber(qglobals.necskullquest) >= 9) then
-		if(e.message:findi("gem of reflection") then
+		if(e.message:findi("gem of reflection")) then
 			e.self:Say("I have not been asked that in ages but I can recall the last person that asked me. If you are in league with that scoundrel Ixpacan, I will slay you where you stand! But if you are not, you will not mind ridding your kin of a [" .. eq.say_link("menace") .. "] as of late.");
-		elseif(e.message:findi("menace") then
+		elseif(e.message:findi("menace")) then
 			e.self:Say("It seems as though a rogue marauder in a jungle near here has attacked several of our trade suppliers. If you can bring me back his head I will gladly share the information you have asked for.");
 	end
 end
