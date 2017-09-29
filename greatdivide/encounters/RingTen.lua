@@ -57,6 +57,7 @@ function event_encounter_load(e)
 	
 	-- War win monitor
 	eq.register_npc_event("RingTen", Event.death_complete, 118345, FinalStage);
+	eq.register_npc_event("RingTen", Event.waypoint_arrive, 118345, NarandiEscape);
 	
 	-- GM control of event
 	eq.register_player_event("RingTen", Event.say, GMControl);
@@ -74,8 +75,22 @@ function event_encounter_load(e)
 	PathInfo = load_paths();
 	-- spawns circle of dwarves to start war
 	depop_except({ 118352 });
-	PreSetup();
+	PreSetup();	
+
 	-- note that NPCs that require a path need to be created by a trigger (timer, say, etc)
+end
+
+function NarandiEscape(e)
+	--checks Narandi is set to run at each waypoint check.  Did not always seem to trigger on wp 0/1
+	if e.wp < 4 then  
+		e.self:SetRunning(true);
+	--Narandi depops and event is failed if he escapes to Eastern Wastes
+	elseif e.wp == 4 then
+		if not e.self:IsEngaged() then
+			eq.stop_timer("NarDepop");
+			eq.set_timer("NarDepop",1000,Aldikar);
+		end
+	end
 end
 
 function FinalStage(e)
@@ -546,8 +561,11 @@ function WarTimers(e)
 		table.insert(combo, 118345);
 		depop_except(combo);
 		PostSetup();
-		spawn_helper(next_spawn, 10, 1, 1, 10, 192);
+		eq.unique_spawn(118345, 150, 0, 250, -2300, -80, 0);
+		--spawn_helper(next_spawn, 10, 1, 1, 10, 192);
 		e.self:Shout("Outlander! Narandi is plotting his retreat! Don't let him escape alive!");
+		local Narandi = eq.get_entity_list():GetMobByNpcTypeID(118345);
+		Narandi:SetRunning(true);
 		eq.set_timer("NarDepop", 1800000);
 	elseif e.timer == "handin1" then
 		eq.stop_timer("handin1");
@@ -840,9 +858,11 @@ function load_paths()
 	-- near east spawn (behind spearmen) - clustered spawn
 	--wps[3] = { [0] = {-1100, -2100, -55}; [1] = {0, -2100, -55, 0.75}; [2] = {-50, -1000, 25, 0.35}; [3] = {-110, -20, 100, 0}; [4] = {-110, 50, 100, 0} }; 
 	wps[3] = { [0] = {-1100, -2100, -30}; [1] = {0, -2100, -30, 0.75}; [2] = {-50, -1000, 50, 0.35}; [3] = {-110, -20, 125, 0}; [4] = {-110, 50, 125, 0} };
+	
 	-- west spawn, north route - clustered spawn
 	--wps[4] = { [0] = {1200, -2100, -65}; [1] = {1400, -1500, 170, 1}; [2] = {1550, -1000, 330, 1}; [3] = {1000, -1000, 210, 0.75}; [4] = {-50, -1000, 25, 0.5}; [5] = {-110, -20, 100, 0}; [6] = {-110, 50, 100, 0}  }; original paths - had to update Z-locs on due to eqemu pathing code causing mobs to drop under world when going up hill to the north to Churn
 	wps[4] = { [0] = {1200, -2100, -40}; [1] = {1400, -1500, 195, 1}; [2] = {1550, -1000, 355, 1}; [3] = {1000, -1000, 235, 0.75}; [4] = {-50, -1000, 50, 0.5}; [5] = {-110, -20, 125, 0}; [6] = {-110, 50, 125, 0}  };
+	
 	-- west spawn, river route - clustered spawn
 	--wps[5] = { [0] = {1200, -2100, -55}; [1] = {600, -2000, -30, 1}; [2] = {600, -1300, 0, 1}; [3] = {400, -1000, 15, 0.75}; [4] = {-50, -1000, 15, 0.5}; [5] = {-110, -20, 90, 0}; [6] = {-110, 50, 90, 0}  };
 	wps[5] = { [0] = {1200, -2100, -30}; [1] = {600, -2000, -5, 1}; [2] = {600, -1300, 25, 1}; [3] = {400, -1000, 40, 0.75}; [4] = {-50, -1000, 40, 0.5}; [5] = {-110, -20, 115, 0}; [6] = {-110, 50, 115, 0}  };
@@ -857,9 +877,9 @@ function load_paths()
 	wps[8] = { [0] = {1600, -1000, 330} };
 	-- Corbin group at Tizmak cave
 	wps[9] = { [0] = {200, -2900, -150} };
-	
+
 	-- NARANDI
-	wps[10] = { [0] = {250, -2300, -80}; [1] = {-1100, -2100, -55, 1}; [2] = {-2400, -1900, -35, 1}; [3] = {-4750, -1800, 240, 1}};
+	wps[10] = { [0] = {250, -2300, -80}; [1] = {-1100, -2100, -55, 1}; [2] = {-2400, -1900, -35, 1}; [3] = {-4750, -1800, 240, 1}};  --not used
 	return wps
 end
 
