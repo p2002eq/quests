@@ -17,7 +17,7 @@ function event_trade(e)
 	local item_lib = require("items");
 	
 	if ready and item_lib.check_turn_in(e.self, e.trade, {item1 = 18511}) then -- Orders of Engagement
-		e.self:Say(string.format("At yer service, %s. Remember now, before issuing me an order ya must disengage from any combat and be sure yer speakin to me. I advise yo to avoid combat at all costs, your leadership is crucial.",e.other:GetCleanName()));
+		e.self:Say(string.format("At yer service, %s. Remember now, before issuing me an order ya must disengage from any combat and be sure yer speakin to me. I advise you to avoid combat at all costs, your leadership is crucial.",e.other:GetCleanName()));
 		followID = e.other:GetID();
 		eq.follow(followID);
 		eq.signal(118351, 101); -- advance stage of encounter
