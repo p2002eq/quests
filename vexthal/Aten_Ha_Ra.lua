@@ -15,7 +15,8 @@ function event_timer(e)
 end
 
 function event_death_complete(e)
-	eq.set_global("aten","1",3,"H132"); --sets global for 5.5 day respawn time
+	local instance_id = eq.get_zone_instance_id();
+	eq.set_global(instance_id .. "_aten","1",3,"H132"); --sets global for 5.5 day respawn time
 end
 
 

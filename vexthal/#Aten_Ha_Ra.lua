@@ -9,13 +9,15 @@ end
 
 function event_timer(e)
 	local qglobals = eq.get_qglobals(e.self);
-	if (e.timer == "atenha" and qglobals["aten"] ~= nil) then  --resets qglobal if needed
+	local instance_id = eq.get_zone_instance_id();
+	if (e.timer == "atenha" and qglobals[instance_id .. "_aten"] ~= nil) then  --resets qglobal if needed
 			eq.stop_timer("atenha");
 			eq.depop_with_timer();
-			eq.set_global("aten",nil,3,F);
+			eq.set_global(instance_id .. "_aten",nil,3,F);
 	end
 end
 
 function event_death_complete(e)
-	eq.set_global("aten","1",3,"H132");  --sets global for 5.5 day respawn time
+	local instance_id = eq.get_zone_instance_id();
+	eq.set_global(instance_id .. "_aten","1",3,"H132");  --sets global for 5.5 day respawn time
 end
