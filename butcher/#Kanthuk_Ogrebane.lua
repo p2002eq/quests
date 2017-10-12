@@ -3,7 +3,7 @@ function event_say(e)
 	local qglobals = eq.get_qglobals(e.self,e.other);
 	if(e.message:findi("hail")) then
 		e.self:Say("Hello.");
-	elseif(qglobals[" .. eq.say_link(""Kanthuk"") .. "] ~= nil) then
+	elseif(qglobals["Kanthuk"] ~= nil) then
 		if(e.message:findi("Amstaf Trunolis")) then
 			e.self:Say("Amstaf Trunolis was a good man. I've followed into [" .. eq.say_link("battle") .. "] many times. We've seen many of our friends die by the sword of others.");
 		elseif(e.message:findi("battle")) then
@@ -35,6 +35,6 @@ function event_trade(e)
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 == 2416})) then -- Note to Kanthuk
 		e.self:Say("Ahh, I see you have spoken to Ryshon. You seem tired from your long journey. Sit with me as I tell you a tale. A tale about a true friend of mine, a great man known as [" .. eq.say_link("Amstaf Trunolis") .. "].");
 		eq.set_global("Kanthuk","ghoul",0,"D30");
-		e.other:QuestReward(e.self,0,0,0,0,0,1000); --
+		e.other:QuestReward(e.self,0,0,0,0,0,1000); 
 	end
 end
