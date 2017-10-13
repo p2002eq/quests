@@ -13,5 +13,7 @@ function event_signal(e)
 	if (e.signal == 1) then
 		e.self:Shout("Master! The sacred ring of fire has been cleansed of trespassers.");
 		eq.depop();
+	elseif (e.signal == 2) then
+		eq.depop();
 	end
 end
