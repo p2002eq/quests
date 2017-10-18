@@ -16,6 +16,7 @@ end
 function event_trade(e)
 
 	local item_lib = require('items');
+	local valid_turn_in = true;
 
 	if (e.other:GetFaction(e.self) <= 3) then --Kindly or lower
 		if (item_lib.check_turn_in(e.self, e.trade, {item1 = 25349})) then
@@ -34,10 +35,16 @@ function event_trade(e)
 			e.other:SummonItem(2611);
 		elseif (item_lib.check_turn_in(e.self, e.trade, {item1 =  26025})) then	
 			e.other:SummonItem(2612);
+		else
+			valid_turn_in = false;
 		end
-		e.self:Say("Here you are "..e.other:Race().." just as I promised. May it guard you well.");
-	else
 
+		if (valid_turn_in) then
+			e.self:Say("Here you are "..e.other:Race().." just as I promised. May it guard you well.");
+		end
+	end
+
+	if (!valid_turn_in) then
 		item_lib.return_items(e.self, e.other, e.trade);	
 	end
 end
