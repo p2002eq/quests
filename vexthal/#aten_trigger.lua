@@ -10,7 +10,8 @@ end
 
 function event_timer(e)
 	local qglobals = eq.get_qglobals(e.self);
-	if(e.timer == "aten" and qglobals["aten"] == nil) then  --checks to see if qglobal was previously set
+	local instance_id = eq.get_zone_instance_id();
+	if(e.timer == "aten" and qglobals[instance_id .. "_aten"] == nil) then  --checks to see if qglobal was previously set
 		 --checks to see if required Warders listed below are despawned
 		 --                                              Blob 1                                                            DXXT																  TVK                                						      DXVT/TXD 															VXAHR
 		if (eq.get_entity_list():IsMobSpawnedByNpcTypeID(158418) == false and eq.get_entity_list():IsMobSpawnedByNpcTypeID(158409) == false and eq.get_entity_list():IsMobSpawnedByNpcTypeID(158405) == false and eq.get_entity_list():IsMobSpawnedByNpcTypeID(158399) == false and eq.get_entity_list():IsMobSpawnedByNpcTypeID(158393) == false) then 

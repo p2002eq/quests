@@ -24,12 +24,13 @@ function event_combat(e)
 end
 
 function event_death_complete(e)
+	local instance_id = eq.get_zone_instance_id();
 	eq.stop_all_timers()
 	e.self:Emote("'s corpse rips in two, revealing a greater terror!")
 	local qglobals = eq.get_qglobals(e.self);
-	if tonumber(qglobals['cursed_progress']) == 1 then
+	if tonumber(qglobals[instance_id .. '_cursed_progress']) == 1 then
 		eq.unique_spawn(162506, 0, 0 , -38, -10, -222) -- spawn Vyzh`dra the Exiled if he hasn't been killed in this cycle
-	elseif tonumber(qglobals['cursed_progress']) < 3 then
+	elseif tonumber(qglobals[instance_id .. '_cursed_progress']) < 3 then
 		eq.unique_spawn(162510, 0, 0 , -38, -10, -222) -- spawn Vyzh`dra the Banished if Exiled has been killed
 	else
 	end

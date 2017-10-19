@@ -21,6 +21,8 @@ function event_timer(e)
 end
 
 function event_death_complete(e)
+	local instance_id = eq.get_zone_instance_id();
+	
 	eq.stop_timer('aggro_guards');
 	e.self:Emote("'s corpse says 'How...did...ugh...'");
 	eq.spawn2(162491, 0, 0, 904, -269, 407, 190);
@@ -30,7 +32,7 @@ function event_death_complete(e)
 	eq.spawn2(162491, 0, 0, 828, -381, 407, 190);
 	eq.spawn2(162491, 0, 0, 908, -384, 407, 190);
 	
-	eq.set_global("Emp_Cycle", "2",3,"D8");
+	eq.set_global(instance_id .. "_Emp_Cycle", "2",3,"D8");
 end
 
 function event_slay(e)
