@@ -41,6 +41,7 @@ function event_timer(e)
 end
 
 function event_death_complete(e)
+		
 	eq.stop_timer('aggro_guards');
 	-- activate emp
 	eq.signal(162504, 99);
@@ -49,6 +50,7 @@ function event_death_complete(e)
 	fbs:Enable();
 	fbs:Reset();
 	
+	instance_id = eq.get_zone_instance_id();	
 	eq.set_global(instance_id .. "_Emp_Cycle", "1",3,"D8");	--sets Qglobal to indicate Blood killed so emp will respawn on server reset
 end
 

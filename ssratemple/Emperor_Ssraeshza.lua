@@ -11,6 +11,7 @@ end
 function event_timer(e)
 	if e.timer == 'activate' then
 		eq.stop_timer(e.timer);
+		eq.set_timer('reset', 60 * 60 * 1000);
 		activate(e.self);
 	elseif e.timer == 'reset' then
 		eq.stop_timer(e.timer);
