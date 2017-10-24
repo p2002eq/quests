@@ -57,6 +57,8 @@ function event_signal(e)
 	
 	elseif e.signal == 99 then  -- activation signal
 		eq.set_timer('activate', math.random(180, 300) * 1000);
+	elseif e.signal == 98 then -- GM activation signal
+		eq.set_timer('activate', 30 * 1000);
 	end
 end
 
