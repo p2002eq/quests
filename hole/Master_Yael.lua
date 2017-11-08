@@ -1,32 +1,16 @@
---Spawns an iksar broodling on the death of the golems 75% of the time.
+--Master Yael
+--script to control DT cycle
 
 --DT script variables
 local dt_spellid = 982	-- (982: Cazic touch, 2859: Touch of Vinitras)
-local dt_recast = 45; -- (in seconds)
+local dt_recast = 30;
 
 function event_spawn(e)
 	timer_on = false;	--DT script
 end
 
-function event_signal(e)
-	entity_list = eq.get_entity_list();
-
-	if(e.signal == 1) then
-		e.self:Say("Such is the will of Cazic-Thule!");
-	elseif(e.signal == 2) then
-		eq.stop_timer("goback");
-		local mobtypeID =  entity_list:GetMobByNpcTypeID(72003);
-		e.self:GMMove(mobtypeID:GetX(),mobtypeID:GetY(),mobtypeID:GetZ());
-	elseif(e.signal == 3) then
-		eq.set_timer("goback",math.random(20000));
-	end
-end
-
 function event_timer(e)
-	if e.timer == "goback" then
-		eq.move_to(-1200,-634,153.199,0,true);
-		eq.stop_timer("goback");
-	elseif e.timer == "DT" then		--DT SCRIPT ROUTINE STARTS HERE
+	if e.timer == "DT" then		--DT SCRIPT ROUTINE STARTS HERE
 		if e.self:IsEngaged() then 
 			target = e.self:GetHateTop();
 			
@@ -67,17 +51,10 @@ function event_combat(e)
 end
 
 function event_cast_begin(e)
-	if e.spell:ID() == dt_spellid then
+	if e.spell:ID() == dt_spellid then		--Cazic Touch
 		e.self:Shout(string.format("%s!", string.upper(target:GetName())));
 	end
-end
+end			--END DT ROUTINE
 
-function event_death_complete(e)
-	local a = eq.ChooseRandom(72105,72105,72105,0);
-	-- local x = e.self:GetX();
-	-- local y = e.self:GetY();
-	-- local z = e.self:GetZ();
-	-- local h = e.self:GetHeading();
-	eq.spawn2(a,0,0,e.self:GetX(),e.self:GetY(),e.self:GetZ(),e.self:GetHeading());
-end
+
 
