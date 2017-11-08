@@ -10,6 +10,7 @@ local started = false
 local soul = false
 
 function event_spawn(e)
+	eq.set_timer("floor", 5*1000);
 	started = false
 	escort_complete = false;
 	soul = false;
@@ -24,7 +25,7 @@ function event_say(e)
 			e.self:Emote("looks around frantically, 'What are you doing here? You'll be killed! Do not waste your time trying to [" .. eq.say_link("I will help you", false, "help") .. "] me. Save yourself and leave at once!");
 			e.self:SetAppearance(3);
 		elseif escort_complete and qglobals[instance_id .. "_AC_Escort"] == "1" then
-			e.self:Say("I owe you my freedom and my life!  Please take these shackles as a symbol of my eternal gratitude.");
+			e.self:Say(string.format("Thank you, %s.  I honestly did not see a future outside of that jail cell.  Please take these shackles as a symbol of my eternal gratitude.",e.other:GetName()));
 			e.other:QuestReward(e.self,0,0,0,0,6513,3000);	--shackles of a vah shir captive
 			eq.depop_with_timer();
 		end
@@ -65,7 +66,7 @@ end
 function event_waypoint_arrive(e)
 	if e.wp == 2 then
 		if not soul then
-			e.self:Say("I cannot take another step, my spirit is fading... Save yourselves. You will have my eternal gratitude for your noble efforts.");
+			e.self:Emote("crumbles to the ground, 'I cannot take another step, my spirit is too depleted.  You must save yourselves!'");
 			e.self:SetAppearance(3);
 			eq.pause(3000);	--arbitrary timer - depop will occur before pause duration ends
 			eq.stop_timer("depop");		--clear old timer
@@ -73,7 +74,7 @@ function event_waypoint_arrive(e)
 		end
 	elseif e.wp == 16 then
 		escort_complete = true;
-		e.self:Say("I cannot believe we escaped!")
+		e.self:Say("I cannot believe we escaped!  Please speak with me when you are ready.")
 	end
 end
 
@@ -88,6 +89,9 @@ function event_timer(e)
 			eq.start(20);
 			e.self:Emote("slowly staggers upon his feet, 'I'm not sure how far my legs will carry me in this weakened state'")
 		end
+	elseif e.timer == "floor" then
+		eq.stop_timer(e.timer);
+		e.self:SetAppearance(3);
 	end
 end
 
