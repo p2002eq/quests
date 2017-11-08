@@ -30,6 +30,15 @@ function event_signal(e)
 	elseif e.signal == 20 then
 		local WD = eq.get_entity_list():GetNPCByNPCTypeID(154401);
 		WD:Emote("staggers as the elemental energies drain from his body.")
+	elseif e.signal == 99 then	--signal for Khati Sha event start (removes witchdoctor related event mobs)
+		eq.stop_all_timers();
+		eq.zone_emote(14,"Signal received for Witchdoctor depop");  --debug
+		started = true;
+		eq.depop(154392);	--depop summoners
+		eq.depop(154393);
+		eq.depop(154394);
+		eq.depop(154395);
+		eq.set_timer("reset",15*60*1000);
 	end
 end
 
@@ -51,7 +60,7 @@ function event_timer(e)
 		eq.stop_timer(e.timer);
 		eq.set_timer("boss", boss_timer * 1000);  --sets time for boss is triggered
 		eq.set_timer("player_check", 30 * 1000);  --player check every 30 seconds		
-		eq.spawn2(154401,0,0,432.2,-297,39,128.6)  --spawn untargetable Witchdoctor		
+		eq.unique_spawn(154401,0,0,432.2,-297,39,128.6)  --spawn untargetable Witchdoctor		
 		local WD = eq.get_entity_list():GetNPCByNPCTypeID(154401);	--gets untargetable Witchdoctor for emote
 		WD:Shout("Summoners!  Make haste and focus your elemental powers to me at once!  We have tresspassers that must be dealt with!");		
 		eq.signal(154392,10); 	--signals summoners to become targetable
@@ -66,8 +75,10 @@ function event_timer(e)
 		end
 	elseif e.timer == "boss" then
 		eq.stop_timer(e.timer);
-		eq.spawn2(154391,0,0,432.2,-297,39,128.6)  --spawn real Witchdoctor
+		eq.unique_spawn(154391,0,0,432.2,-297,39,128.6)  --spawn real Witchdoctor
 		eq.depop(154401);	--depop untargetable Witchdoctor
+	elseif e.timer == "reset" then
+		EventReset();
 	end
 end
 
@@ -85,9 +96,10 @@ function player_check(npc,dist)
 end
 
 function EventReset()
-	eq.zone_emote(6,"EVENT RESET")	--debug
+	eq.zone_emote(6,"WD EVENT RESET")	--debug
 	eq.stop_all_timers();
 	started = false;
+	SpawnSummoners();		--repops summoners if not already up
 	eq.signal(154392,99); 	--signals summoners to deactivate if previously targetable
 	eq.signal(154393,99); 	--signals summoners to deactivate if previously targetable
 	eq.signal(154394,99);	--signals summoners to deactivate if previously targetable
@@ -96,5 +108,11 @@ function EventReset()
 	eq.depop(154401);  		--depop Witchdoctor PH if previously spawned while mid-ring event.  Real Witchdoctor has his own depop timer
 end
 
+function SpawnSummoners()
+	eq.unique_spawn(154392,0,0,442,-297,37,195);	--cold
+	eq.unique_spawn(154393,0,0,433,-306,37,0);		--magic
+	eq.unique_spawn(154394,0,0,425,-297,37,65);		--fire
+	eq.unique_spawn(154395,0,0,433,-289,37,130);	--poison
+end
 
 
