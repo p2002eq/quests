@@ -20,14 +20,12 @@ function event_spawn(e)
 	eq.set_timer("fail", 60 * 60 * 1000);  --60 min
 	local scenario = math.random(1,2);
 	if scenario == 1 then 
-		eq.zone_emote(13, "SCENARIO 1");
 		eq.unique_spawn(arcanists[1],0,0,unpack(arcanist_locs[1]));	-- Spiritual Arcanist V1 (True Arcanist)
 		eq.unique_spawn(arcanists[2],0,0,unpack(arcanist_locs[2]));	-- Spiritual Arcanist V2 (False Arcanist)
 		
 		SpawnMobs(grimlings[1],east_grimling_locs);
 		SpawnMobs(grimlings[2],west_grimling_locs);
 	else
-		eq.zone_emote(13, "SCENARIO 2");
 		eq.unique_spawn(arcanists[2],0,0,unpack(arcanist_locs[1]));	-- Spiritual Arcanist V1 (False Arcanist)
 		eq.unique_spawn(arcanists[1],0,0,unpack(arcanist_locs[2]));	-- Spiritual Arcanist V2 (True Arcanist)
 
@@ -65,7 +63,7 @@ function event_signal(e)
 	local qglobals = eq.get_qglobals(e.self); 
 
 	if e.signal == 1 then	--signal to spawn deathguards
-		e.self:Shout("Signal received!");
+		e.self:Shout("Signal received!");		--debug
 		SpawnMobs(154058,deathguard_locs);  -- spawn deathguards
 	elseif e.signal == 20 then 
 		deathguard_counter = deathguard_counter + 1;
@@ -79,7 +77,7 @@ function event_signal(e)
 				eq.spawn2(154059,0,0,684,-369,-23,192);
 				eq.signal(154138,30);  --signal Khati`Sha to Activate (become targetable)
 			else
-				eq.zone_emote(13,"Khati Sha does not want an audience with you currently.");
+				eq.zone_emote(13,"Khati Sha does not want an audience with you.");
 				eq.depop();
 			end
 		end

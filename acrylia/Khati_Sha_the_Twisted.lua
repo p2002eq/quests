@@ -7,19 +7,24 @@ local activated = false;
 function event_spawn(e)
 	activated = false;
 	deactivate(e.self);
-	eq.set_next_hp_event(98);
 	SpawnMinions();
 end
 
 function event_timer(e)
 	if e.timer == "deactivate" then
 		deactivate(e.self);
-		eq.depop_all(154054);	--clears minions so it can repop all 4 incase any partially killed during a failed event encounter
-		SpawnMinions();
 	elseif e.timer == "leash" then
+		if not e.self:IsEngaged() then 
+			eq.stop_timer(e.timer)
+		end;			
 		if e.self:GetY() >= -435 then
 			e.self:GotoBind();
 			e.self:Shout("You will not remove me from my chambers!")
+		end
+	elseif e.timer == "guard_repop" then
+		if not e.self:IsEngaged() then	--guards should not repop when engaged with Khati if already popped
+			SpawnMinions();
+			eq.stop_timer(e.timer);
 		end
 	end
 end
@@ -32,11 +37,6 @@ function event_signal(e)
 	end
 end
 
-function event_hp(e)
-	if e.hp_event == 98 then
-		eq.signal(154054,1);  --signals Guards to activate and attack
-	end
-end
 
 function deactivate(mob)
 	eq.stop_all_timers();
@@ -53,16 +53,21 @@ end
 
 function event_combat(e)
 	if e.joined then
-		e.self:Say("You will perish!") --debug - fix this crap with actual text
+		eq.signal(154054,1,2*1000);  --signals Guards to activate and attack
+		--e.self:Say("You will perish!") --debug - fix this crap with actual text
 		eq.set_timer("leash", 1);
+	else
+		eq.set_timer("guard_repop", 5 * 1000);
 	end
 end
 
 function SpawnMinions()
-	eq.spawn2(154054,0,0,972,-556,-41,165); -- Defiled Minion
-	eq.spawn2(154054,0,0,970,-602,-41,221); -- Defiled Minion
-	eq.spawn2(154054,0,0,910,-602,-41,35); -- Defiled Minion
-	eq.spawn2(154054,0,0,905,-556,-41,91); -- Defiled Minion
+	eq.depop_all(154054);
+	local guard_locs = { [1] = {972,-556,-41,165}, [2] = {970,-602,-41,221}, [3] = {910,-602,-41,35}, [4] = {905,-556,-41,91} };
+	
+	for n = 1,4 do
+		eq.spawn2(154054,0,0,unpack(guard_locs[n])); -- Defiled Minion
+	end
 end
 
 

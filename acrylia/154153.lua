@@ -3,7 +3,7 @@
 -- Khati Sha Event (Spirit Ward)
 
 function event_spawn(e)
-	e.self:Shout("You fools chose wrong!  You will not break the final seal!");
+	e.self:Shout("You fools made the wrong choice!  The seal of Spirit will not be broken today!");
 	eq.set_timer("depop", 60 * 60 * 1000);  -- 60 min depop
 end
 
