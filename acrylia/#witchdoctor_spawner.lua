@@ -14,7 +14,7 @@ local counter = 0;
 
 
 function event_spawn(e)
-	EventReset();
+	eq.set_timer("reset",5*1000);
 end
 
 function event_signal(e)
@@ -34,10 +34,10 @@ function event_signal(e)
 		eq.stop_all_timers();
 		eq.zone_emote(14,"Signal received for Witchdoctor depop");  --debug
 		started = true;
-		eq.depop(154392);	--depop summoners
-		eq.depop(154393);
-		eq.depop(154394);
-		eq.depop(154395);
+		eq.depop_all(154392);	--depop summoners
+		eq.depop_all(154393);
+		eq.depop_all(154394);
+		eq.depop_all(154395);
 		eq.set_timer("reset",15*60*1000);
 	end
 end

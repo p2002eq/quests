@@ -1,8 +1,6 @@
 -- WDTrpMn (NPCID: 154130)
 --Khati Sha Event
--- Created by Gonner
--- Converted to .lua by Speedz
--- Modified by Daeron
+--Created by Daeron
 
 local event_counter;
 local jammer_locs_A = { [1] = {321,-258,-7,28}, [2] = {363,-259,-7,228}, [3] = {344,-207,-7,127} }; -- Jail Cell A (Kama)
@@ -12,11 +10,7 @@ local death_seal;
 local fail_timer = 10 --default value (in minutes)
 
 function event_spawn(e)
-	eq.unique_spawn(154053,0,0,344, -323.49, -7.94,256); -- Spiritist_Andro_Shimi
-	eq.unique_spawn(154052,0,0,344, -232.48, -7.94,256); -- Spiritist_Kama_Resan 
-	event_counter = 0;
-	life_seal = false;
-	death_seal = false;
+	eq.set_timer("setup",5*1000);
 end
 
 function event_signal(e)	
@@ -31,22 +25,6 @@ function event_signal(e)
 			
 	elseif(e.signal == 2) then 		--signaled upon Warder of Life activation
 		eq.stop_timer("jammers");
-	elseif(e.signal == 3) then -- Succeed
-		--eq.spawn2(154145,0,0,940.00,-610.00,-41.00,0); -- Spawn Kahti Sha   debug  (already spawned on P2002)
-		eq.signal(154145,100); -- Signal Khati Sha to Shout
-		eq.signal(154129,5,20); -- depops grimlings
-		eq.signal(154151,6,10); -- emotes A Spiritual Arcanist V1
-		eq.signal(154151,7,500); -- depops A Spiritual Arcanist V1
-		eq.depop();
-	elseif(e.signal == 4) then -- Fail
-		e.self:Shout("FAIL - signal 4")
-		eq.signal(154129,5,20); -- depops diseased grimlings
-		eq.signal(154152,7,500); -- depops Spiritist_Kama_Resan
-		eq.spawn2(154153,0,0,539.10,-374.98,-24.44,0); -- depops Spiritist_Andro_Shimi 
-		eq.depop_with_timer();
-	elseif(e.signal == 5) then
-		e.self:Shout("FAIL - signal 5")
-		eq.depop_with_timer();
 	elseif(e.signal == 10) then		--checks for signal from #Ward_of_Life upon its death
 		life_seal = true;
 		WardCheck();
@@ -55,6 +33,8 @@ function event_signal(e)
 		WardCheck();
 	end
 end
+
+
 
 function event_timer(e)
 	if e.timer == "jammers" then 
@@ -69,6 +49,8 @@ function event_timer(e)
 		eq.signal(154155,10);	--depop Warder of death		
 		eq.depop_all(154157); --depops Reanimated Guardians if up
 		eq.depop_with_timer();
+	elseif e.timer == "setup" then
+		EventSetup();
 	end
 end
 
@@ -89,5 +71,14 @@ function WardCheck() --verifies both warders are dead before allowing progress t
 		eq.depop(154052); -- Spiritist_Kama_Resan 
 		eq.depop_with_timer();
 	end
+end
+
+function EventSetup()
+	eq.stop_all_timers();
+	eq.unique_spawn(154053,0,0,344, -323.49, -7.94,256); -- Spiritist_Andro_Shimi
+	eq.unique_spawn(154052,0,0,344, -232.48, -7.94,256); -- Spiritist_Kama_Resan 
+	event_counter = 0;
+	life_seal = false;
+	death_seal = false;
 end
 

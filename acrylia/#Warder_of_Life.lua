@@ -33,8 +33,8 @@ end
 
 function event_timer(e)
 	if(e.timer == "adds") then
-		SpawnAdds(1,1);	--spawns a_reanimated_prisoner adds in Kama's Cell
-		SpawnAdds(1,2);	--spawns a_reanimated_prisoner adds in Andro's Cell
+		SpawnAdds(math.random(1,3),1);	--spawns 1-3 adds in Kama's Cell
+		SpawnAdds(math.random(1,3),2);	--spawns 1-3 adds in Andro's Cell
 	end
 end
 

@@ -13,13 +13,19 @@ end
 function event_timer(e)
 	if e.timer == "deactivate" then
 		deactivate(e.self);
-	elseif e.timer == "leash" then
+	elseif e.timer == "leash" then		
 		if not e.self:IsEngaged() then 
 			eq.stop_timer(e.timer)
 		end;			
 		if e.self:GetY() >= -435 then
-			e.self:GotoBind();
+			leash_counter = leash_counter + 1;
+			
 			e.self:Shout("You will not remove me from my chambers!")
+			if leash_counter == 5 then		--5 leashes till Khati and his guards will reset
+				e.self:WipeHateList();
+				SpawnMinions();
+			end
+			e.self:GotoBind();
 		end
 	elseif e.timer == "guard_repop" then
 		if not e.self:IsEngaged() then	--guards should not repop when engaged with Khati if already popped
@@ -31,9 +37,9 @@ end
 
 function event_signal(e)
 	if e.signal == 30 then
-		e.self:Shout("Active!");
+		e.self:Shout("Active!");		--debug
 		activate(e.self);
-		eq.set_timer("deactivate", 120 * 60 * 1000); -- 2hr depop
+		eq.set_timer("deactivate", 120 * 60 * 1000); -- 2hrs till deactivation
 	end
 end
 
@@ -55,9 +61,10 @@ function event_combat(e)
 	if e.joined then
 		eq.signal(154054,1,2*1000);  --signals Guards to activate and attack
 		--e.self:Say("You will perish!") --debug - fix this crap with actual text
-		eq.set_timer("leash", 1);
+		eq.set_timer("leash", 1);		
+		leash_counter = 0;
 	else
-		eq.set_timer("guard_repop", 5 * 1000);
+		eq.set_timer("guard_repop", 15 * 1000);
 	end
 end
 

@@ -6,13 +6,12 @@ local activated = false;
 function event_spawn(e)
 	activated = false;
 	deactivate(e.self);
-	eq.set_timer("depop", 120*60*60);
 end
 
 function event_combat(e)
 	if e.joined then
 		eq.set_timer("combat check",15 * 1000);
-	else
+		eq.set_timer("leash", 1);
 	end
 end
 
@@ -22,6 +21,13 @@ function event_timer(e)
 			eq.stop_timer(e.timer);
 			deactivate(e.self);
 		end
+	elseif e.timer == "leash" then		
+		if not e.self:IsEngaged() then 
+			eq.stop_timer(e.timer)
+		end;			
+		if e.self:GetY() >= -435 then
+			e.self:GotoBind();
+		end	
 	end
 end 
 
