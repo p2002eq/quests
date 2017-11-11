@@ -23,7 +23,7 @@ function event_timer(e)
 			eq.set_global("VSR_timer", tostring(tonumber(qglobals.VSR_timer) + 1),3,"F");	--increment counter every minute until 1440 minutes (24hrs)
 						
 			--sets timer limit to check for spawning VSR
-			if tonumber(qglobals.VSR_timer) >= 2  then --24 hrs for counter and verifies VS is not already triggered
+			if tonumber(qglobals.VSR_timer) >= 1440  then --24 hrs for counter and verifies VS is not already triggered
 				eq.unique_spawn(102099,0,0,-559,-77,19); --spawn vsr
 			end
 		end
