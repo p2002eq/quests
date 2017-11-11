@@ -114,7 +114,7 @@ function event_timer(e)
 			b_trigger = 1;
 		elseif (ztime.zone_hour == 11 and eq.get_entity_list():IsMobSpawnedByNpcTypeID(126160) == true) then	-- if Bristlebane spawned then will depop audience at 11am
 			eq.set_timer("depop",1);
-		elseif (ztime.zone_hour > 11 or ztime.zone_hour <= 5 and eq.get_entity_list():IsMobSpawnedByNpcTypeID(126248)) then  -- checks time and if Geb is still up.   Geb should never be up past 10am or script deps
+		elseif ((ztime.zone_hour > 11 or ztime.zone_hour <= 5) and eq.get_entity_list():IsMobSpawnedByNpcTypeID(126248)) then  -- checks time and if Geb is still up.   Geb should never be up past 10am or script deps
 			eq.set_timer("depop",1);  		-- contingency for zone sleep not depopping audience/puppets
 		end
 		
