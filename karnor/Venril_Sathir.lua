@@ -1,8 +1,12 @@
 function event_spawn(e)
-	eq.depop(102099);
+	local qglobals = eq.get_qglobals(e.self);	
+	if qglobals.VSR_timer ~= nil then
+		eq.delete_global("VSR_timer");
+	end
+	eq.depop(102099);	--#VSTrigger
 end
 function event_death_complete(e)
-    eq.signal(102138, 1) -- signal vs controller
+    eq.signal(102138, 1) -- signal --#VSTrigger
 end
 
 function event_trade(e)
