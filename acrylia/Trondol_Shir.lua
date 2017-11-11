@@ -53,7 +53,7 @@ function event_trade(e)
 		eq.set_timer("clear",3 * 1000);
 		eq.set_timer("depop",5 * 60 * 1000);  --5 min to clear room
 	elseif(started and item_lib.check_turn_in(e.self, e.trade, {item1 = 6711})) then	--Grimling Soulgem
-		e.self:Emote(string.format("'s eyes brighten as he appears rejuvenated. 'Thank you for your noble efforts, %s. We must make our escape quickly and then we will speak.",e.other:GetName())); 
+		e.self:Emote(string.format("'s eyes brighten as he appears rejuvenated. 'Thank you %s. We must make our escape quickly and then we will speak.'",e.other:GetName())); 
 		eq.stop_timer("depop");
 		eq.set_global(instance_id .. "_AC_Escort","1",3,"M30"); 	--sets global to recieve shackle in event of successful escort
 		soul = true;		
@@ -66,7 +66,7 @@ end
 function event_waypoint_arrive(e)
 	if e.wp == 2 then
 		if not soul then
-			e.self:Emote("crumbles to the ground, 'I cannot take another step, my spirit is too depleted.  You must save yourselves!'");
+			e.self:Say("I cannot take another step, my spirit is fading... Save yourselves. You will have my eternal gratitude for your noble efforts.");
 			e.self:SetAppearance(3);
 			eq.pause(3000);	--arbitrary timer - depop will occur before pause duration ends
 			eq.stop_timer("depop");		--clear old timer
