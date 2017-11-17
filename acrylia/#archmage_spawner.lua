@@ -56,7 +56,6 @@ end
 function event_timer(e)
 	if e.timer == "main" then
 		wave_timer = process_wave();
-		eq.zone_emote(3,"Round #" .. wave .. " Next wave timer: " .. wave_timer);  --debug
 		eq.set_timer("main",wave_timer * 1000);
 		WaveShout(wave);
 	end
@@ -74,15 +73,12 @@ function process_wave()
 	if wave <= 2 then
 		spawn_mob(grimlings,spawns);
 		return 8*6;  -- 8 ticks
-		--return 5;		--debug
 	elseif wave == 3 then
 		spawn_mob(grimlings,spawns);
 		return 18*6;  -- 18 ticks
-		--return 20;		--debug
 	elseif wave < 8 then
 		spawn_mob(grimlings,spawns);
 		return 8*6;  -- 8 ticks
-		--return 5;		--debug
 	elseif wave == 8 then
 		eq.stop_timer("main");
 		eq.signal(154103,1,6*1000);  --1 tick to spawn AM

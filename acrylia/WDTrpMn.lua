@@ -40,7 +40,6 @@ function event_timer(e)
 	if e.timer == "jammers" then 
 		SpawnJammers(math.random(2,3),jammer_locs_A);	
 		SpawnJammers(math.random(2,3),jammer_locs_B);
-		eq.zone_emote(15,"Jammer time!"); --debug
 	elseif e.timer == "fail" then
 		eq.zone_emote(13,"The image of the Ward beings to waver as its physical form fades and it falls behind protection again.");
 		eq.signal(154052,10)  --signal event failure to Spiritist_Kama_Resan
@@ -66,7 +65,6 @@ function WardCheck() --verifies both warders are dead before allowing progress t
 		eq.stop_timer("fail");
 		eq.spawn2(154122,0,0,614.00,-345.00,-23.00,187); -- Spawns Arcanist Trigger
 		eq.set_global(instance_id.. "_IAC_Seal_1","1",3,"H2");
-		eq.zone_emote(14,"ADVANCING EVENT TO STAGE 2")	--debug
 		eq.depop(154053); -- Spiritist_Andro_Shimi
 		eq.depop(154052); -- Spiritist_Kama_Resan 
 		eq.depop_with_timer();

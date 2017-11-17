@@ -21,7 +21,6 @@ end
 
 function event_timer(e)
 	if e.timer == "check" then
-	eq.zone_emote(5,"PLAYER CHECK")	--debug
 		if not started and player_check(e.self,30) then 
 			eq.stop_timer(e.timer);
 			eq.set_timer("check",15*1000);  --sets future player checks every 30 seconds
@@ -29,7 +28,6 @@ function event_timer(e)
 			eq.signal(154104,99);	--signal archmage trigger for event to start
 			e.self:Shout("Master! The intruders have interrupted my sacred work! I beg, send minions to my aid!");
 		elseif started and not player_check(e.self,75) then
-			eq.zone_emote(5,"PLAYER CHECK IS FALSE")  --debug
 			eq.stop_timer(e.timer)
 			eq.signal(154104,1);
 			eq.depop_with_timer();

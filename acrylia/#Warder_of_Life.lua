@@ -21,13 +21,10 @@ end
 function event_signal(e)
 	if e.signal == 90 then
 		ChantCounterA = ChantCounterA + 1;		
-		eq.zone_emote(3, "Kama successful chant counter: " .. ChantCounterA);		--debug
 		ChantSumCheck(e,ChantCounterA,ChantCounterB);
 	elseif e.signal == 95 then
 		ChantCounterB = ChantCounterB + 1;
-		eq.zone_emote(3, "Andro successful chant counter: " .. ChantCounterB);		--debug
 		ChantSumCheck(e,ChantCounterA,ChantCounterB);
-		
 	end
 end
 
@@ -47,11 +44,9 @@ end
 
 function ChantSumCheck(e,A,B)
 	if A ~= nil and B ~= nil and not activated then
-		eq.zone_emote(4,"Total successful chants: " .. A + B);
 		if A == 8 and B == 8 then  -- requires 8 successful chants by each (16 total )
 			activated = true;
 			activate(e.self);
-			eq.zone_emote(2,"Warder of Life is targetable!");		--debug
 			eq.signal(154130,2); --signals to  stop spawning of spell jammers
 			eq.depop_all(154157); --depops reanimated prisoners if up
 			eq.stop_timer("adds");

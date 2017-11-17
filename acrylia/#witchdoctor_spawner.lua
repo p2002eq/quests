@@ -20,10 +20,8 @@ end
 function event_signal(e)
 	if e.signal == 1 then		--signal from Witchdoctor death or on failed player check
 		EventReset();
-		eq.zone_emote(2,"Event Complete!");  --debug
 	elseif e.signal == 10 then		
 		if not started then 
-			e.self:Shout("Kill signal received!  1 min left to kill remaining apprentices");  --debug
 			started = true;
 			eq.set_timer("apprentices",3 * 1000);  --checks to verify all apprentices are dead to start event
 		end
@@ -32,7 +30,6 @@ function event_signal(e)
 		WD:Emote("staggers as the elemental energies drain from his body.")
 	elseif e.signal == 99 then	--signal for Khati Sha event start (removes witchdoctor related event mobs)
 		eq.stop_all_timers();
-		eq.zone_emote(14,"Signal received for Witchdoctor depop");  --debug
 		started = true;
 		eq.depop_all(154392);	--depop summoners
 		eq.depop_all(154393);
@@ -49,11 +46,9 @@ function event_timer(e)
 			eq.set_timer("event_start",1);
 		elseif counter == 20 then	--allows 1 minute to have all apprentices dead or timer will reset
 			eq.stop_timer(e.timer);
-			eq.zone_emote(4,"Apprentices not killed within timer.  Resetting Event");  --debug
 			EventReset();
 		else
 			counter = counter + 1;
-			eq.zone_emote(8,"Spawn check counter: " .. counter .. " (Event will reset at 20)" );  --debug
 		end
 	
 	elseif e.timer == "event_start" then
@@ -68,10 +63,8 @@ function event_timer(e)
 		eq.signal(154394,10);	--signals summoners to become targetable
 		eq.signal(154395,10);	--signals summoners to become targetable		
 	elseif e.timer == "player_check" then
-		eq.zone_emote(5,"PLAYER CHECK")	--debug
 		if started and not player_check(e.self,100) then
 			EventReset();
-			eq.zone_emote(5,"PLAYER CHECK IS FALSE")	--debug
 		end
 	elseif e.timer == "boss" then
 		eq.stop_timer(e.timer);
@@ -96,7 +89,6 @@ function player_check(npc,dist)
 end
 
 function EventReset()
-	eq.zone_emote(6,"WD EVENT RESET")	--debug
 	eq.stop_all_timers();
 	started = false;
 	SpawnSummoners();		--repops summoners if not already up

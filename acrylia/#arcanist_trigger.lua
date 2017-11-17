@@ -63,11 +63,9 @@ function event_signal(e)
 	local qglobals = eq.get_qglobals(e.self); 
 
 	if e.signal == 1 then	--signal to spawn deathguards
-		e.self:Shout("Signal received!");		--debug
 		SpawnMobs(154058,deathguard_locs);  -- spawn deathguards
 	elseif e.signal == 20 then 
 		deathguard_counter = deathguard_counter + 1;
-		eq.zone_emote(14,"deathguard counter: " .. deathguard_counter);
 		if deathguard_counter >= 4 and not eq.get_entity_list():IsMobSpawnedByNpcTypeID(154153) and not eq.get_entity_list():IsMobSpawnedByNpcTypeID(154058) then 	--success - opens last seal and progresses event to final stage (requires deathguards and false grimling arcanist dead (if triggered)
 			eq.signal(154151,1)	 --signals True Arcanist (if correct scenario chosen otherwise he will not be up)
 			if eq.get_entity_list():IsMobSpawnedByNpcTypeID(154138) then
