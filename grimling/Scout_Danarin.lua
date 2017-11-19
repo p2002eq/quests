@@ -1,6 +1,7 @@
 --Scout Danarin (grimling war raids) 
 
 local started = false;
+local officer = false;   --signal on officer's death
 
 function event_spawn(e)
 	started = false;
@@ -28,17 +29,23 @@ function event_trade(e)
         e.self:Say("May the spirits guide us " .. e.other:GetName() .. ". Now summon your friends and all the courage you possess, this won't be easy.");
         started = true;
 		e.self:SetRunning(false);	--debug set to false later
+		officer = false; 
 		--eq.set_global("GrimlingWar2","1",5,"H2");	--qglobal not used at this 
 		eq.start(21);
-	elseif (started and item_lib.check_turn_in(e.self, e.trade, {item1 = 4374})) then 	-- Grimling Officer's Tooth
+	elseif (officer and item_lib.check_turn_in(e.self, e.trade, {item1 = 4374})) then 	-- Grimling Officer's Tooth
 		e.self:Say("Well done " .. e.other:GetName() .. "! Successful raids like this will bring you great glory among our people. Take this insignia as proof of your experience here in service of the king. Leave this place now, for it will be taken over by the enemy momentarily. Farewell!");
 		e.other:QuestReward(e.other,0,0,0,0,4375,5000);  -- Silver Lined Copper Medal of War
-		started = false;
-		e.self:SetRunning(true);
-		eq.move_to(-1169, -881, 4, 67.3,true);  -- move back to spawn
+		eq.get_entity_list():GetSpawnByID(334759):Repop(5);	--repop scout
+		eq.depop();
 	end
 	
     item_lib.return_items(e.self, e.other, e.trade)
+end
+
+function event_signal(e)
+	if e.signal == 1 then
+		officer = true;		--signal from encounter once officer is killed
+	end
 end
 
 --update

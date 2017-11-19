@@ -1,23 +1,21 @@
---Scout Danarin's Raid (Grimling War Event #2)
---scout pathing grid to Camp #2 (grid 21)
+--Scout Husman's Raid (Grimling War Event #1)
+--scout pathing grid to Camp #1 = 501017
 
 
 
-local spawnpoints = {335007, 335008, 335009, 335010, 335011, 335012, 335013, 335014, 335015, 335016}; 
+local spawnpoints = {335018, 335019, 335020, 335021, 335022, 335023, 335024}; 
 local grimlings = {167721, 	--a_grimling_fighter (lvl 23-27) war
 				   167252, 	--a_grimling_manacrafter (lvl 24-29) wiz
 				   167722,	--a_grimling_deathbringer (lvl 23-27) sk
 				   167250};	--a_grimling_pickpocket (25) rog
-
-
 local wave = 0;
-local scout = 167202;
-local officer = 167720;
+local scout = 167203;		--Scout Husman
+local officer = 167719;		--a_grimling_officer
 
-local wave_timer = 90; 		--in seconds (default 90)
---local wave_grid = 102;  	--pathing grid for mobs to use
-local pathing_target = {460,-1208,9}  --x,y,z of campfire location where spawned waves will path.  NPC radius checks done based on this spot as well.
-local radius = 150;    --set radius of camp to check
+local wave_timer = 120; 		--in seconds
+--local wave_grid = 101;  	--pathing grid for mobs to use
+local pathing_target = {-109,-1202,-6}  --x,y,z of campfire location where spawned waves will path.  NPC radius checks done based on this spot as well.
+local radius = 75;    --set radius of camp to check
 local repop_time = 120;  	--in seconds  (for successful event completion)
 local repop = false  
 local unload = false;
@@ -32,8 +30,8 @@ function event_encounter_load(e)
 	DepopCamp();
 	RepopCamp();
 	
-	eq.register_npc_event("Danarins_Raid", Event.death_complete, 167720, Win);
-	eq.register_npc_event("Danarins_Raid", Event.death_complete, 167202, Fail);
+	eq.register_npc_event("Husmans_Raid", Event.death_complete, 167719, Win);
+	eq.register_npc_event("Husmans_Raid", Event.death_complete, 167203, Fail);
 
 end
 
@@ -42,14 +40,14 @@ function CampCheck()
 	local npc_list = eq.get_entity_list():GetNPCList();
 	
 	if(npc_list ~= nil) then
-		for npc in npc_list.entries do								 
+		for npc in npc_list.entries do							
 			if npc:CalculateDistance(unpack(pathing_target)) <= radius and npc:GetNPCTypeID() ~= scout and not npc:IsPet() then
 				return true	--mobs still in camp
 			end
 		end
 	end
 	
-	return false
+	return false	--camp clear
 end
 
 function Fail()
@@ -69,15 +67,19 @@ function Cleanup()
 end
 
 function spawn_mob(NPCID, loc)
-	local xloc = {  413,   419,   496,   505,   511,   516,   402};
-	local yloc = {-1275, -1280, -1275, -1273, -1289, -1271, -1298};
-	local zloc = {    6,     6,     8,     9,    16,    16,    12};
-	local hloc = {   20,    20,   235,   235,   235,   235,    22};
+
+	--spawn location of mobs on hillside
+	local xloc = {   -83,  -77,    -70,   -64,   -58,   -60};
+	local yloc = { -1275, -1273, -1270, -1265, -1260, -1287};
+	local zloc = {    28,    28,    28,    28,    30,    34};
+	local hloc = {   232,   232,   232,   232,   232,   232};
 	
 	mobz = eq.spawn2(NPCID,0,0,xloc[loc] ,yloc[loc] ,zloc[loc],hloc[loc]);
 	mobz:SetRunning(true);
 	mobz:CastToNPC():MoveTo(pathing_target[1]+math.random(-10,10), pathing_target[2]+math.random(-10,10), pathing_target[3], -1,true)  --x,y,z,h
+
 end
+
 
 --Re-enables camp spawnpoints and respawns camp based on event success or failure
 function RepopCamp()
@@ -85,11 +87,12 @@ function RepopCamp()
 		local CampSpawn = eq.get_entity_list():GetSpawnByID(spawns);
 		CampSpawn:Enable();
 		CampSpawn:Reset();
-		CampSpawn:Repop(5);
+		CampSpawn:Repop(1);
 	end
 	
+	--encounter unload check
 	if unload then
-		eq.unload_encounter("Danarins_Raid");
+		eq.unload_encounter("Husmans_Raid");
 	end
 end
 
@@ -119,7 +122,7 @@ function event_timer(e)
 		RepopCamp();
 		eq.stop_timer(e.timer);
 	elseif(e.timer == "repop_check") then
-		if repop then
+		if repop then	--check is repop is met
 			eq.stop_timer(e.timer);
 			eq.set_timer("repop", repop_time * 1000);
 		end
@@ -129,7 +132,7 @@ function event_timer(e)
 		if wave == 0 then
 			eq.stop_timer(e.timer);
 			eq.set_timer("waves", wave_timer * 1000)  -- sets time between waves
-		elseif (wave == -1) then
+		elseif (wave == -1) then	--value to prevent mobs from spawning on wave after event failure/success
 			eq.stop_timer(e.timer)
 			return false;
 		end
@@ -139,22 +142,20 @@ function event_timer(e)
 		local add = math.random(1,100);	
 		
 		--spawns grimlings on hillside
-		spawn_mob(grimlings[1],1);		--a_grimling_fighter
-		spawn_mob(grimlings[math.random(1,4)],2);		
+		spawn_mob(grimlings[1],1);	--a_grimling_fighter
+		spawn_mob(grimlings[math.random(1,4)],2);
 		spawn_mob(grimlings[math.random(1,4)],3);
 		spawn_mob(grimlings[math.random(1,4)],4);
-		if (add <= 25) then		--check for 2 add spawns spawn chance (25%)
-			spawn_mob(grimlings[math.random(1,4)],5);	
-			spawn_mob(grimlings[math.random(1,4)],6);	
-		elseif (add <= 50) then	--50% chance for 5 spawns
-			spawn_mob(grimlings[math.random(1,4)],5);	
+		if (add <= 30) then		--check for additional add spawn chance (30%)
+			spawn_mob(grimlings[math.random(1,3)],5);
 		end
 		
-		--officer rolls
-		local off = OfficerSpawn(wave);
-		local rand = math.random(1,100);
+		--officer spawn chance handling
+		local off = OfficerSpawn(wave);		--get officer spawn chance
+		local rand = math.random(1,100);	--random roll for comparison
+		
 		if (wave > 5 and off >= rand) then
-			spawn_mob(officer,7);
+			spawn_mob(officer,6);
 			eq.get_entity_list():GetMobByNpcTypeID(scout):CastToNPC():Say("The grimling officer is upon us!  Take him out and show me proof of his demise!");
 			eq.stop_timer("waves");
 		end
@@ -182,5 +183,7 @@ end
 function StartEvent()
 	eq.set_timer("waves", math.random(30,60) * 1000);  --sets initial wave timer
 end
+
+
 
 

@@ -11,9 +11,9 @@ local grimlings = {167721, 	--a_grimling_fighter (lvl 23-27) war
 
 local wave = 0;
 local scout = 167201;
-local officer = 167719;		--grimling_officer (set lvl to around 35)
+local officer = 167723;		--grimling_officer (set lvl to around 35)
 
-local wave_timer = 45; 		--in seconds
+local wave_timer = 60; 		--in seconds 
 local pathing_target = {1043,-1055,20}  --x,y,z,h of campfire location where spawned waves will path
 local radius = 175;    --set radius of camp to check
 local repop_time = 120;  	--in seconds  (for successful event completion)
@@ -25,13 +25,14 @@ function event_encounter_load(e)
 	unload = false
 	repop = false;
 	wave = 0;
-	eq.set_timer("camp_check",15*1000);	--checks for camp being clear
+	eq.set_timer("camp_check",  5 * 1000);	--checks for camp being clear
+	eq.set_timer("repop_check", 5 * 1000);  --checks to see if repop needed on death
 	DepopCamp();
 	RepopCamp();
 
 
-	eq.register_npc_event("Derrins_Raid", Event.death_complete, 167719, Cleanup);
-	eq.register_npc_event("Derrins_Raid", Event.death_complete, 167201, Cleanup);
+	eq.register_npc_event("Derrins_Raid", Event.death_complete, 167723, Win);
+	eq.register_npc_event("Derrins_Raid", Event.death_complete, 167201, Fail);
 
 end
 
@@ -48,6 +49,16 @@ function CampCheck()
 	end
 	
 	return false
+end
+
+function Fail()
+	repop_time = 1;
+	Cleanup();
+end
+
+function Win()
+	eq.signal(scout,1);  --signal success to captain to allow final hand-in
+	Cleanup();
 end
 
 function Cleanup()
@@ -82,12 +93,14 @@ function RepopCamp()
 end
 
 function DepopCamp()
-	local mob_list = eq.get_entity_list():GetMobList();
-	
-	if(mob_list ~= nil) then
-		for mob in mob_list.entries do
-			if mob:CalculateDistance(unpack(pathing_target)) <= radius and mob:GetNPCTypeID() ~= scout and mob:GetNPCTypeID() ~= 167718 and not mob:IsPet() then	
-				mob:Depop(); -- npc within range other than Scout and pets!
+	for _,spawns in pairs(spawnpoints) do
+		local npc_list = eq.get_entity_list():GetNPCList();
+
+		if(npc_list ~= nil) then
+			for npc in npc_list.entries do
+				if npc:GetSpawnPointID() == spawns then
+					npc:Depop(true);
+				end
 			end
 		end
 	end
@@ -98,7 +111,6 @@ function event_timer(e)
 	if (e.timer == "camp_check") then
 		if not CampCheck(e.self) then
 			eq.stop_timer("camp_check");
-			eq.set_timer("repop_check",15 * 1000);
 			eq.get_entity_list():GetMobByNpcTypeID(scout):CastToNPC():Say("Good, we have taken the camp, they are sure to send reinforcements, we must hold them off.");  --scout
 			StartEvent();
 		end
@@ -143,6 +155,7 @@ function event_timer(e)
 		local rand = math.random(1,100);
 		if (wave > 5 and off >= rand) then
 			spawn_mob(officer,7);
+			eq.get_entity_list():GetMobByNpcTypeID(scout):CastToNPC():Say("The grimling officer is upon us!  Take him out and show me proof of his demise!");
 			eq.stop_timer("waves");
 		end
 	end
@@ -168,12 +181,6 @@ end
 
 function StartEvent()
 	eq.set_timer("waves", math.random(30,60) * 1000);  --sets initial wave timer	
-	
-	--Disable respawns in camp
-	for _,spawns in pairs(spawnpoints) do
-		local CampSpawn = eq.get_entity_list():GetSpawnByID(spawns);
-		CampSpawn:Disable();
-	end
 end
 
 
