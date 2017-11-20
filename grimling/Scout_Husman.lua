@@ -1,5 +1,78 @@
 -- Scout_Husman (167203) in Grimling for BST epic
 
+local started = false;
+local officer = false;   --signal on officer's death
+
+function event_spawn(e)
+	started = false;
+end
+
+function event_say(e)
+	if started == false then
+		if e.message:findi("hail") then
+			e.self:Say("Greetings " .. e.other:GetName() .. ", It's a good day for a [" .. eq.say_link("raid") .. "], wouldn't you agree?");
+		elseif e.message:findi("raid") then
+			e.self:Say("'I know the way to a grimling camp close to here. If you have about six people of my strength we have a good chance of taking it over. With luck, a grimling officer will take part in their counterattack, and they can carry valuable treasure indeed. Fetch me a polished acrylia sphere and I'll guide you.");
+		end
+	else
+		e.self:Say("I'm sorry but I can't speak right now.");
+		eq.pause(2);
+	end
+end
+
+function event_trade(e)
+    local item_lib = require("items");	
+	local qglobals = eq.get_qglobals(e.self, e.other);
+	
+    if(not started and item_lib.check_turn_in(e.self, e.trade, {item1 = 3681})) then -- Polished Acrylia Sphere
+        e.self:Say("Nothing better than killing grimlings for the king! Follow me closely and fight well. Make certain that I survive, for if I perish the mission will be a failure.");
+        started = true;
+		officer = false; 
+		e.self:SetRunning(false);
+		eq.start(19);	
+		eq.unload_encounter("Husmans_Raid"); --if for some reason previously not unloaded correctly
+		--eq.set_global("GrimlingWar1","1",5,"H2");
+	elseif (officer and item_lib.check_turn_in(e.self, e.trade, {item1 = 4327})) then 	-- Grimling Officer's Scalp
+		e.self:Say("Well done " .. e.other:GetName() .. "! Successful raids like this will bring you great glory among our people. Take this insignia as proof of your experience here in service of the king. Leave this place now, for it will be taken over by the enemy momentarily. Farewell!");
+		e.other:QuestReward(e.other,0,0,0,0,4393,5000);  -- Copper Medal of War
+		eq.get_entity_list():GetSpawnByID(334758):Repop(5);	--repop scout
+		--eq.spawn2(167203, 0, 0, -1167, -862, 5, 67.3);	--repop scout
+		eq.depop();
+	end
+	
+    item_lib.return_items(e.self, e.other, e.trade)
+end
+
+function event_signal(e)
+	if e.signal == 1 then
+		officer = true;		--signal from encounter once officer is killed
+	end
+end
+function event_waypoint_arrive(e)
+	if e.wp == 4 then
+		e.self:Say("The camp is just ahead. To be safe, stay behind me until I give the word. Be silent and stay low... and may the spirits bless our effort.");
+	elseif e.wp == 6 then
+		e.self:Say("Here we are friends, prepare yourselves. I remind you to keep me alive or the mission will be a failure. At the hearing of my next words, follow me over this hill and slay every last grimling.");
+		eq.start(0);		--sets blank grid
+		eq.set_timer("raid_start",30*1000);
+	end
+end
+
+function event_timer(e)
+	if e.timer == 'raid_start' then
+		eq.stop_timer(e.timer);
+		e.self:SetRunning(true);
+		e.self:MoveTo(-118,-1189,-5,100,true);
+		eq.stop();
+		e.self:Say("For the king! We claim this land in defiance of the grimling menace! Death to you all!");
+		eq.load_encounter("Husmans_Raid");
+    end
+end
+
+
+--[[
+-- Scout_Husman (167203) in Grimling for BST epic (previous version from grimling forest 2.0
+
 function event_spawn(e)
     at_camp = false;
 end
@@ -29,4 +102,4 @@ function event_timer(e)
     if e.timer == 'start' then
         eq.start(11);
     end
-end
+end]]
