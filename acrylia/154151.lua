@@ -3,7 +3,6 @@
 -- Khati Sha Event (Spirit Ward)
 
 function event_spawn(e)
-	eq.set_timer("dialogue",15 * 1000);
 	eq.set_timer("warder_check", 1 * 1000);
 end
 
@@ -32,6 +31,18 @@ function event_signal(e)
 		e.self:SetAppearance(3);
 		e.self:Emote("collapses to the floor as the grimling arcanist drains the last of his life force.  Before fading into the ward he manages to say, 'My friends, you have been deceived!'");
 		eq.set_timer("depop",10 * 1000);
+	elseif e.signal == 80 then
+		e.self:Say("Don't listen to him! Unbind me and I can help you.")
+	elseif e.signal == 81 then
+		e.self:Say("Do not set him free! You shall need my help for this! Free me!")
+	elseif e.signal == 82 then
+		e.self:Say("He lies! Free me and we shall fight together and destroy that evil being!")
+	elseif e.signal == 83 then
+		e.self:Say("Help, please! Destroy this barrier I am a prisoner!")
+	elseif e.signal == 84 then
+		e.self:Say("Faster, please! You must make a decision!")
+	elseif e.signal == 85 then
+		e.self:Say("He is trying to pressure you, follow your instincts. I am the one you need!");
 	end
 end
 

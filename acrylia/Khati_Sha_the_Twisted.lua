@@ -59,7 +59,6 @@ end
 function event_combat(e)
 	if e.joined then
 		eq.signal(154054,1,2*1000);  --signals Guards to activate and attack
-		--e.self:Say("You will perish!") --debug - need aggro text
 		eq.set_timer("leash", 1);		
 		leash_counter = 0;
 	else

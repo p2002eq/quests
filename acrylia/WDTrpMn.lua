@@ -3,6 +3,8 @@
 --Created by Daeron
 
 local event_counter;
+local guard_locs = { [1] = {361,-255,-8,192}, [2] = {326, -255, -8, 63.4}, [3] = {326, -215, -8, 63.4}, [4] = {361, -215, -8, 192}, [5] = {326, -295, -8, 63.4}, [6] = {326, -342, -8, 63.4}, [7] = {361, -295, -8, 192}, [8] = {361, -342, -8, 192} }
+;
 local jammer_locs_A = { [1] = {321,-258,-7,28}, [2] = {363,-259,-7,228}, [3] = {344,-207,-7,127} }; -- Jail Cell A (Kama)
 local jammer_locs_B = { [1] = {322,-294,-7,102}, [2] = {364,-296,-7,154}, [3] = {344,-347,-7,256} }; -- Jail Cell B (Andro)
 local life_seal;
@@ -75,6 +77,9 @@ function EventSetup()
 	eq.stop_all_timers();
 	eq.unique_spawn(154053,0,0,344, -323.49, -7.94,256); -- Spiritist_Andro_Shimi
 	eq.unique_spawn(154052,0,0,344, -232.48, -7.94,256); -- Spiritist_Kama_Resan 
+	for n = 1,8 do
+		eq.spawn2(154344,0,0,unpack(guard_locs[n]));
+	end
 	event_counter = 0;
 	life_seal = false;
 	death_seal = false;
