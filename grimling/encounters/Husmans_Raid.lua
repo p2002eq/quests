@@ -13,7 +13,6 @@ local scout = 167203;		--Scout Husman
 local officer = 167719;		--a_grimling_officer
 
 local wave_timer = 120; 		--in seconds
---local wave_grid = 101;  	--pathing grid for mobs to use
 local pathing_target = {-109,-1202,-6}  --x,y,z of campfire location where spawned waves will path.  NPC radius checks done based on this spot as well.
 local radius = 75;    --set radius of camp to check
 local repop_time = 120;  	--in seconds  (for successful event completion)
@@ -40,8 +39,8 @@ function CampCheck()
 	local npc_list = eq.get_entity_list():GetNPCList();
 	
 	if(npc_list ~= nil) then
-		for npc in npc_list.entries do							
-			if npc:CalculateDistance(unpack(pathing_target)) <= radius and npc:GetNPCTypeID() ~= scout and not npc:IsPet() then
+		for npc in npc_list.entries do							 
+			if npc:CalculateDistance(unpack(pathing_target)) <= radius and npc:GetNPCTypeID() ~= scout and not npc:IsPet() and npc:GetRace() ~= 216 then  --race 216 is to exclude horse NPCS
 				return true	--mobs still in camp
 			end
 		end

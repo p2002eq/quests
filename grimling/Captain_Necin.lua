@@ -43,7 +43,7 @@ function event_trade(e)
 		--eq.set_timer("raid_start",30*1000);
 		--Cursah = eq.get_entity_list():GetMobByNpcTypeID(167515)
 		--Cursah:GMMove(e.self:GetX(), e.self:GetY(), e.self:GetZ());		--debug
-	elseif (started and officer and item_lib.check_turn_in(e.self, e.trade, {item1 = 4399})) then 	-- Grimling Officer's Toes
+	elseif (officer and item_lib.check_turn_in(e.self, e.trade, {item1 = 4399})) then 	-- Grimling Officer's Toes
 		e.self:Say("Great work " .. e.other:GetName() .. "! We have put a dent in the grimling menace on this day.  Take this medal as proof of your exceptional service. Leave this place now, for it will be taken over by the enemy momentarily. Please show your medal to Veteran Vadrel if you'd like to further aid our cause.  Farewell!");
 		e.other:QuestReward(e.other,0,0,0,0,4396,5000);  -- Silver Medal of War
 		started = false;

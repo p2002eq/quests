@@ -42,7 +42,7 @@ function CampCheck()
 	
 	if(npc_list ~= nil) then
 		for npc in npc_list.entries do								 
-			if npc:CalculateDistance(unpack(pathing_target)) <= radius and npc:GetNPCTypeID() ~= scout and not npc:IsPet() then
+			if npc:CalculateDistance(unpack(pathing_target)) <= radius and npc:GetNPCTypeID() ~= scout and not npc:IsPet() and npc:GetRace() ~= 216 then
 				return true	--mobs still in camp
 			end
 		end

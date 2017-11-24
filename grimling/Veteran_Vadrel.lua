@@ -42,7 +42,7 @@ function event_trade(e)
 		--Cullin = eq.get_entity_list():GetMobByNpcTypeID(veteran)
 		--Cullin:GMMove(e.self:GetX(), e.self:GetY(), e.self:GetZ());		--debug
 		--eq.set_timer("raid_start", 5*1000);
-	elseif (started and officer and item_lib.check_turn_in(e.self, e.trade, {item1 = 5988})) then 	-- Grimling Commander's Head
+	elseif (officer and item_lib.check_turn_in(e.self, e.trade, {item1 = 5988})) then 	-- Grimling Commander's Head
 		e.self:Say("Great work " .. e.other:GetName() .. "! We have the grimling menace reeling after our efforts today.  Take this medal as proof of our triumph here today. We are ready to strike the final blow to drive the grimlings from this forest.  Please show the medal I gave you to General Staginar and he can guide you further.  Farewell!");
 		e.other:QuestReward(e.other,0,0,0,0,5989,5000);  -- Golden Medal of Shar Vahl
 		eq.signal(veteran,11);	--signal to reset at vah camp
