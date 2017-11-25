@@ -8,39 +8,42 @@ function event_spawn(e)
 end
 
 function event_timer(e)
+	local instance_id = eq.get_zone_instance_id();
 	if e.timer == 'cycle' then
 		mob_check(e);
 		
 	elseif e.timer == 'mob_spawn' then
 		eq.stop_timer(e.timer)
-		local spawn_num = tonumber(eq.get_qglobals(e.self)['restless_progress']);
+		local spawn_num = tonumber(eq.get_qglobals(e.self)[instance_id.. '_restless_progress']);
 		eq.unique_spawn(burrower_cycle[spawn_num], 0, 0, -684, -299, -88, 188);
 	end
 end
 
 function mob_check(e)
+	local instance_id = eq.get_zone_instance_id();
+	
 	local qglobals = eq.get_qglobals(e.self);
-	local timer = qglobals['restless_timer'];
-	local cycle = qglobals['restless_progress'];
+	local timer = qglobals[instance_id.. '_restless_timer'];
+	local cycle = qglobals[instance_id.. '_restless_progress'];
 	
 	if timer == nil then
 		if cycle == nil then
-			eq.set_global('restless_progress', '1', 2, 'F');
-			eq.set_global('restless_timer', 'started', 2, 'H24')
+			eq.set_global(instance_id.. '_restless_progress', '1', 2, 'F');
+			eq.set_global(instance_id.. '_restless_timer', 'started', 2, 'H24')
 			
 		elseif cycle ~= nil then
 			local next_cycle = tonumber(cycle) + 1;
-			eq.set_global('restless_progress', tostring(next_cycle), 2, 'F');
+			eq.set_global(instance_id.. '_restless_progress', tostring(next_cycle), 2, 'F');
 
 			if next_cycle < 7 then
-				eq.set_global('restless_timer', 'started', 2, 'H24')
+				eq.set_global(instance_id.. '_restless_timer', 'started', 2, 'H24')
 			else
-				eq.set_global('restless_timer', 'started', 2, 'F')
+				eq.set_global(instance_id.. '_restless_timer', 'started', 2, 'F')
 			end
 		end
 	end
 	
-	local cycle_progress = eq.get_qglobals(e.self)['restless_progress'];
+	local cycle_progress = eq.get_qglobals(e.self)[instance_id.. '_restless_progress'];
 	if cycle_progress ~= nil and not eq.get_entity_list():IsMobSpawnedByNpcTypeID(burrower_cycle[tonumber(cycle_progress)]) then
 		eq.set_timer('mob_spawn', 1000)
 		cleanup();
@@ -48,9 +51,10 @@ function mob_check(e)
 end
 
 function event_signal(e)
+	local instance_id = eq.get_zone_instance_id();
 	if e.signal == 99 then
-		eq.delete_global('restless_progress');
-		eq.set_global('restless_timer', 'started', 2, 'H' .. tostring(math.random(24)))
+		eq.delete_global(instance_id.. '_restless_progress');
+		eq.set_global(instance_id.. '_restless_timer', 'started', 2, 'H' .. tostring(math.random(24)))
 	end
 end
 
