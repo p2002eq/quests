@@ -13,7 +13,7 @@ function event_signal(e)
 	elseif e.signal == 99 then	--signal from elite guards death
 		npc = eq.get_entity_list():IsMobSpawnedByNpcTypeID(154099)  -- checks to see if elite guard is dead
 		if not npc then 
-			eq.set_timer("check",1*1000);
+			eq.set_timer("check",1);
 		end
 	end
 end

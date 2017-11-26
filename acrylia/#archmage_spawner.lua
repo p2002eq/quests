@@ -25,7 +25,8 @@ function event_signal(e)
 		EventReset();
 		eq.stop_all_timers();
 	elseif e.signal == 99 then
-		wave_timer = 5;
+		wave = 0;
+		wave_timer = 15;
 		eq.set_timer("main",wave_timer * 1000);  -- 15 seconds for initial wave
 		started = true;
 		eq.spawn2(warder,0,0,208,-55,-7,255);  -- spawns grimling warder
@@ -35,7 +36,7 @@ end
 function WaveShout(wav)
 	AM = eq.get_entity_list():GetMobByNpcTypeID(154103);
 	if wav == 1 then
-		AM:Shout("By the power of the master, I summon forth the his minions to cleanse the realm of intruders...");
+		AM:Shout("By the power of the master, I summon forth his minions to cleanse the realm of intruders...");
 	elseif wav == 2 then
 		AM:Shout("You tresspassers are still here? You will not interrupt my work! I will summon a legion of our kind if needed!");
 	elseif wav == 3 then
@@ -81,7 +82,7 @@ function process_wave()
 		return 8*6;  -- 8 ticks
 	elseif wave == 8 then
 		eq.stop_timer("main");
-		eq.signal(154103,1,6*1000);  --1 tick to spawn AM
+		eq.signal(154103,1,12*1000);  --2 ticks to spawn AM
 		return -1;
 	end
 end
