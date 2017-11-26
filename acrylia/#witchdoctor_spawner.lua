@@ -13,6 +13,7 @@ local counter = 0;
 
 
 
+
 function event_spawn(e)
 	eq.set_timer("reset",5*1000);
 end
@@ -27,7 +28,7 @@ function event_signal(e)
 		end
 	elseif e.signal == 20 then
 		local WD = eq.get_entity_list():GetNPCByNPCTypeID(154401);
-		WD:Emote("staggers as the elemental energies drain from his body.")
+		WD:Emote("staggers as elemental energies drain from his body.")
 	elseif e.signal == 99 then	--signal for Khati Sha event start (removes witchdoctor related event mobs)
 		eq.stop_all_timers();
 		started = true;
@@ -55,9 +56,10 @@ function event_timer(e)
 		eq.stop_timer(e.timer);
 		eq.set_timer("boss", boss_timer * 1000);  --sets time for boss is triggered
 		eq.set_timer("player_check", 30 * 1000);  --player check every 30 seconds		
+		eq.set_timer("adds", 15 * 1000); 	--initial timer is short
 		eq.unique_spawn(154401,0,0,432.2,-297,39,128.6)  --spawn untargetable Witchdoctor		
 		local WD = eq.get_entity_list():GetNPCByNPCTypeID(154401);	--gets untargetable Witchdoctor for emote
-		WD:Shout("Summoners!  Make haste and focus your elemental powers to me at once!  We have tresspassers that must be dealt with!");		
+		WD:Shout("Summoners!  Focus your elemental powers to me at once!  We have tresspassers that must be dealt with!");		
 		eq.signal(154392,10); 	--signals summoners to become targetable
 		eq.signal(154393,10); 	--signals summoners to become targetable
 		eq.signal(154394,10);	--signals summoners to become targetable
@@ -66,6 +68,12 @@ function event_timer(e)
 		if started and not player_check(e.self,100) then
 			EventReset();
 		end
+	elseif e.timer == "adds" then
+		eq.stop_timer(e.timer);
+		eq.set_timer("adds", 60 * 1000);  --60 seconds on waves
+		spawn_mob(154406,1);	--#an_enraged_apprentice (154406)
+		spawn_mob(154406,2);	--#an_enraged_apprentice (154406)
+		spawn_mob(154406,3);	--#an_enraged_apprentice (154406)
 	elseif e.timer == "boss" then
 		eq.stop_timer(e.timer);
 		eq.unique_spawn(154391,0,0,432.2,-297,39,128.6)  --spawn real Witchdoctor
@@ -86,6 +94,17 @@ function player_check(npc,dist)
 		end
 	end
 	return false; -- if nothing checks out, returns false
+end
+
+function spawn_mob(NPCID, loc)
+
+	local spawn_loc = { [1] = {433,-338,36,260}, [2] = {393,-298,36,63}, [3] = {433,-258,36,128} };
+	local count = math.random(1,3);	--up to 3 adds per spawn location
+	
+	for n = 1,count do
+		mobz = eq.spawn2(NPCID,0,0,spawn_loc[loc][1] + math.random(-10,10) ,spawn_loc[loc][2] + math.random(-10,10) ,spawn_loc[loc][3],spawn_loc[loc][4]);
+	end	
+
 end
 
 function EventReset()

@@ -15,32 +15,28 @@ function event_spawn(e)
 	
 	if eq.get_entity_list():IsMobSpawnedByNpcTypeID(MR) then 	--checks to see if Summoner is dead - if alive then Witchdoctor will be immune to that element
 		e.self:ModifyNPCStat("MR","1000") 
-		e.self:Shout("MR Immune")  --debug
 		counter = counter + 1;
 	end
 	
 	if eq.get_entity_list():IsMobSpawnedByNpcTypeID(PR) then --checks to see if Summoner is dead - if alive then Witchdoctor will be immune to that element
 		e.self:ModifyNPCStat("PR","1000") 
-		e.self:Shout("PR Immune")  --debug
 		counter = counter + 1;
 	end
 	
 	if eq.get_entity_list():IsMobSpawnedByNpcTypeID(CR) then --checks to see if Summoner is dead - if alive then Witchdoctor will be immune to that element
 		e.self:ModifyNPCStat("CR","1000") 
-		e.self:Shout("CR Immune")  --debug
 		counter = counter + 1;
 	end
 	
 	if eq.get_entity_list():IsMobSpawnedByNpcTypeID(FR) then --checks to see if Summoner is dead - if alive then Witchdoctor will be immune to that element
 		e.self:ModifyNPCStat("FR","1000") 
-		e.self:Shout("FR Immune")  --debug
 		counter = counter + 1;
 	end
 
 	if counter == 4 then		--Dialogue checks
-		e.self:Shout("Tresspassers, you are too late!  I can feel the elemental energies coursing through my body.  You do not stand a chance of defeating me!")
+		e.self:Shout("Tresspassers, you failed in preventing our ritual!  You do not stand a chance of defeating me!")
 	elseif counter > 0 then 
-		e.self:Shout("Enough of your futile interference!  The transfer of elements may only be partially completed, but I certainly have enough power to destroy the likes of you!")
+		e.self:Shout("Enough of your futile interference!  The transfer of elements may have been interrupted, but I have enough power to destroy the likes of you!")
 	elseif counter == 0 then
 		e.self:Shout("You may have defeated my summoners, but you will not defeat me!  Prepare to die in honor of the Master!")
 	end
