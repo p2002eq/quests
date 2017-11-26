@@ -25,10 +25,7 @@ function event_signal(e)
 		EventReset();
 		eq.stop_all_timers();
 	elseif e.signal == 99 then
-<<<<<<< HEAD
 		wave = 0;
-=======
->>>>>>> 85919de2f4139f4e288ae1c73dad80ef9a28317b
 		wave_timer = 15;
 		eq.set_timer("main",wave_timer * 1000);  -- 15 seconds for initial wave
 		started = true;
