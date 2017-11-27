@@ -11,7 +11,7 @@ local yloc = {-232,-323};	--(1) Kama's Cell (2) Andro's Cell
 
 
 function event_spawn(e)
-	eq.set_timer("adds",math.random(45,60)*1000);
+	eq.set_timer("adds",math.random(90,150)*1000);
 	ChantCounterA = 0;
 	ChantCounterB = 0;
 	activated = false;

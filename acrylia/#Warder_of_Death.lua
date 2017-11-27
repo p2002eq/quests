@@ -11,7 +11,7 @@ end
 function event_timer(e)
 	if(e.timer == "sacrifice") then
 		eq.stop_timer(e.timer);
-		eq.set_timer("sacrifice", math.random(15,30) * 1000);
+		eq.set_timer("sacrifice", math.random(30,45) * 1000);
 		eq.spawn2(154150,0,0,unpack(sacrifice_locs[math.random(1,3)]));	--a_sacrifice
 	end
 end
