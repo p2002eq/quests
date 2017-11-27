@@ -1,7 +1,9 @@
 -- player.lua for Acrylia Caverns
 
+	
 function event_enter_zone(e)
     local instance_id = eq.get_zone_instance_id();
+	local zone_id = eq.get_zone_id();
     local instance_version = eq.get_zone_instance_version();
     local discs = require('disciplines');
     discs:update_discs(e, e.self:GetLevel());
@@ -14,13 +16,15 @@ function event_enter_zone(e)
 end
 
 
-function event_click_door(e)
-	
-	local door = e.door:GetDoorID()
+function event_click_door(e)	
+	local door = e.door:GetDoorID();
+	local group = e.self:GetGroup();
+	local raid = e.self:GetRaid();
 	--eq.zone_emote(14,"Door ID is: " .. door);   --debug to easily check door IDs
 
 	
 	--for Inner Acrylia floor panel in grimling warlord throne room (Opens only after first stage of Khati Sha Event Completion)
+	local zone_id = eq.get_zone_id();
 	local instance_id = eq.get_zone_instance_id();
 	local qglobals = eq.get_qglobals(e.self); 
 	
@@ -32,7 +36,16 @@ function event_click_door(e)
 			e.door:ForceClose(e.self);		
 		end
 	end	
-
+	
+	if door == 17 then	--Inner AC statue
+		if e.self:HasItem(5972) or e.self:KeyRingCheck(5972) then	--check for Hollow Acrylia Obelisk
+			if e.self:IsRaidGrouped() then 
+				raid:TeleportGroup(e.self, zone_id, instance_id, 228, -354, 7, 256, raid:GetGroup(e.self:GetName()));
+			elseif e.self:IsGrouped() then
+				group:TeleportGroup(e.self, zone_id, instance_id, 228, -354, 7, 256);
+			end
+		end
+	end
 	
 	-- makes the fancy 4-paneled door operate properly.
 	if door == 1 or door == 2 or door == 3 or door == 4 then
