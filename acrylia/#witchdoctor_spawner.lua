@@ -10,7 +10,7 @@ PR:	154395
 local started = false;
 local boss_timer = 10 * 60 -- set timer for boss spawn after event start (default 10 min (10 x 60)
 local counter = 0;
-
+local spawnpoints = { 324847, 324884, 324885, 324886, 324887, 324888, 324889, 324890 };
 
 
 
@@ -36,16 +36,17 @@ function event_signal(e)
 		eq.depop_all(154393);
 		eq.depop_all(154394);
 		eq.depop_all(154395);
+		DepopTrash();
 		eq.set_timer("reset",15*60*1000);
 	end
 end
 
 function event_timer(e)
 	if e.timer == "apprentices" then
-		if not eq.get_entity_list():IsMobSpawnedByNpcTypeID(154423) and not eq.get_entity_list():IsMobSpawnedByNpcTypeID(154115) then
+		if not eq.get_entity_list():IsMobSpawnedByNpcTypeID(154123) and not eq.get_entity_list():IsMobSpawnedByNpcTypeID(154115) then
 			eq.stop_timer(e.timer);
-			eq.set_timer("event_start",1);
-		elseif counter == 20 then	--allows 1 minute to have all apprentices dead or timer will reset
+			eq.set_timer("event_start",60 * 1000);
+		elseif counter == 40 then	--allows 2 minutes to have all apprentices dead or timer will reset
 			eq.stop_timer(e.timer);
 			EventReset();
 		else
@@ -70,7 +71,7 @@ function event_timer(e)
 		end
 	elseif e.timer == "adds" then
 		eq.stop_timer(e.timer);
-		eq.set_timer("adds", 60 * 1000);  --60 seconds on waves
+		eq.set_timer("adds", 3 * 60 * 1000);  --3 min on waves
 		spawn_mob(154406,1);	--#an_enraged_apprentice (154406)
 		spawn_mob(154406,2);	--#an_enraged_apprentice (154406)
 		spawn_mob(154406,3);	--#an_enraged_apprentice (154406)
@@ -119,11 +120,37 @@ function EventReset()
 	eq.depop(154401);  		--depop Witchdoctor PH if previously spawned while mid-ring event.  Real Witchdoctor has his own depop timer
 end
 
-function SpawnSummoners()
-	eq.unique_spawn(154392,0,0,442,-297,37,195);	--cold
-	eq.unique_spawn(154393,0,0,433,-306,37,0);		--magic
-	eq.unique_spawn(154394,0,0,425,-297,37,65);		--fire
-	eq.unique_spawn(154395,0,0,433,-289,37,130);	--poison
+function SpawnSummoners()  --154392 (cold) -- 154393 (magic) -- 154394 (fire) -- 154395 (poison)
+	summoner = {[1] = {154392, 154393, 154394, 154395}, [2] = {154395, 154394, 154393, 154392}, [3] = {154393, 154395, 154394, 154392}, [4] = {154394, 154392, 154395, 154393} };
+	roll = math.random(1,4) -- summoner spawn randomization
+	eq.unique_spawn(summoner[roll][1],0,0,442,-297,37,195);	
+	eq.unique_spawn(summoner[roll][2],0,0,433,-306,37,0);		
+	eq.unique_spawn(summoner[roll][3],0,0,425,-297,37,65);		
+	eq.unique_spawn(summoner[roll][4],0,0,433,-289,37,130);	
+end
+
+function RepopTrash()
+	for _,spawns in pairs(spawnpoints) do
+		local RoomSpawn = eq.get_entity_list():GetSpawnByID(spawns);
+		RoomSpawn:Enable();
+		RoomSpawn:Reset();
+		RoomSpawn:Repop(5);
+	end
+end
+
+
+function DepopTrash()
+	for _,spawns in pairs(spawnpoints) do
+		local npc_list = eq.get_entity_list():GetNPCList();
+
+		if(npc_list ~= nil) then
+			for npc in npc_list.entries do
+				if npc:GetSpawnPointID() == spawns then
+					npc:Depop(true);
+				end
+			end
+		end
+	end
 end
 
 
