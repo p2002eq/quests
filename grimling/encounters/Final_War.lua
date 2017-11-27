@@ -215,12 +215,12 @@ function event_timer(e)
 			eq.get_entity_list():GetMobByNpcTypeID(commander):CastToNPC():Shout("The Master does not take kindly to tresspassers. Now you must die!");
 			eq.signal(cullin,2,3*1000);
 			
-			for n = 1,6 do
+			for n = 1,5 do
 				spawn_mob1(grimlings[math.random(1,5)], 1, 1);	--intentional double spawn from same location - final stand in the war
 				spawn_mob1(grimlings[math.random(1,5)], 1, 1);
 			end
 		else 
-			for n = 1,6 do
+			for n = 1,5 do
 				spawn_mob1(grimlings[math.random(1,5)], 1, loc);	--spawns 6 mobs each per camp location  (12 mobs at acrylia caverns and 6 mobs at north camp per wave)
 				spawn_mob1(grimlings[math.random(1,5)], 1, loc2);
 				spawn_mob2(grimlings[math.random(1,5)], 2, loc);
