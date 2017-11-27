@@ -75,7 +75,7 @@ function GuardCheck(e)
 		
 	if(npc_list ~= nil) then
 		for npc in npc_list.entries do
-			if npc:CalculateDistance(e.self:GetX(),e.self:GetY(),e.self:GetZ()) <= 35 and npc:GetNPCTypeID() ~= 154053 then
+			if npc:CalculateDistance(e.self:GetX(),e.self:GetY(),e.self:GetZ()) <= 35 and npc:GetNPCTypeID() ~= 154053  and not npc:IsPet() then
 				return true;  --mob in range 
 			end
 		end
