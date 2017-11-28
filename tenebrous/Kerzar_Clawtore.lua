@@ -36,7 +36,9 @@ function event_hp(e)
 end
 
 function event_death_complete(e)
-    eq.unique_spawn(172188,0,0,e.self:GetX(),e.self:GetY(),e.self:GetZ(),e.self:GetHeading());
+    if eq.get_qglobals()["vampyre_vahshir_combat"] == 1 then
+        eq.unique_spawn(172188,0,0,e.self:GetX(),e.self:GetY(),e.self:GetZ(),e.self:GetHeading());
+    end
 end
 
 function event_timer(e)
