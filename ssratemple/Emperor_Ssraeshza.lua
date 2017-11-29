@@ -11,6 +11,7 @@ end
 function event_timer(e)
 	if e.timer == 'activate' then
 		eq.stop_timer(e.timer);
+		eq.set_timer('reset', 60 * 60 * 1000);
 		activate(e.self);
 	elseif e.timer == 'reset' then
 		eq.stop_timer(e.timer);
@@ -21,6 +22,8 @@ function event_timer(e)
 end
 
 function event_death_complete(e)
+	local instance_id = eq.get_zone_instance_id();
+	
 	eq.stop_timer('aggro_guards');
 	e.self:Emote("'s corpse says 'How...did...ugh...'");
 	eq.spawn2(162491, 0, 0, 904, -269, 407, 190);
@@ -30,7 +33,7 @@ function event_death_complete(e)
 	eq.spawn2(162491, 0, 0, 828, -381, 407, 190);
 	eq.spawn2(162491, 0, 0, 908, -384, 407, 190);
 	
-	eq.set_global("Emp_Cycle", "2",3,"D8");
+	eq.set_global(instance_id .. "_Emp_Cycle", "2",3,"D8");
 end
 
 function event_slay(e)
@@ -54,6 +57,8 @@ function event_signal(e)
 	
 	elseif e.signal == 99 then  -- activation signal
 		eq.set_timer('activate', math.random(180, 300) * 1000);
+	elseif e.signal == 98 then -- GM activation signal
+		eq.set_timer('activate', 30 * 1000);
 	end
 end
 

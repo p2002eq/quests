@@ -3,7 +3,7 @@
 function event_say(e)
 	if e.other:GetFaction(e.self) == 1 then  -- req ally CoV
 		if e.message:findi("hail") then
-			e.self:Say(string.format("The Strong seek me out, for one reason or another. It seems you have come here in peace. Perhaps you wish to [" .. eq.say_link("") .. "]prove yourself a mighty %s? I respect only might!", e.other:GetClass()));
+			e.self:Say(string.format("The Strong seek me out, for one reason or another. It seems you have come here in peace. Perhaps you [" .. eq.say_link("wish to prove") .. "] yourself a mighty %s? I respect only might!", e.other:Class()));
 		elseif e.message:findi("wish to prove") then
 			e.self:Say("For the mighty I have four tests. The [" .. eq.say_link("test of the tooth") .. "], the [" .. eq.say_link("test of the flame") .. "], the [" .. eq.say_link("test of the fire storm") .. "], and the [" .. eq.say_link("test of protection") .. "]. Which test do you wish to undertake?");
 		elseif e.message:findi("test of the tooth") then

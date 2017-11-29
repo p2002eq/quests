@@ -29,9 +29,10 @@ function event_combat(e)
 end
 
 function event_death_complete(e)
+	local instance_id = eq.get_zone_instance_id();
 	eq.stop_all_timers()
 	e.self:Emote("'s corpse crashes to the ground. A horrific sound fills the room, but vanishes as quickly as it came.")
-	eq.set_global('cursed_progress', '3', 3, 'D8')
+	eq.set_global(instance_id .. '_cursed_progress', '3', 3, 'D8')
 	eq.spawn_condition('ssratemple', 0, 10, 1)
 end
 

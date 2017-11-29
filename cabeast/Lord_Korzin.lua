@@ -17,7 +17,7 @@ function event_trade(e)
 		e.self:Say("Excellent work! You are no squire. You are now a knight of the crusaders. Your next step shall be zealot. And every zealot wields a magical khukri.");
 		e.other:Faction(62,20); -- Crusaders of Greenmist
 		e.other:Faction(193,10); -- Legion of Cabilis
-		e.other:QuestReward(e.self,0,0,15,0,5123,e1500xp); -- Knights Khukri
+		e.other:QuestReward(e.self,0,0,15,0,5123,1500); -- Knights Khukri
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end

@@ -72,10 +72,11 @@ end
 
 
 function event_death_complete(e)
+	local instance_id = eq.get_zone_instance_id();
 	eq.stop_all_timers()
 	e.self:Emote("'s corpse falls to the ground as new energy fills the room!")
 	local qglobals = eq.get_qglobals(e.self);
-	if tonumber(qglobals['cursed_progress']) == 2 then
+	if tonumber(qglobals[instance_id .. '_cursed_progress']) == 2 then
 		eq.unique_spawn(162507, 0, 0 , -38, -10, -222) -- spawn Vyzh`dra the Cursed
 	else
 	end

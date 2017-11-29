@@ -74,8 +74,9 @@ end
 
 
 function event_death_complete(e)
+	local instance_id = eq.get_zone_instance_id();
 	eq.stop_all_timers()
 	e.self:Emote("'s corpse falls to the ground as new energy fills the room!")
-	eq.set_global('cursed_progress', '2', 3, 'D8')
+	eq.set_global(instance_id .. '_cursed_progress', '2', 3, 'D8')
 	eq.unique_spawn(162507, 0, 0 , -38, -10, -222) -- spawn Vyzh`dra the Cursed
 end

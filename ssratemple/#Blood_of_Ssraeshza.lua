@@ -3,14 +3,18 @@
 -- guards:      Heriz,  Yasiz, Zlakas, Nilasz,  Skzik,  Grziz, Slakiz, Klazaz
 guard_list = { 162123, 162124, 162125, 162126, 162127, 162128, 162129, 162130 }
 
+local instance_id = nil;
+
 function event_spawn(e) 
+	instance_id = eq.get_zone_instance_id();
+	
 	-- depop and deactivate Ssraeshzian Blood Golem on pop
 	if eq.get_entity_list():IsMobSpawnedByNpcTypeID(162515) then
 		eq.set_timer('depop_golem', 500);
 	end
 	eq.unique_spawn(162504,0,0,1000,-325,421,196);  -- Spawns Emp
 
-	eq.delete_global("Emp_Cycle");	--reset Emp cycle qglobals
+	eq.delete_global(instance_id .. "_Emp_Cycle");	--reset Emp cycle qglobals
 	
 	-- deactivate Emp if he is active for some reason
 	eq.signal(162504, 10); 
@@ -37,6 +41,7 @@ function event_timer(e)
 end
 
 function event_death_complete(e)
+		
 	eq.stop_timer('aggro_guards');
 	-- activate emp
 	eq.signal(162504, 99);
@@ -45,7 +50,8 @@ function event_death_complete(e)
 	fbs:Enable();
 	fbs:Reset();
 	
-	eq.set_global("Emp_Cycle", "1",3,"D8");	--sets Qglobal to indicate Blood killed so emp will respawn on server reset
+	instance_id = eq.get_zone_instance_id();	
+	eq.set_global(instance_id .. "_Emp_Cycle", "1",3,"D8");	--sets Qglobal to indicate Blood killed so emp will respawn on server reset
 end
 
 function aggro_guards(mob)

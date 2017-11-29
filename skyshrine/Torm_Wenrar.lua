@@ -26,10 +26,11 @@ function event_trade(e)
 		e.other:Faction(189, -50); --Kromzek
 		e.other:QuestReward(e.self, 0, 0, 0, 0, 12556, 1500); --Draconic Girdle
 	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 11994, item2 = 11995, item3 = 11996, item4 = 11997})) then
+		e.self:Say("Congratulations on successfully eliminating this deadly band of murderous mercenaries. The nobles of Skyshrine will be pleased with your actions, as is the Draconic Loyalist Fellowship. Here is the bounty that has been promised for the lives of these notorious slayers of dragon-kin.");
 		e.other:Faction(362, 100); --Yelinak
 		e.other:Faction(42, 100); --Cov
 		e.other:Faction(189, -100); --Kromzek
-		e.other:QuestReward(e.self, 0, 0, 0, 0, 12556, 1500); --Draconic Girdle
+		e.other:QuestReward(e.self, 0, 0, 0, 0, 12557, 1500); --Draconic Pauldrons
 	end
 
 	item_lib.return_items(e.self, e.other, e.trade);
