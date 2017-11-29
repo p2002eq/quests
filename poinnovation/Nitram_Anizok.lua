@@ -60,9 +60,9 @@ function event_timer(e)
 		eq.unique_spawn(206067,0,0,-735,1580,-50,125.8); --real Xanamech
 		eq.depop(206068); --fake Xanamech
 		eq.stop_timer(e.timer);
-		eq.set_timer("win_check",1);
+		eq.set_timer("win_check",2*1000);
 		eq.set_timer("depop",2*60*60*1000); --fail timer 2hrs
-	elseif e.timer == "win_check" then
+	elseif e.timer == "win_check" and not eq.get_entity_list():IsMobSpawnedByNpcTypeID(206067) then	--check for death
 		eq.stop_timer(e.timer);
 		eq.stop_timer("depop");
 		won = true;
