@@ -21,11 +21,13 @@ function event_say(e)
 			eq.set_global("pop_poi_behometh_preflag", "1", 5, "F")
 			e.other:Message(15,"You have received a character flag!");
 		end
-	elseif tonumber(qglobals.pop_poi_behometh_preflag) == 1 and qglobals.pop_poi_behometh_flag == nil and tactics_flag and flag_counter < 72 then
+	elseif e.message:findi("hail") and tonumber(qglobals.pop_poi_behometh_preflag) == 1 and qglobals.pop_poi_behometh_flag == nil and tactics_flag and flag_counter < 72 then
 		e.self:Emote("gives you a look of disbelief and then concern. 'You destroyed the machine?! You should come with me to the Plane of Tactics. Surely the Zeks will want to honor you in your warring spirit. I will go on ahead of you to prepare for your arrival. I believe that you can access the Plane through the portal that the weakli... Er tranquil have opened in the Plane of Tranquility. I anticipate our next meeting on the Battlefields of Zek!");
 		flag_counter = flag_counter + 1;
 		eq.set_global("pop_poi_behometh_flag", "1", 5, "F");
 		e.other:Message(15,"You have received a character flag!");
+	elseif e.message:findi("hail") and tonumber(qglobals.pop_poi_behometh_preflag) == 1 and not tactics_flag then
+		e.self:Say("Well go on then, what are you cowering around for, let us see what kind of warrior you are!")
 	end
 end
 
@@ -33,7 +35,9 @@ function event_signal(e)
 	if e.signal == 1 then
 		flag_counter = 0;
 		tactics_flag = true;
-		e.self:GMMove(970,288,5,131,true);
+		e.self:GMMove(1115,-3,3.2,192,true);
+		e.self:SetRunning(true);
+		e.self:CastToNPC():MoveTo(1005, 0, 3.2, 65, true);
 		e.self:Shout("Quickly! Come see me!");
 		eq.set_timer("depop", 10 * 60 * 1000);
 	elseif e.signal == 2 then
