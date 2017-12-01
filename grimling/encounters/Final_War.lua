@@ -216,13 +216,13 @@ function event_timer(e)
 			eq.signal(cullin,2,3*1000);
 			
 			for n = 1,5 do
-				spawn_mob1(grimlings[math.random(1,5)], 1, loc);	--intentional double spawn from same location - final stand in the war
+				spawn_mob1(grimlings[math.random(1,5)], 1, loc);	
 				spawn_mob1(grimlings[math.random(1,5)], 1, loc2);
 				spawn_mob2(grimlings[math.random(1,5)], 2, 1);	--set spawn for northeast fort at high commander spawn location
 			end
 		else 
 			for n = 1,5 do
-				spawn_mob1(grimlings[math.random(1,5)], 1, loc);	--spawns 6 mobs each per camp location  (12 mobs at acrylia caverns and 6 mobs at north camp per wave)
+				spawn_mob1(grimlings[math.random(1,5)], 1, loc);	--spawns 5 mobs each per camp location  (10 mobs at acrylia caverns and 5 mobs at north camp per wave)
 				spawn_mob1(grimlings[math.random(1,5)], 1, loc2);
 				spawn_mob2(grimlings[math.random(1,5)], 2, loc);
 			end

@@ -68,7 +68,7 @@ function event_trade(e)
     local item_lib = require("items");
 	if (not started and item_lib.check_turn_in(e.self, e.trade, {item1 = 6191})) then 	--Staginar's Battle Orders
 		WarSetup();	--set default variables
-		e.self:SetRunning(true);
+		e.self:SetRunning(false);
 		eq.unload_encounter("Final_War");
 		e.self:Say("The time has finally come to slay the last of the grimlings.  Follow me " .. e.other:GetName() .. ", we will meet outside of the outpost with the other veterans and make our final preparations."); 
 		eq.start(24);	
