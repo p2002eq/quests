@@ -68,12 +68,13 @@ function event_trade(e)
     local item_lib = require("items");
 	if (not started and item_lib.check_turn_in(e.self, e.trade, {item1 = 6191})) then 	--Staginar's Battle Orders
 		WarSetup();	--set default variables
-		e.self:SetRunning(false);	
+		e.self:SetRunning(true);
 		eq.unload_encounter("Final_War");
 		e.self:Say("The time has finally come to slay the last of the grimlings.  Follow me " .. e.other:GetName() .. ", we will meet outside of the outpost with the other veterans and make our final preparations."); 
 		eq.start(24);	
 	elseif (commander and item_lib.check_turn_in(e.self, e.trade, {item1 = 6270})) then 	--Arm of the Grimling High Commander
-		e.self:Say("We are eternally grateful for your assistance with our war efforts " .. e.other:GetName() .. ".  Please take this obelisk we found on the high commander's corpse to General Staginar as proof of our success on the battlefield. Farewell!");
+		e.self:Say("We are eternally grateful for your assistance with our war efforts " .. e.other:GetName() .. ".  Please accept this medallion in honor of your triumphs here today.  You will also need to take this obelisk we found on the high commander's corpse to General Staginar as proof of our success on the battlefield. Farewell!");
+		e.other:SummonItem(6271);	--Medallion of the Shar Vahl Hero
 		e.other:QuestReward(e.other,0,0,0,0,34142,5000);  -- Magical Acrylia Obelisk
 		DepopVeterans();
 		eq.get_entity_list():GetSpawnByID(334767):Repop(5);	--repop Veteran Cullin
@@ -172,7 +173,7 @@ function Briefing()
 	ThreadManager:Wait(30);
 	cullin:Say("We expect the most grimling resistance from their encampment outside the mines entrance to the northwest.  Veteran Kufur and Veteran Fhelik will require the largest raid party to hold down this area.  Veteran Shiktan and myself will require atleast 18 soldiers to accompany us to the northeast grimling encampment.  Remember that if any of the veterans or myself should fall in battle then we will not be able to maintain our defenses and all will be lost.");
 	ThreadManager:Wait(30);	
-	cullin:Say("If we resist the grimling reinforcements for a long enough period of time then we will be sure to drive out the grimling high commander from within the acrylia mines.  We expect the grimling high commander will send his strongest and most capable soldiers to stall our offensive.  These grimlings will no doubt be more challenging than any other grimlings you've previously encountered in the forest.");
+	cullin:Say("If we resist the grimling reinforcements for a long enough period of time then we will be sure to drive out the grimling high commander from within the northeast fort.  We expect the grimling high commander will send his strongest and most capable soldiers to stall our offensive.  These grimlings will no doubt be more challenging than any other grimlings you've previously encountered in the forest.");
 	ThreadManager:Wait(30);	
 	cullin:Say("Please make your final preparations now as there will be no rest until the grimling high commander and his minions have all been slain.  We will start our ambush in two minutes.");
 	ThreadManager:Wait(120);
@@ -256,7 +257,7 @@ function CampCheck(e)
 	
 	if(npc_list ~= nil) then
 		for npc in npc_list.entries do								 
-			if npc:CalculateDistance(unpack(pathing_target[camp])) <= 75 and npc:GetNPCTypeID() ~= 167196 and npc:GetNPCTypeID() ~= veterans[1] and npc:GetNPCTypeID() ~= veterans[2] and npc:GetNPCTypeID() ~= veterans[3] and not npc:IsPet() and npc:GetRace() ~= 216 then
+			if npc:CalculateDistance(unpack(pathing_target[camp])) <= 100 and npc:GetNPCTypeID() ~= 167196 and npc:GetNPCTypeID() ~= veterans[1] and npc:GetNPCTypeID() ~= veterans[2] and npc:GetNPCTypeID() ~= veterans[3] and not npc:IsPet() and npc:GetRace() ~= 216 then
 				return true	--mobs still in camp
 			end
 		end
