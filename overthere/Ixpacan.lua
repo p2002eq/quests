@@ -11,7 +11,7 @@ function event_say(e)
 		e.self:Say("Ah, they are all but a memory now. We used to be welcome within the city of Cabilis but our quest for greater power led to our exile. No matter now, go retrieve the items and you will be one of the chosen to walk beside greatness")
 	elseif(e.message:findi("collect these items") and tonumber(qglobals.necskullquest) >= 9) then
 		e.self:Say("As you should broodling. The the first is a brittle bone, which was once used for reincarnations. The second item is a poisoned soul, this is from an iksar that died a cruel and twisted death. The death was so awful, it's spirit still roams around angry. The third you will find in the burning heat. The final item is a gem of reflection. I have yet to find someone that knows how to create one. Even those fools in Cabilis probably wouldn't know. Maybe you can locate that one yourself. Bring all of these items back to me and I shall do the rest.")
-		e.other:SummonItem(18271); -- Ixpacan's Tome
+		e.other:SummonItem(34068); -- Ixpacan's Tome
 	end
 end
 
@@ -29,7 +29,7 @@ function event_trade(e)
 		eq.spawn2(93315,0,0,e.self:GetX() + 5,e.self:GetY(),e.self:GetZ(),e.self:GetHeading()); -- child of Charasis
 	elseif(tonumber(qglobals.necskullquest) >= 9 and item_lib.check_turn_in(e.self, e.trade, {item1 = 34077})) then --Handin: Child of Charasis Remains (34077)
 		e.self:Say("I see now that I lack the skill necessary to control the Dark Arts. Maybe it would be wiser to allow another such as yourself to continue forward. Please accept this token as a reward in your mastering of the Dark Arts.");
-		e.other:QuestReward(e.self,0,0,0,0,34078,0); -- Iron Cudgel of the Petitioner
+		e.other:QuestReward(e.self,0,0,0,0,34078,0); -- Demi Lich Skullcap
 	end
 
 	item_lib.return_items(e.self, e.other, e.trade)
