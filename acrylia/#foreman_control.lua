@@ -5,7 +5,7 @@
 local guard = 154403;	--a_reanimated_deathguard
 local foreman;
 
-local spawnpoints = {324893, 324894, 324895, 324896, 324897, 324898, 324899, 324900, 324901, 324902, 324903};	--10 spawns around Foreman	
+local spawnpoints = {324893, 324894, 324896, 324897, 324898, 324899, 324900, 324901, 324902, 324903};	--10 spawns around Foreman	
 
 function event_signal(e)
 	if e.signal == 1 then	--signal from elite guards death
