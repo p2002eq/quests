@@ -90,7 +90,7 @@ function Fail()
 			end
 		end
 	end
-	repop_time = 1;
+	repop_time = 3;
 	Cleanup();
 end
 
@@ -185,11 +185,12 @@ function event_timer(e)
 		RepopCamp();
 		eq.stop_timer(e.timer);
 	elseif(e.timer == "repop_check") then
+		if not eq.get_entity_list():IsMobSpawnedByNpcTypeID(cullin) or not eq.get_entity_list():IsMobSpawnedByNpcTypeID(shiktan) or not eq.get_entity_list():IsMobSpawnedByNpcTypeID(kufur) or not eq.get_entity_list():IsMobSpawnedByNpcTypeID(fhelik) then
+			Fail();
+		end
 		if repop then
 			eq.stop_timer(e.timer);
 			eq.set_timer("repop", repop_time * 1000);
-		elseif not eq.get_entity_list():IsMobSpawnedByNpcTypeID(cullin) or not eq.get_entity_list():IsMobSpawnedByNpcTypeID(shiktan) or not eq.get_entity_list():IsMobSpawnedByNpcTypeID(kufur) or not eq.get_entity_list():IsMobSpawnedByNpcTypeID(fhelik) then
-			Fail();
 		end
 	elseif e.timer == "event_emote" then
 		eq.stop_timer(e.timer);
