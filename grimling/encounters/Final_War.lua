@@ -36,18 +36,19 @@ local wave_timer = 60; 		--in seconds
 local pathing_target = {[1] = {  797,  760, 10}, --acrylia caverns
 						[2] = {-1048, 1089, 11} };  --northern camp
 local radius = {[1] = 200, [2] = 200};    --set radius of camp to check
-local repop_time = 30*60;  	--in seconds  (for successful event completion)
-local repop = false  
+local repop_time; 	
+local repop = false;
 local unload = false;
 
 --event start triggers
-local acrylia_clear = false
+local acrylia_clear = false;
 local north_clear = false;
 
  
 function event_encounter_load(e)
 	unload = false;
 	repop = false;
+	repop_time = 5 * 60;
 	acrylia_clear = false;
 	north_clear = false;
 	wave = 0;
@@ -71,7 +72,7 @@ function CampCheck(camp)
 	
 	if(npc_list ~= nil) then
 		for npc in npc_list.entries do								 
-			if npc:CalculateDistance(unpack(pathing_target[camp])) <= radius[camp] and npc:GetNPCTypeID() ~= cullin and npc:GetNPCTypeID() ~= shiktan  and npc:GetNPCTypeID() ~= kufur and npc:GetNPCTypeID() ~= fhelik and not npc:IsPet() and npc:GetRace() ~= 216 then
+			if npc:CalculateDistance(pathing_target[camp][1], pathing_target[camp][2], pathing_target[camp][3]) <= radius[camp] and npc:GetNPCTypeID() ~= cullin and npc:GetNPCTypeID() ~= shiktan  and npc:GetNPCTypeID() ~= kufur and npc:GetNPCTypeID() ~= fhelik and not npc:IsPet() and npc:GetRace() ~= 216 then
 				return true	--mobs still in camp
 			end
 		end
@@ -101,6 +102,7 @@ function Win()
 		vet:GMMove(-999, 1080 + (9 * n), 35, 180, true);
 		vet:WipeHateList();
 	end
+	repop_time = 5 * 60; --5 minutes
 	Cleanup();
 end
 

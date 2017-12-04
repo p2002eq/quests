@@ -254,10 +254,12 @@ end
 
 function CampCheck(e)
 	local npc_list = eq.get_entity_list():GetNPCList();
+	local pathing_target = {[1] = {35, 338, -5},  --camp #8
+						[2] = {110, 960, -8}};	--camp #9
 	
 	if(npc_list ~= nil) then
 		for npc in npc_list.entries do								 
-			if npc:CalculateDistance(unpack(pathing_target[camp])) <= 100 and npc:GetNPCTypeID() ~= 167196 and npc:GetNPCTypeID() ~= veterans[1] and npc:GetNPCTypeID() ~= veterans[2] and npc:GetNPCTypeID() ~= veterans[3] and not npc:IsPet() and npc:GetRace() ~= 216 then
+			if npc:CalculateDistance(pathing_target[camp][1], pathing_target[camp][2], pathing_target[camp][3]) <= 100 and npc:GetNPCTypeID() ~= 167196 and npc:GetNPCTypeID() ~= veterans[1] and npc:GetNPCTypeID() ~= veterans[2] and npc:GetNPCTypeID() ~= veterans[3] and not npc:IsPet() and npc:GetRace() ~= 216 then
 				return true	--mobs still in camp
 			end
 		end
