@@ -98,7 +98,7 @@ function Win()
 	eq.signal(cullin,1);  --signal success to cullin to allow final hand-in
 	for n = 1,4 do
 		vet = eq.get_entity_list():GetMobByNpcTypeID(veterans[n])
-		vet:GMMove(548, 813-(7 * n), 7, 60, true);
+		vet:GMMove(-999, 1080 + (9 * n), 35, 180, true);
 		vet:WipeHateList();
 	end
 	Cleanup();
@@ -168,7 +168,7 @@ function event_timer(e)
 	--check for both camps being clear before waves begin
 	if (e.timer == "camp_check") then
 		if not CampCheck(1) and not acrylia_clear then
-			eq.get_entity_list():GetMobByNpcTypeID(kufur):CastToNPC():Shout("Acrylia mines area is secured!");
+			eq.get_entity_list():GetMobByNpcTypeID(kufur):CastToNPC():Shout("Acrylia mines encampment is secured!");
 			acrylia_clear = true;
 		end
 		if not CampCheck(2) and not north_clear then
@@ -211,17 +211,18 @@ function event_timer(e)
 		--commander rolls
 		local comm = commanderSpawn(wave);
 		if comm >= math.random(1,100) and not eq.get_entity_list():IsMobSpawnedByNpcTypeID(commander) then		--no north camp spawns on trigger - all scouts will move to acrylia
-			eq.spawn2(commander,0, 0, 1002, 867, 63, 185);
+			eq.spawn2(commander,0, 0, -833, 1087, 88, 185);	--spawns high commander at north fort
 			eq.get_entity_list():GetMobByNpcTypeID(commander):CastToNPC():Shout("The Master does not take kindly to tresspassers. Now you must die!");
 			eq.signal(cullin,2,3*1000);
 			
 			for n = 1,5 do
-				spawn_mob1(grimlings[math.random(1,5)], 1, 1);	--intentional double spawn from same location - final stand in the war
-				spawn_mob1(grimlings[math.random(1,5)], 1, 1);
+				spawn_mob1(grimlings[math.random(1,5)], 1, loc);	
+				spawn_mob1(grimlings[math.random(1,5)], 1, loc2);
+				spawn_mob2(grimlings[math.random(1,5)], 2, 1);	--set spawn for northeast fort at high commander spawn location
 			end
 		else 
 			for n = 1,5 do
-				spawn_mob1(grimlings[math.random(1,5)], 1, loc);	--spawns 6 mobs each per camp location  (12 mobs at acrylia caverns and 6 mobs at north camp per wave)
+				spawn_mob1(grimlings[math.random(1,5)], 1, loc);	--spawns 5 mobs each per camp location  (10 mobs at acrylia caverns and 5 mobs at north camp per wave)
 				spawn_mob1(grimlings[math.random(1,5)], 1, loc2);
 				spawn_mob2(grimlings[math.random(1,5)], 2, loc);
 			end
