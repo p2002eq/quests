@@ -1,13 +1,12 @@
 -- Event controller (162266) in Ssra
 
-local instance_id = nil
-
 function event_spawn(e)
-	instance_id = eq.get_zone_instance_id();
+	local instance_id = eq.get_zone_instance_id();
 	reset();
 end
 
 function event_signal(e)
+	local instance_id = eq.get_zone_instance_id();
 
 	-- bitwise signal values for the 10 kills
 	if e.signal < 10000 then
@@ -32,6 +31,7 @@ function event_signal(e)
 end
 
 function reset()
+	local instance_id = eq.get_zone_instance_id();
 	signal_total = 0;
 	eq.delete_global(instance_id .. '_cursed_trigger');
 end
@@ -48,6 +48,7 @@ function event_timer(e)
 end
 
 function event_say(e)
+	local instance_id = eq.get_zone_instance_id();
 	if e.other:Admin() > 100 then
 		if(e.message:findi("hail")) then
 			e.other:Message(1, string.format('Hello %s, would you like [help] with the Cursed cycle?', e.other:GetName()))
