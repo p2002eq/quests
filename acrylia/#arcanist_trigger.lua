@@ -9,7 +9,8 @@ local deathguard_locs = { [1] = {670,-388,-23,192}, [2] = {660,-388,-23,192}, [3
 
 local arcanists = {154151, 154152}  -- (1) True Arcanist (2) False Arcanist
 local grimlings = {154148, 154149} -- (1) True location (2) False Location (both NPCS are grimling_spiritwarders)
-local khati = false;
+local boss = false;
+
 
 local deathguard_counter;
 
@@ -64,18 +65,23 @@ function event_signal(e)
 
 	if e.signal == 1 then	--signal to spawn deathguards
 		SpawnMobs(154058,deathguard_locs);  -- spawn deathguards
+	elseif e.signal == 2 then
+		boss = true;
 	elseif e.signal == 20 then 
 		deathguard_counter = deathguard_counter + 1;
 		if deathguard_counter >= 4 and not eq.get_entity_list():IsMobSpawnedByNpcTypeID(154153) and not eq.get_entity_list():IsMobSpawnedByNpcTypeID(154058) then 	--success - opens last seal and progresses event to final stage (requires deathguards and false grimling arcanist dead (if triggered)
-			eq.signal(154151,1)	 --signals True Arcanist (if correct scenario chosen otherwise he will not be up)
 			if eq.get_entity_list():IsMobSpawnedByNpcTypeID(154138) then
+				eq.signal(154151,1)	 --signals True Arcanist (if correct scenario chosen otherwise he will not be up)
 				eq.set_global(instance_id.. "_IAC_Seal_2","1",3,"H2");	--sets flag on 4 panel door to advance
 				eq.zone_emote(1,"The caverns rumble and shake violently as the third protective seal is broken. Khati Sha shouts, 'Who dares break the seals and defile the inner sanctum?! Come forth so that I may crush you!'");
 				eq.spawn2(154059,0,0,684,-379,-23,192);
 				eq.spawn2(154059,0,0,684,-369,-23,192);
 				eq.signal(154138,30);  --signal Khati`Sha to Activate (become targetable)
-			else
-				eq.zone_emote(13,"Khati Sha does not want an audience with you.");
+			elseif boss then --false arcanist dialogue
+				eq.zone_emote(13,"Despite the Arcanist's warning, the halls beyond the sealed door remain silent and empty. Khati Sha has no interest in holding audience with you on this day...");
+				eq.depop();
+			else				--true arcanist dialogue
+				eq.zone_emote(13,"The arcanist appears much relieved to be released from that magical bondage. Having broken the seal and defeated the imposter, you attempt to open the door, yet it does not move... It appears that Khati Sha has no interest in holding audience with you on this day...");
 				eq.depop();
 			end
 		end

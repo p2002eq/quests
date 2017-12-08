@@ -29,7 +29,6 @@ function event_signal(e)
 	elseif e.signal == 10 then
 		eq.stop_all_timers();
 		e.self:SetAppearance(3);
-		e.self:Emote("collapses to the floor as the grimling arcanist drains the last of his life force.  Before fading into the ward he manages to say, 'My friends, you have been deceived!'");
 		eq.set_timer("depop",10 * 1000);
 	elseif e.signal == 80 then
 		e.self:Say("Don't listen to him! Unbind me and I can help you.")
