@@ -3,13 +3,19 @@
 -- Khati Sha Event (Spirit Ward)
 
 function event_spawn(e)
-	e.self:Shout("You fools made the wrong choice!  The seal of Spirit will not be broken today!");
 	eq.set_timer("depop", 60 * 60 * 1000);  -- 60 min depop
+	eq.set_timer("leash", 1);
 end
 
 function event_timer(e)
 	if e.timer == "depop" then
 		eq.depop();
+	elseif e.timer == "leash" then
+		if e.self:GetY() >= -315 then
+			e.self:GotoBind();
+			e.self:WipeHateList();
+			e.self:SpellFinished(3230,e.self); --balance of the nameless (self dispell)
+		end
 	end
 end
 

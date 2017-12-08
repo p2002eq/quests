@@ -5,8 +5,10 @@ function event_spawn(e)
 end
 
 function event_enter(e)
+	local instance_id = eq.get_zone_instance_id();
 	e.self:Say("A fine sacrifice you make! Say hello to the master!");
-	e.other:SpellFinished(2857, e.other);
+	e.other:MovePCInstance(154, instance_id, -40, -766, -10, 255);
+	--e.other:SpellFinished(2857, e.other);
 end
 
 function event_signal(e)

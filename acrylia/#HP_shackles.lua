@@ -104,7 +104,8 @@ function event_timer(e)
 		end
 	elseif e.timer == "HP" then
 		eq.stop_timer(e.timer);	
-		player = eq.get_entity_list():GetClientByCharID(sacrifice)
+		player = eq.get_entity_list():GetClientByCharID(sacrifice);
+		local instance_id = eq.get_zone_instance_id();
 		
 		--random roll to see if named HP will spawn.  
 		local roll = math.random(1,10);
@@ -116,7 +117,7 @@ function event_timer(e)
 			boss = 154107;		--#grimling_high_priest
 		end
 			
-		player:MovePC(154, 150, -690, 2, 192);
+		player:MovePCInstance(154, instance_id, 150, -690, 2, 192);
 		player:Message(15,"You have been summoned!");
 		eq.signal(boss,sacrifice);	--signal to hp to aggro the assigned PC sacrifice after summon
 	end

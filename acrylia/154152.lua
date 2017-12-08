@@ -1,14 +1,14 @@
 -- a_spiritual_arcanist (False Selection) 
--- NPCID: 154151
+-- NPCID: 154152
 -- Khati Sha Event (Spirit Ward)
 
 local counter = 0;
 
 function event_spawn(e)
-	eq.set_timer("warder_check", 1 * 1000);
 	eq.clear_proximity();
 	eq.set_proximity(510, 535, -335, -315);
 	counter = 0;
+	eq.set_timer("warder_check", 1 * 1000);
 end
 
 function event_timer(e)
@@ -16,17 +16,14 @@ function event_timer(e)
 		if not eq.get_entity_list():IsMobSpawnedByNpcTypeID(154149)	then	--checks that surrounding grimling_spiritwarders are dead 
 			eq.stop_timer("dialogue");
 			eq.stop_timer(e.timer);
+			eq.signal(154122,2); --signal arcanist_trigger that false arcanist is up
 			eq.signal(154122,1);  --signals arcanist_trigger to spawn deathguards
 			eq.signal(154151,10); --signal true arcanist for failure emote
 			eq.depop_all(154148);	--depop other spiritwarders
 			eq.spawn2(154153,0,0,e.self:GetX(),e.self:GetY(),e.self:GetZ(), e.self:GetHeading());	--spawn grimling version of spiritual arcanist
 			eq.depop();
 		end
-	end
-end
-
-function event_timer(e)
-	if e.timer == "dialogue" then
+	elseif e.timer == "dialogue" then
 		counter = counter + 1;
 		if counter == 1 then
 			e.self:Say("Psst, come here. This way. Tear down this barrier of magic, set me free!")
