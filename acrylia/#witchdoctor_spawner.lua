@@ -10,7 +10,7 @@ PR:	154395
 local started = false;
 local boss_timer = 10 * 60 -- set timer for boss spawn after event start (default 10 min (10 x 60)
 local counter = 0;
-local spawnpoints = { 324847, 324884, 324885, 324886, 324887, 324888, 324889, 324890 };
+local spawnpoints = { 324847, 324885, 324886, 324887, 324888, 324889, 324890 };
 
 
 
