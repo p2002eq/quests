@@ -127,10 +127,16 @@ function scan_for_out_of_prox()
     for npc in npc_list.entries do
       local x = npc:GetX();
       local y = npc:GetY();
-      if ((x > proximity_rules['max_x'] or x < proximity_rules['min_x']) and (y > proximity_rules['max_y'] or y < proximity_rules['min_y'])) then
-        if (show_debug) then
-          eq.zone_emote(4, npc:GetCleanName() .. " NPCID: " .. npc:GetNPCTypeID() .. " is out of bounds depoping... x:" .. x .. " y: " .. y);
-        end
+      local depopMe = true;
+
+      if ((x < proximity_rules['max_x'] and x > proximity_rules['min_x']) and (y < proximity_rules['max_y'] and y > proximity_rules['min_y'])) then
+        depopMe = false;
+      end
+
+      if (show_debug and depopMe) then
+        eq.zone_emote(4, npc:GetCleanName() .. " NPCID: " .. npc:GetNPCTypeID() .. " is out of bounds depoping... x:" .. x .. " y: " .. y);
+      end
+      if(depopMe) then
         npc:Depop();
       end
     end
