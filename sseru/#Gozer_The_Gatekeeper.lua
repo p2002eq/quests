@@ -42,7 +42,7 @@ function event_say(e)
             e.other:Message(13,"There is no instance available in this zone for your guild,");
         end
     end
-endy
+end
 
 function check_raid_guild(cur_raid, guildId)
     local same_guild = 0;
