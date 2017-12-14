@@ -125,18 +125,13 @@ function scan_for_out_of_prox()
   -- do not do anything if there are no NPC's spawned. should be an impossible check because this is in an NPC script
   if(npc_list ~= nil) then
     for npc in npc_list.entries do
-      if (show_debug) then
-        eq.zone_emote(4, "Checking NPC: " .. npc:GetCleanName());
-      end
       local x = npc:GetX();
       local y = npc:GetY();
-      if (x > proximity_rules['max_x'] or x < proximity_rules['min_x']) then
-        if (y > proximity_rules['max_y'] or y < proximity_rules['min_y']) then
-          if (show_debug) then
-            eq.zone_emote(4, npc:GetCleanName() .. " NPCID: " .. npc:GetNPCTypeID() .. " is out of bounds depoping");
-          end
-          npc:Depop();
+      if ((x > proximity_rules['max_x'] or x < proximity_rules['min_x']) and (y > proximity_rules['max_y'] or y < proximity_rules['min_y'])) then
+        if (show_debug) then
+          eq.zone_emote(4, npc:GetCleanName() .. " NPCID: " .. npc:GetNPCTypeID() .. " is out of bounds depoping... x:" .. x .. " y: " .. y);
         end
+        npc:Depop();
       end
     end
   end
