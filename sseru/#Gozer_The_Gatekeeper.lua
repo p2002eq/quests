@@ -51,7 +51,7 @@ function check_raid_guild(cur_raid, guildId)
     if (cur_raid.valid == true) then
         player_list = cur_raid;
         player_list_count = cur_raid:RaidCount();
-    our end
+    end
     if (player_list ~= nil) then
         for i = 0, player_list_count - 1, 1 do --Uses a 0-n group memembers
             local client_v = player_list:GetMember(i):CastToClient();
