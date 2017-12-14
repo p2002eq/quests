@@ -111,7 +111,7 @@ function run_proximity_depop_timer(box)
     eq.zone_emote(4, "Running proximity_depop_timer.....");
   end
   proximity_rules = box;
-  eq.set_timer("proxminity_clear", 500)
+  eq.set_timer("proxminity_clear", 5000)
 end
 
 function scan_for_out_of_prox()
