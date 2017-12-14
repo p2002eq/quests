@@ -118,6 +118,8 @@ function scan_for_out_of_prox()
   -- get the list of npcs currently spawned in the zone
   local npc_list = entity_list:GetNPCList();
   -- do not do anything if there are no NPC's spawned. should be an impossible check because this is in an NPC script
+  local player_list = entity_list:GetClientList();
+
   if(npc_list ~= nil) then
     for npc in npc_list.entries do
       local x = npc:GetX();
@@ -146,28 +148,27 @@ function scan_for_out_of_prox()
     end
   end
    -- player logic
-  local player_list = entity_list:GetClientList();
-  if (player_list ~= nil) then
-    for player in player_list do
-      local x = player:GetX();
-      local y = player:Get();
-      local moveMe = true;
+  --if (player_list ~= nil) then
+    --for player in player_list do
+      --local x = player:GetX();
+      --local y = player:Get();
+      --local moveMe = true;
 
-      if (
-            (x < proximity_rules['max_x'] and x > proximity_rules['min_x'])
-            and
-            (y < proximity_rules['max_y'] and y > proximity_rules['min_y'])
-          ) then
-        moveMe = false;
-      end
+      --if (
+            --(x < proximity_rules['max_x'] and x > proximity_rules['min_x'])
+            --and
+            --(y < proximity_rules['max_y'] and y > proximity_rules['min_y'])
+          --) then
+        --moveMe = false;
+      --end
 
-      if (moveMe) then
-        eq.zone_emote(4, player:GetCleanName() .. " is out of bounds moving... x:" .. x .. " y: " .. y);
-        local instanceId = eq.get_zone_instance_id();
-        player:MovePCInstance(159, tonumber(instanceId), -205, -301, 57, 228);
-      end
-    end
-  end
+      --if (moveMe) then
+        --eq.zone_emote(4, player:GetCleanName() .. " is out of bounds moving... x:" .. x .. " y: " .. y);
+        --local instanceId = eq.get_zone_instance_id();
+        --player:MovePCInstance(159, tonumber(instanceId), -205, -301, 57, 228);
+      --end
+    --end
+  --end
 
 end
 

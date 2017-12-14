@@ -1,17 +1,22 @@
 #!/bin/sh
-echo "Checking Perl scripts..."
-find . -name "*.pl" \
-| while read s
-do
-        if ! perl -c "$s"; then
-                echo "$s is invalid."
-        fi
-done
+#echo "Checking Perl scripts..."
+#find . -name "*.pl" \
+#| while read s
+#do
+        #if ! perl -c "$s"; then
+                #echo "$s is invalid."
+        #fi
+#done
+cmd='luac';
+if hash luac-5.1 2>/dev/null; then
+  cmd='luac-5.1';
+fi
+
 echo "Checking Lua scripts..."
 find . -name "*.lua" \
 | while read s
 do
-        if ! luac -p "$s"; then
+        if ! `$cmd -p "$s"`; then
                 echo "$s is invalid."
         fi
 done
