@@ -98,7 +98,7 @@ function event_spawn(e)
 
 end
 
-function run_proximity_timer(box)
+function run_proximity_depop_timer(box)
   proximity_rules = box;
   eq.set_timer("proxminity_clear", 5000)
 end
