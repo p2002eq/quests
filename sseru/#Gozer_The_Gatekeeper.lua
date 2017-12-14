@@ -99,7 +99,7 @@ function event_spawn(e)
     if (instance_id ~= 0) then
       local max_x = -23;
       local min_x = -442;
-      local max_y = -222;
+      local max_y = -229;
       local min_x = -640;
       run_proximity_depop_timer({max_x=-23, min_x=-442, max_y=-222, min_y=-640});
     end
