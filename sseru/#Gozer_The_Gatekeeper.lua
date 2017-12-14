@@ -14,6 +14,7 @@ function event_say(e)
     local instance_id = eq.get_zone_instance_id();
     if(instance_id ~= 0) then
       e.self:Say("Your instance id is " .. instance_id);
+      e.self:Say("This is a proximity instance");
       return;
     end
 
