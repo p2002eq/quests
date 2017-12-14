@@ -135,11 +135,31 @@ function scan_for_out_of_prox()
       if (show_debug and depopMe) then
         eq.zone_emote(4, npc:GetCleanName() .. " NPCID: " .. npc:GetNPCTypeID() .. " is out of bounds depoping... x:" .. x .. " y: " .. y);
       end
+
       if(depopMe) then
         npc:Depop();
       end
     end
   end
+   -- player logic
+  local player_list = entity_list:GetClientList();
+  if (player_list ~= nil) then
+    for player in player_list do
+      local x = player:GetX();
+      local y = player:Get();
+      local moveMe = true;
+
+      if ((x < proximity_rules['max_x'] and x > proximity_rules['min_x']) and (y < proximity_rules['max_y'] and y > proximity_rules['min_y'])) then
+        moveMe = false;
+      end
+
+      if (moveMe) then
+        eq.zone_emote(4, player:GetCleanName() .. " is out of bounds moving... x:" .. x .. " y: " .. y);
+        player:MovePCInstance(159, tonumber(instanceId), -205, -301, 57, 228);
+      end
+    end
+  end
+
 end
 
 function event_timer(e)
