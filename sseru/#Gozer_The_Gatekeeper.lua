@@ -133,6 +133,10 @@ function scan_for_out_of_prox()
         depopMe = false;
       end
 
+      if (npc:GetCleanName() == 'zone_controller' or npc:GetCleanName() == 'zone controller') then
+        depopMe = false;
+      end
+
       if (show_debug and depopMe) then
         eq.zone_emote(4, npc:GetCleanName() .. " NPCID: " .. npc:GetNPCTypeID() .. " is out of bounds depoping... x:" .. x .. " y: " .. y);
       end
