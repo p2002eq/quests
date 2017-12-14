@@ -1,4 +1,4 @@
-local show_debug = tr
+local show_debug = true;
 
 
 local player_list = true;
@@ -8,7 +8,7 @@ local client_e = nil;
 local group = nil;
 local raid = nil;
 
-local proximity_rules;
+local proximity_rules = nil;
 
 function event_say(e)
     local instanceId = nil;  -- from the global
@@ -126,6 +126,9 @@ end
 
 function event_timer(e)
   if(e.timer == 'proxminity_clear') then
+      if (show_debug) then
+        eq.zone_emote(4, "Starting proximity scan.....");
+      end
     scan_for_out_of_prox()
   end
 end
