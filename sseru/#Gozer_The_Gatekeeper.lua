@@ -124,7 +124,11 @@ function scan_for_out_of_prox()
       local y = npc:GetY();
       local depopMe = true;
 
-      if ((x < proximity_rules['max_x'] and x > proximity_rules['min_x']) and (y < proximity_rules['max_y'] and y > proximity_rules['min_y'])) then
+      if (
+            (x < proximity_rules['max_x'] and x > proximity_rules['min_x'])
+            and
+            (y < proximity_rules['max_y'] and y > proximity_rules['min_y'])
+          ) then
         depopMe = false;
       end
 
@@ -149,12 +153,17 @@ function scan_for_out_of_prox()
       local y = player:Get();
       local moveMe = true;
 
-      if ((x < proximity_rules['max_x'] and x > proximity_rules['min_x']) and (y < proximity_rules['max_y'] and y > proximity_rules['min_y'])) then
+      if (
+            (x < proximity_rules['max_x'] and x > proximity_rules['min_x'])
+            and
+            (y < proximity_rules['max_y'] and y > proximity_rules['min_y'])
+          ) then
         moveMe = false;
       end
 
       if (moveMe) then
         eq.zone_emote(4, player:GetCleanName() .. " is out of bounds moving... x:" .. x .. " y: " .. y);
+        local instanceId = eq.get_zone_instance_id();
         player:MovePCInstance(159, tonumber(instanceId), -205, -301, 57, 228);
       end
     end
