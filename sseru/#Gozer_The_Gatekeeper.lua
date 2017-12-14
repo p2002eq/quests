@@ -151,7 +151,7 @@ function scan_for_out_of_prox()
   if (player_list ~= nil) then
     for player in player_list.entries do
       local x = player:GetX();
-      local y = player:Get();
+      local y = player:GetY();
       local moveMe = true;
 
       if (
