@@ -107,17 +107,12 @@ function event_spawn(e)
 end
 
 function run_proximity_depop_timer(box)
-  if (show_debug) then
-    eq.zone_emote(4, "Running proximity_depop_timer.....");
-  end
   proximity_rules = box;
-  eq.set_timer("proxminity_clear", 5000)
+  scan_for_out_of_prox()
+  eq.set_timer("proxminity_clear", 10000)
 end
 
 function scan_for_out_of_prox()
-  if (show_debug) then
-    eq.zone_emote(4, "In Scaner.....");
-  end
   -- grab the entity list
   local entity_list = eq.get_entity_list();
   -- get the list of npcs currently spawned in the zone
