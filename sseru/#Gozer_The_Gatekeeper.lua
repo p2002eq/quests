@@ -1,9 +1,14 @@
-local player_list = nil;
+local show_debug = tr
+
+
+local player_list = true;
 local player_list_count = nil;
 local entity_list = nil;
 local client_e = nil;
 local group = nil;
 local raid = nil;
+
+local proximity_rules;
 
 function event_say(e)
     local instanceId = nil;  -- from the global
@@ -84,4 +89,44 @@ function event_spawn(e)
     if(instance_id ~= 0) then
         eq.depop()
     end
+
+    local max_x = -23;
+    local min_x = -442;
+    local max_y = -222;
+    local min_x = -640;
+    run_proximity_depop_timer({max_x=-23, min_x=-442, max_y=-222, min_y=-640})
+);
+
+end
+
+function run_proximity_timer(box)
+  proximity_rules = box;
+  eq.set_timer("proxminity_clear", 5000)
+end
+
+function scan_for_out_of_prox()
+    -- grab the entity list
+    local entity_list = eq.get_entity_list();
+    -- get the list of npcs currently spawned in the zone
+    local npc_list = entity_list:GetNPCList();
+    -- do not do anything if there are no NPC's spawned. should be an impossible check because this is in an NPC script
+    if(npc_list ~= nil) then
+      for npc in npc_list.entries do
+        local x = npc:GetX();
+        local y = npc:GetY();
+        if (x > proximity_rules['max_x'] and x < proximity_rules['min_x'] and y > proximity_rules['max_y'] and y < proximity_rules['min_y']) then
+          if (show_debug) then
+            eq.zone_emote(4, npc:GetCleanName() .. " NPCID: " .. npc:GetNPCTypeID() .. " is out of bounds depoping");
+          end
+          npc:Depop();
+        end
+      end
+    end
+
+end
+
+function event_timer(e)
+  if(e.timer == 'proxminity_clear') then
+    scan_for_out_of_prox()
+  end
 end
