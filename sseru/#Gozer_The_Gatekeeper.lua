@@ -115,6 +115,9 @@ function run_proximity_depop_timer(box)
 end
 
 function scan_for_out_of_prox()
+  if (show_debug) then
+    eq.zone_emote(4, "In Scaner.....");
+  end
   -- grab the entity list
   local entity_list = eq.get_entity_list();
   -- get the list of npcs currently spawned in the zone
