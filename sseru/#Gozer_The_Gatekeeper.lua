@@ -91,7 +91,10 @@ function check_group_guild(cur_group, guildId)
 end
 
 function event_spawn(e)
-    local instance_id = eq.get_zone_instance_id();
+  local instance_id = eq.get_zone_instance_id();
+  if (show_debug) then
+    eq.zone_emote(4, "Spawned.....");
+  end
 
     if (instance_id ~= 0) then
       local max_x = -23;
@@ -104,29 +107,31 @@ function event_spawn(e)
 end
 
 function run_proximity_depop_timer(box)
+  if (show_debug) then
+    eq.zone_emote(4, "Running proximity_depop_timer.....");
+  end
   proximity_rules = box;
-  eq.set_timer("proxminity_clear", 5000)
+  eq.set_timer("proxminity_clear", 500)
 end
 
 function scan_for_out_of_prox()
-    -- grab the entity list
-    local entity_list = eq.get_entity_list();
-    -- get the list of npcs currently spawned in the zone
-    local npc_list = entity_list:GetNPCList();
-    -- do not do anything if there are no NPC's spawned. should be an impossible check because this is in an NPC script
-    if(npc_list ~= nil) then
-      for npc in npc_list.entries do
-        local x = npc:GetX();
-        local y = npc:GetY();
-        if (x > proximity_rules['max_x'] and x < proximity_rules['min_x'] and y > proximity_rules['max_y'] and y < proximity_rules['min_y']) then
-          if (show_debug) then
-            eq.zone_emote(4, npc:GetCleanName() .. " NPCID: " .. npc:GetNPCTypeID() .. " is out of bounds depoping");
-          end
-          npc:Depop();
+  -- grab the entity list
+  local entity_list = eq.get_entity_list();
+  -- get the list of npcs currently spawned in the zone
+  local npc_list = entity_list:GetNPCList();
+  -- do not do anything if there are no NPC's spawned. should be an impossible check because this is in an NPC script
+  if(npc_list ~= nil) then
+    for npc in npc_list.entries do
+      local x = npc:GetX();
+      local y = npc:GetY();
+      if (x > proximity_rules['max_x'] and x < proximity_rules['min_x'] and y > proximity_rules['max_y'] and y < proximity_rules['min_y']) then
+        if (show_debug) then
+          eq.zone_emote(4, npc:GetCleanName() .. " NPCID: " .. npc:GetNPCTypeID() .. " is out of bounds depoping");
         end
+        npc:Depop();
       end
     end
-
+  end
 end
 
 function event_timer(e)
