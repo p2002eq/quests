@@ -11,6 +11,12 @@ local raid = nil;
 local proximity_rules = nil;
 
 function event_say(e)
+    local instance_id = eq.get_zone_instance_id();
+    if(instance_id ~= 0) then
+      e.self:Say("Your instance id is " ... instance_id)
+      return;
+    end
+
     local instanceId = nil;  -- from the global
     if(e.message:findi('hail')) then
         e.self:Say("Greetings Traveler, recently there has been talk of rifts in space and time. These rifts have been allowing well established groups of adventurers to explore identical instances of norrath.");
@@ -36,7 +42,7 @@ function event_say(e)
             e.other:Message(13,"There is no instance available in this zone for your guild,");
         end
     end
-end
+endy
 
 function check_raid_guild(cur_raid, guildId)
     local same_guild = 0;
@@ -45,7 +51,7 @@ function check_raid_guild(cur_raid, guildId)
     if (cur_raid.valid == true) then
         player_list = cur_raid;
         player_list_count = cur_raid:RaidCount();
-    end
+    our end
     if (player_list ~= nil) then
         for i = 0, player_list_count - 1, 1 do --Uses a 0-n group memembers
             local client_v = player_list:GetMember(i):CastToClient();
@@ -86,9 +92,6 @@ end
 
 function event_spawn(e)
     local instance_id = eq.get_zone_instance_id();
-    if(instance_id ~= 0) then
-        eq.depop()
-    end
 
     local max_x = -23;
     local min_x = -442;
