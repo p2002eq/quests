@@ -44,7 +44,7 @@ function event_trade(e)
 		end
 	end
 
-	if (!valid_turn_in) then
+	if (not valid_turn_in) then
 		item_lib.return_items(e.self, e.other, e.trade);	
 	end
 end

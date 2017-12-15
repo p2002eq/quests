@@ -7,7 +7,7 @@ function event_say(e)
 	local qglobals = eq.get_qglobals(e.self, e.other);
 	local hails = 0;
 	if qglobals['hails'] ~= nil then
-		hails = tonumber(qglobals[" .. eq.say_link("'hails'") .. "])
+		hails = tonumber(qglobals['hails'])
 	end
 	
 	if e.message:findi("hail") then
