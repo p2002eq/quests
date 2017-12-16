@@ -68,6 +68,7 @@ function event_trade(e)
     local item_lib = require("items");
 	if (not started and item_lib.check_turn_in(e.self, e.trade, {item1 = 6191})) then 	--Staginar's Battle Orders
 		WarSetup();	--set default variables
+		camp = 1;
 		e.self:SetRunning(false);
 		eq.unload_encounter("Final_War");
 		e.self:Say("The time has finally come to slay the last of the grimlings.  Follow me " .. e.other:GetName() .. ", we will meet outside of the outpost with the other veterans and make our final preparations."); 
@@ -103,7 +104,7 @@ function event_timer(e)
 			eq.depop_with_timer();
 		end		
 	elseif e.timer == 'camp_check' then
-		if not CampCheck() then
+		if not CampCheck(camp) then
 			eq.stop_timer(e.timer);
 			eq.resume();	--resume pathing
 			if camp == 1 then
@@ -252,14 +253,15 @@ function CheckVeterans()
 	end
 end
 
-function CampCheck(e)
+function CampCheck(loc)
 	local npc_list = eq.get_entity_list():GetNPCList();
 	local pathing_target = {[1] = {35, 338, -5},  --camp #8
 						[2] = {110, 960, -8}};	--camp #9
 	
+	
 	if(npc_list ~= nil) then
 		for npc in npc_list.entries do								 
-			if npc:CalculateDistance(pathing_target[camp][1], pathing_target[camp][2], pathing_target[camp][3]) <= 100 and npc:GetNPCTypeID() ~= 167196 and npc:GetNPCTypeID() ~= veterans[1] and npc:GetNPCTypeID() ~= veterans[2] and npc:GetNPCTypeID() ~= veterans[3] and not npc:IsPet() and npc:GetRace() ~= 216 then
+			if loc <= 2 and npc:CalculateDistance(pathing_target[loc][1], pathing_target[loc][2], pathing_target[loc][3]) <= 100 and npc:GetNPCTypeID() ~= 167196 and npc:GetNPCTypeID() ~= veterans[1] and npc:GetNPCTypeID() ~= veterans[2] and npc:GetNPCTypeID() ~= veterans[3] and not npc:IsPet() and npc:GetRace() ~= 216 then
 				return true	--mobs still in camp
 			end
 		end

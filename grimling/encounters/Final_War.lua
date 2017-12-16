@@ -99,7 +99,8 @@ function Win()
 	eq.signal(cullin,1);  --signal success to cullin to allow final hand-in
 	for n = 1,4 do
 		vet = eq.get_entity_list():GetMobByNpcTypeID(veterans[n])
-		vet:GMMove(-999, 1080 + (9 * n), 35, 180, true);
+		vet:GMMove(-999, 1080 + (9 * n), 35, 180, true);	--move all Veterans to fort area
+		vet:BuffFadeAll();	--incase any charmed players landed dots on veterans
 		vet:WipeHateList();
 	end
 	repop_time = 5 * 60; --5 minutes
@@ -121,7 +122,10 @@ function spawn_mob1(NPCID, camp, loc) --FINAL WAR acrylia camp
 	mobz:CastToNPC():MoveTo(pathing_target[camp][1] + math.random(-10,10), pathing_target[camp][2] + math.random(-10,10), pathing_target[camp][3], -1, true)  --x,y,z,h
 	
 	
-	local target = eq.get_entity_list():GetRandomClient(pathing_target[camp][1], pathing_target[camp][2], pathing_target[camp][3],100 * 100)  --100 units from target
+	local target = eq.get_entity_list():GetRandomClient(pathing_target[camp][1], pathing_target[camp][2], pathing_target[camp][3],1000 * 1000)  --1000 units from target
+	if not target.valid then		
+		target = eq.get_entity_list():GetMobByNpcTypeID(veterans[math.random(3,4)])	--will seek out Veterans if valid client not in war range
+	end
 	mobz:AddToHateList(target,1);
 end
 
@@ -133,7 +137,10 @@ function spawn_mob2(NPCID, camp, loc) --FINAL WAR northern camp spawnpoints
 	mobz:SetRunning(true);
 	mobz:CastToNPC():MoveTo(pathing_target[camp][1] + math.random(-10,10), pathing_target[camp][2] + math.random(-10,10), pathing_target[camp][3], -1, true)  --x,y,z,h
 	
-	local target = eq.get_entity_list():GetRandomClient(pathing_target[camp][1], pathing_target[camp][2], pathing_target[camp][3],100 * 100)
+	local target = eq.get_entity_list():GetRandomClient(pathing_target[camp][1], pathing_target[camp][2], pathing_target[camp][3],500 * 500)	--500 units from target
+	if not target.valid then		
+		target = eq.get_entity_list():GetMobByNpcTypeID(veterans[math.random(1,2)])	--will seek out Veterans if valid client not in war range
+	end
 	mobz:AddToHateList(target,1);
 end
 
