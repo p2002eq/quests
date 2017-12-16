@@ -40,7 +40,9 @@ function event_trade(e)
 			e.other:QuestReward(e.self,0,0,0,0,18906,1500); -- A Small Wood Carving
 			eq.depop_with_timer();		
 		end
-	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 13007})) then -- Ration
+	end
+	
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 13007})) then -- Ration
 		e.self:Say("Thank you kind stranger! Make haste lest you wish to suffer my fate!");
 		e.other:QuestReward(e.self,0,0,0,0,34027,100); -- Dirty Napkin
 	end
