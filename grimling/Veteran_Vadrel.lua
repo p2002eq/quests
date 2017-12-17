@@ -5,10 +5,12 @@
 local started = false;
 local veteran = 167196;	--Veteran Cullin
 local officer = false;   --signal on officer's death
+local ambush = false;
 
 function event_spawn(e)
 	started = false;
 	officer = false;
+	ambush = false;
 end
 
 function event_say(e)
@@ -35,13 +37,11 @@ function event_trade(e)
 	elseif (not started and item_lib.check_turn_in(e.self, e.trade, {item1 = 5987})) then 	--Vadrel's Plans
 		started = true;
 		officer = false;
-		e.self:SetRunning(true);	--debug set to false later
+		ambush = false;
+		e.self:SetRunning(false);	
 		eq.unload_encounter("Vadrels_Raid");
 		e.self:Say("Very well, then. We'll be making our way to the grimling camps due north in the forest. It is our belief that these camps hold the reinforcement wave of their attack force, so it is important to rid ourselves of the threat. "); 
 		eq.start(23);		
-		--Cullin = eq.get_entity_list():GetMobByNpcTypeID(veteran)
-		--Cullin:GMMove(e.self:GetX(), e.self:GetY(), e.self:GetZ());		--debug
-		--eq.set_timer("raid_start", 5*1000);
 	elseif (officer and item_lib.check_turn_in(e.self, e.trade, {item1 = 5988})) then 	-- Grimling Commander's Head
 		e.self:Say("Great work " .. e.other:GetName() .. "! We have the grimling menace reeling after our efforts today.  Take this medal as proof of our triumph here today. We are ready to strike the final blow to drive the grimlings from this forest.  Please show the medal I gave you to General Staginar and he can guide you further.  Farewell!");
 		e.other:QuestReward(e.other,0,0,0,0,5989,5000);  -- Golden Medal of Shar Vahl
@@ -89,7 +89,7 @@ end
 function event_waypoint_arrive(e)
 	if e.wp == 6 then
 		e.self:Say("Do not stray, we are in the thick of the enemy and might be surprised at any moment.");
-	elseif e.wp == 9 then
+	elseif e.wp == 9 and not ambush then
 		e.self:Say("I hear grimlings nearby.  Prepare for an ambush!");
 		eq.pause(3000);
 		for n = 1,4 do
@@ -97,6 +97,7 @@ function event_waypoint_arrive(e)
 			grimling:AddToHateList(eq.get_entity_list():GetMobByNpcTypeID(167194), 1);
 		end
 		eq.set_timer("clear", 3 * 1000);
+		ambush = true;
 	elseif e.wp == 10 then
 		if not eq.get_entity_list():IsMobSpawnedByNpcTypeID(veteran) then
 			eq.get_entity_list():GetSpawnByID(334767):Repop(5);	--repop Veteran Cullin
