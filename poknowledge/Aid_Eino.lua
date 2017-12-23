@@ -10,7 +10,7 @@ function event_say(e)
 		end
 		if(e.message:findi("help")) then
 			e.self:Say("Then meet me this night in the Plane of Nightmares. Near the waterfall of the upper plateau is a large tree. Should you see a soft glow, know that I am about. Signal to me by saying 'Quellious be my guide'. I shall emerge from my concealment.");
-			eq.set_global("EinoTrigger","1",5,"H6");
+			eq.set_global("EinoTrigger","1",5,"F");
 		end
 	end
 end
