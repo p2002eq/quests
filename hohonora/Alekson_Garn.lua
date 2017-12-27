@@ -1,10 +1,19 @@
+--Alekson_Garn (NPCID: 211060)
+--Trial of Maidens (Event Trigger NPC)
+--hohonora
+
+function event_spawn(e)
+	eq.unload_encounter("Alekson_Trial");	--unload incase failure on last attempt
+end
+
 function event_say(e)
-	if e.message:findi("Hail") then
-		e.self:Say("Weakling! How dare you approach me.  Access to Lord Marrs temple is reserved only for the honorable!  You will never be [" .. eq.say_link("ready") .. "]...");
+	if e.message:findi("hail") then
+		e.self:Say("Greetings, young " .. e.other:GetName() .. ". I can see by the look in your eyes that you're [" .. eq.say_link("ready") .. "] to begin the Trials.");
 	elseif e.message:findi("ready") then
-		e.self:Say("Be warned, " .. e.other:GetName() .. ", if you believe you are ready, you will fail, even if you can kill Lord Marrs servants!");
-		eq.spawn2(211076,0,0,(e.self:GetX() - 50),e.self:GetY(),e.self:GetZ(),e.self:GetHeading()); --A_Custodian_of_Marr_
-		eq.signal(211081,4,1);
+		e.self:Say("Good luck my friend. You'll need it.");
+		eq.spawn2(211114,0,0,e.self:GetX(),e.self:GetY(),e.self:GetZ(),e.self:GetHeading()); --#A_Custodian_of_Marr (211114)
+		eq.load_encounter("Alekson_Trial");
 		eq.depop_with_timer();
 	end
 end
+

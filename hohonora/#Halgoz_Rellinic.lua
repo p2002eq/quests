@@ -1,15 +1,20 @@
-local bossman = 0;
-
-function event_signal(e)
-	bossman = 1;
-	eq.signal(211081,9,1);
+function event_spawn(e)
+	e.self:SetRunning(true);
+	eq.move_to(-3169 + math.random(-30,30), -1751 + math.random(-30,30), -112,-1,true);	--path to Room 2
+	eq.set_timer("fail", 60 * 1000);
 end
 
-function event_death_complete(e)
-	eq.signal(211081,8);
-	if(bossman == 1) then
-		eq.spawn2(202368,0,0,e.self:GetX(),e.self:GetY(),e.self:GetZ(),e.self:GetHeading());
-		eq.update_spawn_timer(211060,259200000); --Alekson Garn 3 days on win
-		bossman=0;
+function event_combat(e)
+	if e.joined then
+		eq.stop_timer("fail");
+	else
+		eq.set_timer("fail", 60 * 1000);
+	end
+end
+
+function event_timer(e)
+	if e.timer == "fail" then
+		eq.stop_timer(e.timer);
+		eq.signal(211072,1);	--send failure signal
 	end
 end

@@ -1,6 +1,10 @@
+--#a_recuso_straggler
+--Alekson Garn Trial (Room 3)
+--hohonora
+
 function event_spawn(e)
 	e.self:SetRunning(true);
-	eq.move_to(-2494 + math.random(-30,30), -1731 + math.random(-30,30), -112,-1,true);	--path to Room 1
+	eq.move_to(-3179 + math.random(-30,30), -1127 + math.random(-30,30), -112,-1,true);	--path to Room 3
 	eq.set_timer("fail", 60 * 1000);
 end
 
