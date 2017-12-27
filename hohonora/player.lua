@@ -18,7 +18,7 @@ function event_level_up(e)
     discs:train_discs(e, e.self:GetLevel());
 end
 
---zone in to hohonora after killing Aerin`Dar
+--zone in to hohonorb 
 function event_click_door(e)
 	local door = e.door:GetDoorID();
 	local instance_id = eq.get_zone_instance_id();
@@ -39,3 +39,4 @@ function event_click_door(e)
 	end
 	
 end
+
