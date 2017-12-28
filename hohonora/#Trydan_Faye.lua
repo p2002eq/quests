@@ -11,7 +11,8 @@ end
 
 function event_timer(e)
 	if e.timer == "depop" then
-		e.self:Say("Congratulations on your victory.");		
+		e.self:Say("Congratulations on your victory my friends. You've passed this trial. There are two others that you must complete before you can step into the Temple of Marr.");
+");		
 		eq.depop();
 	end
 end
@@ -21,7 +22,6 @@ function event_say(e)
 	if e.message:findi("hail") and qglobals.pop_hoh_faye == nil and counter < 72 then
 		e.other:Message(7,"An ethereal mist descends from the air and surrounds your very being. Your body begins to emanate with the power of Trydan Faye.");
 		eq.set_global("pop_hoh_faye", "1", 5, "F");
-		e.other:Message(4,"You receive a character flag!");
 		counter = counter + 1;
 	end
 end

@@ -13,7 +13,6 @@ function event_say(e)
 	local qglobals = eq.get_qglobals(e.self, e.other);
 	if e.message:findi("Hail") and qglobals.pop_hoh_garn == nil and counter < 72 then
 		e.other:Message(7,"An ethereal mist descends from the air and surrounds your very being. Your body begins to emanate with the power of Alekson Garn.");
-		e.other:Message(4,"You receive a character flag!");
 		eq.set_global("pop_hoh_garn", "1", 5, "F");
 		counter = counter + 1;
 	end
