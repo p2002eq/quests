@@ -1,9 +1,18 @@
+--Rhaliq_Trell NPCID 211050
+--Villager's Trial(Event Trigger NPC)
+--hohonora
+
+function event_spawn(e)
+	eq.unload_encounter("Rhaliq_Trial");	--unload incase failure on last attempt
+end
+
 function event_say(e)
 	if e.message:findi("Hail") then
-		e.self:Say("Weakling! How dare you approach me.  Access to Lord Marrs temple is reserved only for the honorable!  You will never be [" .. eq.say_link("ready") .. "]...");
+		e.self:Emote("nods in your direction and says 'The trials have only just begun. When you're [" .. eq.say_link("ready") .. "] to be tested we shall begin.");
 	elseif e.message:findi("ready") then
-		e.self:Say("Be warned, " .. e.other:GetName() .. ", if you believe you are ready, you will fail, even if you can kill Lord Marrs servants!");
-		eq.spawn2(211088,0,0,526,1375,-115,e.self:GetHeading());
+		e.self:Say("Good luck to you my friend...");
+		eq.spawn2(211115,0,0,e.self:GetX(),e.self:GetY(),e.self:GetZ(),e.self:GetHeading());	--#A_Custodian_of_Marr (211115)
+		eq.load_encounter("Rhaliq_Trial");
 		eq.depop_with_timer();
 	end
 end
