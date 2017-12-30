@@ -21,7 +21,7 @@ function event_say(e)
 				e.self:SpellFinished(2049,e.other);
 				eq.assign_to_instance(70);
 			end
-			e.other:MovePCInstance(17, 70, -55,127,3, 177);
+			e.other:MovePCInstance(17, 71, -55,127,3, 177);
 		else
 			if (has_value(players,e.other:GetName()) == true) then
 				for i = 0, 29 do
@@ -31,7 +31,7 @@ function event_say(e)
 						end
 					end
 				end			
-				e.other:MovePCInstance(17, 31, -55,127,3, 177);
+				e.other:MovePCInstance(17, 71, -55,127,3, 177);
 			else
 				e.self:Say("You are too experienced to join in this event, maybe next time.");
 			end
