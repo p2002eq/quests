@@ -8,10 +8,10 @@ local Paffa;
 --wave variables
 local waves = false;
 local wave_counter = 0;
-local wave_timer =  30 --3*60;	--3 min default
+local wave_timer =  3*60;	--3 min default
 
 --failure variables
-local fail_timer = 30 --10*60	--10 min default
+local fail_timer = 10*60	--10 min default
 local fail = false;
 
  
