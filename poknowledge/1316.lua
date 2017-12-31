@@ -19,7 +19,7 @@ function event_say(e)
 				e.other:SetEXP(0,0);
 				table.insert(players,e.other:GetName());
 				e.self:SpellFinished(2049,e.other);
-				eq.assign_to_instance(70);
+				eq.assign_to_instance(71);
 			end
 			e.other:MovePCInstance(17, 71, -55,127,3, 177);
 		else
