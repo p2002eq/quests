@@ -1,5 +1,6 @@
 local items = {9982,9990,9991,9998,9999,9993,9985,9984,9983,9986,9989,9988,9994,9987,9979,9992,10026,10307,10015,13080,13073,100001,100002,100003,100004,100005,100006,100007,100008,100009,100010};
 local players = {};
+local instanceId = 71;
 
 function event_say(e)
 	if (e.message:findi("hail")) then	
@@ -18,10 +19,9 @@ function event_say(e)
 			if (has_value(players,e.other:GetName()) == false) then
 				e.other:SetEXP(0,0);
 				table.insert(players,e.other:GetName());
-				e.self:SpellFinished(2049,e.other);
-				eq.assign_to_instance(71);
+				eq.assign_to_instance(instanceId);
 			end
-			e.other:MovePCInstance(17, 71, -55,127,3, 177);
+			e.other:MovePCInstance(17, instanceId, -55,127,3, 177);
 		else
 			if (has_value(players,e.other:GetName()) == true) then
 				for i = 0, 29 do
@@ -30,8 +30,8 @@ function event_say(e)
 							e.other:DeleteItemInInventory(i,0,true);	
 						end
 					end
-				end			
-				e.other:MovePCInstance(17, 71, -55,127,3, 177);
+				end		
+				e.other:MovePCInstance(17, instanceId, -55,127,3, 177);
 			else
 				e.self:Say("You are too experienced to join in this event, maybe next time.");
 			end
