@@ -111,11 +111,12 @@ function AllSpawn(e)
 		elseif (spawns[NpcID][1] == "Depop") then
 			eq.set_timer(tostring(NpcID),100);
 		elseif (spawns[NpcID][1] == "King") then	-- gnoll king npc
+			e.self:SetLevel(20);
 			e.self:SetRace(39);
 			e.self:ModifyNPCStat("max_hp","10000");
 			e.self:Heal();
 			e.self:ChangeSize(20);
-			e.self:ModifyNPCStat("max_hit","50");
+			e.self:ModifyNPCStat("max_hit","30");
 			e.self:ModifyNPCStat("min_hit","10");
 			e.self:ModifyNPCStat("runspeed","0");
 			e.self:TempName("The_Gnoll_King");
@@ -129,7 +130,7 @@ function AllSpawn(e)
 			e.self:AddItem(31951,1);
 			e.self:ClearItemList();
 		elseif (spawns[NpcID][1] == "Chunky") then
-			e.self:SetRace(9);
+			e.self:SetRace(10);
 			e.self:ChangeSize(8);
 			e.self:ModifyNPCStat("runspeed","0");
 			e.self:TempName("Chunky");
@@ -151,7 +152,7 @@ end
 
 function addLoot(e)
 	local getLoot = math.random(100);
-	if (getLoot > 90) then
+	if (getLoot > 80) then
 		local lootNum = math.random(0,6);
 		e.self:AddItem(potions[lootNum],1)	
 	end
@@ -164,7 +165,7 @@ function AllDeath(e)
 		if(player_list ~= nil) then
 			for player in player_list.entries do
 				if (player:GetLevel() < 17) then
-					player:AddLevelBasedExp(2);		-- modify this % based on type of mob.
+					player:AddLevelBasedExp(5);		-- modify this % based on type of mob.
 				end
 			end
 		end
@@ -240,7 +241,9 @@ function EnterZone(e)
 			if (class == "Druid" or class == "Ranger") then
 				e.self:SummonItem(10307);
 			elseif (class == "Cleric") then
-				e.self:SummonItem(10026);
+				e.self:SummonItem(10026,20);
+				e.self:SummonItem(10026,20);
+				e.self:SummonItem(10026,20);
 			elseif (class == "Magician") then
 				e.self:SummonItem(10015,20);
 				e.self:SummonItem(10015,20);
