@@ -140,7 +140,7 @@ function AllSpawn(e)
 			e.self:AddItem(22999,1);
 			e.self:AddItem(28854,1);
 		elseif (spawns[NpcID][1] == "ZoneLine") then
-			eq.set_proximity(e.self:GetX() - 30,e.self:GetX() + 30,e.self:GetY() - 30, e.self:GetY() + 30, e.self:GetZ() - 30,e.self:GetZ() + 30);
+			eq.set_proximity(e.self:GetX() - 30,e.self:GetX() + 30,e.self:GetY() - 30, e.self:GetY() + 30, e.self:GetZ() - 10,e.self:GetZ() + 10);
 		else
 			e.self:Shout(tostring(NpcID));
 		end
