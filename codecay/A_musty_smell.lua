@@ -7,8 +7,10 @@ function event_spawn(e)
 end
 
 function event_enter(e)
-    e.self:Emote("surrounds you as you enter the depths of a darkened crypt.");
-    eq.depop_with_timer();
+	if e.other:GetZ() > -100 and e.other:GetZ() < -90 then
+		e.self:Emote("surrounds you as you enter the depths of a darkened crypt.");
+		eq.depop_with_timer();
+	end
 end
 
 

@@ -7,6 +7,8 @@ function event_spawn(e)
 end
 
 function event_enter(e)
-    e.self:Emote("the rapid chittering of maddened rats, the end is near.");
-    eq.depop_with_timer();
+	if e.other:GetZ() > -100 and e.other:GetZ() < -70 then
+		e.self:Emote("the rapid chittering of maddened rats, the end is near.");
+		eq.depop_with_timer();
+	end
 end

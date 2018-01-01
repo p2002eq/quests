@@ -7,8 +7,10 @@ function event_spawn(e)
 end
 
 function event_enter(e)
-    e.self:Emote("stench assaults your senses as you move closer to your doom.");
-    eq.depop_with_timer();
+	if e.other:GetZ() > -80 and e.other:GetZ() < -60 then
+		e.self:Emote("stench assaults your senses as you move closer to your doom.");
+		eq.depop_with_timer();
+	end
 end
 
 
