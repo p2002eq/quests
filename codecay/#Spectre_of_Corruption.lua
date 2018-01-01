@@ -1,5 +1,9 @@
 --Spectre of Corruption
 
+function event_spawn(e)
+	eq.unload_encounter("Bertoxx_Event");
+end
+
 function event_death_complete(e)
-	eq.signal(200056,1,1);
+	eq.load_encounter("Bertoxx_Event");
 end
