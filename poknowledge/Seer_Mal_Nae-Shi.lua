@@ -4,7 +4,18 @@ function event_say(e)
 	---------------------------------------------------------------
 	---------------------------------------------------------------
 	--PoP Flag testing:			
-	if(e.message:findi("deflagme")) then
+	local zoneflags = {208,210,200,207,209,211,220,214,212,215,216,217,218}; 
+	local zonenames = {"Plane of Valor", "The Plane of Storms", "Crypt of Decay", "Plane of Torment", "Bastion of Thunder", "Halls of Honor", "Temple of Marr", "Plane of Tactics", "Tower of Solusek Ro","Plane of Air", "Plane of Water", "Plane of Fire", "Plane of Earth"};
+	if(e.message:findi("flag status")) then
+		e.other:Message(15,"Zone Flag status for PoP Zones:");
+		for n,zone_id in pairs(zoneflags) do
+			if e.other:HasZoneFlag(zone_id) then
+				e.other:Message(14,zonenames[n] .. ": [TRUE]");
+			else
+				e.other:Message(13,zonenames[n] .. ": [FALSE]");
+			end
+		end
+	elseif(e.message:findi("deflagme")) then
 		eq.delete_global("pop_poj_mavuin");				eq.delete_global("pop_pod_grimmus_planar_projection");	eq.delete_global("pop_tactics_tallon");
 		eq.delete_global("pop_poj_execution");			eq.delete_global("pop_pod_elder_fuirstel");				eq.delete_global("pop_tactics_vallon");
 		eq.delete_global("pop_poj_flame");				eq.delete_global("pop_pov_aerin_dar");					eq.delete_global("pop_tactics_ralloz");
@@ -22,6 +33,10 @@ function event_say(e)
 		eq.delete_global("pop_poi_behometh_preflag");	eq.delete_global("pop_hoh_garn");						eq.delete_global("pop_earthb_rathe");
 		eq.delete_global("pop_poi_behometh_flag");		eq.delete_global("pop_hohb_marr");						eq.delete_global("pop_time_maelin");
 		eq.delete_global("pop_pod_alder_fuirstel");		eq.delete_global("pop_bot_agnarr");
+		
+		for _,zone_id in pairs(zoneflags) do
+			e.other:ClearZoneFlag(zone_id);
+		end
 		e.other:Message(15,"All flags have been deleted");
 	elseif(e.message:findi("flagme")) then
 		eq.set_global("pop_poj_mavuin","1",5,"F");				eq.set_global("pop_pod_grimmus_planar_projection","1",5,"F");	eq.set_global("pop_tactics_tallon","1",5,"F");
@@ -41,7 +56,10 @@ function event_say(e)
 		eq.set_global("pop_poi_behometh_preflag","1",5,"F");	eq.set_global("pop_hoh_garn","1",5,"F");						eq.set_global("pop_earthb_rathe","1",5,"F");
 		eq.set_global("pop_poi_behometh_flag","1",5,"F");		eq.set_global("pop_hohb_marr","1",5,"F");						eq.set_global("pop_time_maelin","1",5,"F");
 		eq.set_global("pop_pod_alder_fuirstel","1",5,"F");		eq.set_global("pop_bot_agnarr","1",5,"F");
-		e.other:Message(14,"You have been flagged for all zones!");
+		for _,zone_id in pairs(zoneflags) do
+			e.other:SetZoneFlag(zone_id);
+		end
+		e.other:Message(14,"You have been flagged for all zones");
 
 	elseif(e.message:findi("Hail")) then
 		e.self:Say("Greetings, " .. e.other:GetName() .. ". I can provide you information upon your travels through the planes by [" .. eq.say_link("guided meditation") .. "].");
