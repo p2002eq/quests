@@ -1,7 +1,10 @@
+--a_tempest_torn_traveler
+
 function event_say(e)
-	if e.message:findi("hail") then
-		e.self:Say("Well hello there, cutie! It's so rare now days to see someone as strong and handsome as you around these parts. Most of the strangers that wash ashore stay in these caves and aren't much of a sight to look at. But you, you're different, and I like that. Take care of yourself, stranger.");
+	if e.message:findi("hail") and (e.self:GetSpawnPointID() == 346688 or e.self:GetSpawnPointID() == 346689)  then		--guarding spawn outside caves
+		e.self:Say("I'm on lookout for any Storms, best leave me to my work.");
+	elseif e.message:findi("hail") then
+		e.self:Say("The dreams, they come and go, but they're always the same. The eternal storm amidst the Storms; what could it mean? If only I could find out, I might be able to rest peacefully at night.");
 	end
 end
 
---END of FILE Zone:postorms  ID:Not_Found -- a_tempest_torn_traveler 
