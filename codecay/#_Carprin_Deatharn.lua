@@ -87,7 +87,7 @@ function player_check(e)
 	
 	if client_list ~= nil then
 		for client in client_list.entries do
-			if client:CalculateDistance(e.self:GetX(), e.self:GetY(), e.self:GetZ()) <= 30 then
+			if client:CalculateDistance(e.self:GetX(), e.self:GetY(), e.self:GetZ()) <= 30 and not client:GetFeigned() then
 				return true; --client in range
 			end
 		end
