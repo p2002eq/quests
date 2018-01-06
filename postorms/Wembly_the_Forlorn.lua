@@ -1,5 +1,6 @@
 --Wembly_the_Forlorn
 --Alternate Access: Plane of Tactics
+--postorms
 
 function event_say(e)
 	if e.message:findi("hail") then
@@ -27,7 +28,7 @@ function event_trade(e)
 		e.self:Say("What's this? Four pieces of a Diaku Emblem? Why ever would you give these to me? Well I think I can get them to fit back together. You know, while you have this, I would be quite happy if you would avenge the loss of my dear ship and kill every Diaku you find? Yes that would be very good indeed. Here is your key, and a key for all your companions as well.");
 		e.other:SummonItem(29215);  --Completed Diaku Emblem
 		
-		--zone flagging
+		--zone flagging 
 		if e.other:IsGrouped() then
 			group = e.other:GetGroup();
 			members = group:GroupCount();
