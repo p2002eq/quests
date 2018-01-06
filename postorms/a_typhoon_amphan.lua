@@ -1,4 +1,4 @@
---a_tempest_toad (210047)
+--a_typhoon_amphan (210040)
 --Notifies Drornok_Trigger that a tempest toad was killed
 --postorms
 

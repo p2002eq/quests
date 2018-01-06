@@ -1,4 +1,4 @@
---a_tempest_toad (210047)
+--a_hurricane_loktole (210046)
 --Notifies Drornok_Trigger that a tempest toad was killed
 --postorms
 
