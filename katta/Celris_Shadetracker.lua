@@ -16,7 +16,6 @@ function event_trade(e)
         e.other:Faction(52,1);   -- Concillium Universus
         e.other:Faction(284,-1); -- Seru
         e.other:Faction(139,-1); -- Hand of Seru
-        e.other:SummonItem(); --
         e.other:QuestReward(e.self,0,0,0,0,7777,2500); -- Validus Scout Cloak
     end
     item_lib.return_items(e.self, e.other, e.trade)
