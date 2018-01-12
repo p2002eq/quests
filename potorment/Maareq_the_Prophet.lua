@@ -1,35 +1,62 @@
-local spawn = 0;
+--Maareq_the_Prophet (207004)
+--Plane of Torment (Saryrn's Tower)
 
 function event_spawn(e)
-	spawn = 0;
+	eq.set_next_hp_event(80);
+end
+
+function event_hp(e)
+	if e.hp_event == 80 then
+		e.self:Emote("raises his arms towards the sky and screams! His exposed skin bulges and writhes, as the creatures that clung to him move beneath its surface.");
+		e.self:Shout("My prophecy was fulfilled for Saryrn.  Your fate shall come to fruition as well!  I have a special vision for you.  Now, step forward like the obedient cattle you are.  Let us begin this harvest of pain!");
+		e.self:ChangeSize(10);
+		eq.set_next_hp_event(60);
+	elseif e.hp_event == 60 then
+		e.self:Say("Your assault only prolongs the inevitable!  I can feel the fear dripping for you.  Give into it.  Give up while you still have enough energy to suffer properly!");
+		eq.zone_emote(7,"A horrific roar reverberates throughout the zone!  Every surface shakes violently for a moment as the sound rolls past you!");
+		e.self:SetRace(281);	--set Mouth of Insanity Race
+		eq.set_next_hp_event(40);
+	elseif e.hp_event == 40 then
+		e.self:Emote("radiates with rage!  The ferocity of its attacks increases dramatically as its skin begins to bubble and burst in places!");
+		e.self:ChangeSize(14);
+		e.self:SetSpecialAbility(SpecialAbility.area_rampage,1);	--enable AE Rampage
+	end
 end
 
 function event_combat(e)
-	eq.set_timer("adds", 30 * 1000);
-	eq.set_timer("reset", 30 * 60 * 1000); --30 min
-	eq.set_next_hp_event(15);
+	if e.joined then
+		eq.set_timer("minions", 5 * 1000);
+		eq.set_timer("monitor",1);
+		eq.stop_timer("reset");
+	else
+		eq.stop_timer("minions");
+		eq.set_timer("reset", 2 * 60 * 60 * 1000)
+	end
 end
 
 function event_timer(e)
-	if e.timer == "adds" and spawn <= 5 then
-		eq.ChooseRandom((eq.spawn2(207069,0,0,-32,-95,452,68)),(eq.spawn2(207069,0,0,-32,-135,452,0)),(eq.spawn2(207069,0,0,44,-50,452,0)),(eq.spawn2(207069,0,0,0,-52,452,0)),(eq.spawn2(207069,0,0,-25,-116,460,0)));
-		spawn=spawn+1;
+	if e.timer == "minions" then
+		eq.spawn2(207293,25,0,-28,-2,452,64);	--a_minion_of_Maareq (207293)
+	elseif e.timer == "monitor" then
+		local mob_list = eq.get_entity_list():GetMobList();
+		
+		if mob_list ~= nil then
+			for mob in mob_list.entries do
+				if mob:GetNPCTypeID() == 207293 and mob:CalculateDistance(e.self:GetX(), e.self:GetY(), e.self:GetZ()) <= 5 then
+					mob:Emote("adheres to Maareq's flesh and is quickly absorbed!");
+					mob:Depop();
+					e.self:HealDamage(1000);
+				end
+			end
+		end
 	elseif e.timer == "reset" then
-		spawn = 0;
-		eq.stop_all_timers();
+		e.self:SetRace(1); --Human
+		e.self:ChangeSize(7);	-- 7 default size
+		e.self:SetSpecialAbility(SpecialAbility.area_rampage,0);	--disable AE Rampage
 	end
 end
 
-
-function event_hp(e)
-	if e.hp_event == 15 then
-		eq.depop_with_timer();
-		--set maareq's respawn, without this line he will repop on zone reset
-		--commented this out and put it in death event of the #a_twisted_crawler
-		--only to allow a failed raid to redo the event without putting in smarter
-		--logic to keep the #a_twisted_crawler up through a zone reset/empty.
-		--eq.updatespawntimer(42165,43200000);
-		eq.spawn2(207070,0,0,e.self:GetX(),e.self:GetY(),e.self:GetZ(),e.self:GetHeading());
-		eq.stop_all_timers();
-	end
+function event_death_complete(e)
+	eq.signal(207014,1);	--Tylis_Newleaf (207014)  signal to activate
+	eq.local_emote({e.self:GetX(), e.self:GetY(), e.self:GetZ()},7,500,"A strange female voice drifts from the bloated corpse that lies slumped before you, 'Maareq, I cannot feel your presence.  What has happened?  My head feels strange... what is happening to me?'");
 end
