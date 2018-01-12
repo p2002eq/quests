@@ -1,34 +1,29 @@
-function event_spawn(e)
-	eq.set_timer("timer", 1 * 1000);
-	eq.set_timer("depop", 20 * 60 * 1000);
-end
+--Sorrowsong (207052)
+--Plane of Torment
 
-function event_timer(e)
-	if (e.timer == "timer" and e.self:GetX() == 50 and e.self:GetY() == 0)  then
-		e.self:CastSpell(3011,207052);
-	elseif (e.timer == "timer" and e.self:GetX() == 50 and e.self:GetY() == -150) then 
-		e.self:CastSpell(3011,207052);
-	elseif (e.timer == "timer" and e.self:GetX() == -50 and e.self:GetY() == -150) then 
-		e.self:CastSpell(3011,207052);
-	elseif (e.timer == "timer" and e.self:GetX() == -50 and e.self:GetY() == 0) then 
-		e.self:CastSpell(3011,207052);
-	elseif (e.timer == "timer" and e.self:GetX() == 50 and e.self:GetY() == 0 ) then 
-		e.self:CastSpell(3011,207052);
-	elseif (e.timer == "depop") then
-		eq.depop();
+function event_waypoint_arrive(e)
+	if e.wp < 3 then
+		e.self:CastSpell(3011,e.self:GetID());	--cast Sorrow Song
 	end
 end
+
+
 
 function event_signal(e)
 	if e.signal == 1 then
-		eq.stop_timer("depop");
-		eq.set_timer("depop", 20 * 60 * 1000);
+		eq.start(1);	--start pathing on grid 1
+		e.self:CastSpell(3011,e.self:GetID());	--cast Sorrow Song initially
 	elseif e.signal == 2 then
-		eq.stop_all_timers();
-		eq.spawn2(207065,1,0,e.self:GetX(),e.self:GetY(),e.self:GetZ(),e.self:GetHeading());
-		eq.depop();
+		eq.stop();
+		activate(e.self);
+		saryrn = eq.get_entity_list():GetMobByNpcTypeID(207001);	--Saryrn (207001)
+		e.self:GMMove(saryrn:GetX() + math.random(-10,10), saryrn:GetY() + math.random(-10,10), saryrn:GetZ(), 0);	--Move to Saryrn's Side
+		e.self:AddToHateList(saryrn:GetHateTop(),1);
 	end
 end
 
--- End of File  Zone: PoTorment  ID: 207052  -- Sorrowsong
--- non targetable
+function activate(mob)
+	mob:SetBodyType(21, true);		--animal
+	mob:SetSpecialAbility(24, 0);	--enable aggro on players
+	mob:SetSpecialAbility(35, 0);	--allow harm from players
+end
