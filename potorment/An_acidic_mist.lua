@@ -1,4 +1,4 @@
---A_warm (207278) in Plane of Torment(FLAVOR)
+--An_acidic_mist (207061) in Plane of Torment(FLAVOR)
 
 function event_spawn(e)
 	local xloc = e.self:GetX();
@@ -8,7 +8,7 @@ end
 
 function event_enter(e)
 	if e.other:CalculateDistance(e.self:GetX(), e.self:GetY(), e.self:GetZ()) <= 50 then	--calc distance for Z-axis check
-		e.self:Emote("red mist falls from above.  The slick substance has no time to settle before it is hungrily absorbed by every surface.");
+		e.self:Emote("squirts from the porous walls that surround you!");
 		eq.depop_with_timer();
 	end
 end
