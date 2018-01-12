@@ -1,4 +1,7 @@
+--The_Keeper_of_Sorrows (207015)
+--Saryrn Tower
+--potorment
+
 function event_death_complete(e)
-	eq.signal(207014,0);          
-	eq.spawn2(207066,0,0,e.self:GetX(),e.self:GetY(),e.self:GetZ(),e.self:GetHeading());           
+	eq.spawn2(207312,0,0,-174,354,-755,0);	--spawn #Tylis_Newleaf (207312)
 end
