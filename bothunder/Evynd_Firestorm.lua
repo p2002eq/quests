@@ -1,27 +1,26 @@
--- NPCID: Bastion of Thunder >> Evynd_Firestorm (209054)
-function event_combat(e)
-	-- tell the A_firestorm_portal I have engaged
-	eq.signal(209038,1,1);
-	-- create a timer to check if I have lost all aggro and need to reset the event
-	eq.set_timer("evynd_aggro_check",60 * 1000);
-end
+--Evynd_Firestorm (209054)
+--zone: bothunder
 
-function event_death_complete(e)
-	-- spawn --Askr_the_Lost to port players to the next floor
-	eq.spawn2(209101,0,0,e.self:GetX(),e.self:GetY(),e.self:GetZ(),e.self:GetHeading());
-	-- tell the A_firestorm_portal I have died
-	eq.signal(209038,2,1);
+function event_combat(e)
+	if e.joined then
+		eq.set_timer("storms", 30 * 1000);
+	end
 end
 
 function event_timer(e)
-	if e.timer == "evynd_aggro_check" then
-		if not e.self:IsEngaged() then
-			-- if I have no aggro stop the portals from spawning adds
-			eq.signal(209038,2,1);
-			--depop the firestorm portal adds.
-			eq.depop_all(209037);
-			eq.stop_timer("evynd_aggro_check");
+	if e.timer == "storms" then
+		if e.self:IsEngaged() then
+			eq.local_emote({e.self:GetX(), e.self:GetY(), e.self:GetZ()},7,500,"Evynd waves his hands in the air, calling the power of the firestorm through the blazing portals.");
+			eq.signal(209122,1); --signal adds to spawn via A_firestorm_portal (209122)
+			eq.stop_timer(e.timer);
+			eq.set_timer("storms",2*60*1000);
+		else
+			eq.stop_timer(e.timer);
 		end
 	end
 end
-		
+
+
+function event_death_complete(e)
+	eq.spawn2(209153,0,0,-1117,-1733,1270,64);	--#Askr_the_Lost_ (209153)
+end

@@ -1,26 +1,27 @@
---NPCID: Bastion of Thunder > Emmerik_Skyfury (209053)
-function event_combat(e)
-	--tell A_storm_portal_ I have engaged
-	eq.signal(209034,1,1);	
-	-- create a timer to check if I have lost all aggro and need to reset the event
-	eq.set_timer("emmerik_aggro_check", 60*1000);	
-end
+--Emmerik_Skyfury (209053)
+--zone: bothunder
 
-function event_death_complete(e)
-	--spawn --Askr_the_Lost_ to port players to the next floor
-	eq.spawn2(209102,0,0,e.self:GetX(),e.self:GetY(),e.self:GetZ(),e.self:GetHeading()); 
-	--tell the A_storm_portal_ I have died
-	eq.signal(209034,2,1); 
+function event_combat(e)
+	if e.joined then
+		eq.set_timer("storms", 30 * 1000);
+	end
 end
 
 function event_timer(e)
-	if e.timer == "emmerik_aggro_check" then
-		if not e.self:IsEngaged() then
-			-- if I have no aggro stop the portals from spawning adds
-			eq.signal(209034,2,1); 
-			--depop the portal adds
-			eq.depop_all(209103);
-			eq.stop_timer("emmerik_aggro_check");
+	if e.timer == "storms" then
+		if e.self:IsEngaged() then
+			eq.local_emote({e.self:GetX(), e.self:GetY(), e.self:GetZ()},7,500,"Emmerik raises his arm high above his head.  Great bolts of energy surge through him and strike the portals.");
+			eq.signal(209102,1); --signal adds to spawn via A_celestial_portal (209102)
+			eq.stop_timer(e.timer);
+			eq.set_timer("storms",2*60*1000);
+		else
+			eq.stop_timer(e.timer);
 		end
 	end
 end
+
+function event_death_complete(e)
+	eq.spawn2(209154,0,0,-1074,-1732,1727,64);	--#_Askr_the_Lost_ (209154)
+end
+
+		
