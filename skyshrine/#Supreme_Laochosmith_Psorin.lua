@@ -34,4 +34,5 @@ function event_trade(e)
 		e.self:Say("Thank you, "..e.other:GetName()..". Please accept this Helm as a token of our gratitude for your service to the Shrine.");
 		e.other:SummonItem(2610);
 	end
+	item_lib.return_items(e.self, e.other, e.trade);
 end
