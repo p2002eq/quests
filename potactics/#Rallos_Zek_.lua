@@ -1,6 +1,18 @@
-function event_signal(e)
-	eq.spawn2(214109,0,0,500,20,169.1,190.6);	--Spawn Mini Rallos and depop when told to
-	eq.depop();
-end
+--#Rallos_Zek_ (214052)
+--Fake RZ and event trigger version
 
---End of File  Zone: PoTactics  ID: 214052  -- #Rallos_Zek_
+function event_spawn(e)	--Repop trigger mobs if they aren't already up (should only apply in event of failed encounter)
+
+	if not eq.get_entity_list():IsMobSpawnedByNpcTypeID(214056) then	--Decorin Berik (214056)
+		eq.get_entity_list():GetSpawnByID(361190):Repop(1);
+	end
+	
+	if not eq.get_entity_list():IsMobSpawnedByNpcTypeID(214057) then	--Decorin_Grunhork (214057)
+		eq.get_entity_list():GetSpawnByID(361200):Repop(1);
+	end
+	
+	local instance_id = eq.get_zone_instance_id();
+	eq.delete_global(tostring(instance_id) .. "_rztw_event");
+	
+	eq.unload_encounter("rztw_event");	--unload encounter if not previously done
+end

@@ -1,19 +1,12 @@
---Spawn Tallon Zek
+--Decorin_Grunhork (214057)
+--Rallos Zek event trigger
+--potactics
+
 function event_death_complete(e)
-        eq.signal(214123, 214057, 0);
-end
+	rallos = eq.get_entity_list():IsMobSpawnedByNpcTypeID(214052); 	--RZ untargetable version
+	berik = eq.get_entity_list():IsMobSpawnedByNpcTypeID(214056); 	--Decorin_Berik (214056)
 
-function event_signal(e)
-        --event time expired, depop with respawn timer.
-        eq.depop_with_timer();
-end
-
-function event_spawn(e)
-    trigger_up = eq.get_entity_list():IsMobSpawnedByNpcTypeID(214123); 
-	
-	if (not trigger_up) then
-		eq.depop_with_timer();
+	if rallos and not berik then
+		eq.load_encounter("rztw_event");
 	end
 end
-
--- End of File  Zone: PoTactics  ID: 214057 -- Decorin_Grunhork
