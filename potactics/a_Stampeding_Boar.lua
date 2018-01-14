@@ -1,4 +1,4 @@
--- NPCID: 214097 a_Stampeding_Boar
+--a_Stampeding_Boar (214290)
 function event_spawn(e)
 	e.self:SetRunning(true);
 end
