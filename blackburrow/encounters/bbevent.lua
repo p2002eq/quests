@@ -5,15 +5,18 @@ local warlordCnt = 0;
 local instance_id = nil;
 local king_spawned = false;
 local potions = {100001,100002,100003,100004,100005,100006,100007};
-local king = 21106;
-local chunky = 1316;
+local king = 17113;	--21106
+local chunky = 17112;
+local instanceId = 71;
+local zoneNpc = 214104;  --113269
 
-local spawns = {[17013] = {"Base",2},[17008] = {"Base",3},[17014] = {"Base",1},[17007] = {"Base",3},[17001] = {"Base",3},[17015] = {"Base",2},
-[17011] = {"Enraged",2},[17033] = {"Enraged",3},[17109] = {"Enraged",2},[17004] = {"Enraged",3},
-[17036] = {"Chief",3},[17016] = {"Chief",2},[17111] = {"Chief",2},[17038] = {"Chief",3},[17002] = {"Chief",2},
-[17030] = {"Depop",1},[17000] = {"Depop",1},[17028] = {"Depop",1},[17029] = {"Depop",1},
-[17022] = {"Warlord",2},[17037] = {"Warlord",3},[17049] = {"Warlord",4},[17023] = {"Warlord",4},[17048] = {"Warlord",3},[17035] = {"Warlord",5},[17042] = {"Warlord",4},[17051] = {"Warlord",5},
+local spawns = {[17013] = {"Base",2},[17008] = {"Base",3},[17014] = {"Base",1},[17007] = {"Base",3},[17015] = {"Base",2},
+[17011] = {"Enraged",2},[17033] = {"Enraged",3},[17004] = {"Enraged",3},
+[17036] = {"Chief",3},[17111] = {"Chief",2},[17038] = {"Chief",3},[17002] = {"Chief",2},
+[17030] = {"Depop",1},[17000] = {"Depop",1},[17028] = {"Depop",1},[17029] = {"Depop",1},[17109] = {"Depop",1},[17051] = {"Depop",5},[17001] = {"Depop",3},[17016] = {"Depop",2},
+[17022] = {"Warlord",2},[17037] = {"Warlord",3},[17049] = {"Warlord",4},[17023] = {"Warlord",4},[17048] = {"Warlord",3},[17035] = {"Warlord",5},[17042] = {"Warlord",4},
 [king] = {"King",1},
+[zoneNpc] = {"ZoneLine",1},
 [chunky] = {"Chunky",1}};
 
 local classItems = {["Warrior"] = {104177,104178,104180,104173,104176,104179,104174,125500,135500},
@@ -36,7 +39,6 @@ local wall;
 function event_encounter_load(e)
 	instanceId = eq.get_zone_instance_id();
 	if(instance_id ~= 0) then
-	--	eq.zone_emote(13,"encounter loading");
 		eq.register_npc_event("bbevent", Event.spawn, -1, AllSpawn);
 		eq.register_npc_event("bbevent", Event.death_complete, -1, AllDeath);
 		eq.register_npc_event("bbevent", Event.say, chunky, QuestSay);
@@ -44,32 +46,27 @@ function event_encounter_load(e)
 		eq.register_npc_event("bbevent", Event.timer, -1, Timers);
 		eq.register_npc_event("bbevent", Event.slay, -1, KingSlay);
 		eq.register_player_event("bbevent", Event.enter_zone, EnterZone);
-		-- eq.register_npc_event("bbevent", Event.combat, king, KingCombat);
-	--	eq.zone_emote(13,"encounter loaded");
+		eq.register_player_event("bbevent", Event.death, PlayerDeath);
+		eq.register_npc_event("bbevent", Event.enter, zoneNpc, ZoneLine);
 		eq.repop_zone();
-		eq.spawn2(214104, 0, 0, 25, -163, 25, 63);	-- wall for zone outs
+		eq.spawn2(zoneNpc, 0, 0, 25, -163, 25, 63);	-- wall for zone outs
 		eq.spawn2(chunky, 0, 0, -30,128, 3, 189);
-	--	eq.spawn2(214104, 0, 0, 25, -163, -15, 63);
+		eq.spawn2(zoneNpc, 0, 0, -340, 48, 3, 63);
 	end
 end
 
--- function KingCombat(e)
-	-- if (e.joined) then
-		-- e.self:Shout("starting timer");
-		-- eq.set_timer("knockback",3000);
-		-- e.self:Shout("started timer");
-	-- else
-		-- e.self:Shout("ending timer");
-		-- eq.stop_timer("knockback");
-		-- e.self:Shout("ended timer");
-	-- end
--- end
+function ZoneLine(e)
+	e.other:MovePCInstance(17,instanceId,-55,127,3,50);
+	e.other:Message(15,"You will never leave this place!");
+end
 
--- function KingSlay(e)
-	-- if (e.other:GetNPCTypeID() == king) then
-		-- e.self:Shout(e.other:GetName() .. " is proven unworthy in ruining my lands!");
-	-- end
--- end
+
+function PlayerDeath(e)
+	e.other:MovePCInstance(17, instanceId, -55,127,3, 50);
+	wipeAggro(e.self);
+	e.self:SpellFinished(756,e.self);
+	return -1
+end
 
 function AllSpawn(e)
 	instanceId = eq.get_zone_instance_id();
@@ -109,13 +106,14 @@ function AllSpawn(e)
 			e.self:SetSpecialAbility(2, 1);
 			e.self:SetSpecialAbility(5, 1);
 		elseif (spawns[NpcID][1] == "Depop") then
-			eq.set_timer(tostring(NpcID),100);
+			eq.set_timer(tostring(NpcID),1000);
 		elseif (spawns[NpcID][1] == "King") then	-- gnoll king npc
+			e.self:SetLevel(20);
 			e.self:SetRace(39);
 			e.self:ModifyNPCStat("max_hp","10000");
 			e.self:Heal();
 			e.self:ChangeSize(20);
-			e.self:ModifyNPCStat("max_hit","50");
+			e.self:ModifyNPCStat("max_hit","30");
 			e.self:ModifyNPCStat("min_hit","10");
 			e.self:ModifyNPCStat("runspeed","0");
 			e.self:TempName("The_Gnoll_King");
@@ -123,13 +121,11 @@ function AllSpawn(e)
 			e.self:ModifyNPCStat("see_invis","1");
 			e.self:ModifyNPCStat("see_hide","1");
 			e.self:SetSpecialAbility(1, 1);
-	--		e.self:SetSpecialAbility(2, 1);
-	--		e.self:SetSpecialAbility(5, 1);
 			e.self:AddItem(31951,1);
 			e.self:AddItem(31951,1);
 			e.self:ClearItemList();
 		elseif (spawns[NpcID][1] == "Chunky") then
-			e.self:SetRace(9);
+			e.self:SetRace(10);
 			e.self:ChangeSize(8);
 			e.self:ModifyNPCStat("runspeed","0");
 			e.self:TempName("Chunky");
@@ -143,6 +139,8 @@ function AllSpawn(e)
 			e.self:AddItem(32129,1);
 			e.self:AddItem(22999,1);
 			e.self:AddItem(28854,1);
+		elseif (spawns[NpcID][1] == "ZoneLine") then
+			eq.set_proximity(e.self:GetX() - 30,e.self:GetX() + 30,e.self:GetY() - 30, e.self:GetY() + 30, e.self:GetZ() - 20,e.self:GetZ() + 20);
 		else
 			e.self:Shout(tostring(NpcID));
 		end
@@ -151,7 +149,7 @@ end
 
 function addLoot(e)
 	local getLoot = math.random(100);
-	if (getLoot > 90) then
+	if (getLoot > 80) then
 		local lootNum = math.random(0,6);
 		e.self:AddItem(potions[lootNum],1)	
 	end
@@ -164,13 +162,10 @@ function AllDeath(e)
 		if(player_list ~= nil) then
 			for player in player_list.entries do
 				if (player:GetLevel() < 17) then
-					player:AddLevelBasedExp(2);		-- modify this % based on type of mob.
+					player:AddLevelBasedExp(5);		-- modify this % based on type of mob.
 				end
 			end
 		end
-	
-
-
 		local NpcID = e.self:GetNPCTypeID();
 		if (spawns[NpcID][1] == "Base") then
 			baseCnt = baseCnt + 1;
@@ -183,8 +178,8 @@ function AllDeath(e)
 		elseif (spawns[NpcID][1] == "King") then
 			give_tokens();
 		end
-	--	if (enragedCnt > 49 and chiefCnt > 39 and warlordCnt > 19 and king_spawned == false) then
-		if (enragedCnt > 10 and chiefCnt > 10 and warlordCnt > 10 and king_spawned == false) then
+		if (enragedCnt > 49 and chiefCnt > 39 and warlordCnt > 19 and king_spawned == false) then
+--		if (enragedCnt > 10 and chiefCnt > 10 and warlordCnt > 10 and king_spawned == false) then
 			eq.spawn2(king, 0, 0, 132, 200, -56, 190);	
 			local player_list = eq.get_entity_list():GetClientList();
 			if(player_list ~= nil) then
@@ -198,23 +193,10 @@ function AllDeath(e)
 	end
 end
 
--- function Timers(e)
-	-- eq.zone_emote(13,e.timer);
-	-- if (e.timer == "Knockback") then
-		-- eq.stop_timer(e.timer);	
-		-- eq.zone_emote(13,"get king");
-		-- local knockBack = eq.get_entity_list():GetMobByNpcTypeID(king):CastToNPC();
-		-- eq.zone_emote(13,"casting");
-		-- knockBack:SpellFinished(904,knockBack:GetTarget());		
-		-- eq.set_timer("Knockback",3000);
-		-- eq.zone_emote(13,"done");
-	-- else
-		-- eq.zone_emote(13,"ended timers");
-		-- eq.depop(tonumber(e.timer));
-		-- eq.stop_timer(e.timer);	
-		-- eq.zone_emote(13,"timers ended");
-	-- end
--- end
+function Timers(e)
+	eq.depop_all(tonumber(e.timer));
+	eq.stop_timer(e.timer);	
+end
 
 function QuestSay(e)
 	if (e.message:findi("hail")) then
@@ -233,14 +215,20 @@ end
 function EnterZone(e)
 	instanceId = eq.get_zone_instance_id();
 	if(instance_id ~= 0) then
-		--e.self:Message(13,"Now that you have entered, you may never leave!");
 		e.self:BuffFadeAll();
+		e.self:SpellFinished(2049,e.self);
+		local race = e.self:GetRace();
+		if (race == 2 or race == 9 or race == 10 or race == 128 or race == 130) then
+			e.self:ChangeSize(e.self:GetSize() - 2);
+		end
 		if (e.self:GetLevel() == 1) then
 			local class = e.self:Class();
 			if (class == "Druid" or class == "Ranger") then
 				e.self:SummonItem(10307);
 			elseif (class == "Cleric") then
-				e.self:SummonItem(10026);
+				e.self:SummonItem(10026,20);
+				e.self:SummonItem(10026,20);
+				e.self:SummonItem(10026,20);
 			elseif (class == "Magician") then
 				e.self:SummonItem(10015,20);
 				e.self:SummonItem(10015,20);
@@ -309,13 +297,7 @@ function give_tokens()
 	end
 end
 
-
-
-
-
-
-
-
-
-
-
+function wipeAggro(e)
+	local mob_list = eq.get_entity_list();
+	mob_list:RemoveFromHateLists(e);
+end
