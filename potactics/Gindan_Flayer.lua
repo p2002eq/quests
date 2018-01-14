@@ -1,4 +1,4 @@
---Gindan_Darkblade (214032)
+--Gindan_Flayer (214084)
 --chance for mob to split into two at 60% health
 --potactics
 
@@ -13,7 +13,7 @@ function event_hp(e)
 		local rand = math.random(1,100);
 		if rand > 10 then
 			for n = 1,2 do
-				splitter = eq.spawn2(214032,0,0,e.self:GetX() + math.random(-5,5), e.self:GetY() + math.random(-5,5),e.self:GetZ(),e.self:GetHeading());	--Gindan_Darkblade (214032)
+				splitter = eq.spawn2(214084,0,0,e.self:GetX() + math.random(-5,5), e.self:GetY() + math.random(-5,5),e.self:GetZ(),e.self:GetHeading());	--Gindan_Flayer (214084)
 				eq.set_timer("depop", 3 * 60 * 1000, splitter);
 			end
 			eq.depop_with_timer();
