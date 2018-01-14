@@ -57,8 +57,10 @@ function FailTimers(e)
 	if e.timer == "fail" then
 		GM_Message(13,"EVENT FAILED - TIMER EXPIRED");
 		eq.stop_timer(e.timer);
-		eq.depop(214052);	--depop Fake RZ if up
-		eq.get_entity_list():GetSpawnByID(361379):Repop(5);	--respawn fake rallos to allow event to trigger again
+		if eq.get_entity_list():IsMobSpawnedByNpcTypeID(214052) then
+			eq.depop(214052);	--depop Fake RZ if up
+			eq.get_entity_list():GetSpawnByID(361379):Repop(5);	--respawn fake rallos to allow event to trigger again
+		end
 		DepopEvent();
 		eq.signal(214108,1, 5 * 1000)	--#rztw_controller (214108) signals encounter unload
 	end
