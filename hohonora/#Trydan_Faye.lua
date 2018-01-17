@@ -12,7 +12,6 @@ end
 function event_timer(e)
 	if e.timer == "depop" then
 		e.self:Say("Congratulations on your victory my friends. You've passed this trial. There are two others that you must complete before you can step into the Temple of Marr.");
-");		
 		eq.depop();
 	end
 end
