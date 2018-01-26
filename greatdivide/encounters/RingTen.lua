@@ -319,7 +319,7 @@ function GiantSpawn()
 			ConversationStart();
 		elseif stage == 3 then
 			stage = 4
-			next_spawn = { [118345] = 1 };
+			next_spawn = { [0] = 0 };
 			eq.set_timer("Narandi", 120000, Aldikar);
 			return
 		end

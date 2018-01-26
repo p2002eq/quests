@@ -9,29 +9,34 @@ end
 function event_trade(e)
 	local item_lib = require('items');
 
-	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 31140})) then
-		e.self:Say("Thank you, "..e.other:GetName()..". Please accept this Helm as a token of our gratitude for your service to the Shrine.");
-		e.other:SummonItem(31528);
-	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 31119})) then
-		e.self:Say("Thank you, "..e.other:GetName()..". Please accept this Helm as a token of our gratitude for your service to the Shrine.");
-		e.other:SummonItem(31526);
-	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 31133})) then
-		e.self:Say("Thank you, "..e.other:GetName()..". Please accept this Helm as a token of our gratitude for your service to the Shrine.");
-		e.other:SummonItem(31527);
-	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 31098})) then
-		e.self:Say("Thank you, "..e.other:GetName()..". Please accept this Helm as a token of our gratitude for your service to the Shrine.");
-		e.other:SummonItem(31525);
-	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 31182})) then
-		e.self:Say("Thank you, "..e.other:GetName()..". Please accept this Helm as a token of our gratitude for your service to the Shrine.");
-		e.other:SummonItem(31529);
-	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 26025})) then
-		e.self:Say("Thank you, "..e.other:GetName()..". Please accept this Helm as a token of our gratitude for your service to the Shrine.");
-		e.other:SummonItem(2612);
-	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 25194})) then
-		e.self:Say("Thank you, "..e.other:GetName()..". Please accept this Helm as a token of our gratitude for your service to the Shrine.");
-		e.other:SummonItem(2611);
-	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 30507})) then
-		e.self:Say("Thank you, "..e.other:GetName()..". Please accept this Helm as a token of our gratitude for your service to the Shrine.");
-		e.other:SummonItem(2610);
+	if (e.other:GetFaction(e.self) < 2) then --Must be ally
+		if(item_lib.check_turn_in(e.self, e.trade, {item1 = 31140})) then
+			e.self:Say("Thank you, "..e.other:GetName()..". Please accept this Helm as a token of our gratitude for your service to the Shrine.");
+			e.other:SummonItem(31528);
+		elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 31119})) then
+			e.self:Say("Thank you, "..e.other:GetName()..". Please accept this Helm as a token of our gratitude for your service to the Shrine.");
+			e.other:SummonItem(31526);
+		elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 31133})) then
+			e.self:Say("Thank you, "..e.other:GetName()..". Please accept this Helm as a token of our gratitude for your service to the Shrine.");
+			e.other:SummonItem(31527);
+		elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 31098})) then
+			e.self:Say("Thank you, "..e.other:GetName()..". Please accept this Helm as a token of our gratitude for your service to the Shrine.");
+			e.other:SummonItem(31525);
+		elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 31182})) then
+			e.self:Say("Thank you, "..e.other:GetName()..". Please accept this Helm as a token of our gratitude for your service to the Shrine.");
+			e.other:SummonItem(31529);
+		elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 26025})) then
+			e.self:Say("Thank you, "..e.other:GetName()..". Please accept this Helm as a token of our gratitude for your service to the Shrine.");
+			e.other:SummonItem(2612);
+		elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 25194})) then
+			e.self:Say("Thank you, "..e.other:GetName()..". Please accept this Helm as a token of our gratitude for your service to the Shrine.");
+			e.other:SummonItem(2611);
+		elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 30507})) then
+			e.self:Say("Thank you, "..e.other:GetName()..". Please accept this Helm as a token of our gratitude for your service to the Shrine.");
+			e.other:SummonItem(2610);
+		end
+	else
+		e.self:Say("You must prove your dedication to the Claws of Veeshan before I will entrust such an item with you.");
 	end
+	item_lib.return_items(e.self, e.other, e.trade);
 end
