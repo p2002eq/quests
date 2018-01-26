@@ -1,4 +1,4 @@
-local show_debug = true;
+local show_debug = false;
 
 
 local player_list = true;
