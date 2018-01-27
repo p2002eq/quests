@@ -23,9 +23,9 @@ function event_click_door(e)
 	local door = e.door:GetDoorID();
 	local instance_id = eq.get_zone_instance_id();
 	local qglobals = eq.get_qglobals(e.self);
-	--eq.zone_emote(14,"Door ID is: " .. door);   --debug to easily check door IDs
+	eq.zone_emote(14,"Door ID is: " .. door);   --debug to easily check door IDs
 
-	if e.door_id == 59 then
+	if door == 59 then
 		if qglobals.pop_pon_construct ~= nil and qglobals.pop_pon_hedge_jezith ~= nil  then
 			if not e.self:HasZoneFlag(221) then
 				e.self:SetZoneFlag(221);

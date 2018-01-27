@@ -75,7 +75,7 @@ function event_hp(e)
 end
 
 function event_death_complete(e)
-	eq.spawn2(221045,0,0,e.self:GetX(), e.self:GetY(), e.self:GetZ(), e.self:GetHeading());  --Planar Projection 
+	eq.spawn2(221045,0,0,e.self:GetX(), e.self:GetY(), e.self:GetZ() - 15, e.self:GetHeading());  --Planar Projection 
 end
 
 function RepopGargoyles()

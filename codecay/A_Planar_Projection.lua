@@ -1,4 +1,8 @@
 --Planar Projection
+--Bertoxxulous Event
+
+--	Pre-req flags required:
+--	Requires normal flag access or alt-access to CoDecay zone and Carprin Deatharn flag to click down to CoDecay Basement. 
 
 local counter = 0;
 
@@ -10,7 +14,7 @@ end
 function event_say(e)
 	local qglobals = eq.get_qglobals(e.self, e.other);
 	if e.message:findi("hail") and counter < 72 and qglobals.pop_cod_bertox == nil then
-		if tonumber(qglobals.pop_pod_elder_fuirstel) == 1 or tonumber(qglobals.pop_cod_preflag) == 1 then
+		if tonumber(qglobals.pop_pod_elder_fuirstel) == 1 then
 			e.other:Message(7,"Milyk Fuirstel's thoughts enter into your own. 'Bertoxxulous is slain, for this my brother and I are forever in your debt. Please, when you have the opportunity come visit me in the Plane of Tranquility. I would like to thank you face to face.'");
 		else
 			e.other:Message(7,"The Planar Projection seems to flicker in and out of existence.  It seems joyous that Bertoxxulous has been slain.");	--indicates missing pre-flags

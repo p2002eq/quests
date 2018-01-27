@@ -38,5 +38,5 @@ end
 function activate(mob)
 	mob:SetBodyType(1, true);		--humanoid
 	mob:SetSpecialAbility(24, 0);	
-	eq.set_timer("reset", 60 * 1000);	--2hrs reset
+	eq.set_timer("reset", 60 * 60 * 1000);	--1hr reset
 end
