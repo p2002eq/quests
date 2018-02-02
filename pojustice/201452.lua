@@ -1,30 +1,29 @@
 ----------------------------------------------------------------------
--- Arc: Justice Flagging - Trial of Lashing
+-- Arc: Justice Flagging - Trial of Flame
 -- Zone: Plane of Justice
--- NPC: The Tribunal (201453)
+-- NPC: The Tribunal (201452)
 -- Flags Used: pop_poj_mavuin, pop_poj_tribunal
 --
 -- Event NPCS:
--- #a_tormented_prisoner (201455)
--- #a_malevolent_punisher (201456)
--- #a_harrowing_lasher (201463)
--- #a_savage_lasher (201457)
--- #a_stinging_nemesis (201460)
--- #A_Scourge_of_Honor (201458)
--- #a_flickering_spirit (201459)
--- #Lashman_Azakal (201461)
+-- #spirit_of_flame (201497)
+-- #fiend_of_flame (201488)
+-- #a_fiery_aggressor (201473)
+-- #Punisher_of_Flame (201495)
+-- #a_burning_nemesis (201503)
+-- #Punisher_of_Flame_ (201504)  (casts AE spells)
+
 ----------------------------------------------------------------------
 
-local lashing_flag      = 0;
+local flame_flag        = 0;
 local trial_group       = nil;
 local trial_count       = nil;
 local client_e          = nil;
 local fail				= false;
-local trial_x           = 1373;
-local trial_y           = -1125;
-local trial_z           = 1;
-local trial_h           = 60;
-local trial_mobs		= { 201460, 201455, 201463, 201456, 201457, 201458, 201461, 201459 };
+local trial_x           = 880;
+local trial_y           = -660;
+local trial_z           = 55;
+local trial_h           = 254;
+local trial_mobs		= {201497, 201488, 201473, 201503, 201495, 201504 };
 
 local cooldown_timer		= 1800000; -- 30 Minutes
 local eject_timer			= 900000; -- 15 Minutes
@@ -39,9 +38,9 @@ function event_say(e)
 	elseif (e.message:findi("I want to prove myself")) then
 		e.self:Say("The trials of the Tribunal will test the absolute limits of your might and skill.  Many have come before you, tried, and failed.  Are you [" .. eq.say_link("I am prepared", false, "prepared") .. "] for such an ordeal?'");
 	elseif (e.message:findi("prepared")) then
-		e.self:Emote("nods slightly.  'Very well. When you are ready, you may [" .. eq.say_link("I am ready to begin the trial of lashing", false, "begin the trial of lashing") .. "]. You must protect the victims from their tormentors. Be wary of the scourge of honor - you cannot fight it directly. You must find and destroy its life force to defeat it. We shall judge the mark of your success.'");
-	elseif (e.message:findi("ready to begin the trial of lashing")) then
-		if ( lashing_flag == 0 ) then 
+		e.self:Emote("nods slightly.  'Very well. When you are ready, you may [" .. eq.say_link("I am ready to begin the trial of flame", false, "begin the trial of flame") .. "]. You must endure the heat of the fire and be sure not to let its creatures reach the center.  We shall judge the mark of your success.'");
+	elseif (e.message:findi("ready to begin the trial of flame")) then
+		if ( flame_flag == 0 ) then 
 			e.self:Say("Then begin.");
 
 			-- Move the Player and their Group to the trial room.
@@ -54,13 +53,13 @@ function event_say(e)
 			end
 
 			-- Spawn the Controller
-			eq.spawn2(201462, 0, 0, trial_x, trial_y, trial_z, trial_h); -- #Event_Lashing_Control
+			eq.spawn2(201502, 0, 0, 880,-729,55,127); -- #Event_Flame_Control (201502)
 
 			-- Set the Proximity Check Timer; if everyone has left the trial (wipe); then reset things
 			eq.set_timer("proximitycheck", 60000);
 
 			-- Set a variable to indicate the Trial is unavailable.
-			lashing_flag = 1;
+			flame_flag = 1;
 		else
 			e.self:Say("That trial is already underway.  You must wait.");
 		end
@@ -109,7 +108,7 @@ function event_timer(e)
 			eq.zone_emote(7,"An unnatural silence falls around you.  The justice of the Tribunal has been pronounced once again.  The defendants have been found... lacking.");
 		end
 		--reset variables
-		lashing_flag = 0;
+		flame_flag = 0;
 		client_e = nil;
 		trial_group = nil;
 		trial_count = nil;
@@ -119,7 +118,7 @@ function event_timer(e)
 		eq.stop_timer("proximitycheck");
 		
 			
-		--e.self:Shout("The Trial of Lashing is now Available.");
+		--e.self:Shout("The Trial of flame is now Available.");
 	elseif (e.timer == "proximitycheck") then
 		-- The proximitycheck timer is primarily for when a trial has failed
 		-- This check will allow the trial to be re-attempted as soon as
@@ -130,7 +129,7 @@ function event_timer(e)
 		-- Clean Corpses up and release thoe hold and stop the timer.
 		if ( ProximityCheck(trial_x, trial_y, trial_z, 250) == false) then 
 			eq.stop_timer(e.timer);
-			eq.signal(201462,2);	--signal event fail to #Event_Lashing_Control (201462)
+			eq.signal(201502,2);	--signal event fail to #Event_Flame_Control (201502)
 			eq.stop_timer("cooldown");
 			eq.stop_timer("ejecttimer");
 			eq.set_timer("ejecttimer", 100);

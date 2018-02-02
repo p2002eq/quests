@@ -1,30 +1,33 @@
 ----------------------------------------------------------------------
--- Arc: Justice Flagging - Trial of Lashing
+-- Arc: Justice Flagging - Trial of Torture
 -- Zone: Plane of Justice
--- NPC: The Tribunal (201453)
+-- NPC: The Tribunal (201451)
 -- Flags Used: pop_poj_mavuin, pop_poj_tribunal
 --
 -- Event NPCS:
--- #a_tormented_prisoner (201455)
--- #a_malevolent_punisher (201456)
--- #a_harrowing_lasher (201463)
--- #a_savage_lasher (201457)
--- #a_stinging_nemesis (201460)
--- #A_Scourge_of_Honor (201458)
--- #a_flickering_spirit (201459)
--- #Lashman_Azakal (201461)
+--
+-- #a_twisted_tormentor (201484)
+-- #an_accursed_tormentor (201485)
+-- #nemesis_of_despair (201490)
+-- #nemesis_of_pain (201491)
+-- #wraith_of_agony (201515)
+-- #Punisher_Veshtaq (201496)
+
+-- #a_tortured_prisoner (201483)
+-- #Pain_and_Suffering (201516)
+-- #relief (201517)
 ----------------------------------------------------------------------
 
-local lashing_flag      = 0;
+local torture_flag        = 0;
 local trial_group       = nil;
 local trial_count       = nil;
 local client_e          = nil;
 local fail				= false;
-local trial_x           = 1373;
-local trial_y           = -1125;
-local trial_z           = 1;
-local trial_h           = 60;
-local trial_mobs		= { 201460, 201455, 201463, 201456, 201457, 201458, 201461, 201459 };
+local trial_x           = 725;
+local trial_y           = -1120;
+local trial_z           = 90;
+local trial_h           = 128;
+local trial_mobs	= { 201484, 201485, 201490, 201491, 201515, 201483, 201516, 201517 };
 
 local cooldown_timer		= 1800000; -- 30 Minutes
 local eject_timer			= 900000; -- 15 Minutes
@@ -39,9 +42,9 @@ function event_say(e)
 	elseif (e.message:findi("I want to prove myself")) then
 		e.self:Say("The trials of the Tribunal will test the absolute limits of your might and skill.  Many have come before you, tried, and failed.  Are you [" .. eq.say_link("I am prepared", false, "prepared") .. "] for such an ordeal?'");
 	elseif (e.message:findi("prepared")) then
-		e.self:Emote("nods slightly.  'Very well. When you are ready, you may [" .. eq.say_link("I am ready to begin the trial of lashing", false, "begin the trial of lashing") .. "]. You must protect the victims from their tormentors. Be wary of the scourge of honor - you cannot fight it directly. You must find and destroy its life force to defeat it. We shall judge the mark of your success.'");
-	elseif (e.message:findi("ready to begin the trial of lashing")) then
-		if ( lashing_flag == 0 ) then 
+		e.self:Emote("nods slightly.  'Very well. When you are ready, you may [" .. eq.say_link("I am ready to begin the trial of torture", false, "begin the trial of torture") .. "]. Only when a wraith of agony dies will the prisoners feel any relief.  Take care to find and kill it quickly, lest their torment overcome them.  We shall judge the mark of your success.'");
+	elseif (e.message:findi("ready to begin the trial of torture")) then
+		if ( torture_flag == 0 ) then 
 			e.self:Say("Then begin.");
 
 			-- Move the Player and their Group to the trial room.
@@ -54,24 +57,24 @@ function event_say(e)
 			end
 
 			-- Spawn the Controller
-			eq.spawn2(201462, 0, 0, trial_x, trial_y, trial_z, trial_h); -- #Event_Lashing_Control
+			eq.spawn2(201510, 0, 0, trial_x, trial_y, trial_z, trial_h); -- #Event_Torture_Control (201510)
 
 			-- Set the Proximity Check Timer; if everyone has left the trial (wipe); then reset things
 			eq.set_timer("proximitycheck", 60000);
 
 			-- Set a variable to indicate the Trial is unavailable.
-			lashing_flag = 1;
+			torture_flag = 1;
 		else
 			e.self:Say("That trial is already underway.  You must wait.");
 		end
 	elseif (e.message:findi("what evidence of mavuin") and qglobals.pop_poj_mavuin ~= nil and qglobals.pop_poj_tribunal == nil ) then
-		if ( e.other:HasItem(31796) or e.other:HasItem(31842) or e.other:HasItem(31845) or e.other:HasItem(31844) or e.other:HasItem(31846) or e.other:HasItem(31960) ) then	-- Flame, Execution, Stone, Torture, Suffocation, Lashing
+		if ( e.other:HasItem(31796) or e.other:HasItem(31842) or e.other:HasItem(31845) or e.other:HasItem(31844) or e.other:HasItem(31846) or e.other:HasItem(31960) ) then	-- Stoning, Execution, Stone, Torture, Suffocation, Lashing
 			e.self:Say("You have completed a trial - impressive for mortals. You can tell Mavuin that we will hear his plea. We will seek him out as time befits us.")
 			eq.set_global("pop_poj_tribunal", "1", 5, "F");
 			e.other:Message(4, "You've received a character flag!");
 		end
 	elseif (e.message:findi("i seek knowledge") ) then
-		local marks = { 31796, 31842, 31845, 31844, 31846 , 31960 }  -- Flame, Execution, Stone, Torture, Suffocation, Lashing
+		local marks = { 31796, 31842, 31845, 31844, 31846 , 31960 }  -- Stoning, Execution, Stone, Torture, Suffocation, Lashing
 		local has_six = 1;
 		for k,v in pairs(marks) do
 			if (not e.other:HasItem(v)) then
@@ -109,7 +112,7 @@ function event_timer(e)
 			eq.zone_emote(7,"An unnatural silence falls around you.  The justice of the Tribunal has been pronounced once again.  The defendants have been found... lacking.");
 		end
 		--reset variables
-		lashing_flag = 0;
+		torture_flag = 0;
 		client_e = nil;
 		trial_group = nil;
 		trial_count = nil;
@@ -119,7 +122,7 @@ function event_timer(e)
 		eq.stop_timer("proximitycheck");
 		
 			
-		--e.self:Shout("The Trial of Lashing is now Available.");
+		--e.self:Shout("The Trial of Torture is now Available.");
 	elseif (e.timer == "proximitycheck") then
 		-- The proximitycheck timer is primarily for when a trial has failed
 		-- This check will allow the trial to be re-attempted as soon as
@@ -130,7 +133,7 @@ function event_timer(e)
 		-- Clean Corpses up and release thoe hold and stop the timer.
 		if ( ProximityCheck(trial_x, trial_y, trial_z, 250) == false) then 
 			eq.stop_timer(e.timer);
-			eq.signal(201462,2);	--signal event fail to #Event_Lashing_Control (201462)
+			eq.signal(201510,2);	--signal event fail to #Event_Torture_Control (201510)
 			eq.stop_timer("cooldown");
 			eq.stop_timer("ejecttimer");
 			eq.set_timer("ejecttimer", 100);
