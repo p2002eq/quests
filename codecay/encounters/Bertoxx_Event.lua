@@ -44,7 +44,7 @@ function event_encounter_load(e)
 	
 	eq.set_timer("Event_HB", 1*1000);
 	eq.set_timer("start", 5 * 60 * 1000);	--default 5 min start
-	eq.set_timer("reset", fail_timer * 1000);
+	eq.set_timer("fail", fail_timer * 1000);
 	--registered events
 
 	--Trash Kill counters
