@@ -12,3 +12,10 @@ end
 function event_signal(e)
 	e.self:Say("Oh, hello. I am sorry, I did not see you approach. I have been giving all of my attention to poor Phanti here.");
 end
+
+function event_trade(e)		--standard item return script
+	local item_lib = require("items");
+	item_lib.return_items(e.self, e.other, e.trade)
+end
+
+

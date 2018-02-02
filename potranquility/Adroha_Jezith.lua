@@ -47,6 +47,13 @@ function event_signal(e)
 	end
 end
 
+function event_trade(e)		--standard item return script
+	local item_lib = require("items");
+	item_lib.return_items(e.self, e.other, e.trade)
+end
+
+
+
 -- {
 -- $qglobals{pon_hedge_jezith}=undef;
 -- $qglobals{pon_construct}=undef;

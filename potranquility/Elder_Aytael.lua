@@ -23,3 +23,9 @@ function event_say(e)
 		e.self:Say("I must continue my meditation now.  Please return to me later.  Perhaps I will have something more to tell you after you have proven yourself to be an asset to our cause.  Go speak with some of the other members of our community.  I am sure they will have something for you to do.")
 	end
 end
+
+function event_trade(e)		--standard item return script
+	local item_lib = require("items");
+	item_lib.return_items(e.self, e.other, e.trade)
+end
+

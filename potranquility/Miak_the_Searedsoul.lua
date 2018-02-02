@@ -17,6 +17,13 @@ function event_say(e)
 	end
 end
 
+function event_trade(e)		--standard item return script
+	local item_lib = require("items");
+	item_lib.return_items(e.self, e.other, e.trade)
+end
+
+
+
 -- qglobals.pop_pon_hedge_jezith=nil;
 -- qglobals.pop_pon_construct=nil;
 -- qglobals.pop_ponb_terris=nil;

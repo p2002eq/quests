@@ -11,6 +11,13 @@ function event_say(e)
 	end
 end
 
+function event_trade(e)		--standard item return script
+	local item_lib = require("items");
+	item_lib.return_items(e.self, e.other, e.trade)
+end
+
+
+
   -- {
   -- $pop_pon_hedge_jezith=undef;
   -- $pop_pon_construct=undef;
