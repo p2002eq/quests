@@ -2,7 +2,6 @@ local maze_id;
 local counter;
 
 function event_spawn(e)
-	e.self:SetRunning(true);
 	EventReset();
 	eq.set_timer("monitor", 1 * 1000);
 end
@@ -21,7 +20,7 @@ function event_say(e)
 	elseif e.message:findi("hail") and flag then
 		e.other:Message(7,"Thelin Poxbourne tells you, 'Please destroy her for subjecting me to her hideous visions.'  Thelin closes his eyes and is swept away from his nightmare.  The land of pure thought begins to vanish from around you.");
 		if qglobals.pop_pon_construct == nil and counter < 18 then
-			e.other:Message(15,"You have received a character flag!");
+			e.other:Message(15,"You've received a character flag!");
 			eq.set_global("pop_pon_construct","1",5,"F");
 			counter = counter + 1;
 		end
@@ -62,12 +61,6 @@ function event_waypoint_arrive(e)
 		e.self:Say("Terris, hear me now!  I have done as you asked.  My beloved dagger is whole once again!  Now keep up your part of the bargain.")
 		eq.signal(204065,10,3*1000);
 	end
-	
-	----DEBUG----------
-	--if e.wp == 2 then
-	--	e.self:GMMove(-4549,4350,4,-1);
-	--	e.self:SetCurrentWP(105);
-	--end
 end
 
 function event_signal(e)
@@ -128,7 +121,7 @@ function event_timer(e)
 		if not started and player_check(e) then
 			eq.stop_timer(e.timer);
 			eq.set_timer("reset", 20 * 60 * 1000) -- 20 min to reset if event not started but player ports in
-			eq.zone_emote(15,"Maze " .. maze_id .. " event idle timer started.  20 minutes left to start escort.")
+			GM_Message(15,"Maze " .. maze_id .. " event idle timer started.  20 minutes left to start escort.")
 		end
 	elseif e.timer == "reset" then
 		eq.stop_timer(e.timer);
@@ -164,4 +157,16 @@ function event_death_complete(e)
 	
 	eq.signal(204070, maze_id); --signal controller to reset counters
 	eq.delete_global("pop_pon_maze_event_" .. maze_id);
+end
+
+function GM_Message(color,text)			--DEBUGGING/MONITORING
+	client_list = eq.get_entity_list():GetClientList();
+	
+	if client_list ~= nil then
+		for client in client_list.entries do
+			if client:GetGM() then
+				client:Message(color,text);
+			end
+		end
+	end
 end
