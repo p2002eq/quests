@@ -88,6 +88,7 @@ function EventReset()
 	tip = false;
 	construct = false;
 	construct_dead = false;
+	hand_in = false;
 	dialogue = false;
 	flag = false;
 end
@@ -103,9 +104,11 @@ end
 function event_trade(e)
     local item_lib = require("items");	
 	
-    if construct_dead and item_lib.check_turn_in(e.self, e.trade, {item1 = 9258}) then  
+    if construct_dead and not hand_in and item_lib.check_turn_in(e.self, e.trade, {item1 = 9258}) then  
 		e.self:Emote("takes the final shard from you and places all of the pieces on the ground. The pieces reassemble and fuse back together into a completed dagger.  Thelin picks the dagger up and hands it to you.")
 		eq.spawn2(204065,0,0,-4544,3943,30,254);	--spawn Terris Thule
+		hand_in = true;
+		e.self:SetRunning(true);
 		eq.resume();
 	end	
 	

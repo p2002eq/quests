@@ -110,6 +110,7 @@ function event_trade(e)
 		e.self:Emote("takes the final shard from you and places all of the pieces on the ground. The pieces reassemble and fuse back together into a completed dagger.  Thelin picks the dagger up and hands it to you.")
 		eq.spawn2(204065,0,0,-4544,5943,30,254);	--spawn Terris Thule
 		hand_in = true;
+		e.self:SetRunning(true);
 		eq.resume();
 	end	
 	
