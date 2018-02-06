@@ -25,7 +25,7 @@ function event_say(e)
 		elseif e.message:findi("combination of batteries") then	
 			e.self:Say("Well you see when I was back home it was common for me to use a mycological spore extricate-kinetoconvertor to power my devices. I started planning my defense to use this as a power source out of sheer habit. Here in this desolation the mushrooms that were grown back home do not exist. I am going to have to rig something from spare parts. It is taking a long time with my having to search the junkyard small portions at a time due to the clockworks. Would you help me in [" .. eq.say_link("collecting materials") .. "]?");
 		elseif e.message:findi("collecting materials") then	
-			e.self:Say("Let us see here. I have some of the base parts for the power source. If you could collect a copper node, a bundle of super conductive wires, and an intact power cell I could power up the machine. Good luck to you $name, I hope that we can work together on this.");
+			e.self:Say("Let us see here. I have some of the base parts for the power source. If you could collect a copper node, a bundle of super conductive wires, and an intact power cell I could power up the machine. Good luck to you " .. e.other:GetName() .. ", I hope that we can work together on this.");
 		end
 	elseif won then
 		if e.message:findi("hail") then
