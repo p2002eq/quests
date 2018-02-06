@@ -77,7 +77,12 @@ function event_say(e)
 		eq.delete_global("pop_pon_maze_event_2");
 		eq.delete_global("pop_pon_maze_event_3");
 		e.self:Message(4,"Maze qglobals reset");
-		
+	elseif e.self:GetGM() and e.message:findi("maze reset 1") then
+		eq.signal (204070, 1);
+	elseif e.self:GetGM() and e.message:findi("maze reset 2") then
+		eq.signal (204070, 2);
+	elseif e.self:GetGM() and e.message:findi("maze reset 3") then
+		eq.signal (204070, 3);
 	-----Mujaki_The_Devourer Testing
 	elseif e.self:GetGM() and e.message:findi("mujaki start") then
 		eq.load_encounter("Mujaki_1");
