@@ -15,10 +15,12 @@ function event_say(e)
 	local group = e.other:GetGroup();
 	local raid = e.other:GetRaid();
 	local zone_id = eq.get_zone_id();
+	local raid_id = raid:GetID();
+	local raid_group = raid:GetGroup(e.other:GetName());
 	local thelin1 = eq.get_entity_list():GetMobByNpcTypeID(controllers[1]);
 	local thelin2 = eq.get_entity_list():GetMobByNpcTypeID(controllers[2]);
 	local thelin3 = eq.get_entity_list():GetMobByNpcTypeID(controllers[3]);	
-	
+
 	if e.message:findi("hail") and qglobals.pop_pon_hedge_jezith == nil then	--preflag not done
 		e.self:Emote("screams loudly, and then falls asleep once again.");
 	elseif e.message:findi("hail") and qglobals.pop_pon_hedge_jezith ~= nil then
@@ -29,8 +31,6 @@ function event_say(e)
 		e.self:Say("I don't know who you are, but I'm thankful that you have stumbled upon me.  I can bring you into my dream state, but my powers are limited so I can only handle eighteen at once.  Please, when you are prepared have the leader of each of your band of adventurers tell me they are [" .. eq.say_link("ready") .. "].")
 	elseif e.message:findi("ready") and raid:IsGroupLeader(e.other:GetName()) and qglobals.pop_pon_hedge_jezith ~= nil then --and maze_id > 0 and (maze_counter[maze_id] < 3 or (raid_id_by_maze[maze_id] == raid:GetID() and player_check(maze_id, e.other:CharacterID())))  then
 		eq.set_timer("monitor", 5 * 1000); 	--restart incase somehow got stopped
-		raid_id = raid:GetID();
-		raid_group = raid:GetGroup(e.other:GetName());
 	
 		--Maze availability checking routine
 		--Check first for rejoining players
@@ -43,11 +43,11 @@ function event_say(e)
 		--Check next for maze_ids already established by another raid but not yet started and below 3 group max
 		elseif raid_id_by_maze[1] == raid_id and qglobals["pop_pon_maze_event_1"] == nil and maze_counter[1] < 3 and thelin1:GetY() == 3604 then
 			maze_id = 1;
-		elseif raid_id_by_maze[2] == raid_id and qglobals["pop_pon_maze_event_2"] == nil and maze_counter[2] < 3 and thelin1:GetY() == 4604 then
+		elseif raid_id_by_maze[2] == raid_id and qglobals["pop_pon_maze_event_2"] == nil and maze_counter[2] < 3 and thelin2:GetY() == 4604 then
 			maze_id = 2;
-		elseif raid_id_by_maze[3] == raid_id and qglobals["pop_pon_maze_event_3"] == nil and maze_counter[3] < 3 and thelin1:GetY() == 5604 then
+		elseif raid_id_by_maze[3] == raid_id and qglobals["pop_pon_maze_event_3"] == nil and maze_counter[3] < 3 and thelin3:GetY() == 5604 then
 			maze_id = 3;
-		--Next will assign new maze if available since not a rejoining character and 
+		--Next will assign new maze if available since not a rejoining character and either raid_id not found or prior maze is full
 		elseif qglobals["pop_pon_maze_event_1"] == nil and maze_counter[1] < 3 and thelin1:GetY() == 3604 and raid_id_by_maze[1] == nil then
 			raid_id_by_maze[1] = raid_id;	--assign new raid id
 			maze_id = 1;	--maze 1 open
@@ -94,8 +94,10 @@ function event_say(e)
 		elseif maze_id == -1 then
 			e.self:Say("I have already brought eighteen of you into my dream world. I do not possess the power to bring any more through the portal.");
 		end
-	elseif e.message:findi("ready") then	--player not in raid
-			e.self:Say("You are very brave to offer your assistance, but you should establish a raiding party before I bring you into the land of nightmares.")
+	elseif e.message:findi("ready") and e.other:IsRaidGrouped() and not raid:IsGroupLeader(e.other:GetName()) then	--not group leader
+		e.self:Say("You do not appear to be the leader of your party, " .. e.other:GetName() .. ".");
+	elseif e.message:findi("ready") and not raid.valid then	--player not in raid
+		e.self:Say("You are very brave to offer your assistance, but you should join a raiding party before I bring you into the land of nightmares.")
 	end
 end
 
@@ -144,28 +146,42 @@ function event_signal(e)	--debugging
 		raid_id_by_maze[e.signal] = nil;
 		player_list_by_maze[e.signal] = {};
 		player_counter[e.signal] = 0;
+		eq.delete_global("pop_pon_maze_event_" .. e.signal);
 		GM_Message(14,"Maze " .. e.signal .. " has been reset!");	--debug
 	elseif e.signal == 2 then	--reset event signal from maze 3 Thelin
 		maze_counter[e.signal] = 0;
 		raid_id_by_maze[e.signal] = nil;
 		player_list_by_maze[e.signal] = {};
 		player_counter[e.signal] = 0;
+		eq.delete_global("pop_pon_maze_event_" .. e.signal);
 		GM_Message(14,"Maze " .. e.signal .. " has been reset!");	--debug
 	elseif e.signal == 3 then	--reset event signal from maze 3 Thelin
 		maze_counter[e.signal] = 0;
 		raid_id_by_maze[e.signal] = nil;
 		player_list_by_maze[e.signal] = {};
 		player_counter[e.signal] = 0;
+		eq.delete_global("pop_pon_maze_event_" .. e.signal);
 		GM_Message(14,"Maze " .. e.signal .. " has been reset!");	--debug
 	elseif e.signal == 99 then
 		for n = 1,3 do 
-			GM_Message(13,"Maze " .. n .. " group # is: " .. maze_counter[n] .. " -- Raid ID: " .. tostring(raid_id_by_maze[n]) .. " -- Player Count: " .. tostring(player_counter[n]));	--debug
+			GM_Message(13,"Maze " .. n .. " group count is: [" .. maze_counter[n] .. "] -- Raid ID: [" .. tostring(raid_id_by_maze[n]) .. "] -- Player Count: [" .. tostring(player_counter[n]) .. "] Thelin up? [" .. tostring(eq.get_entity_list():IsMobSpawnedByNpcTypeID(controllers[n])) .. "]");	--debug
 		end
 	elseif e.signal == 98 then
-		if player_counter[1] ~= nil then
-			num = player_counter[1];
-			for n = 1,num do
-				e.self:Shout(tostring(player_list_by_maze[1][n]));
+		for maze = 1,3 do
+			if player_counter[maze] ~= nil then
+				num = player_counter[maze];
+				for n = 1,num do
+					local client_list = eq.get_entity_list():GetClientList();
+					
+					if client_list ~= nil then
+						for client in client_list.entries do
+							if client:CharacterID() == player_list_by_maze[maze][n] then
+								GM_Message(18,"Maze[" .. maze .. "] " .. client:GetName());
+							end
+						end
+					end
+					--GM_Message(7,tostring(player_list_by_maze[maze][n]));
+				end
 			end
 		end
 	end
