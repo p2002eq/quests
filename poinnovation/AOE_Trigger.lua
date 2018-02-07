@@ -22,3 +22,9 @@ function event_timer(e)
 		eq.set_timer("spiders",math.random(4,8) * 1000);	
 	end
 end
+
+function event_signal(e)
+	if e.signal == 1 then
+		eq.set_timer("spiders",1 * 1000);	--signal from MB spawn to ensure spider timer is started
+	end
+end

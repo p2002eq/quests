@@ -8,6 +8,7 @@ local activated;
 function event_spawn(e)
 	counter = 0;
 	first_signal = false;
+	eq.signal(206206,1); 	--AOE_Trigger (206206)
 end
 
 function event_signal(e)
