@@ -42,7 +42,14 @@ function event_say(e)
 	local qglobals = eq.get_qglobals(e.self);
 	
 	--Hedge Maze Testing
-	if e.self:GetGM() then
+	if 	e.message:findi("maze flagme") then
+		eq.set_global("pop_pon_hedge_jezith", "1", 5, "F");
+		eq.set_global("pop_pon_construct", "1", 5, "F");
+		e.self:Message(15, "PoN maze flags added!")
+	elseif e.message:findi("maze deflagme") then
+		eq.delete_global("pop_pon_construct");
+		e.self:Message(14, "Maze flag deleted!")
+	elseif e.self:GetGM() then
 		if e.message:findi("maze status") then
 			if qglobals["pop_pon_maze_event_1"] == nil then
 				e.self:Message(14, "Maze 1 [OPEN]");	--maze_id 1 available
@@ -67,6 +74,7 @@ function event_say(e)
 			eq.set_global("pop_pon_hedge_jezith", "1", 5, "F");
 			e.self:Message(15, "Maze pre-flag added!")
 		elseif e.message:findi("maze construct") then
+			eq.set_global("pop_pon_hedge_jezith", "1", 5, "F");
 			eq.set_global("pop_pon_construct", "1", 5, "F");
 			e.self:Message(15, "Maze pre-flag added!")
 		elseif e.message:findi("maze signal") then
@@ -93,6 +101,7 @@ function event_say(e)
 		elseif e.message:findi("mujaki signal") then
 			eq.signal(204036, 99); --check count 
 		end
+	elseif 
 	end
 end
 	
