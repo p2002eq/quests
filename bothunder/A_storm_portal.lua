@@ -3,8 +3,8 @@
 --zone: bothunder
 
 function event_spawn(e)
-	if e.self:GetSpawnPointID() == 360317 then	--set stats for spawnpoint where mobs are laying down
-		e.self:SetBodyType(11, true);
+	if e.self:GetSpawnPointID() == 360317 then	
+		e.self:SetBodyType(11, true);		--set untargetable
 		e.self:SetSpecialAbility(35, 1);	--immune to player damage
 		e.self:SetSpecialAbility(24, 1);	--will not aggro
 		e.self:SetSpecialAbility(25, 1);	--immune to aggro

@@ -1,3 +1,15 @@
+--player.lua for 
+--Bastion of Thunder
+
+--POP ALPHA TESTING MODULE
+
+function event_say(e)
+	local pop_flags = require("pop_flags");
+	pop_flags.options(e)
+end
+
+-----------------------------------
+
 -- global script variables
 local player_list = nil;
 local player_list_count = nil;
@@ -13,7 +25,7 @@ function event_click_door(e)
 	local door_id = e.door:GetDoorID();
 	local open_type = entity_list:FindDoor(door_id):GetOpenType();
 	client_e = e;
-	e.self:Message(14,"Door ID is: [" .. door_id .. "] Open Type: [" .. e.door:GetOpenType() .. "] Lock Pick: [" .. e.door:GetLockPick() .. "] Key Item: [" .. e.door:GetKeyItem() .. "]");   --debug to easily check door IDs
+	--e.self:Message(14,"Door ID is: [" .. door_id .. "] Open Type: [" .. e.door:GetOpenType() .. "] Lock Pick: [" .. e.door:GetLockPick() .. "] Key Item: [" .. e.door:GetKeyItem() .. "]");   --debug to easily check door IDs
 	-- make sure the player_list is clear
 	player_list = nil;
 	player_list_count = nil;
