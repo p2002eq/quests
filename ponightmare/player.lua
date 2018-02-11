@@ -67,9 +67,9 @@ function event_say(e)
 				e.self:Message(13, "Maze 3 [LOCKED]");
 			end
 		elseif e.message:findi("delete flag") then
-				eq.delete_global("pop_pon_hedge_jezith");
-				eq.delete_global("pop_pon_construct");
-				e.self:Message(14, "Maze pre-flag and construct flag deleted!")
+			eq.delete_global("pop_pon_hedge_jezith");
+			eq.delete_global("pop_pon_construct");
+			e.self:Message(14, "Maze pre-flag and construct flag deleted!")
 		elseif e.message:findi("maze preflag") then
 			eq.set_global("pop_pon_hedge_jezith", "1", 5, "F");
 			e.self:Message(15, "Maze pre-flag added!")
@@ -101,7 +101,6 @@ function event_say(e)
 		elseif e.message:findi("mujaki signal") then
 			eq.signal(204036, 99); --check count 
 		end
-	elseif 
 	end
 end
 	
