@@ -36,21 +36,24 @@ function event_hp(e)
 		eq.set_next_hp_event(75);
 		eq.set_next_inc_hp_event(98); --to reset on event failure
 	elseif e.hp_event == 75 then
-		eq.spawn2(221044,0,0,-1858,-25,134,5); --a dream defiler
-		eq.spawn2(221044,0,0,-1780,-59,134,193); --a dream defiler
-		eq.spawn2(221044,0,0,-1833,102,134,165); --a dream defiler
-		eq.spawn2(221044,0,0,-1852,48,134,157); --a dream defiler
-		eq.spawn2(221044,0,0,-1876,-63,134,228); --a dream defiler
-		eq.spawn2(221044,0,0,-1933,49,134,156); --a dream defiler
-		eq.spawn2(221044,0,0,-1984,-61,134,148); --a dream defiler
-		eq.spawn2(221044,0,0,-1896,-108,134,230); --a dream defiler
-		eq.spawn2(221044,0,0,-1899,-65,134,243); --a dream defiler
-		eq.spawn2(221044,0,0,-1732,3,134,190); --a dream defiler
-		eq.spawn2(221044,0,0,-1773,-39,134,187); --a dream defiler
-		eq.spawn2(221044,0,0,-2005,85,134,99); --a dream defiler
-		eq.spawn2(221044,0,0,-2031,-3,134,142); --a dream defiler
-		eq.spawn2(221044,0,0,-1954,-29,134,71); --a dream defiler
-		eq.spawn2(221044,0,0,-1887,33,134,113); --a dream defiler
+		--mezzable versions
+		eq.spawn2(221043,0,0,-1858,-25,134,5); --a_dream_defiler (221043)
+		eq.spawn2(221043,0,0,-1852,48,134,157); --a_dream_defiler (221043)
+		eq.spawn2(221043,0,0,-1933,49,134,156); --a_dream_defiler (221043)
+		eq.spawn2(221043,0,0,-1984,-61,134,148); --a_dream_defiler (221043)
+		eq.spawn2(221043,0,0,-1899,-65,134,243); --a_dream_defiler (221043)
+		eq.spawn2(221043,0,0,-1773,-39,134,187); --a_dream_defiler (221043)
+		eq.spawn2(221043,0,0,-2031,-3,134,142); --a_dream_defiler (221043)
+		eq.spawn2(221043,0,0,-1887,33,134,113); --a_dream_defiler (221043)
+		
+		--unmezzable versions
+		eq.spawn2(221044,0,0,-1876,-63,134,228); --#a_dream_defiler (221044)
+		eq.spawn2(221044,0,0,-1896,-108,134,230); --#a_dream_defiler (221044)
+		eq.spawn2(221044,0,0,-1732,3,134,190); --#a_dream_defiler (221044)
+		eq.spawn2(221044,0,0,-2005,85,134,99); --#a_dream_defiler (221044)
+		eq.spawn2(221044,0,0,-1954,-29,134,71); --#a_dream_defiler (221044)
+		eq.spawn2(221044,0,0,-1780,-59,134,193); --#a_dream_defiler (221044)
+		eq.spawn2(221044,0,0,-1833,102,134,165); --#a_dream_defiler (221044)
 		eq.set_next_hp_event(50);		
 	elseif e.hp_event == 50 then
 		eq.local_emote({e.self:GetX(), e.self:GetY(), e.self:GetZ()},7,300,"As if in a waking nightmare, you feel your movements slow and your arms begin to fail you.  Each swing of your weapon feels as if it will miss its mark.   Even your legs begin to fail you, as you fall deeper into the dreamlike state!");
