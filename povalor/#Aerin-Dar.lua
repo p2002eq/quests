@@ -34,8 +34,8 @@ function event_hp(e)
 	end
 end
 
-function event_death_complete(e)
-	eq.spawn2(208192, 0, 0, e.self:GetX(), e.self:GetY(), e.self:GetZ(), e.self:GetHeading() );	--A_Planar_Projection
+function event_death_complete(e)	
+	eq.spawn2(208192,0,0, 370,2540,45,127);	--A_Planar_Projection
 end
 
 function GetAdds(e,n)
@@ -68,7 +68,7 @@ function RepopGolems()
 	end
 end
 
-function DepopGolems()	--true argument spawns adds
+function DepopGolems()	
 	for _,spawns in pairs(spawnpoints) do
 		local npc_list = eq.get_entity_list():GetNPCList();
 

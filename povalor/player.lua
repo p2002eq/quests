@@ -53,7 +53,6 @@ function event_click_door(e)
 	--Aerin`Dar Platform - should remain locked while AD is still alive
 	if door == 11 then
 		if eq.get_entity_list():IsMobSpawnedByNpcTypeID(208074) and not e.self:GetGM() then 	--Aerin Dar
-			e.self:Message(4,"It's locked and you're not holding the key.");
 			e.door:ForceClose(e.self);		
 		end
 	end
