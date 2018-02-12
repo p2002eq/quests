@@ -27,12 +27,12 @@ function event_click_door(e)
 	
 	
 	
-	local tier3 = 62;
+	local tier3 = 46;
 	if e.door_id == 3 then
 		if e.self:GetLevel() >= tier3 and ((qglobals.pop_poj_mavuin ~= nil and qglobals.pop_poj_tribunal ~= nil and qglobals.pop_poj_valor_storms ~= nil and qglobals.pop_pov_aerin_dar ~= nil) or qglobals.pop_alt_access_hohonora ~= nil) then
 			if not e.self:HasZoneFlag(211) then
 				e.self:SetZoneFlag(211);
-				e.other:Message(15,"You receive a character flag!");
+				e.other:Message(15,"You've received a character flag!");
 			end
 		else
 			e.self:Message(13,"You lack the will to pass through this portal safely.");
@@ -57,4 +57,13 @@ function event_click_door(e)
 		end
 	end
 end
+
+-----------------------------------
+--POP ALPHA TESTING MODULE
+function event_say(e)
+	local pop_flags = require("pop_flags");
+	pop_flags.options(e)
+end
+
+-----------------------------------
 

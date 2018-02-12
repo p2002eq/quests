@@ -23,7 +23,7 @@ function event_click_door(e)
 	local door = e.door:GetDoorID();
 	local instance_id = eq.get_zone_instance_id();
 	local qglobals = eq.get_qglobals(e.self);
-	eq.zone_emote(14,"Door ID is: " .. door);   --debug to easily check door IDs
+	--eq.zone_emote(14,"Door ID is: " .. door);   --debug to easily check door IDs
 
 	if door == 59 then
 		if qglobals.pop_pon_construct ~= nil and qglobals.pop_pon_hedge_jezith ~= nil  then
@@ -39,9 +39,15 @@ end
 ---DEBUG----
 --zone flagging
 function event_say(e)
-	local qglobals = eq.get_qglobals(e.self);
+	------------------------------------
+	--POP ALPHA TESTING MODULE
+	local pop_flags = require("pop_flags");
+	pop_flags.options(e)
+	-----------------------------------	
 	
+
 	--Hedge Maze Testing
+	local qglobals = eq.get_qglobals(e.self);
 	if 	e.message:findi("maze flagme") then
 		eq.set_global("pop_pon_hedge_jezith", "1", 5, "F");
 		eq.set_global("pop_pon_construct", "1", 5, "F");
@@ -118,6 +124,15 @@ function GetSpawnsMyLoc(e)
 	
 	return false
 end
+
+-----------------------------------
+--POP ALPHA TESTING MODULE
+function event_say(e)
+	local pop_flags = require("pop_flags");
+	pop_flags.options(e)
+end
+
+-----------------------------------
 
 
 

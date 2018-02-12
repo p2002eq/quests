@@ -8,7 +8,7 @@ function event_enter_zone(e)
     --e.self:Message(1,string.format("[DEBUG], InstanceID = %i, Instance Version = %i",instance_id,instance_version));
 
     if(instance_id ~= 0) then
-        e.self:Message(15,"You have entered a Instanced Version of the zone.");
+        e.self:Message(15,"You have entered an Instanced Version of the zone.");
     end
 end
 
@@ -38,11 +38,20 @@ function event_click_door(e)
 		if pop_time_maelin ~= nil or e.self:GetGM() then 
 			e.self:SetZoneFlag(219);		--potimea
 			e.self:SetZoneFlag(223);		--potimeb
-			e.self:Message(15,"You have received a character flag!");
+			e.self:Message(15,"You've received a character flag!");
 			e.self:Message(15,"The ages begin to tear through your body. You wake to find yourself in another time.");
 			e.self:MovePC(219,223,140,9,94);	
 		end
 	end	
 end
+
+-----------------------------------
+--POP ALPHA TESTING MODULE
+function event_say(e)
+	local pop_flags = require("pop_flags");
+	pop_flags.options(e)
+end
+
+-----------------------------------
 
 
