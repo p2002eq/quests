@@ -23,19 +23,15 @@ function event_click_door(e)
 	local door = e.door:GetDoorID();
 	local instance_id = eq.get_zone_instance_id();
 	local qglobals = eq.get_qglobals(e.self);
-	--eq.zone_emote(14,"Door ID is: " .. door);   --debug to easily check door IDs
-	
-	
-	
+	eq.zone_emote(14,"Door ID is: " .. door);   --debug to easily check door IDs
+		
 	local tier3 = 46;
-	if e.door_id == 3 then
+	if door == 3 then
 		if e.self:GetLevel() >= tier3 and ((qglobals.pop_poj_mavuin ~= nil and qglobals.pop_poj_tribunal ~= nil and qglobals.pop_poj_valor_storms ~= nil and qglobals.pop_pov_aerin_dar ~= nil) or qglobals.pop_alt_access_hohonora ~= nil) then
 			if not e.self:HasZoneFlag(211) then
 				e.self:SetZoneFlag(211);
 				e.other:Message(15,"You've received a character flag!");
 			end
-		else
-			e.self:Message(13,"You lack the will to pass through this portal safely.");
 		end
 	end
 	
