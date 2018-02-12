@@ -23,7 +23,7 @@ function event_click_door(e)
 	local door = e.door:GetDoorID();
 	local instance_id = eq.get_zone_instance_id();
 	local qglobals = eq.get_qglobals(e.self);
-	eq.zone_emote(14,"Door ID is: " .. door);   --debug to easily check door IDs
+	--eq.zone_emote(14,"Door ID is: " .. door);   --debug to easily check door IDs
 		
 	local tier3 = 46;
 	if door == 3 then
