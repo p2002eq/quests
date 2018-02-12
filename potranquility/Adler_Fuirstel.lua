@@ -18,7 +18,7 @@ function event_say(e)
 		e.self:Say("Can you smell it? It is the musk of death and pestilence. It is a smell that I have welcomed for so long, but now it turns my stomach. My brother Milyk and I have come here from Qeynos. We were members of the Bloodsabers but sought higher enlightenment. Upon arriving here Milyk began to channel all of his energy into opening the [" .. eq.say_link("portal to the Plane of Disease") .. "].");
 	elseif(e.message:findi("portal to the plane of disease") and (qglobals.pop_pod_grimmus_planar_projection == nil or qglobals.pop_pod_alder_fuirstel == nil)) then
 		e.self:Say("We sought only the wisdom of Bertoxxulous. When Milyk finished his chant and the portal opened, it began to spew out this vile pestilence you see before you. Milyk caught the brunt of the plague, and his condition worsens. I have been infected as well, and am weak but I will go into the plane to save my brother if I must. The weavers have seen in their tapestries that one holds a [" .. eq.say_link("ward") .. "] that will halt the effects of the toxins that the touch of Bertoxxulous brings.");
-	elseif(e.message:findi("ward") and (qglobals.pop_pod_grimmus_planar_projection == nil and qglobals.pop_pod_alder_fuirstel == nil)) then
+	elseif(e.message:findi("ward") and (qglobals.pop_pod_grimmus_planar_projection == nil or qglobals.pop_pod_alder_fuirstel == nil)) then
 		e.self:Say("The ward is carried by the one that Bertoxxulous has created to protect the entrance into his den. If you dare travel into this pungent plane and find the ward bring it back. If we can halt the advanced toxins in Milyk's system maybe we can save him.");
 		if(qglobals.pop_pod_alder_fuirstel == nil) then
 			e.other:Message(15,"You've received a character flag!");
