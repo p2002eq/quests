@@ -4,7 +4,7 @@
 
 local counter;
 
-function event_timer(e)
+function event_spawn(e)
 	counter = 0;
 	eq.settimer("depop",20*60*1000);
 end
