@@ -23,4 +23,5 @@ end
 
 function event_death_complete(e)
 	eq.spawn2(209153,0,0,-1117,-1733,1270,64);	--#Askr_the_Lost_ (209153)
+	eq.signal(209160,1);	--signal #torden_control (209160) to depop and start respawn timer
 end

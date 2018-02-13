@@ -18,7 +18,7 @@ function event_say(e)
 		if qglobals.pop_bot_karana == nil and counter < 72 then
 			eq.set_global("pop_bot_karana","1",5,"F");
 			eq.set_global("pop_bot_agnarr","1",5,"F");
-			e.other:Message(4,"You've received a character flag!");
+			e.other:Message(15,"You've received a character flag!");
 			counter = counter + 1;
 		end
 	elseif e.message:findi("send me on my path") then
