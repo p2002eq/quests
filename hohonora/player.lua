@@ -27,11 +27,11 @@ function event_click_door(e)
 	
 	
 	
-	if e.door_id == 19 or e.door_id == 20 then
+	if door == 19 or door == 20 then
 		if qglobals.pop_poj_mavuin ~= nil and qglobals.pop_poj_tribunal ~= nil and qglobals.pop_poj_valor_storms ~= nil and qglobals.pop_pov_aerin_dar ~= nil and qglobals.pop_hoh_faye ~= nil and qglobals.pop_hoh_trell ~= nil and qglobals.pop_hoh_garn ~= nil then
 			if not e.self:HasZoneFlag(220) then
 				e.self:SetZoneFlag(220);
-				e.other:Message(15,"You receive a character flag!");
+				e.other:Message(15,"You've received a character flag!");
 			end
 		else
 			e.self:Message(13,"You lack the will to pass through this portal safely.");
