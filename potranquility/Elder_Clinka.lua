@@ -13,6 +13,7 @@ function event_trade(e)
 		e.self:Emote("carefully opens the small box and takes several small tools from the pocket in her robe. Her nimble fingers place the glowing elemental pieces into the appropriate sockets and covers them with several small caps that she must have made while you were away.");
 		e.self:Emote("then looks up at you and says, 'This device is called the Binden Concerrentia. Its true power will be revealed to you soon. This document describes it as a device that is meant to convert the energy that can be found in true prime elemental matter, into an entirely new form of energy. The schematic states that this energy will 'bind you in the now'. I am not sure what that means, but I believe that you will soon find out.'");
 		e.self:Say("Take care of it and keep it with you at all times. I feel that your journey from this point will only become more dangerous. Perhaps this device will play a role in all of that. Move forward along the path of enlightenment. May the Balance guide your fate.");
+		eq.set_global("clockwork_talisman","3",5,"F");
 		e.other:QuestReward(e.other,0,0,0,0,28296,300000);	--The Binden Concerrentia
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
