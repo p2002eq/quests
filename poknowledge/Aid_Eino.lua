@@ -1,6 +1,6 @@
 function event_say(e)
 	local qglobals = eq.get_qglobals(e.other);
-	if(qglobals["AidEinoDone"] ~= nil and (qglobals["AidEinoDone"] == 1)) then
+	if(qglobals["AidEinoDone"] ~= nil) then
 		if(e.message:findi("hail")) then
 			e.self:Say("Why hello " .. e.other:GetName() .. "! It is good to see you again after our adventure in the Plane of Nightmare. Know that you have shown your worth to both Kerasha and myself. Should you ever need anything feel free to call upon us. May Quellious guide your path in the Planes!");
 		end
