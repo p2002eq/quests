@@ -16,6 +16,6 @@ function event_enter_zone(e)
 	--e.self:Message(1,string.format("[DEBUG], InstanceID = %i, Instance Version = %i",instance_id,instance_version));
 
 	if(instance_id ~= 0) then
-		e.self:Message(15,"You have entered a Instanced Version of the zone.");
+		e.self:Message(15,"You have entered an Instanced Version of the zone.");
 	end
 end
