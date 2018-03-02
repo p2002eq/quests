@@ -31,9 +31,9 @@ function event_signal(e)
     end
     if(e.signal == 2) then --vs died
         e.self:Say("Grraaaggh! AMBUSH!! Die well!");
-        eq.spawn2(119174,0,0,-146,1703,-192,187);  --# a_sifaye_defender
-        eq.spawn2(119174,0,0,-149,1731,-192,187);  --# a_sifaye_defender
-        eq.spawn2(119174,0,0,-162,1738,-192,187);  --# a_sifaye_defender
-        eq.spawn2(119174,0,0,-172,1758,-192,182);  --# a_sifaye_defender
+        eq.spawn2(119174,0,0,-146,1703,-192,374.0);  --# a_sifaye_defender
+        eq.spawn2(119174,0,0,-149,1731,-192,374.0);  --# a_sifaye_defender
+        eq.spawn2(119174,0,0,-162,1738,-192,374.0);  --# a_sifaye_defender
+        eq.spawn2(119174,0,0,-172,1758,-192,364.0);  --# a_sifaye_defender
     end
 end

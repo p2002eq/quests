@@ -13,7 +13,7 @@ function event_trade(e)
 		e.other:Faction(53,-10,0); -- Corrupt Qeynos Guards
 		e.other:Faction(105,-10,0); -- The Freeport Militia
 		e.other:Faction(184,10,0); -- Knights of Truth
-		eq.unique_spawn(15193,11,0,-5521,-1870,3,226); -- Guard Elias
+		eq.unique_spawn(15193,11,0,-5521,-1870,3,452.0); -- Guard Elias
 		e.other:QuestReward(e.self,0,0,0,0,13302,2000); -- Monogrammed Cloth
 	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 18934})) then -- Sealed Note
 		e.self:Say("Oh great!! I thought I'd saw that last of Plagus, or as all the women in the Steel Warriors called him, the Plague. Please do not tell him where I am. It must have been a long journey for you. Here. A little something for your wasted trip. I found it on the ground. Have fun going back to Freeport.");

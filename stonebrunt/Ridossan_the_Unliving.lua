@@ -5,5 +5,5 @@ function event_spawn()
 end
 
 function event_waypoint_arrive()
-    eq.unique_spawn(100133,0,0,-629,1219,1028,39.5); -- Disciple_Okarote
+    eq.unique_spawn(100133,0,0,-629,1219,1028,79.0); -- Disciple_Okarote
 end

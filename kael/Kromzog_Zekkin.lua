@@ -3,5 +3,5 @@ function event_combat(e)
 end
 
 function event_death_complete(e)
-	eq.spawn2(113471,29,0,1130.3,-749.6,-125.6,126.6);
+	eq.spawn2(113471,29,0,1130.3,-749.6,-125.6,253.2);
 end

@@ -1,7 +1,7 @@
 function event_signal(e)
     if(e.signal == 66) then		--signal from #The_Sleeper
         eq.world_emote(13, "The Sleeper shouts, 'I AM FREE!'");
-		eq.spawn2(128136,0,0,-1499,-2344.8,-1052.8,0);		--spawn Kerafyrm
+		eq.spawn2(128136,0.0,0,-1499,-2344.8,-1052.8,0);		--spawn Kerafyrm
 		eq.depop();
     end
 end

@@ -30,7 +30,7 @@ function event_trade(e)
 		e.other:Faction(322,-25,0); -- The Dead
 		e.other:Faction(115,25,0); -- Gem Choppers
 		e.other:Faction(176,25,0); -- King Ak'Anon
-		eq.spawn2(70072,0,0,-2133.49,-727.05,154.86,0); -- Captain Klunga
+		eq.spawn2(70.0072,0,0,-2133.49,-727.05,154.86,0); -- Captain Klunga
 		e.other:QuestReward(e.self,0,0,0,0,0,18000); -- Faction and EXP
 	end
 	item_lib.return_items(e.self, e.other, e.trade);

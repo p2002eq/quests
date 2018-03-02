@@ -54,19 +54,19 @@ function event_click_door(e)
 			-- send them into their instance
 			if (door_id == 8) then
 				-- GetDoorID =  8 : Air Trial
-				e.self:MovePCInstance(223, instance_id, -36, 1352, 496, 62);
+				e.self:MovePCInstance(223, instance_id, -36, 1352, 496,124.0);
 			elseif (door_id == 9) then
 				-- GetDoorID =  9 : Water Trial
-				e.self:MovePCInstance(223, instance_id, -51, 857, 496, 62);
+				e.self:MovePCInstance(223, instance_id, -51, 857, 496,124.0);
 			elseif (door_id == 10) then
 				-- GetDoorID = 10 : Earth Trial
-				e.self:MovePCInstance(223, instance_id, -35, 1636, 496, 62);
+				e.self:MovePCInstance(223, instance_id, -35, 1636, 496,124.0);
 			elseif (door_id == 11) then
 				-- GetDoorID = 11 : Fire Trial
-				e.self:MovePCInstance(223, instance_id, -55, 569, 496, 62);
+				e.self:MovePCInstance(223, instance_id, -55, 569, 496,124.0);
 			elseif (door_id == 12) then
 				-- GetDoorID = 12 : Undead Trial
-				e.self:MovePCInstance(223, instance_id, -27, 1103, 496, 62);
+				e.self:MovePCInstance(223, instance_id, -27, 1103, 496,124.0);
 			end
 		end
 	end

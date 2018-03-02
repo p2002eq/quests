@@ -18,7 +18,7 @@ function event_trade(e)
         e.other:Faction(139,-1); -- Hand of Seru
         e.other:Faction(96,-1); -- Eye of Seru
         e.other:Faction(138,-1); -- Hand Legionnaries
-        eq.unique_spawn(172186,0,0,-1414,-1265,-38,0); -- Kerzar Clawtore
+        eq.unique_spawn(172186,0.0,0,-1414,-1265,-38,0); -- Kerzar Clawtore
         e.other:QuestReward(e.self,0,0,0,0,0,50000); -- exp
     end
     item_lib.return_items(e.self, e.other, e.trade)

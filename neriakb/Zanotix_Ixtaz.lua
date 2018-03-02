@@ -16,7 +16,7 @@ function event_trade(e)
 		e.other:QuestReward(e.self,0,0,0,0,0,5000);
 	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 1890})) then -- 1890 - Vial of Noble's Blood
 		e.self:Emote("accepts the vial and looks you over, eyebrow raised. He says, 'Well, a sacrifice to feed my forge. You have done Neriak a great service, Citizen " .. e.other:GetName() .. ". I shall burn it now.' He then holds the vial up the the flames, the blood seems to glow brightly as he stares into it. Then suddenly, with the shout of an arcane phrase, he throws the vial violently into the flame. The force shatters the vial, spilling the blood about the flames. Almost immediately the flames flare up to the ceiling. When they die down a presence is felt within the flames.");
-		eq.spawn2(41106, 0, 0, -867, 70, -35,0);   -- 41106 -- vengeful_spirit
+		eq.spawn2(4110.06, 0, 0, -867, 70, -35,0);   -- 41106 -- vengeful_spirit
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end

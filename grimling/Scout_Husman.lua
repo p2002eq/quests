@@ -36,7 +36,7 @@ function event_trade(e)
 		e.self:Say("Well done " .. e.other:GetName() .. "! Successful raids like this will bring you great glory among our people. Take this insignia as proof of your experience here in service of the king. Leave this place now, for it will be taken over by the enemy momentarily. Farewell!");
 		e.other:QuestReward(e.other,0,0,0,0,4393,5000);  -- Copper Medal of War
 		eq.get_entity_list():GetSpawnByID(334758):Repop(5);	--repop scout
-		--eq.spawn2(167203, 0, 0, -1167, -862, 5, 67.3);	--repop scout
+		--eq.spawn2(167203, 0, 0, -1167, -862, 5,134.6);	--repop scout
 		eq.depop();
 	end
 	
@@ -87,7 +87,7 @@ function event_say(e)
         eq.set_timer('start', 60 * 1000); -- waits 1 minute then paths to grimling camp
     elseif at_camp and e.message:findi("ready to start") then
         e.self:Say("Now is the time, my friends, to prove yourselves in the thick of battle! Charge to the enemy and leave no Grimling standing!");
-        eq.unique_spawn(167716,0,0,-1247,535,40, 110); -- untargetable Ukigit
+        eq.unique_spawn(167716,0,0,-1247,535,40,220.0); -- untargetable Ukigit
     end
 end
 

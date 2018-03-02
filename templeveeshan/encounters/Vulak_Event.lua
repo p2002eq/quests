@@ -50,9 +50,9 @@ function event_timer(e)
 		old_timer = wave_timer;
 		wave = 1;
 		
-		eq.spawn2(124325,0,0,-710,940,121.5,122);	-- spawn dt destroyers
-		eq.spawn2(124325,0,0,-740,940,121.5,122);
-		eq.spawn2(124325,0,0,-770,940,121.5,122);
+		eq.spawn2(124325,0,0,-710,940,121.5,244.0);	-- spawn dt destroyers
+		eq.spawn2(124325,0,0,-740,940,121.5,244.0);
+		eq.spawn2(124325,0,0,-770,940,121.5,244.0);
 
 		-- wave 1 spawns (wurm + 2 drakes + hatchlings)
 		spawn_mob(124081, 4);
@@ -220,7 +220,7 @@ end
 function CarrionCheck(e)
 	-- spawn carrion drake upon death of a player in specific waves
 	if carrion and e.self:CalculateDistance(-739, 518, 120) <= 300 then -- 300 distance from Vulak spawn
-		eq.spawn2(124315,0,0,e.self:GetX(),e.self:GetY(),e.self:GetZ(),0);
+		eq.spawn2(124315,0.0,0,e.self:GetX(),e.self:GetY(),e.self:GetZ(),0);
 	end
 end
 
@@ -259,19 +259,19 @@ function Cleanup(e)
 		if eq.get_entity_list():IsMobSpawnedByNpcTypeID(dragon) then
 			local mob = eq.get_entity_list():GetMobByNpcTypeID(dragon);
 			if (dragon == 124010) then 
-				mob:CastToNPC():GMMove(-781, 208, 98.7, 130.5);
+				mob:CastToNPC():GMMove(-781, 208, 98.7,261.0);
 			elseif (dragon == 124008) then
-				mob:CastToNPC():GMMove(-1266,-49, 90, 40.8);
+				mob:CastToNPC():GMMove(-1266,-49, 90,81.6);
 			elseif (dragon == 124074) then
-				mob:CastToNPC():GMMove(-1699, 197, 80, 8.1);
+				mob:CastToNPC():GMMove(-1699, 197, 80,16.2);
 			elseif (dragon == 124076) then
-				mob:CastToNPC():GMMove(-1643, 1622, 190, 160);
+				mob:CastToNPC():GMMove(-1643, 1622, 190,320.0);
 			elseif (dragon == 124077) then
-				mob:CastToNPC():GMMove(-150, 974, 130, 181.5);
+				mob:CastToNPC():GMMove(-150, 974, 130,363.0);
 			elseif (dragon == 124103) then
-				mob:CastToNPC():GMMove(-123, 738, 66, 36.7);
+				mob:CastToNPC():GMMove(-123, 738, 66,73.4);
 			elseif (dragon == 124289) then
-				mob:CastToNPC():GMMove(-60, -285, 25, 255);
+				mob:CastToNPC():GMMove(-60, -285, 25,510.0);
 			end
 		end
 	end
@@ -308,7 +308,7 @@ function spawn_mob(NPCID, loc, rand)
 	local hloc = {   0,   0,   0,   0,   0};
 	
 	if rand then
-		eq.spawn2(NPCID,0,0,xloc[loc]+math.random(-45,45),yloc[loc]+math.random(-45,45),zloc[loc],hloc[loc]);
+		eq.spawn2(NPCID,0,0,xloc[loc]+math.random(-45,90.0,yloc[loc]+math.random(-45,45),zloc[loc],hloc[loc]);
 	else
 		eq.spawn2(NPCID,0,0,xloc[loc],yloc[loc],zloc[loc],hloc[loc]);
 	end

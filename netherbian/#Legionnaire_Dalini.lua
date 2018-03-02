@@ -15,7 +15,7 @@ function event_trade(e)
 	if (item_lib.check_turn_in(e.self, e.trade, { item1 = 29851 })) then -- dawnshroud cider
 		e.self:Say("Dorey usually roams in the troglodyte caves, you might find him there.");
 		-- spawns bregun dorey, near a trog hunter
-		eq.spawn2(161098,0,0,-364,-89,1,128);
+		eq.spawn2(161098,0,0,-364,-89,1,256.0);
 	end
 
 	item_lib.return_items(e.self, e.other, e.trade);

@@ -20,7 +20,7 @@ function event_trade(e)
 			e.self:Say("Ahh, at last I can free myself of this prison! Centuries have passed since I enjoyed the fruits of mortality.' He hurls the components above his head where they remain suspended in midair. They hover in place while he chants the words of an ancient spell. As he speaks, the items begin to rotate around his head, slowly at first, then faster as the chanting grows louder, until it spins in a blur. Soon, the room is filled with a deafening shriek that pierces you to the core.");
 			e.other:Faction(342, 10); -- True Spirit
 			e.other:QuestReward(e.self,0,0,0,0,14384,100); -- Lhranc's Token
-			eq.spawn2(90190, 0, 0, 85.1, 0.9, 7.8, 192); -- Lhranc
+			eq.spawn2(90190, 0, 0, 85.1, 0.9, 7.8,384.0); -- Lhranc
 			eq.depop_with_timer();
 		end
 	end

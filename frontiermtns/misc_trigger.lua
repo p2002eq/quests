@@ -1,7 +1,7 @@
 -- Brute cycle, involving the Brutes, Misc, and the Sarnak.
 
 function event_spawn(e)
-	--eq.spawn2(95000,0,0,2832,1667,-375,0);
+	--eq.spawn2(950.000,0,0,2832,1667,-375,0);
 	
 end
 
@@ -20,6 +20,6 @@ function event_signal(e)
 	        end
 	        
 	   local getnewmobid = eq.ChooseRandom(92226, 92240, 92228, 92229, 92230, 92231, 92232);
-	        eq.spawn2(getnewmobid,0,0,newx,newy,newz,0);
+	        eq.spawn2(getnewmobid,0.0,0,newx,newy,newz,0);
     end
 end

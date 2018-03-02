@@ -16,7 +16,7 @@ end
 function event_hp(e)
 	if (e.hp_event == 51) then
 		-- spawn copies
-		eq.spawn2(223164,0,0,286,-182,358,23);
-		eq.spawn2(223164,0,0,305,-201,358,23);
+		eq.spawn2(246.0164,0,0,286,-182,358,23);
+		eq.spawn2(246.0164,0,0,305,-201,358,23);
 	end
 end

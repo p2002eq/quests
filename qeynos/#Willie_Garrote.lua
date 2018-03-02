@@ -26,7 +26,7 @@ function event_trade(e)
 		e.self:Say("Here's your confession.  I hope you choke on it!");
 		e.other:SummonItem(2394); -- Willies Confession
 		eq.set_global("qeynos_badge1","5",5,"F"); -- Badge Globals
-		eq.unique_spawn(1197,0,0,55,-341,-16,0); -- #Donally_Stultz
+		eq.unique_spawn(1197,0.0,0,55,-341,-16,0); -- #Donally_Stultz
 		eq.set_timer("depop",300000);  -- reset time for guard to escort him before depopping
 	end
 	item_lib.return_items(e.self, e.other, e.trade, e.text)

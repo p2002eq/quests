@@ -89,7 +89,7 @@ function event_timer(e)
          MoveGroup( trial_group, trial_x, trial_y, trial_z, 250, 456, 825, 9, 180); 
       else
 			if (client_e ~= nil) then
-				client_e.other:MovePC( 201, 456, 825, 9, 180 );
+				client_e.other:MovePC( 201, 456, 825, 9,360.0);
 			end
       end
       HandleCorpses(trial_x, trial_y, trial_z, 200);

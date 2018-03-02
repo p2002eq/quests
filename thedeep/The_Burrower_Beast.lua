@@ -9,7 +9,7 @@ end
 
 function event_enter(e)
 	eq.zone_emote(1, "The ground around you begins to tremble and shake.");
-	eq.spawn2(164134, 0, 0, 1600, 275, -62, 64);
+	eq.spawn2(164134, 0, 0, 1600, 275, -62,128.0);
 	eq.set_timer('wave', 45000);
 	eq.set_timer('HB', 30000);
 	eq.clear_proximity();
@@ -61,7 +61,7 @@ function spawn_wave(wave_type)
 				xloc = math.random(1700, 1850)
 				yloc = math.random(200, 350)
 			until not (xloc > 1740 and xloc < 1800 and yloc > 235 and yloc < 300)
-			eq.spawn2(event_mobs[math.random(3)], 0, 0, xloc, yloc, -60, math.random(255));
+			eq.spawn2(event_mobs[math.random(3)], 0, 0, xloc, yloc, -60,0.0);
 		end
 	elseif wave_type == 2 then
 		for i=1, 6 do
@@ -70,16 +70,16 @@ function spawn_wave(wave_type)
 				xloc = math.random(1700, 1850)
 				yloc = math.random(200, 350)
 			until not (xloc > 1740 and xloc < 1800 and yloc > 235 and yloc < 300)
-			eq.spawn2(164129, 0, 0, xloc, yloc, -60, math.random(255));
+			eq.spawn2(164129, 0, 0, xloc, yloc, -60,0.0);
 		end
 	elseif wave_type == 3 then
-		eq.spawn2(164128, 0, 0, 1792, 5, -70, 0);
-		eq.spawn2(164131, 0, 0, 1767, 5, -70, 0);
+		eq.spawn2(164128,0.0, 0, 1792, 5, -70, 0);
+		eq.spawn2(164131,0.0, 0, 1767, 5, -70, 0);
 	end
 end
 
 function wave_final(ev)
-	eq.spawn2(164127, 0, 0, ev.self:GetX(), ev.self:GetY(), ev.self:GetZ(), 0);
+	eq.spawn2(164127,0.0, 0, ev.self:GetX(), ev.self:GetY(), ev.self:GetZ(), 0);
 	eq.stop_all_timers();
 	eq.depop_with_timer();
 end

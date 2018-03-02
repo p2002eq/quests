@@ -10,10 +10,10 @@ function event_say(e)
 	elseif e.message:findi("traitor to the Validus Custodus") and ready > 1 then
 		e.self:Say('I have been discovered! You should have left well enough alone!!!')
 		local vahn = eq.get_entity_list():GetMobByNpcTypeID(160487)
-		local condor = eq.unique_spawn(160494, 0, 0, -838, -401, -267, 6)
-		local lego1 = eq.spawn2(160495, 0, 0, -816, -210, -267, 132)
-		local lego2 = eq.spawn2(160496, 0, 0, -828, -185, -267, 127)
-		local lego3 = eq.spawn2(160497, 0, 0, -842, -200, -267, 130)
+		local condor = eq.unique_spawn(160494, 0, 0, -838, -401, -267,12.0)
+		local lego1 = eq.spawn2(160495, 0, 0, -816, -210, -267,264.0)
+		local lego2 = eq.spawn2(160496, 0, 0, -828, -185, -267,254.0)
+		local lego3 = eq.spawn2(160497, 0, 0, -842, -200, -267,260.0)
 		
 		condor:AddToHateList(e.self, 10)
 		condor:AddToHateList(vahn, 1)
@@ -57,7 +57,7 @@ end
 
 function event_waypoint_arrive(e)
 	if e.wp == 28 then
-		eq.unique_spawn(160487, 0, 0, -822, -296, -267, 128)
+		eq.unique_spawn(160487, 0, 0, -822, -296, -267,256.0)
 		ready = 2
 		eq.stop_timer('prox')
 		eq.set_timer('depop', 30 * 60 * 1000)

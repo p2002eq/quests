@@ -32,7 +32,7 @@ function event_trade(e)
         e.self:Say("You have done a great service for these poor souls. I have sent for a courier to come for the chest of skulls but he is quite late in his arrival.");
         event_emote(e,"The runes inscribed on the chest and iron bands begin to softly glow with a golden light.");
         e.self:Say("I will keep it safe until the courier arrives.");
-        eq.spawn2(160477,22,0,-60.64,-0.86,4.06,60); -- A Vah Shir courier
+        eq.spawn2(1120.0477,22,0,-60.64,-0.86,4.06,60); -- A Vah Shir courier
         eq.signal(160024,1,1); -- Centurion Manik
         eq.signal(160081,1,1); -- Centurion Regorator
         eq.signal(160477,1,700000); -- a vah shir courier
@@ -42,7 +42,7 @@ function event_trade(e)
         e.self:Say("It appears this situation is much more dire than we had first presumed. It would be unsafe to send this crate within the walls of Shar Vahl should another innocent be possessed and the tormented Vah Shir be resurrected once more. I shall scribe a note explaining the occurrences for you to deliver along with the crate to Spiritualist Roleko at the Vah Shir outpost in Grimling Forest");
         event_emote(e,"The runes inscribed on the chest and iron bands begin to softly glow with a golden light.");
         e.self:Say("I will keep it safe until the courier arrives.");
-        eq.spawn2(160477,22,0,-60.64,-0.86,4.06,60); -- A Vah Shir courier
+        eq.spawn2(1120.0477,22,0,-60.64,-0.86,4.06,60); -- A Vah Shir courier
         e.other:SummonItem(31841); -- Roshawnas Report of Occurrences
         e.other:Faction(132,5); -- Guardians of Shar Vahl
         e.other:QuestReward(e.self,0,0,0,0,31839,2000); -- Resealed Runed Iron Bound Chest
@@ -60,13 +60,13 @@ function event_signal(e)
         e.self:Say("He must not escape with those skulls!");
         e.self:Say("Catch him and bring back that crate of skulls!");
     elseif(e.signal == 3) then
-        eq.spawn2(160476,0,0,-4.00,-36.31,4.06,10);  -- a_reanimated_vah_shir -N
-        eq.spawn2(160476,0,0,-4.00,32.89,4.06,125);  -- a_reanimated_vah_shir -S
-        eq.spawn2(160476,0,0,-44.76,-0.14,4.06,60);  -- a_reanimated_vah_shir -E
-        eq.spawn2(160476,0,0,25.63,-2.65,4.06,190);  -- a_reanimated_vah_shir -W
-        eq.spawn2(160476,0,0,17.85,-25.35,4.06,225);  -- a_reanimated_vah_shir -NE
-        eq.spawn2(160476,0,0,-35.98,28.26,4.06,90);  -- a_reanimated_vah_shir -SW
-        eq.spawn2(160476,0,0,19.31,21.24,4.06,160);  -- a_reanimated_vah_shir -SE
-        eq.spawn2(160476,0,0,-26.56,-24.31,4.06,30);  -- a_reanimated_vah_shir -NW
+        eq.spawn2(160476,0,0,-4.00,-36.31,4.06,20.0);  -- a_reanimated_vah_shir -N
+        eq.spawn2(160476,0,0,-4.00,32.89,4.06,250.0);  -- a_reanimated_vah_shir -S
+        eq.spawn2(1120.0476,0,0,-44.76,-0.14,4.06,60);  -- a_reanimated_vah_shir -E
+        eq.spawn2(160476,0,0,25.63,-2.65,4.06,380.0);  -- a_reanimated_vah_shir -W
+        eq.spawn2(160476,0,0,17.85,-25.35,4.06,450.0);  -- a_reanimated_vah_shir -NE
+        eq.spawn2(160476,0,0,-35.98,28.26,4.06,180.0);  -- a_reanimated_vah_shir -SW
+        eq.spawn2(320.0476,0,0,19.31,21.24,4.06,160);  -- a_reanimated_vah_shir -SE
+        eq.spawn2(160476,0,0,-26.56,-24.31,4.06,60.0);  -- a_reanimated_vah_shir -NW
     end
 end

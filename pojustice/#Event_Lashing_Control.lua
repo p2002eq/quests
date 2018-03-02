@@ -71,30 +71,30 @@ function event_timer(e)
 end
 
 function spawn_spirits()
-   eq.spawn2( 201459, 0, 0, 1298, -1169, -13, 63 ); -- #a_flickering_spirit
-   eq.spawn2( 201459, 0, 0, 1153, -1119,  88, 63 ); -- #a_flickering_spirit
-   eq.spawn2( 201459, 0, 0, 1298, -1072, -13, 63 ); -- #a_flickering_spirit
-   eq.spawn2( 201458, 0, 0, 1350, -1127, 2, 62); -- #A_Scourge_of_Honor
+   eq.spawn2( 201459, 0, 0, 1298, -1169, -13,126.0); -- #a_flickering_spirit
+   eq.spawn2( 201459, 0, 0, 1153, -1119,  88,126.0); -- #a_flickering_spirit
+   eq.spawn2( 201459, 0, 0, 1298, -1072, -13,126.0); -- #a_flickering_spirit
+   eq.spawn2( 201458, 0, 0, 1350, -1127, 2,124.0); -- #A_Scourge_of_Honor
 end
 
 function spawn_mobs(wave)
    if (wave < 5) then
-      eq.spawn2( eq.ChooseRandom( 201463, 201456, 201457, 201460 ), 0, 0, 1395, -1169, 1, 64 );
-      eq.spawn2( eq.ChooseRandom( 201463, 201456, 201457, 201460 ), 0, 0, 1378, -1169, 1, 64 );
-      eq.spawn2( eq.ChooseRandom( 201463, 201456, 201457, 201460 ), 0, 0, 1395, -1070, 1, 64 );
-      eq.spawn2( eq.ChooseRandom( 201463, 201456, 201457, 201460 ), 0, 0, 1378, -1070, 1, 64 );
+      eq.spawn2( eq.ChooseRandom( 201463, 201456, 201457, 201460 ), 0, 0,1395.0, -1169, 1, 64 );
+      eq.spawn2( eq.ChooseRandom( 201463, 201456, 201457, 201460 ), 0, 0,1378.0, -1169, 1, 64 );
+      eq.spawn2( eq.ChooseRandom( 201463, 201456, 201457, 201460 ), 0, 0,1395.0, -1070, 1, 64 );
+      eq.spawn2( eq.ChooseRandom( 201463, 201456, 201457, 201460 ), 0, 0,1378.0, -1070, 1, 64 );
       eq.set_timer("spirit_timer", 30000); -- 30 sec
    elseif (wave == 5) then
       -- Spawn the boss
-      eq.spawn2(201461, 0,0, 1350, -1127, 2, 62); -- #Lashman_Azakal
+      eq.spawn2(201461, 0,0, 1350, -1127, 2,124.0); -- #Lashman_Azakal
    end
 end
 
 function spawn_prisoners()
    -- a tortured prisoner
-   eq.spawn2(201455, 0, 0, 1417, -1168, 1, 196); -- #a_tormented_prisoner
-   eq.spawn2(201455, 0, 0, 1417, -1120, 1, 196); -- #a_tormented_prisoner
-   eq.spawn2(201455, 0, 0, 1417, -1072, 1, 196); -- #a_tormented_prisoner
+   eq.spawn2(201455, 0, 0, 1417, -1168, 1,392.0); -- #a_tormented_prisoner
+   eq.spawn2(201455, 0, 0, 1417, -1120, 1,392.0); -- #a_tormented_prisoner
+   eq.spawn2(201455, 0, 0, 1417, -1072, 1,392.0); -- #a_tormented_prisoner
 end
 
 function despawn_prisoners() 

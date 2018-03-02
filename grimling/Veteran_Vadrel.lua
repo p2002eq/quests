@@ -93,7 +93,7 @@ function event_waypoint_arrive(e)
 		e.self:Say("I hear grimlings nearby.  Prepare for an ambush!");
 		eq.pause(3000);
 		for n = 1,4 do
-			grimling = eq.spawn2(167679,0,0,-707 + math.random(-10, 10),-239 + math.random(-10, 10), 25, 42);
+			grimling = eq.spawn2(167679,0,0,-707 + math.random(-10,20.0,-239 + math.random(-10, 10), 25, 42);
 			grimling:AddToHateList(eq.get_entity_list():GetMobByNpcTypeID(167194), 1);
 		end
 		eq.set_timer("clear", 3 * 1000);
@@ -103,7 +103,7 @@ function event_waypoint_arrive(e)
 			eq.get_entity_list():GetSpawnByID(334767):Repop(5);	--repop Veteran Cullin
 		end
 	elseif e.wp == 11 then
-			eq.get_entity_list():GetMobByNpcTypeID(veteran):GMMove(-874,250,47,141,true);	--moves Veteran to ambush site (he should be popped based on prior wp)
+			eq.get_entity_list():GetMobByNpcTypeID(veteran):GMMove(-874,250,47,282.0,true);	--moves Veteran to ambush site (he should be popped based on prior wp)
 	elseif e.wp == 12 then
 		e.self:Say("We have finally arrived at the ambush site.  There are two nearby camps on the sides of these hills that are overrun with grimlings.  If we are able to fight off the grimling horde for long enough then we expect the grimling commander will show himself.");
 		eq.set_timer("conv2", 10 * 1000);

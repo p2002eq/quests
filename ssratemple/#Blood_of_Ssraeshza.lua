@@ -12,7 +12,7 @@ function event_spawn(e)
 	if eq.get_entity_list():IsMobSpawnedByNpcTypeID(162515) then
 		eq.set_timer('depop_golem', 500);
 	end
-	eq.unique_spawn(162504,0,0,1000,-325,421,196);  -- Spawns Emp
+	eq.unique_spawn(162504,0,0,1000,-325,421,392.0);  -- Spawns Emp
 
 	eq.delete_global(instance_id .. "_Emp_Cycle");	--reset Emp cycle qglobals
 	

@@ -29,7 +29,7 @@ function event_trade(e)
         e.other:Faction(37,-1); -- Citizens of Seru
         e.other:Faction(284,-1); -- Seru
         e.other:Faction(298,-1); -- Shoulders of Seru
-        eq.spawn2(160473,0,0,-1702,-633,11,2);
+        eq.spawn2(160473,0,0,-1704.0,-633,11,2);
         e.other:QuestReward(e.self,0,0,0,0,10682,1000); -- Holin Aeridia's Belongings
     elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 10674, item2 = 10675, item3 = 10676, item4 = 10677})) then -- Ancient Ornate Combine Dagger, Talikar Family Signet Ring, Faded Portrait of a Lady & Antique Platinum Medal
         e.self:Say("I require the Ancient Ornate Combine Dagger, Talikar Family Signet Ring, Faded Portrait of a Lady, and the Antique Platinum Medal that were stolen from Raien Talikars crypt.");
@@ -40,7 +40,7 @@ function event_trade(e)
         e.other:Faction(37,-1); -- Citizens of Seru
         e.other:Faction(284,-1); -- Seru
         e.other:Faction(298,-1); -- Shoulders of Seru
-        eq.spawn2(160474,0,0,-1730,-568,11,100);
+        eq.spawn2(160474,0,0,-1730,-568,11,200.0);
         e.other:QuestReward(e.self,0,0,0,0,10683,1000); -- Raien Talikars Belongings
     elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 10678, item2 = 10679, item3 = 10680, item4 = 10681})) then -- Gold Embroidered Kilt, Silver Embroidered Tabard, Ancient Ceremonial Warhammer & Old Sealed Medicine Pouch
         e.self:Say("I require the Gold Embroidered Kilt, Silver Embroidered Tabard, Ancient Ceremonial Varhammer, and Old Sealed Medicine Pouch that were stolen from Shoeon Malicus' crypt.");
@@ -51,7 +51,7 @@ function event_trade(e)
         e.other:Faction(37,-1); -- Citizens of Seru
         e.other:Faction(284,-1); -- Seru
         e.other:Faction(298,-1); -- Shoulders of Seru
-        eq.spawn2(160475,0,0,-1667,-559,11,130);
+        eq.spawn2(160475,0,0,-1667,-559,11,260.0);
         e.other:QuestReward(e.self,0,0,0,0,10684,1000); -- Shoeon Malicus' Belongings
     end
     item_lib.return_items(e.self, e.other, e.trade)

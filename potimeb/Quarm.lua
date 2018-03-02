@@ -37,9 +37,9 @@ function event_timer(e)
 		-- random AE
 		e.self:CastSpell(eq.ChooseRandom(3770, 3771, 3769, 3768, 3780, 3767, 3773, 3777),e.self:GetID());
 		-- spawn 3 new ones randomly around Quarm.
-		eq.spawn2(223112,0,0,xloc + math.random(-50,50),yloc + math.random(-50,50),zloc,heading);
-		eq.spawn2(223112,0,0,xloc + math.random(-50,50),yloc + math.random(-50,50),zloc,heading);
-		eq.spawn2(223112,0,0,xloc + math.random(-50,50),yloc + math.random(-50,50),zloc,heading);
+		eq.spawn2(223112,0,0,xloc + math.random(-50,100.0,yloc + math.random(-50,50),zloc,heading);
+		eq.spawn2(223112,0,0,xloc + math.random(-50,100.0,yloc + math.random(-50,50),zloc,heading);
+		eq.spawn2(223112,0,0,xloc + math.random(-50,100.0,yloc + math.random(-50,50),zloc,heading);
 	end
 end
 
@@ -75,7 +75,7 @@ function event_death_complete(e)
 	eq.depop_all(223112);
 	-- depop untargetable and pop targetable spawn Zebuxoruk's Cage
 	eq.depop(223228);
-	eq.spawn2(223214,0,0,-579,-1119,60.625,0);
+	eq.spawn2(223214,0.0,0,-579,-1119,60.625,0);
 	-- load the current quest globals
 	local qglobals = eq.get_qglobals(e.self);
 	if ( qglobals.time_emote == "TimeEntered" and e.self:Admin() < 10 ) then

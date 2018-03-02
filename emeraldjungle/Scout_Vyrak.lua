@@ -16,7 +16,7 @@ function event_trade(e)
 		local spawnz = -45;
 		
 		eq.local_emote({ e.self:GetX(), e.self:GetY(), e.self:GetZ() }, 1, 200, "You hear a massive creature roar as if awakened from a deep sleep.")
-		eq.spawn2(94247,0,0,spawnx,spawny,spawnz,225); -- The_Spirit_of_Rage
+		eq.spawn2(94247,0,0,spawnx,spawny,spawnz,450.0); -- The_Spirit_of_Rage
 
 	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 9038})) then -- Totem of the Gorilla
 		e.self:Say("Excellent work, " .. e.other:GetName() .. "! Judging by the speed with which it altered that spirit, this totem must be extremely powerful. I've wrapped it, so you should be safe from its magic. Just be sure to keep it in the case. Once you have all of the totems, seal the case and make your way back to Shar Vahl. They will be waiting for you there. I'll continue to look for the person that perpetrated this vile act.");

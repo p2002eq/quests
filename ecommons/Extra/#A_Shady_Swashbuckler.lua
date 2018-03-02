@@ -1282,163 +1282,163 @@ function event_say(e)
 
 	--PVP Port
 	elseif(e.message:findi("arena")) then
-		e.other:MovePC(77,-817,-11,11,0);
+		e.other:MovePC(77,-817,-11,11,0.0);
 
 	--NO COMBAT PORTS
 	elseif(e.message:findi("erudnext")) then
-		e.other:MovePC(24,-338,75,20,0);
+		e.other:MovePC(24,-338,75,20.0,0);
 	elseif(e.message:findi("erudnint")) then
-		e.other:MovePC(23,808,712,21,0);
+		e.other:MovePC(23,80.08,712,21,0);
 	elseif(e.message:findi("felwithea")) then
-		e.other:MovePC(61,94,-25,3,0);
+		e.other:MovePC(61,94,-25,3,0.0);
 	elseif(e.message:findi("felwitheb")) then
-		e.other:MovePC(62,-790,320,-10,0);
+		e.other:MovePC(62,-790.0,320,-10,0);
 	elseif(e.message:findi("freporte")) then
-		e.other:MovePC(10,-648,-1097,-52.2,0);
+		e.other:MovePC(10.0,-648,-1097,-52.2,0);
 	elseif(e.message:findi("freportn")) then
-		e.other:MovePC(8,211,-296,4,0);
+		e.other:MovePC(8,211,-296,4,0.0);
 	elseif(e.message:findi("freportw")) then
-		e.other:MovePC(9,181,335,-24,0);
+		e.other:MovePC(9,181,335,-24,0.0);
 	elseif(e.message:findi("grobb")) then
-		e.other:MovePC(52,0,-100,3,0);
+		e.other:MovePC(52,0.0,-100,3,0);
 	elseif(e.message:findi("halas")) then
-		e.other:MovePC(29,0,0,3,0);
+		e.other:MovePC(29,0.0,0,3,0);
 	elseif(e.message:findi("kaladima")) then
-		e.other:MovePC(60,-2,-18,3,0);
+		e.other:MovePC(60.0,-2,-18,3,0);
 	elseif(e.message:findi("kaladimb")) then
-		e.other:MovePC(67,-267,414,3.75,0);
+		e.other:MovePC(67,-267,414,3.75,0.0);
 	elseif(e.message:findi("neriaka")) then
-		e.other:MovePC(40,157,-3,31,0);
+		e.other:MovePC(40.0,157,-3,31,0);
 	elseif(e.message:findi("neriakb")) then
-		e.other:MovePC(41,-500,3,-10,0);
+		e.other:MovePC(41,-50.00,3,-10,0);
 	elseif(e.message:findi("neriakc")) then
-		e.other:MovePC(42,-969,892,-52,0);
+		e.other:MovePC(42,-969,892,-52,0.0);
 	elseif(e.message:findi("paineel")) then
-		e.other:MovePC(75,200,800,3,0);
+		e.other:MovePC(75,20.00,800,3,0);
 	elseif(e.message:findi("qeynos")) then
-		e.other:MovePC(1,0,10,5,0);
+		e.other:MovePC(1,0.0,10,5,0);
 	elseif(e.message:findi("qeynos2")) then
-		e.other:MovePC(2,-74,428,3,0);
+		e.other:MovePC(2,-74,428,3,0.0);
 	elseif(e.message:findi("rivervale")) then
-		e.other:MovePC(19,0,0,4,0);
+		e.other:MovePC(19,0.0,0,4,0);
 	elseif(e.message:findi("soltemple")) then
-		e.other:MovePC(80,36,262,0,0);
+		e.other:MovePC(80.0,36,262,0,0);
 
 	--LEVEL 1-4 ports
 	elseif(e.message:findi("akanon")) then
-		e.other:MovePC(55,-35,47,4,0);
+		e.other:MovePC(55,-35,47,4,0.0);
 	elseif(e.message:findi("butcher")) then
-		e.other:MovePC(68,-700,2550,3,0);
+		e.other:MovePC(68,-70.00,2550,3,0);
 	elseif(e.message:findi("everfrost")) then
-		e.other:MovePC(30,629,3139,-60,0);
+		e.other:MovePC(30.0,629,3139,-60,0);
 	elseif(e.message:findi("feerott")) then
-		e.other:MovePC(47,905,1051,25,0);
+		e.other:MovePC(47,90.05,1051,25,0);
 	elseif(e.message:findi("gfaydark")) then
-		e.other:MovePC(54,10,-20,0,0);
+		e.other:MovePC(54,10.0,-20,0,0);
 	elseif(e.message:findi("innothule")) then
-		e.other:MovePC(46,-588,-2192,-25,0);
+		e.other:MovePC(46,-588,-2192,-25,0.0);
 	elseif(e.message:findi("misty")) then
-		e.other:MovePC(33,0,0,2.43,0);
+		e.other:MovePC(33,0.0,0,2.43,0);
 	elseif(e.message:findi("nektulos")) then
-		e.other:MovePC(25,-279,-1201,-5,0);
+		e.other:MovePC(25,-279,-120.01,-5,0);
 	elseif(e.message:findi("qcat")) then
-		e.other:MovePC(45,80,860,-38,0);
+		e.other:MovePC(45,80.0,860,-38,0);
 	elseif(e.message:findi("steamfont")) then
-		e.other:MovePC(56,-272.86,159.86,-21.4,0);
+		e.other:MovePC(56,-272.86,159.86,-21.4,0.0);
 	elseif(e.message:findi("tox")) then
-		e.other:MovePC(38,203,2295,-45,0);
+		e.other:MovePC(38,20.03,2295,-45,0);
 
 	--LEVEL 5-9 ports
 	elseif(e.message:findi("blackburrow") and (e.other:GetLevel() > 4)) then
-		e.other:MovePC(17,39,-159,3,0);
+		e.other:MovePC(17,39,-159,3,0.0);
 	elseif(e.message:findi("crushbone") and (e.other:GetLevel() > 4)) then
-		e.other:MovePC(58,158,-644,4,0);
+		e.other:MovePC(58,158,-644,4,0.0);
 	elseif(e.message:findi("ecommons") and (e.other:GetLevel() > 4)) then
-		e.other:MovePC(22,-1485,9.2,-51,0);
+		e.other:MovePC(22,-1485,9.2,-51,0.0);
 	elseif(e.message:findi("guktop") and (e.other:GetLevel() > 4)) then
-		e.other:MovePC(65,7,-36,4,0);
+		e.other:MovePC(65,7,-36,4,0.0);
 	elseif(e.message:findi("erudsxing") and (e.other:GetLevel() > 4)) then
-		e.other:MovePC(98,795,-1767,11,0);
+		e.other:MovePC(98,795,-1767,11,0.0);
 	elseif(e.message:findi("qeytoqrg") and (e.other:GetLevel() > 4)) then
-		e.other:MovePC(4,83,508,0,0);
+		e.other:MovePC(4,83,50.08,0,0);
 	elseif(e.message:findi("befallen") and (e.other:GetLevel() > 4)) then
-		e.other:MovePC(36,35,-82,3,0);
+		e.other:MovePC(36,35,-82,3,0.0);
 	elseif(e.message:findi("sro") and (e.other:GetLevel() > 4)) then
-		e.other:MovePC(35,286,1265,79,0);
+		e.other:MovePC(35,286,1265,79,0.0);
 
 	--LEVEL 10-14 ports
 	elseif(e.message:findi("cauldron") and (e.other:GetLevel() > 9)) then
-		e.other:MovePC(70,320,2815,473,0);
+		e.other:MovePC(70.0,320,2815,473,0);
 	elseif(e.message:findi("kerraridge") and (e.other:GetLevel() > 9)) then
-		e.other:MovePC(74,-859.97,474.96,23.75,0);
+		e.other:MovePC(74,-859.97,474.96,23.75,0.0);
 	elseif(e.message:findi("kithicor") and (e.other:GetLevel() > 9)) then
-		e.other:MovePC(20,3828,1889,459,0);
+		e.other:MovePC(20.0,3828,1889,459,0);
 	elseif(e.message:findi("northkarana") and (e.other:GetLevel() > 9)) then
-		e.other:MovePC(13,-382,-284,-8,0);
+		e.other:MovePC(13,-382,-284,-8,0.0);
 	elseif(e.message:findi("nro") and (e.other:GetLevel() > 9)) then
-		e.other:MovePC(34,299.12,3537.9,-24.5,0);
+		e.other:MovePC(34,299.12,3537.9,-24.5,0.0);
 	elseif(e.message:findi("oot") and (e.other:GetLevel() > 9)) then
-		e.other:MovePC(69,-9200,390,6,0);
+		e.other:MovePC(69,-920.00,390,6,0);
 	elseif(e.message:findi("qey2hh1") and (e.other:GetLevel() > 9)) then
-		e.other:MovePC(12,-531,15,-3,0);
+		e.other:MovePC(12,-531,15,-3,0.0);
 	elseif(e.message:findi("qrg") and (e.other:GetLevel() > 9)) then
-		e.other:MovePC(3,0,0,2,0);
+		e.other:MovePC(3,0.0,0,2,0);
 	elseif(e.message:findi("unrest") and (e.other:GetLevel() > 9)) then
-		e.other:MovePC(63,52,-38,3,0);
+		e.other:MovePC(63,52,-38,3,0.0);
 
 	--LEVEL 15-19 ports
 	elseif(e.message:findi("oasis") and (e.other:GetLevel() > 14)) then
-		e.other:MovePC(37,903.98,490.03,6.4,0);
+		e.other:MovePC(37,90.03.98,490.03,6.4,0);
 	elseif(e.message:findi("beholder") and (e.other:GetLevel() > 14)) then
-		e.other:MovePC(16,-21.44,-512.23,45.13,0);
+		e.other:MovePC(16,-21.44,-512.23,45.13,0.0);
 	elseif(e.message:findi("commons") and (e.other:GetLevel() > 14)) then
-		e.other:MovePC(21,-1334.24,209.57,-51.47,0);
+		e.other:MovePC(21,-1334.24,20.09.57,-51.47,0);
 	elseif(e.message:findi("highpass") and (e.other:GetLevel() > 14)) then
-		e.other:MovePC(5,-104,-14,4,0);
+		e.other:MovePC(5,-10.04,-14,4,0);
 	elseif(e.message:findi("lakerathe") and (e.other:GetLevel() > 14)) then
-		e.other:MovePC(51,1213,4183,3,0);
+		e.other:MovePC(51,1213,4183,3,0.0);
 	elseif(e.message:findi("lavastorm") and (e.other:GetLevel() > 14)) then
-		e.other:MovePC(27,154,-1833,-15,0);
+		e.other:MovePC(27,154,-1833,-15,0.0);
 
 	--LEVEL 20-24 ports
 	elseif(e.message:findi("eastkarana") and (e.other:GetLevel() > 19)) then
-		e.other:MovePC(15,865,15,-33,0);
+		e.other:MovePC(15,865,15,-33,0.0);
 	elseif(e.message:findi("lfaydark") and (e.other:GetLevel() > 19)) then
-		e.other:MovePC(57,-1770,-108,0,0);
+		e.other:MovePC(57,-1770.0,-108,0,0);
 	elseif(e.message:findi("mistmoore") and (e.other:GetLevel() > 19)) then
-		e.other:MovePC(59,120,-330,-178,0);
+		e.other:MovePC(59,120.0,-330,-178,0);
 	elseif(e.message:findi("runnyeye") and (e.other:GetLevel() > 19)) then
-		e.other:MovePC(11,201,90,4,0);
+		e.other:MovePC(11,20.01,90,4,0);
 	elseif(e.message:findi("southkarana") and (e.other:GetLevel() > 19)) then
-		e.other:MovePC(14,1294,2348,-6,0);
+		e.other:MovePC(14,1294,2348,-6,0.0);
 	elseif(e.message:findi("najena") and (e.other:GetLevel() > 19)) then
-		e.other:MovePC(44,858,-76,4,0);
+		e.other:MovePC(44,858,-76,4,0.0);
 
 	--LEVEL 25-29 ports
 	elseif(e.message:findi("highkeep") and (e.other:GetLevel() > 24)) then
-		e.other:MovePC(6,88,-16,4,0);
+		e.other:MovePC(6,88,-16,4,0.0);
 	elseif(e.message:findi("rathemtn") and (e.other:GetLevel() > 24)) then
-		e.other:MovePC(50,1831,3825,28,0);
+		e.other:MovePC(50.0,1831,3825,28,0);
 	elseif(e.message:findi("soldunga") and (e.other:GetLevel() > 24)) then
-		e.other:MovePC(31,-486,-476,73,0);
+		e.other:MovePC(31,-486,-476,73,0.0);
 
 	--LEVEL 30-34 ports
 	elseif(e.message:findi("paw") and (e.other:GetLevel() > 29)) then
-		e.other:MovePC(18,63,-122,3,0);
+		e.other:MovePC(18,63,-122,3,0.0);
 	elseif(e.message:findi("permafrost") and (e.other:GetLevel() > 29)) then
-		e.other:MovePC(73,61,-121,2,0);
+		e.other:MovePC(73,61,-121,2,0.0);
 	elseif(e.message:findi("soldungb") and (e.other:GetLevel() > 29)) then
-		e.other:MovePC(32,-263,-424,-108,0);
+		e.other:MovePC(32,-263,-424,-10.08,0);
 
 	--LEVEL 35-44 ports
 	elseif(e.message:findi("gukbottom") and (e.other:GetLevel() > 34)) then
-		e.other:MovePC(66,-217,1197,-78,0);
+		e.other:MovePC(66,-217,1197,-78,0.0);
 
 	--LEVEL 45+ ports
 	elseif(e.message:findi("kedge") and (e.other:GetLevel() > 44)) then
-		e.other:MovePC(64,14,100,302,0);
+		e.other:MovePC(64,14,10.00,302,0);
 	elseif(e.message:findi("oggok") and (e.other:GetLevel() > 44)) then
-		e.other:MovePC(49,-99,-345,4,0);
+		e.other:MovePC(49,-99,-345,4,0.0);
 
 	elseif(e.message:findi("home")) then
 		e.self:CastSpell(1422,e.other:GetID(),0,1);

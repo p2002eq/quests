@@ -46,10 +46,10 @@ function event_trade(e)
     if(not started and item_lib.check_turn_in(e.self, e.trade, {item1 = 6554})) then -- Grimling Shackle Key
         e.self:Say("Be on your guard friends!  Here they come!");
 		started = true;
-		eq.spawn2(guard,0,0,-211,-716,1,129); --#a_possessed_corpse (154354)
-        eq.spawn2(guard,0,0,-205,-716,1,129); 
-		eq.spawn2(guard,0,0,-196,-716,1,129);
-		eq.spawn2(soulstealer,0,0,-205,-699,1,129); --#a_grimling_soulstealer(154106)
+		eq.spawn2(guard,0,0,-211,-716,1,258.0)
+        eq.spawn2(guard,0,0,-205,-716,1,258.0); 
+		eq.spawn2(guard,0,0,-196,-716,1,258.0);
+		eq.spawn2(soulstealer,0,0,-205,-699,1,258.0)
 		eq.set_timer("clear",3 * 1000);
 		eq.set_timer("depop",5 * 60 * 1000);  --5 min to clear room
 	elseif(started and item_lib.check_turn_in(e.self, e.trade, {item1 = 6711})) then	--Grimling Soulgem

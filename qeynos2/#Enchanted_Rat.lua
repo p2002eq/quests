@@ -53,22 +53,22 @@ function event_spawn(e)
 				if (npc:CalculateHeadingToTarget(x,y) == 128) then --Checks north of tile 
 					if (minNorth ~= nil) and (npc:CalculateDistance(x,y,z) < minNorth) then
 						npc:Depop();		--depop diseased rat
-						eq.spawn2(healthy,0,0,npc:GetX(),npc:GetY(),npc:GetZ(),0);	--spawns healthy rat
+						eq.spawn2(healthy,0.0,0,npc:GetX(),npc:GetY(),npc:GetZ(),0);	--spawns healthy rat
 					end
 				elseif(npc:CalculateHeadingToTarget(x,y) == 256) then  --Checks south of tile 
 					if (minSouth ~= nil) and (npc:CalculateDistance(x,y,z) < minSouth) then
 						npc:Depop();		--depop diseased rat
-						eq.spawn2(healthy,0,0,npc:GetX(),npc:GetY(),npc:GetZ(),0);	--spawns healthy rat
+						eq.spawn2(healthy,0.0,0,npc:GetX(),npc:GetY(),npc:GetZ(),0);	--spawns healthy rat
 					end
 				elseif(npc:CalculateHeadingToTarget(x,y) == 192) then  --Checks west of tile 
 					if (minWest ~= nil) and (npc:CalculateDistance(x,y,z) < minWest) then
 						npc:Depop();		--depop diseased rat
-						eq.spawn2(healthy,0,0,npc:GetX(),npc:GetY(),npc:GetZ(),0);	--spawns healthy rat
+						eq.spawn2(healthy,0.0,0,npc:GetX(),npc:GetY(),npc:GetZ(),0);	--spawns healthy rat
 					end
 				elseif(npc:CalculateHeadingToTarget(x,y) == 64) then  --Checks east of tile 
 					if (minEast ~= nil) and (npc:CalculateDistance(x,y,z) < minEast) then
 						npc:Depop();		--depop diseased rat
-						eq.spawn2(healthy,0,0,npc:GetX(),npc:GetY(),npc:GetZ(),0);	--spawns healthy rat
+						eq.spawn2(healthy,0.0,0,npc:GetX(),npc:GetY(),npc:GetZ(),0);	--spawns healthy rat
 					end
 				end
 			end

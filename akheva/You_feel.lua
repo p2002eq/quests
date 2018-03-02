@@ -12,7 +12,7 @@ function event_enter(e)
 		local x, y, z, h = e.self:GetX(), e.self:GetY(), e.self:GetZ(), e.self:GetHeading();
         
         for i=1, math.random(1,3) do
-            local spawned = eq.spawn2(179346, 0, 0, x + math.random(-5, 5), y + math.random(-5, 5), z, h);
+            local spawned = eq.spawn2(179346, 0, 0, x + math.random(-5,10.0, y + math.random(-5, 5), z, h);
             eq.set_timer('depop', 30 * 60 * 1000, spawned);
         end
         

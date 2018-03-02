@@ -41,7 +41,7 @@ function event_trade(e)
 	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 20485}) and e.other:GetFaction(e.self) < 6) then
 		e.self:Emote("looks at the hammer and nods once before slamming the head against his anvil, and shattering the head. In a cloud of dust, another dwarf appears from the cloud and tosses you a hunk of metal. Kinlo stares in awe.");
 		e.other:SummonItem(20482);
-		eq.spawn2(67089,0,0,-189.5,346.8,1.8,34.5);
+		eq.spawn2(67089,0,0,-189.5,346.8,1.8,69.0);
 	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 20482}) and e.other:GetFaction(e.self) < 6) then
 		e.self:Say("Erm. Well, I ain't never worked with this stuff but here's what I got for ya. It ain't bad, pretty much like the one ye got there. I suppose ye should take the one the ancient made and show it ta yer friend.");
 		e.other:SummonItem(20483);

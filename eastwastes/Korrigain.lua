@@ -11,7 +11,7 @@ function event_trade(e)
 
 	if (item_lib.check_turn_in(e.self, e.trade, {item1 = 30268})) then
 		if (eq.get_entity_list():IsMobSpawnedByNpcTypeID(116534) == false) then --check if Icefang is up, spawn if not up
-			eq.spawn2(116534, 0, 0, 3244, -8102, 147, 0); 
+			eq.spawn2(116534,0.0, 0, 3244, -8102, 147, 0); 
 		end
 		
 		eq.get_entity_list():GetMobByNpcTypeID(116534):CastToNPC();

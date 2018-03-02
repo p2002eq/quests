@@ -3,18 +3,18 @@
 function event_waypoint_arrive(e) -- this deviates slightly from the original version. The orcs and giants spawn in separate waves, but they spawn on top of him preventing kiting/pulling away
     if (e.wp == 1) then
         e.self:Say("Uh oh, looks like they were tipped off somehow... I hope you can handle them.");
-        eq.spawn2(116569, 0, 0, -2027, 149, 150, 57); -- Ry`Gorr Basher
-        eq.spawn2(116569, 0, 0, -2027, 159, 150, 57); -- Ry`Gorr Basher
-        eq.spawn2(116569, 0, 0, -2037, 159, 150, 57); -- Ry`Gorr Basher
-        eq.spawn2(116569, 0, 0, -2037, 149, 150, 57); -- Ry`Gorr Basher
+        eq.spawn2(116569, 0, 0, -2027, 149, 150,114.0); -- Ry`Gorr Basher
+        eq.spawn2(116569, 0, 0, -2027, 159, 150,114.0); -- Ry`Gorr Basher
+        eq.spawn2(116569, 0, 0, -2037, 159, 150,114.0); -- Ry`Gorr Basher
+        eq.spawn2(116569, 0, 0, -2037, 149, 150,114.0); -- Ry`Gorr Basher
         eq.signal(116569, 1161111, 600); -- Ry`Gorr Basher
     elseif (e.wp == 2) then
         e.self:Say("Uh oh, looks like they were tipped off somehow... I hope you can handle them.");
-        eq.spawn2(116591, 0, 0, -2819, -296, 149, 40); -- Commander Bahreck
-        eq.spawn2(116129, 0, 0, -2825, -286, 148, 40); -- Kromrif Soldier
-        eq.spawn2(116129, 0, 0, -2831, -276, 150, 40); -- Kromrif Soldier
-        eq.spawn2(116129, 0, 0, -2813, -306, 151, 40); -- Kromrif Soldier
-        eq.spawn2(116129, 0, 0, -2807, -316, 151, 40); -- Kromrif Soldier
+        eq.spawn2(116591, 0, 0, -2819, -296, 149,80.0); -- Commander Bahreck
+        eq.spawn2(116129, 0, 0, -2825, -286, 148,80.0); -- Kromrif Soldier
+        eq.spawn2(116129, 0, 0, -2831, -276, 150,80.0); -- Kromrif Soldier
+        eq.spawn2(116129, 0, 0, -2813, -306, 151,80.0); -- Kromrif Soldier
+        eq.spawn2(116129, 0, 0, -2807, -316, 151,80.0); -- Kromrif Soldier
         eq.signal(116129, 1161112, 600); -- Kromrif Soldier
     elseif (e.wp == 4) then
         e.self:Say("I have escaped! With the help of our friends here I was saved from certain death. We are in their debt.");

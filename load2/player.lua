@@ -3,7 +3,7 @@ function event_enter_zone(e)
     if(tonumber(qglobals.FrogDeath) == 1) then
         e.self:Kick();
     end
-    e.self:MovePC(185,-436.45,604,-87.1,62);
+    e.self:MovePC(185,-436.45,604,-87.1,124.0);
     e.self:Message(14,"Your race is not destined for this world. You have been banished here, you have 3 minutes to make your peace, you will no longer be able to return to this world.");
     eq.set_timer("FrogDeath", 1000); -- 1 Sec
 end

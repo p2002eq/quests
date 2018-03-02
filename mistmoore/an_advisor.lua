@@ -5,5 +5,5 @@ function event_say(e)
 end
 
 function event_death_complete(e)
-	eq.unique_spawn(59129,0,0,-165,90,-221,56); -- spawn Black Dire
+	eq.unique_spawn(59129,0,0,-165,90,-221,112.0); -- spawn Black Dire
 end

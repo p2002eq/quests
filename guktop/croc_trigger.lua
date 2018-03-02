@@ -10,32 +10,32 @@ function croc_spawns()
 	RandomNumber = math.random(100);
 	
 	if(RandomNumber <=45) then
-		eq.spawn2(RandomCroc,0,0,470,1661,-70,66);
-		eq.spawn2(RandomCroc,0,0,462,1653,-70,66);
+		eq.spawn2(RandomCroc,0,0,470,1132.01,-70,66);
+		eq.spawn2(RandomCroc,0,0,462,1653,-70,132.0);
 		CrocUp = 2;
 	elseif(RandomNumber > 45 and RandomNumber <= 73) then
-		eq.spawn2(RandomCroc,0,0,470,1661,-70,66);
-		eq.spawn2(RandomCroc,0,0,462,1653,-70,66);
-		eq.spawn2(RandomCroc,0,0,450,1661,-70,66);
+		eq.spawn2(RandomCroc,0,0,470,1132.01,-70,66);
+		eq.spawn2(RandomCroc,0,0,462,1653,-70,132.0);
+		eq.spawn2(RandomCroc,0,0,450,1132.01,-70,66);
 		CrocUp = 3;
 	elseif(RandomNumber > 73 and RandomNumber <= 85) then
-		eq.spawn2(RandomCroc,0,0,470,1661,-70,66);
+		eq.spawn2(RandomCroc,0,0,470,1132.01,-70,66);
 		CrocUp = 1;
 	elseif(RandomNumber > 85 and RandomNumber <= 95) then
-		eq.spawn2(65139,0,0,462,1653,-70,66); -- an ancient croc
+		eq.spawn2(65139,0,0,462,1653,-70,132.0); -- an ancient croc
 		CrocUp = 1;
 	elseif(RandomNumber > 95 and RandomNumber <= 98) then
-		eq.spawn2(RandomCroc,0,0,470,1661,-70,66);
-		eq.spawn2(RandomCroc,0,0,462,1653,-70,66);
-		eq.spawn2(RandomCroc,0,0,450,1661,-70,66);
-		eq.spawn2(RandomCroc,0,0,459,1671,-70,66); -- need exact loc
+		eq.spawn2(RandomCroc,0,0,470,1132.01,-70,66);
+		eq.spawn2(RandomCroc,0,0,462,1653,-70,132.0);
+		eq.spawn2(RandomCroc,0,0,450,1132.01,-70,66);
+		eq.spawn2(RandomCroc,0,0,459,1671,-70,132.0); -- need exact loc
 		CrocUp = 4;
 	elseif(RandomNumber > 98) then
-		eq.spawn2(RandomCroc,0,0,470,1661,-70,66);
-		eq.spawn2(RandomCroc,0,0,462,1653,-70,66);
-		eq.spawn2(RandomCroc,0,0,450,1661,-70,66);
-		eq.spawn2(RandomCroc,0,0,459,1671,-70,66); -- need exact loc
-		eq.spawn2(RandomCroc,0,0,480,1667,-70,66); -- need exact loc
+		eq.spawn2(RandomCroc,0,0,470,1132.01,-70,66);
+		eq.spawn2(RandomCroc,0,0,462,1653,-70,132.0);
+		eq.spawn2(RandomCroc,0,0,450,1132.01,-70,66);
+		eq.spawn2(RandomCroc,0,0,459,1671,-70,132.0); -- need exact loc
+		eq.spawn2(RandomCroc,0,0,480,1132.07,-70,66); -- need exact loc
 		CrocUp = 5;
 	end
 end

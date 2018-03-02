@@ -5,7 +5,7 @@ local sacrifice_locs = { [1] = {433,-338,36,260}, [2] = {393,-298,36,63}, [3] = 
 
 function event_spawn(e)
 	eq.set_timer("sacrifice", math.random(15,30) * 1000);
-	eq.unique_spawn(154096,0,0,433,-298,37,260) --spawns #a_sacrifical_cauldron
+	eq.unique_spawn(154096,0,0,433,-298,37,260.0) --spawns #a_sacrifical_cauldron
 end
 
 function event_timer(e)

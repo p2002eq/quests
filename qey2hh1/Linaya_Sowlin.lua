@@ -21,7 +21,7 @@ function event_trade(e)
 		e.other:Faction(347,-2,0); -- Unkempt Druids
 		e.other:Faction(135,1,0); -- Guards of Qeynos
 		e.other:QuestReward(e.self,math.random(10),math.random(10),math.random(5),0,0,2000);
-		eq.spawn2(12181,0,0,-8000,-3400,23,102.9);
+		eq.spawn2(12181,0,0,-8000,-3400,23,205.8);
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end

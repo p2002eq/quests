@@ -33,7 +33,7 @@ function event_death_complete(e)
 	local xloc = e.self:GetX();
 	local yloc = e.self:GetY();
 	local zloc = e.self:GetZ();
-	eq.spawn2(202368,0,0,xloc,yloc,zloc,0);
+	eq.spawn2(20.02368,0,0,xloc,yloc,zloc,0);
 	--tell vallon_controller I died
 	eq.signal(214112,3);
 end

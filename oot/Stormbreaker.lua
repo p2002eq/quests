@@ -15,7 +15,7 @@ function event_waypoint_arrive(e)
 		eq.debug("Boat to Freeport (60) has reached its destination! Name is: " .. e.self:GetName() .. " Time is: " .. hour ..":" .. minute .. "", 1);
 		eq.get_entity_list():ForeachClient(
 			function(ent)
-				ent:MovePC(10,-1853,-748,-80,0);
+				ent:MovePC(10.0,-1853,-748,-80,0);
 			end,
 			function(ent)
 				if(ent:GetBoatID() == 770) then
@@ -32,7 +32,7 @@ function event_waypoint_arrive(e)
 		-- eq.spawn_condition("oot",0,2,0);
 		eq.get_entity_list():ForeachClient(
 			function(ent)
-				ent:MovePC(68,4591,2090,-15,0);
+				ent:MovePC(68,4591,20.090,-15,0);
 			end,
 			function(ent)
 				if(ent:GetBoatID() == 770) then

@@ -16,7 +16,7 @@ function event_trade(e)
         e.self:Say("Yes! The lance.");
         e.self:Emote("and begins to glow as it draws power from the lance, which now floats in mid air next to the spirit. The form of the spirit expands and takes on a humanoid shape. The air itself then seems to condense about the spirit as bits of matter appear within the glowing form. The bits soon take the shape of bones and ropes of muscle. Within minutes, an emaciated Erudite male stands before you. Despite his frail appearance, he stands upright and strong, a fierce red light burning in his eyes.");
         e.other:QuestReward(e.self,0,0,0,0,2297,100);  -- Idol of Fear
-        eq.unique_spawn(100221, 323, 0, -70, 474, 509, 33.5); -- Ridossan_the_Unliving
+        eq.unique_spawn(100221, 323, 0, -70, 474, 509,67.0); -- Ridossan_the_Unliving
         eq.depop_withtimer();
     end
     item_lib.return_items(e.self, e.other, e.trade);

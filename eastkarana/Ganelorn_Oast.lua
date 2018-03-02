@@ -21,7 +21,7 @@ function event_trade(e)
 		e.other:QuestReward(e.self,0,0,0,0,20879,1000); -- A note of credit
 	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 20881,item2 = 20880,item3 = 10151,item4 = 5408})) then -- A burnt sash, A Gift, Adamantite Band and Electrum-Bladed Wakizashi
 		e.self:Say("You have done well. I sense the one I have been hunting in the distance. As your final test, you must track him down and destroy him.");
-		eq.spawn2(15183,0,0,-800,-2712,15.6,138); -- Vance Bearstalker
+		eq.spawn2(15183,0,0,-800,-2712,15.6,276.0); -- Vance Bearstalker
 		e.other:Faction(99,100,0); -- faydarks champion
 		e.other:Faction(178,25,0); -- king tearis thex
 		e.other:Faction(43,25,0); -- cleric of tunare

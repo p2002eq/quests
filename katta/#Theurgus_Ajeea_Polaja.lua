@@ -25,7 +25,7 @@ function event_trade(e)
         e.other:QuestReward(e.self,0,0,0,0,0,10000); -- exp
         eq.set_global("autarkic_event","1",2,"M30"); -- 30 Minute Event Cooldown
         eq.set_global("autarkic_combat",e.other:GetName(),3,"M15");
-        eq.spawn2(160482,0,0,-97,-822,11,0); -- Autarkic Lord Sfarosh
+        eq.spawn2(160.0482,0,0,-97,-822,11,0); -- Autarkic Lord Sfarosh
         eq.signal(160482,1,10000); -- Autarkic Lord Sfarosh
     end
     item_lib.return_items(e.self, e.other, e.trade)
