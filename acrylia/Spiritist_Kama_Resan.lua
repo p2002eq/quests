@@ -63,7 +63,7 @@ function event_say(e)
 			eq.signal(154053,1);  --signal Spiritist_Andro_Shimi for initial chant
 			eq.signal(154130,1,0);
 			started = true;
-			--eq.spawn2(154156,0,0,342.75,-232.48,-7.94,374.0); -- Spawn Spiritist V2
+			--eq.spawn2(154156,0,0,342.75,-232.48,-7.94,187); -- Spawn Spiritist V2
 			--eq.depop();
 		elseif(e.message:findi("spell")) then
 			e.self:Say("The spell will use our own life force to break the life ward's shields, we will die shortly after we begin casting, if we do not complete [" .. eq.say_link("casting") .. "] our spell. Even if we do our life force is tied to that of the Wards, we will die shortly after completion if either Life, or Death Wards still live.");

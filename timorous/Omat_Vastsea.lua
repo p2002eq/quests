@@ -29,7 +29,7 @@ function event_trade(e)
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 28019})) then--Zordak Ragefire's Heart (combined after the death of zordakalicus in SF)
 		e.self:Say("I see now that Zordak Ragefire and the exiled elder dragon Zordakalicus were the same being. That explains how he resisted our attempts to divine his affairs and past. Each of these orbs I have granted you represents one of the Triumvirate. Jhassad Oceanson awaits on the shore below to perform the ritual that will merge the orbs into a single Orb of the Triumvirate and summon an avatar from the Plane of Water. Present the Orb of the Triumvirate to the Avatar of Water when it arrives and allow your destiny to be unraveled.");
 		e.other:QuestReward(e.self,0,0,0,0,28050,100000); --Orb of Vapor
-		eq.unique_spawn(96074,0,0,-2.0781,-11959,14.3,1); --Jhassad Oceanson
+		eq.unique_spawn(96074,0,0,-1781,-11959,14.3,1); --Jhassad Oceanson
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end

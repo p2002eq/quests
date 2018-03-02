@@ -14,10 +14,10 @@ function event_trade(e)
         e.self:Say("What is that?! Look! There is a grimling heading this way followed by what appear to be grimling undead. Defend me while I perform the ritual.");
         e.self:Say("Defend me while I perform the ritual!");
         eq.set_global("grimling_combat",e.other:GetName(),3,"M5");
-        eq.spawn2(167685,0,0,-975.17,-825.20,6.74,260.0); -- A possesed griming
-        eq.spawn2(167687,0,0,-958.44,-834.88,6.74,260.0); -- A Reanmiated Grimling
-        eq.spawn2(167687,0,0,-979.17,-839.41,1.14,260.0); -- A Reanmiated Grimling
-        eq.spawn2(167687,0,0,-967.86,-838.92,4.63,260.0); -- A Reanmiated Grimling
+        eq.spawn2(167685,0,0,-975.17,-825.20,6.74,260); -- A possesed griming
+        eq.spawn2(167687,0,0,-958.44,-834.88,6.74,260); -- A Reanmiated Grimling
+        eq.spawn2(167687,0,0,-979.17,-839.41,1.14,260); -- A Reanmiated Grimling
+        eq.spawn2(167687,0,0,-967.86,-838.92,4.63,260); -- A Reanmiated Grimling
         e.other:QuestReward(e.self,0,0,0,0,0,500); --
     elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 31847, item2 = 31848, item3 = 31848, item4 = 31848})) then -- Possessed Grimlings Head & 3x Reanmiated Grimling Skull
         e.self:Say("I am grateful for your assistance. I will be able to complete the rest of the ritual without danger now that the spirits in the skulls have been calmed. Please take this report of occurrences to Scribe Cholsa in Shar Vahl.");
@@ -28,7 +28,7 @@ function event_trade(e)
         e.self:Say("I will need to maintain my concentration to keep the Rakshasa from escaping back into the spirit realm. If you kill him while he is materialized he will be slain and his body will remain material. Bring me the head of the Rakshasa when he is slain.");
         e.other:Faction(68,10); -- Dar Khura
         eq.set_global("Rakshasa_combat",e.other:GetName(),3,"M5");
-        eq.spawn2(167713,0,0,-975.17,-825.40.0,6.74,20); -- Rakshasa Karwoaro
+        eq.spawn2(167713,0,0,-975.17,-825.20,6.74,20); -- Rakshasa Karwoaro
         e.other:QuestReward(e.self,0,0,0,0,0,15000); --
     elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 10916})) then -- Head of the Rakshasa
         e.self:Say("The threat of the Rakshasa appears to be eliminated. You have the gratitude of the Dar Khura for your bravery and assistance. Let us be wary however, the Rakshasa gained his power by allying with dark spirits that may not be indifferent to the Rakshasas death.");

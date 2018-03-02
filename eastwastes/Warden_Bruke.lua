@@ -15,19 +15,19 @@ function event_combat(e)
 			
 			local guard_roll = math.random(1,100);
 			if (guard_roll >= 60) then		-- 40% chance to spawn 4 guards
-				g1 = eq.spawn2(116595, 0, 0, -380, 430, -7,504.0);
-				g2 = eq.spawn2(116595, 0, 0, -360, 430, -7,504.0);
-				g3 = eq.spawn2(116595, 0, 0, -400, 430, -7,504.0);
-				g4 = eq.spawn2(116595, 0, 0, -340, 430, -7,504.0);
+				g1 = eq.spawn2(116595, 0, 0, -380, 430, -7, 252);
+				g2 = eq.spawn2(116595, 0, 0, -360, 430, -7, 252);
+				g3 = eq.spawn2(116595, 0, 0, -400, 430, -7, 252);
+				g4 = eq.spawn2(116595, 0, 0, -340, 430, -7, 252);
 			elseif (guard_roll >= 30) then	-- 30% chance to spawn 3 guards
-				g1 = eq.spawn2(116595, 0, 0, -370, 430, -7,504.0);
-				g2 = eq.spawn2(116595, 0, 0, -390, 430, -7,504.0);
-				g3 = eq.spawn2(116595, 0, 0, -350, 430, -7,504.0);
+				g1 = eq.spawn2(116595, 0, 0, -370, 430, -7, 252);
+				g2 = eq.spawn2(116595, 0, 0, -390, 430, -7, 252);
+				g3 = eq.spawn2(116595, 0, 0, -350, 430, -7, 252);
 			elseif (guard_roll >=10) then	--20% chance to spawn 2 guards
-				g1 = eq.spawn2(116595, 0, 0, -380, 430, -7,504.0);
-				g2 = eq.spawn2(116595, 0, 0, -360, 430, -7,504.0);
+				g1 = eq.spawn2(116595, 0, 0, -380, 430, -7, 252);
+				g2 = eq.spawn2(116595, 0, 0, -360, 430, -7, 252);
 			else							--10% chance to spawn only 1 guard]]
-				g1 = eq.spawn2(116595, 0, 0, -370, 430, -7,504.0);
+				g1 = eq.spawn2(116595, 0, 0, -370, 430, -7, 252);
 			end
 		end
 

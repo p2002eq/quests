@@ -49,7 +49,7 @@ end
 function AddRespawn(e)
 	local id = e.self:GetNPCTypeID()
 	local loc = primary_adds[id]
-	local newadd = eq.spawn2(id,0,0,loc[1],loc[2],loc[3],0.0);
+	local newadd = eq.spawn2(id,0,0,loc[1],loc[2],loc[3],loc[4]);
 	eq.set_timer('depop', 120 * 60 * 1000, newadd);
 end
 
@@ -67,7 +67,7 @@ function SheiCombat(e)
 		e.self:Say('Sivuelaeus Rulour ans Rashan!');
 		if not eq.get_entity_list():IsMobSpawnedByNpcTypeID(179357) then
 			for id,loc in pairs(primary_adds) do
-				local newadd = eq.unique_spawn(id,0,0,loc[1],loc[2],loc[3],0.0);
+				local newadd = eq.unique_spawn(id,0,0,loc[1],loc[2],loc[3],loc[4]);
 				eq.set_timer('depop', 120 * 60 * 1000, newadd);
 			end
 		end
@@ -84,7 +84,7 @@ function SheiCombat(e)
 end
 
 function FakeSheiDeath(e)
-	eq.unique_spawn(179032, 0, 0, -1736, 1082, 22.6,128.0);
+	eq.unique_spawn(179032, 0, 0, -1736, 1082, 22.6, 64);
 	eq.set_timer("shei_despawn_full", 60 * 60 * 1000); -- 1 hour total uptime
 end
 

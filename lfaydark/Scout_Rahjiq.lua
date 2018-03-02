@@ -15,7 +15,7 @@ function event_trade(e)
 		local spawnz = 0;
 		
 		eq.local_emote({ e.self:GetX(), e.self:GetY(), e.self:GetZ() }, 1, 200, "The air before the large monolith grows solid, as misty tendrils wrap together in the shape of a large wolf.")
-		eq.spawn2(57119,0.0,0,spawnx,spawny,spawnz,0); -- #The_Spirit_of_Malevolence
+		eq.spawn2(57119,0,0,spawnx,spawny,spawnz,0); -- #The_Spirit_of_Malevolence
 		
 	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 9034})) then -- Totem of the Wolf
 		e.self:Emote("wraps the totem and returns it with the seal you gave him and says, 'That spirit was very powerful. I'm glad that you were able to release it. Please keep this totem safe until you can return to Shar Vahl. Once you collect all of the totems, seal the box and return it to your master. May the spirits watch over you!'");

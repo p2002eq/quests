@@ -18,7 +18,7 @@ function event_trade(e)
 	if(tonumber(qglobals.qeynos_badge4) == 1 and item_lib.check_turn_in(e.self, e.trade, {item1 = 2694})) then -- Vegalys Seal
 		e.self:Say("Vegalys sent you. I'm done for. Guard Helminth found a false wall. We stepped through it. We were ambushed. I didn't see where Helminth went. He disappeared. I knew we were overwhelmed. I ran and feigned death but I knew [" .. eq.say_link("it was too late") .. "]");
 		e.other:SummonItem(2694); 	--return Vegalys Seal to Player
-		eq.spawn2(45206, 0, 0, -49, 379, -38,256.0);  -- Spawns Guard Helminth
+		eq.spawn2(45206, 0, 0, -49, 379, -38, 128);  -- Spawns Guard Helminth
 		eq.set_global("qeynos_badge4","2",5,"F"); -- Badge Globals
 	end
 	item_lib.return_items(e.self, e.other, e.trade)

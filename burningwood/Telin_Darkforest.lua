@@ -38,7 +38,7 @@ function event_trade(e)
 		elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 20481})) then -- Refined Ancient Sword
 			e.self:Emote("smiles slowly. 'Now that's fine work, " .. e.other:GetName() .. ". Just a moment, we have a friend here who can enchant one of the blades. Give her the blade that the ancient smithed.'");
 			e.other:QuestReward(e.self,0,0,0,0,20481,100); -- Refined Ancient Sword
-			eq.spawn2(54237,0,0,2852,3239,-155,219.0); -- Faelin Bloodbriar
+			eq.spawn2(54237,0,0,2852,3239,-155,109.5); -- Faelin Bloodbriar
 		end
 	end
 	item_lib.return_items(e.self, e.other, e.trade);

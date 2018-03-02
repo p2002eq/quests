@@ -28,9 +28,9 @@ function event_trade(e)
         e.other:Faction(96,-5); -- Eye of Seru
         e.other:Faction(138,-5); -- Hand Legionnaries
         e.other:QuestReward(e.self,0,0,0,0,7779,10000); -- Shade Summoning Figurine (#2)
-        eq.spawn2(160485,0,0,-75,-807,8,328.0); -- #Theurgus_Ajeea_Polaja
-        eq.spawn2(160483,0,0,-120,-808,8,176.0); -- #Praecantor_Sels_Dawneyes
-        eq.spawn2(160.0484,0,0,-97,-858,8,0); -- #Incantator_Jak_Masric
+        eq.spawn2(160485,0,0,-75,-807,8,164); -- #Theurgus_Ajeea_Polaja
+        eq.spawn2(160483,0,0,-120,-808,8,88); -- #Praecantor_Sels_Dawneyes
+        eq.spawn2(160484,0,0,-97,-858,8,0); -- #Incantator_Jak_Masric
     end
     item_lib.return_items(e.self, e.other, e.trade)
 end

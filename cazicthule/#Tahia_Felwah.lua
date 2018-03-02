@@ -26,7 +26,7 @@ function Talking(e)
 	ThreadManager:Wait(15);
 	eq.zone_emote(1,"An unstable rift glows, and dissipates.");
 	eq.zone_emote(1,"A piercing, disembodied scream echos from deep within the temple. Your body begins to tremble uncontrollably with fear.");
-	eq.unique_spawn(48381,0.0, 0, 587, 1090, -98, 0); -- Avatar of Fear
+	eq.unique_spawn(48381, 0, 0, 587, 1090, -98, 0); -- Avatar of Fear
 	e.self:Say("Prepare youselves! You must repel the denizens of Fear itself! Good luck brave souls, I will remain here until my task is fulfilled.");
 	eq.stop_timer("TMHB");
 end

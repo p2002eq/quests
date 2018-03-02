@@ -21,7 +21,7 @@ function event_trade(e)
 			started = 1;
 			e.self:Emote("looks at the coin and nods gravely at you as she slips it into a fold of her clothing. 'I see. The story of this coin speaks much to me as do the words you have given me. Telin sent word that you would arrive. The tidings you bring are ill indeed. Here, take this amulet and find Sionae. She is nearby. We will speak more on this matter when all are present.'");
 			e.other:SummonItem(20450); -- Braided Grass Amulet
-			eq.spawn2(15178,0,0,-1595,-2595,4,254.0);	-- Sionae
+			eq.spawn2(15178,0,0,-1595,-2595,4,127);	-- Sionae
 			-- extra safety. If these guys aren't up... somehow... they'll get repopped
 			if (not eq.get_entity_list():IsMobSpawnedByNpcTypeID(15042)) then eq.get_entity_list():GetSpawnByID(329482):Repop(); end -- Fang
 			if (not eq.get_entity_list():IsMobSpawnedByNpcTypeID(15043)) then eq.get_entity_list():GetSpawnByID(329483):Repop(); end -- Tholris
@@ -59,9 +59,9 @@ function event_timer(e)
 		eq.stop_timer("attack");
 		e.self:Emote("snaps her head towards you. 'Innoruuk's brood is upon us. Go, find the spawn of hatred before they reach this point and destroy them!");
 		local althele = eq.get_entity_list():GetMobByNpcTypeID(15044); -- Althele
-		eq.spawn2(15153,0,0,-996,-1529,354,260.0, 1); -- Dark Elf Corruptor
-		eq.spawn2(15150,0,0,-1090,-1529,355.4,260.0, 1); -- Dark Elf Reaver
-		eq.spawn2(15150,0,0,-1063,-1490,367.5,260.0, 1); -- Dark Elf Reaver
+		eq.spawn2(15153,0,0,-996,-1529,354,130):AddToHateList(althele, 1); -- Dark Elf Corruptor
+		eq.spawn2(15150,0,0,-1090,-1529,355.4,130):AddToHateList(althele, 1); -- Dark Elf Reaver
+		eq.spawn2(15150,0,0,-1063,-1490,367.5,130):AddToHateList(althele, 1); -- Dark Elf Reaver
 	elseif(e.timer == "depop") then -- something might have gone wrong resetting the druids after 10 minutes
 		eq.stop_timer("depop");
 		reset_Event();

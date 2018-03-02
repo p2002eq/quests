@@ -8,7 +8,7 @@ function event_say(e)
 	elseif(e.message:findi("ready")) then
 		if(e.other:GetFaction(e.self) == 1) then
 			e.self:Say("Very well.");
-			e.other:MovePC(108,-1163.2,-1047.9,283.0,255.6);
+			e.other:MovePC(108,-1163.2,-1047.9,283.0,127.8);
 		else -- less than ally faction
 			e.self:Say("You still need to prove your loyalty to us. I do not feel we can trust you yet, outlander.");
 		end

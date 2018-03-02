@@ -4,7 +4,7 @@ function event_trade(e)
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 10631})) then
 		e.self:Say("You have no idea what it is like to be trapped in this place. Take your precious little stone and leave this place.");
 		e.other:QuestReward(e.self,0,0,0,0,10618);
-		eq.spawn2(88087,0,0,e.self:GetY(),e.self:GetZ(),e.self:GetHeading()):AddToHateList(e.other,2.0);
+		eq.spawn2(88087,0,0,e.self:GetY(),e.self:GetZ(),e.self:GetHeading()):AddToHateList(e.other,1);
 		eq.depop_with_timer();
 	end
 	item_lib.return_items(e.self, e.other, e.trade)

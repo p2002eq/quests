@@ -28,7 +28,7 @@ function event_waypoint_arrive(e)
         eq.set_timer('adds', math.random(30) * 1000);
 	elseif (e.wp == 67 and tracker == 4) then     -- BOSS
 		tracker = 5;
-        local boss = eq.spawn2(48377,0.0, 0, e.self:GetX()+5, e.self:GetY()+5, e.self:GetZ(), 0); -- a Thul Tae Ew Tracker
+        local boss = eq.spawn2(48377, 0, 0, e.self:GetX()+5, e.self:GetY()+5, e.self:GetZ(), 0); -- a Thul Tae Ew Tracker
 		this_spawn:AddToHateList(eq.get_entity_list():GetMobByNpcTypeID(48040), 1); -- Gimlik Cogboggle
 		eq.set_timer('depop', 60 * 60 * 1000, this_spawn); -- 60 Minute
 		e.self:Say("Ack ack ack! Eat them not me!");
@@ -86,7 +86,7 @@ function spawn_adds(e_self)
 		local spawnID = eq.ChooseRandom(48397, 48058, 48058, 48116); -- a Thul Tae Ew hunter (25%), a Tae Ew warrior (50%) or a jungle hunter (25%)
 		local xloc = e_self:GetX() + math.random(-5, 5);
 		local yloc = e_self:GetY() + math.random(-5, 5);
-		local this_spawn = eq.spawn2(spawnID,0.0, 0, xloc, yloc, e_self:GetZ(), 0);
+		local this_spawn = eq.spawn2(spawnID, 0, 0, xloc, yloc, e_self:GetZ(), 0);
 		this_spawn:AddToHateList(gnome, 1);
 		eq.set_timer('depop', 60 * 60 * 1000, this_spawn); -- 60 Minutes
 	end

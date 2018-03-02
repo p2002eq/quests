@@ -8,7 +8,7 @@ function event_spawn(e)
     -- spawn casters
     for _, locs in pairs(spawn_locs) do
         local mob = eq.ChooseRandom(unpack(casters));
-        eq.spawn2(mob, 0, 0, locs[1], locs[2], locs[3],0.0)
+        eq.spawn2(mob, 0, 0, locs[1], locs[2], locs[3], locs[4])
     end
     -- set monitoring timer
     eq.set_timer('mob_check', 30 * 1000);

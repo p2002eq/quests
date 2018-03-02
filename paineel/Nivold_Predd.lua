@@ -19,7 +19,7 @@ function event_trade(e)
 		e.other:Faction(56,-400,0);
 		e.other:Faction(60,-400,0);
 		e.other:QuestReward(e.self,math.random(9),math.random(9),math.random(9),math.random(9),14105,5000);
-		eq.unique_spawn(75194,0,0,474,1230,-37,256.0); -- spawn avatar of dread
+		eq.unique_spawn(75194,0,0,474,1230,-37,128); -- spawn avatar of dread
 	end
 	item_lib.return_items(e.self, e.other, e.trade, false);
 	e.self:Say("I require all four reagents, anything less is useless. Incompetence will get you nowhere amongst the faithful of Cazic-Thule!");

@@ -35,7 +35,7 @@ function event_signal(e)
 	if e.signal == 1 then
 		flag_counter = 0;
 		tactics_flag = true;
-		e.self:GMMove(1115,-3,3.2,384.0,true);
+		e.self:GMMove(1115,-3,3.2,192,true);
 		e.self:SetRunning(true);
 		e.self:CastToNPC():MoveTo(1005, 0, 3.2, 65, true);
 		e.self:Shout("Quickly! Come see me!");

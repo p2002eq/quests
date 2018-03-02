@@ -12,7 +12,7 @@ function event_trade(e)
 		e.other:Faction(91,-1);
 		e.other:Faction(115,-1);
 		e.other:Faction(76,-1);
-		eq.unique_spawn(63111,0.0,0,60,622,20,0); -- spawns Khrixs Abomination
+		eq.unique_spawn(63111,0,0,60,622,20,0); -- spawns Khrixs Abomination
 		e.other:AddEXP(1000);
 	end
 	item_lib.return_items(e.self, e.other, e.trade)

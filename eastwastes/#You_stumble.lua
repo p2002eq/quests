@@ -19,7 +19,7 @@ function event_enter(e)
 		e.self:Emote("in the snow.");
 	else 
 		e.self:Emote("and uncover the body of an injured coldain.");
-		eq.spawn2(116601,0.0, 0, myX, myY, myZ, 0); -- Tanik Greskil
+		eq.spawn2(116601, 0, 0, myX, myY, myZ, 0); -- Tanik Greskil
 		eq.depop_with_timer();
 	end
 end

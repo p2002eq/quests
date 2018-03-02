@@ -4,8 +4,8 @@ end
 
 function start_cycle(e)
 	e.self:Emote("calls for help and scurries off.");
-	eq.spawn2(113626,28,0,1130.3,-933.2,-125.6,253.2);
-	eq.spawn2(113633,29,0,1130.3,-749.6,-125.6,253.2);
+	eq.spawn2(113626,28,0,1130.3,-933.2,-125.6,126.6);
+	eq.spawn2(113633,29,0,1130.3,-749.6,-125.6,126.6);
 	eq.stop_timer("depop");
 	eq.depop();
 end

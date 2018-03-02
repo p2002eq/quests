@@ -112,12 +112,12 @@ function event_timer(e)
 		if roll >= 7 then
 			boss = 154390;		--#High Priest Gakkernog
 			eq.depop_with_timer(154107); --depop grimling_high_priest
-			eq.unique_spawn(boss,0,0,142,-690,2.3,130.0);  --spawn #High Priest Gakkernog
+			eq.unique_spawn(boss,0,0,142,-690,2.3,65);  --spawn #High Priest Gakkernog
 		else
 			boss = 154107;		--#grimling_high_priest
 		end
 			
-		player:MovePCInstance(154, instance_id, 150, -690, 2,384.0);
+		player:MovePCInstance(154, instance_id, 150, -690, 2, 192);
 		player:Message(15,"You have been summoned!");
 		eq.signal(boss,sacrifice);	--signal to hp to aggro the assigned PC sacrifice after summon
 	end

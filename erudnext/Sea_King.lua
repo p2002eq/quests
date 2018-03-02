@@ -33,7 +33,7 @@ function event_waypoint_arrive(e)
 		);
 		eq.get_entity_list():ForeachClient(
 			function(ent)
-				ent:MovePC(98,2337,418,-22,-2.0);
+				ent:MovePC(98,2337,418,-22,-1);
 			end,
 			function(ent)
 				if(ent:GetBoatID() == 772 and ent:GetY() > 500) then

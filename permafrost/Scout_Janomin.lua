@@ -15,7 +15,7 @@ function event_trade(e)
 		local spawnz = -38;
 		
 		eq.local_emote({ e.self:GetX(), e.self:GetY(), e.self:GetZ() }, 1, 200, "A large creature growls from deep within its icy lair.")
-		eq.spawn2(7310.07,0,0,spawnx,spawny,spawnz,0); -- The_Icebound_Spirit
+		eq.spawn2(73107,0,0,spawnx,spawny,spawnz,0); -- The_Icebound_Spirit
 
 	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 9036})) then -- Totem of the Ice Bear
 		e.self:Say("Perfect work, " .. e.other:GetName() .. "! I am glad the Elders made such a wise choice in sending you. I must admit, I was rather scared during the exploration of these halls. This lair is quite foul, quite foul indeed! Take this wrapped totem and place it in the case that you were given. Once you have all of the totems, seal the case and make your way back to Shar Vahl. I will work my way back as well. Thank you again.");

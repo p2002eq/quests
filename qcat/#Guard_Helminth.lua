@@ -22,11 +22,11 @@ function event_say(e)
 	elseif(e.message:findi("Vegalys sent me") and tonumber(qglobals.qeynos_badge4) >= 2 ) then
 		e.self:Say("So Vegalys sent you to check on our progress then? I don't believe you. Prove it!");
 	elseif(e.message:findi("ready to complete the mission") and tonumber(qglobals.qeynos_badge4) == 3) then
-		eq.spawn2(4520.08,0,0,-50,328,-38,0); -- #Rotting_Sentry
-		eq.spawn2(45209,0,0,-48,415,-38,254.0); -- #a_necromancer
-		eq.spawn2(45210,0,0,-266,441,-37,128.0); -- #Azibelle_Spavin
+		eq.spawn2(45208,0,0,-50,328,-38,0); -- #Rotting_Sentry
+		eq.spawn2(45209,0,0,-48,415,-38,127); -- #a_necromancer
+		eq.spawn2(45210,0,0,-266,441,-37,64); -- #Azibelle_Spavin
 		eq.depop();  -- #Guard_Helminth
-		eq.spawn2(45207,0,0,-49,379,-38,256.0); -- #Corrupt_Guard_Helminth		
+		eq.spawn2(45207,0,0,-49,379,-38,128); -- #Corrupt_Guard_Helminth		
 	end
 end
 

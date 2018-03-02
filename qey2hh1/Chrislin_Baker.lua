@@ -18,7 +18,7 @@ function event_trade(e)
 		e.other:SummonItem(12100);
 		e.other:Ding();
 		eq.depop_all(12001);
-		eq.spawn2(12001,0,0,-11570,878,14,270.0);
+		eq.spawn2(12001,0,0,-11570,878,14,135);
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end

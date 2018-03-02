@@ -74,13 +74,13 @@ function event_waypoint_arrive(e)
 	if(e.wp == 1) then
 		eq.pause(5*60*1000);
 		e.self:Say("Theodore Exanthem by order of the Council of Qeynos and his lordship Antonius Bayle, I order you to come out of there immediately!");
-		eq.unique_spawn(14146,0,0,-2680,-5465,0,384.0); -- #Theodore_Exanthem
+		eq.unique_spawn(14146,0,0,-2680,-5465,0,192); -- #Theodore_Exanthem
 	elseif(e.wp == 3) then
-		eq.unique_spawn(14147,0,0,-356.07,-6040,0,28); -- #Morley_Murrain
-		eq.unique_spawn(14127,0,0,-3280,-6050,0,62.0); -- #Markus_Cachexia
-		eq.spawn2(14140,0,0,-3285,-6075,0,156.0); -- skeletal_servant
-		eq.spawn2(14140.0,0,0,-3333,-6055,0,0); -- skeletal_servant
-		eq.spawn2(14148,0,0,-3306,-6056,0,132.0); -- Ghoul
+		eq.unique_spawn(14147,0,0,-3287,-6040,0,28); -- #Morley_Murrain
+		eq.unique_spawn(14127,0,0,-3280,-6050,0,31); -- #Markus_Cachexia
+		eq.spawn2(14140,0,0,-3285,-6075,0,78); -- skeletal_servant
+		eq.spawn2(14140,0,0,-3333,-6055,0,0); -- skeletal_servant
+		eq.spawn2(14148,0,0,-3306,-6056,0,66); -- Ghoul
 		eq.signal(14146,7,2000); -- #Theodore_Exanthem
 		eq.set_global("qeynos_badge2","4",5,"F"); -- Badge Globals
 	end

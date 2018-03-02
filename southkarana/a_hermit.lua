@@ -15,7 +15,7 @@ function event_say(e)
 		eq.attack(e.other:GetName());
 	elseif(e.message:findi("join the unkempt")) then
 		e.self:Say("Then please wait outside for Master Jale Phlintoes. He will be arriving soon.");
-		eq.unique_spawn(14172, 10.09, 0, -3723, -5561, 0,0);
+		eq.unique_spawn(14172, 109, 0, -3723, -5561, 0,0);
 	end
 end
 

@@ -10,9 +10,9 @@ function event_say(e)
 	if(qglobals["FennKaedrick"] == "1") then
 		if( e.message:findi("xentil herkanon")) then
 			e.self:Say("Xentil Herkanon is related to one of the bigwigs of the Circle of Unseen Hands, the rogue guild in Qeynos. Killing him would greatly decrease your popularity with them, but who do they like, anyway? He travels with two bodyguards, Lartin and Grex, very tough customers. It's best to avoid them. Goodbye and good luck.");
-			eq.unique_spawn(6185, 0, 0, -258, -102, 4,32.0);			--Xentil Herkanon
-			eq.unique_spawn(6186,0.0, 0, -259, -78, 4, 0); 			--Lartin
-			eq.unique_spawn(6187,0.0, 0, -240, -78, 4, 0); 			--Grex
+			eq.unique_spawn(6185, 0, 0, -258, -102, 4, 16);			--Xentil Herkanon
+			eq.unique_spawn(6186, 0, 0, -259, -78, 4, 0); 			--Lartin
+			eq.unique_spawn(6187, 0, 0, -240, -78, 4, 0); 			--Grex
 			eq.delete_global("FennKaedrick");
 			eq.stop_timer("depop");
 			eq.depop();

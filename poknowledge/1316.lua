@@ -21,7 +21,7 @@ function event_say(e)
 				table.insert(players,e.other:GetName());
 				eq.assign_to_instance(instanceId);
 			end
-			e.other:MovePCInstance(17, instanceId, -55,127,3,354.0);
+			e.other:MovePCInstance(17, instanceId, -55,127,3, 177);
 		else
 			if (has_value(players,e.other:GetName()) == true) then
 				for i = 0, 29 do
@@ -31,7 +31,7 @@ function event_say(e)
 						end
 					end
 				end		
-				e.other:MovePCInstance(17, instanceId, -55,127,6.0, 177);
+				e.other:MovePCInstance(17, instanceId, -55,127,3, 177);
 			else
 				e.self:Say("You are too experienced to join in this event, maybe next time.");
 			end

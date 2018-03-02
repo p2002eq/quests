@@ -14,5 +14,5 @@ function event_timer(e)
 end
 
 function event_death_complete(e)
-	eq.spawn2(113630, 0, 0, 1180, -839, -128,130.0); --Spawns Valorankt Zekkin
+	eq.spawn2(113630, 0, 0, 1180, -839, -128, 65); --Spawns Valorankt Zekkin
 end

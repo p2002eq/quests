@@ -8,7 +8,7 @@ end
 
 function event_proximity_say(e)
     if(e.message:findi('The dain shall be slain for the peace we must obtain')) then
-        eq.unique_spawn(113636, 0, 0, 1125, -839.0, -120.80,140.0);
+        eq.unique_spawn(113636, 0, 0, 1125, -839.0, -120.80, 70);
         eq.depop_with_timer();
     end
 end

@@ -44,7 +44,7 @@ function event_trade(e)
         eq.set_global("qeynos_badge3","1",5,"F"); -- Badge Globals
         e.other:QuestReward(e.self,0,0,0,0,18295,1000); -- Research Briefing
     elseif(tonumber(qglobals.qeynos_badge3) == 1 and item_lib.check_turn_in(e.self, e.trade, {item1 = 18295})) then -- starts event when Research Briefing handed in
-		eq.spawn2(spawner,0.0,0,-225,-236,3,0)  -- spawns game control NPC script
+		eq.spawn2(spawner,0,0,-225,-236,3,0)  -- spawns game control NPC script
 		e.self:Say("Well done " .. e.other:GetName() .. "!  Now you must recall what you learned in the research briefing to successfully complete the experiment.  Time is of the essence!");
 		eq.set_global("qeynos_badge3","2",5,"F"); -- Badge Globals
 	elseif(jars == 3 and not eq.get_entity_list():IsMobSpawnedByNpcTypeID(2179) and tonumber(qglobals.qeynos_badge3) == 2 and (item_lib.check_turn_in(e.self, e.trade, {item1 = 2587, item2 = 2588 , item3 = 2589}))) then -- many checks to confirm event is a sucess!

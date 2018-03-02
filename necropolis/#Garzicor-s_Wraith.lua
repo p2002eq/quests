@@ -11,7 +11,7 @@ function event_timer(e)
 end
 
 function event_death(e)
-	eq.unique_spawn(123253,0,0,975,1521,-141,384.0)
+	eq.unique_spawn(123253,0,0,975,1521,-141,192);	--spawns Garzicor`s Shade (V1)
 end
 
 function event_trade(e)

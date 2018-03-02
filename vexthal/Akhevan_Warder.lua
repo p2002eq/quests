@@ -24,7 +24,7 @@ function BanishPlayer(e)
 	
 	if not target:GetGM() then
 		eq.target_global("vt_banished", "1", "D30", 0, target:CharacterID(), 158);	--exploiter/dumbass tracker
-		target:MovePCInstance(zone_id, instance_id, 596,0,5,256.0);	--Outside Blob 1's room
+		target:MovePCInstance(zone_id, instance_id, 596,0,5,128);	--Outside Blob 1's room
 		target:Message(7,"Shadows gather about your body and transport you.")
 		e.self:WipeHateList();
 	end

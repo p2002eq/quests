@@ -35,7 +35,7 @@ function event_trade(e)
 	elseif (officer and item_lib.check_turn_in(e.self, e.trade, {item1 = 4377})) then 	-- Grimling Officer's Eye
 		e.self:Say("Excellent! Completing a raid upon this encampment is a feat to be proud of. May this medal dispell all doubt that you have indeed accomplished this feat. I advise you to leave now, as this area will surely be taken over by the enemy at any moment.");
 		e.other:QuestReward(e.other,0,0,0,0,4378,5000);  -- Gold Lined Copper Medal of War
-		--eq.spawn2(167201, 0, 0, -1127, -598, 9,259.0);	--repop scout
+		--eq.spawn2(167201, 0, 0, -1127, -598, 9, 129.5);	--repop scout
 		eq.get_entity_list():GetSpawnByID(334760):Repop(5);	--repop scout
 		eq.depop();
 	end

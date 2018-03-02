@@ -31,17 +31,17 @@ function spawn_event()
 	local spawnInvaders = math.random(2, 3);
 	
 	--locs made up
-	eq.spawn2(116600, 0, 0, -650, -2744, 180,90.0); -- Scarbrow Ga`Hruk
+	eq.spawn2(116600, 0, 0, -650, -2744, 180, 45); -- Scarbrow Ga`Hruk
 
-	eq.spawn2(116586, 0, 0, -654, -2723, 180,90.0); -- a Ry`Gorr invader
-	eq.spawn2(116586, 0, 0, -643, -2768, 180,90.0); -- a Ry`Gorr invader
+	eq.spawn2(116586, 0, 0, -654, -2723, 180, 45); -- a Ry`Gorr invader
+	eq.spawn2(116586, 0, 0, -643, -2768, 180, 45); -- a Ry`Gorr invader
 	if (spawnInvaders == 3) then
-		eq.spawn2(116586, 0, 0, -658, -2760, 175,90.0); -- a Ry`Gorr invader
+		eq.spawn2(116586, 0, 0, -658, -2760, 175, 45); -- a Ry`Gorr invader
 	end
 
-	eq.spawn2(116587, 0, 0, -681, -2739, 180,90.0); -- a Ry`Gorr oracle
-	eq.spawn2(116587, 0, 0, -673, -2766, 180,90.0); -- a Ry`Gorr oracle
+	eq.spawn2(116587, 0, 0, -681, -2739, 180, 45); -- a Ry`Gorr oracle
+	eq.spawn2(116587, 0, 0, -673, -2766, 180, 45); -- a Ry`Gorr oracle
 	if (spawnOracles == 3) then
-		eq.spawn2(116587, 0, 0, -665, -2734, 180,90.0); -- a Ry`Gorr oracle
+		eq.spawn2(116587, 0, 0, -665, -2734, 180, 45); -- a Ry`Gorr oracle
 	end
 end

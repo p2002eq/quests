@@ -14,5 +14,5 @@ function event_timer(e)
 end
 
 function event_death_complete(e)
-	eq.spawn2(113634,29,0,1130.3,-749.6,-125.6,253.2);  --Spawns Zirron Windchill
+	eq.spawn2(113634,29,0,1130.3,-749.6,-125.6,126.6);  --Spawns Zirron Windchill
 end

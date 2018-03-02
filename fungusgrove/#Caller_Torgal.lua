@@ -106,7 +106,7 @@ function spawn_waves(caller)
 		elseif mob_picker <= 1000 then
 			mob = 157128; -- Tuchako
 		end
-		local newmob = eq.spawn2(mob,0.0, 0, locs[1], locs[2], locs[3], 0);
+		local newmob = eq.spawn2(mob, 0, 0, locs[1], locs[2], locs[3], 0);
 		newmob:CastToNPC():MoveTo(-1364, 596, -333, 0, true);
 		eq.set_timer('depop', 30 * 60 * 1000, newmob);
 	end

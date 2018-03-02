@@ -49,20 +49,20 @@ function event_encounter_load(e)
 		eq.register_player_event("bbevent", Event.death, PlayerDeath);
 		eq.register_npc_event("bbevent", Event.enter, zoneNpc, ZoneLine);
 		eq.repop_zone();
-		eq.spawn2(zoneNpc, 0, 0, 25, -163, 25,126.0);	-- wall for zone outs
-		eq.spawn2(chunky, 0, 0, -30,128, 3,378.0);
-		eq.spawn2(zoneNpc, 0, 0, -340, 48, 3,126.0);
+		eq.spawn2(zoneNpc, 0, 0, 25, -163, 25, 63);	-- wall for zone outs
+		eq.spawn2(chunky, 0, 0, -30,128, 3, 189);
+		eq.spawn2(zoneNpc, 0, 0, -340, 48, 3, 63);
 	end
 end
 
 function ZoneLine(e)
-	e.other:MovePCInstance(17,instanceId,-55,127,3,100.0);
+	e.other:MovePCInstance(17,instanceId,-55,127,3,50);
 	e.other:Message(15,"You will never leave this place!");
 end
 
 
 function PlayerDeath(e)
-	e.other:MovePCInstance(17, instanceId, -55,127,3,100.0);
+	e.other:MovePCInstance(17, instanceId, -55,127,3, 50);
 	wipeAggro(e.self);
 	e.self:SpellFinished(756,e.self);
 	return -1
@@ -180,7 +180,7 @@ function AllDeath(e)
 		end
 		if (enragedCnt > 49 and chiefCnt > 39 and warlordCnt > 19 and king_spawned == false) then
 --		if (enragedCnt > 10 and chiefCnt > 10 and warlordCnt > 10 and king_spawned == false) then
-			eq.spawn2(king, 0, 0, 132, 200, -56,380.0);	
+			eq.spawn2(king, 0, 0, 132, 200, -56, 190);	
 			local player_list = eq.get_entity_list():GetClientList();
 			if(player_list ~= nil) then
 				for player in player_list.entries do

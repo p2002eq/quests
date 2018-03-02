@@ -14,7 +14,7 @@ function event_trade(e)
 		if(item_lib.check_turn_in(e.self, e.trade, {item1 = 28044})) then -- 28044 :  Lord Bergurgle's Crown
 			e.self:Emote("shoves the crown into a scorch marked leather satchel and cackles uncontrollably as madness twists his features and flames dance in his eyes. 'You, " .. e.other:GetName() .. ", have reduced the Riptides into chaos! Without a king to keep them in control they will ravage the settlements surrounding this lake! After the slaughter I shall return and easily burn the remainder of the villages and fishing shanties to the ground! None shall escape the fires of the Tyrant!!'");
 			e.other:QuestReward(e.self,0,0,0,0,28045); -- Oil of Fennin Ro
-			eq.unique_spawn(51138,32,0,160,3630.3,51,384.8);
+			eq.unique_spawn(51138,32,0,160,3630.3,51,192.4);
 			player = e.other;
 		end
 	end

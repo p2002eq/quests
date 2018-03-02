@@ -109,7 +109,7 @@ end
 
 function spawnTiles(game)
 	for key,tiles in pairs(game) do
-		local mob = eq.spawn2(tiles[1], 0, 0, tiles[2], tiles[3], tiles[4],0.0);
+		local mob = eq.spawn2(tiles[1], 0, 0, tiles[2], tiles[3], tiles[4], tiles[5]);
 		if (tiles[1] == 2177) then
 			mob:TempName("tile " .. key);	--assign empty tile names based on location
 		end

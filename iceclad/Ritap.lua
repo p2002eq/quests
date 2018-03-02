@@ -5,7 +5,7 @@ function event_say(e)
         if (npc) then
             eq.signal(110052,1,4000);
         else
-            eq.spawn2(110052, 0, 0, 2209, 4716, -33,218.0);
+            eq.spawn2(110052, 0, 0, 2209, 4716, -33, 109);
             eq.signal(110052,1,4000);
         end
     elseif(e.message:findi("What tinkered rope?")) then

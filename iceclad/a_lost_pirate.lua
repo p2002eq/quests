@@ -31,7 +31,7 @@ function event_trade(e)
 		e.self:Emote("grins widely and slaps you on the arm.");
 		e.self:Say("Har har! You're crazier than I am. And since I know that I must not be that crazy after all. Ahh, I haven't felt this good in ages..' He shuffles the pieces and jots down a few notes here and there. 'There, now it's really finished. Let's get us outta here. Hold this fer me.");
 		e.other:QuestReward(e.self,0,0,0,0,30047,50000);
-		eq.spawn2(110226,0,0,1002,6354,-32.09,130.0,1); --spawn the enraged relative on death
+		eq.spawn2(110226,0,0,1002,6354,-32.09,65):AddToHateList(e.other,1); --spawn the enraged relative on death
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end

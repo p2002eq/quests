@@ -57,7 +57,7 @@ end
 function event_timer(e)
 	if e.timer == "loc" and e.self:GetX() == -720 and e.self:GetY() == 1500 and not eq.get_entity_list():IsMobSpawnedByNpcTypeID(206067) then
 		e.self:Emote("places the power unit right into the chest of the huge metallic beast.  It roars to life, steam pouring out of its gaping metallic maw.  Suddenly, it attacks! Nitram screams, 'Malfunction!  There is an error in its recognization process!  Help me to stop it before it destroys us all!'");
-		eq.unique_spawn(206067,0,0,-735,1580,-50,251.6); --real Xanamech
+		eq.unique_spawn(206067,0,0,-735,1580,-50,125.8); --real Xanamech
 		eq.depop(206068); --fake Xanamech
 		eq.stop_timer(e.timer);
 		eq.set_timer("win_check",2*1000);
@@ -78,7 +78,7 @@ function event_timer(e)
 			eq.depop(206067);	--depop real Xanamech
 		end
 		if not eq.get_entity_list():IsMobSpawnedByNpcTypeID(206068) then
-			eq.unique_spawn(206068,0,0,-735,1580,-50,251.6); --fake Xanamech
+			eq.unique_spawn(206068,0,0,-735,1580,-50,125.8); --fake Xanamech
 		end
 	end
 end

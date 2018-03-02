@@ -11,7 +11,7 @@ function event_timer(e)
 end
 
 function event_death(e)
-	eq.unique_spawn(123247,0,0,1095,1511,-135,390.0)
+	eq.unique_spawn(123247,0,0,1095,1511,-135,195);	--spawns Garzicor's Wraith (Final Quest boss)
 end
 
 function event_trade(e)

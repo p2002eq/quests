@@ -29,7 +29,7 @@ function event_signal(e)
 		wave_timer = 15;
 		eq.set_timer("main",wave_timer * 1000);  -- 15 seconds for initial wave
 		started = true;
-		eq.spawn2(warder,0,0,208,-84,-7,510.0);  -- spawns grimling warder
+		eq.spawn2(warder,0,0,208,-84,-7,255);  -- spawns grimling warder
 	end
 end
 

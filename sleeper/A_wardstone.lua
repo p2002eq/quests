@@ -16,7 +16,7 @@ function event_timer(e)
 			end
 		else
 			if(not eq.get_entity_list():IsMobSpawnedByNpcTypeID(128094)) then	--if warders are respawned and Sleeper is not up then will respawn Sleeper
-				eq.spawn2(1280.094,0,0,-1499,-2344.8,-1052.8,0);		--respawns The_Sleeper
+				eq.spawn2(128094,0,0,-1499,-2344.8,-1052.8,0);		--respawns The_Sleeper
 			end
 			eq.delete_global(instance_id .. "_sleeper");	--event reset
 		

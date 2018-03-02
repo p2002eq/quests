@@ -14,5 +14,5 @@ function event_timer(e)
 end
 
 function event_death_complete(e)
-	eq.spawn2(113635,28,0,1130.3,-933.2,-125.6,253.6); --Spawns Vinric Thunderclap
+	eq.spawn2(113635,28,0,1130.3,-933.2,-125.6,126.8); --Spawns Vinric Thunderclap
 end

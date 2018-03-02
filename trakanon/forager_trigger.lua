@@ -25,6 +25,6 @@ function event_signal(e)
 			new_mob = eq.ChooseRandom(95149, 95150, 95151, 95152, 95153, 95154, 95155, 95156, 95157, 95158, 95159, 95160, 95161, 95162);
 		end
 		
-		eq.spawn2(new_mob,1,0.0,newx,newy,newz,0);
+		eq.spawn2(new_mob,1,0,newx,newy,newz,0);
     end
 end

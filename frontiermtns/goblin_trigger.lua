@@ -1,7 +1,7 @@
 -- Goblin cycle, involving the Giants, Burynai, and the goblin coward.
 
 function event_spawn(e)
-	--eq.spawn2(950.000,0,0,2832,1667,-375,0);
+	--eq.spawn2(95000,0,0,2832,1667,-375,0);
 	
 end
 
@@ -20,6 +20,6 @@ function event_signal(e)
 	        end
 	        
 	   local getnewmobid = eq.ChooseRandom(92249, 92208, 92209, 92210, 92211, 92212);
-	        eq.spawn2(getnewmobid,0.0,0,newx,newy,newz,0);
+	        eq.spawn2(getnewmobid,0,0,newx,newy,newz,0);
     end
 end

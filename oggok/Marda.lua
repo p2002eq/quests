@@ -5,7 +5,7 @@ function event_say(e)
 		e.self:Say("Well, I suppose your intelligence shall grow. You will have to do. I have a mission for you. First, go and speak with Grevak of the Greenblood Knights. He will have a job for you. After you have performed some manner of service and advanced at least 5 ranks, return to me and ask me about my [" .. eq.say_link("secret mission") .. "].");
 	elseif(e.message:findi("secret mission")) then
 		e.self:Say("I have heard of your advancements. You are a fine addition to Oggok. I require your skill in handling a delicate matter. I want you to run out to the Bouncer's keep near the entrance to Oggok. There, you shall find a froglok named Glib. He will pose no threat to you. He has come on business and I have promised him protection. Tell him the Greenblood shaman sent you. He shall fill you in. Go at once.");
-		eq.unique_spawn(49127,0.0,0,383,-205.3,66.1,0);
+		eq.unique_spawn(49127,0,0,383,-205.3,66.1,0);
 	end
 end
 

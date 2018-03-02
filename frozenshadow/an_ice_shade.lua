@@ -1,5 +1,5 @@
 function event_death_complete(e)
-    eq.unique_spawn(11250.02,0,0,-398,400,22,125); --VhalSera
+    eq.unique_spawn(111252,0,0,-398,400,22,125); --VhalSera
     
    
 end

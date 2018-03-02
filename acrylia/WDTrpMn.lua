@@ -21,8 +21,8 @@ function event_signal(e)
 			SpawnJammers(3,jammer_locs_B);	--initial wave always 3 mobs  
 			eq.set_timer("jammers", 60 * 1000); -- 90 second jammer respawn time
 			eq.set_timer("fail",fail_timer*60*1000)
-			eq.unique_spawn(154154,0,0,315,-277,-6,260.0);  -- Ward of Life
-			eq.unique_spawn(154155,0,0,403,-219,37.06,260.0); -- Ward of death	
+			eq.unique_spawn(154154,0,0,315,-277,-6,260);  -- Ward of Life
+			eq.unique_spawn(154155,0,0,403,-219,37.06,130); -- Ward of death	
 			eq.signal(154404,99); --signals Witchdoctor event spawner to temporarily depop
 			
 	elseif(e.signal == 2) then 		--signaled upon Warder of Life activation
@@ -65,7 +65,7 @@ function WardCheck() --verifies both warders are dead before allowing progress t
 	if life_seal and death_seal then
 		local instance_id = eq.get_zone_instance_id();
 		eq.stop_timer("fail");
-		eq.spawn2(154122,0,0,614.00,-345.00,-23.00,374.0); -- Spawns Arcanist Trigger
+		eq.spawn2(154122,0,0,614.00,-345.00,-23.00,187); -- Spawns Arcanist Trigger
 		eq.set_global(instance_id.. "_IAC_Seal_1","1",3,"H2");
 		eq.depop(154053); -- Spiritist_Andro_Shimi
 		eq.depop(154052); -- Spiritist_Kama_Resan 
@@ -75,8 +75,8 @@ end
 
 function EventSetup()
 	eq.stop_all_timers();
-	eq.unique_spawn(154053,0,0,344, -323.49, -7.94,512.0); -- Spiritist_Andro_Shimi
-	eq.unique_spawn(154052,0,0,344, -232.48, -7.94,512.0); -- Spiritist_Kama_Resan 
+	eq.unique_spawn(154053,0,0,344, -323.49, -7.94,256); -- Spiritist_Andro_Shimi
+	eq.unique_spawn(154052,0,0,344, -232.48, -7.94,256); -- Spiritist_Kama_Resan 
 	for n = 1,8 do
 		eq.spawn2(154344,0,0,unpack(guard_locs[n]));
 	end

@@ -9,6 +9,6 @@ function event_trade(e)
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 12676})) then -- Bixie Berry Pie
 		e.self:Emote("breaks open the crust of the pie.");
 		e.self:Say("Wait! What is this? A device of some kind? It looks kind of like some sort of lockpick. BUGRIN!! Get in here and answer some questions at once!!");
-		eq.spawn2(10.06302,0,0,120,563,4,0); -- Bugrin the Gatherer
+		eq.spawn2(106302,0,0,120,563,4,0); -- Bugrin the Gatherer
 	end
 end

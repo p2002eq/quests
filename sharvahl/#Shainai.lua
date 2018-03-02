@@ -51,19 +51,19 @@ function event_say(e)
 		e.other:QuestReward(e.self,0,0,0,0,4460); -- Shainais Bag
 	end
 	if(((Shainaiwaypoint > 16) and (Shainaiwaypoint < 27)) and (e.message:findi("follow"))) then
-		eq.spawn2(a,29,0.0,401,135,-188,0);
+		eq.spawn2(a,29,0,401,135,-188,0);
 		eq.depop_with_timer();
 	end
 	if(((Shainaiwaypoint > 26) and (Shainaiwaypoint < 32)) and (e.message:findi("follow"))) then
-		eq.spawn2(a,27,0.0,129,169,-248,0);
+		eq.spawn2(a,27,0,129,169,-248,0);
 		eq.depop_with_timer();
 	end
 	if(((Shainaiwaypoint > 31) and (Shainaiwaypoint < 38)) and (e.message:findi("follow"))) then
-		eq.spawn2(a,28,0.0,95,188,-248,0);
+		eq.spawn2(a,28,0,95,188,-248,0);
 		eq.depop_with_timer();
 	end
 	if(((Shainaiwaypoint > 37) and (Shainaiwaypoint < 61)) and (e.message:findi("follow"))) then
-		eq.spawn2(a,30.0,0,-373,190,-236,0);
+		eq.spawn2(a,30,0,-373,190,-236,0);
 		eq.depop_with_timer();
 	end
 end

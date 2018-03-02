@@ -2,8 +2,8 @@
 
 function event_encounter_load(e)
     -- spawn NPCs for rescue
-    eq.spawn2(172192,0.0,0,-377,1268,-28,0); -- Aellana_Barleou
-    eq.spawn2(172193,0.0,0,-366,1254,-28,0); -- Lyrra_Rutledge
+    eq.spawn2(172192,0,0,-377,1268,-28,0); -- Aellana_Barleou
+    eq.spawn2(172193,0,0,-366,1254,-28,0); -- Lyrra_Rutledge
         
 	eq.register_npc_event('Johanius', Event.death_complete, 172004, CheckCamp);
     eq.register_npc_event('Johanius', Event.death_complete, 172020, CheckCamp);

@@ -17,16 +17,16 @@ function event_say(e)
 		elseif (e.message:findi("ready to start")) then
 			if eq.get_entity_list():IsMobSpawnedByNpcTypeID(veterans[1]) then
 				local vet  = eq.get_entity_list():GetNPCByNPCTypeID(veterans[1]);
-				vet:GMMove(-1058, 1075, 11,460.0,true);
+				vet:GMMove(-1058, 1075, 11, 230,true);
 			else
-				eq.spawn2(veterans[1],0,0,-1058, 1075, 11,460.0)
+				eq.spawn2(veterans[1],0,0,-1058, 1075, 11, 230)
 			end
 			for n = 2,4 do
 				eq.depop_all(veterans[n])	--depop other vets if up
 			end
-			eq.spawn2(veterans[2], 0, 0, -1079, 1114, 6,188.0);
-			eq.spawn2(veterans[3], 0, 0, 783, 797, 12,130.0);
-			eq.spawn2(veterans[4], 0, 0, 798, 712, 16,130.0);
+			eq.spawn2(veterans[2], 0, 0, -1079, 1114, 6, 94);
+			eq.spawn2(veterans[3], 0, 0, 783, 797, 12, 65);
+			eq.spawn2(veterans[4], 0, 0, 798, 712, 16, 65);
 			eq.load_encounter("Final_War");
 		elseif (e.message:findi("depop war camps")) then
 			DepopCamp();

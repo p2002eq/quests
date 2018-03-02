@@ -32,7 +32,7 @@ function event_trade(e)
 			e.self:Say("The Dain has been waiting for you, show your shawl to him."); --Text made up
 		else -- Dain is not up
 			e.self:Say("Here comes the Dain! Perhaps you could show your shawl to him now."); --Text made up
-			eq.unique_spawn(129103, 0, 0, 4.0, 690.0, 68.38,256.0);
+			eq.unique_spawn(129103, 0, 0, 4.0, 690.0, 68.38, 128.0);
 		end
 		e.other:SummonItem(8895);
 	end

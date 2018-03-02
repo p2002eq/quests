@@ -4,7 +4,7 @@ function event_say(e)
 	elseif(e.message:findi("element of wind")) then
 		e.self:Say("I will test you then. In this wondrous plane of Sky, find the Crown of Elemental Mastery. Then, search the world below for an Elemental Binder and a cloak fashioned from the feathers of a Pegusus. Return them to me and I shall give you the Element of Wind.");
 	elseif(e.message:findi("see the master")) then
-		eq.unique_spawn(710.040,0,0,604.5,1346.3,-766,0); 	--spawn the master of elements
+		eq.unique_spawn(71040,0,0,604.5,1346.3,-766,0); 	--spawn the master of elements
 	end
 end
 

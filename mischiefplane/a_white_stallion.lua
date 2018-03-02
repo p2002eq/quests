@@ -19,7 +19,7 @@ function event_trade(e)
         e.self:QuestSay(e.other,"Oh wow! A rabbits foot!! Thank you so much. Here take this, I won't need this smelly thing any more.");  
 		e.other:QuestReward(e.self,0,0,0,0,24869,100);  --  Crest of the Unicorns
 		eq.depop_with_timer();
-		eq.spawn2(126612,0,0,-1013,509,110.97,198.0);
+		eq.spawn2(126612,0,0,-1013,509,110.97,99);
     end
 
     item_lib.return_items(e.self, e.other, e.trade)

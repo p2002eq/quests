@@ -14,7 +14,7 @@ function event_trade(e)
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 18051, item2 = 17031})) then
 		e.self:Say("The tome! I can finally pass on in peace. Before I go I will tell you that Zhaoku rests to the east of here near Old Sebilis. He is gigantic and not easily missed.");
 		e.self:Emote("Crusader Vragor vanishes into a mist, his sigh of relief the only thing left behind.");
-		eq.spawn2(95188,0,0,-1801,-2260,-365,76.0);
+		eq.spawn2(95188,0,0,-1801,-2260,-365,38);
 		e.other:QuestReward(e.self,0,0,0,0,0,20000);
 		e.other:Faction(317,20);
 		e.other:Faction(193,10);

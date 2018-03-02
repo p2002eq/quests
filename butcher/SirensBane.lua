@@ -15,7 +15,7 @@ function event_waypoint_arrive(e)
 		eq.spawn_condition("butcher",0,2,0);
 		eq.get_entity_list():ForeachClient(
 			function(ent)
-				ent:MovePC(69,10.0944,1236,-20,0);
+				ent:MovePC(69,10944,1236,-20,0);
 			end,
 			function(ent)
 				if(ent:GetBoatID() == 771) then

@@ -4,7 +4,7 @@ function event_spawn(e)
 end
 
 function event_death_complete(e)
-	eq.spawn2(90191,0,0,28.1,1.4,7,385.0); -- Marl Kastane
+	eq.spawn2(90191,0,0,28.1,1.4,7,192.5); -- Marl Kastane
 end
 
 function event_trade(e)
