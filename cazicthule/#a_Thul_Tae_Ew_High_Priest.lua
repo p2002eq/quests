@@ -20,9 +20,9 @@ function event_timer(e)
 		if e.self:IsEngaged() then
 			local ents = eq.get_entity_list()
 			if not ents:IsMobSpawnedByNpcTypeID(48378) and not ents:IsMobSpawnedByNpcTypeID(48379) and not ents:IsMobSpawnedByNpcTypeID(48380) then -- Guard Khataruss, Guard Scithiss and Guard Thrasciss
-				eq.unique_spawn(48378,0,0,642,1101,-92,135):Emote("attacks with eerie speed!"); -- Guard Khataruss
-				eq.unique_spawn(48379,0,0,585,1146,-92,126):Emote("attacks with eerie speed!"); -- Guard Scithiss
-				eq.unique_spawn(48380,0,0,537,1103,-92,125):Emote("attacks with eerie speed!"); -- Guard Thrasciss
+				eq.unique_spawn(48378,0,0,642,1101,-92,270):Emote("attacks with eerie speed!"); -- Guard Khataruss
+				eq.unique_spawn(48379,0,0,585,1146,-92,252):Emote("attacks with eerie speed!"); -- Guard Scithiss
+				eq.unique_spawn(48380,0,0,537,1103,-92,250):Emote("attacks with eerie speed!"); -- Guard Thrasciss
 			end
 		else
 			eq.depop(48378); -- Guard Khataruss

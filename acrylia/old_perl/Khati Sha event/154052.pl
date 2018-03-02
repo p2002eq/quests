@@ -30,7 +30,7 @@ if($text=~/casting/i) {
 if($text=~/ready/i){ # ready for you to begin your spell
 	quest::emote("begins to chant.");
 	quest::signalwith(154130,1,0);
-	quest::spawn2(154156,0,0,342.75,-232.48,-7.94,187); # Spawn Spiritist V2 
+	quest::spawn2(154156,0,0,342.75,-232.48,-7.94,374); # Spawn Spiritist V2 
 	quest::depop();
 	}
 }

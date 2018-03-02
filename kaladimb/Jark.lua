@@ -7,7 +7,7 @@ function event_say(e)
 		e.self:Say("Huh? Oh, I struck me some silver. Ain't gonna make me rich but it'll sure pay for me minin' costs. Speakin of, that wife o' mine was supposed ta bring me food already. Hey, you, wanna go get me my [" .. eq.say_link("dinner") .. "]? I ain't got nothing ta pay ya with but I sure would appreciate it.");
 	elseif(e.message:findi("dinner")) then
 		e.self:Say("Har, I know you were a good sort. Nella has it. She's out there somewhere in the lower areas. She likes to visit the temple, so maybe she's there. Just tell 'er Jark sent ya and she'll prolly have everythin' ready fer me.");
-		eq.spawn2(67090,0,0,178.5,708.9,3.4,194.2); --spawn Nella Stonebraids
+		eq.spawn2(67090,0,0,178.5,708.9,3.4,388.4); --spawn Nella Stonebraids
 	end
 end
 

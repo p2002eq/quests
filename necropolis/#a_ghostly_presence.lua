@@ -16,7 +16,7 @@ function event_trade(e)
 	--Quest Trade Dialog to spawn Garzicor's Corpse
 	if (qglobals["garzicor"] == "7") then	--check to verify previous portions have been complete
 		if(item_lib.check_turn_in(e.self, e.trade, {item1 = 2063})) then	--Check for Vial of Kromzek Blood
-			eq.unique_spawn(123255,0,0,1095,1511,-135,195);		--spawns Garzicor's Corpse
+			eq.unique_spawn(123255,0,0,1095,1511,-135,390);		--spawns Garzicor's Corpse
 			eq.set_timer("depop",1);	--depop ghostly presence
 		end
 	end

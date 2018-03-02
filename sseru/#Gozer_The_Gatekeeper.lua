@@ -38,7 +38,7 @@ function event_say(e)
             else
                 eq.assign_to_instance(tonumber(instanceId));
             end
-            e.other:MovePCInstance(159, tonumber(instanceId), -205, -301, 57, 228);
+            e.other:MovePCInstance(159, tonumber(instanceId), -205, -301, 57, 456); -- needs_heading_validation
         else
             e.other:Message(13,"There is no instance available in this zone for your guild,");
         end
@@ -166,7 +166,7 @@ function scan_for_out_of_prox()
       if (moveMe) then
         eq.zone_emote(4, player:GetCleanName() .. " is out of bounds moving... x:" .. x .. " y: " .. y);
         local instanceId = eq.get_zone_instance_id();
-        player:MovePCInstance(159, tonumber(instanceId), -205, -301, 57, 228);
+        player:MovePCInstance(159, tonumber(instanceId), -205, -301, 57, 456); -- needs_heading_validation
       end
     end
   end

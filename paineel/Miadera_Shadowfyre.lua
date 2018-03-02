@@ -17,7 +17,7 @@ function event_trade(e)
 		e.other:Faction(56,-400,0);
 		e.other:Faction(60,-400,0);
 		e.other:QuestReward(e.self,math.random(9),math.random(9),math.random(9),math.random(9),14106,5000); --Mundane Mask
-		eq.unique_spawn(75195,0,0,421,1182,-37,128); -- spawn avatar of terror
+		eq.unique_spawn(75195,0,0,421,1182,-37,256); -- spawn avatar of terror
 	end
 	item_lib.return_items(e.self, e.other, e.trade, false);
 	e.self:Say("I require all four reagents, anything less is useless. Incompetence will get you nowhere amongst the faithful of Cazic-Thule!");

@@ -84,7 +84,7 @@ function SheiCombat(e)
 end
 
 function FakeSheiDeath(e)
-	eq.unique_spawn(179032, 0, 0, -1736, 1082, 22.6, 64);
+	eq.unique_spawn(179032, 0, 0, -1736, 1082, 22.6, 128);
 	eq.set_timer("shei_despawn_full", 60 * 60 * 1000); -- 1 hour total uptime
 end
 

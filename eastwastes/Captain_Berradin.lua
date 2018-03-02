@@ -24,6 +24,6 @@ function event_timer(e)
 	elseif (e.timer == "4") then
 	    eq.depop_with_timer();
 		--eq.spawn2(116605, 0, 0, e.self:GetX(), e.self:GetY(), e.sef:GetZ(), e.self:GetHeading());
-		eq.spawn2(116605, 0, 0, 2365.00, -58.80, 150.65, 130.0); -- Captain Berradin
+		eq.spawn2(116605, 0, 0, 2365.00, -58.80, 150.65, 260); -- Captain Berradin
 	end
 end

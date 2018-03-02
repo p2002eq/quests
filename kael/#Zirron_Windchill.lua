@@ -14,5 +14,5 @@ function event_timer(e)
 end
 
 function event_death_complete(e)
-	eq.spawn2(113624,0,0,1180,-839,-125.50, 60); --Spawns Khalerogg Dorfenbane
+	eq.spawn2(113624,0,0,1180,-839,-125.50, 120); --Spawns Khalerogg Dorfenbane
 end

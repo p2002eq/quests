@@ -20,7 +20,7 @@ sub EVENT_SIGNAL {
 
 sub EVENT_TIMER {
   if ($timer eq "repopscream") {
-    quest::spawn2(176087,0,0,231,-74,-30.1,146);
+    quest::spawn2(176087,0,0,231,-74,-30.1,292);
     quest::stoptimer("repopscream");
   }
 }

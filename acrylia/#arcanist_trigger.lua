@@ -74,8 +74,8 @@ function event_signal(e)
 				eq.signal(154151,1)	 --signals True Arcanist (if correct scenario chosen otherwise he will not be up)
 				eq.set_global(instance_id.. "_IAC_Seal_2","1",3,"H2");	--sets flag on 4 panel door to advance
 				eq.zone_emote(1,"The caverns rumble and shake violently as the third protective seal is broken. Khati Sha shouts, 'Who dares break the seals and defile the inner sanctum?! Come forth so that I may crush you!'");
-				eq.spawn2(154059,0,0,684,-379,-23,192);
-				eq.spawn2(154059,0,0,684,-369,-23,192);
+				eq.spawn2(154059,0,0,684,-379,-23,384);
+				eq.spawn2(154059,0,0,684,-369,-23,384);
 				eq.signal(154138,30);  --signal Khati`Sha to Activate (become targetable)
 			elseif boss then --false arcanist dialogue
 				eq.zone_emote(13,"Despite the Arcanist's warning, the halls beyond the sealed door remain silent and empty. Khati Sha has no interest in holding audience with you on this day...");

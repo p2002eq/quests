@@ -10,7 +10,7 @@ sub EVENT_SIGNAL {
     $doomshade += 1;
     if ($doomshade == 4) {
       quest::shout("echoes throughout the plains as a tormented spirit is released upon the land.");
-      quest::spawn2(176088,0,0,120,-297.5,5,63.5);
+      quest::spawn2(176088,0,0,120,-297.5,5,127);
       quest::depop_withtimer();
     }
   }

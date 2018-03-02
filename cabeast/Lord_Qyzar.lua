@@ -12,7 +12,7 @@ function event_say(e)
 		e.self:Say("If you can find the knight in Chalp and have him hand you the Chalp diagram, you shall become a zealot and wield a zealot khukri. All I need are the Chalp diagram and your knight khukri.");
 	elseif(e.message:findi("matter of betrayal")) then
 		e.self:Say("One of our agents, a hero by the name of Goxnok, has found evidence that the book entitled 'Charasis' has been taken from this temple and is to be delivered to an unknown foe in the Outlands. Go at once to the lower levels of the temple and greet Goxnok. Hurry, before he departs!");
-		eq.spawn2(106301,0,0,-113,1000,-23.9,30); -- an Iksar crusader
+		eq.spawn2(106301,0,0,-113,1000,-23.9,60); -- an Iksar crusader
 	elseif(e.message:findi("visceral dagger")) then
 		e.self:Say("The visceral dagger was an ancient torturing weapon. I do not know much of it other than that it was forged by a member of the Brood of Kotiz, but that was ages ago. He is surely dust by now.");
 	end

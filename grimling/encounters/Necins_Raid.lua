@@ -99,7 +99,7 @@ function spawn_mob1(NPCID, loc)	--mob spawns at camp 1
 	
 	mobz = eq.spawn2(NPCID,0,0,xloc[loc] ,yloc[loc] ,zloc[loc],hloc[loc]);
 	mobz:SetRunning(true);
-	mobz:CastToNPC():MoveTo(pathing_target[1][1] + math.random(-10,10), pathing_target[1][2] + math.random(-10,10), pathing_target[1][3], -1, true)  --x,y,z,h
+	mobz:CastToNPC():MoveTo(pathing_target[1][1] + math.random(-10,10), pathing_target[1][2] + math.random(-10,10), pathing_target[1][3], -2, true)  --x,y,z,h
 end
 
 function spawn_mob2(NPCID, loc)	--mob spawns at camp 2
@@ -110,7 +110,7 @@ function spawn_mob2(NPCID, loc)	--mob spawns at camp 2
 	
 	mobz = eq.spawn2(NPCID,0,0,xloc[loc] ,yloc[loc] ,zloc[loc],hloc[loc]);
 	mobz:SetRunning(true);
-	mobz:CastToNPC():MoveTo(pathing_target[2][1]+math.random(-10,10), pathing_target[2][2]+math.random(-10,10), pathing_target[2][3], -1, true)  --x,y,z,h
+	mobz:CastToNPC():MoveTo(pathing_target[2][1]+math.random(-10,10), pathing_target[2][2]+math.random(-10,10), pathing_target[2][3], -2, true)  --x,y,z,h
 end
 
 --Re-enables camp spawnpoints and respawns camp based on event success or failure
