@@ -404,10 +404,10 @@ function GroupSpawn(num)
 	if num == 0 then
 		-- west spears
 		--spawn_Mobs(118341, 569, -2447, -86.4, 841, -1776, -33, 194, 12, 0);  old locs - needed to adjust zlocs for spearmen
-		spawn_Mobs(118341, 569, -2447, -76.4, 841, -1776, -23, 194, 12, 0); 
+		spawn_Mobs(118341, 569, -2447, -76.4, 841, -1776, -23, 388, 12, 0); 
 		
 		-- east spears
-		spawn_Mobs(118341, -668, -2062, -60, -775, -2347, -75,  59,  6, 0);
+		spawn_Mobs(118341, -668, -2062, -60, -775, -2347, -75,  118,  6, 0);
 		-- assign static 'path'
 		eq.signal(118341, 0);
 	elseif num == 1 then
@@ -428,10 +428,10 @@ function GroupSpawn(num)
 	elseif num == 6 then
 		-- Dobbin soldiers by towers
 		npcs = { [118350] = 12 };
-		spawn_helper(npcs, 6, 1, 12, 15, 128);
+		spawn_helper(npcs, 6, 1, 12, 15, 256);
 		-- archers on top of towers
-		spawn_Mobs(118347, -155, -1080, 70, -195, -1080, 70, 128, 3, 0);
-		spawn_Mobs(118347, 120, -1080, 70, 160, -1080, 70, 128, 3, 0);
+		spawn_Mobs(118347, -155, -1080, 70, -195, -1080, 70, 256, 3, 0);
+		spawn_Mobs(118347, 120, -1080, 70, 160, -1080, 70, 256, 3, 0);
 		eq.signal(118347, 0);
 		-- Dobbin - REPLACE WITH WALK TO POSITION!!!
 		eq.unique_spawn(118332, 0, 0, -10, -1070, 25, 256);
@@ -439,9 +439,9 @@ function GroupSpawn(num)
 	elseif num == 7 then
 		-- Garadain soldiers by spire
 		npcs = { [118350] = 6, [118349] = 6 };
-		spawn_helper(npcs, 7, 2, 6, 15, 128);
+		spawn_helper(npcs, 7, 2, 6, 15, 256);
 		-- archers behind Garadain's troops
-		spawn_Mobs(118347, -1770, -525, 80, -1845, -525, 80, 128, 6, 0);
+		spawn_Mobs(118347, -1770, -525, 80, -1845, -525, 80, 256, 6, 0);
 		eq.signal(118347, 0);
 		-- Garadain - REPLACE WITH WALK TO POSITION!!!
 		eq.unique_spawn(118334, 0, 0, -1800, -570, 75, 256);
@@ -449,7 +449,7 @@ function GroupSpawn(num)
 	elseif num == 8 then
 		-- Churns troops by tizmak cave
 		npcs = { [118348] = 12 };
-		spawn_helper(npcs, 8, 2, 6, 15, 128);
+		spawn_helper(npcs, 8, 2, 6, 15, 256);
 		-- Churn - REPLACE WITH WALK TO POSITION!!!
 		eq.unique_spawn(118329, 0, 0, 1600, -1030, 330, 256);
 		eq.signal(118329, 8);
@@ -462,7 +462,7 @@ function GroupSpawn(num)
 		eq.signal(118331, 9);
 	elseif num == 10 then
 		-- Archers with Kargin
-		spawn_Mobs(118347, 950, -1250, 170, 950, -1450, 170, 190, 12, 0);
+		spawn_Mobs(118347, 950, -1250, 170, 950, -1450, 170, 380, 12, 0);
 		-- Kargin
 		eq.unique_spawn(118337, 0, 0, 935, -1350, 160, 380);
 		-- assign static 'path'
@@ -473,8 +473,8 @@ function GroupSpawn(num)
 		eq.move_to(-113, 0, 100, 128, true);
 		-- eq.unique_spawn(118351, 0, 0, -113, 0, 100, 256);
 		-- Aldikar archers
-		spawn_Mobs(118347, -156, -34, 95, -156, -115, 95, 80, 6, 0);
-		spawn_Mobs(118347, -56, -34, 95, -56, -115, 95, 160, 6, 0);
+		spawn_Mobs(118347, -156, -34, 95, -156, -115, 95, 160, 6, 0);
+		spawn_Mobs(118347, -56, -34, 95, -56, -115, 95, 320, 6, 0);
 		-- assign static 'path'
 		eq.signal(118347, 0);
 		eq.signal(118351, 0);
@@ -545,7 +545,7 @@ function WarTimers(e)
 		GiantSpawn()
 	elseif e.timer == "Spawn3" then
 		eq.stop_timer("Spawn3");
-		spawn_helper(next_spawn, 3, 6, 2, 15, 64);
+		spawn_helper(next_spawn, 3, 6, 2, 15, 128);
 		GiantSpawn()
 	elseif e.timer == "Spawn4" then
 		eq.stop_timer("Spawn4");
@@ -553,7 +553,7 @@ function WarTimers(e)
 		GiantSpawn()
 	elseif e.timer == "Spawn5" then
 		eq.stop_timer("Spawn5");
-		spawn_helper(next_spawn, 5, 6, 2, 20, 192);
+		spawn_helper(next_spawn, 5, 6, 2, 20, 384);
 		GiantSpawn()
 	elseif e.timer == "Narandi" then
 		eq.stop_timer("Narandi");
