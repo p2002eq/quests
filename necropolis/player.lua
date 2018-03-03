@@ -27,7 +27,7 @@ function event_say(e)
 			myX = e.self:GetX();
 			myY = e.self:GetY();
 			if(between(myX, 1070, 1095) and between(myY, 1500, 1535)) then -- check for proximity (z axis not relevant)
-				eq.unique_spawn(123256,0,0,1095,1511,-135,195);		--spawns a ghostly presence
+				eq.unique_spawn(123256,0,0,1095,1511,-135,390);		--spawns a ghostly presence
 				eq.set_global("garzicor_battle","1",3,"H1");
 				
 			end

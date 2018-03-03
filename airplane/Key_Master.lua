@@ -5,7 +5,7 @@ function event_signal(e)
 
 	if(e.signal == 1) then -- azarack death signal
 		if(not eq.get_entity_list():IsMobSpawnedByNpcTypeID(71031)) then -- if no azaracks left up, spawn island 2 boss
-			eq.unique_spawn(71059,0,0,-602.2,-254.4,-333.5,201.5);
+			eq.unique_spawn(71059,0,0,-602.2,-254.4,-333.5,403);
 		end
 	elseif(e.signal == 2 and qglobals["keeper"] == nil) then
 		-- eq.set_timer("13",300000); what is this referred to?
@@ -13,7 +13,7 @@ function event_signal(e)
 		-- supposed to be 60-85 minute timer
 		eq.set_timer("87",math.random(1500000) + 3600000);
 	elseif e.signal == 3 then -- spawn for island 2 boss
-		eq.spawn2(71058,0,0,-531,-214,-322,128);
+		eq.spawn2(71058,0,0,-531,-214,-322,256);
 	end
 end
 
@@ -25,7 +25,7 @@ end
 
 function event_timer(e)
 	if(e.timer == "87") then
-		eq.spawn2(71075,0,0,-996.3,910.5,192.3,18.0);
+		eq.spawn2(71075,0,0,-996.3,910.5,192.3,36);
 	end
 end
 

@@ -41,7 +41,7 @@ function event_signal(e)
 end
 
 function deactivate(mob)
-	mob:SetHeading(65);
+	mob:SetHeading(130);
 	mob:SetBodyType(11, true);
 	mob:SetSpecialAbility(24, 1);
 	mob:WipeHateList();

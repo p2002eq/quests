@@ -10,8 +10,8 @@ function event_trade(e)
 	local item_lib = require("items");
 	if item_lib.check_turn_in(e.self, e.trade, {item1 = 9057}) or item_lib.check_turn_in(e.self, e.trade, {item1 = 9062}) then -- Khati Sha Seal of War (accept either to allow redo)
 		e.self:Say("I thank the spirits that you have arrived. I would not have been able to stop the dark animist if he were to attempt to leave. He has made camp in an empty set of huts. He has moved from hut to hut, but made no attempt to leave the area. I would be wary of traps if I were you. I must admit that I was afraid. That is why I moved to this location. He should still be there though.");
-        eq.unique_spawn(157131,0,0,-14,640.5,-261,121); -- Draz_Nurakk
-        eq.unique_spawn(157140,0,0,-111,597.5,-261,87); -- Draz_Nurakk`s_Warder
+        eq.unique_spawn(157131,0,0,-14,640.5,-261,242); -- Draz_Nurakk
+        eq.unique_spawn(157140,0,0,-111,597.5,-261,174); -- Draz_Nurakk`s_Warder
 		e.other:QuestReward(e.self,0,0,0,0,9062); -- used Khati Sha Seal of War
         eq.depop_with_timer();
 	end

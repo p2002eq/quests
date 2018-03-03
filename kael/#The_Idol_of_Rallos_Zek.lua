@@ -6,5 +6,5 @@ function event_death_complete(e)
 	-- Set QGlobal Lockout to Instance ID
 	eq.set_global(instance_id.. "_idol","2",3,"D6");
 	-- Spawns Avatar of War
-	eq.spawn2(113627,0,0,1291,1252,-97,254.5);
+	eq.spawn2(113627,0,0,1291,1252,-97,509);
 end

@@ -3,7 +3,7 @@
 local started = false;
 local wave = 0;
 local wave_timer = 15;   --initial wave timer
-local spawns = { {228,11,-7,192}, {238,11,-7,192}, {248,11,-7,192},{258,11,-7,192}, {228,-21,-7,192}, {238,-21,-7,192}, {248,-21,-7,192}, {258,-21,-7,192}, {225,-7,-7,192}, {260,-7,-7,192} };
+local spawns = { {228,11,-7,384}, {238,11,-7,384}, {248,11,-7,384},{258,11,-7,384}, {228,-21,-7,384}, {238,-21,-7,384}, {248,-21,-7,384}, {258,-21,-7,384}, {225,-7,-7,384}, {260,-7,-7,384} };
 local warder = 154377;  -- grimling warder
 				
 local grimlings = { 154381, --a_grimling_alchemist
@@ -29,7 +29,7 @@ function event_signal(e)
 		wave_timer = 15;
 		eq.set_timer("main",wave_timer * 1000);  -- 15 seconds for initial wave
 		started = true;
-		eq.spawn2(warder,0,0,208,-84,-7,255);  -- spawns grimling warder
+		eq.spawn2(warder,0,0,208,-84,-7,510);  -- spawns grimling warder
 	end
 end
 

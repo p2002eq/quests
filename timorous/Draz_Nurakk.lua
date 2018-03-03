@@ -12,12 +12,12 @@ function event_timer(e)
 end
 
 function event_death_complete(e)
-	eq.spawn2(96385,0,0,1988,-9203,10,25); -- Draz_Nurakk's_Image (unslowable version)
-	eq.spawn2(96386,0,0,1995,-9219,10,248); -- Draz_Nurakk's_Image
-	eq.spawn2(96386,0,0,2013,-9198,10,184); -- Draz_Nurakk's_Image
-	eq.spawn2(96386,0,0,1990,-9179,10,125); -- Draz_Nurakk's_Image
-	eq.spawn2(96386,0,0,1965,-9202,11,57); -- Draz_Nurakk's_Image
-	eq.spawn2(96386,0,0,2001,-9181,10,152); -- Draz_Nurakk's_Image
+	eq.spawn2(96385,0,0,1988,-9203,10,50); -- Draz_Nurakk's_Image (unslowable version)
+	eq.spawn2(96386,0,0,1995,-9219,10,496); -- Draz_Nurakk's_Image
+	eq.spawn2(96386,0,0,2013,-9198,10,368); -- Draz_Nurakk's_Image
+	eq.spawn2(96386,0,0,1990,-9179,10,250); -- Draz_Nurakk's_Image
+	eq.spawn2(96386,0,0,1965,-9202,11,114); -- Draz_Nurakk's_Image
+	eq.spawn2(96386,0,0,2001,-9181,10,304); -- Draz_Nurakk's_Image
 end
 
 function event_trade(e)

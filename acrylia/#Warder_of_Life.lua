@@ -38,7 +38,7 @@ end
 
 function SpawnAdds(total,cell)	
 	for n = 1,total do 
-		eq.spawn2(eq.ChooseRandom(154157,154158),0,0,xloc[cell] + math.random(-15,15),yloc[cell] + math.random(-15,15),-7,128);	--randomize spawn in cell
+		eq.spawn2(eq.ChooseRandom(154157,154158),0,0,xloc[cell] + math.random(-15,15),yloc[cell] + math.random(-15,15),-7,256);	--randomize spawn in cell
 	end
 end
 

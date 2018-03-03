@@ -72,7 +72,7 @@ function spawn_mob(NPCID, loc)
 	local xloc = {  413,   419,   496,   505,   511,   516,   402};
 	local yloc = {-1275, -1280, -1275, -1273, -1289, -1271, -1298};
 	local zloc = {    6,     6,     8,     9,    16,    16,    12};
-	local hloc = {   20,    20,   235,   235,   235,   235,    22};
+	local hloc = {   40,    40,   470,   470,   470,   470,    44};
 	
 	mobz = eq.spawn2(NPCID,0,0,xloc[loc] ,yloc[loc] ,zloc[loc],hloc[loc]);
 	mobz:SetRunning(true);

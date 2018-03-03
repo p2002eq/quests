@@ -127,9 +127,9 @@ end
 
 function event_waypoint_arrive(e)
 	if e.wp == 5 then
-		eq.unique_spawn(veterans[1], 0, 0, 7, 127, 5, 129);
-		eq.unique_spawn(veterans[2], 0, 0, 14, 127, 5, 129);
-		eq.unique_spawn(veterans[3], 0, 0, 21, 127, 5, 129);
+		eq.unique_spawn(veterans[1], 0, 0, 7, 127, 5, 258);
+		eq.unique_spawn(veterans[2], 0, 0, 14, 127, 5, 258);
+		eq.unique_spawn(veterans[3], 0, 0, 21, 127, 5, 258);
 	elseif e.wp == 7 then
 		cullin = e.self;
 		eq.set_timer("TMHB", 500);

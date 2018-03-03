@@ -16,7 +16,7 @@ function event_trade(e)
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 30295,item2 = 30296})) then -- toolset Delivery (kael)
 		e.self:Emote("sniffs the offering and seems to relax.");
 		e.self:Say("Very good, very worthy. You take this magic thing, with you maybe this evil is broken.");
-		eq.spawn2(110228,0,0,2000,1000,-31.9,111.2):AddToHateList(e.other,1); --spawn an enraged walrus
+		eq.spawn2(110228,0,0,2000,1000,-31.9,222.4):AddToHateList(e.other,1); --spawn an enraged walrus
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end

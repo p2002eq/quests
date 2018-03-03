@@ -4,7 +4,7 @@ function event_say(e)
 			e.self:Emote("looks at you suspiciously. 'Yeah? Whacha want?'");
 		elseif(e.message:findi("see stanos")  and  e.other:GetLevel() >= 46) then
 			e.self:Say("This better be important.");
-			eq.spawn2(5088,0,0,336,10,45,225);
+			eq.spawn2(5088,0,0,336,10,45,450);
 		end
 	else
 		e.self:Say("Go away! We don't have time for the likes of you.");
@@ -33,7 +33,7 @@ function event_trade(e)
 			e.other:Faction(53,5,0);
 			e.other:Faction(105,5,0);
 			e.other:QuestReward(e.self,0,0,100,25,0,10000);
-			eq.spawn2(5088,0,0,336,10,45,225);
+			eq.spawn2(5088,0,0,336,10,45,450);
 		end
 	end
 	item_lib.return_items(e.self, e.other, e.trade)

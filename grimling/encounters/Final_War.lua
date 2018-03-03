@@ -99,7 +99,7 @@ function Win()
 	eq.signal(cullin,1);  --signal success to cullin to allow final hand-in
 	for n = 1,4 do
 		vet = eq.get_entity_list():GetMobByNpcTypeID(veterans[n])
-		vet:GMMove(-999, 1080 + (9 * n), 35, 180, true);	--move all Veterans to fort area
+		vet:GMMove(-999, 1080 + (9 * n), 35, 360, true);	--move all Veterans to fort area
 		vet:BuffFadeAll();	--incase any charmed players landed dots on veterans
 		vet:WipeHateList();
 	end
@@ -115,7 +115,7 @@ end
 
 function spawn_mob1(NPCID, camp, loc) --FINAL WAR acrylia camp
 
-	local spawn_loc = {[1] = {1035, 877, 73, 185}, [2] = {926,1080,159,149}, [3] = {512, 928, 45, 80}, [4] = {607, 628, -6, 33}, [5] = {865, 535, 28, 246}, [6] = {1061,655,39,218} };  --acrylia mines spawn points (considered camps 1 & 2)
+	local spawn_loc = {[1] = {1035, 877, 73, 387}, [2] = {926,1080,159,300}, [3] = {512, 928, 45, 160}, [4] = {607, 628, -6, 66}, [5] = {865, 535, 28, 492}, [6] = {1061,655,39,436} };  --acrylia mines spawn points (considered camps 1 & 2)
 	
 	mobz = eq.spawn2(NPCID,0,0,spawn_loc[loc][1] + math.random(-10,10) ,spawn_loc[loc][2] + math.random(-10,10) ,spawn_loc[loc][3],spawn_loc[loc][4]);
 	mobz:SetRunning(true);
@@ -131,7 +131,7 @@ end
 
 function spawn_mob2(NPCID, camp, loc) --FINAL WAR northern camp spawnpoints
 
-	local spawn_loc = {[1] = {-818, 1088, 103, 192}, [2] = {-921, 1201, 39 ,166}, [3] = {-1184, 1220, 40, 102}, [4] = {-1254, 1017, 85, 54}, [5] = {-1103, 911, 78, 22}, [6] = {-820, 909, -3, 217} } --northern camp spawnpoints
+	local spawn_loc = {[1] = {-818, 1088, 103, 384}, [2] = {-921, 1201, 39 , 332}, [3] = {-1184, 1220, 40, 204}, [4] = {-1254, 1017, 85, 108}, [5] = {-1103, 911, 78, 44}, [6] = {-820, 909, -3, 434} } --northern camp spawnpoints
 	
 	mobz = eq.spawn2(NPCID,0,0,spawn_loc[loc][1] + math.random(-10,10) ,spawn_loc[loc][2] + math.random(-10,10) ,spawn_loc[loc][3],spawn_loc[loc][4]);
 	mobz:SetRunning(true);
@@ -221,7 +221,7 @@ function event_timer(e)
 		--commander rolls
 		local comm = commanderSpawn(wave);
 		if comm >= math.random(1,100) and not eq.get_entity_list():IsMobSpawnedByNpcTypeID(commander) then		--no north camp spawns on trigger - all scouts will move to acrylia
-			eq.spawn2(commander,0, 0, -833, 1087, 88, 185);	--spawns high commander at north fort
+			eq.spawn2(commander,0, 0, -833, 1087, 88, 370);	--spawns high commander at north fort
 			eq.get_entity_list():GetMobByNpcTypeID(commander):CastToNPC():Shout("The Master does not take kindly to tresspassers. Now you must die!");
 			eq.signal(cullin,2,3*1000);
 			

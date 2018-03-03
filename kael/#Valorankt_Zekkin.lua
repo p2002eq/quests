@@ -14,5 +14,5 @@ function event_timer(e)
 end
 
 function event_death_complete(e)
-	eq.spawn2(113621, 42, 0, 1125, -839.0, -120.80, 70);  --Spawns #Doldigun Steinwielder
+	eq.spawn2(113621, 42, 0, 1125, -839.0, -120.80, 140);  --Spawns #Doldigun Steinwielder
 end

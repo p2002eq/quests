@@ -58,7 +58,7 @@ function event_timer(e)
 		eq.set_timer("boss", boss_timer * 1000);  --sets time for boss is triggered
 		eq.set_timer("player_check", 30 * 1000);  --player check every 30 seconds		
 		eq.set_timer("adds", 15 * 1000); 	--initial timer is short
-		eq.unique_spawn(154401,0,0,432.2,-297,39,128.6)  --spawn untargetable Witchdoctor		
+		eq.unique_spawn(154401,0,0,432.2,-297,39,257.2)  --spawn untargetable Witchdoctor		
 		local WD = eq.get_entity_list():GetNPCByNPCTypeID(154401);	--gets untargetable Witchdoctor for emote
 		WD:Shout("Summoners!  Focus your elemental powers to me at once!  We have tresspassers that must be dealt with!");		
 		eq.signal(154392,10); 	--signals summoners to become targetable
@@ -77,7 +77,7 @@ function event_timer(e)
 		spawn_mob(154406,3);	--#an_enraged_apprentice (154406)
 	elseif e.timer == "boss" then
 		eq.stop_timer(e.timer);
-		eq.unique_spawn(154391,0,0,432.2,-297,39,128.6)  --spawn real Witchdoctor
+		eq.unique_spawn(154391,0,0,432.2,-297,39,257.2)  --spawn real Witchdoctor
 		eq.depop(154401);	--depop untargetable Witchdoctor
 	elseif e.timer == "reset" then
 		EventReset();
@@ -99,7 +99,7 @@ end
 
 function spawn_mob(NPCID, loc)
 
-	local spawn_loc = { [1] = {433,-338,36,260}, [2] = {393,-298,36,63}, [3] = {433,-258,36,128} };
+	local spawn_loc = { [1] = {433,-338,36,0}, [2] = {393,-298,36,127}, [3] = {433,-258,36,256} };
 	local count = math.random(1,3);	--up to 3 adds per spawn location
 	
 	for n = 1,count do
@@ -123,10 +123,10 @@ end
 function SpawnSummoners()  --154392 (cold) -- 154393 (magic) -- 154394 (fire) -- 154395 (poison)
 	summoner = {[1] = {154392, 154393, 154394, 154395}, [2] = {154395, 154394, 154393, 154392}, [3] = {154393, 154395, 154394, 154392}, [4] = {154394, 154392, 154395, 154393} };
 	roll = math.random(1,4) -- summoner spawn randomization
-	eq.unique_spawn(summoner[roll][1],0,0,442,-297,37,195);	
+	eq.unique_spawn(summoner[roll][1],0,0,442,-297,37,390);	
 	eq.unique_spawn(summoner[roll][2],0,0,433,-306,37,0);		
-	eq.unique_spawn(summoner[roll][3],0,0,425,-297,37,65);		
-	eq.unique_spawn(summoner[roll][4],0,0,433,-289,37,130);	
+	eq.unique_spawn(summoner[roll][3],0,0,425,-297,37,130);		
+	eq.unique_spawn(summoner[roll][4],0,0,433,-289,37,260);	
 end
 
 function RepopTrash()

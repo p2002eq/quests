@@ -50,7 +50,7 @@ function event_trade(e)
 		e.self:SetRunning(true);
 		eq.signal(sergeant,11);	--signal to reset at vah camp
 		--eq.move_to(-1109, -598, 9, 130,true);  -- move back to spawn
-		eq.spawn2(167200, 0, 0, -1109, -598, 9, 130);	--repop captain
+		eq.spawn2(167200, 0, 0, -1109, -598, 9, 260);	--repop captain
 		eq.depop();
 	end
 	
@@ -88,9 +88,9 @@ function event_waypoint_arrive(e)
 		e.self:Say("As we approach the camps it's important that we remain silent. I'm sure you're aware of the advantages we gain with the element of surprise.");
 	elseif e.wp == 5 then
 		if eq.get_entity_list():IsMobSpawnedByNpcTypeID(sergeant) then
-			eq.get_entity_list():GetMobByNpcTypeID(sergeant):GMMove(865,-462,85,188,true);
+			eq.get_entity_list():GetMobByNpcTypeID(sergeant):GMMove(865,-462,85,376,true);
 		else
-			eq.spawn2(sergeant,0,0,865,-462,85,188);
+			eq.spawn2(sergeant,0,0,865,-462,85,376);
 		end
 	elseif e.wp == 7 then
 		e.self:Say("Hail Sergeant Cursah.  I have brought some abled bodied soldiers that have a thirst for grimling blood.  What is the current status of the nearby grimling camps?");

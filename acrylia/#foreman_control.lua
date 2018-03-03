@@ -34,7 +34,7 @@ end
 function StartEvent()
 	if eq.get_entity_list():IsMobSpawnedByNpcTypeID(154118) then	--Foreman_Gworknop (untargetable version)
 		eq.depop_with_timer(154118);
-		foreman = eq.spawn2(154389,0,0,344,-276,10,196);	--spawn targetable version #Foreman_Gworknop
+		foreman = eq.spawn2(154389,0,0,344,-276,10,392);	--spawn targetable version #Foreman_Gworknop
 		foreman:Shout("Rise minions! Our master's work must not be interrupted!");
 	end	
 	

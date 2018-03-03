@@ -39,7 +39,7 @@ function event_waypoint_arrive(e)
 		route_end = true;
 		e.self:Say("Who am I kidding, I'm no hunter. I'll never be a hunter. I may as well give up and become a miner like dad.");
 		e.self:SetAppearance(1);
-		eq.spawn2(116597, 371, 0, 1559, -2304, 313, 125.5); -- Rabid Tundra Kodiak
+		eq.spawn2(116597, 371, 0, 1559, -2304, 313, 251); -- Rabid Tundra Kodiak
 	end
 end
 

@@ -4,16 +4,16 @@
 sub EVENT_SPAWN {
   quest::settimer(7,60);
   quest::settimer(8,2100);
-  quest::spawn2(154150,462018,0,433.60,-357.44,36.13,260); # a_sacrifice
-  quest::spawn2(154149,462019,0,385.78,-298.13,36.13,260); # a_sacrifice
-  quest::spawn2(154148,462020,0,433.60,-236.54,36.13,260); # a_sacrifice
+  quest::spawn2(154150,462018,0,433.60,-357.44,36.13,260); # a_sacrifice # needs_heading_validation
+  quest::spawn2(154149,462019,0,385.78,-298.13,36.13,260); # a_sacrifice # needs_heading_validation
+  quest::spawn2(154148,462020,0,433.60,-236.54,36.13,260); # a_sacrifice # needs_heading_validation
 }
 
 sub EVENT_TIMER {
   if($timer == 7) {
-    quest::spawn2(154150,462018,0,433.60,-357.44,36.13,260); # a_sacrifice
-    quest::spawn2(154149,462019,0,385.78,-298.13,36.13,260); # a_sacrifice
-    quest::spawn2(154148,462020,0,433.60,-236.54,36.13,260); # a_sacrifice
+    quest::spawn2(154150,462018,0,433.60,-357.44,36.13,260); # a_sacrifice # needs_heading_validation
+    quest::spawn2(154149,462019,0,385.78,-298.13,36.13,260); # a_sacrifice # needs_heading_validation
+    quest::spawn2(154148,462020,0,433.60,-236.54,36.13,260); # a_sacrifice # needs_heading_validation
   } elsif($timer == 8) {
     quest::stoptimer(7);
     quest::stoptimer(8);

@@ -9,7 +9,7 @@ end
 
 function event_enter(e)
 	eq.zone_emote(1, "The ground around you begins to tremble and shake.");
-	eq.spawn2(164134, 0, 0, 1600, 275, -62, 64);
+	eq.spawn2(164134, 0, 0, 1600, 275, -62, 128);
 	eq.set_timer('wave', 45000);
 	eq.set_timer('HB', 30000);
 	eq.clear_proximity();

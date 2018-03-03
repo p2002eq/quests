@@ -1,7 +1,7 @@
 -- Cleric quests
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("May the fires of Solusek Ro warm your innards! I am Gavel the Temperant. I work with Sister Blaize to forge the most elegant finery for clerics known to man or beast. Because we have no need for material wealth here in the temple, we ask that you retrieve [" .. eq.say_link("ingots and icons") .. "] from the lost or fallen brothers and sisters of our order. When mixed with some enchanted, [" .. eq.say_link("") .. "][galvanized], [" .. eq.say_link("vulcanized") .. "], or [" .. eq.say_link("magnetized") .. "] platinum into an alloy, the items I can forge are splendid indeed!");
+		e.self:Say("May the fires of Solusek Ro warm your innards! I am Gavel the Temperant. I work with Sister Blaize to forge the most elegant finery for clerics known to man or beast. Because we have no need for material wealth here in the temple, we ask that you retrieve [" .. eq.say_link("ingots and icons") .. "] from the lost or fallen brothers and sisters of our order. When mixed with some enchanted, [" .. eq.say_link("galvanized") .. "], [" .. eq.say_link("vulcanized") .. "], or [" .. eq.say_link("magnetized") .. "] platinum into an alloy, the items I can forge are splendid indeed!");
 	elseif(e.message:findi("ingots and icons")) then
 		e.self:Say("The ingots and icons are all named after the virtues of the cleric who held them. The virtues I require are those of the [" .. eq.say_link("reverent") .. "], the [" .. eq.say_link("constant") .. "], and the [" .. eq.say_link("devout") .. "].");
 	elseif(e.message:findi("reverent")) then

@@ -8,7 +8,7 @@ function event_death_complete(e)
 	eq.set_global(instance_id.. "_idol","1",3,"D6");
 	-- Emote and Spawn Idol
     e.self:Shout("Protect the Idol of Zek!");
-	eq.spawn2(113629,0,0,1292,1267,-35,254.5); -- Idol of Rallos Zek
+	eq.spawn2(113629,0,0,1292,1267,-35,509); -- Idol of Rallos Zek
 end
 
 function event_spawn(e)

@@ -65,7 +65,7 @@ function spawn_mobs(e,wav)
 		else
 			mob = eq.spawn2(spiders[math.random(1,3)], 0, 0, unpack(spawn_locs[v]));
 		end
-		mob:CastToNPC():MoveTo(pathing_target[1] + math.random(-25, 25), pathing_target[2] + math.random(-25, 25), pathing_target[3], -1, true);
+		mob:CastToNPC():MoveTo(pathing_target[1] + math.random(-25, 25), pathing_target[2] + math.random(-25, 25), pathing_target[3], -2, true);
 		door:ForceOpen(e.self);		--opens hatch to drop mob down based on location
 	end
 end

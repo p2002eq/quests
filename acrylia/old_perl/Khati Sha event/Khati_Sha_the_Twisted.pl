@@ -8,10 +8,10 @@ sub EVENT_SPAWN {
 
 
 sub EVENT_AGGRO {
-	quest::spawn2(154054,0,0,972.00,-556.00,-41.00,185); # Defiled Minion
-	quest::spawn2(154054,0,0,970.00,-602.00,-41.00,225); # Defiled Minion
-	quest::spawn2(154054,0,0,910.00,-602.00,-41.00,30); # Defiled Minion
-	quest::spawn2(154054,0,0,905.00,-556.00,-41.00,60); # Defiled Minion
+	quest::spawn2(154054,0,0,972.00,-556.00,-41.00,370); # Defiled Minion
+	quest::spawn2(154054,0,0,970.00,-602.00,-41.00,450); # Defiled Minion
+	quest::spawn2(154054,0,0,910.00,-602.00,-41.00,60); # Defiled Minion
+	quest::spawn2(154054,0,0,905.00,-556.00,-41.00,120); # Defiled Minion
 	quest::settimer(2,120);
 }
 
@@ -21,10 +21,10 @@ sub EVENT_TIMER {
 	my $y = $npc->GetY();
 
 		if($timer == 2) {
-			quest::spawn2(154054,0,0,972.00,-556.00,-41.00,185); # Defiled Minion
-			quest::spawn2(154054,0,0,970.00,-602.00,-41.00,225); # Defiled Minion
-			quest::spawn2(154054,0,0,910.00,-602.00,-41.00,30); # Defiled Minion
-			quest::spawn2(154054,0,0,905.00,-556.00,-41.00,60); # Defiled Minion
+			quest::spawn2(154054,0,0,972.00,-556.00,-41.00,370); # Defiled Minion
+			quest::spawn2(154054,0,0,970.00,-602.00,-41.00,450); # Defiled Minion
+			quest::spawn2(154054,0,0,910.00,-602.00,-41.00,60); # Defiled Minion
+			quest::spawn2(154054,0,0,905.00,-556.00,-41.00,120); # Defiled Minion
 		}	
 
 		if($timer == 1 && ($y > -545)) {
@@ -48,10 +48,10 @@ sub EVENT_TIMER {
 sub EVENT_SIGNAL {
 	quest::emote("Who dares break the seals and defile the inner sanctum? Come forth so that I may crush you!");
 	quest::me("With the seals broken the grimlings come to help solidify the door, to make sure no one enters.");
-	quest::spawn2(154129,0,0,684.93,-380.15,-23.94,260); # 
-	quest::spawn2(154129,0,0,684.93,-368.50,-23.94,260); # 
-	quest::spawn2(154129,0,0,670.74,-358.34,-23.94,260); # 
-	quest::spawn2(154129,0,0,670.74,-391.97,-23.94,260); #
+	quest::spawn2(154129,0,0,684.93,-380.15,-23.94,260); #  # needs_heading_validation
+	quest::spawn2(154129,0,0,684.93,-368.50,-23.94,260); #  # needs_heading_validation
+	quest::spawn2(154129,0,0,670.74,-358.34,-23.94,260); #  # needs_heading_validation
+	quest::spawn2(154129,0,0,670.74,-391.97,-23.94,260); # # needs_heading_validation
 	quest::settimer(3,7200); # 2 Hour kill timer
 }
 

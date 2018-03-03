@@ -94,7 +94,7 @@ function spawn_mob1(NPCID, loc)	--mob spawns at camp 1 on hillside
 	local xloc = {-647, -640, -643, -635, -630, -639, -620};
 	local yloc = { 401,  385,  392,  397,  389,  405,  404};
 	local zloc = {  31,   31,   31,   39,   38,   36,   52};
-	local hloc = { 180,  180,  180,  180,  180,  180,  180};
+	local hloc = { 360,  360,  360,  360,  360,  360,  360};
 	
 	mobz = eq.spawn2(NPCID,0,0,xloc[loc] ,yloc[loc] ,zloc[loc],hloc[loc]);
 	mobz:SetRunning(true);
@@ -105,7 +105,7 @@ function spawn_mob2(NPCID, loc)	--mob spawns at camp 2
 	local xloc = {-1257, -1241, -1250, -1152, -1142, -1146, -1253};
 	local yloc = {  618,   621,   619,   610,   603,   607,   637};
 	local zloc = {   46,    47,    47,    41,    41,    41,    53};
-	local hloc = {  123,   123,   123,   155,   155,   155,   123};
+	local hloc = {  246,   246,   246,   310,   310,   310,   246};
 	
 	mobz = eq.spawn2(NPCID,0,0,xloc[loc] ,yloc[loc] ,zloc[loc],hloc[loc]);
 	mobz:SetRunning(true);

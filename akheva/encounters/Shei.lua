@@ -2,9 +2,9 @@
 -- NOTE THAT HIS DT IS CODED IN THE LUA - HE SHOULD NOT HAVE A DT ON HIS SPELL LIST!
 
 primary_adds = {
-	[179357] = {-1714, 1128, 20, 128};
-	[179358] = {-1769, 1035, 20, 45};
-	[179359] = {-1771, 1126, 20, 82};
+	[179357] = {-1714, 1128, 20, 256};
+	[179358] = {-1769, 1035, 20, 90};
+	[179359] = {-1771, 1126, 20, 164};
 	[179360] = {-1715, 1034, 20, 0};
 }
 secondary_adds = { 179352, 179353, 179354, 179355 };
@@ -84,7 +84,7 @@ function SheiCombat(e)
 end
 
 function FakeSheiDeath(e)
-	eq.unique_spawn(179032, 0, 0, -1736, 1082, 22.6, 64);
+	eq.unique_spawn(179032, 0, 0, -1736, 1082, 22.6, 128);
 	eq.set_timer("shei_despawn_full", 60 * 60 * 1000); -- 1 hour total uptime
 end
 

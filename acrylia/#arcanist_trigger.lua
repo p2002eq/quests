@@ -2,10 +2,10 @@
 -- Khati Sha Event
 -- Ward of Spirit 
 
-local west_grimling_locs = { [1] = {615,-375,-23,64}, [2] = {655,-375,-23,187}, [3] = {635,-355,-23,128}, [4] = {635,-395,-23,260} };
-local east_grimling_locs = { [1] = {520,-375,-23,64}, [2] = {560,-375,-23,187}, [3] = {540,-355,-23,128}, [4] = {540,-395,-23,260} };
-local arcanist_locs = { [1] = {540,-375,-24,64}, [2] = {635,-375,-24,190} };
-local deathguard_locs = { [1] = {670,-388,-23,192}, [2] = {660,-388,-23,192}, [3] = {670,-363,-23,192}, [4] = {660,-363,-23,192} };
+local west_grimling_locs = { [1] = {615,-375,-23,128}, [2] = {655,-375,-23,374}, [3] = {635,-355,-23,256}, [4] = {635,-395,-23,0} };
+local east_grimling_locs = { [1] = {520,-375,-23,128}, [2] = {560,-375,-23,374}, [3] = {540,-355,-23,256}, [4] = {540,-395,-23,0} };
+local arcanist_locs = { [1] = {540,-375,-24,128}, [2] = {635,-375,-24,380} };
+local deathguard_locs = { [1] = {670,-388,-23,384}, [2] = {660,-388,-23,384}, [3] = {670,-363,-23,384}, [4] = {660,-363,-23,384} };
 
 local arcanists = {154151, 154152}  -- (1) True Arcanist (2) False Arcanist
 local grimlings = {154148, 154149} -- (1) True location (2) False Location (both NPCS are grimling_spiritwarders)
@@ -74,8 +74,8 @@ function event_signal(e)
 				eq.signal(154151,1)	 --signals True Arcanist (if correct scenario chosen otherwise he will not be up)
 				eq.set_global(instance_id.. "_IAC_Seal_2","1",3,"H2");	--sets flag on 4 panel door to advance
 				eq.zone_emote(1,"The caverns rumble and shake violently as the third protective seal is broken. Khati Sha shouts, 'Who dares break the seals and defile the inner sanctum?! Come forth so that I may crush you!'");
-				eq.spawn2(154059,0,0,684,-379,-23,192);
-				eq.spawn2(154059,0,0,684,-369,-23,192);
+				eq.spawn2(154059,0,0,684,-379,-23,384);
+				eq.spawn2(154059,0,0,684,-369,-23,384);
 				eq.signal(154138,30);  --signal Khati`Sha to Activate (become targetable)
 			elseif boss then --false arcanist dialogue
 				eq.zone_emote(13,"Despite the Arcanist's warning, the halls beyond the sealed door remain silent and empty. Khati Sha has no interest in holding audience with you on this day...");

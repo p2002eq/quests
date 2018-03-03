@@ -60,7 +60,7 @@ sub EVENT_SIGNAL {
    }
    elsif ($signal == 10) {
       quest::emote("scratches his head, 'Yar ya do that ya crazy Coldain.'");
-      quest::moveto(1324.9, 4638.9, 73.3, 124.5);
+      quest::moveto(1324.9, 4638.9, 73.3, 249);
    }
 }
 

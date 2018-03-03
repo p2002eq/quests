@@ -52,15 +52,15 @@ function cleanup()
 end
 
 function spawn_orcs()
-	eq.spawn2(116596, 0, 0, -4446, -3350, 150, 74); --Poxbreath
+	eq.spawn2(116596, 0, 0, -4446, -3350, 150, 148); --Poxbreath
 	--always spawn at least 2	
-	eq.spawn2(116587, 0, 0, -4398, -3354, 150, 191);
-	eq.spawn2(116587, 0, 0, -4420, -3378, 150, 254);
+	eq.spawn2(116587, 0, 0, -4398, -3354, 150, 382);
+	eq.spawn2(116587, 0, 0, -4420, -3378, 150, 508);
 	
 	if (oracleSpawns == 3) then	
-		eq.spawn2(116587, 0, 0, -4423, -3332, 150, 131);
+		eq.spawn2(116587, 0, 0, -4423, -3332, 150, 262);
 	elseif (oracleSpawns == 4) then
-		eq.spawn2(116587, 0, 0, -4404, -3373, 150, 226);
+		eq.spawn2(116587, 0, 0, -4404, -3373, 150, 452);
 	end
 end
 

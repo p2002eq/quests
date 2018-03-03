@@ -20,15 +20,15 @@ sub EVENT_TIMER {
 		quest::signal(211082);
 	}
 	if($timer == 1 && $roomone == 5) {
-		quest::spawn2(211085,0,0,-2349,-1894,-113,233);
+		quest::spawn2(211085,0,0,-2349,-1894,-113,466);
 		$roomone=undef;
 	}
 	if($timer == 1 && $roomtwo == 5) {
-		quest::spawn2(211084,0,0,-3337,-1617,-113,76.2);
+		quest::spawn2(211084,0,0,-3337,-1617,-113,152.4);
 		$roomtwo=undef;
 	}
 	if($timer == 1 && $roomthree == 5) {
-		quest::spawn2(211086,0,0,-2996,-991,-113,153);
+		quest::spawn2(211086,0,0,-2996,-991,-113,306);
 		$roomthree=undef;
 	}
 	if($timer == 1 && $boss == 2) {

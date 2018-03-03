@@ -26,7 +26,7 @@ function event_say(e)
             else
                 eq.assign_to_instance(tonumber(instanceId));
             end
-            e.other:MovePCInstance(158, tonumber(instanceId), -1265, 363, -35, 65);
+            e.other:MovePCInstance(158, tonumber(instanceId), -1265, 363, -35, 260);
         else
             e.other:Message(13,"There is no instance available in this zone for your guild,");
         end

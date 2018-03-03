@@ -22,9 +22,9 @@ function event_waypoint_arrive(e)
 			delivery = 1;
 			e.self:Emote("Chuga.. Chug..Chug..");
 			eq.local_emote({e.self:GetX(), e.self:GetY(), e.self:GetZ()}, 7, 150, "The chugging of the Cargo Clockwork comes to a halt.");
-			eq.spawn2(56178,0,0,30,-700,-109,62); --Hector
-			eq.spawn2(56179,0,0,95,-732,-108,240); --Renaldo
-			eq.spawn2(56180,0,0,53,-615,-107,113); --Jerald
+			eq.spawn2(56178,0,0,30,-700,-109,124); --Hector
+			eq.spawn2(56179,0,0,95,-732,-108,480); --Renaldo
+			eq.spawn2(56180,0,0,53,-615,-107,226); --Jerald
 			e.self:Say("This is highway robbery.");
 		end
 	elseif(e.wp == 26) then

@@ -7,7 +7,7 @@ function event_say(e)
 			myX = e.self:GetX();
 			myY = e.self:GetY();
 			if(between(myX, 1115, 1175) and between(myY, -870, -810)) then -- check for distance from throne
-				eq.unique_spawn(113636, 0, 0, 1125, -839.0, -120.80, 70);  -- spawns Doldigun on Throne to start trigger of cycle
+				eq.unique_spawn(113636, 0, 0, 1125, -839.0, -120.80, 140);  -- spawns Doldigun on Throne to start trigger of cycle
 				eq.set_global("platecycle","1",3,"H2");
 			end
 		end
@@ -31,7 +31,7 @@ function event_enter_zone(e)
 	--e.self:Message(1,string.format("[DEBUG], InstanceID = %i, Instance Version = %i",instance_id,instance_version));
 
 	if(instance_id ~= 0) then
-		e.self:Message(15,"You have entered a Instanced Version of the zone.");
+		e.self:Message(15,"You have entered an Instanced Version of the zone.");
 	end
 end
 

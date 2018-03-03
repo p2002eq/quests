@@ -5,8 +5,8 @@
 my $counter;
 
 sub EVENT_SPAWN {
-	quest::spawn2(154053,0,0,344.07, -323.49, -7.94,187); # Spiritist_Kama_Resan V2
-	quest::spawn2(154052,0,0,342.75, -232.48, -7.94,187); # Spiritual Arcanist V1
+	quest::spawn2(154053,0,0,344.07, -323.49, -7.94,374); # Spiritist_Kama_Resan V2
+	quest::spawn2(154052,0,0,342.75, -232.48, -7.94,374); # Spiritual Arcanist V1
 	$counter = 0;
 	}
 	
@@ -18,38 +18,38 @@ sub EVENT_SIGNAL {
 		
 			if($counter == 1) {
 	# Room A
-				quest::spawn2(154147,0,0,356.00,-250.00,-7.00,260); # 
-				quest::spawn2(154147,0,0,328.00,-250.00,-7.00,260); # 
-				quest::spawn2(154147,0,0,356.00,-219.00,-7.00,260); # 
-				quest::spawn2(154147,0,0,328.00,-219.00,-7.00,260); # 
+				quest::spawn2(154147,0,0,356.00,-250.00,-7.00,260); #  # needs_heading_validation
+				quest::spawn2(154147,0,0,328.00,-250.00,-7.00,260); #  # needs_heading_validation
+				quest::spawn2(154147,0,0,356.00,-219.00,-7.00,260); #  # needs_heading_validation
+				quest::spawn2(154147,0,0,328.00,-219.00,-7.00,260); #  # needs_heading_validation
 	# Room B	
-				quest::spawn2(154147,0,0,356.00,-337.00,-7.00,260); # 
-				quest::spawn2(154147,0,0,329.00,-337.00,-7.00,260); # 
-				quest::spawn2(154147,0,0,329.00,-305.00,-7.00,260); # 
-				quest::spawn2(154147,0,0,356.00,-305.00,-7.00,260); # 
+				quest::spawn2(154147,0,0,356.00,-337.00,-7.00,260); #  # needs_heading_validation
+				quest::spawn2(154147,0,0,329.00,-337.00,-7.00,260); #  # needs_heading_validation
+				quest::spawn2(154147,0,0,329.00,-305.00,-7.00,260); #  # needs_heading_validation
+				quest::spawn2(154147,0,0,356.00,-305.00,-7.00,260); #  # needs_heading_validation
 			}
 			
 			if ($counter == 9) {
 	# Room A
-				quest::spawn2(154147,0,0,356.00,-250.00,-7.00,260); # 
-				quest::spawn2(154147,0,0,328.00,-250.00,-7.00,260); # 
-				quest::spawn2(154147,0,0,356.00,-219.00,-7.00,260); # 
-				quest::spawn2(154147,0,0,328.00,-219.00,-7.00,260); # 
+				quest::spawn2(154147,0,0,356.00,-250.00,-7.00,260); #  # needs_heading_validation
+				quest::spawn2(154147,0,0,328.00,-250.00,-7.00,260); #  # needs_heading_validation
+				quest::spawn2(154147,0,0,356.00,-219.00,-7.00,260); #  # needs_heading_validation
+				quest::spawn2(154147,0,0,328.00,-219.00,-7.00,260); #  # needs_heading_validation
 	# Room B	
-				quest::spawn2(154147,0,0,356.00,-337.00,-7.00,260); # 
-				quest::spawn2(154147,0,0,329.00,-337.00,-7.00,260); # 
-				quest::spawn2(154147,0,0,329.00,-305.00,-7.00,260); # 
-				quest::spawn2(154147,0,0,356.00,-305.00,-7.00,260); #
+				quest::spawn2(154147,0,0,356.00,-337.00,-7.00,260); #  # needs_heading_validation
+				quest::spawn2(154147,0,0,329.00,-337.00,-7.00,260); #  # needs_heading_validation
+				quest::spawn2(154147,0,0,329.00,-305.00,-7.00,260); #  # needs_heading_validation
+				quest::spawn2(154147,0,0,356.00,-305.00,-7.00,260); # # needs_heading_validation
 				
-				quest::spawn2(154155,0,0,403.10,-239.98,37.06,130); # Ward of death
+				quest::spawn2(154155,0,0,403.10,-239.98,37.06,260); # Ward of death
 			}
 
 			if($counter == 17) {
-				quest::spawn2(154154,0,0,345.00,-277.00,-6.00,260); # Ward of Life
+				quest::spawn2(154154,0,0,345.00,-277.00,-6.00,260); # Ward of Life # needs_heading_validation
 			}	
 			
 			if($counter == 19) {
-				quest::spawn2(quest::ChooseRandom(154095,154122),0,0,614.00,-345.00,-23.00,187); # Spawn EVinvis or #raidman
+				quest::spawn2(quest::ChooseRandom(154095,154122),0,0,614.00,-345.00,-23.00,374); # Spawn EVinvis or #raidman
 			}
 			
 		}

@@ -1,4 +1,4 @@
--- Vyzh`dra the Exiled (162506) for Cursed cycle in Ssratemple
+-- Vyzh`dra_the_Cursed (162507) for Cursed cycle in Ssratemple
 -- the script counts up increments of 10 seconds that are spent out of combat to reach the 20-min 'unengaged' time limit
 
 function event_spawn(e)

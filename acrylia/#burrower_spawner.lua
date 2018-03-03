@@ -15,7 +15,7 @@ function event_timer(e)
 	elseif e.timer == 'mob_spawn' then
 		eq.stop_timer(e.timer)
 		local spawn_num = tonumber(eq.get_qglobals(e.self)[instance_id.. '_restless_progress']);
-		eq.unique_spawn(burrower_cycle[spawn_num], 0, 0, -684, -299, -88, 188);
+		eq.unique_spawn(burrower_cycle[spawn_num], 0, 0, -684, -299, -88, 376);
 	end
 end
 
