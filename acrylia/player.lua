@@ -40,9 +40,9 @@ function event_click_door(e)
 	if door == 17 then	--Inner AC statue
 		if e.self:HasItem(5972) or e.self:KeyRingCheck(5972) then	--check for Hollow Acrylia Obelisk
 			if e.self:IsRaidGrouped() then 
-				raid:TeleportGroup(e.self, zone_id, instance_id, 228, -354, 7, 256, raid:GetGroup(e.self:GetName()));
+				raid:TeleportGroup(e.self, zone_id, instance_id, 228, -354, 7, 510, raid:GetGroup(e.self:GetName()));
 			elseif e.self:IsGrouped() then
-				group:TeleportGroup(e.self, zone_id, instance_id, 228, -354, 7, 256);
+				group:TeleportGroup(e.self, zone_id, instance_id, 228, -354, 7, 510);
 			end
 		end
 	end

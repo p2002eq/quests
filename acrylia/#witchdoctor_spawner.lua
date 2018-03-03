@@ -99,7 +99,7 @@ end
 
 function spawn_mob(NPCID, loc)
 
-	local spawn_loc = { [1] = {433,-338,36,260}, [2] = {393,-298,36,63}, [3] = {433,-258,36,128} };
+	local spawn_loc = { [1] = {433,-338,36,0}, [2] = {393,-298,36,127}, [3] = {433,-258,36,256} };
 	local count = math.random(1,3);	--up to 3 adds per spawn location
 	
 	for n = 1,count do

@@ -10,8 +10,8 @@ warder = 154377 -- 2857 is the banish spell
 -- locations used in event, using {x,y,z,h} format
 -- trash_spawns = randomly inside the ring
 boss_locs = { {-83, 13, -30, 0}, {-104, 62, -30, 0} } -- Only final wave boss spawns out here
-grim_locs = { {-86, 99, -30, 172}, {-100, 112, -29, 147}, {-139, 102, -29, 96}, {-135, 59, -29, 26} }
-warder_loc = { -96, -15, -30, 15 }
+grim_locs = { {-86, 99, -30, 333}, {-100, 112, -29, 294}, {-139, 102, -29, 192}, {-135, 59, -29, 52} }
+warder_loc = { -96, -15, -30, 30 }
 local wave = 0;
 
 function event_spawn(e)
@@ -91,7 +91,7 @@ function end_round(rnd, wav)
 end
 
 function spawn_mini()
-	local x, y, z, h = math.random(-124, -110), math.random(74, 90), -27, math.random(255);
+	local x, y, z, h = math.random(-124, -110), math.random(74, 90), -27, math.random(510);
 	local mob = eq.ChooseRandom(boss_mobs[1], boss_mobs[2]);
 	eq.spawn2(mob, 0, 0, x, y, z, h);
 end
@@ -108,7 +108,7 @@ function spawn_trash(rnd)
 	end
 	
 	for i=1,mob_count do
-		local x, y, z, h = math.random(-124, -110), math.random(74, 90), -27, math.random(255);
+		local x, y, z, h = math.random(-124, -110), math.random(74, 90), -27, math.random(510);
 		local mob;
 		if rnd <= 4 then
 			mob = eq.ChooseRandom(trash_mobs[1], trash_mobs[2]);
