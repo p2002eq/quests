@@ -71,11 +71,11 @@ function spawn_mob(NPCID, loc)
 	local xloc = { 1104,  1094,  1022,  1035,  1108,  1118,  1025};
 	local yloc = {-1089, -1101, -1143, -1138, -1103, -1106, -1155};
 	local zloc = {   13,    13,    28,    20,    13,    13,    31};
-	local hloc = {  218,   218,     9,     9,   218,   218,     9};
+	local hloc = {  436,   436,    18,    18,   436,   436,    18};
 	
 	mobz = eq.spawn2(NPCID,0,0,xloc[loc] ,yloc[loc] ,zloc[loc],hloc[loc]);
 	mobz:SetRunning(true);
-	mobz:CastToNPC():MoveTo(pathing_target[1]+math.random(-10,10), pathing_target[2]+math.random(-10,10), pathing_target[3], -2, true)  --x,y,z,h
+	mobz:CastToNPC():MoveTo(pathing_target[1]+math.random(-10,10), pathing_target[2]+math.random(-10,10), pathing_target[3], -1, true)  --x,y,z,h
 end
 
 --Re-enables camp spawnpoints and respawns camp based on event success or failure

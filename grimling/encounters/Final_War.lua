@@ -115,11 +115,11 @@ end
 
 function spawn_mob1(NPCID, camp, loc) --FINAL WAR acrylia camp
 
-	local spawn_loc = {[1] = {1035, 877, 73, 185}, [2] = {926,1080,159,149}, [3] = {512, 928, 45, 80}, [4] = {607, 628, -6, 33}, [5] = {865, 535, 28, 246}, [6] = {1061,655,39,218} };  --acrylia mines spawn points (considered camps 1 & 2)
+	local spawn_loc = {[1] = {1035, 877, 73, 387}, [2] = {926,1080,159,300}, [3] = {512, 928, 45, 160}, [4] = {607, 628, -6, 66}, [5] = {865, 535, 28, 492}, [6] = {1061,655,39,436} };  --acrylia mines spawn points (considered camps 1 & 2)
 	
 	mobz = eq.spawn2(NPCID,0,0,spawn_loc[loc][1] + math.random(-10,10) ,spawn_loc[loc][2] + math.random(-10,10) ,spawn_loc[loc][3],spawn_loc[loc][4]);
 	mobz:SetRunning(true);
-	mobz:CastToNPC():MoveTo(pathing_target[camp][1] + math.random(-10,10), pathing_target[camp][2] + math.random(-10,10), pathing_target[camp][3], -2, true)  --x,y,z,h
+	mobz:CastToNPC():MoveTo(pathing_target[camp][1] + math.random(-10,10), pathing_target[camp][2] + math.random(-10,10), pathing_target[camp][3], -1, true)  --x,y,z,h
 	
 	
 	local target = eq.get_entity_list():GetRandomClient(pathing_target[camp][1], pathing_target[camp][2], pathing_target[camp][3],1000 * 1000)  --1000 units from target
@@ -131,11 +131,11 @@ end
 
 function spawn_mob2(NPCID, camp, loc) --FINAL WAR northern camp spawnpoints
 
-	local spawn_loc = {[1] = {-818, 1088, 103, 192}, [2] = {-921, 1201, 39 ,166}, [3] = {-1184, 1220, 40, 102}, [4] = {-1254, 1017, 85, 54}, [5] = {-1103, 911, 78, 22}, [6] = {-820, 909, -3, 217} } --northern camp spawnpoints
+	local spawn_loc = {[1] = {-818, 1088, 103, 384}, [2] = {-921, 1201, 39 , 332}, [3] = {-1184, 1220, 40, 204}, [4] = {-1254, 1017, 85, 108}, [5] = {-1103, 911, 78, 44}, [6] = {-820, 909, -3, 434} } --northern camp spawnpoints
 	
 	mobz = eq.spawn2(NPCID,0,0,spawn_loc[loc][1] + math.random(-10,10) ,spawn_loc[loc][2] + math.random(-10,10) ,spawn_loc[loc][3],spawn_loc[loc][4]);
 	mobz:SetRunning(true);
-	mobz:CastToNPC():MoveTo(pathing_target[camp][1] + math.random(-10,10), pathing_target[camp][2] + math.random(-10,10), pathing_target[camp][3], -2, true)  --x,y,z,h
+	mobz:CastToNPC():MoveTo(pathing_target[camp][1] + math.random(-10,10), pathing_target[camp][2] + math.random(-10,10), pathing_target[camp][3], -1, true)  --x,y,z,h
 	
 	local target = eq.get_entity_list():GetRandomClient(pathing_target[camp][1], pathing_target[camp][2], pathing_target[camp][3],500 * 500)	--500 units from target
 	if not target.valid then		
