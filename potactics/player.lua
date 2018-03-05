@@ -24,7 +24,7 @@ function event_click_door(e)
 	local zone_id = eq.get_zone_id();
 	local instance_id = eq.get_zone_instance_id();
 	local qglobals = eq.get_qglobals(e.self); 
-	eq.zone_emote(14,"Door ID is: " .. door);   --debug to easily check door IDs
+	--eq.zone_emote(14,"Door ID is: " .. door);   --debug to easily check door IDs
 	
 	if door == 14 or door == 15 or door == 16 or door == 17 then
 		if qglobals[instance_id .. "_rztw_event"] == nil and not e.self:GetGM() then 
