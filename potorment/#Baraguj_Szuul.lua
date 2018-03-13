@@ -1,9 +1,9 @@
 --#Baraguj_Szuul (207309)
---Fake version (ports players to start mouth event)
+--Triggered Version (Loot version)
 --potorment
 
 function event_spawn(e)
-	eq.set_timer("depop", 60 * 1000);
+	eq.set_timer("depop", 15 * 60 * 1000);
 end
 
 function event_timer(e)
