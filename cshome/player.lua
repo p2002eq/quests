@@ -3,6 +3,11 @@ function event_say(e)
 	local guildid = nil
 	if(e.message:findi("help") and e.self:GetGM()) then
 		e.self:Message(1, 'Available Options are "\instance (GuildID)"');
+	elseif(e.message:findi("add velk")) then	-- for anniversary quest
+		if (qglobals["VELKETOR" == nil) then
+			instance_id_velk = eq.create_instance("VELKETOR",0,9000000);  -- up for over 100 days 9000000
+			eq.set_global("VELKETOR",tostring(instance_id_velk),7,"F");
+		end
 	elseif(e.message:findi("instance") and e.self:GetGM()) then
 		guildid = string.match(e.message, "%d+");
 		local zoneGlobal = "TOV-" .. guildid;
