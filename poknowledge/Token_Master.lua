@@ -1,0 +1,58 @@
+-- Players can turn in tokens received from events, then use them to purchase items
+
+-- local items = {[17800] = { "Guide Pack", 3},
+-- [25211] = { "Blade of Carnage", "50"},
+-- [25212] = { "Blade of Carnage", "50"},
+-- [25213] = { "Blade of Carnage", "50"},
+-- [25214] = { "Blade of Carnage", "50"},
+-- [25215] = { "Blade of Carnage", "50"}};
+
+
+-- function event_say(e)
+	-- local qglobals = eq.get_qglobals();
+	-- local forumName = e.other:GetForumName(e.other:AccountID());
+	-- local globalName = forumName .. "-GMPoints";
+	-- local num = qglobals[globalName];
+	-- if (e.message:findi("hail")) then
+		-- e.self:Say("Have you come to [" .. eq.say_link("purchase") .. "] something, or turn in some [" .. eq.say_link("tokens") .. "]?");
+	-- elseif(e.message:findi("purchase")) then
+		-- e.self:Say("Here is a list of the current items you are eligible to [" .. eq.say_link("buy") .. "] and their associated costs.");
+		-- for k, v in pairs(questions) do
+			-- e.self:Say(
+		-- end
+	-- elseif(e.message:findi("tokens")) then
+		-- e.self:Say("Adventurers can attain certian gm tokens by participating in events.  These tokens can be turned in for [" .. eq.say_link("points") .. "] that can be used to [" .. eq.say_link("purchase") .. "] items");
+	-- elseif(e.message:findi("points")) then
+		-- if (num ~= nil ) then
+			-- e.other:Message(15,"You currently have " .. num .. " point" .. (num ~= 1 and "s." or "."));
+		-- else
+			-- e.other:Message(15,"You currently have zero points.");
+		-- end
+	-- elseif(e.message:findi("buy")) then
+		-- e.self:Say("item: [" .. eq.item_link(25210) .. "] test");
+	-- end
+-- end
+
+-- function event_trade(e)
+	-- local qglobals = eq.get_qglobals();
+	-- local forumName = e.other:GetForumName(e.other:AccountID());
+	-- local globalName = forumName .. "-GMPoints";
+	-- local num = qglobals[globalName];
+
+	-- if (num == nil) then
+		-- eq.set_global(globalName,"0",7,"F");
+		-- num = "0";
+	-- end
+	-- local item_lib = require("items");
+	-- if (item_lib.check_turn_in(e.self, e.trade, {item1 = 100010})) then -- Copper Token
+		-- eq.set_global(globalName,tostring(tonumber(num) + 1),7,"F");
+		-- e.other:Message(15,"Here is one point for your copper token.  You now have " .. tostring(tonumber(num) + 1) .. " point" .. (num ~= 1 and "s." or "."));
+	-- elseif (item_lib.check_turn_in(e.self, e.trade, {item1 = 100009})) then -- Silver Token
+		-- eq.set_global(globalName,tostring(tonumber(num) + 3),7,"F");
+		-- e.other:Message(15,"Here is three points for your silver token.  You now have " .. tostring(tonumber(num) + 3) .. " points.");
+	-- elseif (item_lib.check_turn_in(e.self, e.trade, {item1 = 100008})) then -- Gold Token
+		-- eq.set_global(globalName,tostring(tonumber(num) + 5),7,"F");
+		-- e.other:Message(15,"Here is five points for your gold token.  You now have " .. tostring(tonumber(num) + 5) .. " points.");
+	-- end
+	-- item_lib.return_items(e.self, e.other, e.trade);
+-- end
