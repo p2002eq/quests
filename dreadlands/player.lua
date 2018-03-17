@@ -23,3 +23,7 @@ function event_level_up(e)
 	local discs = require('disciplines');
 	discs:train_discs(e, e.self:GetLevel());
 end
+
+function event_enter_zone(e)
+	eq.unique_spawn(214104, 0, 0, 8903, 1116, 1064, 0);
+end
