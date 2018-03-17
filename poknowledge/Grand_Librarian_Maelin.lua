@@ -42,12 +42,12 @@ end
 
 function event_spawn(e)
 	e.self:GMMove(-193.96, 266, -152.55, 258);
-	eq.unique_spawn(202344, 0, 0, -167, 253, -156, 380);
-	eq.unique_spawn(202345, 0, 0, -167, 230, -156, 380);
-	eq.unique_spawn(202356, 0, 0, -167, 207, -156, 380);
-	eq.unique_spawn(202343, 0, 0, -221, 253, -156, 120);
-	eq.unique_spawn(202346, 0, 0, -221, 230, -156, 120);
-	eq.unique_spawn(202350, 0, 0, -221, 207, -156, 120);
+	eq.depop_all(202348);
+	eq.depop_all(202351);
+	eq.depop_all(202350);
+	eq.depop_all(202347);
+	eq.depop_all(202356);
+	eq.spawn2(202362,0,0,-74,36,-160,250);
 end
 
 

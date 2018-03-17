@@ -52,6 +52,10 @@ local questions = {[1] = { "What year was everquest released?", "1999"},
 [49] = {"Using only your legs and no boats, what is the least amount of zones to PASS through to get from North Qeynos to West Freeport?","8"},
 [50] = {"In what zone can avacados be found on the ground in P2002?","KNOWLEDGE"}}
 
+function event_spawn(e)
+	e.self:GMMove(-221, 230, -156, 120);
+end
+
 function event_say(e)
 	local qglobals = eq.get_qglobals();
 	local forumName = e.other:GetForumName(e.other:AccountID());

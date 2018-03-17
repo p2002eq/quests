@@ -1,5 +1,9 @@
 -- Boragar_Lord_of_the_Pixels (202343) in PoK for anniversary quest!
 
+function event_spawn(e)
+	e.self:GMMove(-221, 253, -156, 120);
+end
+
 function event_say(e)
 	local qglobals = eq.get_qglobals();
 	local forumName = e.other:GetForumName(e.other:AccountID());
