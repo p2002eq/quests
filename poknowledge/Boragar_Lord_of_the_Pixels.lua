@@ -1,89 +1,36 @@
 -- Boragar_Lord_of_the_Pixels (202343) in PoK for anniversary quest!
 
+function event_spawn(e)
+	e.self:GMMove(-221, 253, -156, 120);
+end
+
 function event_say(e)
-	if e.message:findi("hail") then
-		e.self:Say("I have fixed many issues in this world and it's making me hungry. I'm craving some Blackened Panther. Make me some and I will give you this seal. Make sure to getyour skill high enough so you don't mess it up.  I will know if you cooked it yourself!");
-	end
-end
+	local qglobals = eq.get_qglobals();
+	local forumName = e.other:GetForumName(e.other:AccountID());
+	local globalName = forumName .. "-Boragar";
+	local num = qglobals[globalName];
 
-function event_trade(e)
-	local item_lib = require("items");
-	
-	if item_lib.check_turn_in(e.self, e.trade, {item1 = 20398}) then -- Blackened Panther
-		if e.other:GetSkill(60) > 50 then
-			e.self:Say("This smells like what Mama used to make, and it better taste like it! Here's the seal. Go and let me eat in peace.");
-			e.other:QuestReward(e.self,0,0,0,0,34044); -- Boragar's Seal 
+	if (e.message:findi("hail")) then
+		if (num == nil) then
+			e.self:Say("Hail Adventurer.  Let me guess, you are seeking my [" .. eq.say_link("approval") .. "]?");
+		elseif (num == "1" and qglobals[forumName .. "-Scruffy"] ~= nil and qglobals[forumName .. "-Scryer"] ~= nil and qglobals[forumName .. "-CaveLord"] ~= nil) then
+			e.self:Say("Excellent, good work, you have my approval.  Take this token for my appreciation.");
+			eq.set_global(globalName ,"99",7,"F");
+			e.other:SummonItem(100010, 1);
+		elseif (num == "1") then
+			e.self:Say("What are you back here for, you still have some creatures to capture for me!");
 		else
-			e.self:Say('Are you sure no one else made that for you? Go back and practice some more to show me that you can make it yourself.');
-			e.other:SummonItem(20398); -- returns Blackened Panther
+			e.self:Say("I don't think so, you already got your reward, now move along!");
 		end
+	elseif (e.message:findi("approval")) then
+		e.self:Say("Well I don't hand out approvals for nothing, you will have to do some [" .. eq.say_link("things") .. "] for me.");
+	elseif (e.message:findi("things")) then
+		e.self:Say("I have an interest in all creatures of Norrath, perhaps you can [" .. eq.say_link("capture") .. "] some for me?");
+	elseif (e.message:findi("capture")) then
+		e.self:Say("Here, take this cage.  Once you have downed the [" .. eq.say_link("creatures") .. "], the cage will trap them.");
+		e.other:Message(15,"You have recieved Boragars magical cage.");
+	elseif (e.message:findi("creatures")) then
+		e.self:Say("Oh right, the creatures.  Lets see here.  I have been trying to get my hands on Scruffy in qeynos hills ever since he gave me rabies.  Also I could use the froglok scryer from upper guk and a cave bat lord from the warrens to add to my collection.  Come back to me when you have captured them all.");	
+		eq.set_global(globalName ,"1",7,"F");
 	end
-	
-	item_lib.return_items(e.self, e.other, e.trade);
 end
-
-
-
--- FIRST YEAR ANNIVERSARY QUEST!
--- local qglobal_name = "Anniversary";
-
--- function event_say(e)
-    -- local qglobals = eq.get_qglobals(e.self, e.other);
-    -- if(e.message:findi("Hail")) and (qglobals[" .. eq.say_link(""Anniversary"") .. "] == "2") then
-        -- e.self:Say("I still owe you a reward, would you [" .. eq.say_link("prefer the mask") .. "] or [prefer the boots].");
-	-- elseif(e.message:findi("Hail")) and (e.other:HasItem(31961) == false) then
-	    -- e.self:Say("Well, hello there Traveler. Being the Lord of the Pixels has its advantages, and I am feeling quite [" .. eq.say_link("generous") .. "] today.");
-	-- elseif (e.message:findi("generous")) and (e.other:HasItem(31961) == false) then
-	    -- e.self:Say("I have a few items you may enjoy, but first I need you to complete a few [" .. eq.say_link("tasks") .. "].");
-	-- elseif (e.message:findi("tasks")) and (e.other:HasItem(31961) == false) then                                              -- Dialogue for first Task
-        -- e.self:Say("I need you to bring to me a Strand of Nightmare which can be obtained by combining the following items in a fletching kit.  A Scorpion Pincer, Rhino Beetle Carapace, Bixie Wing, Forest Drakeling Scales, Steamfont Spring Water, Gila Monster Skin, Black Mamba Skin and a Pristine Krag Claw.  After you finish this, I will have the next task for you");		    
-	-- elseif (e.message:findi("second task")) and (qglobals[" .. eq.say_link(""Anniversary"") .. "] == "1") and (e.other:HasItem(2469)) then     -- Finished first task and have guise already.
-	    -- e.self:Say("Since you already own a mask yourself you can move onto my [" .. eq.say_link("third task") .. "], or if you prefer, I have a pair of old [boots] you can have.");
-    -- elseif (e.message:findi("second task")) and (qglobals[" .. eq.say_link(""Anniversary"") .. "] == "1") then     -- Finished first task already and doesn't have guise.
-	    -- e.self:Say("I have a pair of old [" .. eq.say_link("boots") .. "] or an old [mask] you may like, but you will need to collect the appropriate materials to make them fit along with a new cap for me to use.");
-	-- elseif (e.message:findi("boots")) and (qglobals[" .. eq.say_link(""Anniversary"") .. "] == "1") then 
-	    -- e.self:Say("My old journeyman boots of course!  Bring me a Leatherfoot Raider Skullcap, a leather padding, some butter and a steel boning and we will make sure these boots fit.");
-	-- elseif (e.message:findi("mask")) and (qglobals[" .. eq.say_link(""Anniversary"") .. "] == "1") then 
-	    -- e.self:Say("Many a times my old mask helped me fit into situations that would otherwise be cramped, if you know what I mean. Bring me a Leatherfoot Raider Skullcap, a leather padding, some butter and a steel boning and we will make sure this mask fits.");
-	-- elseif (e.message:findi("prefer the boots")) and (qglobals[" .. eq.say_link(""Anniversary"") .. "] == "2") then 
-	    -- e.self:Say("Have fun traveling norrath!");
-	    -- e.other:QuestReward(e.self, 0,0,0,0, 2300, 1);
-	-- elseif (e.message:findi("prefer the mask")) and (qglobals[" .. eq.say_link(""Anniversary"") .. "] == "2") then 
-	    -- eq.set_global("Anniversary","9",5,"F"); -- flag people who received guise from event, so they can't do third task.
-	    -- e.self:Say("Enjoy drinking at all the bars in Neriak!");
-	    -- e.other:QuestReward(e.self, 0,0,0,0, 2469, 1);
-	-- elseif (e.message:findi("third task")) and (qglobals[" .. eq.say_link(""Anniversary"") .. "] ~= "9") and (e.other:HasItem(2469)) and (qglobals[" .. eq.say_link(""Anniversary"") .. "] == "1") then     -- Finished first task already and had a guise before event.
-	    -- e.self:Say("Bring me an Artisan's Seal, a Coldain hunting blanket, one Liquid Velium and a Saucy Bunnymeat to claim your reward.");
-	-- end
--- end
-
-
--- function event_trade(e)
-	-- local item_lib = require("items");
-    -- local qglobals = eq.get_qglobals(e.self, e.other);
-    
-	-- if(item_lib.check_turn_in(e.self, e.trade, {item1 = 16261})) then
-	    -- eq.set_global("Anniversary","1",5,"F");
-	    -- e.other:QuestReward(e.self, 0,0,0,0, 31961, 1);
-	    -- e.self:Say("Enjoy your new rod and make sure not to light yourself on fire!  Let me know when you are ready for the [" .. eq.say_link("second task") .. "].");
-    -- elseif (item_lib.check_turn_in(e.self, e.trade, {item1 = 12073, item2 = 16488, item3 = 29742, item4 = 12259})) and (qglobals[" .. eq.say_link(""Anniversary"") .. "] == "1") then
-	    -- eq.set_global("Anniversary","2",5,"F");
-	    -- e.self:Say("Great, it is all here, would you [" .. eq.say_link("prefer the mask") .. "] or [prefer the boots].");
-	-- elseif (item_lib.check_turn_in(e.self, e.trade, {item1 = 23609, item2 = 30135, item3 = 1857, item4 = 1452})) and (qglobals[" .. eq.say_link(""Anniversary"") .. "] ~= "3") and (e.other:HasItem(2469)) and (qglobals[" .. eq.say_link(""Anniversary"") .. "] ~= "9") and (qglobals[" .. eq.say_link(""Anniversary"") .. "] == "1") then
-	    -- eq.set_global("Anniversary","3",5,"F");
-	    -- e.self:Say("Great, it is all here, take this breasplate, you earned it.  If you prefer one of the other items I have, just hand it back to me and we will get you something else.");
-	    -- e.other:QuestReward(e.self, 0,0,0,0, 4164, 1);
-	-- elseif (item_lib.check_turn_in(e.self, e.trade, {item1 = 4164})) then
-	    -- e.other:QuestReward(e.self, 0,0,0,0, 6204, 1);
-	-- elseif (item_lib.check_turn_in(e.self, e.trade, {item1 = 6204})) then
-	    -- e.other:QuestReward(e.self, 0,0,0,0, 24890, 1);
-	-- elseif (item_lib.check_turn_in(e.self, e.trade, {item1 = 24890})) then
-	    -- e.other:QuestReward(e.self, 0,0,0,0, 11604, 1);
-	-- elseif (item_lib.check_turn_in(e.self, e.trade, {item1 = 11604})) then
-	    -- e.other:QuestReward(e.self, 0,0,0,0, 27310, 1);
-	-- elseif (item_lib.check_turn_in(e.self, e.trade, {item1 = 27310})) then
-	    -- e.other:QuestReward(e.self, 0,0,0,0, 4164, 1);
-    -- end
-    
- 	-- item_lib.return_items(e.self, e.other, e.trade);
--- end
