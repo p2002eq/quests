@@ -62,6 +62,7 @@ function event_say(e)
 			if (qglobals.YearThree == nil) then
 				e.self:Say("Well done, to be fair, I didn't think you could finish them all.  I am a gnome of my word, so here you go, my instant banker trinket!");
 				eq.set_global(forumName .. "-YearThree","99",7,"F");
+				e.other:SummonItem(137322, 1);
 			else
 				e.self:Say("Great job, hope to see you around next year!");
 			end
