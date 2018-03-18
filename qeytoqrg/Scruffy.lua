@@ -1,6 +1,5 @@
 local flags = false;
 
-
 function event_spawn(e)
 	flags = false;
 end
