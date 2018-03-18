@@ -58,13 +58,17 @@ function event_say(e)
 	local forumName = e.other:GetForumName(e.other:AccountID());
 	
 	if(e.message:findi("Hail")) then
-		if (qglobals.Cocain ~= nil and qglobals.Boragar ~= nil and qglobals.Taian ~= nil and qglobals.Trust ~= nil and qglobals.Daeron ~= nil and qglobals.Chunky ~= nil) then
-			if (qglobals.YearThree == nil) then
-				e.self:Say("Well done, to be fair, I didn't think you could finish them all.  I am a gnome of my word, so here you go, my instant banker trinket!");
-				eq.set_global(forumName .. "-YearThree","99",7,"F");
-				e.other:SummonItem(137322, 1);
+		if (qglobals[forumName .. "-Cocain"] ~= nil and qglobals[forumName .. "-Boragar"] ~= nil and qglobals[forumName .. "-Taian"] ~= nil and qglobals[forumName .. "-Trust"] ~= nil and qglobals[forumName .. "-Daeron"] ~= nil and qglobals[forumName .. "-Chunky"] ~= nil) then
+			if (qglobals[forumName .. "-Cocain"] == "99" and qglobals[forumName .. "-Boragar"] == "99" and qglobals[forumName .. "-Taian"] == "99" and qglobals[forumName .. "-Trust"] == "99" and qglobals[forumName .. "-Daeron"] == "99" and qglobals[forumName .. "-Chunky"] == "99") then
+				if (qglobals[forumName .. "-YearThree"] == nil) then
+					e.self:Say("Well done, to be fair, I didn't think you could finish them all.  I am a gnome of my word, so here you go, my instant banker trinket!");
+					eq.set_global(forumName .. "-YearThree","99",7,"F");
+					e.other:SummonItem(137322, 1);
+				else
+					e.self:Say("Great job, hope to see you around next year!");
+				end
 			else
-				e.self:Say("Great job, hope to see you around next year!");
+				e.self:Say("What are you talking to me for, you should be working on the tasks!");
 			end
 		else
 			e.self:Say("Greetings!  Isn't it a wonderful time to be on [" .. eq.say_link("p2002") .. "], three full years and still going strong!");
