@@ -25,6 +25,8 @@ function event_say(e)
 	elseif (e.message:findi("contest")) then
 		e.self:Say("Oh yes, this should be fun to watch.  Let me know when you are [" .. eq.say_link("ready") .. "] and I will send you to the contest location.  You will have 5 minutes to complete it!");
 	elseif (e.message:findi("ready")) then
-		e.other:MovePCInstance(112, 0, -62, 532, -174, 132);
+		local velkInstance = qglobals.VELKETOR;
+		eq.assign_to_instance(tonumber(velkInstance));
+		e.other:MovePCInstance(112, tonumber(velkInstance), -62, 532, -174, 132);
 	end	
 end

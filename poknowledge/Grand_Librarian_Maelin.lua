@@ -42,12 +42,14 @@ end
 
 function event_spawn(e)
 	e.self:GMMove(-193.96, 266, -152.55, 258);
-	eq.depop_all(202348);
-	eq.depop_all(202351);
-	eq.depop_all(202350);
-	eq.depop_all(202347);
-	eq.depop_all(202356);
-	eq.spawn2(202362,0,0,-74,36,-160,250);
+	eq.depop(202348);
+	eq.depop(202351);
+	eq.depop(202350);
+	eq.depop(202347);
+	eq.depop(202356);
+	eq.depop(202361);
+	eq.unique_spawn(202345,0,0,-167, 230, -156, 380);
+	eq.unique_spawn(202364,0,0,-74,36,-160,250);
 end
 
 
@@ -56,22 +58,27 @@ function event_say(e)
 	local forumName = e.other:GetForumName(e.other:AccountID());
 	
 	if(e.message:findi("Hail")) then
-		if (qglobals.Cocain ~= nil and qglobals.Boragar ~= nil and qglobals.Taian ~= nil and qglobals.Trust ~= nil and qglobals.Daeron ~= nil and qglobals.Chunky ~= nil) then
-			if (qglobals.YearThree == nil) then
-				e.self:Say("Well done, to be fair, I didn't think you could finish them all.  I am a gnome of my word, so here you go, my instant banker trinket!");
-				eq.set_global(forumName .. "-YearThree","99",7,"F");
+		if (qglobals[forumName .. "-Cocain"] ~= nil and qglobals[forumName .. "-Boragar"] ~= nil and qglobals[forumName .. "-Taian"] ~= nil and qglobals[forumName .. "-Trust"] ~= nil and qglobals[forumName .. "-Daeron"] ~= nil and qglobals[forumName .. "-Chunky"] ~= nil) then
+			if (qglobals[forumName .. "-Cocain"] == "99" and qglobals[forumName .. "-Boragar"] == "99" and qglobals[forumName .. "-Taian"] == "99" and qglobals[forumName .. "-Trust"] == "99" and qglobals[forumName .. "-Daeron"] == "99" and qglobals[forumName .. "-Chunky"] == "99") then
+				if (qglobals[forumName .. "-YearThree"] == nil) then
+					e.self:Say("Well done, to be fair, I didn't think you could finish them all.  I am a gnome of my word, so here you go, my instant banker trinket!");
+					eq.set_global(forumName .. "-YearThree","99",7,"F");
+					e.other:SummonItem(137322, 1);
+				else
+					e.self:Say("Great job, hope to see you around next year!");
+				end
 			else
-				e.self:Say("Great job, hope to see you around next year!");
+				e.self:Say("What are you talking to me for, you should be working on the tasks!");
 			end
 		else
 			e.self:Say("Greetings!  Isn't it a wonderful time to be on [" .. eq.say_link("p2002") .. "], three full years and still going strong!");
 		end
 	elseif(e.message:findi("p2002")) then
-		e.self:Say("Oh yes, we couldn't do it without our great players, and our dedicated [" .. eq.say_link("staff") .. "]");
+		e.self:Say("Oh yes, we couldn't do it without our great players, and our dedicated [" .. eq.say_link("staff") .. "].");
 	elseif(e.message:findi("staff")) then
-		e.self:Say("This year, you must earn the [" .. eq.say_link("approval") .. "] of each staff member if you want a special trinket of mine");
+		e.self:Say("This year, you must earn the [" .. eq.say_link("approval") .. "] of each staff member if you want a special trinket of mine.");
 	elseif(e.message:findi("approval")) then
-		e.self:Say("Each current active staff member has a task, you will need to talk to each one of them to find out more.  Once you have completed all them, come back to me and we will see about getting you that trinket!  If you don't recall where you are, you can ask me for a [" .. eq.say_link("status") .. "]");
+		e.self:Say("Each current active staff member has a task, you will need to talk to each one of them to find out more.  Once you have completed all them, come back to me and we will see about getting you that trinket!  If you don't recall where you are, you can ask me for a [" .. eq.say_link("status") .. "].");
 	elseif(e.message:findi("status")) then
 		local qglobals = eq.get_qglobals();
 		local forumName = e.other:GetForumName(e.other:AccountID());
@@ -138,6 +145,8 @@ function event_say(e)
 		if (qglobals[forumName .. "-Taian"] ~= nil) then
 			if (qglobals[forumName .. "-Taian"] == "99") then
 				e.other:Message(14,"You have gained Taian's approval!");
+			else
+				e.other:Message(8,"You need to talk to Taian about getting his approval.");
 			end
 		else
 			e.other:Message(13,"You need to talk to Taian about getting his approval.");
@@ -164,7 +173,7 @@ function event_say(e)
 				end
 			end
 		else
-			e.other:Message(13,"You must gain Boragar's approval.");
+			e.other:Message(13,"You need to talk to Boragar about getting his approval.");
 		end
 		if (qglobals[forumName .. "-Cocain"] ~= nil) then
 			if (qglobals[forumName .. "-Cocain"] == "99") then

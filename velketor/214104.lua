@@ -6,7 +6,7 @@ function event_enter(e)
 	instanceId = eq.get_zone_instance_id();
 	if(instanceId ~= 0) then
 		local global = e.other:CastToClient():GetForumName(e.other:CastToClient():AccountID()) .. "-Taian";
-		eq.set_global(global,"1",7,"F");
+		eq.set_global(global,"99",7,"F");
 		e.other:Message(15,"Congratulations, you have earned Taians approval. That was a rough ride, but you made it to the top!");
 		e.other:MovePC(202,-213, -178, -157, 383.8);
 	end

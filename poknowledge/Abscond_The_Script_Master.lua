@@ -1,5 +1,5 @@
 function event_spawn(e)
-	e.self:GMMove(-221, 207, -156, 120);
+	e.self:GMMove(-167, 207, -156, 380);
 	e.self:TempName("Daeron");
 end
 
@@ -28,7 +28,7 @@ function event_say(e)
 	elseif (e.message:findi("relics")) then
 		e.self:Say("Oh yes, there are many relics hidden all over norrath, even in plain sight.  Will you [" .. eq.say_link("retrieve") .. "] some of them for me?");
 	elseif (e.message:findi("retrieve")) then
-		e.self:Say("The first is located at the ruins on the island within Dagnors Cauldron.  For the next one, search the book case in the abandoned temple within the dreadlands.  Lastly, inspect the orb that leads to Crystal Caverns in the Eastern Wastes, I suspect you will find another one there.");	
+		e.self:Say("The first is located at the ruins on the island within Dagnors Cauldron.  For the next one, search the book cases in the far north ruins within the Dreadlands.  Lastly, inspect the orb that leads to Crystal Caverns in the Eastern Wastes, I suspect you will find another one there.");	
 		eq.set_global(globalName ,"1",7,"F");
 	end
 end
