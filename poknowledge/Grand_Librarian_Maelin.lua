@@ -141,6 +141,8 @@ function event_say(e)
 		if (qglobals[forumName .. "-Taian"] ~= nil) then
 			if (qglobals[forumName .. "-Taian"] == "99") then
 				e.other:Message(14,"You have gained Taian's approval!");
+			else
+				e.other:Message(8,"You need to talk to Taian about getting his approval.");
 			end
 		else
 			e.other:Message(13,"You need to talk to Taian about getting his approval.");

@@ -7,7 +7,7 @@ function event_enter_zone(e)
 		depop_mobs();
 		eq.set_timer("timesup",300000);
 		e.self:BuffFadeAll();
-		e.self:Message(15,"The goal is to get to the Kobold camp upstairs within 5 minutes, shouldn't be too difficult.  Oh yea, I almost forgot...");
+		e.self:Message(15,"The goal is to get to the upper Kobold camp within 5 minutes, shouldn't be too difficult.  Oh yea, I almost forgot...");
 		eq.set_timer("shake",8000);
 	end
 end
