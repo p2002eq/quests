@@ -1,5 +1,9 @@
 local flags = false;
 
+function event_spawn(e)
+	flags = false;
+end
+
 function event_death(e)
 	if (flags == false) then
 		local hateList = e.self:CastToNPC():GetHateList();
