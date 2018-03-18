@@ -1,3 +1,7 @@
+function event_spawn(e)
+	e.self:GMMove(-221, 207, -156, 120);
+end
+
 function event_say(e)
 	local qglobals = eq.get_qglobals();
 	local forumName = e.other:GetForumName(e.other:AccountID());

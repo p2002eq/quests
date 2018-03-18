@@ -1,3 +1,8 @@
+function event_spawn(e)
+	e.self:GMMove(-221, 207, -156, 120);
+	e.self:TempName("Daeron");
+end
+
 function event_say(e)
 	local qglobals = eq.get_qglobals();
 	local forumName = e.other:GetForumName(e.other:AccountID());

@@ -1,4 +1,7 @@
 -- Cocain_God (202344) in PoK for anniversary quest!
+function event_spawn(e)
+	e.self:GMMove(-167, 253, -156, 380);
+end
 
 function event_say(e)
 	local qglobals = eq.get_qglobals();

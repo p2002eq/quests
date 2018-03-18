@@ -2,6 +2,7 @@
 
 function event_spawn(e)
 	e.self:TempName("Taian");
+	e.self:GMMove(-167, 230, -156, 380);
 end
 
 function event_say(e)
