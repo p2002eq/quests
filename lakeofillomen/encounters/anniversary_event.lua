@@ -14,7 +14,7 @@ end
 function allDeath(e)
 	if (killed == false) then
 		killed = true;
-		if (math.random(1,100) > 0) then
+		if (math.random(1,100) > 75) then
 			e.self:Say("Nooo, not my bread!");
 			local hateList = e.self:CastToNPC():GetHateList();
 			for mob in hateList.entries do

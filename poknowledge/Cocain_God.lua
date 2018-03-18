@@ -23,7 +23,7 @@ function event_say(e)
 			e.self:Say("Where has all my [" .. eq.say_link("bread") .. "] gone!");
 		end
 	elseif (e.message:findi("bread")) then
-		e.self:Say("I need bread to give to all the Gnome [" .. eq.say_link("orphans") .. "] in Norrath");
+		e.self:Say("I need bread to give to all the Gnome [" .. eq.say_link("orphans") .. "] in Norrath.");
 	elseif (e.message:findi("orphans")) then
 		e.self:Say("Can't you see all the little gnome bastards running over the place? Annoying anklebiters. No matter. I need more Bread to make them [" .. eq.say_link("happy") .. "] so they stop annoying me.");
 	elseif (e.message:findi("happy")) then
