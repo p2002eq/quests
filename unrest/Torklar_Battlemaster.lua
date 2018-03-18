@@ -3,6 +3,7 @@ local stolen = false;
 function event_spawn(e)
 	eq.set_proximity(e.self:GetX() - 15, e.self:GetX() + 15, e.self:GetY() - 15, e.self:GetY() + 15, e.self:GetZ() - 5, e.self:GetZ() + 5);
 	eq.set_timer("proximity",1000);
+	stolen = false;
 end
 
 function event_timer(e)
