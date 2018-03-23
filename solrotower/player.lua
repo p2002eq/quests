@@ -22,7 +22,7 @@ function event_click_door(e)
 	local door = e.door:GetDoorID();
 	local qglobals = eq.get_qglobals(e.self);
 	local instance_id = eq.get_zone_instance_id();
-	e.self:Message(14,"Door ID is: " .. door);   --debug to easily check door IDs
+	--e.self:Message(14,"Door ID is: " .. door);   --debug to easily check door IDs
 	
 	--Solro Tower Wing Boss exit portal emotes
 	if door == 6 or door == 7 or door == 10 or door == 11 or door == 12 then	--portal click text at end of each wing
@@ -74,4 +74,13 @@ function event_zone(e)
 		end
 	end
 end
+
+-----------------------------------
+--POP ALPHA TESTING MODULE
+function event_say(e)
+	local pop_flags = require("pop_flags");
+	pop_flags.options(e)
+end
+
+-----------------------------------
 

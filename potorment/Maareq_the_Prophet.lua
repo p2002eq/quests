@@ -30,13 +30,17 @@ function event_combat(e)
 		eq.stop_timer("reset");
 	else
 		eq.stop_timer("minions");
-		eq.set_timer("reset", 2 * 60 * 60 * 1000)
+		eq.set_timer("reset", 3 * 60 * 1000)
 	end
 end
 
 function event_timer(e)
 	if e.timer == "minions" then
-		eq.spawn2(207293,25,0,-28,-2,452,64);	--a_minion_of_Maareq (207293)
+		if e.self:IsEngaged() then
+			eq.spawn2(207293,25,0,-28,-2,452,64);	--a_minion_of_Maareq (207293)
+		else
+			eq.stop_timer(e.timer);
+		end
 	elseif e.timer == "monitor" then
 		local mob_list = eq.get_entity_list():GetMobList();
 		
@@ -49,7 +53,8 @@ function event_timer(e)
 				end
 			end
 		end
-	elseif e.timer == "reset" then
+	elseif e.timer == "reset" and not e.self:IsEngaged() then
+		eq.stop_timer(e.timer);
 		e.self:SetRace(1); --Human
 		e.self:ChangeSize(7);	-- 7 default size
 		e.self:SetSpecialAbility(SpecialAbility.area_rampage,0);	--disable AE Rampage
