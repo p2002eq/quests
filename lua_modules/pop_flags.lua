@@ -227,7 +227,7 @@ function pop_flags.options(e)
 		e.self:Message(3,"By selecting flag all option you will have completed Plane of Torment questline.");
 	
 	elseif e.message:findi("PoTorment flag all") then
-		flag_list = {"pop_pon_hedge_jezith", "pop_pon_construct","pop_ponb_terris", "pop_ponb_poxbourne","pop_pod_alder_fuirstel", "pop_pod_grimmus_planar_projection", "pop_pod_elder_fuirstel","pop_cod_preflag","pop_cod_bertox","pop_cod_final"};
+		flag_list = {"pop_pon_hedge_jezith", "pop_pon_construct","pop_ponb_terris", "pop_ponb_poxbourne","pop_pod_alder_fuirstel", "pop_pod_grimmus_planar_projection", "pop_pod_elder_fuirstel","pop_cod_preflag","pop_cod_bertox","pop_cod_final","pop_pot_shadyglade","pop_pot_newleaf","pop_pot_saryrn","pop_pot_saryrn_final"};
  
 		for k,flag in pairs(flag_list) do
 			eq.set_global(flag,"1",5,"F");
@@ -235,7 +235,7 @@ function pop_flags.options(e)
 		e.self:Message(18,"All of Plane of Torment flags added.");
 	
 	elseif e.message:findi("PoTorment deflag all") then
-		flag_list = {"pop_pon_hedge_jezith", "pop_pon_construct","pop_ponb_terris", "pop_ponb_poxbourne","pop_pod_alder_fuirstel", "pop_pod_grimmus_planar_projection", "pop_pod_elder_fuirstel","pop_cod_preflag","pop_cod_bertox","pop_cod_final"};
+		flag_list = {"pop_pon_hedge_jezith", "pop_pon_construct","pop_ponb_terris", "pop_ponb_poxbourne","pop_pod_alder_fuirstel", "pop_pod_grimmus_planar_projection", "pop_pod_elder_fuirstel","pop_cod_preflag","pop_cod_bertox","pop_cod_final","pop_pot_shadyglade","pop_pot_newleaf","pop_pot_saryrn","pop_pot_saryrn_final"};
 		
 		for k,flag in pairs(flag_list) do
 			eq.delete_global(flag);
@@ -292,7 +292,7 @@ function pop_flags.options(e)
 	elseif e.message:findi("SRT flag all") then
 		flag_list = {	"pop_poj_mavuin", "pop_poj_tribunal", "pop_poj_valor_storms", "pop_pov_aerin_dar", "pop_hoh_faye", "pop_hoh_trell", "pop_hoh_garn", "pop_hohb_marr",  --MM flags
 						"pop_poi_dragon", "pop_poi_behometh_preflag", "pop_poi_behometh_flag", "pop_tactics_vallon", "pop_tactics_tallon","pop_tactics_ralloz",	--PoTactics flags
-						"pop_pon_hedge_jezith", "pop_pon_construct","pop_ponb_terris", "pop_ponb_poxbourne","pop_pod_alder_fuirstel", "pop_pod_grimmus_planar_projection", "pop_pod_elder_fuirstel","pop_cod_preflag","pop_cod_bertox","pop_cod_final",	--Saryrn flags (excludes RZ)
+						"pop_pon_hedge_jezith", "pop_pon_construct","pop_ponb_terris", "pop_ponb_poxbourne","pop_pod_alder_fuirstel", "pop_pod_grimmus_planar_projection", "pop_pod_elder_fuirstel","pop_cod_preflag","pop_cod_bertox","pop_cod_final","pop_pot_shadyglade","pop_pot_newleaf","pop_pot_saryrn","pop_pot_saryrn_final",	--Saryrn flags (excludes RZ)
 						"pop_pos_askr_the_lost", "pop_pos_askr_the_lost_final", "pop_bot_agnarr","pop_bot_karana",	--Agnarr/Karana flags
 						"pop_sol_ro_miak","pop_sol_ro_arlyxir","pop_sol_ro_dresolik","pop_sol_ro_jiva","pop_sol_ro_rizlona","pop_sol_ro_xuzl","pop_sol_ro_solusk", "pop_elemental_grand_librarian"};  --SRT/Elemental Flags
  
@@ -304,7 +304,7 @@ function pop_flags.options(e)
 	elseif e.message:findi("SRT deflag all") then
 		flag_list = {	"pop_poj_mavuin", "pop_poj_tribunal", "pop_poj_valor_storms", "pop_pov_aerin_dar", "pop_hoh_faye", "pop_hoh_trell", "pop_hoh_garn", "pop_hohb_marr",  --MM flags
 						"pop_poi_dragon", "pop_poi_behometh_preflag", "pop_poi_behometh_flag", "pop_tactics_vallon", "pop_tactics_tallon","pop_tactics_ralloz",	--PoTactics flags
-						"pop_pon_hedge_jezith", "pop_pon_construct","pop_ponb_terris", "pop_ponb_poxbourne","pop_pod_alder_fuirstel", "pop_pod_grimmus_planar_projection", "pop_pod_elder_fuirstel","pop_cod_preflag","pop_cod_bertox","pop_cod_final",	--Saryrn flags (excludes RZ)
+						"pop_pon_hedge_jezith", "pop_pon_construct","pop_ponb_terris", "pop_ponb_poxbourne","pop_pod_alder_fuirstel", "pop_pod_grimmus_planar_projection", "pop_pod_elder_fuirstel","pop_cod_preflag","pop_cod_bertox","pop_cod_final","pop_pot_shadyglade","pop_pot_newleaf","pop_pot_saryrn","pop_pot_saryrn_final",	--Saryrn flags (excludes RZ)
 						"pop_pos_askr_the_lost", "pop_pos_askr_the_lost_final", "pop_bot_agnarr","pop_bot_karana",	--Agnarr/Karana flags
 						"pop_sol_ro_miak","pop_sol_ro_arlyxir","pop_sol_ro_dresolik","pop_sol_ro_jiva","pop_sol_ro_rizlona","pop_sol_ro_xuzl","pop_sol_ro_solusk", "pop_elemental_grand_librarian"};  --SRT/Elemental Flags
  
@@ -321,7 +321,7 @@ function pop_flags.options(e)
 	elseif e.message:findi("EP flag all") then
 		flag_list = {	"pop_poj_mavuin", "pop_poj_tribunal", "pop_poj_valor_storms", "pop_pov_aerin_dar", "pop_hoh_faye", "pop_hoh_trell", "pop_hoh_garn", "pop_hohb_marr",  --MM flags
 						"pop_poi_dragon", "pop_poi_behometh_preflag", "pop_poi_behometh_flag", "pop_tactics_vallon", "pop_tactics_tallon","pop_tactics_ralloz",	--PoTactics flags
-						"pop_pon_hedge_jezith", "pop_pon_construct","pop_ponb_terris", "pop_ponb_poxbourne","pop_pod_alder_fuirstel", "pop_pod_grimmus_planar_projection", "pop_pod_elder_fuirstel","pop_cod_preflag","pop_cod_bertox","pop_cod_final",	--Saryrn flags (excludes RZ)
+						"pop_pon_hedge_jezith", "pop_pon_construct","pop_ponb_terris", "pop_ponb_poxbourne","pop_pod_alder_fuirstel", "pop_pod_grimmus_planar_projection", "pop_pod_elder_fuirstel","pop_cod_preflag","pop_cod_bertox","pop_cod_final","pop_pot_shadyglade","pop_pot_newleaf","pop_pot_saryrn","pop_pot_saryrn_final",	--Saryrn flags (excludes RZ)
 						"pop_pos_askr_the_lost", "pop_pos_askr_the_lost_final", "pop_bot_agnarr","pop_bot_karana",	--Agnarr/Karana flags
 						"pop_elemental_grand_librarian"};  --Elemental Flags
  
@@ -333,7 +333,7 @@ function pop_flags.options(e)
 	elseif e.message:findi("EP deflag all") then
 		flag_list = {	"pop_poj_mavuin", "pop_poj_tribunal", "pop_poj_valor_storms", "pop_pov_aerin_dar", "pop_hoh_faye", "pop_hoh_trell", "pop_hoh_garn", "pop_hohb_marr",  --MM flags
 						"pop_poi_dragon", "pop_poi_behometh_preflag", "pop_poi_behometh_flag", "pop_tactics_vallon", "pop_tactics_tallon","pop_tactics_ralloz",	--PoTactics flags
-						"pop_pon_hedge_jezith", "pop_pon_construct","pop_ponb_terris", "pop_ponb_poxbourne","pop_pod_alder_fuirstel", "pop_pod_grimmus_planar_projection", "pop_pod_elder_fuirstel","pop_cod_preflag","pop_cod_bertox","pop_cod_final",	--Saryrn flags (excludes RZ)
+						"pop_pon_hedge_jezith", "pop_pon_construct","pop_ponb_terris", "pop_ponb_poxbourne","pop_pod_alder_fuirstel", "pop_pod_grimmus_planar_projection", "pop_pod_elder_fuirstel","pop_cod_preflag","pop_cod_bertox","pop_cod_final","pop_pot_shadyglade","pop_pot_newleaf","pop_pot_saryrn","pop_pot_saryrn_final",	--Saryrn flags (excludes RZ)
 						"pop_pos_askr_the_lost", "pop_pos_askr_the_lost_final", "pop_bot_agnarr","pop_bot_karana",	--Agnarr/Karana flags
 						"pop_elemental_grand_librarian"};  --Elemental Flags
 		
