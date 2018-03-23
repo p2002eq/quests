@@ -9,7 +9,7 @@ end
 function event_signal(e)
 	if e.signal == 1 then
 		activate(e.self);
-		eq.set_timer("deactivate", 2 * 60 * 1000);	--2 hrs to deactivate if not killed
+		eq.set_timer("deactivate", 2 * 60 * 60 * 1000);	--2 hrs to deactivate if not killed
 	end
 end
 
