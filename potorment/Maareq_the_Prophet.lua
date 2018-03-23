@@ -15,6 +15,7 @@ function event_hp(e)
 		e.self:Say("Your assault only prolongs the inevitable!  I can feel the fear dripping for you.  Give into it.  Give up while you still have enough energy to suffer properly!");
 		eq.zone_emote(7,"A horrific roar reverberates throughout the zone!  Every surface shakes violently for a moment as the sound rolls past you!");
 		e.self:SetRace(281);	--set Mouth of Insanity Race
+		e.self:ModifyNPCStat("attack_delay","17");	--slightly increase attack speed on transformation
 		eq.set_next_hp_event(40);
 	elseif e.hp_event == 40 then
 		e.self:Emote("radiates with rage!  The ferocity of its attacks increases dramatically as its skin begins to bubble and burst in places!");
@@ -49,7 +50,7 @@ function event_timer(e)
 				if mob:GetNPCTypeID() == 207293 and mob:CalculateDistance(e.self:GetX(), e.self:GetY(), e.self:GetZ()) <= 5 then
 					mob:Emote("adheres to Maareq's flesh and is quickly absorbed!");
 					mob:Depop();
-					e.self:HealDamage(1000);
+					e.self:HealDamage(5000);
 				end
 			end
 		end
@@ -57,11 +58,14 @@ function event_timer(e)
 		eq.stop_timer(e.timer);
 		e.self:SetRace(1); --Human
 		e.self:ChangeSize(7);	-- 7 default size
-		e.self:SetSpecialAbility(SpecialAbility.area_rampage,0);	--disable AE Rampage
+		e.self:ModifyNPCStat("attack_delay","20");	--default attack speed
+		eq.set_next_hp_event(80);	--reset hp event
 	end
 end
 
 function event_death_complete(e)
 	eq.signal(207014,1);	--Tylis_Newleaf (207014)  signal to activate
 	eq.local_emote({e.self:GetX(), e.self:GetY(), e.self:GetZ()},7,500,"A strange female voice drifts from the bloated corpse that lies slumped before you, 'Maareq, I cannot feel your presence.  What has happened?  My head feels strange... what is happening to me?'");
+	eq.stop_all_timers();
+	eq.depop_all(207293);	--depop minions
 end
