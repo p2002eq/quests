@@ -2,7 +2,7 @@
 
 local items = {};
 items[1] = { "Guide Pack", 3, 17800};
-items[2] = { "Journeyman Boots", 3, 2300};
+items[2] = { "Journeyman's Boots", 3, 2300};
 items[3] = { "Da Oogly Stick", 5, 31861};
 items[4] = { "Stone of Gnoming", 5, 31863};
 items[5] = { "Ring of Halves", 5,31854};
