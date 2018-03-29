@@ -13,11 +13,10 @@ items[9] = { "Fuzzy Foothairs", 5, 31859};
 items[10] = { "Treehuggers Shrub", 5, 31860};
 items[11] = { "Wreath of Takish Hiz", 5, 31853};
 items[12] = { "Guise of the Deceiver", 5, 2469}; 
-items[13] = { "Guise of the Deceiver", 5, 2469}; 
-items[14] = { "Breezeboots Frigid Gnasher", 10, 27310};
-items[15] = { "Holgresh Elder Beads", 10, 24890};
-items[16] = { "Circlet of Shadow", 15, 14730};
-items[17] = { "P2002's Trinket of the Banker", 15, 137322};
+items[13] = { "Breezeboots Frigid Gnasher", 10, 27310};
+items[14] = { "Holgresh Elder Beads", 10, 24890};
+items[15] = { "Circlet of Shadow", 15, 14730};
+items[16] = { "P2002's Trinket of the Banker", 15, 137322};
 
 
 function event_say(e)
