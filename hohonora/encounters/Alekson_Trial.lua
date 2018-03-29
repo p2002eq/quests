@@ -54,31 +54,31 @@ end
 
 function SpawnEvent(e)
 	--SPAWN MAIDENS:	
-	eq.spawn2(211101,0,0,-3180,-1715,-114,130);	--Miranda_Climmes (211101)	ROOM 2		
-	eq.spawn2(211111,0,0,-3159,-1129,-114,110)	--Ydira_Merok (211111)	ROOM 3
+	eq.spawn2(211101,0,0,-3180,-1715,-114,260);	--Miranda_Climmes (211101)	ROOM 2		
+	eq.spawn2(211111,0,0,-3159,-1129,-114,220)	--Ydira_Merok (211111)	ROOM 3
 
 	--MOBS:
 	--ROOM 1 TRASH
-	eq.spawn2(211075,0,0,-2739,-1736,-113,64);		--a_crazed_norrathian (211075)
-	eq.spawn2(211075,0,0,-2739,-1714,-113,64);
-	eq.spawn2(211075,0,0,-2582,-1872,-113,20.6);
-	eq.spawn2(211075,0,0,-2667,-1724,-113,64);
-	eq.spawn2(211075,0,0,-2588,-1600,-113,20.6);
+	eq.spawn2(211075,0,0,-2739,-1736,-113,128);		--a_crazed_norrathian (211075)
+	eq.spawn2(211075,0,0,-2739,-1714,-113,128);
+	eq.spawn2(211075,0,0,-2582,-1872,-113,41.2);
+	eq.spawn2(211075,0,0,-2667,-1724,-113,128);
+	eq.spawn2(211075,0,0,-2588,-1600,-113,41.2);
 
 	--ROOM 2 TRASH									
-	eq.spawn2(eq.ChooseRandom(211079,211080,211081),0,0,-3318,-1841,-113,13);		--a_recuso_drifter (211079)	--a_recuso_straggler (211080) 	--a_recuso_vagrant (211081)
-	eq.spawn2(eq.ChooseRandom(211079,211080,211081),0,0,-3319,-1725,-113,65);
-	eq.spawn2(eq.ChooseRandom(211079,211080,211081),0,0,-3299,-1621,-113,20.6);
-	eq.spawn2(eq.ChooseRandom(211079,211080,211081),0,0,-3034,-1636,-113,173);
-	eq.spawn2(eq.ChooseRandom(211079,211080,211081),0,0,-3034,-1816,-113,316);
+	eq.spawn2(eq.ChooseRandom(211079,211080,211081),0,0,-3318,-1841,-113,26);		--a_recuso_drifter (211079)	--a_recuso_straggler (211080) 	--a_recuso_vagrant (211081)
+	eq.spawn2(eq.ChooseRandom(211079,211080,211081),0,0,-3319,-1725,-113,130);
+	eq.spawn2(eq.ChooseRandom(211079,211080,211081),0,0,-3299,-1621,-113,41.2);
+	eq.spawn2(eq.ChooseRandom(211079,211080,211081),0,0,-3034,-1636,-113,346);
+	eq.spawn2(eq.ChooseRandom(211079,211080,211081),0,0,-3034,-1816,-113,316); -- needs_heading_validation
 
 	--ROOM 3 TRASH
 
-	eq.spawn2(eq.ChooseRandom(211116,211117,211118),0,0,-3293,-1027,-113,86);		--#a_recuso_drifter (211116), --#a_recuso_straggler (211117) --#a_recuso_vagrant (211118)
-	eq.spawn2(eq.ChooseRandom(211116,211117,211118),0,0,-3027,-1035,-113,65);	
-	eq.spawn2(eq.ChooseRandom(211116,211117,211118),0,0,-3035,-1229,-113,217);
-	eq.spawn2(eq.ChooseRandom(211116,211117,211118),0,0,-3303,-1229,-113,173);
-	eq.spawn2(eq.ChooseRandom(211116,211117,211118),0,0,-3168,-1028,-113,316);
+	eq.spawn2(eq.ChooseRandom(211116,211117,211118),0,0,-3293,-1027,-113,172);		--#a_recuso_drifter (211116), --#a_recuso_straggler (211117) --#a_recuso_vagrant (211118)
+	eq.spawn2(eq.ChooseRandom(211116,211117,211118),0,0,-3027,-1035,-113,130);	
+	eq.spawn2(eq.ChooseRandom(211116,211117,211118),0,0,-3035,-1229,-113,434);
+	eq.spawn2(eq.ChooseRandom(211116,211117,211118),0,0,-3303,-1229,-113,346);
+	eq.spawn2(eq.ChooseRandom(211116,211117,211118),0,0,-3168,-1028,-113,316); -- needs_heading_validation
 end
 
 function Room1Counter(e)
@@ -99,7 +99,7 @@ function BossCounter(e)
 		eq.stop_all_timers();
 		eq.depop_all(211101);	--depop maidens
 		eq.depop_all(211111);
-		eq.spawn2(211061,0,0,-2330,-1724,-117,195.8)		--#Alekson_Garn (flag version)
+		eq.spawn2(211061,0,0,-2330,-1724,-117,391.6)		--#Alekson_Garn (flag version)
 		eq.update_spawn_timer(361021,259200000 + math.random(-43200000,43200000));	--Set Alekson Garn respawn timer to 3 days +/- 12 hrs on win
 		EventReset();
 	end
@@ -110,13 +110,13 @@ function event_timer(e)
 		--check kill counters to determine boss spawns
 		if room1_counter == 5 and not Advocent then
 			Advocent = true;
-			eq.spawn2(211085,0,0,-2494 + math.random(-75,75), -1731 + math.random(-75,75), -112,130);	--#Advocent_Joran (211085)
+			eq.spawn2(211085,0,0,-2494 + math.random(-75,75), -1731 + math.random(-75,75), -112,260);	--#Advocent_Joran (211085)
 		elseif room2_counter == 5 and not Halgoz then
 			Halgoz = true;
-			eq.spawn2(211095,0,0,-3169 + math.random(-75,75), -1751 + math.random(-75,75), -112,76.2);	--#Halgoz_Rellinic (211095)
+			eq.spawn2(211095,0,0,-3169 + math.random(-75,75), -1751 + math.random(-75,75), -112,152.4);	--#Halgoz_Rellinic (211095)
 		elseif room3_counter == 5 and not Freegan then
 			Freegan = true;
-			eq.spawn2(211093,0,0,-3179 + math.random(-75,75), -1127 + math.random(-75,75), -112,153);	--#Freegan_Haun (211093)
+			eq.spawn2(211093,0,0,-3179 + math.random(-75,75), -1127 + math.random(-75,75), -112,306);	--#Freegan_Haun (211093)
 		end
 	end
 end

@@ -27,7 +27,7 @@ local Mujaki;		--Mujaki_the_Devouerer (Mob entity type)
 local Mujaki_id = 204039;	--NPC ID
 local Mujaki_spawnpoint_id = 345999;	--Encounter #1 Spawnpoint
 
-local start_timer = 30;		--30 seconds (90 sec total till waves start)
+local start_timer = 30;		--30 seconds (150 sec total till waves start)
 local wave_timer = 120; 		--in seconds (2 min default)
 
 local repop_time = 5*60;  	--in seconds  (for successful event completion - time to repop steeds.  This will be similar to Mujaki respawn time)
@@ -46,7 +46,6 @@ function event_encounter_load(e)
 	eq.set_timer("start",  start_timer * 1000);	
 		
 	--registered events
-	eq.zone_emote(4,"Mujaki Encounter started!");	--debug	
 	eq.register_npc_event("Mujaki_1", Event.timer, 204039, Mujaki_Timers);	
 	eq.register_npc_event("Mujaki_1", Event.signal,204039, Reset_Signal);	
 	eq.register_npc_event("Mujaki_1", Event.death_complete, 204039, Win);	--Mujaki's death unloads the encounter
@@ -95,9 +94,9 @@ function KillCounter(e)
 end
 
 function spawn_servants()
-	local grave_locs = { 	[1] = {237,-2662,173,65},		--East Tomb
-							[2] = {637,-2995,174,255}, 		--South Tomb
-							[3] = {1019,-2664,176,193}};	--West Tomb
+	local grave_locs = { 	[1] = {237,-2662,173,130},		--East Tomb
+							[2] = {637,-2995,174,510}, 		--South Tomb
+							[3] = {1019,-2664,176,386}};	--West Tomb
 	for n = 1,3 do
 		servant = eq.spawn2(204081,0,0,unpack(grave_locs[n]));
 		servant:CastToNPC():MoveTo(626,-2657,176,-1,true);
@@ -113,7 +112,7 @@ function CheckGuards()
 				npc:Depop();	--depop servant and spawn knight rider version
 				
 				local knight = eq.spawn2(204082,0,0,npc:GetX(),npc:GetY(),npc:GetZ(),npc:GetHeading());
-				knight:CastToNPC():MoveTo(Mujaki:GetX() + math.random(-45,45), Mujaki:GetY() + math.random(25,50), Mujaki:GetZ(),130,true);
+				knight:CastToNPC():MoveTo(Mujaki:GetX() + math.random(-45,45), Mujaki:GetY() + math.random(25,50), Mujaki:GetZ(),260,true);
 				knight_counter = knight_counter + 1;
 			end
 		end
@@ -165,7 +164,6 @@ function Repop()
 	end
 	eq.unload_encounter("Mujaki_1");
 end
-
 
 
 

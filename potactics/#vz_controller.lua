@@ -33,8 +33,8 @@ end
 
 function spawn_wave(e)
 	for n = 1,4 do
-		eq.spawn2(214300,0,0,-640 + math.random(-50,50),1980 + math.random(-50,50),230,64);	--Vallon_Zek_ (214300) -- FAKE
+		eq.spawn2(214300,0,0,-640 + math.random(-50,50),1980 + math.random(-50,50),230,128);	--Vallon_Zek_ (214300) -- FAKE
 	end
-	eq.spawn2(214295,0,0,-640 + math.random(-50,50),1980 + math.random(-50,50),230,64);	--Vallon_Zek_ (214300) -- REAL
+	eq.spawn2(214295,0,0,-640 + math.random(-50,50),1980 + math.random(-50,50),230,128);	--Vallon_Zek_ (214300) -- REAL
 end
 		

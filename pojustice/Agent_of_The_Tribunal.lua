@@ -32,7 +32,7 @@ function event_say(e)
 		if ((x == 142) and (y == -1044)) then
 			 if (hold_execution == 0) then
 				e.self:Say("Very well.");
-				e.other:MovePC(201,456,825,9,250);
+				e.other:MovePC(201,456,825,9,254);
 			else 
 				e.self:Say("The trial is yet underway.  You must wait.");
 			end
@@ -41,7 +41,7 @@ function event_say(e)
 		elseif ((x == 911) and (y == -793)) then
 			 if (hold_flame == 0) then
 				e.self:Say("Very well.");
-				e.other:MovePC(201,456,825,9,250);			  
+				e.other:MovePC(201,456,825,9,254);			  
 			 else 
 				e.self:Say("The trial is yet underway.  You must wait.");
 			 end
@@ -50,7 +50,7 @@ function event_say(e)
 		elseif ((x == 490) and (y == -1046)) then
 			if (hold_hanging == 0) then
 				e.self:Say("Very well.");
-				e.other:MovePC(201,456,825,9,250);
+				e.other:MovePC(201,456,825,9,254);
 			else 
 				e.self:Say("The trial is yet underway.  You must wait.");
 			end
@@ -59,7 +59,7 @@ function event_say(e)
 		elseif ((x == 1343) and (y == -1137)) then
 			if (hold_lashing == 0) then
 				e.self:Say("Very well.");
-				e.other:MovePC(201,456,825,9,250);
+				e.other:MovePC(201,456,825,9,254);
 			else 
 				e.self:Say("The trial is yet underway.  You must wait.");
 			end
@@ -68,7 +68,7 @@ function event_say(e)
 		elseif ((x == -148) and (y == -1195)) then
 			if (hold_stoning == 0) then
 				e.self:Say("Very well.");
-				e.other:MovePC(201,456,825,9,250);
+				e.other:MovePC(201,456,825,9,254);
 			else 
 				e.self:Say("The trial is yet underway.  You must wait.");
 			end
@@ -77,7 +77,7 @@ function event_say(e)
 		elseif ((x == 772) and (y == -1147)) then
 			if (hold_torture == 0) then
 				e.self:Say("Very well.");
-				e.other:MovePC(201,456,825,9,250);
+				e.other:MovePC(201,456,825,9,254);
 			else 
 				e.self:Say("The trial is yet underway.  You must wait.");
 			end

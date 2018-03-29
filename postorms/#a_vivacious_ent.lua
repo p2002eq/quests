@@ -20,10 +20,10 @@ function event_say(e)
 			for client in client_list.entries do
 				if client:IsRaidGrouped() and client:GetRaid():GetID() == raid_id and client:GetRaid():GetGroup(client:GetName()) == raid_group then
 					if client:CastToMob():CalculateDistance(e.self:GetX(), e.self:GetY(), e.self:GetZ()) <= 100 then
-						client:MovePC(zone_id,1580,2130,-446,350);
+						client:MovePC(zone_id,1580,2130,-446,350); -- needs_heading_validation
 					end
 				elseif client:CharacterID() == e.other:CharacterID() then
-					client:MovePC(zone_id,1580,2130,-446,350);
+					client:MovePC(zone_id,1580,2130,-446,350); -- needs_heading_validation
 				end
 			end
 		end	

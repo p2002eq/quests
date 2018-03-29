@@ -109,7 +109,7 @@ function spawn_mobs(wave)
 			local pusling = eq.get_entity_list():GetSpawnByID(spawnpoints[n]);
 			pusling:Repop(1);
 		end
-		RealPaffa = eq.unique_spawn(200259,0,0,140,-431,-70,220.3); --#Overlord_Banord_Paffa (200259)
+		RealPaffa = eq.unique_spawn(200259,0,0,140,-431,-70,440.6); --#Overlord_Banord_Paffa (200259)
 		eq.depop_with_timer(200020);	-- despawn Banord_Paffa (200020) untargetable
 		eq.local_emote({156,-440,-70}, 7, 150, "A loud and maddened scream of rage is heard as Banord prepares to attack.");
 		eq.set_timer("fail", fail_timer * 1000, RealPaffa);	--will check for reset if boss is non-aggro after 10 min (would indicate group died)

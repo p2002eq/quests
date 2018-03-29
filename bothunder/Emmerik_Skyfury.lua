@@ -21,7 +21,7 @@ function event_timer(e)
 end
 
 function event_death_complete(e)
-	eq.spawn2(209154,0,0,-1074,-1732,1727,64);	--#_Askr_the_Lost_ (209154)
+	eq.spawn2(209154,0,0,-1074,-1732,1727,128);	--#_Askr_the_Lost_ (209154)
 end
 
 		

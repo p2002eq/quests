@@ -12,14 +12,14 @@ local efreetis = {	[1] = {212402, "Makin, come to my aid!"},								--#an_efreet
 					[7] = {212400, "Cemal, enchanted ones, I need your help!"},				--#an_efreeti_cemal
 					[8] = {212405, "Fahim, your control over the elements is needed!"} };	--#an_efreeti_fahim
 
-local spawn_locs = {[1] = {-2255,-331,-1095,127},
-					[2] = {-2302,-310,-1095,161},
-					[3] = {-2322,-264,-1095,191},
-					[4] = {-2303,-217,-1095,224},
-					[5] = {-2256,-195,-1095,256},
-					[6] = {-2209,-216,-1095,35},
-					[7] = {-2185,-264,-1095,64},
-					[8] = {-2208,-311,-1095,95}};
+local spawn_locs = {[1] = {-2255,-331,-1095,354},
+					[2] = {-2302,-310,-1095,322},
+					[3] = {-2322,-264,-1095,382},
+					[4] = {-2303,-217,-1095,448},
+					[5] = {-2256,-195,-1095,512},
+					[6] = {-2209,-216,-1095,70},
+					[7] = {-2185,-264,-1095,128},
+					[8] = {-2208,-311,-1095,190}};
 
 
 function event_combat(e)
@@ -27,7 +27,7 @@ function event_combat(e)
 		if counter == nil then
 			counter = 0;
 		end
-		eq.set_timer("adds", 45 * 1000);
+		eq.set_timer("adds", 30 * 1000);
 		eq.stop_timer("reset");
 	else
 		eq.stop_timer("adds");

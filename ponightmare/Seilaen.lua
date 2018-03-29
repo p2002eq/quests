@@ -35,10 +35,10 @@ function event_say(e)
 	elseif e.message:findi("ready") and ( group:IsLeader(e.other) or raid:IsGroupLeader(e.other:GetName()) ) then
 		if count < 2 then	
 			if e.other:IsRaidGrouped() then 
-				raid:TeleportGroup(e.other, zone_id, instance_id, 1194,1121,280,-1, raid:GetGroup(e.other:GetName()));
+				raid:TeleportGroup(e.other, zone_id, instance_id, 1194,1121,280,360, raid:GetGroup(e.other:GetName()));
 				count = count + 1;
 			else
-				group:TeleportGroup(e.other, zone_id, instance_id, 1194,1121,280,-1);
+				group:TeleportGroup(e.other, zone_id, instance_id, 1194,1121,280,360);
 				count = count + 1;
 			end
 			eq.set_timer("reset", 30 * 60 * 1000);

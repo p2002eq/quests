@@ -97,9 +97,9 @@ function spawn_spirit(spirit_id)
 	-- Spawn the Mob
 	local rare = math.random(1,100);
 	if rare <= 10 then
-		eq.spawn2(201493,0,0,xlocs[prisoner], -1139, 73, 125);	--#phantom_of_asphyxiation (201493) 10% spawn chance
+		eq.spawn2(201493,0,0,xlocs[prisoner], -1139, 73, 250);	--#phantom_of_asphyxiation (201493) 10% spawn chance
 	else
-		eq.spawn2(201498,0,0,xlocs[prisoner], -1139, 73, 125);	--#spirit_of_suffocation (201498)
+		eq.spawn2(201498,0,0,xlocs[prisoner], -1139, 73, 250);	--#spirit_of_suffocation (201498)
 	end
 	eq.signal(prisoners_list[prisoner],1);	--signal chosen prisoner
 	last_steps = prisoner;
@@ -118,14 +118,14 @@ function spawn_mobs()
 end
 
 function spawn_boss()
-	eq.spawn2(201489, 0, 0, 488, -1068, 73, 125);		--#Gallows_Master_Teion (201489)
+	eq.spawn2(201489, 0, 0, 488, -1068, 73, 250);		--#Gallows_Master_Teion (201489)
 end
 
 function spawn_prisoners()
 	-- Spawn the 3 prisoners by the hangmen's noose
-	eq.spawn2( 201511, 0, 0, 540, -1175, 80, 255);	--Barbarian Male
-	eq.spawn2( 201512, 0, 0, 490, -1175, 80, 255);	--Wood elf Female
-	eq.spawn2( 201513, 0, 0, 440, -1175, 80, 255);	--Aviak
+	eq.spawn2( 201511, 0, 0, 540, -1175, 80, 510);	--Barbarian Male
+	eq.spawn2( 201512, 0, 0, 490, -1175, 80, 510);	--Wood elf Female
+	eq.spawn2( 201513, 0, 0, 440, -1175, 80, 510);	--Aviak
 end
 
 function depop_prisoners()

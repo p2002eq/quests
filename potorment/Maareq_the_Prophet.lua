@@ -38,7 +38,7 @@ end
 function event_timer(e)
 	if e.timer == "minions" then
 		if e.self:IsEngaged() then
-			eq.spawn2(207293,25,0,-28,-2,452,64);	--a_minion_of_Maareq (207293)
+			eq.spawn2(207293,25,0,-28,-2,452,128);	--a_minion_of_Maareq (207293)
 		else
 			eq.stop_timer(e.timer);
 		end

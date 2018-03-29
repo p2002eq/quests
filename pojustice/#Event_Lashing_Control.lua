@@ -73,10 +73,10 @@ function event_timer(e)
 end
 
 function spawn_spirits()
-   eq.spawn2( 201459, 0, 0, 1298, -1169, -13, 63 ); -- #a_flickering_spirit
-   eq.spawn2( 201459, 0, 0, 1153, -1119,  88, 63 ); -- #a_flickering_spirit
-   eq.spawn2( 201459, 0, 0, 1298, -1072, -13, 63 ); -- #a_flickering_spirit
-   scourge = eq.spawn2( 201458, 0, 0, 1325, -1120, 2, 62); -- #A_Scourge_of_Honor
+   eq.spawn2( 201459, 0, 0, 1298, -1169, -13, 126 ); -- #a_flickering_spirit
+   eq.spawn2( 201459, 0, 0, 1153, -1119,  88, 126 ); -- #a_flickering_spirit
+   eq.spawn2( 201459, 0, 0, 1298, -1072, -13, 126 ); -- #a_flickering_spirit
+   scourge = eq.spawn2( 201458, 0, 0, 1325, -1120, 2, 124); -- #A_Scourge_of_Honor
    scourge:SetRunning(true);
    scourge:CastToNPC():MoveTo(1355,-1120,2,62,true);
 end
@@ -95,15 +95,15 @@ function spawn_mobs(wave)
 		eq.set_timer("spirit_timer", 30000); -- 30 sec
    elseif (wave == 5) then
       -- Spawn the boss
-      eq.spawn2(201461, 0,0, 1350, -1127, 2, 62); -- #Lashman_Azakal
+      eq.spawn2(201461, 0,0, 1350, -1127, 2, 124); -- #Lashman_Azakal
    end
 end
 
 function spawn_prisoners()
    -- a tortured prisoner
-   eq.spawn2(201455, 0, 0, 1415, -1168, 3, 196); -- #a_tormented_prisoner
-   eq.spawn2(201455, 0, 0, 1415, -1120, 3, 196); -- #a_tormented_prisoner
-   eq.spawn2(201455, 0, 0, 1415, -1072, 3, 196); -- #a_tormented_prisoner
+   eq.spawn2(201455, 0, 0, 1415, -1168, 3, 392); -- #a_tormented_prisoner
+   eq.spawn2(201455, 0, 0, 1415, -1120, 3, 392); -- #a_tormented_prisoner
+   eq.spawn2(201455, 0, 0, 1415, -1072, 3, 392); -- #a_tormented_prisoner
 end
 
 function despawn_prisoners() 

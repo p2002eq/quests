@@ -18,19 +18,19 @@ end
 
 function event_hp(e)
 	if (e.hp_event == 99) then
-		boss = eq.spawn2(bosses[1],0,0,-1074,-1738,2250,64); --first giant Jolur_Sandstorm (209152)
+		boss = eq.spawn2(bosses[1],0,0,-1074,-1738,2250,128); --first giant Jolur_Sandstorm (209152)
 		boss:CastToNPC():MoveTo(e.self:GetX(), e.self:GetY(), e.self:GetZ(),e.self:GetHeading(),true);
 		eq.set_next_hp_event(76); --spawn next giant at 75		
 	elseif (e.hp_event == 76) then
-		boss = eq.spawn2(bosses[2],0,0,-1074,-1738,2250,64); --second giant Ekil_Thundercall (209137)
+		boss = eq.spawn2(bosses[2],0,0,-1074,-1738,2250,128); --second giant Ekil_Thundercall (209137)
 		boss:CastToNPC():MoveTo(e.self:GetX(), e.self:GetY(), e.self:GetZ(),e.self:GetHeading(),true);
 		eq.set_next_hp_event(51); --spawn next giant at 50
 	elseif (e.hp_event == 51) then
-		boss = eq.spawn2(bosses[3],0,0,-1074,-1738,2250,64); --third giant	Oljin_Stormtide (209143)
+		boss = eq.spawn2(bosses[3],0,0,-1074,-1738,2250,128); --third giant	Oljin_Stormtide (209143)
 		boss:CastToNPC():MoveTo(e.self:GetX(), e.self:GetY(), e.self:GetZ(),e.self:GetHeading(),true);
 		eq.set_next_hp_event(26); --spawn next giant at 25
 	elseif (e.hp_event == 26) then
-		boss = 	eq.spawn2(bosses[4],0,0,-1074,-1738,2250,64); --fourth giant Hibdin_Cyclone (209141)
+		boss = 	eq.spawn2(bosses[4],0,0,-1074,-1738,2250,128); --fourth giant Hibdin_Cyclone (209141)
 		boss:CastToNPC():MoveTo(e.self:GetX() + math.random(-20,20), e.self:GetY() + math.random(-20,20), e.self:GetZ(),e.self:GetHeading(),true);
 	end
 end
@@ -62,6 +62,6 @@ function event_timer(e)
 end
 
 function event_death_complete(e)
-	eq.spawn2(209151,110,0,-767,-1735,2251,65);	--#Askr_the_Lost (209151)
-	eq.spawn2(209142,0,0,-469,-1754,2351.2,197.6); --#Karana (209142)
+	eq.spawn2(209151,110,0,-767,-1735,2251,130);	--#Askr_the_Lost (209151)
+	eq.spawn2(209142,0,0,-469,-1754,2351.2,395.2); --#Karana (209142)
 end

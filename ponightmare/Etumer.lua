@@ -77,14 +77,14 @@ function event_say(e)
 						if client:CastToMob():CalculateDistance(e.self:GetX(), e.self:GetY(), e.self:GetZ()) <= 100 then
 							if player_check(encounter_id, client:CharacterID()) then 	--rejoining character to raid
 								client:MovePC(zone_id,unpack(encounter_locs[encounter_id]));
-								eq.zone_emote(13,client:GetName() .. " is rejoining Mujaki Instance " .. encounter_id .. " (Raid ID #: " .. client:GetRaid():GetID() .. ") Char ID: [" .. client:CharacterID() .. "]");
-								eq.zone_emote(14,"Total player count for Mujaki Instance " .. encounter_id .. " is [" .. player_counter[encounter_id] .. "]");
+								GM_Message(13,client:GetName() .. " is rejoining Mujaki Instance " .. encounter_id .. " (Raid ID #: " .. client:GetRaid():GetID() .. ") Char ID: [" .. client:CharacterID() .. "]");
+								GM_Message(14,"Total player count for Mujaki Instance " .. encounter_id .. " is [" .. player_counter[encounter_id] .. "]");
 							elseif player_counter[encounter_id] < 24 then				--new raid addition
 								client:MovePC(zone_id,unpack(encounter_locs[encounter_id]));
 								player_counter[encounter_id] = player_counter[encounter_id] + 1;
 								player_list_by_encounter[encounter_id][player_counter[encounter_id]] = client:CharacterID();	--store character ID in table
-								eq.zone_emote(4,client:GetName() .. " is a new addition for Mujaki Encounter -- Raid ID: [ " .. client:GetRaid():GetID() .. "] Char ID: [" .. client:CharacterID() .. "]");
-								eq.zone_emote(14,"Total player count for Mujaki Encounter is [" .. player_counter[encounter_id] .. "/24]");
+								GM_Message(4,client:GetName() .. " is a new addition for Mujaki Encounter -- Raid ID: [ " .. client:GetRaid():GetID() .. "] Char ID: [" .. client:CharacterID() .. "]");
+								GM_Message(14,"Total player count for Mujaki Encounter is [" .. player_counter[encounter_id] .. "/24]");
 							end
 						end
 					end
@@ -134,7 +134,7 @@ function event_timer(e)
 			for client in client_list.entries do
 				if not client_check(client) and client:GetY() < -2000 and not client:GetGM() then
 					client:Message(7,"You have been banished!");
-					eq.zone_emote(13,client:GetName() .. " is not on assigned player list for this area.  Moving player to safe spot");
+					GM_Message(13,client:GetName() .. " is not on assigned player list for this area.  Moving player to safe spot");
 					client:MovePC(204, 1668, 282, 212, 0);
 				end
 			end
@@ -144,7 +144,7 @@ function event_timer(e)
 		for n = 1,3 do
 			if group_counter[n] > 0 and not encounter_monitor[n] then
 				EncounterReset(n);
-				eq.zone_emote(13, "No players remaining in encounter area - Resetting Mujaki Encounter");
+				GM_Message(13, "No players remaining in encounter area - Resetting Mujaki Encounter");
 			end
 		end
 		
@@ -160,7 +160,7 @@ function event_signal(e)	--debugging
 		EncounterReset(e.signal);
 	elseif e.signal == 99 then
 		for n = 1,3 do 
-			eq.zone_emote(13,"Mujaki Instance " .. n .. " group # is: " .. group_counter[n] .. " -- Raid ID: " .. tostring(raid_id_by_encounter[n]) .. " -- Player Count: " .. tostring(player_counter[n]));	--debug
+			GM_Message(13,"Mujaki Instance " .. n .. " group # is: " .. group_counter[n] .. " -- Raid ID: " .. tostring(raid_id_by_encounter[n]) .. " -- Player Count: " .. tostring(player_counter[n]));	--debug
 		end
 	elseif e.signal == 98 then
 		if player_counter[1] ~= nil then
@@ -180,7 +180,7 @@ function EncounterReset(id)
 	encounter_monitor[id] = false;
 	eq.signal(204039,id); --signal Mujaki to Reset
 	eq.unload_encounter("Mujaki_" .. id);
-	eq.zone_emote(14,"Mujaki Instance " .. id .. " has been reset!");	--debug
+	GM_Message(14,"Mujaki Instance " .. id .. " has been reset!");	--debug
 end
 	
 
@@ -188,3 +188,16 @@ function event_trade(e)
 	local item_lib = require("items");
 	item_lib.return_items(e.self, e.other, e.trade)
 end
+
+function GM_Message(color,text)			--DEBUGGING/MONITORING
+	client_list = eq.get_entity_list():GetClientList();
+	
+	if client_list ~= nil then
+		for client in client_list.entries do
+			if client:GetGM() then
+				client:Message(color,text);
+			end
+		end
+	end
+end
+

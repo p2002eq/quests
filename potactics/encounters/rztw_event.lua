@@ -43,8 +43,8 @@ end
 
 function Phase1Start()		--Load Phase 1
 	eq.zone_emote(7,"The air of Drunder grows strangely cold as a rumble shakes through the fortress' walls.  The Warlord stirs.");
-	eq.unique_spawn(214296,251,0,555,580,170,192);	--#Vallon Zek on Grid 251
-	eq.unique_spawn(214299,250,0,555,-560,170,192);	--#Tallon Zek on Grid 250
+	eq.unique_spawn(214296,251,0,555,580,170,384);	--#Vallon Zek on Grid 251
+	eq.unique_spawn(214299,250,0,555,-560,170,384);	--#Tallon Zek on Grid 250
 	controller = eq.get_entity_list():GetMobByNpcTypeID(214108);	--#rztw_controller (214108)
 	eq.set_timer("fail", 20 * 60 * 1000,controller);	
 	
@@ -114,7 +114,7 @@ function RZ_hp(e)
 		eq.set_next_hp_event(55);		
 	elseif e.hp_event == 55 then
 		e.self:Emote("laughs in an ominous tone of death.  'Flee whelps! Flee before the might of the Warlord!'");
-		eq.unique_spawn(214298,0,0,689,0,-292,65);	--#Rallos_Zek_the_Warlord (214298)
+		eq.unique_spawn(214298,0,0,689,0,-292,130);	--#Rallos_Zek_the_Warlord (214298)
 		eq.stop_timer("fail", controller);
 		eq.set_timer("fail", 20 * 60 * 1000, controller);	--Set Phase 3 fail timer
 		eq.depop_with_timer();
@@ -127,7 +127,7 @@ function RZ_hp(e)
 end
 
 function SpawnElites()
-	local spawn_locs = {[1] = {318,580,160,192}, [2] = {318,-560,160,192} };
+	local spawn_locs = {[1] = {318,580,160,384}, [2] = {318,-560,160,384} };
 	for n = 1,2 do
 		eq.spawn2(214307,0,0,unpack(spawn_locs[n]));	--Decorin_Elite
 	end
@@ -136,7 +136,7 @@ end
 function EliteAggro(e)
 	local rallos = eq.get_entity_list():GetMobByNpcTypeID(214052); 	--#Rallos_Zek
 	e.self:SetRunning(true);	
-	e.self:CastToNPC():MoveTo(261 + math.random(-10,10),-4 + math.random(-10,10),175,255,true);
+	e.self:CastToNPC():MoveTo(261 + math.random(-10,10),-4 + math.random(-10,10),175,510,true);
 	e.self:AddToHateList(rallos:GetHateRandom(),1);
 end
 
@@ -198,7 +198,7 @@ end
 
 function EventWin(e)
 	eq.stop_all_timers();	
-	eq.spawn2(214306,0,0,689,0,-292,65);	--A_Planar_Projection
+	eq.spawn2(214306,0,0,689,0,-292,130);	--A_Planar_Projection
 	eq.signal(214108,1,5 * 1000);	--signal #rztw_controller (214108) to unload encounter
 end
 	

@@ -35,7 +35,7 @@ function event_hp(e)
 end
 
 function event_death_complete(e)	
-	eq.spawn2(208192,0,0, 370,2540,45,127);	--A_Planar_Projection
+	eq.spawn2(208192,0,0, 370,2540,45,254);	--A_Planar_Projection
 end
 
 function GetAdds(e,n)

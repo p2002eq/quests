@@ -9,8 +9,7 @@ function event_say(e)
 	local zone_id = eq.get_zone_id();
 	local instance_id = eq.get_zone_instance_id();
 	if e.message:findi("hail") then
-		e.other:MovePCInstance(zone_id,instance_id,-679,-1739,2255,382);
-	end
+		e.other:MovePCInstance(zone_id,instance_id,-679,-1739,2255,382);	end
 end
 
 function event_timer(e)

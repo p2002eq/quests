@@ -94,7 +94,7 @@ end
 
 function SpawnEvent()
 	--spawn Summoners of Bertoxxolous
-	local summoners = {[1] = {0,-64,-291,255}, [2] = {-243,0,-277,64}, [3] = {243,0,-277,192}, [4] = {-3,307,-244,129.5}, [5] = {-3,-307,-244,0} };
+	local summoners = {[1] = {0,-64,-291,510}, [2] = {-243,0,-277,128}, [3] = {243,0,-277,384}, [4] = {-3,307,-244,259}, [5] = {-3,-307,-244,0} };
 	for n = 1,5 do
 		summoner = eq.spawn2(200015,0,0,unpack(summoners[n]));
 	end
@@ -151,7 +151,7 @@ function KingCounter()
 	GM_Message(15,tostring("King counter is: " .. king_counter));	--debug/monitor progress
 	if king_counter == 12 then
 		eq.zone_emote(7,"A sinister vision enters your mind of a faceless one handsome yet dead and decaying. The vision then shifts to that of a torn bestial creature and a loud shout is heard, 'Defilers death comes for you today!'");
-		eq.spawn2(200260,0,0,-45,0,-289,192);	--#Bertoxxulous (200260)
+		eq.spawn2(200260,0,0,-45,0,-289,384);	--#Bertoxxulous (200260)
 	end
 end
 
@@ -172,23 +172,23 @@ function TrashCounter()
 	elseif trash_counter > 60 and timer > 600 and not feig then	--10 minutes in event
 		feig = true;
 		eq.zone_emote(7,"An unsettling feeling of fear passes through you as you hear the summoners finish a dark incantation then cry out saying, 'We call to you corrupted King of Lxanvom, Feig Adan, your master has need of you!' A bestial squeak thunders through the crypt as a foul fiend of Bertoxxulous is summoned forth.");
-		eq.unique_spawn(200244,0,0,-200,0,-270,64)	--#Feig_Adan (200244) East Crypt
+		eq.unique_spawn(200244,0,0,-200,0,-270,128)	--#Feig_Adan (200244) East Crypt
 	elseif trash_counter > 70 and timer > 900 and not xhut then	--15 minutes in event
 		xhut = true;
 		eq.zone_emote(7,"An unsettling feeling of fear passes through you as you hear the summoners finish a dark incantation then cry out saying, 'We call to you corrupted King of Lxanvom, Xhut Adan, your master has need of you!' A dark vision flashes through the crypt as a foul fiend of Bertoxxulous is summoned forth.");
-		eq.unique_spawn(200255,0,0,-3,-290,-244,127)	--#Xhut_Adan (200255) South Crypt
+		eq.unique_spawn(200255,0,0,-3,-290,-244,254)	--#Xhut_Adan (200255) South Crypt
 	elseif trash_counter > 80 and timer > 1200 and not kavillis then	--20 minutes in event
 		kavillis = true;
 		eq.zone_emote(7,"An unsettling feeling of fear passes through you as you hear the summoners finish a dark incantation then cry out saying, 'We call to you corrupted King of Lxanvom, Kavilis Adan, your master has need of you!' A faint buzzing is heard through the crypt as a foul fiend of Bertoxxulous is summoned forth.");
-		eq.unique_spawn(200247,0,0,200,0,-270,192)	--#Kavilis_Adan (200247) West Crypt
+		eq.unique_spawn(200247,0,0,200,0,-270,384)	--#Kavilis_Adan (200247) West Crypt
 	elseif trash_counter > 110 and timer > 1500 and not raddi then	--25 minutes in event
 		raddi = true;
 		eq.zone_emote(7,"An unsettling feeling of fear passes through you as you hear the summoners finish a dark incantation then cry out saying, 'We call to you corrupted King of Lxanvom,  Raddi Adan, your master has need of you!' A wailing cry echoes through the crypt as a foul fiend of Bertoxxulous is summoned forth.");
-		eq.unique_spawn(200251,0,0,-3,-290,-244,127)	--#Raddi_Adan (200251) South Crypt
+		eq.unique_spawn(200251,0,0,-3,-290,-244,254)	--#Raddi_Adan (200251) South Crypt
 	elseif trash_counter > 120 and timer > 1800 and not wavadozzik then	--30 minutes in event
 		wavadozzik = true;
 		eq.zone_emote(7,"An unsettling feeling of fear passes through you as you hear the summoners finish a dark incantation then cry out saying, 'We call to you corrupted King of Lxanvom, Wavadozzik Adan, your master has need of you!' Chittering is heard through the crypt as a foul fiend of Bertoxxulous is summoned forth.");
-		eq.unique_spawn(200254,0,0,-200,0,-270,64)	--#Wavadozzik_Adan (200254)	East Crypt
+		eq.unique_spawn(200254,0,0,-200,0,-270,128)	--#Wavadozzik_Adan (200254)	East Crypt
 	elseif trash_counter > 130 and timer > 2100 and not zandal then	--35 minutes in event
 		zandal = true;
 		eq.zone_emote(7,"An unsettling feeling of fear passes through you as you hear the summoners finish a dark incantation then cry out saying, 'We call to you corrupted King of Lxanvom, Zandal Adan, your master has need of you!' Chittering is heard through the crypt as a foul fiend of Bertoxxulous is summoned forth.");
@@ -196,14 +196,14 @@ function TrashCounter()
 	elseif trash_counter > 140 and timer > 2400 and not akkapan then	--40 minutes in event
 		akkapan = true;
 		eq.zone_emote(7,"An unsettling feeling of fear passes through you as you hear the summoners finish a dark incantation then cry out saying, 'We call to you corrupted King of Lxanvom, Akkapan Adan, your master has need of you!' A maddened whispering is heard through the crypt as a foul fiend of Bertoxxulous is summoned forth.");
-		eq.unique_spawn(200233,0,0,200,0,-270,192)	--#Akkapan_Adan (200233) West Crypt
+		eq.unique_spawn(200233,0,0,200,0,-270,384)	--#Akkapan_Adan (200233) West Crypt
 	elseif trash_counter > 180 and timer > 2700 and not four_kings and king_counter == 8 then	--45 minutes in event
 		four_kings = true;
 		eq.zone_emote(7,"An unsettling feeling of fear passes through you as you hear the summoners finish a dark incantation then cry out saying, 'We call to you the last corrupted Kings of Lxanvom. Meedo Adan! Qezzin Adan! Pzo Adan! Bhaly Adan! Your master has need of you!' Four separate howls of rage and despair echo throughout the lower depths of the crypt as four foul fiends of Bertoxxulous are summoned forth.");
-		eq.unique_spawn(200249,0,0,-3,-290,-244,127)	--#Pzo_Adan (200249) South Crypt
+		eq.unique_spawn(200249,0,0,-3,-290,-244,254)	--#Pzo_Adan (200249) South Crypt
 		eq.unique_spawn(200248,0,0,-3,290,-244,0)	--#Meedo_Adan (200248) North Crypt
-		eq.unique_spawn(200235,0,0,200,0,-270,192)	--#Bhaly_Adan (200235) West Crypt
-		eq.unique_spawn(200250,0,0,-200,0,-270,64)	--#Qezzin_Adan (200250)	East Crypt
+		eq.unique_spawn(200235,0,0,200,0,-270,384)	--#Bhaly_Adan (200235) West Crypt
+		eq.unique_spawn(200250,0,0,-200,0,-270,128)	--#Qezzin_Adan (200250)	East Crypt
 	end
 end
 
@@ -211,7 +211,7 @@ function EventWin(e)
 	eq.stop_all_timers();
 	DepopEvent();
 	eq.zone_emote(7,"A nimbus of light floods throughs the crypt in one magnificent wave as an earth shattering howl is heard.  The bringer of plagues, lord of all disease and decay, Bertoxxulous has been defeated. Suddenly an urgent whisper fills your head simply saying, 'The Torch of Lxanvom shall burn bright again.  Freedom is now ours, for that we thank you.'");
-	eq.spawn2(205157,0,0,-45,0,-289,192);	--A_Planar_Projection
+	eq.spawn2(205157,0,0,-45,0,-289,384);	--A_Planar_Projection
 	eq.update_spawn_timer(360643,259200000 + math.random(-43200000,43200000));	--Set Spectre of Corruption respawn timer to 3 days +/- 12 hrs on win
 	eq.signal(200041,1);	--signal #bert_unloader (200041) to unload encounter
 end

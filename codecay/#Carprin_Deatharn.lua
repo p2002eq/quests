@@ -19,7 +19,7 @@ function event_timer(e)
 	if e.timer == "reset" then
 		if not e.self:IsEngaged() then
 			eq.stop_timer(e.timer);
-			e.self:GMMove(384,-112,-51,196.8,true);	--Reset at normal Carprin spawn point (necessary since he may spawn off bind-point
+			e.self:GMMove(384,-112,-51,393.6,true);	--Reset at normal Carprin spawn point (necessary since he may spawn off bind-point
 		else
 			eq.set_timer("reset",1*1000);
 		end
@@ -33,7 +33,7 @@ end
 
 function event_death_complete(e)
 	eq.local_emote({e.self:GetX(), e.self:GetY(), e.self:GetZ()}, 7, 300, "Dark laughter sounds from deeper within the chapel as a menacing voice is heard saying, 'Come great corrupter of entropy and decay. Stop these foolish mortals from violating our masters chapel.");
-	eq.unique_spawn(200224,0,0,408,157,-58,127); --Avhi_Escron (200224)
+	eq.unique_spawn(200224,0,0,408,157,-58,254); --Avhi_Escron (200224)
 end
 
 function player_check(e)

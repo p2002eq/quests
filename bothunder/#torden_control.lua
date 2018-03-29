@@ -15,11 +15,11 @@ end
 
 function CheckMinis()	--If Agnarr is up then this will respawn the minis if down.  Mini's will respawn 6 hrs after death if Agnarr is still up.  Otherwise will respawn once Agnarr is back up
 	if not eq.get_entity_list():IsMobSpawnedByNpcTypeID(209053) and eq.get_entity_list():IsMobSpawnedByNpcTypeID(209026) then	
-		eq.unique_spawn(209053,0,0,-1104,-1733,1746,64);	--Emmerik_Skyfury (209053)
+		eq.unique_spawn(209053,0,0,-1104,-1733,1746,128);	--Emmerik_Skyfury (209053)
 	end
 	
 	if not eq.get_entity_list():IsMobSpawnedByNpcTypeID(209054) and eq.get_entity_list():IsMobSpawnedByNpcTypeID(209026) then
-		eq.unique_spawn(209054,0,0,-1121,-1731,1280,64);	--Evynd_Firestorm (209054)
+		eq.unique_spawn(209054,0,0,-1121,-1731,1280,128);	--Evynd_Firestorm (209054)
 	end
 end
 

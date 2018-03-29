@@ -55,7 +55,7 @@ function event_waypoint_arrive(e)
 		spawn_mobs(6,7);
 	elseif e.wp == 106 and not construct then
 		construct = true;		
-		eq.spawn2(204460,0,0,-4550,4118,-5,128) 	-- #a_construct_of_nightmares (Final Encounter)
+		eq.spawn2(204460,0,0,-4550,4118,-5,256) 	-- #a_construct_of_nightmares (Final Encounter)
 	elseif e.wp == 109 and not dialogue then
 		dialogue = true;
 		e.self:Say("Terris, hear me now!  I have done as you asked.  My beloved dagger is whole once again!  Now keep up your part of the bargain.")
@@ -106,7 +106,7 @@ function event_trade(e)
 	
     if construct_dead and not hand_in and item_lib.check_turn_in(e.self, e.trade, {item1 = 9258}) then  
 		e.self:Emote("takes the final shard from you and places all of the pieces on the ground. The pieces reassemble and fuse back together into a completed dagger.  Thelin picks the dagger up and hands it to you.")
-		eq.spawn2(204065,0,0,-4544,3943,30,254);	--spawn Terris Thule
+		eq.spawn2(204065,0,0,-4544,3943,30,508);	--spawn Terris Thule
 		hand_in = true;
 		e.self:SetRunning(true);
 		eq.resume();

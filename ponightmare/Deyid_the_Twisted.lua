@@ -15,17 +15,17 @@ end
 
 function event_hp(e)
 	if e.hp_event == 90 then		--spawn trees
-		eq.spawn2(204068,0,0,1125,1162,280,172);
-		eq.spawn2(204068,0,0,1191,1033,280,196);
-		eq.spawn2(204068,0,0,1071,920,280,237);
-		eq.spawn2(204068,0,0,901,939,280,25);
-		eq.spawn2(204068,0,0,843,999,283,46);
-		eq.spawn2(204068,0,0,786,1160,282,76);
-		eq.spawn2(204068,0,0,965,1256,282,131);
-		eq.spawn2(204069,0,0,990,908,280,256);		--this version will activate and aggro later in event
-		eq.spawn2(204069,0,0,808,1074,278,58);		--this version will activate and aggro later in event
-		eq.spawn2(204069,0,0,1171,966,280,214);		--this version will activate and aggro later in event
-		eq.spawn2(204069,0,0,1057,1211,281,140);	--this version will activate and aggro later in event
+		eq.spawn2(204068,0,0,1125,1162,280,344);
+		eq.spawn2(204068,0,0,1191,1033,280,392);
+		eq.spawn2(204068,0,0,1071,920,280,474);
+		eq.spawn2(204068,0,0,901,939,280,50);
+		eq.spawn2(204068,0,0,843,999,283,92);
+		eq.spawn2(204068,0,0,786,1160,282,152);
+		eq.spawn2(204068,0,0,965,1256,282,262);
+		eq.spawn2(204069,0,0,990,908,280,512);		--this version will activate and aggro later in event
+		eq.spawn2(204069,0,0,808,1074,278,116);		--this version will activate and aggro later in event
+		eq.spawn2(204069,0,0,1171,966,280,428);		--this version will activate and aggro later in event
+		eq.spawn2(204069,0,0,1057,1211,281,280);	--this version will activate and aggro later in event
 		eq.set_next_hp_event(60);
 		eq.set_next_inc_hp_event(98); --to reset on event failure
 	elseif e.hp_event == 60 then
