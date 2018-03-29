@@ -26,7 +26,7 @@ local boss_trigger = false;
 function event_spawn(e)
    -- Mobs should spawn ~20sec after the Event starts
    eq.set_timer("next_wave", first_wave);
-   eq.spawn2(201504, 0, 0, 880,-729,55,127); --#Punisher_of_Flame_ (201504)
+   eq.spawn2(201504, 0, 0, 880,-729,55,254); --#Punisher_of_Flame_ (201504)
    eq.signal(201504,0,30 * 1000);	--sends signal in 30 seconds to #Punisher_of_Flame_ (201504)  (casts AE spells)
    trial_wave = 0;
    boss_trigger = false;
@@ -80,7 +80,7 @@ function spawn_mobs(wave)
 		end
 	elseif (wave == 5) then
 		-- Spawn the boss
-		eq.spawn2(201495,0,0,881,-710,58,127); -- #Punisher_of_Flame (201495)
+		eq.spawn2(201495,0,0,881,-710,58,254); -- #Punisher_of_Flame (201495)
 	end
 end
 

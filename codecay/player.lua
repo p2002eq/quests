@@ -33,7 +33,7 @@ function event_click_door(e)
 	if door == 7 then
 		if qglobals.pop_cod_preflag ~= nil  or e.self:GetGM() then
 			e.door:SetLockPick(0);
-			e.self:MovePCInstance(zone_id,instance_id,0,-16,-290,256);
+			e.self:MovePCInstance(zone_id,instance_id,0,-16,-290,255);
 		else
 			e.door:SetLockPick(-1);
 		end

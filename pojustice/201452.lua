@@ -53,7 +53,7 @@ function event_say(e)
 			end
 
 			-- Spawn the Controller
-			eq.spawn2(201502, 0, 0, 880,-729,55,127); -- #Event_Flame_Control (201502)
+			eq.spawn2(201502, 0, 0, 880,-729,55,254); -- #Event_Flame_Control (201502)
 
 			-- Set the Proximity Check Timer; if everyone has left the trial (wipe); then reset things
 			eq.set_timer("proximitycheck", 60000);

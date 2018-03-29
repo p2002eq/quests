@@ -5,8 +5,8 @@ local guards={}
 
 function event_spawn(e)
 	activated = false;
-	guards[1] = eq.spawn2(eq.ChooseRandom(210056,210099,210419),0,0,390,-2921,-455,127);
-	guards[2] = eq.spawn2(eq.ChooseRandom(210056,210099,210419),0,0,310,-2921,-455,127);
+	guards[1] = eq.spawn2(eq.ChooseRandom(210056,210099,210419),0,0,390,-2921,-455,254);
+	guards[2] = eq.spawn2(eq.ChooseRandom(210056,210099,210419),0,0,310,-2921,-455,254);
 end
 
 function event_combat(e)

@@ -12,7 +12,7 @@ end
 function event_signal(e)
 	if e.signal == 0 then 	--signals from trash mob death to reset path
 		if trash_check() then
-			e.self:GMMove(193,-1045,75,127);
+			e.self:GMMove(193,-1045,75,254);
 			e.self:MoveTo(193,-1045,73,-1,true)
 			final_wp = false;
 			eq.stop_timer("DT");

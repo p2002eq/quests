@@ -62,7 +62,7 @@ end
 function spawn_mobs(wave)
 	if (wave < 5) then
 		--spawn executioner
-		eq.spawn2(201469,0,0,266,-1045,75,192);	--#an_executioner (201469)
+		eq.spawn2(201469,0,0,266,-1045,75,384);	--#an_executioner (201469)
 		eq.signal(201469,wave,200);	--send wave count
 		--spawn trash
 		local spawn_locs = {[1] = {166,-1092,76,127}, [2] = {166,-1071,76,127}, [3] = {223,-1092,76,127}, [4] = {223,-1071,76,127} };

@@ -3,7 +3,7 @@
 --hohonorb
 
 function event_death_complete(e)
-	eq.spawn2(205157,0,0,2382,0,445,192);	--A_Planar_Projection
+	eq.spawn2(205157,0,0,2382,0,445,384);	--A_Planar_Projection
 end
 
 function event_signal(e)

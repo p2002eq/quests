@@ -1,11 +1,11 @@
 --Endurance Testing Controller (Room One) 206093
 --poinnovation
 
-local spawn_locs = {[1] = {-266,-879,78,2}, [2] = {-314,-880,78,255}, [3] = {-406,-783,78,65}, [4] = {-405,-735,78,63}, [5] = {-312,-644,78,125}, [6] = {-263,-642,78,127}, [7] = {-171,-734,78,188}, [8] = {-172,-785,78,193} };
+local spawn_locs = {[1] = {-266,-879,78,4}, [2] = {-314,-880,78,510}, [3] = {-406,-783,78,130}, [4] = {-405,-735,78,126}, [5] = {-312,-644,78,250}, [6] = {-263,-642,78,254}, [7] = {-171,-734,78,376}, [8] = {-172,-785,78,386} };
 local door_id = {116, 115, 114, 113, 120, 119, 118, 117};	--to open doors based on mob spawn location above (mobs drop from above)
 local spiders = {206200, 206201, 206202};  
 local pathing_target = {-287, -763, 4};
-local kelrig_loc = {-380, -761, 4, 64}	--Assistant Kelrig spawns on east side of room
+local kelrig_loc = {-380, -761, 4, 128}	--Assistant Kelrig spawns on east side of room
 local kelrig = 206203; -- Assistant Kelrig;
 local wave_timer = 90 --default is 90 seocnds
 local wave;

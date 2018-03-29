@@ -20,6 +20,7 @@ function event_signal(e)
 			activate(e.self);
 			eq.signal(204082,1); --activate knight guards
 		elseif e.signal == 100 then
+			
 			if not check_steeds(100,1200,-3050,-2000) and not loaded then	--mujaki boundaries Instance #1
 				loaded = true;
 				eq.unload_encounter("Mujaki_1");	--unload incase already loaded

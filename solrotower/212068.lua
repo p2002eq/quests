@@ -14,7 +14,7 @@ function event_say(e)
 	if e.message:findi("hail") and counter < 72 and qglobals.pop_sol_ro_rizlona == nil then
 		eq.set_global("pop_sol_ro_rizlona", "1", 5, "F");
 		e.other:Message(7,"As the planar projection's thoughts enter your own, you feel relaxed by a short tune.")
-		e.other:Message(15,"You receive a character flag!");
+		e.other:Message(15,"You've received a character flag!");
 		counter = counter + 1;
 	end
 end

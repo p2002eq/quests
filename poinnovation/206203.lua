@@ -41,7 +41,7 @@ function event_say(e)
 		e.self:Say("Your cooperation is appreciated, prepare yourselves.")
 		eq.signal(controller,1);  --start next round
 		eq.depop();
-	elseif e.message:findi("quit") and round < 4 then
+	elseif e.message:findi("quit") then
 		e.self:Say("We shall process the data that you have afforded us. Good bye.");
 		group:TeleportGroup(e.self, zone_id, instance_id, 264, 528, -50, 105);
 		eq.delete_global(instance_id .. "_poi_endurance_" .. room);

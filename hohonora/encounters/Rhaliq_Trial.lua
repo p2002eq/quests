@@ -58,17 +58,17 @@ end
 
 function SpawnEvent(e)
 	--VILLAGERS:
-	eq.spawn2(211122,0,0,592,1292,-116,64);		--a_dwarven_villager (211122)
-	eq.spawn2(211077,0,0,592,1341,-116,64);		--a_halfling_villager (211077)
-	eq.spawn2(211078,0,0,592,1400,-116,64);		--a_human_villager (211078)
-	eq.spawn2(211082,0,0,656,1341,-116,64);		--a_woodelf_villager (211082)
-	eq.spawn2(211074,0,0,656,1400,-116,64);		--a_barbarian_villager (211074)
-	eq.spawn2(211076,0,0,592,1454,-116,64);		--a_halfelf_villager (211076)
-	eq.spawn2(211123,0,0,592,1502,-116,64);		--a_gnome_villager(211123)
+	eq.spawn2(211122,0,0,592,1292,-116,128);		--a_dwarven_villager (211122)
+	eq.spawn2(211077,0,0,592,1341,-116,128);		--a_halfling_villager (211077)
+	eq.spawn2(211078,0,0,592,1400,-116,128);		--a_human_villager (211078)
+	eq.spawn2(211082,0,0,656,1341,-116,128);		--a_woodelf_villager (211082)
+	eq.spawn2(211074,0,0,656,1400,-116,128);		--a_barbarian_villager (211074)
+	eq.spawn2(211076,0,0,592,1454,-116,128);		--a_halfelf_villager (211076)
+	eq.spawn2(211123,0,0,592,1502,-116,128);		--a_gnome_villager(211123)
 
 	--ENEMY MOBS:
 	--ROOM 1 MOBS
-	eq.spawn2(211100,0,0,785,1374,-115,192);		--#Merken_Lysonn (211100)
+	eq.spawn2(211100,0,0,785,1374,-115,384);		--#Merken_Lysonn (211100)
 	
 	--ROOM 2 MOBS (pathing grid: 50)
 	eq.spawn2(211096,50,0,1294 + math.random(-200,200),1370 + math.random(-200,200),-115,0);	--#Herot_Terkins (211096)
@@ -96,7 +96,7 @@ function EnemyCounter(e)
 	enemy_counter = enemy_counter + 1;
 	if enemy_counter == 12 then
 		Depop(villager_table);
-		eq.spawn2(211052,0,0,456,1374,-117,65.3)		--#Rhaliq_Trell (flag version)
+		eq.spawn2(211052,0,0,456,1374,-117,130.6)		--#Rhaliq_Trell (flag version)
 		eq.update_spawn_timer(360971,259200000 + math.random(-43200000,43200000));	--Set Rhaliq Trell respawn timer to 3 days +/- 12 hrs on win
 		EventReset();
 	end

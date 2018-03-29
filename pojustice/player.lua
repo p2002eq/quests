@@ -7,7 +7,7 @@ function event_click_door(e)
 	
 
 	if ( door >= 8 and door <= 13 ) then 	--doors in 7th hammer area that lead back to trial area
-		e.self:MovePC(201, 456, 825, 9, 180);
+		e.self:MovePC(201, 456, 825, 9, 254);
 	elseif ( door >= 1 and door <= 6 ) then	--doors can lead either to 7th hammer if holding mark of justice or back to inner PoJustice if not holding mark
 		if ( e.self:GetItemIDAt(30) == 31599 ) then -- The Mark of Justice
 			local trial_group = e.self:GetGroup();
@@ -17,7 +17,7 @@ function event_click_door(e)
 				e.self:MovePC(201, 65, 1308, 7, 255)
 			end
 		else
- 			e.self:MovePC(201, 156, 470, -48, 384);
+ 			e.self:MovePC(201, 156, 470, -48, 384); -- needs_heading_validation
 		end
 	end
 end

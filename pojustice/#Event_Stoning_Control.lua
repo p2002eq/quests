@@ -70,7 +70,7 @@ function event_signal(e)
 		end
 
 		if ( mobs_killed == 16 ) then 
-			eq.spawn2(201508, 0,0, -122, -1134, 74, 254);	-- #Yurae_Zhaleem (201508)
+			eq.spawn2(201508, 0,0, -122, -1134, 74, 508);	-- #Yurae_Zhaleem (201508)
 		end
 	end
 end
@@ -96,8 +96,8 @@ function spawn_mobs(wave)
 	
 	-- Spawn Archers
 	if ( eq.get_entity_list():IsMobSpawnedByNpcTypeID(201506) == false ) then 
-		eq.spawn2( 201506, 0, 0, -177, -1188, 73, 1);
-		eq.spawn2( 201506, 0, 0,  -82, -1188, 73, 1);
+		eq.spawn2( 201506, 0, 0, -177, -1188, 73, 2);
+		eq.spawn2( 201506, 0, 0,  -82, -1188, 73, 2);
 	end
 
    if (wave < 5) then
@@ -115,9 +115,9 @@ function spawn_mobs(wave)
 			if (spawn_at == 1) then
 				npc = eq.spawn2(npc_id, 52, 0, -130, -1233, 73, 0);
 			elseif (spawn_at == 2) then
-				npc = eq.spawn2(npc_id, 53, 0, -241, -1120, 73, 64);
+				npc = eq.spawn2(npc_id, 53, 0, -241, -1120, 73, 128);
 			elseif (spawn_at == 3) then
-				npc = eq.spawn2(npc_id, 54, 0, -21,  -1121, 73, 190);
+				npc = eq.spawn2(npc_id, 54, 0, -21,  -1121, 73, 380);
 			end
 			if (npc.valid) then 
 				wave_ids[index + i] = npc:GetID();
@@ -128,9 +128,9 @@ end
 
 function spawn_prisoners()
    -- an accused prisoner
-   eq.spawn2(201486, 0, 0, -88, -1046, 73, 125);
-   eq.spawn2(201486, 0, 0, -129, -1046, 73, 125);
-   eq.spawn2(201486, 0, 0, -171, -1046, 73, 125);
+   eq.spawn2(201486, 0, 0, -88, -1046, 73, 250);
+   eq.spawn2(201486, 0, 0, -129, -1046, 73, 250);
+   eq.spawn2(201486, 0, 0, -171, -1046, 73, 250);
 end
 
 function despawn_prisoners() 

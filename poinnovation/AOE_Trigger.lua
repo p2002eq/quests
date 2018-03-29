@@ -1,7 +1,7 @@
 --AOE_Trigger (invis mob at Manaetic Behemoth spawnpoint)		
 --NPCID: 206206
 
-local spider_locs =  { [1] = {804, -286, 5, 64},[2] = {1446, -286, 5, 192}, [3] = {802, 286, 5, 64}, [4] = {1446,286,5,192} };
+local spider_locs =  { [1] = {804, -286, 5, 128},[2] = {1446, -286, 5, 384}, [3] = {802, 286, 5, 128}, [4] = {1446,286,5,384} };
 local spider_grids = {36,38,37,39}; --stagger spawnpoints for 1 on each side
 local counter;
 

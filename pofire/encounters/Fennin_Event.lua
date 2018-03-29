@@ -67,103 +67,103 @@ end
 
 function Phase1Setup()
 	--spawn 1 (Chaosfiend Cluster #1) - 6 spawn
-	eq.spawn2(217424,0,0,-460,-1145,-205,62);	--a_rage_reaver_of_flame (217424)
-	eq.spawn2(217418,0,0,-460,-1175,-205,62);	--a_chaos_healer_of_flame (217418)
-	eq.spawn2(217424,0,0,-460,-1205,-205,62);	--a_rage_reaver_of_flame (217424)
-	eq.spawn2(217420,0,0,-485,-1175,-205,62);	--a_doomfire_chaosfiend (217420)
-	eq.spawn2(217419,0,0,-525,-1160,-205,62);	--a_dark_magus_of_flame (217419)
-	eq.spawn2(217419,0,0,-525,-1190,-205,62);	--a_dark_magus_of_flame (217419)
+	eq.spawn2(217424,0,0,-460,-1145,-205,124);	--a_rage_reaver_of_flame (217424)
+	eq.spawn2(217418,0,0,-460,-1175,-205,124);	--a_chaos_healer_of_flame (217418)
+	eq.spawn2(217424,0,0,-460,-1205,-205,124);	--a_rage_reaver_of_flame (217424)
+	eq.spawn2(217420,0,0,-485,-1175,-205,124);	--a_doomfire_chaosfiend (217420)
+	eq.spawn2(217419,0,0,-525,-1160,-205,124);	--a_dark_magus_of_flame (217419)
+	eq.spawn2(217419,0,0,-525,-1190,-205,124);	--a_dark_magus_of_flame (217419)
 	
 	--spawn 2 (Chaosfiend Cluster #2) - 4 spawn
-	eq.spawn2(217424,0,0,-465,-995,-170,127);	--a_rage_reaver_of_flame (217424)
-	eq.spawn2(217424,0,0,-510,-995,-170,127);	--a_rage_reaver_of_flame (217424)
-	eq.spawn2(217420,0,0,-485,-975,-170,127);	--a_doomfire_chaosfiend (217420)
-	eq.spawn2(217418,0,0,-485,-945,-170,127);	--a_chaos_healer_of_flame (217418)
+	eq.spawn2(217424,0,0,-465,-995,-170,254);	--a_rage_reaver_of_flame (217424)
+	eq.spawn2(217424,0,0,-510,-995,-170,254);	--a_rage_reaver_of_flame (217424)
+	eq.spawn2(217420,0,0,-485,-975,-170,254);	--a_doomfire_chaosfiend (217420)
+	eq.spawn2(217418,0,0,-485,-945,-170,254);	--a_chaos_healer_of_flame (217418)
 	
 	--spawn 3 (Chaosfiend Cluster #3) - 5 spawn
-	eq.spawn2(217424,0,0,-575,-945,-150,62);	--a_rage_reaver_of_flame (217424)
-	eq.spawn2(217424,0,0,-575,-995,-150,62);	--a_rage_reaver_of_flame (217424)
-	eq.spawn2(217420,0,0,-580,-970,-150,62);	--a_doomfire_chaosfiend (217420)
-	eq.spawn2(217418,0,0,-615,-955,-150,62);	--a_chaos_healer_of_flame (217418)
-	eq.spawn2(217419,0,0,-615,-985,-150,62);	--a_dark_magus_of_flame (217419)
+	eq.spawn2(217424,0,0,-575,-945,-150,124);	--a_rage_reaver_of_flame (217424)
+	eq.spawn2(217424,0,0,-575,-995,-150,124);	--a_rage_reaver_of_flame (217424)
+	eq.spawn2(217420,0,0,-580,-970,-150,124);	--a_doomfire_chaosfiend (217420)
+	eq.spawn2(217418,0,0,-615,-955,-150,124);	--a_chaos_healer_of_flame (217418)
+	eq.spawn2(217419,0,0,-615,-985,-150,124);	--a_dark_magus_of_flame (217419)
 	
 	--spawn 4 (Darkfiend Cluster #1) - 4 spawn
-	eq.spawn2(217424,0,0,-670,-1095,-145,16);	--a_rage_reaver_of_flame (217424)
-	eq.spawn2(217424,0,0,-722,-1088,-149,16);	--a_rage_reaver_of_flame (217424)
-	eq.spawn2(217421,0,0,-705,-1095,-150,16);	--a_doomfire_darkfiend (217421)
-	eq.spawn2(217419,0,0,-705,-1120,-145,16);	--a_dark_magus_of_flame (217419)
+	eq.spawn2(217424,0,0,-670,-1095,-145,32);	--a_rage_reaver_of_flame (217424)
+	eq.spawn2(217424,0,0,-722,-1088,-149,32);	--a_rage_reaver_of_flame (217424)
+	eq.spawn2(217421,0,0,-705,-1095,-150,32);	--a_doomfire_darkfiend (217421)
+	eq.spawn2(217419,0,0,-705,-1120,-145,32);	--a_dark_magus_of_flame (217419)
 	
 	--spawn 5 (Darkfiend Cluster #2) - 4 spawn
-	eq.spawn2(217424,0,0,-625,-1170,-122,227);	--a_rage_reaver_of_flame (217424)
-	eq.spawn2(217418,0,0,-620,-1205,-120,227);	--a_chaos_healer_of_flame (217418)
-	eq.spawn2(217421,0,0,-605,-1190,-120,227);	--a_doomfire_darkfiend (217421)
-	eq.spawn2(217419,0,0,-575,-1190,-120,227);	--a_dark_magus_of_flame (217419)
+	eq.spawn2(217424,0,0,-625,-1170,-122,454);	--a_rage_reaver_of_flame (217424)
+	eq.spawn2(217418,0,0,-620,-1205,-120,454);	--a_chaos_healer_of_flame (217418)
+	eq.spawn2(217421,0,0,-605,-1190,-120,454);	--a_doomfire_darkfiend (217421)
+	eq.spawn2(217419,0,0,-575,-1190,-120,454);	--a_dark_magus_of_flame (217419)
 	
 	--spawn 6 (Darkfiend Cluster #3) - 4 spawn
-	eq.spawn2(217424,0,0,-600,-1320,-120,16);	--a_rage_reaver_of_flame (217424)
-	eq.spawn2(217421,0,0,-592,-1340,-122,16);	--a_doomfire_darkfiend (217421)
-	eq.spawn2(217424,0,0,-560,-1340,-120,242);	--a_rage_reaver_of_flame (217424)
-	eq.spawn2(217419,0,0,-590,-1375,-127,33);	--a_dark_magus_of_flame (217419)
+	eq.spawn2(217424,0,0,-600,-1320,-120,32);	--a_rage_reaver_of_flame (217424)
+	eq.spawn2(217421,0,0,-592,-1340,-122,32);	--a_doomfire_darkfiend (217421)
+	eq.spawn2(217424,0,0,-560,-1340,-120,484);	--a_rage_reaver_of_flame (217424)
+	eq.spawn2(217419,0,0,-590,-1375,-127,66);	--a_dark_magus_of_flame (217419)
 	
 	--spawn 7 (Ragefiend Cluster #1) - 4 spawn
-	eq.spawn2(217424,0,0,-740,-1435,-150,35);	--a_rage_reaver_of_flame (217424)
-	eq.spawn2(217422,0,0,-715,-1455,-150,35);	--a_doomfire_ragefiend (217422)
-	eq.spawn2(217424,0,0,-690,-1480,-150,35);	--a_rage_reaver_of_flame (217424)
-	eq.spawn2(217418,0,0,-750,-1490,-150,35);	--a_chaos_healer_of_flame (217418)
+	eq.spawn2(217424,0,0,-740,-1435,-150,70);	--a_rage_reaver_of_flame (217424)
+	eq.spawn2(217422,0,0,-715,-1455,-150,70);	--a_doomfire_ragefiend (217422)
+	eq.spawn2(217424,0,0,-690,-1480,-150,70);	--a_rage_reaver_of_flame (217424)
+	eq.spawn2(217418,0,0,-750,-1490,-150,70);	--a_chaos_healer_of_flame (217418)
 	
 	--spawn 8 (Ragefiend Cluster #2) - 4 spawn
-	eq.spawn2(217424,0,0,-580,-1615,-170,222);	--a_rage_reaver_of_flame (217424)
-	eq.spawn2(217424,0,0,-545,-1640,-170,222);	--a_rage_reaver_of_flame (217424)
-	eq.spawn2(217422,0,0,-515,-1610,-170,217);	--a_doomfire_ragefiend (217422)
-	eq.spawn2(217419,0,0,-490,-1580,-170,200);	--a_dark_magus_of_flame (217419)
+	eq.spawn2(217424,0,0,-580,-1615,-170,444);	--a_rage_reaver_of_flame (217424)
+	eq.spawn2(217424,0,0,-545,-1640,-170,444);	--a_rage_reaver_of_flame (217424)
+	eq.spawn2(217422,0,0,-515,-1610,-170,434);	--a_doomfire_ragefiend (217422)
+	eq.spawn2(217419,0,0,-490,-1580,-170,400);	--a_dark_magus_of_flame (217419)
 	
 	--spawn 9 (Ragefiend Cluster #3) - 6 spawn
-	eq.spawn2(217424,0,0,-800,-1645,-206,62);	--a_rage_reaver_of_flame (217424)
-	eq.spawn2(217422,0,0,-850,-1645,-206,62);	--a_doomfire_ragefiend (217422)
-	eq.spawn2(217424,0,0,-860,-1620,-206,62);	--a_rage_reaver_of_flame (217424)
-	eq.spawn2(217424,0,0,-860,-1675,-206,62);	--a_rage_reaver_of_flame (217424)
-	eq.spawn2(217418,0,0,-905,-1665,-206,62);	--a_chaos_healer_of_flame (217418)
-	eq.spawn2(217419,0,0,-905,-1635,-206,62);	--a_dark_magus_of_flame (217419)
+	eq.spawn2(217424,0,0,-800,-1645,-206,124);	--a_rage_reaver_of_flame (217424)
+	eq.spawn2(217422,0,0,-850,-1645,-206,124);	--a_doomfire_ragefiend (217422)
+	eq.spawn2(217424,0,0,-860,-1620,-206,124);	--a_rage_reaver_of_flame (217424)
+	eq.spawn2(217424,0,0,-860,-1675,-206,124);	--a_rage_reaver_of_flame (217424)
+	eq.spawn2(217418,0,0,-905,-1665,-206,124);	--a_chaos_healer_of_flame (217418)
+	eq.spawn2(217419,0,0,-905,-1635,-206,124);	--a_dark_magus_of_flame (217419)
 end
 
 function Phase2Setup()
 	eq.zone_emote(7,"Four enraged roars of fury echo from further down the bridge over the cacophany of an army waiting to hand out death. The powerful voice is then heard saying, 'Reaxnous, Azobian, Hebabbilys, and Javonn! Come destroy these intruders.'");
 
 	--Phase 2 Spawns
-	eq.spawn2(217424,0,0,-1220,-1550,-230,103);	--a_rage_reaver_of_flame (217424)
-	eq.spawn2(217424,0,0,-1235,-1585,-230,86);
-	eq.spawn2(217424,0,0,-1255,-1565,-225,101);
-	eq.spawn2(217424,0,0,-1255,-1620,-225,68);
-	eq.spawn2(217424,0,0,-1280,-1590,-225,100);
-	eq.spawn2(217424,0,0,-1315,-1615,-225,73);
-	eq.spawn2(217424,0,0,-1300,-1550,-195,103);
+	eq.spawn2(217424,0,0,-1220,-1550,-230,206);	--a_rage_reaver_of_flame (217424)
+	eq.spawn2(217424,0,0,-1235,-1585,-230,172);
+	eq.spawn2(217424,0,0,-1255,-1565,-225,202);
+	eq.spawn2(217424,0,0,-1255,-1620,-225,136);
+	eq.spawn2(217424,0,0,-1280,-1590,-225,200);
+	eq.spawn2(217424,0,0,-1315,-1615,-225,146);
+	eq.spawn2(217424,0,0,-1300,-1550,-195,206);
 	
-	eq.spawn2(217418,0,0,-1280,-1575,-205,92);	--a_chaos_healer_of_flame (217418)
-	eq.spawn2(217418,0,0,-1300,-1605,-225,100);		
-	eq.spawn2(217418,0,0,-1305,-1530,-195,100);
-	eq.spawn2(217418,0,0,-1350,-1580,-195,100);
-	eq.spawn2(217418,0,0,-1250,-1505,-195,100);
+	eq.spawn2(217418,0,0,-1280,-1575,-205,184);	--a_chaos_healer_of_flame (217418)
+	eq.spawn2(217418,0,0,-1300,-1605,-225,200);		
+	eq.spawn2(217418,0,0,-1305,-1530,-195,200);
+	eq.spawn2(217418,0,0,-1350,-1580,-195,200);
+	eq.spawn2(217418,0,0,-1250,-1505,-195,200);
 	
-	eq.spawn2(217419,0,0,-1238,-1542,-215,103);	--a_dark_magus_of_flame (217419)
-	eq.spawn2(217419,0,0,-1250,-1525,-200,103);
-	eq.spawn2(217419,0,0,-1320,-1603,-220,103);
-	eq.spawn2(217419,0,0,-1331,-1587,-210,103);
+	eq.spawn2(217419,0,0,-1238,-1542,-215,206);	--a_dark_magus_of_flame (217419)
+	eq.spawn2(217419,0,0,-1250,-1525,-200,206);
+	eq.spawn2(217419,0,0,-1320,-1603,-220,206);
+	eq.spawn2(217419,0,0,-1331,-1587,-210,206);
 	
 	--Phase 2 Named Balrogs		
-	eq.spawn2(217450,0,0,-1290,-1570,-210,83);	--#Reaxnous_the_Chaoslord
-	eq.spawn2(217426,0,0,-1280,-1500,-195,103);	--#Azobian_the_Darklord
-	eq.spawn2(217439,0,0,-1350,-1550,-195,103);	--#Hebabbilys_the_Ragelord
-	eq.spawn2(217440,0,0,-1320,-1505,-195,103);	--#Javonn_the_Overlord
+	eq.spawn2(217450,0,0,-1290,-1570,-210,166);	--#Reaxnous_the_Chaoslord
+	eq.spawn2(217426,0,0,-1280,-1500,-195,206);	--#Azobian_the_Darklord
+	eq.spawn2(217439,0,0,-1350,-1550,-195,206);	--#Hebabbilys_the_Ragelord
+	eq.spawn2(217440,0,0,-1320,-1505,-195,206);	--#Javonn_the_Overlord
 end
 
 function Phase3Setup()
 	eq.zone_emote(7,"As the last of the army is defeated, visions of endless burning flames intrude into your mind.  Suddenly the visions end as a call comes from just ahead saying, 'Prepare to meet your end at the hands of the Council of Fire!'");
 
 	--Phase 3 Council Spawns
-	eq.spawn2(217428,0,0,-1555,-1125,-195,127);	--#Chancellor_Kirtra (217428)
-	eq.spawn2(217429,0,0,-1450,-1120,-195,127);	--#Chancellor_Traxom (217429)
-	eq.spawn2(217449,0,0,-1400,-920,-180,127);	--#Omni_Magus_Crato
-	eq.spawn2(217453,0,0,-1600,-920,-180,127);	--#Warlord_Prollaz
+	eq.spawn2(217428,0,0,-1555,-1125,-195,254);	--#Chancellor_Kirtra (217428)
+	eq.spawn2(217429,0,0,-1450,-1120,-195,254);	--#Chancellor_Traxom (217429)
+	eq.spawn2(217449,0,0,-1400,-920,-180,254);	--#Omni_Magus_Crato
+	eq.spawn2(217453,0,0,-1600,-920,-180,254);	--#Warlord_Prollaz
 end
 
 function event_timer(e)
@@ -192,7 +192,7 @@ function CouncilCheck()
 	GM_Message(18,"council kill check");	--debug
 	if council and not mob_check(council_mobs) then
 		eq.zone_emote(7,"A maddened call of endless fury erupts as a burning creature of pure destructions stands tall before you.  The creature then speaks in the loud booming voice of immense power saying, 'You are fools to have come this far. Prepare to tremble at the might of Doomfire!'");
-		eq.spawn2(217436,0,0,-1500,-935,-170,122);		--#Fennin_Ro,_The_Tyrant_of_Fire (217436)
+		eq.spawn2(217436,0,0,-1500,-935,-170,244);		--#Fennin_Ro,_The_Tyrant_of_Fire (217436)
 	end
 end
 

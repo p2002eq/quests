@@ -14,7 +14,7 @@ function event_signal(e)
 			SpawnEvent();
 			started = true;
 		elseif not trash_check() and not event_mob_check() and started then
-			eq.unique_spawn(210469,0,0,-202,670,-370,165); --Ston`Ruak,_Ancient_of_Trees (210469)
+			eq.unique_spawn(210469,0,0,-202,670,-370,330); --Ston`Ruak,_Ancient_of_Trees (210469)
 			eq.depop_with_timer();
 		end
 	elseif e.signal == 99 then	--event reset
@@ -48,14 +48,14 @@ end
 
 function SpawnEvent()
 	--Ston`Ruoak spawn room
-	eq.spawn2(eq.ChooseRandom(210465,210481),0,0,-235,648,-369,167);
-	eq.spawn2(eq.ChooseRandom(210465,210481),0,0,-180,640,-369,186);
-	eq.spawn2(eq.ChooseRandom(210465,210481),0,0,-229,729,-369,91);
-	eq.spawn2(eq.ChooseRandom(210465,210481),0,0,-164,700,-369,165);		
+	eq.spawn2(eq.ChooseRandom(210465,210481),0,0,-235,648,-369,334);
+	eq.spawn2(eq.ChooseRandom(210465,210481),0,0,-180,640,-369,372);
+	eq.spawn2(eq.ChooseRandom(210465,210481),0,0,-229,729,-369,182);
+	eq.spawn2(eq.ChooseRandom(210465,210481),0,0,-164,700,-369,330);		
 
 	--NW spot
-	eq.spawn2(eq.ChooseRandom(210465,210481),0,0,214,1432,-369,223);
-	eq.spawn2(eq.ChooseRandom(210465,210481),0,0,185,1317,-369,20);
-	eq.spawn2(eq.ChooseRandom(210465,210481),0,0,212,1373,-369,218);
-	eq.spawn2(eq.ChooseRandom(210465,210481),0,0,263,1337,-369,217);
+	eq.spawn2(eq.ChooseRandom(210465,210481),0,0,214,1432,-369,446);
+	eq.spawn2(eq.ChooseRandom(210465,210481),0,0,185,1317,-369,40);
+	eq.spawn2(eq.ChooseRandom(210465,210481),0,0,212,1373,-369,436);
+	eq.spawn2(eq.ChooseRandom(210465,210481),0,0,263,1337,-369,434);
 end

@@ -7,12 +7,12 @@ local stage = 0;
 function event_signal(e)
 	if e.signal == 1 then
 		eq.local_emote({e.self:GetX(), e.self:GetY(), e.self:GetZ()},7,150,"The prisoner begins to choke as an invisible noose tightens around her neck.");
-		e.self:GMMove(e.self:GetX(), e.self:GetY(), e.self:GetZ(), 127, true);
+		e.self:GMMove(e.self:GetX(), e.self:GetY(), e.self:GetZ(), 254, true);
 		eq.set_timer("noose",14 * 1000);
 		stage = 0;
 	elseif e.signal == 5 then  
 		eq.stop_all_timers();
-		e.self:GMMove(e.self:GetX(), e.self:GetY(), e.self:GetZ(), 255, true);
+		e.self:GMMove(e.self:GetX(), e.self:GetY(), e.self:GetZ(), 510, true);
 		e.self:SetAppearance(0);
 		eq.local_emote({e.self:GetX(), e.self:GetY(), e.self:GetZ()},7,150,"The prisoner gasps, taking in large breaths and coughing as the invisible noose disappears.");
 	end

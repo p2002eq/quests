@@ -7,7 +7,7 @@ function event_proximity_say(e)
 	local GetTime = eq.get_zone_time();
 	local qglobals = eq.get_qglobals(e.self, e.other)
 	if (GetTime.zone_hour > 22 or GetTime.zone_hour < 6) and e.message:findi("quellious be my guide") and tonumber(qglobals.EinoTrigger) == 1 then
-		eq.unique_spawn(204075,0,0,1685,-515,215,155);
+		eq.unique_spawn(204075,0,0,1685,-515,215,310);
 		eq.depop_with_timer();
 	end
 end

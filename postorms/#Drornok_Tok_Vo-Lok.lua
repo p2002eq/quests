@@ -70,26 +70,26 @@ function trash_check()	--iterate through related NPC ids
 end
 
 function spawn_frogs()		--spawn random frogs around pond
-	eq.spawn2(get_mob(),0,0,-267,-50,-406,38);
-	eq.spawn2(get_mob(),0,0,97,14,-398,7);
-	eq.spawn2(get_mob(),0,0,217,-169,-409,251);
-	eq.spawn2(get_mob(),0,0,134,-370,-411,2);
-	eq.spawn2(get_mob(),0,0,68,-414,-412,7);
-	eq.spawn2(get_mob(),0,0,0,-440,-414,7);
-	eq.spawn2(get_mob(),0,0,-151,-450,-396,11);
-	eq.spawn2(get_mob(),0,0,-225,-397,-403,16);
-	eq.spawn2(get_mob(),0,0,-254,-320,-410,22);
-	eq.spawn2(get_mob(),0,0,-301,-256,-412,28);
-	eq.spawn2(get_mob(),0,0,-308,-191,-408,31);
-	eq.spawn2(get_mob(),0,0,-289,-108,-409,35);
-	eq.spawn2(get_mob(),0,0,-221,-6,-415,36);
-	eq.spawn2(get_mob(),0,0,-174,45,-404,40);
-	eq.spawn2(get_mob(),0,0,-101,58,-402,36);
-	eq.spawn2(get_mob(),0,0,-23,58,-411,24);
-	eq.spawn2(get_mob(),0,0,43,59,-408,14);
-	eq.spawn2(get_mob(),0,0,146,-27,-406,254);
-	eq.spawn2(get_mob(),0,0,203,-109,-411,253);
-	eq.spawn2(get_mob(),0,0,221,-228,-405,255);
-	eq.spawn2(get_mob(),0,0,202,-305,-412,5);
-	eq.spawn2(get_mob(),0,0,164,-343,-404,21);
+	eq.spawn2(get_mob(),0,0,-267,-50,-406,76);
+	eq.spawn2(get_mob(),0,0,97,14,-398,14);
+	eq.spawn2(get_mob(),0,0,217,-169,-409,502);
+	eq.spawn2(get_mob(),0,0,134,-370,-411,4);
+	eq.spawn2(get_mob(),0,0,68,-414,-412,14);
+	eq.spawn2(get_mob(),0,0,0,-440,-414,14);
+	eq.spawn2(get_mob(),0,0,-151,-450,-396,22);
+	eq.spawn2(get_mob(),0,0,-225,-397,-403,32);
+	eq.spawn2(get_mob(),0,0,-254,-320,-410,44);
+	eq.spawn2(get_mob(),0,0,-301,-256,-412,56);
+	eq.spawn2(get_mob(),0,0,-308,-191,-408,62);
+	eq.spawn2(get_mob(),0,0,-289,-108,-409,70);
+	eq.spawn2(get_mob(),0,0,-221,-6,-415,72);
+	eq.spawn2(get_mob(),0,0,-174,45,-404,80);
+	eq.spawn2(get_mob(),0,0,-101,58,-402,72);
+	eq.spawn2(get_mob(),0,0,-23,58,-411,48);
+	eq.spawn2(get_mob(),0,0,43,59,-408,28);
+	eq.spawn2(get_mob(),0,0,146,-27,-406,508);
+	eq.spawn2(get_mob(),0,0,203,-109,-411,506);
+	eq.spawn2(get_mob(),0,0,221,-228,-405,510);
+	eq.spawn2(get_mob(),0,0,202,-305,-412,10);
+	eq.spawn2(get_mob(),0,0,164,-343,-404,42);
 end

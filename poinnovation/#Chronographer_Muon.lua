@@ -7,7 +7,7 @@ function event_say(e)
 			e.self:Say("Acquisition of power completed. Would you like to be [" .. eq.say_link("I would like to be transported", false, "transported") .. "] to the time-projection chamber?")
 		elseif e.message:findi("transported") then
 			e.self:Say("Compliance.");
-			e.other:MovePC(206, 266,-857,-1853,65);
+			e.other:MovePC(206, 266,-857,-1853,130);
 		end
 	elseif e.message:findi("Hail") then
 		e.self:Say("Greeting acknowledged.  I have no use for you at this time.  Good bye.");

@@ -4,5 +4,5 @@
 --ponightmare
 
 function event_death_complete(e)
-	eq.unique_spawn(204472, 0, 0, 1679, 4076, 35, 165)	--spawns The_Fearsome_Hobgoblin (204472)
+	eq.unique_spawn(204472, 0, 0, 1679, 4076, 35, 330)	--spawns The_Fearsome_Hobgoblin (204472)
 end
