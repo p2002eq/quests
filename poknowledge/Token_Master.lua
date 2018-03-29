@@ -2,7 +2,7 @@
 
 local items = {};
 items[1] = { "Guide Pack", 3, 17800};
-items[2] = { "Journeyman Boots", 3, 2300};
+items[2] = { "Journeyman's Boots", 3, 2300};
 items[3] = { "Da Oogly Stick", 5, 31861};
 items[4] = { "Stone of Gnoming", 5, 31863};
 items[5] = { "Ring of Halves", 5,31854};
@@ -53,7 +53,7 @@ function event_say(e)
 					local tokens = qglobals[e.other:GetForumName(e.other:AccountID()) .. "-GMPoints"];
 					if (tokens ~= nil) then
 --						eq.zone_emote(15,"Have: " .. tokens .. "    Cost: " .. tostring(v[2]));
-						if (tonumber(tokens) > v[2]) then
+						if (tonumber(tokens) >= v[2]) then
 							e.other:SummonItem(v[3]);
 							local newPoints = tostring(tonumber(tokens) - v[2]);
 							eq.set_global(globalName,newPoints,7,"F");
