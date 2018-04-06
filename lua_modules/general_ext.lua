@@ -42,3 +42,30 @@ function eq.local_emote(locs, color, radius, message)
 		end
 	end
 end
+
+--send a message only to GM toggled characters (useful for debugging/monitoring)
+function eq.GM_Message(color,text)
+	local client_list = eq.get_entity_list():GetClientList();
+	
+	if(client_list ~= nil) then
+		for client in client_list.entries do
+			if client:GetGM() then
+				client:Message(color,text);
+			end
+		end
+	end
+end
+
+--check for players within a specified unit range
+function eq.PlayerCheck(x,y,z,dist)
+	local client_list = eq.get_entity_list():GetClientList();
+	
+	if (client_list ~= nil) then
+		for client in client_list.entries do
+			if client:CalculateDistance(x,y,z) <= dist then
+				return true; --client in range
+			end
+		end
+	end
+	return false;
+end
