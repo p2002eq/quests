@@ -17,9 +17,9 @@ end
 
 function event_say(e)
 	local qglobals = eq.get_qglobals(e.self, e.other);
-	if e.message:findi("hail") and qglobals.pop_pot_shadyglade ~= nil then
+	if e.message:findi("hail") then
 		e.self:Say("I must thank you for your kind efforts, friends.  This place has claimed me for far too long.  I'll be leaving this terrible plane soon... and I suggest you do likewise.  Please tell me when you're [" .. eq.say_link("I'm ready to return",false,"ready to return") .. "] and if you get the chance, give the dark wench a taste of your blades!'");
-		if qglobals.pop_pot_newleaf == nil then
+		if qglobals.pop_pot_newleaf == nil and qglobals.pop_pot_shadyglade ~= nil and counter < 72 then
 			eq.set_global("pop_pot_newleaf","1",5,"F");
 			e.other:Message(4,"You've received a character flag!");
 			counter = counter + 1;
