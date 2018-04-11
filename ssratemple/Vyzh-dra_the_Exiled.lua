@@ -53,7 +53,7 @@ function event_combat(e)
 	if e.joined then
 		e.self:Shout('Bow before your only god! I will tear all others from the heavens!')		--optional
 		if not timer_on then
-			eq.set_timer("DT",math.random(0,2000));	--set initial cast timer
+			eq.set_timer("DT",math.random(1,6) * 1000);	--set initial cast timer
 			timer_on = true;
 		end
 	end
