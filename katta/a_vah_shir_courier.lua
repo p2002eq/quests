@@ -33,17 +33,6 @@ function event_death_complete(e)
 
 end
 
-function event_emote(e,message)
-    local player_list = eq.get_entity_list():GetClientList();
-    if(player_list ~= nil) then
-        for player in player_list.entries do
-            if(player:CalculateDistance(e.self:GetX(), e.self:GetY(), e.self:GetZ()) <= 200) then
-                player:Message(6,message)
-            end
-        end
-    end
-end
-
 function event_waypoint_arrive(e)
     if(e.wp==4) then
         eq.get_entity_list():GetDoorsByID(8767):ForceOpen(e.self)
