@@ -29,8 +29,8 @@ function event_encounter_load(e)
 
 end
 
-function Win()
-	eq.local_emote({140,-433,60}, 7, 150, "The immense body collapses to the floor sending shockwaves through the ground as you have triumphed over this maniacal creature of death and decay.");
+function Win(e)
+	eq.local_emote({e.self:GetX(), e.self:GetY(), e.self:GetZ()}, 7, 150, "The immense body collapses to the floor sending shockwaves through the ground as you have triumphed over this maniacal creature of death and decay.");
 	eq.signal(200033,1);	--signal event trigger
 	DepopPuslings();
 end
@@ -109,7 +109,8 @@ function spawn_mobs(wave)
 			local pusling = eq.get_entity_list():GetSpawnByID(spawnpoints[n]);
 			pusling:Repop(1);
 		end
-		RealPaffa = eq.unique_spawn(200259,0,0,140,-431,-70,440.6); --#Overlord_Banord_Paffa (200259)
+		RealPaffa = eq.unique_spawn(200259,0,0,140,-431,-54,422); --#Overlord_Banord_Paffa (200259)
+		RealPaffa:GMMove(140,-431,-54,422,true);	--added due to Boss appearing to pace to/from spawn because of z-axis issues.  this seemed to fix it
 		eq.depop_with_timer(200020);	-- despawn Banord_Paffa (200020) untargetable
 		eq.local_emote({156,-440,-70}, 7, 150, "A loud and maddened scream of rage is heard as Banord prepares to attack.");
 		eq.set_timer("fail", fail_timer * 1000, RealPaffa);	--will check for reset if boss is non-aggro after 10 min (would indicate group died)
