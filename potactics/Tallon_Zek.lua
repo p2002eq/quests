@@ -5,9 +5,10 @@ function event_combat(e)
 	if e.joined then 
 		eq.set_timer("melee_check", 5 * 1000)	--check to cast Avatar Power knockback
 		eq.set_timer("shadowstep",math.random(6,24) * 1000);
+		eq.set_timer("aggro_check", 6 * 1000);
+		eq.set_timer("face",1 * 1000);
 	else
-		eq.stop_timer("shadowstep");
-		eq.stop_timer("melee_check");
+		eq.stop_all_timers();
 	end
 end
 
@@ -16,18 +17,39 @@ function event_timer(e)
 		eq.stop_timer(e.timer);
 		eq.set_timer("shadowstep",math.random(6,24) * 1000);
 		e.self:GMMove(get_safe_loc(e.self:GetX(),-723,-505), get_safe_loc(e.self:GetY(),-2100, -1800), 200, e.self:GetHeading());	--sets range on where Tallon can shadowstep
-		e.self:FaceTarget(e.self:GetTarget());
-		
-		--chance to wipe hate list
-		local memwipe = math.random(1,100);
-		if memwipe > 40 then
-			e.self:WipeHateList();
-		end
-	elseif e.timer == "melee_check" and player_check(e)	then	--added since it did mob AI priority did not use this spell correctly so we have pulled Avatar power from spell list and included in script
+		AggroBounce(e);
+		e.self:FaceTarget(e.self:GetHateTop());
+	elseif e.timer == "melee_check" and eq.PlayerCheck(e.self:GetX(), e.self:GetY(), e.self:GetZ(), 75)	then	--added since it did mob AI priority did not use this spell correctly so we have pulled Avatar power from spell list and included in script
 		eq.stop_timer(e.timer);
 		eq.set_timer("melee_check", 20 * 1000);
-		e.self:CastSpell(808,e.self:GetID());	--Avatar Power (PBAOE knockback)		
+		e.self:SpellFinished(808,e.self);	--Avatar Power (PBAOE knockback)		
+	elseif e.timer == "aggro_check" then
+		local rand = math.random(1,100);
+		if rand <= 60 then
+			AggroBounce(e);
+		end
+	elseif e.timer == "face" then
+		if e.self:GetHateTop() ~= nil then
+			e.self:FaceTarget(e.self:GetHateTop());
+		end
 	end
+end
+
+function AggroBounce(e)
+	local hate_list = e.self:GetHateList();
+	if hate_list ~= nil then
+		for mob in hate_list.entries do
+			e.self:SetHate(mob.ent,1,1);
+		end
+	end
+	
+	for n = 1,10 do
+		player = eq.get_entity_list():GetRandomClient(e.self:GetX(), e.self:GetY(), e.self:GetZ(),200*200);
+		if player.valid and not player:GetGM() then
+			e.self:SetHate(player:CastToMob(),500);
+			break;
+		end
+	end	
 end
 		
 
@@ -44,17 +66,4 @@ function get_safe_loc(current,min_loc,max_loc)
 			return destination;
 		end
 	end
-end
-
-function player_check(e)
-	local client_list = eq.get_entity_list():GetClientList();
-	
-	if client_list ~= nil then
-		for client in client_list.entries do
-			if client:CalculateDistance(e.self:GetX(), e.self:GetY(), e.self:GetZ()) <= 75 then
-				return true;	--client found in melee range - cast knockback
-			end
-		end
-	end
-	return false;	--no clients in range
 end
