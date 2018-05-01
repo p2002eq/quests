@@ -127,7 +127,7 @@ end
 
 function spawn_trash(npcid,count)	--spawns trash around Coirnav
 	for n = 1,count do
-		mob = eq.spawn2(npcid,218,0,-858 + math.random(-20,20),1095 + math.random(-75,75),-500 + math.random(-15,35),138);	
+		mob = eq.spawn2(npcid,220,0,-858 + math.random(-20,20),1095 + math.random(-75,75),-500 + math.random(-15,35),138);	
 	end
 end
 
