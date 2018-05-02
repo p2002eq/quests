@@ -2,7 +2,7 @@ function event_say(e)
 	if(e.message:findi("hail")) then
 		e.self:Say("Greetings and well met " .. e.other:GetName() .. ". I am Edwardian Holyblade, noble paladin of Marr. I have devoted my life and my blade to the glory of Mithaniel Marr. I am also in charge of training all new paladins of Marr to make sure that they have the best training necessary. If you are a paladin of Marr I may have some [" .. eq.say_link("training") .. "] for you.");
 	elseif(e.message:findi("training")) then
-		e.self:Say("I have developed a training program for all young and upcoming Paladins of Marr. My tests will enable you to learn some basic hunting, navigating and armor crafting skills. All of these abilities will be very important on your path to enlightenment. If you are [" .. eq.say_link("ready to begin my tests") .. "] I will explain to you how the tests will work.");
+		e.self:Say("I have developed a training program for all young and upcoming Paladins of Marr. My tests will enable you to learn some basic hunting, navigating and armor crafting skills. All of these abilities will be very important on your path to enlightenment. If you are [" .. eq.say_link("ready to begin your tests",false,"ready to begin my tests") .. "] I will explain to you how the tests will work.");
 	elseif(e.message:findi("ready to begin your tests")) then
 		e.self:Say("Very well " .. e.other:GetName() .. ". I look forward to seeing you progress through your training. Here is your special mail assembly kit. In this kit you will combine a number of components that you will collect from all areas of Freeport, North Ro and the Commonlands. The components that you will gather and combine in this kit will magically create a specific armor material piece. Each of these materials will be combined in a forge with the appropriate mold that I will provide you with. I will explain to you how the [" .. eq.say_link("recipes") .. "] work when you are ready.");
 		e.other:SummonItem(17266); -- Lightbringers Assembly Kit
@@ -14,7 +14,7 @@ function event_say(e)
 	elseif(e.message:findi("gauntlet")) then
 		e.self:Say("Sooner or later you will take a tough blow to your hands. Being struck there without the right gauntlets could mean a very serious and painful injury. To create your gauntlet material you will need to combine 3 Bricks of Crude Iron Ore, 1 Giant Spider Egg Sack, 1 Ruined Bear Pelt, and 1 Armadillo Tail in your assembly kit. Once you have created the proper material take it to a forge along with this mold to fashion your very own Truthbringers Gauntlets.");
 		e.other:SummonItem(22615); -- An Enchanted Gauntlet Mold
-	elseif(e.message:findi("greave")) then
+	elseif(e.message:findi("greaves")) then
 		e.self:Say("I can't begin to tell you how important pants are " .. e.other:GetName() .. ". Any injuries to them could disable you from escaping should you need to and would surely perish due to this. To create your greaves material you will need to combine 4 Bricks of Crude Iron Ore, 1 Coyote Pelt, 1 Shadow Wolf Tibia, 1 Bottle and 1 Raw Bamboo in your assembly kit. Once you have created the proper material take it to a forge along with this mold to fashion your very own Truthbringers Greaves.");
 		e.other:SummonItem(22614); -- An Enchanted Greaves Mold
 	elseif(e.message:findi("armguard")) then
@@ -37,8 +37,13 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 9927,item2 = 9928,item3 = 9929,item4 = 9930})) then  -- Fefslans Bracer, Gnoosals Bracer, Walorinags Bracer, Eridals Bracer
-		e.self:Say("Excellent work!"); -- Not actual text
-		e.other:SummonItem(9936); -- Longsword of Marr
+		e.self:Say("Your dedication to the Temple of Marr is unquestioned, " .. e.other:GetName() .. ". You have made your house very proud. May this blade bring you the best of luck and good fortune wherever your adventures may take you."); 
+		e.other:QuestReward(e.self,0,0,0,0,9936,3000);	-- Longsword of Marr
+		e.other:Faction(184,25);	--Knights of Truth  
+		e.other:Faction(86,-3);	--Dismal Rage
+		e.other:Faction(105,-3);	--The Freeport Militia
+		e.other:Faction(258,5);	--Priests of Marr
+		e.other:Faction(311,2);	--Steel Warriors
 		e.other:Ding();
 	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 18737})) then  -- A tattered note
 		e.self:Say("Thanks."); -- Real text still needed
