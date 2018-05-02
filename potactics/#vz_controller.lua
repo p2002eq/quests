@@ -13,11 +13,13 @@ end
 function event_signal(e)	--send signal to controller to get event stage
 
 	if e.signal == 1 then	--returned signal that event not yet at final phase
-		if counter < 5 and started then
-			eq.signal(214295,1);	--Vallon_Zek (214295)
-		elseif counter == 5 and started then
-			eq.signal(214295,2);	--final phase
-			counter = 0;
+		if counter ~= nil then --redundancy for quest error handling
+			if counter < 5 and started then
+				eq.signal(214295,1);	--Vallon_Zek (214295)
+			elseif counter == 5 and started then
+				eq.signal(214295,2);	--final phase
+				counter = 0;
+			end
 		end
 	elseif e.signal == 10 then	--signals real VZ phase killed
 		if not started then
