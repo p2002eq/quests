@@ -13,36 +13,6 @@ local phase2;
 local phase3;
 local phase4;
  
-function event_encounter_load(e)
-	--event variables
-	EventReset();
-	Phase1Setup();
-
-	eq.set_timer("Event_HB", 1 * 1000);
-	eq.set_timer("fail", fail_timer * 1000);
-	--registered events						
-	
-	--Kill counter checks (applicable to phase 3 only)
-	eq.register_npc_event("Coirnav_Event", Event.death_complete, 216275, Phase4Check);		--#a_triloun_vaporfiend (216275)
-	eq.register_npc_event("Coirnav_Event", Event.death_complete, 216237, Phase4Check);		--#a_hraquis_icefiend (216237)
-	eq.register_npc_event("Coirnav_Event", Event.death_complete, 216250, Phase4Check);		--#a_regrua_waterfiend (216250)
-	
-	--Guard spot saving for moving fake bosses
-	eq.register_npc_event("Coirnav_Event", Event.combat, 216265, GuardSpot);		--#Pwelon_of_Vapor (216265)
-	eq.register_npc_event("Coirnav_Event", Event.combat, 216264, GuardSpot);		--#Nrinda_of_Ice (216264)
-	eq.register_npc_event("Coirnav_Event", Event.combat, 216271, GuardSpot);		--#Vamuil_of_Water (216271)
-	
-	--Phase 4 Checks (Coirnav targetable with 3 weaker version boss adds)
-	eq.register_npc_event("Coirnav_Event", Event.death_complete, 216279, FinalStage);		--#Pwelon_of_Vapor (216279)
-	eq.register_npc_event("Coirnav_Event", Event.death_complete, 216278, FinalStage);		--#Nrinda_of_Ice (216278)
-	eq.register_npc_event("Coirnav_Event", Event.death_complete, 216280, FinalStage);		--#Vamuil_of_Water (216280)
-
-	--Coirnav Killed
-	eq.register_npc_event("Coirnav_Event", Event.death_complete, 216048, EventWin);			--#Coirnav_the_Avatar_of_Water (216048)
-end
-
-
-
 function EventReset()
 	eq.stop_all_timers();
 	timer = 0;
@@ -72,7 +42,7 @@ end
 
 function Phase4Check()	--Checks to advance after phases 1 - 3 have been completed
 	local mob_table = {216275,216237,216250};
-	GM_Message(18,"Phase 4 check!  Phase3 flag [ " .. tostring(phase3) .. "]  Mob check [" .. tostring(mob_check(mob_table)) .. "]");	--debug
+	
 	if phase3 and not mob_check(mob_table) and not phase4 then
 		Phase4Setup();
 		phase4 = true;
@@ -82,30 +52,27 @@ end
 function Phase4Setup()
 	coirnav:Shout("Fools you have gotten this far but you will not succeed. Pwelon, Nrinda, and Vamuil kill these intruders!");
 	
-	--Activate Coirnav (he will still be immune to nearly all damage at this point)
-	coirnav:SetBodyType(23, true);		--Sets bodytype as Monster (targetable)
-	coirnav:SetSpecialAbility(24, 0);	--Sets ability to aggro players
-	
 	--Depop fake boss versions if up
 	eq.depop(216265);	--#Pwelon_of_Vapor (216265)
 	eq.depop(216264);	--#Nrinda_of_Ice (216264)
 	eq.depop(216271);	--#Vamuil_of_Water (216271)
 	
-	--Respawn weaker versions of mini-bosses
-	eq.spawn2(216279,0,0,-858,1125,-460,138);	--#Pwelon_of_Vapor (216279)
-	eq.spawn2(216278,0,0,-858,1100,-460,138);	--#Nrinda_of_Ice (216278)
-	eq.spawn2(216280,0,0,-858,1075,-460,138);	--#Vamuil_of_Water (216280
+	--Respawn real versions of mini-bosses
+	eq.spawn2(216279,0,0,-885,1125,-475,138);	--#Pwelon_of_Vapor (216279)
+	eq.spawn2(216278,0,0,-885,1100,-475,138);	--#Nrinda_of_Ice (216278)
+	eq.spawn2(216280,0,0,-885,1075,-475,138);	--#Vamuil_of_Water (216280
 end
 
 function FinalStage()
-	local mob_table = {216278,216279,216280};	--Weaker boss versions:  #Nrinda_of_Ice (216278), #Pwelon_of_Vapor (216279), #Vamuil_of_Water (216280)
-	GM_Message(18,"Final Stage Kill check! [" .. tostring(mob_check(mob_table)) .. "]");	--debug
+	local mob_table = {216278,216279,216280};	--real boss versions:  #Nrinda_of_Ice (216278), #Pwelon_of_Vapor (216279), #Vamuil_of_Water (216280)
 	
 	if not mob_check(mob_table) and not final then	--checks to see if 3 minibosses are dead before triggering vulnerable coirnav version
 		final = true;
 		coirnav:Shout("Defenders of vapor, ice, and water I call thee to my aid.  Destroy the defilers of water.");
 		
 		--Set Coirnav vulnerabilities
+		coirnav:SetBodyType(23, true);		--Sets bodytype as Monster (targetable)
+		coirnav:SetSpecialAbility(24, 0);	--Sets ability to aggro players
 		coirnav:SetSpecialAbility(19,0);	--removes immunity to melee
 		coirnav:SetSpecialAbility(20,0);	--removes immunity to magic
 		coirnav:SetSpecialAbility(22,0);	--removes immunity to non-bane melee
@@ -191,16 +158,32 @@ function DepopEvent()
 	end
 end
 
-function GM_Message(color,text)			--DEBUGGING/MONITORING
-	client_list = eq.get_entity_list():GetClientList();
+function event_encounter_load(e)
+	--event variables
+	EventReset();
+	Phase1Setup();
+
+	eq.set_timer("Event_HB", 1 * 1000);
+	eq.set_timer("fail", fail_timer * 1000);
+	--registered events						
 	
-	if client_list ~= nil then
-		for client in client_list.entries do
-			if client:GetGM() then
-				client:Message(color,text);
-			end
-		end
-	end
+	--Kill counter checks (applicable to phase 3 only)
+	eq.register_npc_event("Coirnav_Event", Event.death_complete, 216275, Phase4Check);		--#a_triloun_vaporfiend (216275)
+	eq.register_npc_event("Coirnav_Event", Event.death_complete, 216237, Phase4Check);		--#a_hraquis_icefiend (216237)
+	eq.register_npc_event("Coirnav_Event", Event.death_complete, 216250, Phase4Check);		--#a_regrua_waterfiend (216250)
+	
+	--Guard spot saving for moving fake bosses
+	eq.register_npc_event("Coirnav_Event", Event.combat, 216265, GuardSpot);		--#Pwelon_of_Vapor (216265)
+	eq.register_npc_event("Coirnav_Event", Event.combat, 216264, GuardSpot);		--#Nrinda_of_Ice (216264)
+	eq.register_npc_event("Coirnav_Event", Event.combat, 216271, GuardSpot);		--#Vamuil_of_Water (216271)
+	
+	--Phase 4 Checks (Coirnav targetable with 3 weaker version boss adds)
+	eq.register_npc_event("Coirnav_Event", Event.death_complete, 216279, FinalStage);		--#Pwelon_of_Vapor (216279)
+	eq.register_npc_event("Coirnav_Event", Event.death_complete, 216278, FinalStage);		--#Nrinda_of_Ice (216278)
+	eq.register_npc_event("Coirnav_Event", Event.death_complete, 216280, FinalStage);		--#Vamuil_of_Water (216280)
+
+	--Coirnav Killed
+	eq.register_npc_event("Coirnav_Event", Event.death_complete, 216048, EventWin);			--#Coirnav_the_Avatar_of_Water (216048)
 end
 
 	
