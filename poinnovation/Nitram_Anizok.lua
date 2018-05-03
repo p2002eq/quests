@@ -1,3 +1,7 @@
+--Nitram_Anizok (206033)
+--Gnome Escort Event (Xanamech_Nezmirthafen)
+--poinnovation
+
 local walking;
 local won;
 local counter;
@@ -33,7 +37,7 @@ function event_say(e)
 			e.self:Say("Whew that was a close one!  I shall have to study these schematics and see where I went wrong.  Maybe if I build a new one that uses the correct kind of power source it would work better!  Anyhow, why don't you stop these beasts at the source?  If you go up to the main factory door and twist the very bottom rivet of the icon three times to the right, it will open.  I doubt they have changed how this works.  Good luck!");
 			if qglobals.pop_poi_dragon == nil and counter < 72 then
 				eq.set_global("pop_poi_dragon", "1", 5, "F");
-				e.other:Message(15,"You receive a character flag!");
+				e.other:Message(15,"You've received a character flag!");
 				counter = counter + 1;
 			end
 		end
@@ -80,6 +84,12 @@ function event_timer(e)
 		if not eq.get_entity_list():IsMobSpawnedByNpcTypeID(206068) then
 			eq.unique_spawn(206068,0,0,-735,1580,-50,251.6); --fake Xanamech
 		end
+	end
+end
+
+function event_death_complete(e)
+	if not won then	
+		eq.update_spawn_timer(e.self:GetSpawnPointID(),2*60*60*1000)	--2 hr repop on fail if gnome dies before dragon is dead
 	end
 end
 
