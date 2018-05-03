@@ -1,4 +1,4 @@
---Manaetic_Behemoth (NPCID 26046)  Untargetable Version
+--Manaetic_Behemoth (NPCID 206046)  Untargetable Version
 --PoInnovation
 
 local counter;

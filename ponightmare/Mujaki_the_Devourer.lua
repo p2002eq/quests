@@ -67,12 +67,14 @@ end
 function deactivate(mob)
 	eq.stop_all_timers();
 	mob:SetBodyType(11, true);
-	mob:SetSpecialAbility(24, 1);
+	mob:SetSpecialAbility(24, 1);	--will not aggro
+	mob:SetSpecialAbility(35, 1);	--no harm from players
 	mob:WipeHateList();
 	mob:GotoBind();
 end
 
 function activate(mob)
 	mob:SetBodyType(3, true);		--undead
-	mob:SetSpecialAbility(24, 0);
+	mob:SetSpecialAbility(24, 0);	--will not aggro
+	mob:SetSpecialAbility(35, 0);	--no harm from players
 end

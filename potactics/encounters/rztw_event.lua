@@ -99,6 +99,7 @@ end
 function RZ_Activate(e)
 	e.self:SetBodyType(19,true);
 	e.self:SetSpecialAbility(24, 0);	--will not aggro
+	e.self:SetSpecialAbility(35, 0);	--immune to players
 	eq.set_next_hp_event(75);
 end
 
