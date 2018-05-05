@@ -9,7 +9,10 @@
 function event_say(e)
 	local qglobals = eq.get_qglobals(e.self,e.other);
 	if(e.message:findi("Hail")) then
-		e.self:Say("Greetings citizen... you are very brave to approach me in this manner.  That sort of bravery warrants my respect.  How may I help you?");
+		e.self:Say("Greetings citizen... you are very brave to approach me in this manner.  That sort of bravery warrants my respect.  How may I help you? I see you are [" .. eq.say_link("not one of our people") .. "].");
+	elseif(e.message:findi("not one of our people") and e.other:GetRace() ~= 130) then ----Non-canon allows non-vah shir to start the citizenship quest without MQ
+		e.self:Say("I am apprehensive of newcomers becoming citizens, but alas, if you can prove yourself, then so be it.");
+		e.other:SummonItem(18304); -- Note from King Raja
 	elseif(e.message:findi("note") and tonumber(qglobals.Shar_Vahl_Cit) == 5) then ----Non-canon fixme if you lose note.
 		e.self:Say("I guess I can write you a new note. Try not to lose it this time.");
 		e.other:SummonItem(18304); -- Note from King Raja
