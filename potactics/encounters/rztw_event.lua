@@ -1,7 +1,7 @@
 --Rallos Zek the Warlord Event
 --By Daeron
 
-
+local aggro_limit = 72;		--max clients on rztw hatelist before banish
 
 --spawnpoint tables
 local pit_spawns = {361134,361166,361167,361170,361173,361176,361188,361191,361192,361193,361194,361195,361196,361197,361198,361199,361202,361203,361204,361205,361206,361208,361209,361211,361212,361219};
@@ -147,24 +147,41 @@ function RZTW_Combat(e)
 	GM_Message(15,"RZTW engaged!");
 	local rztw = eq.get_entity_list():GetMobByNpcTypeID(214298); 	--#Rallos_Zek_the_Warlord (214298)
 	if e.joined then
-		eq.set_timer("adds", 70 * 1000, rztw); 	--start add timer
+		eq.set_timer("adds", 70 * 1000); 	--start add timer
+		eq.set_timer("scan",1*1000);	--start checking hatelist
 	else
-		eq.stop_timer("adds",rztw);
-		eq.set_timer("reset", 5 * 60 * 1000, rztw);	--in event of wipe
+		eq.stop_timer("adds");
+		eq.stop_timer("scan");
+		eq.set_timer("reset", 5 * 60 * 1000);	--in event of wipe
 	end
 end
 
 function RZTW_Timers(e)
 	local rztw = eq.get_entity_list():GetMobByNpcTypeID(214298); 	--#Rallos_Zek_the_Warlord (214298)
 	if e.timer == "adds" and e.self:IsEngaged() then
-		eq.stop_timer(e.timer,rztw);
-		eq.set_timer("adds", 55 * 1000,rztw);	--timer is set to 55 seconds after initial engage timer
+		eq.stop_timer(e.timer);
+		eq.set_timer("adds", 55 * 1000);	--timer is set to 55 seconds after initial engage timer
 		spawn_adds(e);
 	elseif e.timer == "reset" then
 		if not e.self:IsEngaged() and e.self:GetHPRatio() == 100 then
-			eq.stop_timer(e.timer,rztw);
+			eq.stop_timer(e.timer);
 			eq.depop_all(214308);	--a_Chaos_Wraith (214308)
 			eq.depop_all(214309);	--a_Chaos_Boar (214309)
+		end
+	elseif e.timer == "scan" then
+		local player_count = 0;
+		local hate_list = e.self:GetHateList();
+		
+		if hate_list ~= nil then
+			for mob in hate_list.entries do
+				if mob.ent:IsClient() then 	--only want clients in this
+					player_count = player_count + 1;
+					if player_count > aggro_limit then
+						mob.ent:Message(15,"You have been banished by Rallos Zek! His voice echoes in your mind, 'Do not attempt your foolish tricks against the warlord!'");
+						mob.ent:CastToClient():MovePC(202,-280,-150,-152,384);	--banish to PoK
+					end
+				end
+			end
 		end
 	end
 end
