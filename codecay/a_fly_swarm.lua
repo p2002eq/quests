@@ -5,7 +5,8 @@
 function event_spawn(e)
 	local xloc = e.self:GetX();
 	local yloc = e.self:GetY();
-	eq.set_proximity(xloc - 40, xloc + 40, yloc - 40, yloc + 40);
+	local zloc = e.self:GetZ();
+	eq.set_proximity(xloc - 40, xloc + 40, yloc - 40, yloc + 40, zloc - 10, zloc + 10);
 end
 
 function event_enter(e)
