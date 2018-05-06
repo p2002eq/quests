@@ -99,7 +99,8 @@ end
 
 function mob_selection(trap, chance)
 	local roll = math.random(1,100);	
-	if roll <= chance then 
+	local instance_id = eq.get_zone_instance_id();
+	if roll <= chance and instance_id == 0 then --rare trap mobs will only spawn in live zone, but not instanced version
 		local rare = trap_npc_rare[trap];
 		return rare[math.random(#rare)];
 	else
