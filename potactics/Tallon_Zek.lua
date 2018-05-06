@@ -4,7 +4,7 @@
 function event_combat(e)
 	if e.joined then 
 		eq.set_timer("melee_check", 5 * 1000)	--check to cast Avatar Power knockback
-		eq.set_timer("shadowstep",math.random(6,24) * 1000);
+		eq.set_timer("shadowstep",math.random(6,18) * 1000);
 		eq.set_timer("aggro_check", 6 * 1000);
 		eq.set_timer("face",1 * 1000);
 	else
@@ -15,7 +15,7 @@ end
 function event_timer(e)
 	if e.timer == "shadowstep" then
 		eq.stop_timer(e.timer);
-		eq.set_timer("shadowstep",math.random(6,24) * 1000);
+		eq.set_timer("shadowstep",math.random(6,18) * 1000);
 		e.self:GMMove(get_safe_loc(e.self:GetX(),-723,-505), get_safe_loc(e.self:GetY(),-2100, -1800), 200, e.self:GetHeading());	--sets range on where Tallon can shadowstep
 		AggroBounce(e);
 		e.self:FaceTarget(e.self:GetHateTop());
@@ -36,11 +36,20 @@ function event_timer(e)
 end
 
 function AggroBounce(e)
+	local target = nil;
 	local hate_list = e.self:GetHateList();
 	if hate_list ~= nil then
 		for mob in hate_list.entries do
 			e.self:SetHate(mob.ent,1,1);
+			if mob.ent:GetHPRatio() <= 30 and mob.ent:IsClient() then
+				target = mob.ent;
+			end
 		end
+	end
+	
+	if target ~= nil then	--find weaker targets to finish if available
+		e.self:SetHate(target,500);	
+		return;
 	end
 	
 	for n = 1,10 do
