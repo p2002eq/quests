@@ -38,13 +38,13 @@ function event_click_door(e)
 	end
 
 	--bothunder
-	if(door == 48) then
-		if(qglobals.pop_poj_valor_storms ~= nil and qglobals.pop_pos_askr_the_lost_final ~= nil) then
-			if(e.self:HasZoneFlag(209) ~= 1) then
-				e.self:SetZoneFlag(209);
-			end
-		end
-	end
+	-- if(door == 48) then
+		-- if(qglobals.pop_poj_valor_storms ~= nil and qglobals.pop_pos_askr_the_lost_final ~= nil) then
+			-- --if(e.self:HasZoneFlag(209) ~= 1) then
+			-- --	e.self:SetZoneFlag(209);
+			-- --end
+		-- end
+	-- end
 
 	--hohonora
 	if(door == 23) then

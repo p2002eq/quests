@@ -18,8 +18,8 @@ function event_say(e)
 	local qglobals = eq.get_qglobals(e.self,e.other);
 	if e.message:findi("hail") and qglobals.pop_pot_saryrn == nil and counter < 72 then
 		eq.set_global("pop_pot_saryrn", "1", 5, "F");
-		e.other:Message(12,"The Planar Projection seems to flicker in and out of existence. It seems to be impressed and grateful for the death of Saryrn.");
-		e.other:Message(4,"You've received a character flag!");
+		e.other:Message(7,"The Planar Projection's thoughts enter your own. 'You have done well, now receive the knowledge that Saryrn once held!' You look down at your arms to see a set of unintelligible runes being burnt into your arms. The pain is terrible and searing. Suddenly the sensation is gone and the runes slowly fade.");
+		e.other:Message(15,"You've received a character flag!");
 		counter = counter + 1;
 	end
 end

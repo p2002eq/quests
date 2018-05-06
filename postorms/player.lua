@@ -26,15 +26,13 @@ function event_click_door(e)
 	--eq.zone_emote(14,"Door ID is: " .. door);   --debug to easily check door IDs
 	
 	
-	if e.door_id == 4 then	--Shrine near whirling tempest at lake
-		if qglobals.pop_poj_mavuin ~= nil and qglobals.pop_poj_tribunal ~= nil and qglobals.pop_poj_valor_storms ~= nil and qglobals.pop_pos_askr_the_lost ~= nil and tonumber(qglobals.pop_pos_askr_the_lost) == 3 and  qglobals.pop_pos_askr_the_lost_final ~= nil then
+	if door == 4 then	--Shrine near whirling tempest at lake
+		if qglobals.pop_poj_mavuin ~= nil and qglobals.pop_poj_tribunal ~= nil and qglobals.pop_poj_valor_storms ~= nil and qglobals.pop_pos_askr_the_lost ~= nil and  qglobals.pop_pos_askr_the_lost_final ~= nil then
 			if not e.self:HasZoneFlag(209) then
-				e.self:Message(15,"An aura of soft light gleams around you as the shrine reacts to your Talisman of Thunderous Foyer and sends you forth into the mighty Bastion of Thunder.");
+				e.self:Message(7,"An aura of soft light gleams around you as the shrine reacts to your Talisman of Thunderous Foyer and sends you forth into the mighty Bastion of Thunder.");
 				e.self:Message(15,"You've received a character flag!");
 				e.self:SetZoneFlag(209);
 			end
-		else
-			e.self:Message(13,"You lack the will to pass through this portal safely.");
 		end
 	end
 end
