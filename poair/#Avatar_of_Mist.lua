@@ -13,7 +13,7 @@ function event_combat(e)
 end
 
 function event_timer(e)
-	if e.timer == "depop" and not e.self:IsEngaged() then
+	if e.timer == "depop" then
 		SetGlobal();	--this is a blowable spawn.  Setting the global even if failure
 		eq.depop();
 	elseif e.timer == "memblur" then
