@@ -21,7 +21,7 @@ function event_say(e)
 	local thelin2 = eq.get_entity_list():GetMobByNpcTypeID(controllers[2]);
 	local thelin3 = eq.get_entity_list():GetMobByNpcTypeID(controllers[3]);	
 
-	if e.message:findi("hail") then and qglobals.pop_pon_hedge_jezith == nil then	--preflag not done
+	if e.message:findi("hail") and qglobals.pop_pon_hedge_jezith == nil then	--preflag not done
 		e.self:Emote("screams loudly, and then falls asleep once again.");
 	elseif e.message:findi("hail") and qglobals.pop_pon_hedge_jezith ~= nil then
 		e.self:Say("Who is it?  Are you... really there?  You are!  Please, I beg of you to help me escape from this horrid place.  Terris-Thule is holding me here. She delights in the nightmares she sends me.  To further torture me, she has offered me a pact.  She has said that if I can retrieve my [" .. eq.say_link("dagger") .. "], then I am free to go.  She does this only because she knows that I cannot retrieve it on my own.");
