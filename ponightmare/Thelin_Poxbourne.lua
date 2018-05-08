@@ -78,14 +78,14 @@ function event_say(e)
 						if client_qglobal.pop_pon_hedge_jezith ~= nil and client:CastToMob():CalculateDistance(e.self:GetX(), e.self:GetY(), e.self:GetZ()) <= 100 then
 							if player_check(maze_id, client:CharacterID()) then 	--rejoining character to raid
 								client:MovePC(zone_id,unpack(maze_locs[maze_id]));
-								GM_Message(13,client:GetName() .. " is rejoining Maze " .. maze_id .. " (Raid ID #: " .. client:GetRaid():GetID() .. ") Char ID: [" .. client:CharacterID() .. "]");
-								GM_Message(14,"Total player count for Maze " .. maze_id .. " is [" .. player_counter[maze_id] .. "]");
+								eq.GM_Message(13,client:GetName() .. " is rejoining Maze " .. maze_id .. " (Raid ID #: " .. client:GetRaid():GetID() .. ") Char ID: [" .. client:CharacterID() .. "]");
+								eq.GM_Message(14,"Total player count for Maze " .. maze_id .. " is [" .. player_counter[maze_id] .. "]");
 							elseif player_counter[maze_id] < 18 then				--new raid addition
 								client:MovePC(zone_id,unpack(maze_locs[maze_id]));
 								player_counter[maze_id] = player_counter[maze_id] + 1;
 								player_list_by_maze[maze_id][player_counter[maze_id]] = client:CharacterID();	--store character ID in table
-								GM_Message(4,client:GetName() .. " is a new addition for Maze " .. maze_id .. " (Raid ID #: " .. client:GetRaid():GetID() .. ") Char ID: [" .. client:CharacterID() .. "]");
-								GM_Message(14,"Total player count for Maze " .. maze_id .. " is [" .. player_counter[maze_id] .. "]");
+								eq.GM_Message(15,client:GetName() .. " is a new addition for Maze " .. maze_id .. " (Raid ID #: " .. client:GetRaid():GetID() .. ") Char ID: [" .. client:CharacterID() .. "]");
+								eq.GM_Message(14,"Total player count for Maze " .. maze_id .. " is [" .. player_counter[maze_id] .. "]");
 							end
 						end
 					end
@@ -147,43 +147,18 @@ function event_signal(e)	--debugging
 		player_list_by_maze[e.signal] = {};
 		player_counter[e.signal] = 0;
 		eq.delete_global("pop_pon_maze_event_" .. e.signal);
-		GM_Message(14,"Maze " .. e.signal .. " has been reset!");	--debug
-	elseif e.signal == 2 then	--reset event signal from maze 3 Thelin
+	elseif e.signal == 2 then	--reset event signal from maze 2 Thelin
 		maze_counter[e.signal] = 0;
 		raid_id_by_maze[e.signal] = nil;
 		player_list_by_maze[e.signal] = {};
 		player_counter[e.signal] = 0;
 		eq.delete_global("pop_pon_maze_event_" .. e.signal);
-		GM_Message(14,"Maze " .. e.signal .. " has been reset!");	--debug
 	elseif e.signal == 3 then	--reset event signal from maze 3 Thelin
 		maze_counter[e.signal] = 0;
 		raid_id_by_maze[e.signal] = nil;
 		player_list_by_maze[e.signal] = {};
 		player_counter[e.signal] = 0;
 		eq.delete_global("pop_pon_maze_event_" .. e.signal);
-		GM_Message(14,"Maze " .. e.signal .. " has been reset!");	--debug
-	elseif e.signal == 99 then
-		for n = 1,3 do 
-			GM_Message(13,"Maze " .. n .. " group count is: [" .. maze_counter[n] .. "] -- Raid ID: [" .. tostring(raid_id_by_maze[n]) .. "] -- Player Count: [" .. tostring(player_counter[n]) .. "] Thelin up? [" .. tostring(eq.get_entity_list():IsMobSpawnedByNpcTypeID(controllers[n])) .. "]");	--debug
-		end
-	elseif e.signal == 98 then
-		for maze = 1,3 do
-			if player_counter[maze] ~= nil then
-				num = player_counter[maze];
-				for n = 1,num do
-					local client_list = eq.get_entity_list():GetClientList();
-					
-					if client_list ~= nil then
-						for client in client_list.entries do
-							if client:CharacterID() == player_list_by_maze[maze][n] then
-								GM_Message(18,"Maze[" .. maze .. "] " .. client:GetName());
-							end
-						end
-					end
-					--GM_Message(7,tostring(player_list_by_maze[maze][n]));
-				end
-			end
-		end
 	end
 end
 	
@@ -191,16 +166,4 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	item_lib.return_items(e.self, e.other, e.trade)
-end
-
-function GM_Message(color,text)			--DEBUGGING/MONITORING
-	client_list = eq.get_entity_list():GetClientList();
-	
-	if client_list ~= nil then
-		for client in client_list.entries do
-			if client:GetGM() then
-				client:Message(color,text);
-			end
-		end
-	end
 end

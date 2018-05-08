@@ -45,86 +45,23 @@ function event_say(e)
 	pop_flags.options(e)
 	-----------------------------------	
 	
-
 	--Hedge Maze Testing
-	local qglobals = eq.get_qglobals(e.self);
-	if 	e.message:findi("maze flagme") then
-		eq.set_global("pop_pon_hedge_jezith", "1", 5, "F");
-		eq.set_global("pop_pon_construct", "1", 5, "F");
-		e.self:Message(15, "PoN maze flags added!")
-	elseif e.message:findi("maze deflagme") then
-		eq.delete_global("pop_pon_construct");
-		e.self:Message(14, "Maze flag deleted!")
-	elseif e.self:GetGM() then
-		if e.message:findi("maze status") then
-			if qglobals["pop_pon_maze_event_1"] == nil then
-				e.self:Message(14, "Maze 1 [OPEN]");	--maze_id 1 available
-			else
-				e.self:Message(13, "Maze 1 [LOCKED]");
-			end
-			if qglobals["pop_pon_maze_event_2"] == nil then
-				e.self:Message(14, "Maze 2 [OPEN]");	--maze_id 1 available
-			else
-				e.self:Message(13, "Maze 2 [LOCKED]");
-			end
-			if qglobals["pop_pon_maze_event_3"] == nil then
-				e.self:Message(14, "Maze 3 [OPEN]");	--maze_id 1 available
-			else
-				e.self:Message(13, "Maze 3 [LOCKED]");
-			end
-		elseif e.message:findi("delete flag") then
-			eq.delete_global("pop_pon_hedge_jezith");
-			eq.delete_global("pop_pon_construct");
-			e.self:Message(14, "Maze pre-flag and construct flag deleted!")
-		elseif e.message:findi("maze preflag") then
-			eq.set_global("pop_pon_hedge_jezith", "1", 5, "F");
-			e.self:Message(15, "Maze pre-flag added!")
-		elseif e.message:findi("maze construct") then
-			eq.set_global("pop_pon_hedge_jezith", "1", 5, "F");
-			eq.set_global("pop_pon_construct", "1", 5, "F");
-			e.self:Message(15, "Maze pre-flag added!")
-		elseif e.message:findi("maze signal") then
-			eq.signal (204070, 99); --check count 
-		elseif e.message:findi("list") then
-			eq.signal (204070, 98); --check player list
-		elseif e.message:findi("maze reset all") then
-			eq.signal (204070, 1);
-			eq.signal (204070, 2);
-			eq.signal (204070, 3);
+	if e.self:GetGM() then
+		if e.message:findi("help") then
+			e.self:Message(300,"Hedge options available are: [" .. eq.say_link("maze reset 1",false,"Reset Maze 1") .. "], [" .. eq.say_link("maze reset 2",false,"Reset Maze 2") .. "], [" .. eq.say_link("maze reset 3", false, "Reset Maze 3") .. "]");
+			e.self:Message(300,"CAUTION:  This will boot any players currently in the selected maze back to zone in.");
 		elseif e.message:findi("maze reset 1") then
 			eq.signal (204070, 1);
+			e.self:Message(13,"Maze 1 reset!");
 		elseif e.message:findi("maze reset 2") then
 			eq.signal (204070, 2);
+			e.self:Message(13,"Maze 2 reset!");
 		elseif e.message:findi("maze reset 3") then
 			eq.signal (204070, 3);
-		-----Mujaki_The_Devourer Testing
-		elseif e.message:findi("mujaki start") then
-			eq.load_encounter("Mujaki_1");
-		elseif e.message:findi("mujaki reset") then
-			eq.signal(204036,1); --signal reset to Etumer for 1st event
-		elseif e.message:findi("get spawns") then	--get spawnpoints of nearby NPCS
-			GetSpawnsMyLoc(e);
-		elseif e.message:findi("mujaki signal") then
-			eq.signal(204036, 99); --check count 
+			e.self:Message(13,"Maze 3 reset!");
 		end
 	end
 end
-	
-function GetSpawnsMyLoc(e)
-	local npc_list = eq.get_entity_list():GetNPCList();
-	
-	if(npc_list ~= nil) then
-		for npc in npc_list.entries do								 
-			if npc:CalculateDistance(e.self:GetX(), e.self:GetY(), e.self:GetZ()) <= 75 and npc:GetNPCTypeID() ~= scout and not npc:IsPet() and npc:GetNPCTypeID() ~= 167718 then
-				npc:Shout("My spawnpoint id is: " .. npc:GetSpawnPointID());
-				--return true	--mobs still in camp
-			end
-		end
-	end
-	
-	return false
-end
-
 
 
 
