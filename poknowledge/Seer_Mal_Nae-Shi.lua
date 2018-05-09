@@ -1,706 +1,232 @@
---TODO: POP Flagging, Full Audit
+--Seer_Mal_Nae`Shi (202006)
+--Planes of Power Flag Checklist by Daeron
+--zone:  Plane of Knowledge
+
+
 function event_say(e)
-	local qglobals = eq.get_qglobals(e.other);
-	---------------------------------------------------------------
-	---------------------------------------------------------------
-	--PoP Flag testing:
-	--if(e.message:findi("flagme")) then
-	--	eq.set_global("pop_poj_mavuin","1",5,"F");				eq.set_global("pop_pod_grimmus_planar_projection","1",5,"F");	eq.set_global("pop_tactics_tallon","1",5,"F");
-	--	eq.set_global("pop_poj_execution","1",5,"F");			eq.set_global("pop_pod_elder_fuirstel","1",5,"F");				eq.set_global("pop_tactics_vallon","1",5,"F");
-	--	eq.set_global("pop_poj_flame","1",5,"F");				eq.set_global("pop_pov_aerin_dar","1",5,"F");					eq.set_global("pop_tactics_ralloz","1",5,"F");
-	--	eq.set_global("pop_poj_hanging","1",5,"F");				eq.set_global("pop_pos_askr_the_lost","3",5,"F");				eq.set_global("pop_sol_ro_arlyxir","1",5,"F");
-	--	eq.set_global("pop_poj_lashing","1",5,"F");				eq.set_global("pop_pos_askr_the_lost_final","1",5,"F");			eq.set_global("pop_sol_ro_dresolik","1",5,"F");
-	--	eq.set_global("pop_poj_stoning","1",5,"F");				eq.set_global("pop_cod_preflag","1",5,"F");						eq.set_global("pop_sol_ro_jiva","1",5,"F");
-	--	eq.set_global("pop_poj_torture","1",5,"F");				eq.set_global("pop_cod_bertox","1",5,"F");						eq.set_global("pop_sol_ro_rizlona","1",5,"F");
-	--	eq.set_global("pop_poj_tribunal","1",5,"F");			eq.set_global("pop_cod_final","1",5,"F");						eq.set_global("pop_sol_ro_xuzl","1",5,"F");
-	--	eq.set_global("pop_poj_valor_storms","1",5,"F");		eq.set_global("pop_pot_shadyglade","1",5,"F");					eq.set_global("pop_sol_ro_solusk","1",5,"F");
-	--	eq.set_global("pop_pon_hedge_jezith","1",5,"F");		eq.set_global("pop_pot_newleaf","1",5,"F");						eq.set_global("pop_elemental_grand_librarian","1",5,"F");
-	--	eq.set_global("pop_pon_construct","1",5,"F");			eq.set_global("pop_pot_saryrn","1",5,"F");						eq.set_global("pop_fire_fennin_projection","1",5,"F");
-	--	eq.set_global("pop_ponb_terris","1",5,"F");				eq.set_global("pop_pot_saryrn_final","1",5,"F");				eq.set_global("pop_wind_xegony_projection","1",5,"F");
-	--	eq.set_global("pop_ponb_poxbourne","1",5,"F");			eq.set_global("pop_hoh_faye","1",5,"F");						eq.set_global("pop_water_coirnav_projection","1",5,"F");
-	--	eq.set_global("pop_poi_dragon","1",5,"F");				eq.set_global("pop_hoh_trell","1",5,"F");						eq.set_global("pop_eartha_arbitor_projection","1",5,"F");
-	--	eq.set_global("pop_poi_behometh_preflag","1",5,"F");	eq.set_global("pop_hoh_garn","1",5,"F");						eq.set_global("pop_earthb_rathe","1",5,"F");
-	--	eq.set_global("pop_poi_behometh_flag","1",5,"F");		eq.set_global("pop_hohb_marr","1",5,"F");						eq.set_global("pop_time_maelin","1",5,"F");
-	--	eq.set_global("pop_pod_alder_fuirstel","1",5,"F");		eq.set_global("pop_bot_agnarr","1",5,"F");
-
-	--elseif(e.message:findi("deflagme")) then
-	--	eq.delete_global("pop_poj_mavuin");				eq.delete_global("pop_pod_grimmus_planar_projection");	eq.delete_global("pop_tactics_tallon");
-	--	eq.delete_global("pop_poj_execution");			eq.delete_global("pop_pod_elder_fuirstel");				eq.delete_global("pop_tactics_vallon");
-	--	eq.delete_global("pop_poj_flame");				eq.delete_global("pop_pov_aerin_dar");					eq.delete_global("pop_tactics_ralloz");
-	--	eq.delete_global("pop_poj_hanging");			eq.delete_global("pop_pos_askr_the_lost","3",5,"F");	eq.delete_global("pop_sol_ro_arlyxir");
-	--	eq.delete_global("pop_poj_lashing");			eq.delete_global("pop_pos_askr_the_lost_final");		eq.delete_global("pop_sol_ro_dresolik");
-	--	eq.delete_global("pop_poj_stoning");			eq.delete_global("pop_cod_preflag");					eq.delete_global("pop_sol_ro_jiva");
-	--	eq.delete_global("pop_poj_torture");			eq.delete_global("pop_cod_bertox");						eq.delete_global("pop_sol_ro_rizlona");
-	--	eq.delete_global("pop_poj_tribunal");			eq.delete_global("pop_cod_final");						eq.delete_global("pop_sol_ro_xuzl");
-	--	eq.delete_global("pop_poj_valor_storms");		eq.delete_global("pop_pot_shadyglade");					eq.delete_global("pop_sol_ro_solusk");
-	--	eq.delete_global("pop_pon_hedge_jezith");		eq.delete_global("pop_pot_newleaf");					eq.delete_global("pop_elemental_grand_librarian");
-	--	eq.delete_global("pop_pon_construct");			eq.delete_global("pop_pot_saryrn");						eq.delete_global("pop_fire_fennin_projection");
-	--	eq.delete_global("pop_ponb_terris");			eq.delete_global("pop_pot_saryrn_final");				eq.delete_global("pop_wind_xegony_projection");
-	--	eq.delete_global("pop_ponb_poxbourne");			eq.delete_global("pop_hoh_faye");						eq.delete_global("pop_water_coirnav_projection");
-	--	eq.delete_global("pop_poi_dragon");				eq.delete_global("pop_hoh_trell");						eq.delete_global("pop_eartha_arbitor_projection");
-	--	eq.delete_global("pop_poi_behometh_preflag");	eq.delete_global("pop_hoh_garn");						eq.delete_global("pop_earthb_rathe");
-	--	eq.delete_global("pop_poi_behometh_flag");		eq.delete_global("pop_hohb_marr");						eq.delete_global("pop_time_maelin");
-	--	eq.delete_global("pop_pod_alder_fuirstel");		eq.delete_global("pop_bot_agnarr");
-
-	if(e.message:findi("Hail")) then
-		e.self:Say("Greetings, " .. e.other:GetName() .. ". I can provide you information upon your travels through the planes by [" .. eq.say_link("guided meditation") .. "].");
-	elseif(e.message:findi("guided meditation")) then
-		e.other:Message(1,"You converse with Seer Mal Nae`Shi as she guides your meditation... You feel a power within your being, pulling your thougts left and right.  After some time, your mind clears, and Seer Mal Nae`Shi speaks.");
-		e.other:Message(9,"Now that your thoughts have calmed, tell me where you have traveled... There are many planes, try to think about your past, and your adventures in: [" .. eq.say_link("Plane of Justice") .. "] [" .. eq.say_link("Plane of Nightmare") .. "] [" .. eq.say_link("Plane of Innovation") .. "] [" .. eq.say_link("Plane of Disease") .. "] [" .. eq.say_link("Plane of Valor") .. "] [" .. eq.say_link("Plane of Storms") .. "] [" .. eq.say_link("Plane of Torment") .. "] [" .. eq.say_link("Ruins of Lxanvom") .. "] [" .. eq.say_link("Doomfire, the Burning Lands") .. "] [" .. eq.say_link("Drunder, Fortress of Zek") .. "] [" .. eq.say_link("Eryslai, the Kingdom of Wind") .. "] [" .. eq.say_link("Halls of Honor") .. "] [" .. eq.say_link("Lair of Terris Thule") .. "] [" .. eq.say_link("Bastion of Thunder") .. "] [" .. eq.say_link("Reef of Coirnav") .. "] [" .. eq.say_link("Tower of Solusek Ro") .. "] [" .. eq.say_link("Vegarlson, the Earthen Badlands") .. "] [" .. eq.say_link("Ragrax, Stronghold of the Twelve") .. "] [" .. eq.say_link("Temple of Marr") .. "].  If you have completed your elemental flag, say [" .. eq.say_link("elemental flag") .. "]");
-		e.other:Message(9,"If one option does not give you the information you need, you may be missing experience from some zones.  To find the credit you currently have, please just [" .. eq.say_link("unlock memories") .. "].");
-		e.other:Message(9,"There are special restrictions for the Temple of Marr, elemental planes, and Plane of Torment.  If you need assistance, say [" .. eq.say_link("special zones") .. "].");
-	elseif(e.message:findi("special zones")) then
-		e.other:Message(9,"The Temple of Marr is a special access zone.  To access the Temple of Marr you must kill Bertox, Terris Thule, complete the three trials within Halls of Honor, and defeat Saryrn. The other special access zones are the elemental planes. These planes are Plane of Air, Plane of Water and Plane of Earth. To inquire about access to elemental planes, say [" .. eq.say_link("elemental planes") .. "]. To access the elemental planes: Plane of Fire is obtained by killing through the plane of innovation, to Drunder, Fortress of Zek, then to the Tower of Soluesk Ro, where you must kill Solusek Ro himother.  To access the other elemental planes, you must have completed ALL zone flags in lower zones, and kill Agnarr the storm lord, and Mithaniel Marr. To inquire about access to the Temple of Marr, say [" .. eq.say_link("Access to Temple of Marr") .. "]. The last special access zone is the Plane of Torment. You must have killed Terris Thule and Bertox before you can enter to kill Saryrn. To inquire about the Plane of Torment, say [" .. eq.say_link("Access to Torment") .. "].");
-		------------------------------------------
-		--THIS JUST TELLS PEOPLE ABOUT ALL FLAGS--
-		------------------------------------------
-	elseif(e.message:findi("unlock memories")) then
-		e.other:Message(9,"At the moment, your credit is as follows");
-		if(qglobals["pop_poj_mavuin"] == "1") then
-			e.other:Message(12,"You have talked to Mavuin, and have agreed to plea his case to The Tribunal.");
-		else
-			e.other:Message(9,"You have NOT talked to Mavuin, and agreed to plea his case to The Tribunal.");
-		end
-		if(qglobals["pop_poj_execution"] == "1") then
-			e.other:Message(12,"You have completed the Trial of Execution.");
-		else
-			e.other:Message(9,"You have NOT completed the Trial of Execution.");
-		end
-		if(qglobals["pop_poj_flame"] == "1") then
-			e.other:Message(12,"You have completed the Trial of Flame.");
-		else
-			e.other:Message(9,"You have NOT completed the Trial of Flame.");
-		end
-		if(qglobals["pop_poj_hanging"] == "1") then
-			e.other:Message(12,"You have completed the Trial of Hanging.");
-		else
-			e.other:Message(9,"You have NOT completed the Trial of Hanging.");
-		end
-		if(qglobals["pop_poj_lashing"] == "1") then
-			e.other:Message(12,"You have completed the Trial of Lashing.");
-		else
-			e.other:Message(9,"You have NOT completed the Trial of Lashing.");
-		end
-		if(qglobals["pop_poj_stoning"] == "1") then
-			e.other:Message(12,"You have completed the Trial of Stoning.");
-		else
-			e.other:Message(9,"You have NOT completed the Trial of Stoning.");
-		end
-		if(qglobals["pop_poj_torture"] == "1") then
-			e.other:Message(12,"You have completed the Trial of Torture.");
-		else
-			e.other:Message(9,"You have NOT completed the Trial of Torture.");
-		end
-		if(qglobals["pop_poj_tribunal"] == "1") then
-			e.other:Message(12,"You have shown the Tribunal the mark from the trial you have completed.");
-		else
-			e.other:Message(9,"You have NOT shown the Tribunal the mark from the trial you have completed.");
-		end
-		if(qglobals["pop_poj_valor_storms"] == "1") then
-			e.other:Message(12,"You have returned to Mavuin, letting him know the tribunal will hear his case.");
-		else
-			e.other:Message(9,"You have NOT returned to mavuin to tell him the tribunal will hear his case.");
-		end
-		if(qglobals["pop_pon_hedge_jezith"] == "1") then
-			e.other:Message(12,"You have spoken to Jezith within the Plane of Tranquillity for the Hedge pre-flag by saying tormented by nightmares.");
-		else
-			e.other:Message(9,"You have NOT spoken to Jezith within the Plane of Tranquillity for the Hedge pre-flag by saying tormented by nightmares.");
-		end
-		if(qglobals["pop_pon_construct"] == "1") then
-			e.other:Message(12,"You have killed the Construct of Nightmares.");
-		else
-			e.other:Message(9,"You have NOT killed the Construct of Nightmares.");
-		end
-		if(qglobals["pop_ponb_terris"] == "1") then
-			e.other:Message(12,"You have killed Terris Thule.");
-		else
-			e.other:Message(9,"You have NOT killed Terris Thule.");
-		end
-		if(qglobals["pop_ponb_poxbourne"] == "1") then
-			e.other:Message(12,"You have talked to Poxbourne in the Plane of Tranquillity after defeating Terris Thule.");
-		else
-			e.other:Message(9,"You have NOT talked to Poxbourne in the Plane of Tranquillity after defeating Terris Thule.");
-		end
-		if(qglobals["pop_poi_dragon"] == "1") then
-			e.other:Message(12,"You have killed the dragon within the Plane of Innovation");
-		else
-			e.other:Message(9,"You have NOT killed the dragon within the Plane of Innovation.");
-		end
-		if(qglobals["pop_poi_behometh_preflag"] == "1") then
-			e.other:Message(12,"You have talked to the Gnome within the Plane of Innovation factory.");
-		else
-			e.other:Message(9,"You have NOT talked to the Gnome within the Plane of Innovation factory.");
-		end
-		if(qglobals["pop_poi_behometh_flag"] == "1") then
-			e.other:Message(12,"You have defeated the Behemoth within the Plane of Innovation and then QUICKLY hailed the Gnome in the factory.");
-		else
-			e.other:Message(9,"You have NOT defeated the Behemoth within the Plane of Innovation and then QUICKLY hailed the Gnome in the factory.");
-		end
-		if(qglobals["pop_pod_alder_fuirstel"] == "1") then
-			e.other:Message(12,"You have talked to Adler Fuirstel outside of the Plane of Disease.");
-		else
-			e.other:Message(9,"You have NOT talked to Adler Fuirstel outside of the Plane of Disease.");
-		end
-		if(qglobals["pop_pod_grimmus_planar_projection"] == "1") then
-			e.other:Message(12,"You have defeated Grummus.");
-		else
-			e.other:Message(9,"You have NOT defeated Grummus.");
-		end
-		if(qglobals["pop_pod_elder_fuirstel"] == "1") then
-			e.other:Message(12,"You have talked to Elder Fuirstel in the plane of Tranquillity.");
-		else
-			e.other:Message(9,"You have NOT talked to Elder Fuirstel in the Plane of Tranquillity.");
-		end
-		if(qglobals["pop_pov_aerin_dar"] == "1") then
-			e.other:Message(12,"You have defeated the prismatic dragon, Aerin`Dar, within the Plane of Valor.");
-		else
-			e.other:Message(9,"You have NOT defeated the prismatic dragon, Aerin`Dar, within the Plane of Valor.");
-		end
-		if(qglobals["pop_pos_askr_the_lost"] == "3") then
-			e.other:Message(12,"You have completed part one of Askr's task within the Plane of Storms.");
-		else
-			e.other:Message(9,"You have NOT completed part one of Askr's task within the Plane of Storms.");
-		end
-		if(qglobals["pop_pos_askr_the_lost_final"] == "1") then
-			e.other:Message(12,"You have killed the giants within the Plane of Storms and completed Askr's task.");
-		else
-			e.other:Message(9,"You have NOT killed the giants within the Plane of Storms to complete Askr's task.");
-		end
-		if(qglobals["pop_cod_preflag"] == "1") then
-			e.other:Message(12,"You have completed the Carprin cycle within Ruins of Lxanvom.");
-		else
-			e.other:Message(9,"You have NOT completed the Carprin Cycle within Ruins of Laxanvom.");
-		end
-		if(qglobals["pop_cod_bertox"] == "1") then
-			e.other:Message(12,"You have killed Bertox and hailed the planar projection.");
-		else
-			e.other:Message(9,"You have NOT killed Bertox and hailed the planar projection.");
-		end
-		if(qglobals["pop_cod_final"] == "1") then
-			e.other:Message(12,"You have killed Bertox and talked to Adler Fuirstel");
-		else
-			e.other:Message(9,"You have NOT talked to Adler Fuirstel after killing Bertox.");
-		end
-		if(qglobals["pop_pot_shadyglade"] == "1") then
-			e.other:Message(12,"You have talked to Shadyglade within the Plane of Tranquillity");
-		else
-			e.other:Message(9,"You have NOT talked to Shadyglade within the Plane of Tranquillity.");
-		end
-		if(qglobals["pop_pot_newleaf"] == "1") then
-			e.other:Message(12,"You have killed the Keeper of Sorrows.");
-		else
-			e.other:Message(9,"You have NOT killed the Keeper of Sorrows.");
-		end
-		if(qglobals["pop_pot_saryrn"] == "1") then
-			e.other:Message(12,"You have killed Saryrn and hailed the planar projection.");
-		else
-			e.other:Message(9,"You have NOT killed Saryrn and hailed the planar projection.");
-		end
-		if(qglobals["pop_pot_saryrn_final"] == "1") then
-			e.other:Message(12,"You have killed Saryrn, hailed the planar projection, and then talked to Shadyglade once more.");
-		else
-			e.other:Message(9,"You have NOT talked to Shadyglade after killing Saryrn.");
-		end
-		if(qglobals["pop_hoh_faye"] == "1") then
-			e.other:Message(12,"You have completed the Halls of Honor trial given by Faye.");
-		else
-			e.other:Message(9,"You have NOT completed the Halls of Honor trial given by Faye.");
-		end
-		if(qglobals["pop_hoh_trell"] == "1") then
-			e.other:Message(12,"You have completed the Halls of Honor trial given by Rhaliq Trell.");
-		else
-			e.other:Message(9,"You have NOT completed the Halls of Honor trial given by Rhaliq Trell.");
-		end
-		if(qglobals["pop_hoh_garn"] == "1") then
-			e.other:Message(12,"You have completed the Halls of Honor trial given by Alekson Garn.");
-		else
-			e.other:Message(9,"You have NOT completed the Halls of Honor trial given by Alekson Garn.");
-		end
-		if(qglobals["pop_hohb_marr"] == "1") then
-			e.other:Message(12,"You have defeated Lord Marr within his temple.");
-		else
-			e.other:Message(9,"You have NOT defeated Lord Marr within his Temple.");
-		end
-		if(qglobals["pop_bot_agnarr"] == "1") then
-			e.other:Message(12,"You have defeated Agnarr, the Storm Lord.");
-		else
-			e.other:Message(9,"You have NOT defeated Agnarr, the Storm Lord.");
-		end
-		if(qglobals["pop_tactics_tallon"] == "1") then
-			e.other:Message(12,"You have killed Tallon Zek.");
-		else
-			e.other:Message(9,"You have NOT killed Tallon Zek");
-		end
-		if(qglobals["pop_tactics_vallon"] == "1") then
-			e.other:Message(12,"You have killed Vallon Zek.");
-		else
-			e.other:Message(9,"You have NOT killed Vallon Zek.");
-		end
-		if(qglobals["pop_tactics_ralloz"] == "1") then
-			e.other:Message(12,"You have killed Rallos Zek the Warlord.");
-		else
-			e.other:Message(9,"You have NOT killed Rallos Zek the Warlord.");
-		end
-		if(qglobals["pop_sol_ro_arlyxir"] == "1") then
-			e.other:Message(12,"You have defeated Arlyxir within the Tower of Solusek Ro.");
-		else
-			e.other:Message(9,"You have NOT defeated Arlyxir within the Tower of Solusek Ro.");
-		end
-		if(qglobals["pop_sol_ro_dresolik"] == "1") then
-			e.other:Message(12,"You have defeated The Protector of Dresolik within the Tower of Solusek Ro.");
-		else
-			e.other:Message(9,"You have NOT defeated The Protector of Dresolik within the Tower of Solusek Ro.");
-		end
-		if(qglobals["pop_sol_ro_jiva"] == "1") then
-			e.other:Message(12,"You have defeated Jiva within the Tower of Soluesk Ro.");
-		else
-			e.other:Message(9,"You have NOT defeated Jiva within the Tower of Solusek Ro.");
-		end
-		if(qglobals["pop_sol_ro_rizlona"] == "1") then
-			e.other:Message(12,"You have defeated Rizlona within the Tower of Solusek Ro.");
-		else
-			e.other:Message(9,"You have NOT defeated Rizlona within the Tower of Solusek Ro.");
-		end
-		if(qglobals["pop_sol_ro_xuzl"] == "1") then
-			e.other:Message(12,"You have defeated Xuzl within the Tower of Solusek Ro.");
-		else
-			e.other:Message(9,"You have NOT defeated Xuzl within the Tower of Solusek Ro.");
-		end
-		if(qglobals["pop_sol_ro_solusk"] == "1") then
-			e.other:Message(12,"You have defeated Solusek Ro within his own tower.");
-		else
-			e.other:Message(9,"You have NOT defeated Solusek Ro within the Tower of Solusek Ro.");
-		end
-		if(qglobals["pop_elemental_grand_librarian"] == "1") then
-			e.other:Message(12,"You have spoken with the grand librarian to receive access to the Elemental Planes.");
-		else
-			e.other:Message(9,"You have NOT spoken with the grand librarian to receive access to the Elemental Planes.");
-		end
-		if(qglobals["pop_fire_fennin_projection"] == "1") then
-			e.other:Message(12,"You have defeated Fennin Ro, the Tyrant of Fire.");
-		else
-			e.other:Message(9,"You have NOT defeated Fennin Ro, the Tyrant of Fire.");
-		end
-		if(qglobals["pop_wind_xegony_projection"] == "1") then
-			e.other:Message(12,"You have defeated Xegony, the Queen of Air.");
-		else
-			e.other:Message(9,"You have NOT defeated Xegony, the Queen of Air.");
-		end
-		if(qglobals["pop_water_coirnav_projection"] == "1") then
-			e.other:Message(12,"You have defeated Coirnav, the Avatar of Water.");
-		else
-			e.other:Message(9,"You have NOT defeated Coirnav, the Avatar of Water.");
-		end
-		if(qglobals["pop_eartha_arbitor_projection"] == "1") then
-			e.other:Message(12,"You have defeated the arbitor within Plane of Earth A.");
-		else
-			e.other:Message(9,"You have NOT defeated the Arbitor of Earth within Plane of Earth A");
-		end
-		if(qglobals["pop_earthb_rathe"] == "1") then
-			e.other:Message(12,"You have defeated the Rathe Council within Plane of Earth B");
-		else
-			e.other:Message(9,"You have NOT defeated the Rathe Council within Plane of Earth B");
-		end
-		if(qglobals["pop_time_maelin"] == "1") then
-			e.other:Message(12,"You have completed the Plane of Time flag.");
-		else
-			e.other:Message(9,"You have NOT completed your Plane of Time flag.");
-		end
-		---------------------------------
-		---------------------------------
-		--Plane of JUSTICE INSTRUCTIONS--
-		---------------------------------
-		---------------------------------
-	elseif(e.message:findi("Plane of Justice") and (qglobals["pop_poj_mavuin"] == nil) or (qglobals["pop_poj_tribunal"] == nil) or (qglobals["pop_poj_valor_storms"] == nil)) then
-		if(qglobals["pop_poj_mavuin"] == "1") then
-			e.other:Message(12,"You have talked to Mavuin, and have agreed to plea his case to The Tribunal.");
-		else
-			e.other:Message(9,"You have NOT talked to Mavuin, and agreed to plea his case to The Tribunal.");
-		end
-		if(qglobals["pop_poj_tribunal"] == "1") then
-			e.other:Message(12,"You have shown the Tribunal the mark from the trial you have completed.");
-		else
-			e.other:Message(9,"You have NOT shown the Tribunal the mark from the trial you have completed.");
-		end
-		if(qglobals["pop_poj_valor_storms"] == "1") then
-			e.other:Message(12,"You have returned to Mavuin, letting him know the tribunal will hear his case.");
-		else
-			e.other:Message(9,"You have NOT returned to Mavuin to tell him the tribunal will hear his case.");
-		end
-	elseif(e.message:findi("Plane of Justice") and (qglobals["pop_poj_mavuin"] == "1") and (qglobals["pop_poj_tribunal"] == "1") and (qglobals["pop_poj_valor_storms"] == "1")) then
-		e.other:Message(4,"Congratulations! Converse with the Planar Projection by saying [I am familiar with Order] to receive access to Planes of Valor and Storms.");
-		---------------------------------------------------
-		---------------------------------------------------
-		-- PLANE OF NIGHTMARE ACCESS TO PONB INSTRUCTIONS--
-		---------------------------------------------------
-		---------------------------------------------------
-	elseif(e.message:findi("Plane of Nightmare") and (qglobals["pop_pon_hedge_jezith"] == nil) or (qglobals["pop_pon_construct"] == nil)) then
-		if(qglobals["pop_pon_hedge_jezith"] == "1") then
-			e.other:Message(12,"You have spoken to Jezith within the Plane of Tranquillity for the Hedge Pre-flag by saying tormented by nightmares.");
-		else
-			e.other:Message(9,"You have not spoken to Jezith within the Plane of Tranquillity for the Hedge Pre-flag by saying tormented by nightmares.");
-		end
-		if(qglobals["pop_pon_construct"] == "1") then
-			e.other:Message(12,"You have killed the Construct of Nightmares.");
-		else
-			e.other:Message(9,"You have NOT killed the Construct of Nightmares.");
-		end
-	elseif(e.message:findi("Plane of Nightmare") and (qglobals["pop_pon_construct"] == "1") and (qglobals["pop_pon_hedge_jezith"] == "1")) then
-		e.other:Message(4,"You do not fear the Dark?--then converse with the Planar Projection by saying [Darkness Beckons].");
-		-------------------------------------------------------
-		-------------------------------------------------------
-		-- Plane of INNOVATION ACCESS TO DRUNDER INSTRUCTIONS--
-		-------------------------------------------------------
-		-------------------------------------------------------
-	elseif(e.message:findi("Plane of Innovation") and (qglobals["pop_poi_dragon"] == nil) or (qglobals["pop_poi_behometh_preflag"] == nil) or (qglobals["pop_poi_behometh_flag"] == nil)) then
-		if(qglobals["pop_poi_dragon"] == "1") then
-			e.other:Message(12,"You have killed the dragon within the Plane of Innovation");
-		else
-			e.other:Message(9,"You have NOT killed the dragon within the Plane of Innovation.");
-		end
-		if(qglobals["pop_poi_behometh_preflag"] == "1") then
-			e.other:Message(12,"You have talked to the Gnome within the Plane of Innovation Factory.");
-		else
-			e.other:Message(9,"You have NOT talked to the Gnome within the plane of innovation factory.");
-		end
-		if(qglobals["pop_poi_behometh_flag"] == "1") then
-			e.other:Message(12,"You have defeated the Behemoth within Plane of Innovation and then QUICKLY hailed the gnome within the factory.");
-		else
-			e.other:Message(9,"You have NOT defeated the Behemoth within Plane of Innovation and then QUICKLY hailed the gnome within the factory.");
-		end
-	elseif(e.message:findi("Plane of Innovation") and (qglobals["pop_poi_behometh_preflag"] == "1") and (qglobals["pop_poi_behometh_flag"] == "1")) then
-		e.other:Message(4,"You have halted production of these evil machines by Killing the Behemoth! Converse with the Planar projection by saying [The War Drums Echo]");
-		----------------------------------------
-		----------------------------------------
-		--Plane of Disease instructions TO COD--
-		----------------------------------------
-		----------------------------------------
-	elseif(e.message:findi("Plane of Disease") and (qglobals["pop_pod_alder_fuirstel"] == nil) or (qglobals["pop_pod_grimmus_planar_projection"] == nil) or (qglobals["pop_pod_elder_fuirstel"] == nil)) then
-		if(qglobals["pop_pod_alder_fuirstel"] == "1") then
-			e.other:Message(12,"You have talked to Adler Fuirstel outside of the Plane of Disease.");
-		else
-			e.other:Message(9,"You have NOT talked to Adler Fuirstel outside of the Plane of Disease.");
-		end
-		if(qglobals["pop_pod_grimmus_planar_projection"] == "1") then
-			e.other:Message(12,"You have defeated Grummus");
-		else
-			e.other:Message(9,"You have NOT defeated Grummus.");
-		end
-		if(qglobals["pop_pod_elder_fuirstel"] == "1") then
-			e.other:Message(12,"You have talked to Elder Fuirstel in the Plane of Tranquillity.");
-		else
-			e.other:Message(9,"You have NOT talked to Elder Fuirstel in the Plane of Tranquillity.");
-		end
-	elseif(e.message:findi("Plane of Disease") and (qglobals["pop_pod_alder_fuirstel"] == "1") and (qglobals["pop_pod_grimmus_planar_projection"] == "1") and (qglobals["pop_pod_elder_fuirstel"] == "1")) then
-		e.other:Message(4,"Congratulations! Converse with the Planar Projection by saying [I will destroy the plaguebringer]");
-		-----------------------------
-		-----------------------------
-		--PLANE OF VALOR COMPLETION--
-		-----------------------------
-		-----------------------------
-	elseif(e.message:findi("Plane of Valor")) then
-		if(qglobals["pop_pov_aerin_dar"] == "1") then
-			e.other:Message(12,"You have defeated the prismatic dragon, Aerin`Dar, within the Plane of Valor.");
-		else
-			e.other:Message(9,"You have NOT defeated the prismatic dragon, Aerin`Dar, within the Plane of Valor.  Make sure you have completed a [Plane of Justice] Trial.");
-		end
-	elseif(e.message:findi("Plane of Valor") and (qglobals["pop_poj_mavuin"] == "1") and (qglobals["pop_poj_tribunal"] == "1") and (qglobals["pop_poj_valor_storms"] == "1")and (qglobals["pop_pov_aerin_dar"] == "1")) then
-		e.other:Message(4,"Congratulations! Converse with the Planar Projection by saying [My Valor is Unmatched] to gain access to the Halls of Honor");
-		--------------------------------
-		--------------------------------
-		--PLANE OF STORMS INSTRUCTIONS--
-		--------------------------------
-		--------------------------------
-	elseif(e.message:findi("Plane of Storms") and (qglobals["pop_pos_askr_the_lost"] == nil) or (qglobals["pop_pos_askr_the_lost"] == nil)) then
-		if(qglobals["pop_pos_askr_the_lost"] == "3") then
-			e.other:Message(12,"You have completed part one of Askr's task within the Plane of Storms.");
-		else
-			e.other:Message(9,"You have NOT completed part one of Askr's task within the Plane of Storms.  Make sure you have completed a [Plane of Justice] Trial.");
-		end
-		if(qglobals["pop_pos_askr_the_lost_final"] == "1") then
-			e.other:Message(12,"You have killed the giants within the Plane of Storms and completed Askr's task.");
-		else
-			e.other:Message(9,"You have NOT killed the giants within the Plane of Storms to complete Askr's task. Make sure you have completed a [Plane of Justice] Trial.");
-		end
-	elseif(e.message:findi("Plane of Storms") and (qglobals["pop_poj_mavuin"] == "1") and (qglobals["pop_poj_tribunal"] == "1") and (qglobals["pop_poj_valor_storms"] == "1") and (qglobals["pop_pos_askr_the_lost"] == "3")) then
-		e.other:Message(4,"Congratulations! Converse with the Planar Projection by saying [I will defeat the Storm Lord] to gain access to the Bastion of Thunder");
-		-------------------------------------
-		-------------------------------------
-		--PLANE OF NIGHTMARE B INSTRUCTIONS--
-		-------------------------------------
-		-------------------------------------
-	elseif(e.message:findi("Lair of Terris Thule") and (qglobals["pop_ponb_terris"] == nil) or (qglobals["pop_ponb_poxbourne"] == nil)) then
-		if(qglobals["pop_ponb_terris"] == "1") then
-			e.other:Message(12,"You have killed Terris Thule.");
-		else
-			e.other:Message(9,"You have NOT killed Terris Thule.  Make sure you have completed the events within the [Plane of Nightmare].");
-		end
-		if(qglobals["pop_ponb_poxbourne"] == "1") then
-			e.other:Message(12,"You have talked to Poxbourne in the Plane of Tranquillity after defeating Terris Thule.");
-		else
-			e.other:Message(9,"You have NOT talked to Poxbourne in the Plane of Tranquillity after defeating Terris Thule.  Make sure you have completed the events within the [Plane of Nightmare].");
-		end
-	elseif(e.message:findi("Lair of Terris Thule") and (qglobals["pop_ponb_terris"] == "1")  and (qglobals["pop_ponb_poxbourne"] == "1") and (qglobals["pop_pon_hedge_jezith"] == "1") and (qglobals["pop_pon_construct"] == "1")) then
-		e.other:Message(4,"You have completed a partial flag for the Plane of Torment! Say [access to torment] to see what else is required.");
-		-----------------------------------------------
-		-----------------------------------------------
-		--RUINS OF LX INSTRUCTIONS - Ruins of Lxanvom--
-		-----------------------------------------------
-		-----------------------------------------------
-	elseif(e.message:findi("Ruins of Lxanvom") and (qglobals["pop_cod_preflag"] == nil) or (qglobals["pop_cod_bertox"] == nil) or (qglobals["pop_cod_final"] == nil)) then
-		if(qglobals["pop_cod_preflag"] == "1") then
-			e.other:Message(12,"You have completed the Carprin cycle within the Ruins of Lxanvom.");
-		else
-			e.other:Message(9,"You have NOT completed the Carprin Cycle within Ruins of Laxanvom.  Make sure you have completed the events within [Plane of Disease]");
-		end
-		if(qglobals["pop_cod_bertox"] == "1") then
-			e.other:Message(12,"You have killed Bertox and hailed the planar projection.");
-		else
-			e.other:Message(9,"You have NOT killed Bertox and hailed the planar projection.  Make sure you have completed the events within [Plane of Disease]");
-		end
-		if(qglobals["pop_cod_final"] == "1") then
-			e.other:Message(12,"You have killed Bertox and talked to Adler Fuirstel");
-		else
-			e.other:Message(9,"You have NOT talked to Adler Fuirstel after killing Bertox.  Make sure you have completed the events within [Plane of Disease]");
-		end
-	elseif(e.message:findi("Ruins of Lxanvom") and (qglobals["pop_cod_preflag"] == "1") and (qglobals["pop_cod_bertox"] == "1")and (qglobals["pop_cod_final"] == "1")and (qglobals["pop_pod_alder_fuirstel"] == "1") and (qglobals["pop_pod_grimmus_planar_projection"] == "1") and (qglobals["pop_pod_elder_fuirstel"] == "1")) then
-		e.other:Message(4,"You have completed a partial flag for the Plane of Torment!  Say [access to Torment] to see what else is required.");
-		---------------------------------
-		---------------------------------
-		--Plane of Torment INSTRUCTIONS--
-		---------------------------------
-		---------------------------------
-	elseif(e.message:findi("Plane of Torment") and (qglobals["pop_pot_shadyglade"] == nil) or (qglobals["pop_pot_newleaf"] == nil) or (qglobals["pop_pot_saryrn"] == nil) or (qglobals["pop_pot_saryrn_final"] == nil)) then
-		if(qglobals["pop_pot_shadyglade"] == "1") then
-			e.other:Message(12,"You have talked to Shadyglade within the Plane of Tranquillity");
-		else
-			e.other:Message(9,"You have NOT talked to Shadyglade within the Plane of Tranquillity.");
-		end
-		if(qglobals["pop_pot_newleaf"] == "1") then
-			e.other:Message(12,"You have killed the Keeper of Sorrows.");
-		else
-			e.other:Message(9,"You have NOT killed the Keeper of Sorrows.");
-		end
-		if(qglobals["pop_pot_saryrn"] == "1") then
-			e.other:Message(12,"You have killed Saryrn and hailed the planar projection.");
-		else
-			e.other:Message(9,"You have NOT killed Saryrn and hailed the planar projection.");
-		end
-		if(qglobals["pop_pot_saryrn_final"] == "1") then
-			e.other:Message(12,"You have killed Saryrn, hailed the planar projection, and then talked to Shadyglade once more. Please make sure you have completed events within [Plane of Nightmare] [Plane of Disease] [Halls of Honor] [Lair of Terris Thule] [Ruins of Lxanvom] [Plane of Storms] to advance to the Temple of Marr.");
-		else
-			e.other:Message(9,"You have NOT talked to Shadyglade after killing Saryrn. Please make sure you have completed events within [Plane of Nightmare] [Plane of Disease] [Halls of Honor] [Lair of Terris Thule] [Ruins of Lxanvom] [Plane of Storms] to advance to the Temple of Marr.");
-		end
-	elseif(e.message:findi("Plane of Torment") and (qglobals["pop_pot_shadyglade"] == "1") and (qglobals["pop_pot_newleaf"] == "1") and (qglobals["pop_pot_saryrn"] == "1") and (qglobals["pop_pot_saryrn_final"] == "1")) then
-		e.other:Message(4,"Congratulations! You have defeated Saryrn!");
-		-------------------------------
-		-------------------------------
-		--HALLS OF HONOR INSTRUCTIONS--
-		-------------------------------
-		-------------------------------
-	elseif(e.message:findi("Halls of Honor") and (qglobals["pop_hoh_faye"] == nil) or (qglobals["pop_hoh_trell"] == nil) or (qglobals["pop_hoh_garn"] == nil)) then
-		if(qglobals["pop_hoh_faye"] == "1") then
-			e.other:Message(12,"You have completed the Halls of Honor trial given by Faye.");
-		else
-			e.other:Message(9,"You have NOT completed the Halls of Honor trial given by Faye.");
-		end
-		if(qglobals["pop_hoh_trell"] == "1") then
-			e.other:Message(12,"You have completed the Halls of Honor trial given by Rhaliq Trell.");
-		else
-			e.other:Message(9,"You have NOT completed the Halls of Honor trial given by Rhaliq Trell.");
-		end
-		if(qglobals["pop_hoh_garn"] == "1") then
-			e.other:Message(12,"You have completed the Halls of Honor trial given by Alekson Garn.");
-		else
-			e.other:Message(9,"You have NOT completed the Halls of Honor trial given by Alekson Garn.");
-		end
-	elseif(e.message:findi("Halls of Honor") and (qglobals["pop_hoh_faye"] == "1") and (qglobals["pop_hoh_trell"] == "1") and (qglobals["pop_hoh_garn"] == "1")) then
-		e.other:Message(4,"You have completed all trials! Converse with the Projection by saying [I am ready to face Lord Mithaniel Marr]");
-		--------------------
-		--------------------
-		--PLANE OF TACTICS--
-		--------------------
-		--------------------
-	elseif(e.message:findi("Fortress of Zek") and (qglobals["pop_tactics_tallon"] == nil) or (qglobals["pop_tactics_vallon"] == nil) or (qglobals["pop_tactics_ralloz"] == nil)) then
-		if(qglobals["pop_tactics_tallon"] == "1") then
-			e.other:Message(12,"You have killed Tallon Zek.");
-		else
-			e.other:Message(9,"You have NOT killed Tallon Zek");
-		end
-		if(qglobals["pop_tactics_vallon"] == "1") then
-			e.other:Message(12,"You have killed Vallon Zek.");
-		else
-			e.other:Message(9,"You have NOT killed Vallon Zek.");
-		end
-		if(qglobals["pop_tactics_ralloz"] == "1") then
-			e.other:Message(12,"You have killed Rallos Zek the Warlord.");
-		else
-			e.other:Message(9,"You have NOT killed Rallos Zek the Warlord.  Make sure you have completed the [Plane of Innovation] flags");
-		end
-	elseif(e.message:findi("Fortress of Zek") and (qglobals["pop_tactics_tallon"] == "1") and (qglobals["pop_tactics_vallon"] == "1") and (qglobals["pop_tactics_ralloz"] == "1") (qglobals["pop_pot_saryrn_final"] == "1") and (qglobals["pop_pot_saryrn"] == "1") and (qglobals["pop_hohb_marr"] == "1")) then
-		e.other:Message(4,"Congratulations! You have proven yourself in war, now let us see if you can prove yourself in fire! To gain access to the Tower of Solusek Ro, converse with the projection and say [No gladiator shall match me]");
-		-----------------------
-		-----------------------
-		--SOL RO INSTRUCTIONS--
-		-----------------------
-		-----------------------
-	elseif(e.message:findi("Tower of Solusek Ro") and (qglobals["pop_sol_ro_arlyxir"] == nil) or (qglobals["pop_sol_ro_dresolik"] == nil) or (qglobals["pop_sol_ro_jiva"] == nil) or (qglobals["pop_sol_ro_xuzl"]  == nil) or (qglobals["pop_sol_ro_rizlona"] == nil) or (qglobals["pop_sol_ro_solusk"] == nil)) then
-		if(qglobals["pop_sol_ro_arlyxir"] == "1") then
-			e.other:Message(12,"You have defeated Arlyxir within the Tower of Solusek Ro.");
-		else
-			e.other:Message(9,"You have NOT defeated Arlyxir within the Tower of Solusek Ro.");
-		end
-		if(qglobals["pop_sol_ro_dresolik"] == "1") then
-			e.other:Message(12,"You have defeated The Protector of Dresolik within the Tower of Solusek Ro.");
-		else
-			e.other:Message(9,"You have NOT defeated The Protector of Dresolik within the Tower of Solusek Ro.");
-		end
-		if(qglobals["pop_sol_ro_jiva"] == "1") then
-			e.other:Message(12,"You have defeated Jiva within the Tower of Solusek Ro.");
-		else
-			e.other:Message(9,"You have NOT defeated Jiva within the Tower of Solusek Ro.");
-		end
-		if(qglobals["pop_sol_ro_rizlona"] == "1") then
-			e.other:Message(12,"You have defeated Rizlona within the Tower of Solusek Ro.");
-		else
-			e.other:Message(9,"You have NOT defeated Rizlona within the Tower of Solusek Ro.");
-		end
-		if(qglobals["pop_sol_ro_xuzl"] == "1") then
-			e.other:Message(12,"You have defeated Xuzl within the Tower of Solusek Ro.");
-		else
-			e.other:Message(9,"You have NOT defeated Xuzl within the Tower of Solusek Ro.");
-		end
-		if(qglobals["pop_sol_ro_solusk"] == "1") then
-			e.other:Message(12,"You have defeated Solusek Ro within his own tower.  Please make sure you've completed events in the [Plane of Innovation] and [Drunder, Fortress of Zek].");
-		else
-			e.other:Message(9,"You have NOT defeated Solusek Ro within the Tower of Solusek Ro.  Please make sure you've completed events in the [Plane of Innovation] and [Drunder, Fortress of Zek].");
-		end
-	elseif(e.message:findi("Tower of Solusek Ro") and (qglobals["pop_sol_ro_arlyxir"] == "1") and (qglobals["pop_sol_ro_dresolik"] == "1") and (qglobals["pop_sol_ro_jiva"] == "1") and (qglobals["pop_sol_ro_xuzl"]  == "1") and (qglobals["pop_sol_ro_rizlona"] == "1") and (qglobals["pop_sol_ro_solusk"] == "1")) then
-		e.other:Message(4,"Congratulations! You are now able to enter the Plane of Fire!  Converse with the Projection and tell him [I am a child of fire].");
-		------------------------------
-		------------------------------
-		--PLANE OF FIRE INSTRUCTIONS--
-		------------------------------
-		------------------------------
-	elseif(e.message:findi("Doomfire")) then
-		if(qglobals["pop_fire_fennin_projection"] == "1") then
-			e.other:Message(4,"You have defeated Fennin Ro, the Tyrant of Fire! This flag is one quarter of the Plane of Time flag. The grand librarian gives out the Plane of Time flag. However, you are able to continually check your flags through guided meditation to see what remains.");
-		else
-			e.other:Message(4,"You must kill Fennin Ro.");
-		end
-		-------------------------------
-		-------------------------------
-		--PLANE OF WATER INSTRUCTIONS--
-		-------------------------------
-		-------------------------------
-	elseif(e.message:findi("Reef of")) then
-		if(qglobals["pop_water_coirnav_projection"] == "1") then
-			e.other:Message(4,"You have defeated Coirnav, the Avatar of Water! This flag is one quarter of the Plane of Time flag. The grand librarian gives out the Plane of Time flag. However, you are able to continually check your flags through guided meditation to see what remains.");
-		else
-			e.other:Message(4,"You must kill Coirnav, the Avatar of Water.");
-		end
-		-----------------------------
-		-----------------------------
-		--PLANE OF AIR INSTRUCTIONS--
-		-----------------------------
-		-----------------------------
-	elseif(e.message:findi("Kingdom of Wind")) then
-		if(qglobals["pop_wind_xegony_projection"] == "1") then
-			e.other:Message(4,"You have defeated Xegony, the Queen of Air! This flag is one quarter of the Plane of Time flag. The grand librarian gives out the Plane of Time flag. However, you are able to continually check your flags through guided meditation to see what remains.");
-		else
-			e.other:Message(4,"You must kill Xegony, the Queen of Air.");
-		end
-		---------------------------------
-		---------------------------------
-		--PLANE OF EARTH A INSTRUCTIONS--
-		---------------------------------
-		---------------------------------
-	elseif(e.message:findi("Earthen Badlands")) then
-		if(qglobals["pop_eartha_arbitor_projection"] == "1") then
-			e.other:Message(4,"You have defeated the Arbitor of Earth! To receive your Plane of Earth B flag, converse with the projection and say [I will prove myself by defeating the Rathe Council].");
-		else
-			e.other:Message(4,"To receive your flag for Poearth B, you must defeat the four trials in Plane of Earth and kill the Arbitor.");
-		end
-		-----------------------------------------------------------
-		-----------------------------------------------------------
-		--PLANE OF EARTH B INSTRUCTIONS -Stronghold of the Twelve--
-		-----------------------------------------------------------
-		-----------------------------------------------------------
-	elseif(e.message:findi("stronghold of twelve")) then
-		if(qglobals["pop_earthb_rathe"] == "1") then
-			e.other:Message(4,"You have defeated the Rathe Council! This flag is one quarter of the Plane of Time flag. The grand librarian gives out the Plane of Time flag. However, you are able to continually check your flags through guided meditation to see what remains.");
-		else
-			e.other:Message(4,"You must defeat the Rathe Council.");
-		end
-		------------------------------------
-		------------------------------------
-		-- BASTION OF THUNDER INSTRUCTIONS--
-		------------------------------------
-		------------------------------------
-	elseif(e.message:findi("of thunder")) then
-		if(qglobals["pop_bot_agnarr"] == "1") then
-			e.other:Message(4,"You have defeated Agnarr, the Storm Lord! This is part of the elemental flag! Once you are finished with the elemental flag, let me know by saying [elemental flag].");
-		else
-			e.other:Message(4,"You have not defeated Agnarr, the Storm Lord.");
-		end
-		--------------------------------
-		--------------------------------
-		-- TEMPLE OF MARR INSTRUCTIONS--
-		--------------------------------
-		--------------------------------
-	elseif(e.message:findi("temple of")) then
-		if(qglobals["pop_hohb_marr"] == "1") then
-			e.other:Message(4,"You have defeated Lord Mithaniel Marr!  This is part of the elemental flag! Once you are finished with the elemental flag, let me know by saying [elemental flag].");
-		else
-			e.other:Message(4,"You have not killed Lord Mithaniel Marr.");
-		end
-		--------------------
-		--------------------
-		--ELEMENTAL PLANES--
-		--------------------
-		--------------------
-	elseif(e.message:findi("elemental planes")) then
-		if((qglobals["pop_hohb_marr"] == "1") and (qglobals["pop_bot_agnarr"] == "1") and (qglobals["pop_pon_hedge_jezith"] == "1") and (qglobals["pop_pon_construct"]  == "1") and (qglobals["pop_ponb_terris"] == "1") and (qglobals["pop_ponb_poxbourne"] == "1") and (qglobals["pop_pod_alder_fuirstel"] == "1") and (qglobals["pop_pod_grimmus_planar_projection"] == "1") and (qglobals["pop_pod_elder_fuirstel"] == "1") and (qglobals["pop_poj_mavuin"] == "1") and (qglobals["pop_poj_tribunal"] == "1") and (qglobals["pop_poj_valor_storms"] == "1") and (qglobals["pop_pov_aerin_dar"] == "1") and (qglobals["pop_pos_askr_the_lost"] == "3") and (qglobals["pop_pos_askr_the_lost_final"] == "1") and (qglobals["pop_cod_preflag"] == "1") and (qglobals["pop_cod_bertox"] == "1") and (qglobals["pop_cod_final"]  == "1") and (qglobals["pop_pot_shadyglade"] == "1") and (qglobals["pop_pot_shadyglade"] == "1") and ( qglobals["pop_pot_saryrn"] == "1") and (qglobals["pop_pot_saryrn_final"] == "1") and (qglobals["pop_hoh_faye"] == "1") and (qglobals["pop_hoh_trell"] == "1") and (qglobals["pop_hoh_garn"] == "1")) then
-			e.other:Message(4,"You have completed the Elemental Flag! You now will have access to Plane of Water, Plane of Air, and Plane of Earth! Plane of Fire access is given through the killing of Solusek Ro. If you do not currently have the Plane of Fire flag, please say [unlock memories]... Otherwise, converse with the elemental and say [I am worthy of the Elemental Planes]");
-		else
-			e.other:Message(4,"You first must kill Agnarr and Lord Marr before you may attempt a request for an elemental flag!  The elemental flags in [Plane of Nightmare] [Plane of Disease] [Plane of Justice] [Plane of Valor] [Plane of Storms] [Bastion of Thunder] [Plane of Torment] [Lair of Terris Thule] [Halls of Honor] [Ruins of Lxanvom].");
-		end
-		------------------
-		------------------
-		--Access to Marr--
-		------------------
-		------------------
-	elseif(e.message:findi("Access to Temple of Marr") or e.message:findi("I am ready to access the Temple of Marr")) then
-		if((qglobals["pop_pon_hedge_jezith"] == "1") and (qglobals["pop_pon_construct"] == "1") and (qglobals["pop_ponb_terris"] == "1") and (qglobals["pop_ponb_poxbourne"] == "1") and (qglobals["pop_poi_dragon"] == "1") and (qglobals["pop_poi_behometh_preflag"] == "1") and (qglobals["pop_poi_behometh_flag"] == "1") and (qglobals["pop_pod_alder_fuirstel"] ==1) and (qglobals["pop_pod_grimmus_planar_projection"] == "1") and (qglobals["pop_pod_elder_fuirstel"] == "1") and (qglobals["pop_poj_mavuin"] == "1") and (qglobals["pop_poj_tribunal"] == "1") and (qglobals["pop_poj_valor_storms"] == "1") and (qglobals["pop_pov_aerin_dar"] == "1") and (qglobals["pop_pos_askr_the_lost"] == "3") and (qglobals["pop_pos_askr_the_lost_final"] == "1") and (qglobals["pop_cod_preflag"] == "1") and (qglobals["pop_cod_bertox"] == "1") and (qglobals["pop_cod_final"] == "1") and (qglobals["pop_pot_shadyglade"]  == "1") and (qglobals["pop_pot_shadyglade"] == "1") and (qglobals["pop_pot_saryrn"] == "1") and (qglobals["pop_pot_saryrn_final"] == "1") and (qglobals["pop_hoh_faye"] == "1") and (qglobals["pop_hoh_trell"] == "1") and (qglobals["pop_hoh_garn"] == "1")) then
-			e.other:Message(4,"You have completed your access to the Temple of Marr! Congratulations! Converse with the projection by saying [I am ready to face Lord Mithaniel Marr].");
-		else
-			e.other:Message(4,"To access the Temple of Marr, after you have killed Terris Thule, Saryrn, Bertox the Halls of Honor Trials, and all of the flags before this (further help, say [unlock memories]), or say [I am ready to access the Temple of Marr].");
-		end
-		---------------------
-		---------------------
-		--Access to TORMENT--
-		---------------------
-		---------------------
-	elseif(e.message:findi("Access to Torment")) then
-		if((qglobals["pop_pod_alder_fuirstel"] == "1") and (qglobals["pop_pod_grimmus_planar_projection"] == "1") and (qglobals["pop_pod_elder_fuirstel"] == "1") and (qglobals["pop_pon_construct"] == "1") and (qglobals["pop_pon_hedge_jezith"] == "1") and (qglobals["pop_ponb_terris"] == "1") and (qglobals["pop_ponb_poxbourne"] == "1") and (qglobals["pop_cod_preflag"] == "1") and (qglobals["pop_cod_bertox"] == "1") and (qglobals["pop_cod_final"] == "1")) then
-			e.other:Message(4,"You have full filled the requirements for the Plane of Torment! Converse with the Projection by saying [I will defeat Saryrn]");
-		else
-			e.other:Message(4,"To access the Plane of Torment, one must first defeat Terris Thule, Bertox, and all of the flags below them.  I am unable to find all of the required flags to allow you access to this plane currently.  Please check what you currently possess by using [unlock memories]");
+	if(e.message:findi("hail")) then
+		e.self:Emote("snaps from her meditation,  'Greetings traveler, I am Mal Nae`Shi.  I have come here to heighten my awareness through meditation, much can be learned through a brief exploration of one's self... Assuming there is something there to learn.  While reaching inner peace is a journey each spirit must undertake on its own, I can begin your voyage with [" .. eq.say_link("guided meditation") .. "] which will aid your memory, once you are seated.'");
+	elseif(e.message:findi("guided meditation") and not e.other:IsSitting()) then
+		e.other:Message(15,"Seer Mal Nae`Shi tells you, 'You will never be able to focus unless you are relaxed.  Please, sit down for a moment and allow me to [" .. eq.say_link("guide my meditation",false,"guide your meditation") .. "].'")
+	elseif(e.message:findi("meditation") and e.other:IsSitting()) then
+		local qglobals = eq.get_qglobals(e.other);
+		local flag_order = {	PoTime(e,qglobals), BoT(e,qglobals), HoHb(e,qglobals), HoH(e,qglobals), PoV(e,qglobals), PoJ(e,qglobals), PoTorment(e,qglobals), PoN(e,qglobals), 
+								CoD(e,qglobals), PoD(e,qglobals), SolroTower(e,qglobals), PoS(e,qglobals), PoTactics(e,qglobals), PoI(e,qglobals)};
+		
+		for k,v in pairs(flag_order) do
+			local flag_list = v;
 		end
 	end
+end
 
-	qglobals.pop_poj_mavuin			= nil; qglobals.pop_poi_behometh_preflag			= nil; qglobals.pop_cod_bertox			= nil; qglobals.pop_sol_ro_dresolik				= nil;
-	qglobals.pop_poj_flame			= nil; qglobals.pop_poi_behometh_flag				= nil; qglobals.pop_cod_final			= nil; qglobals.pop_sol_ro_jiva					= nil;
-	qglobals.pop_poj_lashing		= nil; qglobals.pop_pod_elder_fuirstel				= nil; qglobals.pop_pot_newleaf			= nil; qglobals.pop_sol_ro_rizlona				= nil;
-	qglobals.pop_poj_stoning		= nil; qglobals.pop_pod_alder_fuirstel				= nil; qglobals.pop_pot_shadyglade		= nil; qglobals.pop_sol_ro_xuzl					= nil;
-	qglobals.pop_poj_torture		= nil; qglobals.pop_pod_grimmus_planar_projection	= nil; qglobals.pop_pot_saryrn			= nil; qglobals.pop_sol_ro_solusk				= nil;
-	qglobals.pop_poj_execution		= nil; qglobals.pop_tactics_tallon					= nil; qglobals.pop_pot_saryrn_final	= nil; qglobals.pop_elemental_grand_librarian	= nil;
-	qglobals.pop_poj_hanging		= nil; qglobals.pop_tactics_vallon					= nil; qglobals.pop_hoh_faye			= nil; qglobals.pop_wind_xegony_projection		= nil;
-	qglobals.pop_poj_tribunal		= nil; qglobals.pop_tactics_ralloz					= nil; qglobals.pop_hoh_trell			= nil; qglobals.pop_water_coirnav_projection	= nil;
-	qglobals.pop_pon_hedge_jezith	= nil; qglobals.pop_pos_askr_the_lost				= nil; qglobals.pop_hoh_garn			= nil; qglobals.pop_fire_fennin_projection		= nil;
-	qglobals.pop_pon_construct		= nil; qglobals.pop_pos_askr_the_lost_final			= nil; qglobals.pop_hohb_marr			= nil; qglobals.pop_eartha_arbitor_projection	= nil;
-	qglobals.pop_ponb_poxbourne		= nil; qglobals.pop_pov_aerin_dar					= nil; qglobals.pop_bot_agnarr			= nil; qglobals.pop_earthb_rathe				= nil;
-	qglobals.pop_ponb_terris		= nil; qglobals.pop_poj_valor_storms				= nil; qglobals.pop_bot_karana			= nil; qglobals.pop_time_maelin					= nil;
-	qglobals.pop_poi_dragon			= nil; qglobals.pop_cod_preflag						= nil; qglobals.pop_sol_ro_arlyxir		= nil;
+--Plane of Justice flags (VERIFIED)
+function PoJ(e,qglobals)
+	if qglobals.pop_poj_mavuin ~= nil and qglobals.pop_poj_tribunal ~= nil then
+		e.other:Message(5,"Mavuin is grateful to you for taking his case before the Tribunal. The information provided to you, that Mithaniel Marr and Karana carry information you should seek, could be quite useful.");
+	elseif qglobals.pop_poj_mavuin ~= nil then
+		e.other:Message(5,"The evidence of Mavuin is the only thing that can save him now.");
+	end
+end
 
+--Plane of Disease flags (VERIFIED)
+function PoD(e,qglobals)
+	if qglobals.pop_pod_alder_fuirstel ~= nil and qglobals.pop_pod_grimmus_planar_projection ~= nil and qglobals.pop_pod_elder_fuirstel ~= nil then
+		e.other:Message(5,"Now that Grummus has been destroyed, the entrance to the Crypt of Bertoxxulous should open before your might.");
+	elseif qglobals.pop_pod_alder_fuirstel ~= nil and qglobals.pop_pod_grimmus_planar_projection ~= nil and qglobals.pop_pod_elder_fuirstel == nil then
+		e.other:Message(5,"Grummus has been destroyed, about his corpse you found a small ward to protect from disease.");
+	elseif qglobals.pop_pod_alder_fuirstel == nil and qglobals.pop_pod_grimmus_planar_projection ~= nil then
+		e.other:Message(5,"For a moment you pause, sticking your hand into your pocket. Inside you find the small ward that was lying near Grummus' body, perhaps you should bring it to Milyk.");
+	elseif qglobals.pop_pod_alder_fuirstel ~= nil  then
+		e.other:Message(5,"Alder Fuirstel wishes you to obtain the Ward from the Plane of Disease and take it to his ill brother Milyk.");
+	end
+end
+
+--Plane of Nightmare flags (VERIFIED)
+function PoN(e,qglobals)
+	if qglobals.pop_pon_hedge_jezith ~= nil and qglobals.pop_pon_construct ~= nil and qglobals.pop_ponb_terris ~= nil and qglobals.pop_ponb_poxbourne ~= nil then
+		e.other:Message(5,"Saved from a world of eternal nightmares, Thelin is forever in your debt.");
+	elseif qglobals.pop_pon_hedge_jezith ~= nil and qglobals.pop_pon_construct ~= nil and qglobals.pop_ponb_terris ~= nil and qglobals.pop_ponb_poxbourne == nil then
+		e.other:Message(5,"Terris Thule's grasp over Thelin has been released");
+	-- elseif qglobals.pop_pon_hedge_jezith == nil and qglobals.pop_pon_construct == nil and qglobals.pop_ponb_terris ~= nil then		--only applicable to 85/15 rule not in era for p2002
+		-- e.other:Message(5,"Terris still haunts your nightmares whenever you attempt to recall your battle with her.");
+	elseif qglobals.pop_pon_hedge_jezith ~= nil and qglobals.pop_pon_construct ~= nil then
+		e.other:Message(5,"Thelin has completed his pact with Terris Thule, but has been refused. The only way to escape his torment now is to destroy Terris Thule.");
+	elseif qglobals.pop_pon_hedge_jezith ~= nil then
+		e.other:Message(5,"Thelin being tormented by the imagery of Terris Thule needs assistance escaping from the Plane of Nightmares.");	
+	end
+end
+
+--Plane of Innovation flags (VERIFIED)
+function PoI(e,qglobals)
+	if qglobals.pop_poi_dragon ~= nil then
+		e.other:Message(5,"You remember Nitram's words - 'three small turns to the right on the bottommost rivet should open the door'.");
+	end
+	
+	if qglobals.pop_poi_behometh_flag ~= nil and (qglobals.pop_tactics_tallon == nil and qglobals.pop_tactics_vallon == nil and qglobals.pop_tactics_ralloz == nil) then	
+		e.other:Message(5,"	Giwin would like you to find him in Drunder so he can present you to Rallos Zek.");
+	end
+end
+
+--Plane of Valor flags (VERIFIED)
+function PoV(e,qglobals)
+	if qglobals.pop_poj_valor_storms ~= nil and qglobals.pop_pov_aerin_dar ~= nil then
+		e.other:Message(5,"You have bested Aerin`Dar and proven yourself honorable enough to pass into Mithaniel's Halls.");
+	-- elseif qglobals.pop_poj_valor_storms == nil and qglobals.pop_pov_aerin_dar ~= nil then	--only applicable to 85/15 rule not in era for p2002
+		-- e.other:Message(5,"You have defeated Aerin`Dar but have yet to learn the true meaning of Justice");
+	end
+end
+
+--Plane of Storms (VERIFIED)
+function PoS(e,qglobals)
+	if qglobals.pop_poj_valor_storms ~= nil and tonumber(qglobals.pop_pos_askr_the_lost) == 3 and qglobals.pop_pos_askr_the_lost_final ~= nil then
+		e.other:Message(5,"You have obtained the Talisman of Thunderous Foyer from Askr, he seeks further assistance in the Bastion of Thunder.");
+	elseif qglobals.pop_poj_valor_storms ~= nil and tonumber(qglobals.pop_pos_askr_the_lost) == 3 and qglobals.pop_pos_askr_the_lost_final == nil then
+		e.other:Message(5,"You have shown your prowess in battle to Askr, now you must make strides to get to the Bastion of Thunder.");
+	end
+end
+
+--Crypt of Decay (VERIFIED)
+function CoD(e,qglobals)
+	if qglobals.pop_pod_elder_fuirstel ~= nil and qglobals.pop_cod_bertox ~= nil and qglobals.pop_cod_final ~= nil then
+		e.other:Message(5,"Saved from certain doom, Milyk and Adler are forever in your debt.");
+	elseif qglobals.pop_pod_elder_fuirstel ~= nil and qglobals.pop_cod_bertox ~= nil and qglobals.pop_cod_final == nil then
+		e.other:Message(5,"Bertoxxulous has been slain. The curse from Milyk has been lifted.");
+	elseif qglobals.pop_pod_elder_fuirstel == nil and qglobals.pop_cod_bertox ~= nil and qglobals.pop_cod_final == nil then
+		e.other:Message(5,"As you recall your memory of your battle against the Plaguebringer, an image of the Fuirstel brothers flashes through your mind.");
+	elseif qglobals.pop_pod_elder_fuirstel ~= nil and qglobals.pop_cod_bertox == nil and qglobals.pop_cod_final == nil then
+		e.other:Message(5,"Milyk has been saved from certain death, but is not recovering. Only by destroying the ruler of all things pestilant will his curse be lifted.");
+	end
+end
+
+--Plane of Torment (VERIFIED)
+function PoTorment(e,qglobals)
+	if qglobals.pop_pot_saryrn_final ~= nil and qglobals.pop_maelin_lore_saryrn ~= nil then	--Saryrn Killed and Librarian hailed (Flag complete)
+		e.other:Message(5,"Tylis has been removed from his agony.");
+	elseif qglobals.pop_pot_saryrn_final ~= nil and qglobals.pop_maelin_lore_saryrn == nil then	--Saryrn killed and Fahlia Shadyglade hailed but librarian not hailed
+		e.other:Message(5,"Saryrn has been bested. An aura surrounds the mystical symbols that have appeared on your arm.");
+	elseif qglobals.pop_pot_saryrn_final == nil and qglobals.pop_pot_saryrn ~= nil and qglobals.pop_pot_newleaf ~= nil and qglobals.pop_pot_shadyglade ~= nil then	--Saryrn killed and Fahlia Shadyglade hailed but librarian not hailed
+		e.other:Message(5,"You have defeated Saryrn as Tylis requested.  You should check with Fahlia to see how he is recovering.");
+	elseif qglobals.pop_pot_saryrn ~= nil and (qglobals.pop_ponb_poxbourne == nil or qglobals.pop_cod_final == nil or qglobals.pop_pot_newleaf == nil or qglobals.pop_pot_shadyglade == nil) then	--Saryrn killed but issue with a pre-flag (KoS only since no 85/15)
+		e.other:Message(5,"You attempt to recall your defeat of Saryrn, but whenever you try to focus you feel a searing pain on your arm.");
+	elseif qglobals.pop_ponb_poxbourne ~= nil and qglobals.pop_cod_final ~= nil and qglobals.pop_pot_shadyglade ~= nil and qglobals.pop_pot_newleaf ~= nil then	--Keeper of Sorrows killed only
+		e.other:Message(5,"Although it was kind of you to help him, Tylis still seems to have no idea who you are.");
+	elseif qglobals.pop_ponb_poxbourne ~= nil and qglobals.pop_cod_final ~= nil and qglobals.pop_pot_shadyglade ~= nil then	--Saryrn Pre-flag done
+		e.other:Message(5,"Tylis is being tortured by Saryrn. The only way for him to get away from his misery is to escape from the Plane of Torment.");	
+	end
+end
+
+--Tower of Solusek Ro (VERIFIED)
+function SolroTower(e,qglobals)
+	if qglobals.pop_tactics_ralloz ~= nil and qglobals.pop_sol_ro_solusk ~= nil then	--Solro and RZ killed (Access to PoFire)
+		e.other:Message(5,"The true route to the Plane of Fire is now clear in your mind.");
+	else
+		if qglobals.pop_sol_ro_miak ~= nil then	--Checks for Miak pre-flag and then lists Solro minis that have been killed
+			e.other:Message(5,"The portal into the Plane of Fire has been altered. Miak needs you to find the correct way to channel the portal.");
+			
+			if qglobals.pop_sol_ro_arlyxir ~= nil then
+				e.other:Message(5,"Arlyxir's wealth of knowledge flows through your mind.");
+			end
+			
+			if qglobals.pop_sol_ro_dresolik ~= nil then
+				e.other:Message(5,"The power of Dresolik surges through you.");
+			end
+			
+			if qglobals.pop_sol_ro_jiva ~= nil then
+				e.other:Message(5,"Jiva's strength fills your body.");
+			end
+			
+			if qglobals.pop_sol_ro_rizlona ~= nil then
+				e.other:Message(5,"Rizlona's song slips through your thoughts.");
+			end
+			
+			if qglobals.pop_sol_ro_xuzl ~= nil then
+				e.other:Message(5,"Xuzl's arcane wisdom pulses in your mind.");
+			end
+		end
+	end
+end
+
+--Halls of Honor (VERIFIED)
+function HoH(e,qglobals)
+	if qglobals.pop_hoh_faye ~= nil and qglobals.pop_hoh_trell ~= nil and qglobals.pop_hoh_garn ~= nil then	--All HoH trials completed
+		e.other:Message(5,"You have completed all of Honor's Trials.");
+	else	--lists individual trials completed if not all 3 are complete
+		if qglobals.pop_hoh_faye ~= nil then	--Rydda`Dar trial defeated
+			e.other:Message(5,"You have beaten Rydda`Dar in the first of Honor's trials.");
+		end
+		
+		if qglobals.pop_hoh_trell ~= nil then	--Rhaliq Trell trial defeated (Villagers)
+			e.other:Message(5,"You have saved the villagers in the second of Honor's Trials.");
+		end
+		
+		if qglobals.pop_hoh_garn ~= nil then	--Alekson Garn trial defeated (Maidens/Nomads)
+			e.other:Message(5,"You have defeated the nomads in the third of Honor's trials.");
+		end
+	end
+end
+
+--Lord Mith Marr Chain (VERIFIED)
+function HoHb(e,qglobals)
+	--MM and Agnarr defeated but haven't completed Maelin dialogue in library
+	if (qglobals.pop_maelin_lore_karana == nil or qglobals.pop_maelin_lore_mithaniel == nil) and (qglobals.pop_hohb_marr ~= nil and qglobals.pop_bot_karana ~= nil) then	
+		e.other:Message(5,"The information obtained from Mithaniel is written in a language that you cannot comprehend.");
+	end
+	
+	--MM/Saryrn/TT/Bertox chains all complete and Maelin dialogue complete
+	if qglobals.pop_maelin_lore_saryrn ~= nil and qglobals.pop_maelin_lore_mithaniel ~= nil then	
+		e.other:Message(5,"The Cipher of the Divine Language appears on your arms for a brief moment then fades.");
+	--MM and Saryrn defeated but haven't completed Maelin dialogue in library
+	elseif (qglobals.pop_maelin_lore_saryrn == nil or qglobals.pop_maelin_lore_mithaniel == nil) and (qglobals.pop_hohb_marr ~= nil and qglobals.pop_pot_saryrn_final ~= nil) then	
+		e.other:Message(5,"Mithaniel has been bested. An aura surrounds the mystical symbols that have appeared on your arm.");
+	end
+end
+
+--Plane of Tactics (VERIFIED)
+function PoTactics(e,qglobals)
+	--Vallon Zek killed (Saryrn/MM/Agnarr/Maelin chain not completed)
+	if qglobals.pop_tactics_vallon ~= nil and qglobals.pop_maelin_info_zek_bros == nil and qglobals.pop_poi_behometh_flag ~= nil then	
+		e.other:Message(5,"The pack of notes from Vallon are scribbled in a language that you cannot comprehend.");
+	--Killed VZ but missing MB pre-flag (tactics alt-access)
+	elseif qglobals.pop_tactics_vallon ~= nil and qglobals.pop_poi_behometh_flag == nil then
+		e.other:Message(5,"Vallon fell before you with great ease, you seem to remember some strange pouches around his body, but… well it’s probably nothing.");
+	end
+	
+	--Tallon Zek killed (Saryrn/MM/Agnarr/Maelin chain not completed)
+	if qglobals.pop_tactics_tallon ~= nil and qglobals.pop_maelin_info_zek_bros == nil and qglobals.pop_poi_behometh_flag ~= nil then	
+		e.other:Message(5,"The pack of notes from Tallon are scribbled in a language that you cannot comprehend.");
+	--Killed TZ but missing MB pre-flag (tactics alt-access)
+	elseif qglobals.pop_tactics_tallon ~= nil and qglobals.pop_poi_behometh_flag == nil then
+		e.other:Message(5,"Tallon fell before you with great ease, you seem to remember some strange pouches around his body, but… well it’s probably nothing.");
+	end
+	
+	--Rallos Zek killed and flagged for elementals (Not yet completed SRT flag chain)
+	if qglobals.pop_elemental_grand_librarian ~= nil and qglobals.pop_sol_ro_solusk == nil then
+		e.other:Message(5,"The parchments of Rallos are scribed in a language that you cannot comprehend; they do however have detailed drawings of the manaetic behemoth that you have already destroyed.");
+	--Saryrn/MM/VZ/TZ/Maelin chain complete - flagged for Solro but missing RZ
+	elseif qglobals.pop_tactics_ralloz == nil and qglobals.pop_maelin_info_zek_bros ~= nil then
+		e.other:Message(5,"The words of Maelin echo in your mind, 'The Zeks and Solusek are planning an invasion in Norrath, find out more from Rallos if you can.");
+	--RZ killed but missing pre-flags (only result of tactics alt-access flag)
+	elseif qglobals.pop_tactics_ralloz ~= nil and (qglobals.pop_tactics_vallon == nil or qglobals.pop_tactics_tallon == nil or qglobals.pop_poi_behometh_flag == nil or qglobals.pop_hohb_marr == nil or qglobals.pop_pot_saryrn_final == nil or qglobals.pop_bot_karana == nil ) then
+		e.other:Message(5,"Your heart beat speeds as you recall the Warlord's flaming axe, behind the dark sockets of his helm you sense darker intentions.");
+	end
+end
+
+--Bastion of Thunder (VERIFIED)
+function BoT(e,qglobals)
+	if qglobals.pop_elemental_grand_librarian ~= nil then
+		e.other:Message(5,"Learning of Zebuxoruk's fate, the only way to save him is gather materials that will allow you to power up the machine to send you into the Plane of Time. Maelin has charged you with finding an elemental power source sufficient to activate Meldrath's time machine.");
+	--Completed Agnarr/LMM/Saryrn pre-flagging but haven't killed RZ yet
+	elseif qglobals.pop_maelin_lore_karana ~= nil and qglobals.pop_maelin_lore_mithaniel ~= nil and qglobals.pop_maelin_lore_saryrn ~= nil and qglobals.pop_tactics_ralloz == nil then
+		e.other:Message(5,"The History translated for you reveals the fate of Zebuxoruk. Trapped in the Plane of Time you must gain the power of the elements to gain entrance.");
+	--MM and Agnarr defeated but haven't completed Maelin dialogue in library
+	elseif (qglobals.pop_maelin_lore_karana == nil or qglobals.pop_maelin_lore_mithaniel == nil) and (qglobals.pop_hohb_marr ~= nil and qglobals.pop_bot_karana ~= nil) then	
+		e.other:Message(5,"The information obtained from Karana is written in a language that you cannot comprehend.");
+	end
+end
+
+--Plane of Time (VERIFIED)
+function PoTime(e,qglobals)
+	if qglobals.pop_time_maelin ~= nil and qglobals.pop_elemental_grand_librarian ~= nil then
+		e.other:Message(5,"Your soul has formed a bond with the Plane of Time. You can now pass through the portal in the Plane of Tranquility safely.");
+	end
 end

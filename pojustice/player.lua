@@ -1,14 +1,22 @@
-function event_click_door(e)
-	local seventh_hammer_doors = { 1, 2, 3, 4, 5, 6 };
-	local door_id = e.door:GetDoorID();
+--player.lua for Plane of Justice
 
-	if ( door_id >= 8 and door_id <= 13 ) then 
-		e.self:MovePC(201, 456, 825, 9, 360);
-	elseif ( door_id >= 1 and door_id <= 6 ) then
+
+function event_click_door(e)
+	local door = e.door:GetDoorID();
+	--e.self:Message(14,"Door ID is: [" .. door .. "] Open Type: [" .. e.door:GetOpenType() .. "] Lock Pick: [" .. e.door:GetLockPick() .. "] Key Item: [" .. e.door:GetKeyItem() .. "] Item Held: [" ..  e.self:GetItemIDAt(30) .. "]");   --debug to easily check door IDs
+	
+	if ( door >= 8 and door <= 13 ) then 	--doors in 7th hammer area that lead back to trial area
+		e.self:MovePC(201, 456, 825, 9, 254);
+	elseif ( door >= 1 and door <= 6 ) then	--doors can lead either to 7th hammer if holding mark of justice or back to inner PoJustice if not holding mark
 		if ( e.self:GetItemIDAt(30) == 31599 ) then -- The Mark of Justice
- 			MoveGroup(e.self:GetGroup(), e.self:GetX(), e.self:GetY(), e.self:GetZ(), 75, 65, 1308, 7, 121);
+			local trial_group = e.self:GetGroup();
+			if trial_group.valid then
+				MoveGroup(e.self:GetGroup(), e.self:GetX(), e.self:GetY(), e.self:GetZ(), 75, 65, 1308, 7, 255);
+			else
+				e.self:MovePC(201, 65, 1308, 7, 255)
+			end
 		else
- 			e.self:MovePC(201, 156, 470, -48, 360);
+ 			e.self:MovePC(201, 156, 470, -48, 384); -- needs_heading_validation
 		end
 	end
 end
@@ -40,3 +48,12 @@ function event_enter_zone(e)
 	local discs = require('disciplines');
 	discs:update_discs(e, e.self:GetLevel());
 end
+
+-----------------------------------
+--POP ALPHA TESTING MODULE
+function event_say(e)
+	local pop_flags = require("pop_flags");
+	pop_flags.options(e)
+end
+
+-----------------------------------

@@ -37,7 +37,7 @@ function event_signal(e)
 		tactics_flag = true;
 		e.self:GMMove(1115,-3,3.2,384,true);
 		e.self:SetRunning(true);
-		e.self:CastToNPC():MoveTo(1005, 0, 3.2, 65, true);
+		e.self:CastToNPC():MoveTo(1005, 0, 3.2, 130, true);
 		e.self:Shout("Quickly! Come see me!");
 		eq.set_timer("depop", 10 * 60 * 1000);
 	elseif e.signal == 2 then

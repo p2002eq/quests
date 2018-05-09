@@ -1,7 +1,7 @@
 --Essences of Power
 function event_say(e)
 	local qglobals = eq.get_qglobals(e.other);
-	if(qglobals["AidEinoDone"] ~= nil and (qglobals["AidEinoDone"] == 1)) then --Can't do the turn in without getting the bowl, so I'm not worried about restricting the turn ins on the flag, just this text and getting the bowl.
+	if(qglobals["AidEinoDone"] ~= nil) then --Can't do the turn in without getting the bowl, so I'm not worried about restricting the turn ins on the flag, just this text and getting the bowl.
 		if(e.message:findi("hail")) then
 			e.self:Say("Greetings " .. e.other:GetName() .. "! It pleases me very much that you were able to help Eino out in his time of need.' Councilwoman Kerasha glances at Eino, 'Tunare only knows what I would do without him at my side. There is another matter at hand that has come to the attention of the council that is beyond even our combined power and requires the aid of a powerful alliance. Would you be willing to [" .. eq.say_link("aid") .. "] Tanaan?");
 		elseif(e.message:findi("aid")) then

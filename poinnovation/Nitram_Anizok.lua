@@ -1,3 +1,7 @@
+--Nitram_Anizok (206033)
+--Gnome Escort Event (Xanamech_Nezmirthafen)
+--poinnovation
+
 local walking;
 local won;
 local counter;
@@ -25,7 +29,7 @@ function event_say(e)
 		elseif e.message:findi("combination of batteries") then	
 			e.self:Say("Well you see when I was back home it was common for me to use a mycological spore extricate-kinetoconvertor to power my devices. I started planning my defense to use this as a power source out of sheer habit. Here in this desolation the mushrooms that were grown back home do not exist. I am going to have to rig something from spare parts. It is taking a long time with my having to search the junkyard small portions at a time due to the clockworks. Would you help me in [" .. eq.say_link("collecting materials") .. "]?");
 		elseif e.message:findi("collecting materials") then	
-			e.self:Say("Let us see here. I have some of the base parts for the power source. If you could collect a copper node, a bundle of super conductive wires, and an intact power cell I could power up the machine. Good luck to you $name, I hope that we can work together on this.");
+			e.self:Say("Let us see here. I have some of the base parts for the power source. If you could collect a copper node, a bundle of super conductive wires, and an intact power cell I could power up the machine. Good luck to you " .. e.other:GetName() .. ", I hope that we can work together on this.");
 		end
 	elseif won then
 		if e.message:findi("hail") then
@@ -33,7 +37,7 @@ function event_say(e)
 			e.self:Say("Whew that was a close one!  I shall have to study these schematics and see where I went wrong.  Maybe if I build a new one that uses the correct kind of power source it would work better!  Anyhow, why don't you stop these beasts at the source?  If you go up to the main factory door and twist the very bottom rivet of the icon three times to the right, it will open.  I doubt they have changed how this works.  Good luck!");
 			if qglobals.pop_poi_dragon == nil and counter < 72 then
 				eq.set_global("pop_poi_dragon", "1", 5, "F");
-				e.other:Message(15,"You receive a character flag!");
+				e.other:Message(15,"You've received a character flag!");
 				counter = counter + 1;
 			end
 		end
@@ -80,6 +84,12 @@ function event_timer(e)
 		if not eq.get_entity_list():IsMobSpawnedByNpcTypeID(206068) then
 			eq.unique_spawn(206068,0,0,-735,1580,-50,251.6); --fake Xanamech
 		end
+	end
+end
+
+function event_death_complete(e)
+	if not won then	
+		eq.update_spawn_timer(e.self:GetSpawnPointID(),2*60*60*1000)	--2 hr repop on fail if gnome dies before dragon is dead
 	end
 end
 

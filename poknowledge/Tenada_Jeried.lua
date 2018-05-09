@@ -14,7 +14,7 @@ function event_trade(e)
 	local item_lib = require("items");
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 16258, item2 = 28791, item3 = 28797, item4 = 28794})) then--Hope Stone, Advanced Combat Manual, Advanced Magic Manual, Advanced Stealth Manual
 		e.self:Emote("'s eyes go wide. 'This is incredible! You have proven yourself to be truly worthy of these planar secrets, " .. e.other:GetName() .. ". May its knowledge contained within guide you safely wherever you travel.'");
-		e.other:QuestReward(e.self,0,0,0,0,28798);--Secrets of the Planes
+		e.other:QuestReward(e.self,0,0,0,0,28798,500000);--Secrets of the Planes
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
