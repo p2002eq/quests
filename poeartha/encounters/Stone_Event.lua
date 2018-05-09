@@ -111,14 +111,13 @@ function TrashCounter(e)
 		eq.spawn2(218373,0,0,-607,-215,83,0);
 		eq.spawn2(218373,0,0,-637,-215,83,0);
 		eq.spawn2(218373,0,0,-597,-215,83,0);
-	end
-	
-	eq.GM_Message(18,"Trash Check - counter [" .. phase1_counter .. "/4]");	--debug
+	end	
 end
 
 function FortifiedCheck(e)
+	x,y,z = e.self:GetX(), e.self:GetY(), e.self:GetZ(), e.self:GetHeading();
 	if phase1_counter == 4 and not eq.get_entity_list():IsMobSpawnedByNpcTypeID(218373) then	--#A_Stone_Fortification (218373)
-		eq.local_emote({-610,-260,95},7,1000,"The Rock Monstrosity crumbles into mounds of rubble.")
+		eq.local_emote({x,y,z},7,1000,"The Rock Monstrosity crumbles into mounds of rubble.")
 		eq.depop_with_timer(218029);	--A_Rock_Monstrosity (218029)
 		spawn_mobs(218359,false);	--4X #A_Mound_of_Rubble (218359) (will not aggro raid immediately)
 	end
@@ -152,7 +151,6 @@ function HPEvent(e)
 		e.self:HealDamage(100000);
 		e.self:MoveTo(loc_table[rubble_counter][1],loc_table[rubble_counter][2],loc_table[rubble_counter][3],loc_table[rubble_counter][4],true);
 		eq.set_timer("depop_check", 1 * 1000, controller);
-		eq.GM_Message(18,"Phase 2 counter [" .. rubble_counter .. "/4]");	--debug
 	end
 end
 
@@ -193,7 +191,6 @@ function PeregrinSpawn(e)
 	local qglobals = eq.get_qglobals();
 	local instance_id = eq.get_zone_instance_id();
 	if qglobals[instance_id .. "_StoneRing_PoEarthA"] == nil then
-		eq.local_emote({-610,-260,95},7,1000,"A gigantic formation of rocks appears, glowing with barely contained fury. It collapses to the ground in a pile of rubble, as heaps of misshapen stone rise from the corners of the temple and close in to attack!")
 		boss = eq.unique_spawn(218388,0,0,-613,-261,95,131);	--#Peregrin_Rockskull (218388)
 		boss:SetAppearance(3);		
 		eq.set_global(instance_id .. "_StoneRing_PoEarthA", "1",3,"D3");	--blowable spawn - setting flag regardless of death
@@ -201,22 +198,19 @@ function PeregrinSpawn(e)
 		boss = eq.unique_spawn(218383,0,0,-613,-261,95,131);	--#An_Encrusted_Dirt_Cloud (218383) PH Version
 		boss:SetAppearance(3);	--lay down
 	end
+	eq.local_emote({x,y,z},7,1000,"A gigantic formation of rocks appears, glowing with barely contained fury. It collapses to the ground in a pile of rubble, as heaps of misshapen stone rise from the corners of the temple and close in to attack!")
 	spawn_mobs(218374,true); --#A_Stone_Heap (218374)
 end
 
 function SpawnHeaps(e)
 	x,y,z,h = e.self:GetX(), e.self:GetY(), e.self:GetZ(), e.self:GetHeading();
 	phase3_counter = phase3_counter + 1;
-	eq.GM_Message(18,string.format("Stone Heap Wave: [%s/6] Count: [%s/4]",wave,phase3_counter));	--debug
 	if wave == 6 and phase3_counter == 4 then
-		if boss:GetNPCTypeID() == 218388 then	--need ph event emote text
-			eq.local_emote({x,y,z},7,1000,"As the last of the stone heaps collapses, the gigantic formation of rocks slowly rises to its feet. A gravelly voice echoes in your mind, 'Fools! Invaders! It's been ages since this plane was fouled with the stench of your kind. Prepare to meet your end.' The large rock man then readies itself for attack.");
-		end
+		eq.local_emote({x,y,z},7,1000,"As the last of the stone heaps collapses, the gigantic formation of rocks slowly rises to its feet. A gravelly voice echoes in your mind, 'Fools! Invaders! It's been ages since this plane was fouled with the stench of your kind. Prepare to meet your end.' The large rock man then readies itself for attack.");
 		eq.signal(boss:GetNPCTypeID(),0,2*1000);	--signal boss to be targetable
 		eq.set_timer("depop", boss_depop * 1000, boss);	--50 min hard depop once activated
-		eq.GM_Message(18,"Boss Activated!");	--debug
 	elseif phase3_counter == 4 then
-		eq.local_emote({-610,-260,95},7,1000,"Heaps of misshapen rise from the corners of the temple and close in to attack!");
+		eq.local_emote({x,y,z},7,1000,"Heaps of misshapen rise from the corners of the temple and close in to attack!");
 		phase3_counter = 0;
 		wave = wave + 1;
 		spawn_mobs(218374,true); --#A_Stone_Heap (218374)
@@ -267,8 +261,13 @@ function DepopEvent()
 	end
 end
 
-function EventWin()
+function EventWin(e)
+	x,y,z,h = e.self:GetX(), e.self:GetY(), e.self:GetZ(), e.self:GetHeading();
+	if e.self:GetNPCTypeID() == 218388 then
+		eq.local_emote({x,y,z},7,1000,"The rock man tumbles to the ground, now dead.  Peregrin Rockskull has been defeated.");
+	end
 	eq.signal(218394,0)	--#arbitor_controller (218394)
+	
 	EndEvent();
 end
 
@@ -277,8 +276,6 @@ function event_encounter_load(e)
 	EventReset();
 	eq.set_timer("fail", fail_timer * 1000);
 	controller = eq.get_entity_list():GetMobByNpcTypeID(218036);	--stone_controller (218036)
-	eq.GM_Message(18,"STONE RING ENCOUNTER LOADED");	--debug
-
 
 	--registered events
 	--Phase 1

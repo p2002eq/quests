@@ -9,7 +9,7 @@ end
 
 function event_signal(e)
 	if e.signal == 1 then 
-		if not started and eq.get_entity_list():IsMobSpawnedByNpcTypeID(218018) then	--A_Muddite_Seeker (218018)
+		if not started then	
 			started = true;
 			eq.load_encounter("Mud_Event");
 		end

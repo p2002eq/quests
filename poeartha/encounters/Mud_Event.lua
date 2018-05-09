@@ -9,38 +9,21 @@ local wave;
 
 --failure variables
 local fail_timer = 3 * 60 * 60;	--3 hr default
-local reset_timer = 5 * 60;	--5 min default  (timer for boss reset)
-local boss_depop = 50 * 60;	--50 min default for boss to depop
+local reset_timer = 5 * 60;		--5 min default  (timer for boss reset)
+local boss_depop = 50 * 60;		--50 min default for boss to depop
 
 
 function EventReset()
 	eq.stop_all_timers();
-	trigger_counter = 1;	--triggers on 1st death
 	wave = 0;
+	final_boss = false;
 end
 
 function Phase1(e)
-	if WalkerCheck(e) then 
-		trigger_counter = trigger_counter + 1;
-		eq.GM_Message(18,string.format("Trash Check - counter [%s/4]",trigger_counter));	--debug
-	end
-	
-	if trigger_counter == 4 then	
-		eq.local_emote({e.self:GetX(), e.self:GetY(), e.self:GetZ()},7,500,"The last of the mud walkers has been slain. A loud roar is heard from the center of the muddite temple as the Sludge Lurker comes into being.");
+	if not eq.get_entity_list():IsMobSpawnedByNpcTypeID(218317) and not eq.get_entity_list():IsMobSpawnedByNpcTypeID(218018) then --confirms no Mudwalkers or Seekers are up
+		eq.local_emote({e.self:GetX(), e.self:GetY(), e.self:GetZ()},7,1000,"The last of the mud walkers has been slain. A loud roar is heard from the center of the muddite temple as the Sludge Lurker comes into being.");
 		eq.spawn2(218371,0,0,341,83,72,0);	--#A_Sludge_Lurker (218371)
 	end	
-end
-
-function WalkerCheck(e)
-	local spawnpoint_list = {366737,365808,367097,366840};	--4 trigger Earthwalkers at top of temple
-	
-	for k,spawn_id in pairs(spawnpoint_list) do 
-		if e.self:GetSpawnPointID() == spawn_id then
-			return true;	--trigger mob found
-		end
-	end
-	
-	return false;
 end
 
 function SpawnGorgers(e) --for 4 spawn mobs 
@@ -51,6 +34,7 @@ function SpawnGorgers(e) --for 4 spawn mobs
 		mob:SetRunning(true);
 		mob:CastToNPC():MoveTo(e.self:GetX(), e.self:GetY(), e.self:GetZ(), e.self:GetHeading(),true);
 	end
+	eq.local_emote({e.self:GetX(), e.self:GetY(), e.self:GetZ()},7,1000,"More mud flies everywhere, coalescing into mud creatures gorged with filth.");
 end
 
 function SetHP(e)	--Sludge lurker HP events will decrease based on wave
@@ -64,24 +48,24 @@ function SetHP(e)	--Sludge lurker HP events will decrease based on wave
 	if wave > 1 then
 		e.self:SetHP(e.self:GetHP() * hp[wave-1] / 100);	--should set HP% to before last death
 	end
-	eq.GM_Message(13,string.format("Wave #%.0f - HP event set at %s",wave,tostring(hp[wave])));	--debug
 end
 
 function HPEvent(e)
 	if ((wave == 1 and e.hp_event == 75) or (wave == 2 and e.hp_event == 60) or (wave == 3 and e.hp_event == 40) or (wave == 4 and e.hp_event == 15)) then
 		spawn_mudlets(e);
+		eq.local_emote({e.self:GetX(), e.self:GetY(), e.self:GetZ()},7,1000,"Massive gobs of mud fly everywhere as the huge creature of mud explodes. The gobs of mud coalesce into smaller mud creatures.");
 		eq.depop();
 	end
 end
 
 function spawn_mudlets(e)	--triggered on death of first 4 waves of Sludge Lurkers
 	for n = 1,10 do
-		eq.spawn2(218360,0,0,e.self:GetX() + math.random(-15, 15), e.self:GetY() + math.random(-15,15), e.self:GetZ(),e.self:GetHeading());	--#A_Muck_Mudlet (218360)
+		eq.spawn2(218360,0,0,e.self:GetX() + math.random(-15, 15), e.self:GetY() + math.random(-15,15), e.self:GetZ()-15,e.self:GetHeading());	--#A_Muck_Mudlet (218360)
 	end
 end
 
 function LurkerCheck(e)	--death check on each mucklet to see if it can spawn next lurker
-	if not eq.get_entity_list():IsMobSpawnedByNpcTypeID(218360) then	--#A_Muck_Mudlet (218360)
+	if not eq.get_entity_list():IsMobSpawnedByNpcTypeID(218360) and not final_boss then	--#A_Muck_Mudlet (218360)
 		lurker = eq.spawn2(218371,0,0,341,83,72,0);	--#A_Sludge_Lurker (218371)
 		lurker:SetRunning(true);
 		lurker:CastToNPC():MoveTo(e.self:GetX(), e.self:GetY(), e.self:GetZ(), e.self:GetHeading(),true);
@@ -94,6 +78,7 @@ function MudwalkerSpawn(e)	--check for spawn conditions on Filth Gorger's death
 	local qglobals = eq.get_qglobals();
 	local instance_id = eq.get_zone_instance_id();
 	if not eq.get_entity_list():IsMobSpawnedByNpcTypeID(218349) then
+		eq.local_emote({x,y,z},7,1000,"The last of the filthy mud men fall to the ground motionless.  Suddenly a monstrous creature of mud forms from the remains of all the other mud men!");
 		if qglobals[instance_id .. "_MudRing_PoEarthA"] == nil then
 			BossSpawn(218358);	--#A_Monstrous_Mudwalker (218358)
 			eq.set_global(instance_id .. "_MudRing_PoEarthA", "1",3,"D3");	--blowable spawn - setting flag regardless of death
@@ -115,6 +100,7 @@ end
 
 
 function BossSpawn(boss_id)
+	final_boss = true;
 	boss = eq.unique_spawn(boss_id,0,0,341,83,72,0);
 	boss:SetRunning(true);
 	boss:CastToNPC():MoveTo(x,y,z,h,true);
@@ -124,7 +110,7 @@ end
 function BossTimer(e)
 	if e.timer == "memblur" then
 		if eq.PlayerCheck(e.self:GetX(), e.self:GetY(), e.self:GetZ(),50) then	--check if player is within 50 units
-			if math.random(100) <= 40 then e.self:WipeHateList() end  	--40% memblur chance
+			if math.random(100) <= 40 then e.self:WipeHateList() end  			--40% memblur chance
 		elseif not e.self:IsEngaged() then
 			eq.stop_timer(e.timer);
 		end
@@ -135,8 +121,9 @@ end
 
 function SpawnAdds(e)
 	if e.other:IsClient() or e.other:IsPet() then	--verify client or pet has died
-		eq.spawn2(218360,0,0,e.other:GetX(),e.other:GetY(),e.other:GetZ(),e.other:GetHeading());
-		eq.spawn2(218360,0,0,e.other:GetX(),e.other:GetY(),e.other:GetZ(),e.other:GetHeading());
+		boss:Emote("pummels his victim into the earth dispersing mud everywhere. The gobs of mud coalesce into smaller mud creatures.")
+		eq.spawn2(218360,0,0,e.self:GetX() + math.random(-15, 15), e.self:GetY() + math.random(-15,15), e.self:GetZ(),e.self:GetHeading());	--mudlets
+		eq.spawn2(218360,0,0,e.self:GetX() + math.random(-15, 15), e.self:GetY() + math.random(-15,15), e.self:GetZ(),e.self:GetHeading());
 	end
 end
 
@@ -167,8 +154,6 @@ function event_encounter_load(e)
 	--event variables
 	EventReset();
 	eq.set_timer("fail", fail_timer * 1000);
-	eq.GM_Message(18,"MUD RING ENCOUNTER LOADED");	--debug
-
 
 	--registered events
 	--Phase 1
@@ -186,14 +171,13 @@ function event_encounter_load(e)
 	
 	--A_Monstrous_Mudwalker (Final Phase)
 	eq.register_npc_event("Mud_Event", Event.combat, 218358, EventCombat);					--#A_Monstrous_Mudwalker (218358)
-	eq.register_npc_event("Mud_Event", Event.timer, 218358, BossTimer);				--#A_Monstrous_Mudwalker (218358)
+	eq.register_npc_event("Mud_Event", Event.timer, 218358, BossTimer);						--#A_Monstrous_Mudwalker (218358)
 	eq.register_npc_event("Mud_Event", Event.death_complete, 218358, EventWin);				--#A_Monstrous_Mudwalker (218358)
 	eq.register_npc_event("Mud_Event", Event.slay, 218358, SpawnAdds);						--#A_Monstrous_Mudwalker (218358)
-	--eq.register_npc_event("Mud_Event", Event.slay, 218358, SpawnAdds);					--#A_Monstrous_Mudwalker (218358)  set for adds??
-	--eq.register_npc_event("Mud_Event", Event.combat, 218349, EventCombat);					--#A_Filth_Gorger (218349)
+
 	
 	--#A_Merciless_Mudslinger (218355) PH for Monstrous Mudwalker
 	eq.register_npc_event("Mud_Event", Event.combat, 218355, EventCombat);					--#A_Merciless_Mudslinger (218355)
-	eq.register_npc_event("Mud_Event", Event.timer, 218355, BossTimer);				--#A_Merciless_Mudslinger (218355)
+	eq.register_npc_event("Mud_Event", Event.timer, 218355, BossTimer);						--#A_Merciless_Mudslinger (218355)
 	eq.register_npc_event("Mud_Event", Event.death_complete, 218355, EventWin);				--#A_Merciless_Mudslinger (218355)
 end 

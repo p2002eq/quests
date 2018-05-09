@@ -20,15 +20,17 @@ end
 
 function TaintedCounter(e)
 	tainted_counter = tainted_counter + 1;
-	eq.GM_Message(18,"Trash Check - counter [" .. tainted_counter .. "/30]");	--debug
 	if tainted_counter % 3 == 0 then	--spawns a bloodthirsty vegrog every 3 tainted rock kills
 		SpawnVegRogs(tainted_counter/3);
-		eq.local_emote({485,-830,35},7,250,"A creature rises from the dead bodies of three tainted rock beasts.")
+		if not eq.get_entity_list():IsMobSpawnedByNpcTypeID(218019) then	--A_Tainted_Rock_Beast (218019)
+			eq.signal(218345,0,2*1000);	--sends signal to #A_Bloodthirsty_Vegerog (218345) to set targetable
+			eq.local_emote({e.self:GetX(), e.self:GetY(), e.self:GetZ()},7,1000,"The last of the tainted rock beasts crashes to the ground and yet another creature rises at the top of the temple.");
+		else
+			eq.local_emote({e.self:GetX(), e.self:GetY(), e.self:GetZ()},7,1000,"A creature rises from the dead bodies of three tainted rock beasts.");
+		end
 	end	
 	
-	if not eq.get_entity_list():IsMobSpawnedByNpcTypeID(218019) then	--A_Tainted_Rock_Beast (218019)
-		eq.signal(218345,0,2*1000);	--sends signal to #A_Bloodthirsty_Vegerog (218345) to set targetable
-	end
+
 end
 
 function SpawnVegRogs(loc)
@@ -38,7 +40,6 @@ end
 
 function BloodCounter(e)
 	blood_counter = blood_counter + 1;
-	eq.GM_Message(18,"Bloodthirsty Trash Check - counter [" .. blood_counter .. "/10]");	--debug
 	if blood_counter == 10 and not eq.get_entity_list():IsMobSpawnedByNpcTypeID(218345) then	--#A_Bloodthirsty_Vegerog (218345)
 		DerugoakSpawn(e);
 	end	
@@ -78,10 +79,11 @@ function DerugoakSpawn(e)
 	local qglobals = eq.get_qglobals();
 	local instance_id = eq.get_zone_instance_id();
 	if qglobals[instance_id .. "_VineRing_PoEarthA"] == nil then
-		eq.local_emote({485,-830,35},7,1000,"The ground shakes and trembles as Derugoak Bloodwalker rises to defend his temple.") 
+		eq.local_emote({e.self:GetX(), e.self:GetY(), e.self:GetZ()},7,1000,"The ground shakes and trembles as Derugoak Bloodwalker rises to defend his temple.") 
 		BossSpawn(218385,e);	--#Derugoak_Bloodwalker (218385)
 		eq.set_global(instance_id .. "_VineRing_PoEarthA", "1",3,"D3");	--blowable spawn - setting flag regardless of death
 	else
+		eq.local_emote({e.self:GetX(), e.self:GetY(), e.self:GetZ()},7,1000,"The ground shakes and trembles as a bloodsoaked creature rises at the top of the temple.") 
 		BossSpawn(218395,e);	--#A_Bloodsoaked_Vegerog (218395)
 	end
 end
@@ -159,8 +161,6 @@ function event_encounter_load(e)
 	--event variables
 	EventReset();
 	eq.set_timer("fail", fail_timer * 1000);
-	eq.GM_Message(18,"VINE RING ENCOUNTER LOADED");	--debug
-
 
 	--registered events
 	--Phase 1 (Tainted Rock Beasts)

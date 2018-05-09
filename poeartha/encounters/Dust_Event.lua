@@ -14,10 +14,10 @@ function EventReset()
 	eq.stop_all_timers();
 	trigger_counter = 1;	--triggers on 1st death
 	warder_spawn = false;
+	add_timer = false;
 end
 
 function SoilCheck(e)
-	eq.GM_Message(14,"Dust Devotee Kill Check");	--debug
 	if not eq.get_entity_list():IsMobSpawnedByNpcTypeID(218347) then	--#A_Dust_Devotee (218347)
 		x,y,z,h = e.self:GetX(), e.self:GetY(), e.self:GetZ(), e.self:GetHeading();
 		eq.local_emote({x,y,z},7,1000,"A deafening roar is heard coming from the Triumvirate of Soil.");
@@ -62,22 +62,28 @@ function WarderSpawn(e)
 			warder_spawn = true;
 			BossSpawn(218366);	--#A_Perfected_Warder_of_Earth (218366)
 			
-			--Fight Scenarios (1 = Triumverate of Soil adds, 2 = 10-12 Triumverate Protector adds, 3 = no adds)
-			rand = math.random(1,3);
-			eq.GM_Message(5,string.format("Fight Scenario [%s/3]", rand));
-			if rand == 1 then
+			--Fight Scenarios (1 = Triumverate of Soil adds, 2 = 3-6 Triumverate Protector adds every 45 sec, 3 = no adds)
+			scenario = math.random(1,3);
+			eq.GM_Message(5,string.format("Fight Scenario [%s/3]  (1 = Soils, 2 = Protectors, 3 = no adds)", scenario));
+			if scenario == 1 then
 				SpawnSoils();
 				eq.signal(218391,0,1*1000);	--#Triumvirate_of_Soil (218391)
-			elseif rand == 2 then
-				for n = 1, math.random(10,12) do
-					protector = eq.spawn2(218376,0,0,9 + math.random(-15,15),-560 + math.random(-15,15),32,0);	--#A_Triumvirate_Protector (218376)
-					protector:SetRunning(true);
-					protector:CastToNPC():MoveTo(x,y,z,h,true);
-				end
+			elseif scenario == 2 then
+				SpawnProtectors(x,y,z,h,true);
 			end
 			eq.set_global(instance_id .. "_DustRing_PoEarthA", "1",3,"D3");	--blowable spawn - setting flag regardless of death
 		else
 			BossSpawn(218348);	--#A_Dust_Follower (218348)
+		end
+	end
+end
+
+function SpawnProtectors(x,y,z,h,charge)
+	for n = 1, math.random(3,6) do
+		protector = eq.spawn2(218376,0,0,boss:GetX() + math.random(-30,30),boss:GetY() + math.random(-30,30),boss:GetZ() - 15,0);	--#A_Triumvirate_Protector (218376)
+		if charge then
+			protector:SetRunning(true);
+			protector:CastToNPC():MoveTo(x,y,z,h,true);
 		end
 	end
 end
@@ -127,9 +133,18 @@ end
 
 function BossCombat(e)
 	if e.joined then
+		eq.stop_timer("reset");
 		eq.set_timer("memblur",12 * 1000);
+		if scenario == 2 and not add_timer then
+			add_timer = true;
+			eq.set_timer("adds", 30 * 1000);
+			if not eq.get_entity_list():IsMobSpawnedByNpcTypeID(218376) then
+				SpawnProtectors(0,0,0,false);	--spawn adds on engage if previously despawned 
+			end			
+		end
 	else
 		e.self:SaveGuardSpot(true);
+		eq.set_timer("reset", 5 * 60 * 1000);  --5 min reset to depop adds
 	end
 end
 
@@ -140,6 +155,16 @@ function BossTimer(e)
 		elseif not e.self:IsEngaged() then
 			eq.stop_timer(e.timer);
 		end
+	elseif e.timer == "adds" then
+		if e.self:IsEngaged() then
+			eq.stop_timer("reset");
+			SpawnProtectors(0,0,0,false);	--no coords needed
+		end
+	elseif e.timer == "reset" and not e.self:IsEngaged() then
+		eq.stop_timer(e.timer);
+		eq.stop_timer("adds");
+		add_timer = false;
+		eq.depop_all(218376);	--#A_Triumvirate_Protector (218376)
 	elseif e.timer == "depop" then
 		EndEvent();
 	end
@@ -172,8 +197,6 @@ function event_encounter_load(e)
 	--event variables
 	EventReset();
 	eq.set_timer("fail", fail_timer * 1000);
-	eq.GM_Message(18,"DUST RING ENCOUNTER LOADED");	--debug
-	
 	DustSetup();
 
 	--registered events
@@ -196,5 +219,7 @@ function event_encounter_load(e)
 	eq.register_npc_event("Dust_Event", Event.combat, 218348, BossCombat);					--#A_Dust_Follower (218348)
 	eq.register_npc_event("Dust_Event", Event.timer, 218348, BossTimer);					--#A_Dust_Follower (218348)
 	eq.register_npc_event("Dust_Event", Event.death_complete, 218348, EventWin);			--#A_Dust_Follower (218348)
+	
+	
 	
 end 

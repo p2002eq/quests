@@ -18,7 +18,7 @@ end
 function event_say(e)
 	local qglobals = eq.get_qglobals(e.self,e.other);
 	if e.message:findi("hail") and  qglobals.pop_eartha_arbitor_projection == nil and counter < 54 then
-		--e.other:Message(7,"Flames begin to surround your body.  You feel them moving around you, but your body does not burn.  Suddenly the flames begin to coalesce in your hands.");
+		e.other:Message(7,"The Planar Projection's thoughts enter your own, 'Your will must be strong " .. e.other:GetName() .. ". You may seek out the council of twelve if you so desire.'");
 		e.other:Message(15,"You've received a character flag!");
 		eq.set_global("pop_eartha_arbitor_projection", "1", 5, "F");
 		counter = counter + 1;
