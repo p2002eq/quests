@@ -11,7 +11,7 @@ local avatar_spawned;
 --failure variables
 local fail_timer = 3 * 60 * 60;	--3 hr default
 local boss_depop = 50 * 60;	--50 min default for boss to depop
-local council_timer = 7 * 60;	--7 min to kill all 12 council members before respawn
+local council_timer = 345;	--approx 5.7min (345 seconds) to kill all 12 council members before respawn (verified on live)
 
 function EventReset()
 	fallen = false;	--flag variable to start timer once a council member is killed
@@ -110,11 +110,11 @@ function CouncilHP(e)	--controlls min/max hit of non-mezzable council members ba
 end
 
 function SetDamage(e,level)
-	local damage_tables = {	[1] = {"400","400"},
-								[2] = {"300","300"},
-								[3] = {"200","200"},
-								[4] = {"100","100"},
-								[5] = {"50","50"}};
+	local damage_tables = {	[1] = {"479","2986"},
+								[2] = {"414","2538"},
+								[3] = {"343","2055"},
+								[4] = {"253","1583"},
+								[5] = {"145","870"}};
 
 	eq.GM_Message(15,string.format("Weakness level:[%s] min_hit[%s] max_hit[%s]",level,damage_tables[level][1],damage_tables[level][2]));
 	e.self:ModifyNPCStat("min_hit",damage_tables[level][1]);
