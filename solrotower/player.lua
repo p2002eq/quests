@@ -45,7 +45,7 @@ function event_click_door(e)
 	--SOLUSEK RO'S CHAMBER PORT IN
 	if door == 44 or door == 45 or door == 47 or door == 48 then
 		if e.self:GetGM() or (qglobals.pop_poi_behometh_preflag ~= nil and qglobals.pop_poi_behometh_flag ~= nil and qglobals.pop_tactics_tallon ~= nil and qglobals.pop_tactics_vallon ~= nil and qglobals.pop_tactics_ralloz ~= nil and qglobals.pop_sol_ro_arlyxir ~= nil and qglobals.pop_sol_ro_jiva ~= nil and qglobals.pop_sol_ro_rizlona ~= nil and  qglobals.pop_sol_ro_dresolik ~= nil and qglobals.pop_sol_ro_xuzl ~= nil and qglobals.pop_pot_saryrn_final ~= nil and qglobals.pop_pot_saryrn ~= nil and qglobals.pop_hohb_marr ~= nil) then
-			e.self:MovePCInstance(212,instance_id,0,-715,244,254);
+			e.self:MovePCInstance(212,instance_id,0,-865,246,256);
 		else
 			e.self:Message(13, "You lack the will to pass through the portal safely.");
 		end
