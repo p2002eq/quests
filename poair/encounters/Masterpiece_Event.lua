@@ -61,7 +61,7 @@ end
 function Memblur_Timer(e)
 	if e.timer == "memblur" then		
 		if eq.PlayerCheck(e.self:GetX(), e.self:GetY(), e.self:GetZ(),50) then	--check if player is within 50 units
-			if math.random(100) <= 40 then e.self:WipeHateList() end  	--40% memblur chance
+			if math.random(100) <= 30 then e.self:WipeHateList() end  	--30% memblur chance
 		elseif not e.self:IsEngaged() then
 			eq.stop_timer(e.timer);
 		end

@@ -11,7 +11,7 @@ end
 function event_timer(e)
 	if e.timer == "memblur"  then
 		if eq.PlayerCheck(e.self:GetX(), e.self:GetY(), e.self:GetZ(),50) then	--check mob is engaged and player is within 50 units
-			if math.random(100) <= 40 then e.self:WipeHateList() end  	--40% memblur chance
+			if math.random(100) <= 30 then e.self:WipeHateList() end  	--30% memblur chance
 		elseif not e.self:IsEngaged() then
 			eq.stop_timer(e.timer);
 		end
