@@ -20,12 +20,12 @@ function EventReset()
 	archwalker_counter = 0;
 	minispawn_counter = 0;
 	size_count = 0;
+	phase2 = false;
 end
 
 function TrashCounter(e)
 	if mob_check(e) then 
 		trash_counter = trash_counter + 1;
-		eq.GM_Message(18,"Trash Check - counter [" .. trash_counter .. "/38]");	--debug
 	end
 	
 	if trash_counter == 10 then
@@ -38,7 +38,8 @@ function TrashCounter(e)
 		eq.signal(215375,2);	--Sigismond_Windwalker (215375)
 	elseif trash_counter == 35 then
 		eq.signal(215375,2);	--Sigismond_Windwalker (215375)
-	elseif trash_counter == 38 and not spawn_check() then
+	elseif trash_counter == 38 and not spawn_check() and not phase2 then
+		phase2 = true;
 		archwalker = eq.spawn2(215392,0,0,-436,607,435,30);	--#a_vorladien_archwalker (215392)
 		eq.set_timer("adds", 15 * 1000, Sigismond); 
 	end
@@ -64,7 +65,6 @@ end
 
 function Archwalker(e)
 	archwalker_counter = archwalker_counter + 1;
-	eq.GM_Message(18,"archwalker counter [" .. archwalker_counter .. "/3]");	--debug
 	
 	if archwalker_counter < 3 then
 		num = math.random(1,3);
@@ -87,7 +87,9 @@ function SigismondSignal(e)
 		e.self:SetBodyType(22, true);		--Sets bodytype as Insect (targetable)
 		e.self:SetSpecialAbility(24,0);		--turn off immune to aggro
 		e.self:SetSpecialAbility(35,0);		--turn off immunity to players
-		e.self:AddToHateList(GetTarget(),1);
+		if GetTarget() ~= nil then
+			e.self:AddToHateList(target,1);
+		end
 		eq.set_timer("memblur",12 * 1000);
 	elseif e.signal == 2 then
 		local size_table = {6,8,12,16,20}
@@ -99,14 +101,21 @@ function SigismondSignal(e)
 end
 
 function GetTarget()	--select a random target that is not feigned or a GM
-	client = false;
-	while not client do 
-		target = eq.get_entity_list():GetRandomClient(-407,650,430,300*300)
-		if not target:GetFeigned() or not target:GetGM() then	
-			client = true;
+	target = eq.get_entity_list():GetRandomClient(-405,425,430,600*600)
+	if target.valid and not target:GetFeigned() and not target:GetGM() then	
+		return target;
+	end
+	
+	--if no targets found in range - check targets for assist
+	local mob_tbl = {215375,215392,215393};
+	for k,v in pairs(mob_tbl) do
+		mob = eq.get_entity_list():GetMobByNpcTypeID(v);
+		if mob ~= nil and mob:IsEngaged() then
+			target = mob:GetHateRandom();
+			return target;
 		end
 	end
-	return target;
+	target = nil;
 end
 
 function SigismondCombat(e)
@@ -144,17 +153,23 @@ function spawn_spiders(e)
 		
 	if count < max_adds then	--if less than 15 mobs up then spawn additional spiders
 		for n = 1, max_adds - count do
-
 			mob = eq.spawn2(215401,0,0,-405 + math.random(-200,200), 697 + math.random(-200,200), 445, 255);	--spawn or repop #an_erratic_arachnid (215401)
 			eq.set_timer("depop", 2 * 60 * 1000, mob);
-			mob:AddToHateList(GetTarget(),1);
+			eq.set_timer("aggro",15 * 1000, mob);
+			if GetTarget() ~= nil then
+				mob:AddToHateList(target,1);
+			end
 		end
 	end
 end
 
-function AddDespawnTimer(e)
+function AddTimers(e)
 	if e.timer == "depop" and not e.self:IsEngaged() then
 		eq.depop();
+	elseif e.timer == "aggro" and not e.self:IsEngaged() then
+		if GetTarget() ~= nil then
+			e.self:AddToHateList(target,1);
+		end
 	end
 end
 
@@ -212,5 +227,5 @@ function event_encounter_load(e)
 	eq.register_npc_event("Sigismond_Event", Event.signal, 215375, SigismondSignal);			--Sigismond_Windwalker (215375)
 	
 	--erratic adds
-	eq.register_npc_event("Sigismond_Event", Event.timer, 215401, AddDespawnTimer);			--#an_erratic_arachnid (215401)
+	eq.register_npc_event("Sigismond_Event", Event.timer, 215401, AddTimers);			--#an_erratic_arachnid (215401)
 end
