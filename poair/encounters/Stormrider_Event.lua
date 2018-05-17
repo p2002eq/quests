@@ -27,7 +27,6 @@ end
 function TrashCounter(e)
 	if mob_check(e) then 
 		trash_counter = trash_counter + 1;
-		eq.GM_Message(18,"Trash Check - counter [" .. trash_counter .. "/27]");	--debug
 	end
 	
 	if trash_counter == 27 and not spawn_check() then
@@ -88,7 +87,6 @@ function PriestTimer(e)
 				counter = counter + 1;				
 				n = n + 1;
 				CallAdd(add_table[add],e);	--set special abilities and target to aggro
-				eq.GM_Message(14,"Adds called: [" .. table.getn(called_adds) .. "]");	--debug
 			elseif table.getn(called_adds) == 8 then
 				break;	--don't want an infinite loop
 			end
@@ -128,7 +126,6 @@ function FinalStageCheck()
 	local qglobals = eq.get_qglobals();
 	local instance_id = eq.get_zone_instance_id();
 	sporadic_counter = sporadic_counter + 1;
-	eq.GM_Message(18,"Sporadic counter [" .. sporadic_counter .. "/3]");	--debug
 	
 	if sporadic_counter == 3 then
 		if qglobals[instance_id .. "_AoWind_PoAir"] == nil then	--verify qglobal flag not still active 

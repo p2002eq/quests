@@ -13,14 +13,12 @@ local fail_timer = 3 * 60 * 60;	--3 hr default
 
 function event_encounter_load(e)
 	--event variables
-	EventReset();
-	
+	EventReset();	
 	eq.set_timer("fail", fail_timer * 1000);
-	--registered events
-	GM_Message(15,"Chamberlain Escalardian Event Loaded!");	--debug
-	--Trash Kill Counters
-	eq.register_npc_event("Chamberlain_Event", Event.death_complete, 215000, TrashCounter);		--A_castellan_of_Air (215000)
 	
+	--registered events
+	--Trash Kill Counters
+	eq.register_npc_event("Chamberlain_Event", Event.death_complete, 215000, TrashCounter);		--A_castellan_of_Air (215000)	
 
 	--Constable Kill Counters
 	eq.register_npc_event("Chamberlain_Event", Event.death_complete, 215409, MiniCounter);		--Constable_Alranderisan (215409)
@@ -47,7 +45,6 @@ end
 
 function TrashCounter()
 	trash_counter = trash_counter + 1;
-	GM_Message(18,"Trash Check - counter [" .. trash_counter .. "/15]");	--debug
 	
 	if trash_counter == 5 then
 		eq.unique_spawn(215409,0,0,400,478,-92,2);	--Constable_Alranderisan (215409)
@@ -62,7 +59,6 @@ function MiniCounter()
 	local qglobals = eq.get_qglobals();
 	local instance_id = eq.get_zone_instance_id();
 	mini_counter = mini_counter + 1;
-	GM_Message(18,"Mini Boss Check - counter [" .. mini_counter .. "/3]");	--debug
 	
 	if mini_counter == 3 then
 		if qglobals[instance_id .. "_Chamberlain_PoAir"] == nil and not eq.get_entity_list():IsMobSpawnedByNpcTypeID(215408) then		--verify qglobal flag not still active and he's not up
@@ -95,7 +91,6 @@ function event_timer(e)
 	if e.timer == "fail" then
 		eq.stop_all_timers();
 		DepopEvent();
-		GM_Message(15,"ENCOUNTER FAILED!") --debug
 		eq.signal(215424,2);	--signal #isle_one_controller (215424) to unload encounter
 	end
 end
@@ -115,17 +110,4 @@ function DepopEvent()
 		eq.depop_all(mob);
 	end
 end
-
-function GM_Message(color,text)			--DEBUGGING/MONITORING
-	client_list = eq.get_entity_list():GetClientList();
-	
-	if client_list ~= nil then
-		for client in client_list.entries do
-			if client:GetGM() then
-				client:Message(color,text);
-			end
-		end
-	end
-end
-
 	

@@ -17,7 +17,6 @@ end
 
 function TrashCounter(e)
 	trash_counter = trash_counter + 1;
-	eq.GM_Message(18,"Trash Check - counter [" .. trash_counter .. "/21]");	--debug
 	
 	if trash_counter == 6 then
 		eq.spawn2(215400,0,0,-500,-1282,320,131);	--#an_elemental_champion (215400)
@@ -41,7 +40,6 @@ function FinalStageCheck()
 	local qglobals = eq.get_qglobals();
 	local instance_id = eq.get_zone_instance_id();
 	champion_counter = champion_counter + 1;
-	eq.GM_Message(18,"Champion counter [" .. champion_counter .. "/4]");	--debug
 	
 	if champion_counter == 4 then
 		if qglobals[instance_id .. "_AoSmoke_PoAir"] == nil then	--verify qglobal flag not still active 
@@ -101,8 +99,6 @@ function event_encounter_load(e)
 	eq.set_timer("fail", fail_timer * 1000);
 	
 	--registered events
-	eq.GM_Message(15,"Elemental Masterpiece Event Loaded!");	--debug
-	
 	--Trash Kill Counters (Spawns/Activate Champions)
 	eq.register_npc_event("Masterpiece_Event", Event.death_complete, 215012, TrashCounter);		--a_confused_air_elemental (215012)
 	
