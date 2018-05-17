@@ -18,9 +18,18 @@ function event_signal(e)
 	elseif e.signal == 2 then	--encounter won, unload event
 		started = false;
 		eq.unload_encounter("Xegony_Event");
+		eq.set_timer("reset",30 * 60 * 1000);	--depop any event named if left up after Xegony is dead
 	elseif e.signal == 3 then	--event reset
 		started = false;
 		eq.unload_encounter("Xegony_Event");
+		DepopEvent();
+		Repop();
+	end
+end
+
+function event_timer(e)
+	if e.timer == "reset" then
+		eq.stop_timer(e.timer);
 		DepopEvent();
 		Repop();
 	end

@@ -17,7 +17,10 @@ function EventReset()
 end
 
 function XegonyHP(e)
-	if e.hp_event == 85 then
+	if e.hp_event == 99 then
+		eq.set_next_hp_event(85);
+		CallGuards();	
+	elseif e.hp_event == 85 then
 		eq.set_next_hp_event(70);
 		CallGuards();
 	elseif e.hp_event == 70 then
@@ -40,18 +43,26 @@ function EventSignal(e)
 		e.self:SetSpecialAbility(24,0);		--turn off immune to aggro
 		e.self:SetSpecialAbility(35,0);		--turn off immunity to players
 		e.self:AddToHateList(Xegony:GetHateRandom(),1);
+	elseif e.signal == 89 and not e.self:IsEngaged() then
+		e.self:AddToHateList(Xegony:GetHateRandom(),1);
 	end
 end
+
+function SignalAdds(e)
+	local event_mobs = {215047,215416,215048,215414,215049,215421,215050,215399,215051,215422,215052,215418};
+	for k,v in pairs(event_mobs) do
+		eq.signal(v,89);
+	end
+end	
 
 function EventTimers(e)
 	if e.timer == "start" then
 		eq.stop_timer(e.timer);
-		eq.set_next_hp_event(85);
-		eq.set_timer("memblur", 12 * 1000, Xegony);
-		CallGuards();
+		eq.set_next_hp_event(99);
+		eq.set_timer("memblur", 12 * 1000);
 	elseif e.timer == "memblur" then		
 		if eq.PlayerCheck(e.self:GetX(), e.self:GetY(), e.self:GetZ(),50) then	--check if player is within 50 units
-			eq.GM_Message(15,"[" .. e.self:GetCleanName() .. "] Memblur!")
+			SignalAdds();	--call for help if available adds aren't engaged
 			if math.random(100) <= 30 then e.self:WipeHateList() end  	--30% memblur chance
 		elseif not e.self:IsEngaged() then
 			eq.stop_timer(e.timer);
@@ -60,7 +71,6 @@ function EventTimers(e)
 			end
 		end
 	elseif e.timer == "reset" and not e.self:IsEngaged() then
-		eq.GM_Message(18,"Event is resetting!");
 		eq.signal(215436,3);	--signal reset to #event_control_Xegony (215436)
 	end
 end
@@ -83,9 +93,7 @@ function CallGuards()
 			guard = true;
 			counter = counter + 1;		
 			table.insert(called_guards,counter, guardNum);	
-			eq.GM_Message(11,tostring(add_table[guardNum][1]));
 			eq.signal(add_table[guardNum][1],99);
-			eq.GM_Message(13,"Guard table [" .. guardNum .. "] called:  " .. eq.get_entity_list():GetMobByNpcTypeID(add_table[guardNum][1]):GetCleanName() .. "(" .. add_table[guardNum][1] .. ")");
 			spawn_boss(guardNum);
 		elseif table.getn(called_guards) == 6 then
 			break;	--don't want an infinite loop
@@ -95,8 +103,8 @@ end
 
 function spawn_boss(num)
 	local final_boss_locs = {[1] = {18,427,1440,383}, [2] = {25,-230,1440,390}, [3] = {-200,-268,1440,440}, [4] = {-475,-310,1440,57}, [5] = {-345,360,1440,265}, [6] = {-540,260,1455,214}};
-	
 	local boss = eq.spawn2(add_table[num][3],0,0,unpack(final_boss_locs[num]));
+	
 	boss:AddToHateList(Xegony:GetHateRandom(),1);
 	eq.set_timer("memblur",12 * 1000, boss);
 end
@@ -116,9 +124,8 @@ end
 function event_encounter_load(e)
 	--event variables
 	EventReset();
-	eq.GM_Message(18,"EVENT LOADED!");
 	Xegony = eq.get_entity_list():GetMobByNpcTypeID(215056);	--#Xegony_the_Queen_of_Air (215056)
-	eq.set_timer("start", 45 * 1000, Xegony);
+	eq.set_timer("start", 1 * 1000, Xegony);
 	
 	--registered events
 	--Memblur Timers
