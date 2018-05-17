@@ -59,7 +59,7 @@ function EventTimers(e)
 	if e.timer == "start" then
 		eq.stop_timer(e.timer);
 		eq.set_next_hp_event(99);
-		eq.set_timer("memblur", 12 * 1000);
+		eq.set_timer("memblur", 12 * 1000, Xegony);
 	elseif e.timer == "memblur" then		
 		if eq.PlayerCheck(e.self:GetX(), e.self:GetY(), e.self:GetZ(),50) then	--check if player is within 50 units
 			SignalAdds();	--call for help if available adds aren't engaged
