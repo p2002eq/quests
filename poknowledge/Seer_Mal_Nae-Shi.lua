@@ -21,8 +21,10 @@ end
 
 --Plane of Justice flags (VERIFIED)
 function PoJ(e,qglobals)
-	if qglobals.pop_poj_mavuin ~= nil and qglobals.pop_poj_tribunal ~= nil then
+	if qglobals.pop_poj_valor_storms ~= nil then 
 		e.other:Message(5,"Mavuin is grateful to you for taking his case before the Tribunal. The information provided to you, that Mithaniel Marr and Karana carry information you should seek, could be quite useful.");
+	elseif qglobals.pop_poj_mavuin ~= nil and qglobals.pop_poj_tribunal ~= nil then
+		e.other:Message(5,"Having endured the trials, the Tribunal has agreed to reconsider Mavuin's case.");
 	elseif qglobals.pop_poj_mavuin ~= nil then
 		e.other:Message(5,"The evidence of Mavuin is the only thing that can save him now.");
 	end
