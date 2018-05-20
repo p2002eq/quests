@@ -48,37 +48,3 @@ function event_enter_zone(e)
 	local discs = require('disciplines');
 	discs:update_discs(e, e.self:GetLevel());
 end
-
------------------------------------
---POP ALPHA TESTING MODULE
-function event_say(e)
-	local pop_flags = require("pop_flags");
-	pop_flags.options(e)
-	
-	if e.message:findi("get spawns") then
-		GetSpawnsMyLoc(e);
-	end
-	
-end
-
-function GetSpawnsMyLoc(e)
-	local npc_list = eq.get_entity_list():GetNPCList();
-	local mob_list = {};
-	local counter = 0;
-	
-	if(npc_list ~= nil) then
-		for npc in npc_list.entries do								 
-			if npc:CalculateDistance(e.self:GetX(), e.self:GetY(), e.self:GetZ()) <= 25 then
-				counter = counter + 1;
-				mob_list[counter] = npc:GetSpawnPointID();
-				npc:Shout("My spawnpoint id is: " .. npc:GetSpawnPointID());
-				--return true	--mobs still in camp
-			end
-		end
-	end
-	
-	e.self:Message(13,"Spawnpoints:  " ..  tostring(mob_list[1]) .. ", " ..  tostring(mob_list[2]) .. ", " ..  tostring(mob_list[3]) .. ", " ..  tostring(mob_list[4]) .. ", " ..  tostring(mob_list[5]) .. ", " ..  tostring(mob_list[6]) .. ", " ..  tostring(mob_list[7]) .. ", " ..  tostring(mob_list[8]) .. ", " ..  tostring(mob_list[9]) .. ", " ..  tostring(mob_list[10]));
-
-end	
-
------------------------------------
