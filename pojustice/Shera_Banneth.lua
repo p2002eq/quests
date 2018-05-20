@@ -3,8 +3,6 @@
 -- NPC: Shera Banneth (201345)
 ----------------------------------------------------------------------
 
--- [" .. eq.say_link("") .. "]
-
 function event_say(e)
     if(e.message:findi("Hail")) then
         e.self:Say("I dun wanna talk to anyone, go away! Dun ask me [" .. eq.say_link("why") .. "]!");
@@ -18,12 +16,4 @@ end
 function event_trade(e)
     local item_lib = require("items");
     item_lib.return_items(e.self, e.other, e.trade)
-end
-
-function event_combat(e)
-    e.self:Emote("cries out, 'Guards!  Guards!");
-end
-
-function event_death_complete(e)
-    e.self:Say('Justice comes to all, in time.');
 end

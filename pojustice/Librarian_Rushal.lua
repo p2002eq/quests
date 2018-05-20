@@ -24,7 +24,7 @@ function event_say(e)
         elseif(e.message:findi("this place")) then
             e.self:Say("in Lizardman, 'According to the booksss that I had accesss to, this place is the embodiment of order within the universe.  Ever sssince the first mote of ordering of existence, springing out of the chaosss, so too did the Plane of Jussstice exist, to serve and judge the ordering.  It issss said in the Great Books that it shall remain until the end of Order itssself, until everything once again is anarchy.  Until then, there are the [Judges].");
         elseif(e.message:findi("Judges")) then
-            e.self:Say("Lizardman, 'The six Judges rule thisss place, six and one more it is written.  Those accusssed of the mossst serious of crimesss are banished to this realm, their Court, for Trial by the Judges of all Judgesss, the Tribunal.  It isss written that their jussstice is impartial, and absssolute.  The innocent are returned to their place of origin, and their guilty meet the Executioner.  The judges deliver the fairessst [Justice] of them all.");
+            e.self:Say("in Lizardman, 'The six Judges rule thisss place, six and one more it is written.  Those accusssed of the mossst serious of crimesss are banished to this realm, their Court, for Trial by the Judges of all Judgesss, the Tribunal.  It isss written that their jussstice is impartial, and absssolute.  The innocent are returned to their place of origin, and their guilty meet the Executioner.  The judges deliver the fairessst [Justice] of them all.");
         elseif(e.message:findi("Justice")) then
             e.self:Say("in Lizardman, 'The Great Bookssss were vague on thisss point, but it seemed that each of the accusssed, in order for justice to be total, is here judged according to the lawsss of their own sssociety.  From the handsss of their own flesh and blood come the lawsss, and it is to these that they are held accountable.  Jussstice for me may be very different to justice for you, ".. e.other:GetName() .. ", but we are both served fairly.  As for my [crime], I am guilty already and confesssed.");
         elseif(e.message:findi("crime")) then
@@ -38,12 +38,4 @@ end
 function event_trade(e)
     local item_lib = require("items");
     item_lib.return_items(e.self, e.other, e.trade)
-end
-
-function event_combat(e)
-    e.self:Emote("cries out, 'Guards!  Guards!");
-end
-
-function event_death_complete(e)
-    e.self:Say('Justice comes to all, in time.');
 end

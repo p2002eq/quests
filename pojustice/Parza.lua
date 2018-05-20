@@ -3,8 +3,6 @@
 -- NPC: Parza (201303)
 ----------------------------------------------------------------------
 
--- [" .. eq.say_link("") .. "]
-
 function event_say(e)
     if(e.message:findi("Hail")) then
         e.self:Emote("winks at you.  'Hello, ".. e.other:GetName() .. ".  A fine " .. e.other:Race() .. " ye are, too!  Ye don't appear to be carrying the weight on thy shoulders that everyone else has about these parts.  I wonder what your part is.'  Her large, green eyes look deep into your own.  'Ah, me.  What would a merchant know about such things.  And a [" .. eq.say_link("tricksy") .. "] merchant at that.'");
@@ -22,12 +20,4 @@ end
 function event_trade(e)
     local item_lib = require("items");
     item_lib.return_items(e.self, e.other, e.trade)
-end
-
-function event_combat(e)
-    e.self:Emote("cries out, 'Guards!  Guards!");
-end
-
-function event_death_complete(e)
-    e.self:Say('Justice comes to all, in time.');
 end

@@ -11,15 +11,13 @@ function event_say(e)
     elseif(e.message:findi("ranger")) then
         e.self:Say("His name was Rhionn Leafsblade, I believe he resides here with me as well.  He wanted a magical arrow, a single arrow able to pierce even the strongest mithril breastplate.  I had done work with Rhionn before, and believed him an honorable man, and the [" .. eq.say_link("challenge") .. "] was not one that I could pass up.");
     elseif(e.message:findi("challenge")) then
-        e.self:Emote("smiles.  'The arrow of course.  Mundane materials would not have been sufficient to hold the enchantments necessary to get this bow to perform as he requested.  I had Rhionn gather the materials I needed, the claw of a black drake, feathers from the Spiroc Lord, and a dracolich bone for the shaft.  I had no idea what he would use it for");
-    end
+        e.self:Emote("smiles.  'The arrow of course.  Mundane materials would not have been sufficient to hold the enchantments necessary to get this bow to perform as he requested.  I had Rhionn gather the materials I needed, the claw of a black drake, feathers from the Spiroc Lord, and a dracolich bone for the shaft.  I had no idea what he would [" .. eq.say_link("what did he use it for?",false,"use it") .. "] for.");
+    elseif(e.message:findi("use it")) then
+		e.self:Say("He used it for murder. Cold blooded murder. In my trade sect we were held responsible for the actions of our weapons. When the sect council found what my arrow was used for, they sent me before the Tribunal. I was found guilty for assisting in the murder of an innocent, and now I am here.");
+	end
 end
 
 function event_trade(e)
     local item_lib = require("items");
     item_lib.return_items(e.self, e.other, e.trade)
-end
-
-function event_combat(e)
-    e.self:Emote("cries out, 'Guards!  Guards!");
 end
