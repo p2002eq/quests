@@ -36,13 +36,11 @@ function event_say(e)
 	elseif e.message:findi("lore") and qglobals.pop_maelin_info_zek_bros ~= nil and qglobals.pop_maelin_lore_karana ~= nil and qglobals.pop_tactics_ralloz == nil then	--flag already gotten but RZ still not dead
 		e.self:Say("As I have already told you, Rallos must be stopped!  The war he plans to rage on Norrath could have devastating effects on not only that planet but all planes of existence!");
 	
-	--Karana Lore Flag (Librarian MM and Saryrn flags already received by saying "what lore" previously)
-	elseif e.message:findi("lore") and qglobals.pop_maelin_lore_mithaniel ~= nil and qglobals.pop_maelin_lore_saryrn ~= nil then
+	--Karana Lore Flag (Librarian MM and Saryrn flags already received by saying "what lore" previously - must have killed Agnarr/recieved Karana flag)
+	elseif e.message:findi("lore") and qglobals.pop_maelin_lore_karana == nil and qglobals.pop_bot_karana ~= nil and qglobals.pop_maelin_lore_mithaniel ~= nil and qglobals.pop_maelin_lore_saryrn ~= nil then
 		e.self:Say("This is quite interesting friends.  It is a detailed document on what has become of Zebuxoruk.  It seems that he had been tampering with translating works of the gods for mortals.  This knowledge was leading them to enlightenment and finally to ascention into dietyhood.  This angered the gods, for they felt that any diety should be chosen by them.  Ascension of any mortal was not something they were prepared to deal with.");
-		if qglobals.pop_maelin_lore_karana == nil then 
-			eq.set_global("pop_maelin_lore_karana","1",5,"F");
-			e.other:Message(15,"You've received a character flag!");
-		end
+		eq.set_global("pop_maelin_lore_karana","1",5,"F");
+		e.other:Message(15,"You've received a character flag!");
 	
 	--Saryrn Lore Flag (Librarian MM flag received for Cipher of Druzzil by saying "what lore" previously)
 	elseif e.message:findi("lore") and qglobals.pop_maelin_lore_mithaniel ~= nil and qglobals.pop_pot_saryrn_final ~= nil then
