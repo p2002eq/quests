@@ -124,7 +124,6 @@ function event_timer(e)
 	elseif e.timer == "fail" then
 			eq.stop_all_timers();
 			DepopEvent();
-			GM_Message(15,"ENCOUNTER FAILED!") --debug
 			--Add fail emote?
 			eq.signal(200041,1);	--signal #bert_unloader (200041) to unload encounter
 	end
@@ -148,7 +147,7 @@ end
 
 function KingCounter()
 	king_counter = king_counter + 1;
-	GM_Message(15,tostring("King counter is: " .. king_counter));	--debug/monitor progress
+	eq.GM_Message(15,tostring("King counter is: " .. king_counter .. "/12"));	--debug/monitor progress
 	if king_counter == 12 then
 		eq.zone_emote(7,"A sinister vision enters your mind of a faceless one handsome yet dead and decaying. The vision then shifts to that of a torn bestial creature and a loud shout is heard, 'Defilers death comes for you today!'");
 		eq.spawn2(200260,0,0,-45,0,-289,384);	--#Bertoxxulous (200260)
@@ -157,7 +156,7 @@ end
 
 function TrashCounter()
 	trash_counter = trash_counter + 1;
-	GM_Message(15,tostring("Trash counter is: " .. trash_counter .. " (Timer: " .. tostring(timer) .. ")"));		--debug/monitor progress
+	eq.GM_Message(15,tostring("Trash counter is: " .. trash_counter .. " (Timer: " .. tostring(timer) .. ")"));		--debug/monitor progress
 	
 	--King Spawn Locations
 	--North Crypt: {-3,290,-244,0},			
@@ -227,18 +226,6 @@ function DepopEvent()
 	deactivate_spawnpoints(east_spawnpoints);
 	deactivate_spawnpoints(north_spawnpoints);
 	deactivate_spawnpoints(south_spawnpoints);
-end
-
-function GM_Message(color,text)			--DEBUGGING/MONITORING
-	client_list = eq.get_entity_list():GetClientList();
-	
-	if client_list ~= nil then
-		for client in client_list.entries do
-			if client:GetGM() then
-				client:Message(color,text);
-			end
-		end
-	end
 end
 
 	
