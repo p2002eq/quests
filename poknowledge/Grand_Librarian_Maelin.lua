@@ -53,12 +53,10 @@ function event_say(e)
 		end
 	
 	--Mith Marr Lore Flag (Mith Marr questline completed)
-	elseif e.message:findi("lore") and qglobals.pop_poj_mavuin ~= nil and qglobals.pop_poj_tribunal ~= nil and qglobals.pop_poj_valor_storms ~= nil and qglobals.pop_pov_aerin_dar ~= nil and qglobals.pop_hoh_faye ~= nil and qglobals.pop_hoh_trell ~= nil and qglobals.pop_hoh_garn ~= nil and qglobals.pop_hohb_marr ~= nil then	--LMM  quest line is complete
+	elseif e.message:findi("lore") and qglobals.pop_maelin_lore_mithaniel == nil and qglobals.pop_poj_mavuin ~= nil and qglobals.pop_poj_tribunal ~= nil and qglobals.pop_poj_valor_storms ~= nil and qglobals.pop_pov_aerin_dar ~= nil and qglobals.pop_hoh_faye ~= nil and qglobals.pop_hoh_trell ~= nil and qglobals.pop_hoh_garn ~= nil and qglobals.pop_hohb_marr ~= nil then	--LMM  quest line is complete
 		e.self:Say("Astounding, this truly is the Cipher of Druzzil!  I shall take notes from your knowledge and try to learn from it.  If you happen upon any artifacts that have writings in the language of the gods bring them back to me and I will do my best to read them to you in common tongue.");
-		if qglobals.pop_maelin_lore_mithaniel == nil then 
-			eq.set_global("pop_maelin_lore_mithaniel","1",5,"F");
-			e.other:Message(15,"You've received a character flag!");
-		end
+		eq.set_global("pop_maelin_lore_mithaniel","1",5,"F");
+		e.other:Message(15,"You've received a character flag!");
 
 	--what information response
 	
