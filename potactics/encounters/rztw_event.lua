@@ -55,7 +55,6 @@ end
 
 function FailTimers(e)
 	if e.timer == "fail" then
-		GM_Message(13,"EVENT FAILED - TIMER EXPIRED");
 		eq.stop_timer(e.timer);
 		if eq.get_entity_list():IsMobSpawnedByNpcTypeID(214052) then
 			eq.depop(214052);	--depop Fake RZ if up
@@ -85,7 +84,6 @@ function VallonSplit(e)
 end
 
 function Phase2Check(e)
-	GM_Message(18,"Phase 2 check!");
 	local vallon = eq.get_entity_list():IsMobSpawnedByNpcTypeID(214296); 	--#Vallon Zek
 	local tallon = eq.get_entity_list():IsMobSpawnedByNpcTypeID(214299); 	--#Tallon Zek
 	if not vallon and not tallon then
@@ -144,7 +142,6 @@ end
 --Rallos Zek the Warlord Functions
 
 function RZTW_Combat(e)
-	GM_Message(15,"RZTW engaged!");
 	local rztw = eq.get_entity_list():GetMobByNpcTypeID(214298); 	--#Rallos_Zek_the_Warlord (214298)
 	if e.joined then
 		eq.set_timer("adds", 70 * 1000); 	--start add timer
@@ -220,20 +217,6 @@ function EventWin(e)
 	eq.signal(214108,1,5 * 1000);	--signal #rztw_controller (214108) to unload encounter
 end
 	
-
-
-function GM_Message(color,text)			--DEBUGGING/MONITORING
-	client_list = eq.get_entity_list():GetClientList();
-	
-	if client_list ~= nil then
-		for client in client_list.entries do
-			if client:GetGM() then
-				client:Message(color,text);
-			end
-		end
-	end
-end
-
 function DepopEvent()
 	local mob_list = {214296,214299,214300,214298,214307,214308,214309}	--TZ,VZ,FakeVZ,RZTW
 	for _,mob in pairs(mob_list) do
