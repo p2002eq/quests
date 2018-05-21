@@ -80,7 +80,7 @@ end
 
 --Plane of Storms (VERIFIED)
 function PoS(e,qglobals)
-	if qglobals.pop_poj_valor_storms ~= nil and tonumber(qglobals.pop_pos_askr_the_lost) == 3 and qglobals.pop_pos_askr_the_lost_final ~= nil then
+	if qglobals.pop_poj_valor_storms ~= nil and tonumber(qglobals.pop_pos_askr_the_lost) == 3 and qglobals.pop_pos_askr_the_lost_final ~= nil and qglobals.pop_bot_karana == nil then
 		e.other:Message(5,"You have obtained the Talisman of Thunderous Foyer from Askr, he seeks further assistance in the Bastion of Thunder.");
 	elseif qglobals.pop_poj_valor_storms ~= nil and tonumber(qglobals.pop_pos_askr_the_lost) == 3 and qglobals.pop_pos_askr_the_lost_final == nil then
 		e.other:Message(5,"You have shown your prowess in battle to Askr, now you must make strides to get to the Bastion of Thunder.");
