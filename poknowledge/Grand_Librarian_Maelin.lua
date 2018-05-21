@@ -25,12 +25,10 @@ function event_say(e)
 	--"what lore" responses for Maelin
 		
 	--Recieved all "what lore" flags from Maelin and killed RZ (Sol ro not dead)  --not required step
-	elseif e.message:findi("information") and qglobals.pop_maelin_info_zek_bros ~= nil and qglobals.pop_maelin_lore_karana ~= nil and qglobals.pop_tactics_ralloz ~= nil and  qglobals.pop_sol_ro_solusk == nil then
+	elseif e.message:findi("information") and qglobals.pop_maelin_info_rallos == nil and qglobals.pop_maelin_info_zek_bros ~= nil and qglobals.pop_maelin_lore_karana ~= nil and qglobals.pop_tactics_ralloz ~= nil and  qglobals.pop_sol_ro_solusk == nil then
 		e.self:Say("'A parchment of Rallos'?  Let me read it, it says that Rallos was not alone in his feelings about mortals.  Solusek Ro also holds stake in the war to be led on Norrath.  Not only this but he is channeling power from his father's plane into his own.  He is taking that power and intensifying it through an artifact of great power, and then focusing it onto one point.  It is a detailed as a crystal that burns with all the powers of the plane of fire.  It is said to have the ability to turn the face of Norrath into a charred wasteland.  They plan for a manaetic behemoth to carry and deposit it upon Norrath.  You must stop these plans, you must stop Solusek!");
-		if qglobals.pop_maelin_info_rallos == nil then 
-			eq.set_global("pop_maelin_info_rallos","1",5,"F");
-			e.other:Message(15,"You've received a character flag!");
-		end
+		eq.set_global("pop_maelin_info_rallos","1",5,"F");
+		e.other:Message(15,"You've received a character flag!");
 	
 	--Recieved all "what lore" flags from Maelin but haven't killed RZ (requires TZ/VZ kills and said "what information" to Maelin)
 	elseif e.message:findi("lore") and qglobals.pop_maelin_info_zek_bros ~= nil and qglobals.pop_maelin_lore_karana ~= nil and qglobals.pop_tactics_ralloz == nil then	--flag already gotten but RZ still not dead
