@@ -12,7 +12,7 @@ function event_say(e)
 		e.self:Say("The Plane of Fire is no place for a mortal to go frolicking about.  Regardless, to use the portal now would surely mean [" .. eq.say_link("your demise.") .. "]");
 	elseif (e.message:findi("demise")) then
 		e.self:Say("Yes, the end of your mortal existence.  Recently the portal seems to have lost its direction.  The location the portal sends you to is not safe; the [" .. eq.say_link("portal's destination") .. "] seems to have moved somehow.");
-	elseif (e.message:findi("portal's destination") and (qglobals.pop_sol_ro_solusk == nil) and (qglobals.pop_elemental_grand_librarian == nil)) then
+	elseif (e.message:findi("portal's destination") and (qglobals.pop_sol_ro_solusk == nil) and (qglobals.pop_elemental_grand_librarian ~= nil)) then
 		e.self:Say("I do not know if I will ever be able to correct the portal's destination, but if you have the true route for the portal in your mind I will be able to channel the portal to the correct location.");
 		eq.set_global("pop_sol_ro_miak","1",5,"F");
 		e.other:Message(15,"You've received a character flag!");	
