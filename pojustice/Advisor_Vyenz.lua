@@ -5,7 +5,7 @@
 
 function event_say(e)
     if(e.message:findi("Hail")) then
-        e.other:Message(0,"The dark touches you, touches you.  Your soul, touched by Dark Clouds, Mythsong.  Dark Clouds.  The Master will have you yet, yet will you be had.  Open your eyes, ".. e.other:GetName() .. ".  Open your eyes and look deep into my gaze.  Repeat after me, after me...  'Advisor, my will is thine'");
+        e.other:Message(0,"The dark touches you, touches you.  Your soul, touched by Dark Clouds, ".. e.other:GetName() .. ".  Dark Clouds.  The Master will have you yet, yet will you be had.  Open your eyes, ".. e.other:GetName() .. ".  Open your eyes and look deep into my gaze.  Repeat after me, after me...  'Advisor, my will is thine'");
     end
 end
 
