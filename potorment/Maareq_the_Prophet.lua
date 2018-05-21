@@ -50,7 +50,7 @@ function event_timer(e)
 				if mob:GetNPCTypeID() == 207293 and mob:CalculateDistance(e.self:GetX(), e.self:GetY(), e.self:GetZ()) <= 5 then
 					mob:Emote("adheres to Maareq's flesh and is quickly absorbed!");
 					mob:Depop();
-					e.self:HealDamage(5000);
+					e.self:HealDamage(6000);
 				end
 			end
 		end
