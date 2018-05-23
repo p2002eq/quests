@@ -32,12 +32,3 @@ function event_click_door(e)
 		end
 	end	
 end
-
------------------------------------
---POP ALPHA TESTING MODULE
-function event_say(e)
-	local pop_flags = require("pop_flags");
-	pop_flags.options(e)
-end
-
------------------------------------

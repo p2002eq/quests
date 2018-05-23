@@ -39,13 +39,7 @@ end
 ---DEBUG----
 --zone flagging
 function event_say(e)
-	------------------------------------
-	--POP ALPHA TESTING MODULE
-	local pop_flags = require("pop_flags");
-	pop_flags.options(e)
-	-----------------------------------	
-	
-	--Hedge Maze Testing
+	--Hedge Maze Reset Options
 	if e.self:GetGM() then
 		if e.message:findi("help") then
 			e.self:Message(300,"Hedge options available are: [" .. eq.say_link("maze reset 1",false,"Reset Maze 1") .. "], [" .. eq.say_link("maze reset 2",false,"Reset Maze 2") .. "], [" .. eq.say_link("maze reset 3", false, "Reset Maze 3") .. "]");

@@ -88,3 +88,51 @@ function check_group_guild(cur_group, guildId)
         return false;
     end
 end
+
+
+--Named/unique mob controls to despawn within instance
+local disable_instance = {}
+local static_named = {211025, 211031};	--disable these spawnpoints since they don't share other trash NPCS (also are included above in disabled instance)
+
+function event_spawn(e)
+    local instance_id = eq.get_zone_instance_id();
+    if(instance_id ~= 0) then
+		local mysql = require("luasql_ext");
+		for id,name in mysql.rows(con,"SELECT id from npc_types WHERE id >= 211000 and id < 212000 and disable_instance = 1") do
+			disable_instance[id] = tonumber(id);
+		end
+        eq.set_timer("scan", 5 * 1000);
+    end
+end
+
+function event_timer(e)
+	if e.timer == "scan" then
+		local npc_list = eq.get_entity_list():GetNPCList();
+		if npc_list ~= nil then
+			for npc in npc_list.entries do
+				for k,npc_id in pairs(disable_instance) do
+					if npc:CastToMob():GetNPCTypeID() == npc_id then
+						npc:Shout("I'm not even supposed to be here today!") --debug
+						local spawn = eq.get_entity_list():GetSpawnByID(npc:GetSpawnPointID());
+						spawn:ForceDespawn();
+						if DisableCheck(npc_id) then
+							spawn:Disable();
+						else
+							spawn:Repop(1);
+						end
+					end
+				end
+			end
+		end
+	end
+end		
+
+function DisableCheck(npc)
+	for k,v in pairs(static_named) do
+		if npc == v then
+			return true;
+		end
+	end
+	return false;
+end
+
