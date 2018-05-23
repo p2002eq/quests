@@ -92,7 +92,7 @@ end
 
 --Named/unique mob controls to despawn within instance
 local disable_instance = {}
-local static_named = {211025, 211031};	--disable these spawnpoints since they don't share other trash NPCS (also are included above in disabled instance)
+local static_named = {211025};	--disable these spawnpoints since they don't share other trash NPCS (also are included above in disabled instance)
 
 function event_spawn(e)
     local instance_id = eq.get_zone_instance_id();
@@ -112,7 +112,6 @@ function event_timer(e)
 			for npc in npc_list.entries do
 				for k,npc_id in pairs(disable_instance) do
 					if npc:CastToMob():GetNPCTypeID() == npc_id then
-						npc:Shout("I'm not even supposed to be here today!") --debug
 						local spawn = eq.get_entity_list():GetSpawnByID(npc:GetSpawnPointID());
 						spawn:ForceDespawn();
 						if DisableCheck(npc_id) then
