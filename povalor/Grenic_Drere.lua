@@ -20,7 +20,7 @@ function event_trade(e)
 	local item_lib = require("items");	
 	local qglobals = eq.get_qglobals(e.self, e.other);
 
-	if item_lib.check_turn_in(e.self, e.trade, {item1 = 29281, item2 = 29282, item3 = 29283, item4 = 29284}) then  --Box of Souls, Soul Sphrere (Angry), Soul Sphere (Calm), Soul Sphere (Resisting)
+	if item_lib.check_turn_in(e.self, e.trade, {item1 = 29281, item2 = 29292, item3 = 29293, item4 = 29294}) then  --Box of Souls, Soul Sphrere (Angry), Soul Sphere (Calm), Soul Sphere (Resisting)
 		e.self:Say("Hmm, this is minor vindication, but vindication nonetheless. I will never again fight with my old compatriots, but now I know the punishment of those responsible for my exile is fitting for their crime. We did have an agreement, and while stripped of my rank I still have my honor. This ring is what all Soldiers of Marr wear to enter the Halls of Honor, it serves no use for me any longer, it is yours now.");
 		e.other:SummonItem(29214);  --Ring of Marr granted only to person who completes hand-in
 		if qglobals.pop_alt_access_hohonora == nil then

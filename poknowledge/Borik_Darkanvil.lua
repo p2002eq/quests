@@ -8,7 +8,7 @@ function event_say(e)
 	elseif(e.message:findi("Perilium")) then
 		e.self:Say("Perilium was once used to make clockwork machines, there are now stronger metals so it has become harder and harder to find Perilium, much less a block that is large enough to be of any use. Then you will need to find the brain of a crystal spider, this is where the actual soul will be held. Of course the box will need a supernatural power source, the souls are held into place by the horror of their own dreams, the heart of an agony mephit will give the device that power. Forge these with a smithing hammer and a water flask and you will have your box. Of course if you have not the skill, I can [" .. eq.say_link("forge them for me",false,"forge them for you") .. "].");
 	elseif(e.message:findi("forge them for me")) then
-		if(e.self:GetSkill(63) > 59) then
+		if(e.other:GetSkill(63) > 64) then
 			e.self:Say("A smith of your skill does not need my assistance in making the box, however I won't turn away your money. Bring me three thousand platinum, the perilium, the brain, and the heart and I will make the box for you.");
 		else
 			e.self:Say("If you return all three items to me I will do the work for you for, a mere three thousand platinum. I will not guarantee my success, but I can guarantee if you do not have the skill, you will fail.");
@@ -19,8 +19,12 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 29228, item2 = 29229, item3 = 29230, platinum = 3000})) then
-		e.self:Say("Ah ha! Here we go one box of souls!");
-		e.other:QuestReward(e.self,0,0,0,0,29281);
+		if math.random(100) <= 95 then  --5% chance to fail
+			e.self:Say("Ah ha! Here we go one box of souls!");
+			e.other:QuestReward(e.self,0,0,0,0,29281);
+		else
+			e.self:Emote("sighs in disappointment. 'You wouldn't happen to have any extra components would you?'");
+		end
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
