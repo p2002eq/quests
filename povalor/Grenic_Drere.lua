@@ -20,29 +20,30 @@ function event_trade(e)
 	local item_lib = require("items");	
 	local qglobals = eq.get_qglobals(e.self, e.other);
 
-	if not e.other:IsRaidGrouped() and item_lib.check_turn_in(e.self, e.trade, {item1 = 29281, item2 = 29282, item3 = 29283, item4 = 29284}) then  --Box of Souls, Soul Sphrere (Angry), Soul Sphere (Calm), Soul Sphere (Resisting)
+	if item_lib.check_turn_in(e.self, e.trade, {item1 = 29281, item2 = 29282, item3 = 29283, item4 = 29284}) then  --Box of Souls, Soul Sphrere (Angry), Soul Sphere (Calm), Soul Sphere (Resisting)
 		e.self:Say("Hmm, this is minor vindication, but vindication nonetheless. I will never again fight with my old compatriots, but now I know the punishment of those responsible for my exile is fitting for their crime. We did have an agreement, and while stripped of my rank I still have my honor. This ring is what all Soldiers of Marr wear to enter the Halls of Honor, it serves no use for me any longer, it is yours now.");
 		e.other:SummonItem(29214);  --Ring of Marr granted only to person who completes hand-in
-		
-		--zone flagging
-		if e.other:IsGrouped() then
-			group = e.other:GetGroup();
-			members = group:GroupCount();
-			
-			for n = 1,members do 
-				member = group:GetMember(n-1);		--still flags all 6 members (0-5)
-				member_charid = member:CastToClient():CharacterID();
-				local member_qglobal = eq.get_qglobals(member:CastToClient());
-				if member_qglobal.pop_alt_access_hohonora == nil and member:CastToClient():InZone() then  --checks for flag and that members are in zone
-					eq.target_global("pop_alt_access_hohonora", "1", "F", 0, member_charid, 0);
-					member:CastToClient():SetZoneFlag(211);	--hohonora
-					member:Message(15, "You receive a character flag!");
-				end
-			end
-		elseif qglobals.pop_alt_access_hohonora == nil then
+		if qglobals.pop_alt_access_hohonora == nil then
 			eq.set_global("pop_alt_access_hohonora", "1", 5, "F");
-			e.other:Message(15, "You receive a character flag!");		
+			e.other:Message(15, "You've received a character flag!");		
 		end		
+		
+		--group flagging is out of era (April 7, 2003 patch) -- omitted below
+		-- if e.other:IsGrouped() then
+			-- group = e.other:GetGroup();
+			-- members = group:GroupCount();
+			
+			-- for n = 1,members do 
+				-- member = group:GetMember(n-1);		--still flags all 6 members (0-5)
+				-- member_charid = member:CastToClient():CharacterID();
+				-- local member_qglobal = eq.get_qglobals(member:CastToClient());
+				-- if member_qglobal.pop_alt_access_hohonora == nil and member:CastToClient():InZone() then  --checks for flag and that members are in zone
+					-- eq.target_global("pop_alt_access_hohonora", "1", "F", 0, member_charid, 0);
+					-- member:CastToClient():SetZoneFlag(211);	--hohonora
+					-- member:Message(15, "You receive a character flag!");
+				-- end
+			-- end
+
 	end
 	
     item_lib.return_items(e.self, e.other, e.trade)

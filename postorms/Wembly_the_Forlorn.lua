@@ -27,26 +27,27 @@ function event_trade(e)
     if not e.other:IsRaidGrouped() and item_lib.check_turn_in(e.self, e.trade, {item1 = 29216, item2 = 29217, item3 = 29218, item4 = 29219}) then  --Quarter of Diaku Emblem x4
 		e.self:Say("What's this? Four pieces of a Diaku Emblem? Why ever would you give these to me? Well I think I can get them to fit back together. You know, while you have this, I would be quite happy if you would avenge the loss of my dear ship and kill every Diaku you find? Yes that would be very good indeed. Here is your key, and a key for all your companions as well.");
 		e.other:SummonItem(29215);  --Completed Diaku Emblem
-		
-		--zone flagging 
-		if e.other:IsGrouped() then
-			group = e.other:GetGroup();
-			members = group:GroupCount();
-			
-			for n = 1,members do 
-				member = group:GetMember(n-1);		--still flags all 6 members (0-5)
-				member_charid = member:CastToClient():CharacterID();
-				local member_qglobal = eq.get_qglobals(member:CastToClient());
-				if member_qglobal.pop_alt_access_potactics == nil and member:CastToClient():InZone() then  --checks for flag and that members are in zone
-					eq.target_global("pop_alt_access_potactics", "1", "F", 0, member_charid, 0);
-					member:CastToClient():SetZoneFlag(214);
-					member:Message(15, "You receive a character flag!");
-				end
-			end
-		elseif qglobals.pop_alt_access_potactics == nil then
+		if qglobals.pop_alt_access_potactics == nil then
 			eq.set_global("pop_alt_access_potactics", "1", 5, "F");
-			e.other:Message(15, "You receive a character flag!");		
+			e.other:Message(15, "You've received a character flag!");		
 		end		
+		
+		--group flagging is out of era (April 7, 2003 patch) -- omitted below
+		-- if e.other:IsGrouped() then
+			-- group = e.other:GetGroup();
+			-- members = group:GroupCount();
+			
+			-- for n = 1,members do 
+				-- member = group:GetMember(n-1);		--still flags all 6 members (0-5)
+				-- member_charid = member:CastToClient():CharacterID();
+				-- local member_qglobal = eq.get_qglobals(member:CastToClient());
+				-- if member_qglobal.pop_alt_access_potactics == nil and member:CastToClient():InZone() then  --checks for flag and that members are in zone
+					-- eq.target_global("pop_alt_access_potactics", "1", "F", 0, member_charid, 0);
+					-- member:CastToClient():SetZoneFlag(214);
+					-- member:Message(15, "You receive a character flag!");
+				-- end
+			-- end
+
 	end
 	
     item_lib.return_items(e.self, e.other, e.trade)
