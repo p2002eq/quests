@@ -1,5 +1,9 @@
 ---- Quest:Johanius Stake of Slaying
 
+function event_spawn(e)
+	Cleanup();
+end
+
 function event_say(e)
     fac = e.other:GetFaction(e.self);
     if(e.message:findi("hail")) then
@@ -27,9 +31,7 @@ end
 
 function event_timer(e)
     if e.timer == 'cleanup' then
-        eq.depop(172192)
-        eq.depop(172193)
-        eq.unload_encounter('Johanius');
+		Cleanup();
         eq.depop_with_timer()
     end
 end
@@ -42,6 +44,12 @@ function event_signal(e)
     elseif(e.signal == 2) then
         eq.depop_with_timer();
     end
+end
+
+function Cleanup()
+	eq.depop(172192);	-- Aellana_Barleou
+	eq.depop(172193);	-- Lyrra_Rutledge
+	eq.unload_encounter('Johanius');
 end
 
 function event_trade(e)
