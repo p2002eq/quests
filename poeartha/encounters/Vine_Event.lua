@@ -117,13 +117,7 @@ function BossTimer(e)
 	elseif e.timer == "reset" then
 		eq.stop_timer(e.timer);
 		eq.set_next_hp_event(75);	--reset hp events incase of failure
-		eq.signal(218023,99);	--A_Mangled_Vegerog (218023) to depop event adds since share NPCID with normal trash mobs
-	end
-end
-
-function AddSignal(e)
-	if e.signal == 99 and e.self:GetSpawnPointID() == 0 then	--event mobs would not have a valid spawnpoint
-		eq.depop();
+		DepopAdds();	--depop event adds
 	end
 end
 
@@ -141,9 +135,20 @@ end
 
 function EndEvent()
 	eq.stop_all_timers();
+	DepopAdds();	--depop event adds
 	DepopEvent();
-	eq.signal(218023,99);	--A_Mangled_Vegerog (218023) to depop event adds since share NPCID with normal trash mobs
 	eq.signal(218342,2,5 * 1000);	--#vine_controller (218342) to unload encounter
+end
+
+function DepopAdds()
+	local npc_list = eq.get_entity_list():GetNPCList();
+	if npc_list ~= nil then
+		for npc in npc_list.entries do
+			if npc:GetNPCTypeID() == 218023 and npc:GetSpawnPointID() == 0 then
+				npc:Depop();
+			end
+		end
+	end
 end
 	
 function DepopEvent()	
@@ -179,7 +184,6 @@ function event_encounter_load(e)
 	eq.register_npc_event("Vine_Event", Event.death_complete, 218385, EventWin);			--#Derugoak_Bloodwalker (218385)
 	
 	--Derugoak spawned adds (Depop and corpse camp handling)
-	eq.register_npc_event("Vine_Event", Event.signal, 218023, AddSignal);					--A_Mangled_Vegerog (218023)
 	eq.register_npc_event("Vine_Event", Event.combat, 218023, AddCombat);					--A_Mangled_Vegerog (218023)
 	
 	--Lootless PH Boss Events (will not call adds)
