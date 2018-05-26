@@ -6,6 +6,7 @@ completion of the plate cycle.  If he depops then event is failed and Plate Cycl
 
 function event_spawn(e)
     e.self:SetRunning(true);
+	e.self:Say("Uhh, I think I'll be leaving now... Give my regards to Thurgadin.");
 end
 
 function event_death_complete(e)
