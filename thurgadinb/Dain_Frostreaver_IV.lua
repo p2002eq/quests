@@ -1,8 +1,15 @@
+--Dain_Frostreaver_IV (129003) - Real version
+--thurgadinb
+
 function event_signal(e)
 	if(e.signal == 1) then --Night
-		eq.move_to(6,777,66,128,1);
+		e.self:SetCurrentWP(0);
+		eq.start(56);
+		--eq.move_to(6,777,66,128,true);
 	elseif(e.signal == 2) then --Day
-		eq.move_to(4,690,69,128,1);
+		e.self:SetCurrentWP(0);
+		eq.start(55);
+		--eq.move_to(4,690,69,128,true);
 	end
 end
 

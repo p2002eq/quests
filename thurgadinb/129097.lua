@@ -22,5 +22,5 @@ function event_spawn(e)
 	eq.signal(129044,1);
 	eq.signal(129080,1);
 	eq.signal(129042,1);
-	eq.signal(129079,1);		
+	eq.signal(129079,1);
 end
