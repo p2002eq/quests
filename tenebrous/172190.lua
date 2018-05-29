@@ -16,8 +16,6 @@ function event_waypoint_arrive(e)
         e.self:Say("Hurry inside the gates ladies I will be in shortly after rewarding the brave individuals that assisted me in your rescue.");
         eq.signal(172192,2); -- Aellana_Barleou
         eq.signal(172193,2); -- Lyrra_Rutledge
-        eq.stop()
-    elseif(e.wp >= 18) then
         eq.spawn2(172191,0,0,e.self:GetX(),e.self:GetY(),e.self:GetZ(),e.self:GetHeading()); -- #Johanius_Barleou_the_Slayer
         eq.depop();
     end

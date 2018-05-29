@@ -1,7 +1,7 @@
 -- Arcane Order armor quests
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Why hello there " .. e.other:GetName() .. "! Its not often that I get many visitors to our sacred hall here. I am Juegile Sohgohm, Master Elementalist of the Order of Three. I have studied in these hallowed halls for all of my days. In my spare time I also pride myself as being a mentor for all of our new apprentices. If you are a young [" .. eq.say_link("Magician") .. "], [" .. eq.say_link("Wizard") .. "] or [" .. eq.say_link("Enchanter") .. "] and you hail from the Order of Three house I might have some work for you.");
+		e.self:Say("Why hello there " .. e.other:GetName() .. "! Its not often that I get many visitors to our sacred hall here. I am Juegile Sohgohm, Master Elementalist of the Order of Three. I have studied in these hallowed halls for all of my days. In my spare time I also pride myself as being a mentor for all of our new apprentices. If you are a young [" .. eq.say_link("i am a young magician",false,"Magician") .. "], [" .. eq.say_link("i am a young wizard",false,"Wizard") .. "] or [" .. eq.say_link("i am a young enchanter",false,"Enchanter") .. "] and you hail from the Order of Three house I might have some work for you.");
 	elseif(e.message:findi("young magician")) then
 		e.self:Say("Excellent, you must have certainly heard of the [" .. eq.say_link("training exercises") .. "] all new recruits must undergo."); 
 	elseif(e.message:findi("young wizard")) then

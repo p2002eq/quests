@@ -21,9 +21,9 @@ end
 --if initially zoning into CoDecay after Grummus
 function event_zone(e)
 	local qglobals = eq.get_qglobals(e.self);
-	local tier2 = 55;
+	local tier2 = 46;
 	if e.zone_id == 200 then
-		if e.self:GetLevel() >= tier2 and (qglobals.pop_pod_grimmus_planar_projection ~= nil or qglobals.pop_alt_access_codecay ~= nil) then
+		if e.self:GetLevel() >= tier2 and ((qglobals.pop_pod_alder_fuirstel ~= nil and qglobals.pop_pod_grimmus_planar_projection ~= nil) or qglobals.pop_alt_access_codecay ~= nil) then
 			if not e.self:HasZoneFlag(200) then
 				e.self:SetZoneFlag(200);
 			end

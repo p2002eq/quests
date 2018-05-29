@@ -52,7 +52,7 @@ function event_trade(e)
         until mercAssigments == 0
     end
 
-    if(item_lib.check_turn_in(e.self, e.trade, {item1 = 29124})) then
+    if(item_lib.check_turn_in(e.self, e.trade, {item1 = 29124}) or item_lib.check_turn_in(e.self, e.trade, {item1 = 29125})) then	--Storm giant or Frost giant toes
         e.self:Say("Ahh these will go nicely with the rest of my collection. Here is a small reward for your trouble.");
         e.other:Faction(42, 10); -- CoV
         e.other:Faction(362, 2); -- Yelinak

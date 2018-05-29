@@ -1,3 +1,15 @@
+--player.lua for 
+--Bastion of Thunder
+
+--POP ALPHA TESTING MODULE
+
+function event_say(e)
+	local pop_flags = require("pop_flags");
+	pop_flags.options(e)
+end
+
+-----------------------------------
+
 -- global script variables
 local player_list = nil;
 local player_list_count = nil;
@@ -7,10 +19,13 @@ local entity_list = nil;
 function event_click_door(e)
 	-- populate the current entity list whenever someone clicks.
 	entity_list = eq.get_entity_list();
+	zone_id = eq.get_zone_id();
+	instance_id = eq.get_zone_instance_id();
 	-- drop the door information into some local variables
 	local door_id = e.door:GetDoorID();
 	local open_type = entity_list:FindDoor(door_id):GetOpenType();
 	client_e = e;
+	--e.self:Message(14,"Door ID is: [" .. door_id .. "] Open Type: [" .. e.door:GetOpenType() .. "] Lock Pick: [" .. e.door:GetLockPick() .. "] Key Item: [" .. e.door:GetKeyItem() .. "]");   --debug to easily check door IDs
 	-- make sure the player_list is clear
 	player_list = nil;
 	player_list_count = nil;
@@ -30,16 +45,21 @@ function event_click_door(e)
 	end
 
 	-- Agnarr Tower aka electric penis
+	
 	if (door_id == 51) then
+
 		-- check if the person clicking has the Symbol of Torden item id:9433 or has GM status of 80+ with the GM flag on.
 		-- the point of checking both status and GM flag is so a dev with status > 80 can still pretend to be a non-GM.
 		-- by using the status, we ensure someone cannot bypass the check by another GM using "#gm on" on a player.
-		if (e.self:Admin() >= 80 and e.self:GetGM()) then
-			PortIntoTower(e.self:GetX(), e.self:GetY(), e.self:GetZ(), 100, -765, -1735, 1270, 0);
+		if (e.self:GetGM()) then
+			PortIntoTower(e.self:GetX(), e.self:GetY(), e.self:GetZ(), 100, -765, -1735, 1270, 385);
 		elseif (e.self:HasItem(9433)) then
-			PortIntoTower(e.self:GetX(), e.self:GetY(), e.self:GetZ(), 100, -765, -1735, 1270, 0);
+			PortIntoTower(e.self:GetX(), e.self:GetY(), e.self:GetZ(), 100, -765, -1735, 1270, 385);
 		else
-			SendGargoyles(209024);
+			local gargoyles = {360450,360451,360452,360453};
+			for _,garg in pairs(gargoyles) do
+				SendGargoyles(garg);
+			end
 		end
 	-- the four corner towers all use the same key and it can be on the keyring
 	elseif (door_id == 61 or door_id == 63 or door_id == 65 or door_id == 67) then
@@ -62,7 +82,10 @@ function event_click_door(e)
 			if (key_found) then
 				PortIntoTower(e.self:GetX(), e.self:GetY(), e.self:GetZ(), 50, 85, 145, 635, 128);
 			else
-				SendGargoyles(209110);
+				local gargoyles = {360486,360487};
+				for _,garg in pairs(gargoyles) do
+					SendGargoyles(garg);
+				end
 			end
 		-- Southwest tower
 		elseif (door_id == 63) then
@@ -70,7 +93,10 @@ function event_click_door(e)
 			if (key_found) then
 				PortIntoTower(e.self:GetX(), e.self:GetY(), e.self:GetZ(), 50, -830, -865, 1375, 128);
 			else
-				SendGargoyles(209111);
+				local gargoyles = {360484,360485};
+				for _,garg in pairs(gargoyles) do
+					SendGargoyles(garg);
+				end
 			end
 		-- Northwest tower
 		elseif (door_id == 65) then
@@ -78,7 +104,10 @@ function event_click_door(e)
 			if (key_found) then
 				PortIntoTower(e.self:GetX(), e.self:GetY(), e.self:GetZ(), 50, -350, -2200, 1955, 255);
 			else
-				SendGargoyles(209112);
+				local gargoyles = {360490,360491};
+				for _,garg in pairs(gargoyles) do
+					SendGargoyles(garg);
+				end
 			end
 		-- Northeast tower
 		elseif (door_id == 67) then
@@ -86,18 +115,21 @@ function event_click_door(e)
 			if (key_found) then
 				PortIntoTower(e.self:GetX(), e.self:GetY(), e.self:GetZ(), 50, 150, -1220, 1120, 128);
 			else
-				SendGargoyles(209113);
+				local gargoyles = {360488,360489};
+				for _,garg in pairs(gargoyles) do
+					SendGargoyles(garg);
+				end
 			end
 		end
 	end
 end
 
-function SendGargoyles(npcid_to_aggro)
+function SendGargoyles(garg_spawnpoint)
 	-- get all the npcs 
 	local npc_list = entity_list:GetNPCList();
 	if (npc_list ~= nil) then
 		for npc in npc_list.entries do
-			if (npc:GetNPCTypeID() == npcid_to_aggro) then
+			if (npc:GetSpawnPointID() == garg_spawnpoint) then
 				-- set aggro on person who clicked
 				npc:AddToHateList(client_e.self,1);
 			end
@@ -118,13 +150,13 @@ function PortIntoTower(cur_x, cur_y, cur_z, distance, dest_x, dest_y, dest_z, de
 				-- check the distance and port them up if close enough
 				if (client_v:CalculateDistance(cur_x, cur_y, cur_z) <= distance) then
 					-- port the player up
-					client_v:MovePC(209, dest_x, dest_y, dest_z, dest_h);
+					client_v:MovePCInstance(zone_id,instance_id, dest_x, dest_y, dest_z, dest_h);
 				end
 			end
 		end
 	else
 		-- port the player up
-		client_e.self:MovePC(209, dest_x, dest_y, dest_z, dest_h);
+		client_e.self:MovePCInstance(zone_id,instance_id, dest_x, dest_y, dest_z, dest_h);
 	end
 end
 

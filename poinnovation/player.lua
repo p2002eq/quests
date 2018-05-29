@@ -38,11 +38,9 @@ function event_click_door(e)
 		if pop_time_maelin ~= nil or e.self:GetGM() then 
 			e.self:SetZoneFlag(219);		--potimea
 			e.self:SetZoneFlag(223);		--potimeb
-			e.self:Message(15,"You have received a character flag!");
+			e.self:Message(15,"You've received a character flag!");
 			e.self:Message(15,"The ages begin to tear through your body. You wake to find yourself in another time.");
 			e.self:MovePC(219,223,140,9,188);	
 		end
 	end	
 end
-
-

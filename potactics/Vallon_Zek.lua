@@ -1,39 +1,57 @@
-function event_spawn(e)
-	eq.set_timer("vzspawned",1000);
-	--one second delay so everything processes
-end
+--Vallon_Zek (214295)
+--Real Vallon_Zek
+--potactics
 
-function event_timer(e)
-	if (e.timer == "vzspawned") then
-		--tell vallon_controller I spawned
-		eq.stop_timer("vzspawned");
-		eq.signal(214112,1);
+local final_round;
+
+function event_spawn(e)
+	final_round = false;
+	eq.signal(214303,1,1*1000);		--#vz_controller (214303)
+	if e.self:GetSpawnPointID() == 369024 then
+		e.self:SetLevel(75);
 	end
 end
 
-function event_signal(e)
-	--signal value equals which phase we are on
-	if (e.signal == 1) then
-		--phase 1, depop at 75%
-		eq.set_next_hp_event(76);
-	elseif (e.signal == 2 or e.signal == 3) then
-		--phase 2 and 3 depop at 50%
-		eq.set_next_hp_event(51);
+function event_combat(e)
+	if e.joined then 
+		eq.set_next_hp_event(61);
 	end
 end
 
 function event_hp(e)
-	--tell vallon_controller I have depopped
-	eq.signal(214112,2);
-	eq.depop();
+	if e.hp_event == 61 and not final_round then
+		eq.signal(214303,10);	--#vz_controller (214303)
+		e.self:Emote("fades into the shadows as five figures take shape around you.");
+		eq.depop_with_timer();
+	end
 end
 
-function event_death_complete(e)
-	--spawn planar projection
-	local xloc = e.self:GetX();
-	local yloc = e.self:GetY();
-	local zloc = e.self:GetZ();
-	eq.spawn2(202368,0,0,xloc,yloc,zloc,0);
-	--tell vallon_controller I died
-	eq.signal(214112,3);
+function event_signal(e)	--send signal to controller to get event stage
+	if e.signal == 1 then	--returned signal that event not yet at final phase
+		final_round = false;
+	elseif e.signal == 2 then	--returned signal for final phase
+		final_round = true;
+	end
+	eq.set_timer("reset", 20 * 60 * 1000);
 end
+
+function event_timer(e)
+	if e.timer == "reset" then
+		if not e.self:IsEngaged() then
+			eq.signal(214303,99)	--signal #vz_controller to reset
+			eq.get_entity_list():GetSpawnByID(369024):Repop(5)
+			eq.depop_all(214300); --depop fake VZs
+			eq.depop();
+		else
+			eq.stop_timer(e.timer);
+			eq.set_timer("reset", 30 * 1000);	--check every 30 seconds to see if disengaged
+		end
+	end
+end
+		
+
+function event_death_complete(e)
+	eq.spawn2(214304,0,0,e.self:GetX(), e.self:GetY(), e.self:GetZ(), e.self:GetHeading());	--A_Planar_Projection (214304)
+	eq.signal(214303,99)	--signal #vz_controller to reset
+end
+
