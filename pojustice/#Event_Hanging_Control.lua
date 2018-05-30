@@ -122,9 +122,10 @@ function spawn_boss()
 end
 
 function spawn_prisoners()
-	-- Spawn the 3 prisoners by the hangmen's noose
+	-- Spawn the 3 prisoners by the hangmen's noose	
 	eq.spawn2( 201511, 0, 0, 540, -1175, 80, 510);	--Barbarian Male
 	eq.spawn2( 201512, 0, 0, 490, -1175, 80, 510);	--Wood elf Female
+	eq.spawn2( 201513, 0, 0, 440, -1175, 80, 510);	--Aviak
 end
 
 function depop_prisoners()
