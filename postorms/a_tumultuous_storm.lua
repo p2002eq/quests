@@ -13,3 +13,7 @@ function event_timer(e)
 		eq.depop();
 	end
 end
+
+function event_death(e)
+	eq.depop();
+end
