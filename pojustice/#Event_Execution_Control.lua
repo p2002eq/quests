@@ -41,6 +41,7 @@ function event_signal(e)
 		eq.signal(201454, 2); -- Execution Tribunal
 		eq.signal(201075,11); 	--signal Agent_of_The_Tribunal (201075) to unlock event
 		eq.depop_all(201469); --#an_executioner (201469)
+		despawn_mobs();
 		eq.depop();
 	elseif (e.signal == 9) then	--signal from #an_executioner (201469) when wave is clear
 		if (trial_wave < 4) then 
