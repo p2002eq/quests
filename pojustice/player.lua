@@ -5,6 +5,10 @@ function event_click_door(e)
 	local door = e.door:GetDoorID();
 	--e.self:Message(14,"Door ID is: [" .. door .. "] Open Type: [" .. e.door:GetOpenType() .. "] Lock Pick: [" .. e.door:GetLockPick() .. "] Key Item: [" .. e.door:GetKeyItem() .. "] Item Held: [" ..  e.self:GetItemIDAt(30) .. "]");   --debug to easily check door IDs
 	
+	if door == 7 then --portal to trial area
+		eq.get_entity_list():RemoveFromHateLists(e.self:CastToMob());	--don't train mobs through portal to trial area
+	end
+	
 	if ( door >= 8 and door <= 13 ) then 	--doors in 7th hammer area that lead back to trial area
 		e.self:MovePC(201, 456, 825, 9, 254);
 	elseif ( door >= 1 and door <= 6 ) then	--doors can lead either to 7th hammer if holding mark of justice or back to inner PoJustice if not holding mark
