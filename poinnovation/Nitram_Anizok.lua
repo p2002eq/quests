@@ -11,7 +11,6 @@ function event_spawn(e)
 	walking = false
 	won = false;
 	counter = 0;
-	eq.set_timer("dragon_check", 5 * 1000);
 end
 
 
@@ -48,13 +47,19 @@ function event_trade(e)
     local item_lib = require("items");	
 	
     if(not walking and item_lib.check_turn_in(e.self, e.trade, {item1 = 9426, item2 = 9295, item3 = 9434})) then  --Bundle of Super Conductive Wires, Copper Node, Intact Power Cell
-		e.self:Say("Excellent!  This is wonderful, please follow me!  I will show you the power of my greatest invention.");
-		walking = true;
-		won = false;
-		eq.start(23);
-		eq.set_timer("loc", 1);	
-	end
-	
+		if (eq.get_entity_list():IsMobSpawnedByNpcTypeID(206068)) then	--check that fake Xanamech is up
+			e.self:Say("Excellent!  This is wonderful, please follow me!  I will show you the power of my greatest invention.");
+			walking = true;
+			won = false;
+			eq.start(23);
+			eq.set_timer("loc", 1);	
+		else
+			e.self:Say("Oh my, you were certainly quick in retrieving those parts!  Unfortunately, I still need to put some finishing touches on the machine schematics.  Please come see me later.");
+			e.other:SummonItem(9426);	--return quest items
+			e.other:SummonItem(9295);
+			e.other:SummonItem(9434);
+		end
+	end	
     item_lib.return_items(e.self, e.other, e.trade)
 end
 
@@ -62,10 +67,10 @@ function event_timer(e)
 	if e.timer == "loc" and e.self:GetX() == -720 and e.self:GetY() == 1500 and not eq.get_entity_list():IsMobSpawnedByNpcTypeID(206067) then
 		e.self:Emote("places the power unit right into the chest of the huge metallic beast.  It roars to life, steam pouring out of its gaping metallic maw.  Suddenly, it attacks! Nitram screams, 'Malfunction!  There is an error in its recognization process!  Help me to stop it before it destroys us all!'");
 		eq.unique_spawn(206067,0,0,-735,1580,-50,251.6); --real Xanamech
-		eq.depop(206068); --fake Xanamech
+		eq.depop_with_timer(206068); --fake Xanamech
 		eq.stop_timer(e.timer);
 		eq.set_timer("win_check",2*1000);
-		eq.set_timer("depop",2*60*60*1000); --fail timer 2hrs
+		eq.set_timer("depop",30*60*1000); --fail timer 30 min
 	elseif e.timer == "win_check" and not eq.get_entity_list():IsMobSpawnedByNpcTypeID(206067) then	--check for death
 		eq.stop_timer(e.timer);
 		eq.stop_timer("depop");
@@ -74,22 +79,7 @@ function event_timer(e)
 		eq.set_timer("depop", 10 * 60 * 1000)  --10 min depop
 	elseif e.timer == "depop" then
 		eq.stop_timer(e.timer);
-		eq.depop_all(206067);	--depops real Xanamech if failed
 		eq.depop_with_timer();
-	elseif e.timer == "dragon_check" then --check xanamech	
-		eq.stop_timer(e.timer);
-		if eq.get_entity_list():IsMobSpawnedByNpcTypeID(206067) then
-			eq.depop(206067);	--depop real Xanamech
-		end
-		if not eq.get_entity_list():IsMobSpawnedByNpcTypeID(206068) then
-			eq.unique_spawn(206068,0,0,-735,1580,-50,251.6); --fake Xanamech
-		end
-	end
-end
-
-function event_death_complete(e)
-	if not won then	
-		eq.update_spawn_timer(e.self:GetSpawnPointID(),2*60*60*1000)	--2 hr repop on fail if gnome dies before dragon is dead
 	end
 end
 
