@@ -18,7 +18,7 @@ function event_timer(e)
 			for corpse in corpse_list.entries do
 				if (corpse:IsPlayerCorpse()) then
 					if (corpse:CalculateDistance(0,50,-60) <= 40) then	--shouldn't summon into tower
-						corpse:GMMove(-341 + math.random(-20,20),1706 + math.random(-20,20),-495);  
+						corpse:GMMove(-340 + math.random(-5,5),1700 + math.random(-5,5),-490);  
 					end
 				end
 			end
