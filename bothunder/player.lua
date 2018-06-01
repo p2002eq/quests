@@ -112,6 +112,8 @@ function event_click_door(e)
 				end
 			end
 		end
+	elseif (door_id == 60 or door_id == 62 or door_id == 64 or door_id == 66) then	--remove player from hatelist on click from courtyard back to BoT Entrance
+		eq.get_entity_list():RemoveFromHateLists(e.self:CastToMob());
 	end
 end
 
