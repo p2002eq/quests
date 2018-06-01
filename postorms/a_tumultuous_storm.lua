@@ -15,5 +15,5 @@ function event_timer(e)
 end
 
 function event_death(e)
-	eq.depop();
+	e.self:SetLevel(1,true);	--set level 1 so mob doesn't give xp
 end
