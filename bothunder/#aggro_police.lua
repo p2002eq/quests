@@ -26,7 +26,6 @@ end
 function event_enter(e)
 	e.other:MovePCInstance(eq.get_zone_id(),eq.get_zone_instance_id(), 80, 10, -635, 0);
 	eq.signal(209161,e.other:CharacterID(),1*1000); --delay on signal so will clear aggro AFTER player has been ported
-	e.other:Message(15,"prox entered - aggro clearing!");	--debug 
 end
 
 function event_signal(e)
