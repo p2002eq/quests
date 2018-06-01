@@ -48,6 +48,7 @@ function event_signal(e)
 	elseif (e.signal == 2) then -- Fail Condition
 		eq.stop_all_timers();
 		despawn_prisoners();
+		despawn_mobs();
 		eq.signal(201449, 2); -- Stoning Tribunal
 		eq.signal(201075,15); 	--signal Agent_of_The_Tribunal (201075) to unlock event
 		eq.depop();
@@ -56,7 +57,6 @@ function event_signal(e)
 		local despawn_archers = 1;
 
 		mobs_killed = mobs_killed + 1;
-		eq.zone_emote(14,"Mobs killed: [" .. mobs_killed .. "]");
 
 		for k,v in pairs(wave_ids) do
 			npc = eq.get_entity_list():GetNPCByID(v);

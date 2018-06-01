@@ -40,6 +40,7 @@ function event_signal(e)
 		eq.depop();
 	elseif (e.signal == 2) then -- Fail Condition
 		despawn_prisoners();
+		despawn_mobs();
 		eq.signal(201453, 2); -- Lashing Tribunal
 		eq.signal(201075,14); 	--signal Agent_of_The_Tribunal (201075) to unlock event
 		-- Depop the Scourge of Honor as they are immune to damage and despawned

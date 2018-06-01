@@ -1,15 +1,6 @@
 --player.lua for 
 --Bastion of Thunder
 
---POP ALPHA TESTING MODULE
-
-function event_say(e)
-	local pop_flags = require("pop_flags");
-	pop_flags.options(e)
-end
-
------------------------------------
-
 -- global script variables
 local player_list = nil;
 local player_list_count = nil;
@@ -121,6 +112,8 @@ function event_click_door(e)
 				end
 			end
 		end
+	elseif (door_id == 60 or door_id == 62 or door_id == 64 or door_id == 66) then	--remove player from hatelist on click from courtyard back to BoT Entrance
+		eq.get_entity_list():RemoveFromHateLists(e.self:CastToMob());
 	end
 end
 
@@ -151,12 +144,14 @@ function PortIntoTower(cur_x, cur_y, cur_z, distance, dest_x, dest_y, dest_z, de
 				if (client_v:CalculateDistance(cur_x, cur_y, cur_z) <= distance) then
 					-- port the player up
 					client_v:MovePCInstance(zone_id,instance_id, dest_x, dest_y, dest_z, dest_h);
+					eq.get_entity_list():RemoveFromHateLists(client_v:CastToMob());
 				end
 			end
 		end
 	else
 		-- port the player up
 		client_e.self:MovePCInstance(zone_id,instance_id, dest_x, dest_y, dest_z, dest_h);
+		eq.get_entity_list():RemoveFromHateLists(client_e.self:CastToMob());
 	end
 end
 
