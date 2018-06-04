@@ -59,10 +59,15 @@ function event_click_door(e)
 		if (e.self:KeyRingCheck(9425)) then
 			key_found = true;
 		-- if it is not on the keyring check for them to have the item.
-		elseif (e.self:HasItem(9425) == 1) then
+		elseif (e.self:HasItem(9425)) then
 			key_found = true;
-			-- add it tot he keyring
+			-- add it to the keyring
 			e.self:KeyRingAdd(9425);
+		-- check if item is on cursor
+		elseif (e.self:GetItemIDAt(30) == 9425) then
+			key_found = true;
+			-- add it to the keyring
+			e.self:KeyRingAdd(9425);			
 		-- allow a GM to click up
 		elseif (e.self:Admin() >= 80 and e.self:GetGM()) then
 			key_found = true;
