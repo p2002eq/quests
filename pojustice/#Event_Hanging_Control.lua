@@ -48,6 +48,7 @@ function event_signal(e)
 	elseif (e.signal == 2) then -- Fail Condition
 		eq.stop_all_timers();
 		depop_prisoners();
+		despawn_mobs();
 		eq.signal(201451, 2); -- Hanging Tribunal
 		eq.signal(201075,13); 	--signal Agent_of_The_Tribunal (201075) to unlock event
 		eq.depop();
@@ -133,4 +134,11 @@ function depop_prisoners()
 		eq.depop_all(v);
 	end
 end
+
+function despawn_mobs()
+   for k,v in pairs(trial_mobs) do
+      eq.depop_all(v);
+   end
+end
+
 
