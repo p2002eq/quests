@@ -30,7 +30,7 @@ function event_timer(e)
 		if not aggro then
 			eq.update_spawn_timer(345273,5*1000); --repop untargetable version in 5 seconds since could have been accidental activation
 		else
-			eq.update_spawn_timer(345273,24*60*60*1000);	--24 hr respawn on failed attempt
+			eq.update_spawn_timer(345273, 86400);	--24 hr respawn on failed attempt
 		end
 		eq.depop();
 	end
