@@ -3,15 +3,10 @@
 
 local aggro_limit = 72;		--max clients on rztw hatelist before banish
 
---spawnpoint tables
-local pit_spawns = {361134,361166,361167,361170,361173,361176,361188,361191,361192,361193,361194,361195,361196,361197,361198,361199,361202,361203,361204,361205,361206,361208,361209,361211,361212,361219};
-
-
 --failure variables
 local fail_timer = 20*60;	--20min for phase 1
 local fail = false;
 local timer;
-
  
 function event_encounter_load(e)
 	--event variables
@@ -104,7 +99,7 @@ end
 function RZ_hp(e)
 	if e.hp_event == 75 then
 		eq.zone_emote(7,"A great cry echoes across the field of blood and through the halls of Drunder.  The creatures in the arena flee to avoid the impending doom.");
-		DepopPit();	--clear pit spawns except for dead bodies
+		eq.signal(214108,2, 1 * 1000);	--signal controller to depop pit
 		SpawnElites();
 		eq.set_next_hp_event(65);
 		eq.set_next_inc_hp_event(98);
@@ -113,7 +108,7 @@ function RZ_hp(e)
 		eq.set_next_hp_event(55);		
 	elseif e.hp_event == 55 then
 		e.self:Emote("laughs in an ominous tone of death.  'Flee whelps! Flee before the might of the Warlord!'");
-		eq.unique_spawn(214298,0,0,689,0,-292,130);	--#Rallos_Zek_the_Warlord (214298)
+		eq.unique_spawn(214298,0,0,689,0,-292,130);	--#Rallos_Zek_the_Warlord (214298)		
 		eq.stop_timer("fail", controller);
 		eq.set_timer("fail", 20 * 60 * 1000, controller);	--Set Phase 3 fail timer
 		eq.depop_with_timer();
@@ -183,13 +178,7 @@ function RZTW_Timers(e)
 	end
 end
 
-function DepopPit()
-	for _,spawns in pairs(pit_spawns) do
-		local spawnpoint = eq.get_entity_list():GetSpawnByID(spawns);
-		spawnpoint:Disable();
-		spawnpoint:ForceDespawn();
-	end
-end
+
 
 --Spawn Pit Adds
 function spawn_adds(e)
