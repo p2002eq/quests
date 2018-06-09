@@ -23,7 +23,7 @@ function event_click_door(e)
 	-- only time we will use the raid value is if they are clicking on the Agnarr door
 	-- otherwise, it is a group only port up.
 	local raid = e.self:GetRaid();
-	if (door_id == 51 and raid.valid) then
+	if (raid.valid) then
 		player_list = raid;
 		player_list_count = raid:RaidCount();
 	else
@@ -43,9 +43,9 @@ function event_click_door(e)
 		-- the point of checking both status and GM flag is so a dev with status > 80 can still pretend to be a non-GM.
 		-- by using the status, we ensure someone cannot bypass the check by another GM using "#gm on" on a player.
 		if (e.self:GetGM()) then
-			PortIntoTower(e.self:GetX(), e.self:GetY(), e.self:GetZ(), 100, -765, -1735, 1270, 385);
+			PortIntoTower(e.self:GetX(), e.self:GetY(), e.self:GetZ(), 100, -765, -1735, 1270, 385,true,e);
 		elseif (e.self:HasItem(9433)) then
-			PortIntoTower(e.self:GetX(), e.self:GetY(), e.self:GetZ(), 100, -765, -1735, 1270, 385);
+			PortIntoTower(e.self:GetX(), e.self:GetY(), e.self:GetZ(), 100, -765, -1735, 1270, 385,true,e);
 		else
 			local gargoyles = {360450,360451,360452,360453};
 			for _,garg in pairs(gargoyles) do
@@ -76,7 +76,7 @@ function event_click_door(e)
 		if (door_id == 61) then
 			-- did the player have the key?
 			if (key_found) then
-				PortIntoTower(e.self:GetX(), e.self:GetY(), e.self:GetZ(), 50, 85, 145, 635, 128);
+				PortIntoTower(e.self:GetX(), e.self:GetY(), e.self:GetZ(), 50, 85, 145, 635, 128,false,e);
 			else
 				local gargoyles = {360486,360487};
 				for _,garg in pairs(gargoyles) do
@@ -87,7 +87,7 @@ function event_click_door(e)
 		elseif (door_id == 63) then
 			-- did the player have the key?
 			if (key_found) then
-				PortIntoTower(e.self:GetX(), e.self:GetY(), e.self:GetZ(), 50, -830, -865, 1375, 128);
+				PortIntoTower(e.self:GetX(), e.self:GetY(), e.self:GetZ(), 50, -830, -865, 1375, 128,false,e);
 			else
 				local gargoyles = {360484,360485};
 				for _,garg in pairs(gargoyles) do
@@ -98,7 +98,7 @@ function event_click_door(e)
 		elseif (door_id == 65) then
 			-- did the player have the key?
 			if (key_found) then
-				PortIntoTower(e.self:GetX(), e.self:GetY(), e.self:GetZ(), 50, -350, -2200, 1955, 255);
+				PortIntoTower(e.self:GetX(), e.self:GetY(), e.self:GetZ(), 50, -350, -2200, 1955, 255,false,e);
 			else
 				local gargoyles = {360490,360491};
 				for _,garg in pairs(gargoyles) do
@@ -109,7 +109,7 @@ function event_click_door(e)
 		elseif (door_id == 67) then
 			-- did the player have the key?
 			if (key_found) then
-				PortIntoTower(e.self:GetX(), e.self:GetY(), e.self:GetZ(), 50, 150, -1220, 1120, 128);
+				PortIntoTower(e.self:GetX(), e.self:GetY(), e.self:GetZ(), 50, 150, -1220, 1120, 128,false,e);
 			else
 				local gargoyles = {360488,360489};
 				for _,garg in pairs(gargoyles) do
@@ -135,21 +135,34 @@ function SendGargoyles(garg_spawnpoint)
 	end
 end
 
-function PortIntoTower(cur_x, cur_y, cur_z, distance, dest_x, dest_y, dest_z, dest_h)
+function PortIntoTower(cur_x, cur_y, cur_z, distance, dest_x, dest_y, dest_z, dest_h,raid,e)
 	-- player_list contains e.self:GetGroup or e.self:GetRaid or is nil for a single player
 	-- if it is not nil then port up the group/raid as long as they are in range
 	if (player_list ~= nil) then
 		-- iterate through the player_list (it is 0 based)
 		for i = 0, player_list_count - 1, 1 do
+			
 			-- MovePC and GetAggroCount are client functions and group:GetMember returns a mob (raid:GetMember returns client)
 			local client_v = player_list:GetMember(i):CastToClient();
+			
 			-- make sure we actually have a valid client
 			if (client_v.valid) then
 				-- check the distance and port them up if close enough
 				if (client_v:CalculateDistance(cur_x, cur_y, cur_z) <= distance) then
-					-- port the player up
-					client_v:MovePCInstance(zone_id,instance_id, dest_x, dest_y, dest_z, dest_h);
-					eq.get_entity_list():RemoveFromHateLists(client_v:CastToMob());
+					if e.self:IsRaidGrouped() then
+						--raid handling for porting up entire raid if argument is true
+						if raid then 
+							client_v:MovePCInstance(zone_id,instance_id, dest_x, dest_y, dest_z, dest_h);
+							eq.get_entity_list():RemoveFromHateLists(client_v:CastToMob());
+						--ports up group only if raid is false
+						elseif not raid and player_list:GetGroup(client_v:GetName()) == player_list:GetGroup(e.self:GetName()) then
+							client_v:MovePCInstance(zone_id,instance_id, dest_x, dest_y, dest_z, dest_h);
+							eq.get_entity_list():RemoveFromHateLists(client_v:CastToMob());
+						end
+					else	--group handling
+						client_v:MovePCInstance(zone_id,instance_id, dest_x, dest_y, dest_z, dest_h);
+						eq.get_entity_list():RemoveFromHateLists(client_v:CastToMob());
+					end	
 				end
 			end
 		end
