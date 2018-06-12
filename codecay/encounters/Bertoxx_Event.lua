@@ -164,7 +164,7 @@ function TrashCounter()
 	--West Crypt: {200,0,-270,192}	
 	--East Crypt: {-200,0,-270,64}
 	
-	if trash_counter > 50 --[[and timer > 300]] and not darwol then		--5 minutes in event
+	if trash_counter > 50 and timer > 300 and not darwol then		--5 minutes in event
 		darwol = true;
 		eq.zone_emote(7,"An unsettling feeling of fear passes through you as you hear the summoners finish a dark incantation then cry out saying, 'We call to you corrupted King of Lxanvom, Darwol Adan, your master has need of you!' A bestial squeak thunders through the crypt as a foul fiend of Bertoxxulous is summoned forth.");
 		eq.unique_spawn(200238,0,0,-3,290,-244,0)	--#Darwol_Adan (200238)	North Crypt

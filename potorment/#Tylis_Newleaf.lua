@@ -25,6 +25,14 @@ function event_say(e)
 			counter = counter + 1;
 		end
 	elseif e.message:findi("ready to return") then
-		e.self:CastSpell(1136,e.other:GetID());
+		--port up players within range
+		local client_list = eq.get_entity_list():GetClientList();
+		if client_list ~= nil then
+			for client in client_list.entries do
+				if client:CalculateDistance(e.self:GetX(), e.self:GetY(), e.self:GetZ()) <= 100 then
+					client:MovePCInstance(207,eq.get_zone_instance_id(),-31,-37,450,0);
+				end
+			end
+		end
 	end
 end

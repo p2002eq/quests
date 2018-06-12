@@ -17,7 +17,15 @@ function event_say(e)
 		if e.message:findi("assist") then
 			e.self:Say("Please tell me when you are ready.  I do not know if I have enough energy to channel all of you, but I can try.  When you are [" .. eq.say_link("ready") .. "], I will channel you into my pain.");
 		elseif e.message:findi("ready") then
-			e.self:CastSpell(1134,e.other:GetID());	--Insanity of Tylis
+			--port up players within range
+			local client_list = eq.get_entity_list():GetClientList();
+			if client_list ~= nil then
+				for client in client_list.entries do
+					if client:CalculateDistance(e.self:GetX(), e.self:GetY(), e.self:GetZ()) <= 100 then
+						client:MovePCInstance(207,eq.get_zone_instance_id(),-175,804,-956,0);
+					end
+				end
+			end
 		end
 	end
 end

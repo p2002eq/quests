@@ -21,12 +21,9 @@ function event_combat(e)
 	if e.joined then
 		eq.set_timer("blur", math.random(6,12) * 1000);	--set frequency for memblur
 		if not spawn then
-			eq.set_timer("reset", 20 * 60 * 1000); 		--1hr depop
+			eq.set_timer("reset", 10 * 60 * 1000); 		--10 min reset
 			spawn_guards(e,false,e.self:GetHateTop());
 			spawn = true;
-		elseif eq.get_entity_list():IsMobSpawnedByNpcTypeID(200221) or eq.get_entity_list():IsMobSpawnedByNpcTypeID(200222) or eq.get_entity_list():IsMobSpawnedByNpcTypeID(200223) then
-			eq.set_timer("reset", 20 * 60  * 1000); 	--1hr depop
-			spawn_guards(e,false,e.self:GetHateTop());
 		end
 	else
 		eq.stop_timer("blur");
@@ -40,7 +37,7 @@ function event_timer(e)
 			spawn = false;
 			depop_guards();
 		else
-			eq.set_timer("reset",1*1000);	
+			eq.set_timer("reset",15 * 1000);	
 		end
 	elseif e.timer == "blur" and player_check(e) then	--checks to ensure player within aggro range before wiping hatelist
 		eq.stop_timer(e.timer);
