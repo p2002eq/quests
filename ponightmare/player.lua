@@ -36,10 +36,9 @@ function event_click_door(e)
 	end
 end
 
----DEBUG----
---zone flagging
 function event_say(e)
 	--Hedge Maze Reset Options
+	local qglobals = eq.get_qglobals(e.self);
 	if e.self:GetGM() then
 		if e.message:findi("help") then
 			e.self:Message(300,"Hedge options available are: [" .. eq.say_link("maze reset 1",false,"Reset Maze 1") .. "], [" .. eq.say_link("maze reset 2",false,"Reset Maze 2") .. "], [" .. eq.say_link("maze reset 3", false, "Reset Maze 3") .. "]");
@@ -53,6 +52,17 @@ function event_say(e)
 		elseif e.message:findi("maze reset 3") then
 			eq.signal (204070, 3);
 			e.self:Message(13,"Maze 3 reset!");
+		end
+	end
+	
+	--Aid Eino
+	if(e.message:findi("quellious be my guide")) then	-- trigger phrase
+		if (tonumber(qglobals.EinoTrigger) == 1) and eq.get_entity_list():IsMobSpawnedByNpcTypeID(204457) then	--check for quest flag and eino trigger is up
+			local trigger = eq.get_entity_list():GetMobByNpcTypeID(204457);
+			local x,y,z = trigger:GetX(), trigger:GetY(), trigger:GetZ();
+			if(e.self:CalculateDistance(x,y,z) <= 30) then -- check for distance from eino_trigger location (1687,-510,215)
+				eq.signal(204457,0);
+			end
 		end
 	end
 end
