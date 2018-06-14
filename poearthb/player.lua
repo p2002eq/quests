@@ -52,4 +52,34 @@ function spawn_check(room)
 		end
 	end
 	return false;	--no mobs found - OK to proceed
-end							
+end	
+
+--Rathe Council Helpers
+
+function event_say(e)
+	if e.self:GetGM() then
+		if e.message:findi("help") then
+			e.self:Message(18,"Rathe council help options are:  [" .. eq.say_link("council_reset",false,"reset") .. "]");
+		elseif e.message:findi("council_reset") then
+			ResetRathe();	--to use in resetting/repopping rathe council
+			e.self:Message(15,"Rathe council has been reset!");
+		end
+	end
+end
+
+function ResetRathe()
+	--reset qglobal for the instance
+	local instance_id = eq.get_zone_instance_id();
+	eq.delete_global(instance_id .. "_AvatarOfEarth_PoEarthB");		--delete global on Avatar of Earth
+	
+	--reset the council
+	local spawnpoints = {369104,369107,369097,369098,369100,369102,369103,369105,369106,369108,369099,369101};	--rathe council spawnpoints
+	for k,v in pairs(spawnpoints) do
+		spawn = eq.get_entity_list():GetSpawnByID(v);
+		spawn:Disable();
+		spawn:ForceDespawn();
+		spawn:Enable();
+		spawn:Repop(2);
+	end
+end
+			
