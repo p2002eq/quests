@@ -5,7 +5,6 @@
 local wave;
 
 function event_spawn(e)
-	e.self:SetRunning(true);	--debug
 	wave = 0;
 	e.self:Emote("steps from the shadows 'I am glad you were able to come help me, this is quite a dangerous realm! We must tread carefully if we are to find the item Kerasha desires from this vile place. Sometimes I worry her research with the magic of the land puts her in much danger. Let us be off and find that which she desires.'");
 	eq.start(150);	--pathing grid
