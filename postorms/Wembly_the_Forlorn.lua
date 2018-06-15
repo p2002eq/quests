@@ -25,7 +25,8 @@ function event_trade(e)
 	local qglobals = eq.get_qglobals(e.self, e.other);
 	
     if not e.other:IsRaidGrouped() and item_lib.check_turn_in(e.self, e.trade, {item1 = 29216, item2 = 29217, item3 = 29218, item4 = 29219}) then  --Quarter of Diaku Emblem x4
-		e.self:Say("What's this? Four pieces of a Diaku Emblem? Why ever would you give these to me? Well I think I can get them to fit back together. You know, while you have this, I would be quite happy if you would avenge the loss of my dear ship and kill every Diaku you find? Yes that would be very good indeed. Here is your key, and a key for all your companions as well.");
+		--e.self:Say("What's this? Four pieces of a Diaku Emblem? Why ever would you give these to me? Well I think I can get them to fit back together. You know, while you have this, I would be quite happy if you would avenge the loss of my dear ship and kill every Diaku you find? Yes that would be very good indeed. Here is your key, and a key for all your companions as well.");	--group version of dialogue (OOE)
+		e.self:Say("What's this? Four pieces of a Diaku Emblem? Why ever would you give these to me? Well I think I can get them to fit back together. You know, while you have this, I would be quite happy if you would avenge the loss of my dear ship and kill every Diaku you find? Yes that would be very good indeed. Here is your key.");
 		e.other:SummonItem(29215);  --Completed Diaku Emblem
 		if qglobals.pop_alt_access_potactics == nil then
 			eq.set_global("pop_alt_access_potactics", "1", 5, "F");
