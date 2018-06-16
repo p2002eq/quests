@@ -5,7 +5,6 @@
 local wave;
 
 function event_spawn(e)
-	e.self:SetRunning(true);	--debug
 	wave = 0;
 	e.self:Emote("steps from the shadows 'I am glad you were able to come help me, this is quite a dangerous realm! We must tread carefully if we are to find the item Kerasha desires from this vile place. Sometimes I worry her research with the magic of the land puts her in much danger. Let us be off and find that which she desires.'");
 	eq.start(150);	--pathing grid
@@ -43,12 +42,12 @@ function event_waypoint_arrive(e)
 		wave = 3;
 	elseif e.wp == 8 and wave == 3 then
 		e.self:Say("Something knows we hunt it!  Cast your trepidations aside and defeat this evil!  Fear us Keeper, we have come for you!");
-		wave4_mob1 = eq.spawn2(204076,0,0,e.self:GetX()+30,e.self:GetY(),e.self:GetZ(),e.self:GetHeading());		--#a_tortured_banshee (204076)
-		wave4_mob2 = eq.spawn2(204076,0,0,e.self:GetX()-30,e.self:GetY(),e.self:GetZ(),e.self:GetHeading());
-		wave4_mob3 = eq.spawn2(204076,0,0,e.self:GetX(),e.self:GetY()-30,e.self:GetZ(),e.self:GetHeading());
-		wave4_mob4 = eq.spawn2(204079,0,0,e.self:GetX()+30,e.self:GetY()+30,e.self:GetZ(),e.self:GetHeading());		--#a_tremulous_bat (204079)
-		wave4_mob5 = eq.spawn2(204079,0,0,e.self:GetX()-30,e.self:GetY()-30,e.self:GetZ(),e.self:GetHeading());
-		wave4_mob6 = eq.spawn2(204079,0,0,e.self:GetX()+30,e.self:GetY()-30,e.self:GetZ(),e.self:GetHeading());
+		wave4_mob1 = eq.spawn2(204076,0,0,e.self:GetX()+30,e.self:GetY(),e.self:GetZ() + 5,e.self:GetHeading());		--#a_tortured_banshee (204076)
+		wave4_mob2 = eq.spawn2(204076,0,0,e.self:GetX()-30,e.self:GetY(),e.self:GetZ() + 5,e.self:GetHeading());
+		wave4_mob3 = eq.spawn2(204076,0,0,e.self:GetX(),e.self:GetY()-30,e.self:GetZ() + 5,e.self:GetHeading());
+		wave4_mob4 = eq.spawn2(204079,0,0,e.self:GetX()+30,e.self:GetY()+30,e.self:GetZ() + 5,e.self:GetHeading());		--#a_tremulous_bat (204079)
+		wave4_mob5 = eq.spawn2(204079,0,0,e.self:GetX()-30,e.self:GetY()-30,e.self:GetZ() + 5,e.self:GetHeading());
+		wave4_mob6 = eq.spawn2(204079,0,0,e.self:GetX()+30,e.self:GetY()-30,e.self:GetZ() + 5,e.self:GetHeading());
 		wave4_mob1:AddToHateList(e.self,1);
 		wave4_mob2:AddToHateList(e.self,1);
 		wave4_mob3:AddToHateList(e.self,1);

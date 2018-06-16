@@ -6,7 +6,6 @@
 
 local spawnpoints = {369104,369107,369097,369098,369100,369102,369103,369105,369106,369108,369099,369101};	--rathe council spawnpoints
 local fallen;
-local avatar_spawned;
 
 --failure variables
 local fail_timer = 3 * 60 * 60;	--3 hr default
@@ -15,7 +14,6 @@ local council_timer = 345;	--approx 5.7min (345 seconds) to kill all 12 council 
 
 function EventReset()
 	fallen = false;	--flag variable to start timer once a council member is killed
-	avatar_spawned = false;
 end
 
 function GetGlobals()
@@ -26,7 +24,7 @@ end
 
 function CouncilCheck(e)
 	GetGlobals();
-	eq.GM_Message(5,"Council Kill Check");
+	eq.GM_Message(5,"Council Kill Check");	--debug
 	
 	if not fallen then
 		fallen = true;
@@ -116,7 +114,7 @@ function SetDamage(e,level)
 								[4] = {"253","1583"},
 								[5] = {"145","870"}};
 
-	eq.GM_Message(15,string.format("Weakness level:[%s] min_hit[%s] max_hit[%s]",level,damage_tables[level][1],damage_tables[level][2]));
+	eq.GM_Message(15,string.format("Weakness level:[%s] min_hit[%s] max_hit[%s]",level,damage_tables[level][1],damage_tables[level][2]));	--debug
 	e.self:ModifyNPCStat("min_hit",damage_tables[level][1]);
 	e.self:ModifyNPCStat("max_hit",damage_tables[level][2]);
 end
@@ -148,7 +146,6 @@ function CouncilTimers(e)
 		
 		if eq.PlayerCheck(e.self:GetX(), e.self:GetY(), e.self:GetZ(),30) then	--check if player is within 30 units
 			local roll = math.random(100);
-			eq.GM_Message(5,string.format("Banish timer - player check [%s] roll [%s/60]",tostring(eq.PlayerCheck(e.self:GetX(), e.self:GetY(), e.self:GetZ(),30)),roll));	--debug
 			if roll <= 60 then 	--60% Banish chance
 				Banish(e,math.random(1,4));	--banish PC
 			end  	
@@ -176,6 +173,9 @@ function Banish(e,rand)
 	
 	if client.valid and not client:GetGM() then
 		client:MovePCInstance(zone_id, instance_id,x,y,z,h);
+		if math.random(100) <= 85 then	--85% chance the banish will reduce aggro and another person on hatelist will get aggro
+			e.self:SetHate(client:CastToMob(),1,1);	--reduce aggro to not summon back
+		end
 	end
 end
 
@@ -199,11 +199,7 @@ end
 function event_encounter_load(e)
 	--event variables
 	eq.set_timer("fail", fail_timer * 1000);
-	eq.GM_Message(18,"RATHE COUNCIL ENCOUNTER LOADED");	--debug
 	controller = eq.get_entity_list():GetMobByNpcTypeID(222156);	--#rathe_controller (222156)
-	
-	GetGlobals();	--debug
-	eq.delete_global(instance_id .. "_AvatarOfEarth_PoEarthB");	--debug
 
 	--registered events
 	--Mezzable Council Members
