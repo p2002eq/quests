@@ -18,7 +18,6 @@ function event_say(e)
 			AwardID = tonumber(id);
 			item = tonumber(Item_id);
 			AwardReason = Reason;
-			e.other:Message(18,string.format("DEBUG: ID [%s] CharID [%s] ItemID [%s] Reason[%s]",AwardID,e.other:CharacterID(),item,AwardReason));	--debug
 			break;	--to pull earliest entry first
 		end 
 		
