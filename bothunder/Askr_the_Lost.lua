@@ -6,7 +6,7 @@ function event_say(e)
 	elseif e.message:findi("gain entrance") then
 		e.self:Say("An ethereal seal that is protected by the collective power of the lightning, blizards, tornadoes, and sandstorms guards the tower. You must collect the essence of these storms in order to create the key that will allow you to enter the tower of Torden. But first you must earn the right to enter the [" .. eq.say_link("courtyard") .. "] of the Bastion. From there you will be able to find the storm essences.");
 	elseif e.message:findi("courtyard") then
-		e.self:Say("The courtyard will allow you access to the four greater towers as well as Torden itself. The strongest giants of the lower halls most likely hold the key that you will need to enter the courtyard. Be wary of the giants in this stronghold $name, the each hold a piece of the great power of the Rainkeeper, unbridled by his control and wisdom.");
+		e.self:Say("The courtyard will allow you access to the four greater towers as well as Torden itself. The strongest giants of the lower halls most likely hold the key that you will need to enter the courtyard. Be wary of the giants in this stronghold " .. e.other:GetName() .. ", the each hold a piece of the great power of the Rainkeeper, unbridled by his control and wisdom.");
 	end
 end
 
