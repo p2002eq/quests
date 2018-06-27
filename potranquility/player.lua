@@ -75,7 +75,7 @@ function event_click_door(e)
 
 	--pofire
 	if(door == 82) then
-		if(qglobals.pop_elemental_grand_librarian ~= nil  and qglobals.pop_sol_ro_arlyxir ~= nil and qglobals.pop_sol_ro_jiva ~= nil and qglobals.pop_sol_ro_rizlona ~= nil and  qglobals.pop_sol_ro_dresolik ~= nil and qglobals.pop_sol_ro_xuzl ~= nil  and qglobals.pop_sol_ro_solusk ~= nil) then
+		if(qglobals.pop_poi_behometh_preflag ~= nil and qglobals.pop_poi_behometh_flag ~= nil and qglobals.pop_tactics_tallon ~= nil and qglobals.pop_tactics_vallon ~= nil and qglobals.pop_tactics_ralloz ~= nil and qglobals.pop_sol_ro_arlyxir ~= nil and qglobals.pop_sol_ro_jiva ~= nil and qglobals.pop_sol_ro_rizlona ~= nil and  qglobals.pop_sol_ro_dresolik ~= nil and qglobals.pop_sol_ro_xuzl ~= nil and qglobals.pop_sol_ro_solusk ~= nil and qglobals.pop_pot_saryrn_final ~= nil and qglobals.pop_pot_saryrn ~= nil and qglobals.pop_hohb_marr ~= nil) then
 			if(e.self:HasZoneFlag(217) ~= 1) then
 				e.self:SetZoneFlag(217);
 			end
