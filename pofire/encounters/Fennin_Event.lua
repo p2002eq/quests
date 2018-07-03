@@ -172,13 +172,11 @@ function event_timer(e)
 	elseif e.timer == "fail" then
 		eq.stop_all_timers();
 		DepopEvent();
-		GM_Message(15,"ENCOUNTER FAILED!") --debug
 		eq.signal(217066,1);	--signal #fennin_unloader (217066) to unload encounter
 	end
 end
 
 function PhaseCheck()
-	GM_Message(18,"kill check");	--debug
 	if not phase2 and not mob_check(phase1_mobs) then
 		phase2 = true;
 		Phase2Setup();
@@ -189,10 +187,23 @@ function PhaseCheck()
 end
 
 function CouncilCheck()
-	GM_Message(18,"council kill check");	--debug
 	if council and not mob_check(council_mobs) then
 		eq.zone_emote(7,"A maddened call of endless fury erupts as a burning creature of pure destructions stands tall before you.  The creature then speaks in the loud booming voice of immense power saying, 'You are fools to have come this far. Prepare to tremble at the might of Doomfire!'");
 		eq.spawn2(217436,0,0,-1500,-935,-170,244);		--#Fennin_Ro,_The_Tyrant_of_Fire (217436)
+		
+		--spawn elite guardians of ro
+		eq.spawn2(217456,0,0,-1415,-970,-197,261);	--#elite_guardian_of_ro (217456)
+		eq.spawn2(217456,0,0,-1580,-970,-197,261);
+		eq.spawn2(217456,0,0,-1300,-1065,-167,384);
+		eq.spawn2(217456,0,0,-1695,-1065,-167,127);
+		
+		eq.spawn2(217456,0,0,-1300,-1480,-203,201);
+		eq.spawn2(217456,0,0,-1325,-1505,-203,201);
+		eq.spawn2(217456,0,0,-1350,-1535,-203,201);
+		
+		eq.spawn2(217456,0,0,-1350,-1420,-203,461);
+		eq.spawn2(217456,0,0,-1375,-1445,-203,461);
+		eq.spawn2(217456,0,0,-1400,-1475,-203,461);
 	end
 end
 
@@ -216,22 +227,9 @@ function EventWin(e)
 end
 	
 function DepopEvent()	
-	local mob_list = {217418,217419,217420,217421,217422,217424,217426,217439,217440,217450,217428,217429,217449,217453,217436};	
+	local mob_list = {217418,217419,217420,217421,217422,217424,217426,217439,217440,217450,217428,217429,217449,217453,217436,217456};	
 	for _,mob in pairs(mob_list) do
 		eq.depop_all(mob);
 	end
 end
-
-function GM_Message(color,text)			--DEBUGGING/MONITORING
-	client_list = eq.get_entity_list():GetClientList();
-	
-	if client_list ~= nil then
-		for client in client_list.entries do
-			if client:GetGM() then
-				client:Message(color,text);
-			end
-		end
-	end
-end
-
 	
