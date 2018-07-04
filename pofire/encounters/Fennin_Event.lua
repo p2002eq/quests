@@ -192,18 +192,7 @@ function CouncilCheck()
 		eq.spawn2(217436,0,0,-1500,-935,-170,244);		--#Fennin_Ro,_The_Tyrant_of_Fire (217436)
 		
 		--spawn elite guardians of ro
-		eq.spawn2(217456,0,0,-1415,-970,-197,261);	--#elite_guardian_of_ro (217456)
-		eq.spawn2(217456,0,0,-1580,-970,-197,261);
-		eq.spawn2(217456,0,0,-1300,-1065,-167,384);
-		eq.spawn2(217456,0,0,-1695,-1065,-167,127);
-		
-		eq.spawn2(217456,0,0,-1300,-1480,-203,201);
-		eq.spawn2(217456,0,0,-1325,-1505,-203,201);
-		eq.spawn2(217456,0,0,-1350,-1535,-203,201);
-		
-		eq.spawn2(217456,0,0,-1350,-1420,-203,461);
-		eq.spawn2(217456,0,0,-1375,-1445,-203,461);
-		eq.spawn2(217456,0,0,-1400,-1475,-203,461);
+		eq.spawn_condition("pofire",eq.get_zone_instance_id(),1,1)
 	end
 end
 
@@ -227,9 +216,11 @@ function EventWin(e)
 end
 	
 function DepopEvent()	
-	local mob_list = {217418,217419,217420,217421,217422,217424,217426,217439,217440,217450,217428,217429,217449,217453,217436,217456};	
+	local mob_list = {217418,217419,217420,217421,217422,217424,217426,217439,217440,217450,217428,217429,217449,217453,217436};	
 	for _,mob in pairs(mob_list) do
 		eq.depop_all(mob);
 	end
+	
+	eq.spawn_condition("pofire",eq.get_zone_instance_id(),1,0);	--depop/disable elite guardians of ro
 end
 	
