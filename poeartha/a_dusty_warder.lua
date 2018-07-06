@@ -8,7 +8,7 @@ function event_death_complete(e)
 	
 	--spawn devotees at death site of dusty warder
 	for n = 1,math.random(6,8) do
-		eq.spawn2(218347,0,0,x + math.random(-20,20),y + math.random(-20,20),z, 0); --#A_Dust_Devotee (218347)
+		eq.spawn2(218347,0,0,x + math.random(-20,20),y + math.random(-20,20),z+5, 0); --#A_Dust_Devotee (218347)
 	end
 	
 	eq.signal(218393,1);	--#dust_controller (218393) to load encounter

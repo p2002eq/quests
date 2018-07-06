@@ -80,7 +80,7 @@ end
 
 function SpawnProtectors(x,y,z,h,charge)
 	for n = 1, math.random(3,6) do
-		protector = eq.spawn2(218376,0,0,boss:GetX() + math.random(-30,30),boss:GetY() + math.random(-30,30),boss:GetZ() - 15,0);	--#A_Triumvirate_Protector (218376)
+		protector = eq.spawn2(218376,0,0,boss:GetX() + math.random(-30,30),boss:GetY() + math.random(-30,30),boss:GetZ()+5,0);	--#A_Triumvirate_Protector (218376)
 		if charge then
 			protector:SetRunning(true);
 			protector:CastToNPC():MoveTo(x,y,z,h,true);
@@ -198,7 +198,7 @@ function event_encounter_load(e)
 	EventReset();
 	eq.set_timer("fail", fail_timer * 1000);
 	DustSetup();
-
+	
 	--registered events
 	--Phase 1
 	eq.register_npc_event("Dust_Event", Event.death_complete, 218347, SoilCheck);			--#A_Dust_Devotee (218347)
@@ -218,8 +218,5 @@ function event_encounter_load(e)
 	--#A_Dust_Follower (Lootless PH Mob)
 	eq.register_npc_event("Dust_Event", Event.combat, 218348, BossCombat);					--#A_Dust_Follower (218348)
 	eq.register_npc_event("Dust_Event", Event.timer, 218348, BossTimer);					--#A_Dust_Follower (218348)
-	eq.register_npc_event("Dust_Event", Event.death_complete, 218348, EventWin);			--#A_Dust_Follower (218348)
-	
-	
-	
+	eq.register_npc_event("Dust_Event", Event.death_complete, 218348, EventWin);			--#A_Dust_Follower (218348)	
 end 
