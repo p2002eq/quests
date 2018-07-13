@@ -60,7 +60,7 @@ end
 
 function spawn_mudlets(e)	--triggered on death of first 4 waves of Sludge Lurkers
 	for n = 1,10 do
-		eq.spawn2(218360,0,0,e.self:GetX() + math.random(-15, 15), e.self:GetY() + math.random(-15,15), e.self:GetZ()-15,e.self:GetHeading());	--#A_Muck_Mudlet (218360)
+		eq.spawn2(218360,0,0,e.self:GetX() + math.random(-15, 15), e.self:GetY() + math.random(-15,15), e.self:GetZ()+5,e.self:GetHeading());	--#A_Muck_Mudlet (218360)
 	end
 end
 
@@ -122,8 +122,8 @@ end
 function SpawnAdds(e)
 	if e.other:IsClient() or e.other:IsPet() then	--verify client or pet has died
 		boss:Emote("pummels his victim into the earth dispersing mud everywhere. The gobs of mud coalesce into smaller mud creatures.")
-		eq.spawn2(218360,0,0,e.self:GetX() + math.random(-15, 15), e.self:GetY() + math.random(-15,15), e.self:GetZ(),e.self:GetHeading());	--mudlets
-		eq.spawn2(218360,0,0,e.self:GetX() + math.random(-15, 15), e.self:GetY() + math.random(-15,15), e.self:GetZ(),e.self:GetHeading());
+		eq.spawn2(218360,0,0,e.self:GetX() + math.random(-15, 15), e.self:GetY() + math.random(-15,15), e.self:GetZ()+5,e.self:GetHeading());	--mudlets
+		eq.spawn2(218360,0,0,e.self:GetX() + math.random(-15, 15), e.self:GetY() + math.random(-15,15), e.self:GetZ()+5,e.self:GetHeading());
 	end
 end
 
