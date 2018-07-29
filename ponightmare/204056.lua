@@ -17,14 +17,14 @@ function event_say(e)
 		eq.stop_all_timers();
 		eq.set_global("pop_pon_maze_event_" .. maze_id, "1",3,"H1");	--1hr lockout
 	elseif e.message:findi("hail") and flag then
-		e.other:Message(7,"Thelin Poxbourne tells you, 'Please destroy her for subjecting me to her hideous visions.'  Thelin closes his eyes and is swept away from his nightmare.  The land of pure thought begins to vanish from around you.");
-		e.other:MovePC(204,-1580,1020,126,261);	--port out player 
-		e.other:SendSpellEffect(78,0,100,false,0);	--simulate spell effect
 		if qglobals.pop_pon_construct == nil and counter < 18 then
 			e.other:Message(15,"You've received a character flag!");
 			eq.set_global("pop_pon_construct","1",5,"F");
 			counter = counter + 1;
 		end
+		e.other:Message(7,"Thelin Poxbourne tells you, 'Please destroy her for subjecting me to her hideous visions.'  Thelin closes his eyes and is swept away from his nightmare.  The land of pure thought begins to vanish from around you.");
+		e.other:MovePC(204,-1580,1020,126,261);	--port out player 
+		e.other:SendSpellEffect(78,0,100,false,0);	--simulate spell effect
 	end
 end
 
