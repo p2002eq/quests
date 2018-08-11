@@ -14,6 +14,16 @@
 function event_say(e)
 	local qglobals = eq.get_qglobals(e.self, e.other);
 
+-- e.self:Say("hedge: "..qglobals.pop_pon_hedge_jezith);
+-- e.self:Say("consturct: ".. qglobals.pop_pon_construct);
+-- e.self:Say("terris: ".. qglobals.pop_ponb_terris);
+  if(e.message:findi('hail')) then
+    if (tonumber(qglobals.pop_pon_construct) > 1) then
+			eq.set_global("pop_pon_construct","1",5,"F");
+    end
+  end
+
+
 	if(e.message:findi("hail") and tonumber(qglobals.pop_pon_hedge_jezith) == 1 and tonumber(qglobals.pop_pon_construct) == 1 and tonumber(qglobals.pop_ponb_terris) == 1) then
 		e.other:Message(7,"Thelin tells you, 'I apologize but I cannot stand to greet you. I am still quite weak and recovery will be a long and painful road, though it is a most welcome venture. I want you to know how much I appreciate your bravery in helping me. I am forever in your debt.'");
 		if qglobals.pop_ponb_poxbourne == nil then
