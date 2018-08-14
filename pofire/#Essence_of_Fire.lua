@@ -18,7 +18,6 @@ end
 function event_say(e)
 	local qglobals = eq.get_qglobals(e.self,e.other);
 	if e.message:findi("hail") and not e.other:HasItem(29147) and counter < 72 then
-		e.self:Say("wat")
 		if qglobals.pop_fire_fennin_projection == nil then
 			eq.set_global("pop_fire_fennin_projection", "1", 5, "F");
 			e.other:Message(15,"You've received a character flag!");
@@ -27,5 +26,4 @@ function event_say(e)
 		e.other:SummonItem(29147); 	--Globe of Dancing Flame
 		counter = counter + 1;
 	end
-	e.other:Message(15,string.format("item [%s]  counter [%s]",tostring(e.other:HasItem(29147)),counter));
 end
