@@ -88,6 +88,7 @@ function event_trade(e)
 		e.self:Say("Thank you traveler. I appreciate having pie this time of year. I can never get away to enjoy such things.");
 		e.other:SummonItem(22291);
 	end
+	item_lib.return_items(e.self, e.other, e.trade)
 end
 
 	-- if(e.message:findi("Hail")) then
