@@ -6,7 +6,6 @@ local counter;
 
 function event_spawn(e)
 	eq.set_timer("depop", 10 * 60 * 1000) -- 10 min depop
-	e.self:Say("sup bitches")
 	counter = 0;
 end
 
