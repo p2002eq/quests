@@ -17,15 +17,6 @@ function event_say(e)
 		started = true;
 		eq.stop_all_timers();
 		eq.set_global("pop_pon_maze_event_" .. maze_id, "1",3,"H1");	--1hr lockout
-	elseif e.message:findi("hail") and flag then
-		e.other:Message(7,"Thelin Poxbourne tells you, 'Please destroy her for subjecting me to her hideous visions.'  Thelin closes his eyes and is swept away from his nightmare.  The land of pure thought begins to vanish from around you.");
-		e.other:MovePC(204,-1580,1020,126,261);	--port out player 
-		e.other:SendSpellEffect(78,0,100,false,0);	--simulate spell effect
-		if qglobals.pop_pon_construct == nil and counter < 18 then
-			e.other:Message(15,"You've received a character flag!");
-			eq.set_global("pop_pon_construct","1",5,"F");
-			counter = counter + 1;
-		end
 	end
 end
 
@@ -57,22 +48,11 @@ function event_waypoint_arrive(e)
 	elseif e.wp == 106 and not construct then
 		construct = true;		
 		eq.spawn2(204460,0,0,-4550,4118,-5,256) 	-- #a_construct_of_nightmares (Final Encounter)
-	elseif e.wp == 109 and not dialogue then
-		dialogue = true;
-		e.self:Say("Terris, hear me now!  I have done as you asked.  My beloved dagger is whole once again!  Now keep up your part of the bargain.")
-		eq.signal(204065,10,3*1000);
 	end
 end
 
 function event_signal(e)
-	if e.signal == 10 then
-		e.self:Say("Vile wench, I knew in the end it would come to this.  You shall pay dearly for your injustice here.");
-		eq.signal(204065,11,3*1000);
-	elseif e.signal == 11 then
-		e.self:Say("So then my hope is nearly lost.  Take my dagger with you and plunge it deep into her soulless heart.  If I cannot escape from this forsaken plane under her rules, I shall make my own!");
-		flag = true;
-		eq.set_timer("depop", 10 * 60 * 1000);
-	elseif e.signal == 99 then
+	if e.signal == 99 then
 		construct_dead = true;	--signal from construct on death
 	end
 end
@@ -89,9 +69,6 @@ function EventReset()
 	tip = false;
 	construct = false;
 	construct_dead = false;
-	hand_in = false;
-	dialogue = false;
-	flag = false;
 end
 
 function spawn_mobs(loc,num)
@@ -105,27 +82,22 @@ end
 function event_trade(e)
     local item_lib = require("items");	
 	
-    if construct_dead and not hand_in and item_lib.check_turn_in(e.self, e.trade, {item1 = 9258}) then  
+    if construct_dead and item_lib.check_turn_in(e.self, e.trade, {item1 = 9258}) then  
 		e.self:Emote("takes the final shard from you and places all of the pieces on the ground. The pieces reassemble and fuse back together into a completed dagger.  Thelin picks the dagger up and hands it to you.")
-		eq.spawn2(204065,0,0,-4544,3943,30,508);	--spawn Terris Thule
-		hand_in = true;
-		e.self:SetRunning(true);
-		eq.resume();
+		
+		--spawn flag version of Thelin
+		eq.spawn2(204479,0,0,e.self:GetX(),e.self:GetY(),e.self:GetZ(),e.self:GetHeading());	
+		eq.depop_with_timer();
 	end	
 	
     item_lib.return_items(e.self, e.other, e.trade)
 end
 
 function event_timer(e)
-	if e.timer == "depop" then
-		eq.delete_global("pop_pon_maze_event_" .. maze_id);
-		eq.signal(204070,maze_id); --signal controller event is over to reset group counter
-		eq.depop_with_timer();
-	elseif e.timer == "monitor" then
+	if e.timer == "monitor" then
 		if not started and player_check(e) then
 			eq.stop_timer(e.timer);
 			eq.set_timer("reset", 20 * 60 * 1000) -- 20 min to reset if event not started but player ports in
-			eq.GM_Message(15,"Maze " .. maze_id .. " event idle timer started.  20 minutes left to start escort.");	--debug
 		end
 	elseif e.timer == "reset" then
 		eq.stop_timer(e.timer);
