@@ -5,7 +5,7 @@ local ThreadManager = require("thread_manager");
 local started = false;
 
 function event_spawn(e)
-	eq.set_timer("depop", 3 * 60 * 1000)  --3 min depop
+	eq.set_timer("depop", 15 * 60 * 1000);
 	eq.set_timer("TMHB", 500);
 end
 
