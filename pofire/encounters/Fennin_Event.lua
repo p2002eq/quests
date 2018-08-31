@@ -7,11 +7,9 @@ local phase2_mobs = {217418,217419,217424,217426,217439,217440,217450};
 local council_mobs = {217428,217429,217449,217453};
 
 
---failure variables
-local fail_timer = 2*60*60;	--2hr default
-local fail = false;
-local timer;
 
+--local fail_timer = 2*60*60;	--2hr default
+local fail = false;
 local phase2;
 local council;
 
@@ -19,12 +17,15 @@ local council;
 function event_encounter_load(e)
 	--event variables
 	EventReset();
-	Phase1Setup();
-	
+	controller = eq.get_entity_list():GetMobByNpcTypeID(217066);	--#fennin_unloader (217066)
 	eq.zone_emote(7,"The ground rumbles as the Guardian of Doomfire collapses to the ground dead. Then a loud booming voice is heard saying. 'Come little mortals! Feel the chaos of the fires that flame the dark rage. Test yourselves against the might of my armies!'");
 	
-	eq.set_timer("Event_HB", 1*1000);
-	eq.set_timer("fail", fail_timer * 1000);
+	--zone crash handling - checks to resume encounter
+	CheckPhase();
+	--Phase1Setup();	--debug
+	
+	
+	
 	--registered events
 
 	--Phase 1 (trash + Chaosfiends)
@@ -50,6 +51,9 @@ function event_encounter_load(e)
 
 	--Fennin Killed
 	eq.register_npc_event("Fennin_Event", Event.death_complete, 217436, EventWin);		--#Fennin_Ro,_The_Tyrant_of_Fire (217436)
+	
+	--Timers
+	eq.register_npc_event("Fennin_Event", Event.timer, 217066, FailTimer);		--#fennin_unloader (217066)
 end
 
 
@@ -59,10 +63,38 @@ function EventReset()
 	trash_counter = 0;
 	balrog_counter = 0;
 	council_counter = 0;
-	timer = 0;
 	fail = false;
 	phase2 = false;
 	council = false;
+end
+
+function CheckPhase()
+	instance_id = eq.get_zone_instance_id();
+	qglobals = eq.get_qglobals();
+	if qglobals[instance_id .. "_PoFire_FenninEvent"] == "Phase2" then
+		phase2 = true;
+		fail_timer = 100;	--passes value in minutes
+		Phase2Setup();		
+	elseif qglobals[instance_id .. "_PoFire_FenninEvent"] == "Phase3" then
+		council = true;
+		fail_timer = 80;	--passes value in minutes
+		Phase3Setup();
+	elseif qglobals[instance_id .. "_PoFire_FenninEvent"] == "Phase4" then
+		fail_timer = 60;	--passes value in minutes
+		council = true;
+		Phase4Setup();
+	else
+		fail_timer = 120;
+		Phase1Setup();
+	end
+	UpdateFailTimer(fail_timer);
+	
+end
+
+function UpdateFailTimer(mins)
+	eq.stop_timer("fail",controller);
+	eq.set_timer("fail",mins * 60 * 1000,controller);
+	eq.GM_Message(5,string.format("[%s] Fail timer set to [%s] minutes",qglobals[instance_id .. "_PoFire_FenninEvent"],tonumber(mins)));
 end
 
 function Phase1Setup()
@@ -127,6 +159,7 @@ function Phase1Setup()
 end
 
 function Phase2Setup()
+	eq.set_global(eq.get_zone_instance_id() .. "_PoFire_FenninEvent","Phase2",3,"D3")
 	eq.zone_emote(7,"Four enraged roars of fury echo from further down the bridge over the cacophany of an army waiting to hand out death. The powerful voice is then heard saying, 'Reaxnous, Azobian, Hebabbilys, and Javonn! Come destroy these intruders.'");
 
 	--Phase 2 Spawns
@@ -157,6 +190,7 @@ function Phase2Setup()
 end
 
 function Phase3Setup()
+	eq.set_global(eq.get_zone_instance_id() .. "_PoFire_FenninEvent","Phase3",3,"D3")
 	eq.zone_emote(7,"As the last of the army is defeated, visions of endless burning flames intrude into your mind.  Suddenly the visions end as a call comes from just ahead saying, 'Prepare to meet your end at the hands of the Council of Fire!'");
 
 	--Phase 3 Council Spawns
@@ -166,10 +200,18 @@ function Phase3Setup()
 	eq.spawn2(217453,0,0,-1600,-920,-180,254);	--#Warlord_Prollaz
 end
 
-function event_timer(e)
-	if e.timer == "Event_HB" then
-		timer = timer + 1;	--tracks event timer in seconds
-	elseif e.timer == "fail" then
+function Phase4Setup()
+	eq.set_global(eq.get_zone_instance_id() .. "_PoFire_FenninEvent","Phase4",3,"D3")
+	eq.zone_emote(7,"A maddened call of endless fury erupts as a burning creature of pure destructions stands tall before you.  The creature then speaks in the loud booming voice of immense power saying, 'You are fools to have come this far. Prepare to tremble at the might of Doomfire!'");
+	eq.spawn2(217436,0,0,-1500,-935,-170,244);		--#Fennin_Ro,_The_Tyrant_of_Fire (217436)
+	
+	--spawn elite guardians of ro
+	eq.spawn_condition("pofire",eq.get_zone_instance_id(),1,1)
+end
+
+function FailTimer(e)
+	if e.timer == "fail" then
+		eq.set_global(eq.get_zone_instance_id() .. "_PoFire_FenninEvent","Failed",3,"D3")
 		eq.stop_all_timers();
 		DepopEvent();
 		eq.signal(217066,1);	--signal #fennin_unloader (217066) to unload encounter
@@ -188,11 +230,7 @@ end
 
 function CouncilCheck()
 	if council and not mob_check(council_mobs) then
-		eq.zone_emote(7,"A maddened call of endless fury erupts as a burning creature of pure destructions stands tall before you.  The creature then speaks in the loud booming voice of immense power saying, 'You are fools to have come this far. Prepare to tremble at the might of Doomfire!'");
-		eq.spawn2(217436,0,0,-1500,-935,-170,244);		--#Fennin_Ro,_The_Tyrant_of_Fire (217436)
-		
-		--spawn elite guardians of ro
-		eq.spawn_condition("pofire",eq.get_zone_instance_id(),1,1)
+		Phase4Setup();
 	end
 end
 
@@ -213,6 +251,7 @@ function EventWin(e)
 	eq.zone_emote(7,"Loud cries of hopelessness echo throughout the burning lands. The creatures of Doomfire call out to their master, Fennin Ro the Tyrant of Fire, for his dead body now lies at the feet of the mighty adventurers.");
 	eq.spawn2(217455,0,0,e.self:GetX(), e.self:GetY(), e.self:GetZ() - 15, e.self:GetHeading());	--#Essence_of_Fire (217455)
 	eq.signal(217066,1);	--signal #fennin_unloader (217066) to unload encounter
+	eq.set_global(eq.get_zone_instance_id() .. "_PoFire_FenninEvent","Win",3,"D3");
 end
 	
 function DepopEvent()	
