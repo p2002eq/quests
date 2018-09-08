@@ -22,5 +22,8 @@ function event_trade(e)
 end
 
 function event_death_complete(e)
-    eq.signal(172183,1);  -- signal for a chance to spawn Heratius Grolden
+  local random_result = math.random(100);
+  if(random_result <= 25) then
+    eq.unique_spawn(172183,0,0,-1425,576,317,64); -- Heratius Grolden
+  end
 end

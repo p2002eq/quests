@@ -35,3 +35,7 @@ function event_timer(e)
 	end
 end
 
+function event_death(e)
+	eq.depop_all(207292);
+end
+

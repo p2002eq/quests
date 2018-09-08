@@ -6,6 +6,7 @@ local event_mobs = {218371,218360,218349,218358,218355};
 local trigger_counter;
 local target;
 local wave;
+local started;
 
 --failure variables
 local fail_timer = 3 * 60 * 60;	--3 hr default
@@ -17,10 +18,12 @@ function EventReset()
 	eq.stop_all_timers();
 	wave = 0;
 	final_boss = false;
+	started = false;
 end
 
 function Phase1(e)
-	if not eq.get_entity_list():IsMobSpawnedByNpcTypeID(218317) and not eq.get_entity_list():IsMobSpawnedByNpcTypeID(218018) then --confirms no Mudwalkers or Seekers are up
+	if not started and not eq.get_entity_list():IsMobSpawnedByNpcTypeID(218317) and not eq.get_entity_list():IsMobSpawnedByNpcTypeID(218018) then --confirms no Mudwalkers or Seekers are up
+		started = true;
 		eq.local_emote({e.self:GetX(), e.self:GetY(), e.self:GetZ()},7,1000,"The last of the mud walkers has been slain. A loud roar is heard from the center of the muddite temple as the Sludge Lurker comes into being.");
 		eq.spawn2(218371,0,0,341,83,72,0);	--#A_Sludge_Lurker (218371)
 	end	
@@ -158,26 +161,27 @@ function event_encounter_load(e)
 	--registered events
 	--Phase 1
 	eq.register_npc_event("Mud_Event", Event.death_complete, 218317, Phase1);				--An_Earthen_Mudwalker (218317)
+	eq.register_npc_event("Mud_Event", Event.death_complete, 218018, Phase1);				--A_Muddite_Seeker(218018)
 	
 	--Phase 2
-	eq.register_npc_event("Mud_Event", Event.spawn, 218371, SetHP);							--#A_Sludge_Lurker (218371)
-	eq.register_npc_event("Mud_Event", Event.hp, 218371, HPEvent);							--#A_Sludge_Lurker (218371)
-	eq.register_npc_event("Mud_Event", Event.death_complete, 218371, SpawnGorgers);			--#A_Sludge_Lurker (218371)
-	eq.register_npc_event("Mud_Event", Event.death_complete, 218360, LurkerCheck);			--#A_Muck_Mudlet (218360)
+	eq.register_npc_event("Mud_Event", Event.spawn, 218371, SetHP);						--#A_Sludge_Lurker (218371)
+	eq.register_npc_event("Mud_Event", Event.hp, 218371, HPEvent);						--#A_Sludge_Lurker (218371)
+	eq.register_npc_event("Mud_Event", Event.death_complete, 218371, SpawnGorgers);				--#A_Sludge_Lurker (218371)
+	eq.register_npc_event("Mud_Event", Event.death_complete, 218360, LurkerCheck);				--#A_Muck_Mudlet (218360)
 
 	--Phase 3 ()
-	eq.register_npc_event("Mud_Event", Event.death_complete, 218349, MudwalkerSpawn);		--#A_Filth_Gorger (218349)
+	eq.register_npc_event("Mud_Event", Event.death_complete, 218349, MudwalkerSpawn);			--#A_Filth_Gorger (218349)
 	eq.register_npc_event("Mud_Event", Event.combat, 218349, EventCombat);					--#A_Filth_Gorger (218349)
 	
 	--A_Monstrous_Mudwalker (Final Phase)
 	eq.register_npc_event("Mud_Event", Event.combat, 218358, EventCombat);					--#A_Monstrous_Mudwalker (218358)
-	eq.register_npc_event("Mud_Event", Event.timer, 218358, BossTimer);						--#A_Monstrous_Mudwalker (218358)
+	eq.register_npc_event("Mud_Event", Event.timer, 218358, BossTimer);					--#A_Monstrous_Mudwalker (218358)
 	eq.register_npc_event("Mud_Event", Event.death_complete, 218358, EventWin);				--#A_Monstrous_Mudwalker (218358)
-	eq.register_npc_event("Mud_Event", Event.slay, 218358, SpawnAdds);						--#A_Monstrous_Mudwalker (218358)
+	eq.register_npc_event("Mud_Event", Event.slay, 218358, SpawnAdds);					--#A_Monstrous_Mudwalker (218358)
 
 	
 	--#A_Merciless_Mudslinger (218355) PH for Monstrous Mudwalker
 	eq.register_npc_event("Mud_Event", Event.combat, 218355, EventCombat);					--#A_Merciless_Mudslinger (218355)
-	eq.register_npc_event("Mud_Event", Event.timer, 218355, BossTimer);						--#A_Merciless_Mudslinger (218355)
+	eq.register_npc_event("Mud_Event", Event.timer, 218355, BossTimer);					--#A_Merciless_Mudslinger (218355)
 	eq.register_npc_event("Mud_Event", Event.death_complete, 218355, EventWin);				--#A_Merciless_Mudslinger (218355)
 end 

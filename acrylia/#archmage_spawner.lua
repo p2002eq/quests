@@ -93,4 +93,3 @@ function spawn_mob(NPCID, loc)
 	eq.spawn2(NPCID[math.random(1,7)],0,0,unpack(loc[n]));  
 	end
 end
-
