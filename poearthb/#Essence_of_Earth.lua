@@ -17,10 +17,12 @@ end
 
 function event_say(e)
 	local qglobals = eq.get_qglobals(e.self,e.other);
-	if e.message:findi("hail") and  qglobals.pop_earthb_rathe == nil and counter < 72 then
+	if e.message:findi("hail") and not e.other:HasItem(29146) and counter < 72 then
+		if qglobals.pop_earthb_rathe == nil then
+			eq.set_global("pop_earthb_rathe", "1", 5, "F");
+			e.other:Message(15,"You've received a character flag!");
+		end
 		e.other:Message(7,"The ground begins to shake and crack at your feet.  The quakes are powerful but you are not haltered by them.  Suddenly a formation of earth begins to coalesce in your hand.");
-		e.other:Message(15,"You've received a character flag!");
-		eq.set_global("pop_earthb_rathe", "1", 5, "F");
 		e.other:SummonItem(29146); 	--Mound of Living Stone
 		counter = counter + 1;
 	end

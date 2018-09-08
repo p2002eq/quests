@@ -21,10 +21,8 @@ function GetGlobals()
 	instance_id = eq.get_zone_instance_id();
 end
 
-
 function CouncilCheck(e)
 	GetGlobals();
-	eq.GM_Message(5,"Council Kill Check");	--debug
 	
 	if not fallen then
 		fallen = true;
@@ -42,10 +40,10 @@ function CouncilCheck(e)
 end
 
 function CouncilRepop(e)
-	if e.timer == "repop_check" and avatar == nil then
+	if e.timer == "repop_check" then
 		eq.stop_timer(e.timer);
 		fallen = false;
-		
+
 		for k,v in pairs(spawnpoints) do
 			spawn = eq.get_entity_list():GetSpawnByID(v);
 			if not spawn:NPCPointerValid() then
@@ -119,26 +117,6 @@ function SetDamage(e,level)
 	e.self:ModifyNPCStat("max_hit",damage_tables[level][2]);
 end
 
-function CouncilCombat(e)
-	if e.joined then
-		eq.set_timer("banish",math.random(1,12) * 1000);
-		RatheAssist(e,e.self:GetHateTop());
-	else
-		e.self:CastToNPC():MoveTo(e.self:GetSpawnPointX(),e.self:GetSpawnPointY(),e.self:GetSpawnPointZ(),e.self:GetSpawnPointH(),true);	--mobs will instantly path back to spawn if no one on hate list
-	end
-end
-
-function RatheAssist(e,target)
-	local mob_list = eq.get_entity_list():GetMobList();
-	if mob_list ~= nil then
-		for mob in mob_list.entries do
-			if mob:GetNPCTypeID() == 222140 or mob:GetNPCTypeID() == 222141 and e.self:CalculateDistance(mob:GetX(), mob:GetY(), mob:GetZ()) <= 150 then
-				mob:AddToHateList(target,1);
-			end
-		end
-	end
-end
-
 function CouncilTimers(e)
 	if e.timer == "banish" and e.self:GetHPRatio() > 10 and not e.self:IsMezzed() then	--only banishes over 11% hp and cannot be mezzed of course
 		eq.stop_timer(e.timer);
@@ -152,12 +130,8 @@ function CouncilTimers(e)
 		elseif not e.self:IsEngaged() then
 			eq.stop_timer(e.timer);
 		end
-	elseif e.timer == "depop" then
-		EndEvent();
 	end
 end
-
-
 
 function Banish(e,rand)
 	local instance_id = eq.get_zone_instance_id();
@@ -185,6 +159,12 @@ function event_timer(e)	--event failure timer reached
 	end
 end
 
+function AvatarTimer(e)
+	if e.timer == "depop" then
+		EndEvent();
+	end
+end
+
 function EventWin(e)
 	eq.spawn2(222148,0,0,e.self:GetX(),e.self:GetY(),e.self:GetZ()-10,0);	--#Essence_of_Earth (222148)
 	EndEvent();
@@ -205,18 +185,18 @@ function event_encounter_load(e)
 	--Mezzable Council Members
 	eq.register_npc_event("Rathe_Event", Event.death_complete, 222141, CouncilCheck);	--#A_Rathe_Councilman (222141) 
 	eq.register_npc_event("Rathe_Event", Event.timer, 222141, CouncilTimers);			--#A_Rathe_Councilman (222141) 
-	eq.register_npc_event("Rathe_Event", Event.combat, 222141, CouncilCombat);			--#A_Rathe_Councilman (222141) 
+
 	
 	--Non-Mezzable Council Members
 	eq.register_npc_event("Rathe_Event", Event.death_complete, 222140, CouncilCheck);	--A_Rathe_Councilman (222140)
 	eq.register_npc_event("Rathe_Event", Event.timer, 222140, CouncilTimers);			--A_Rathe_Councilman (222140) 
-	eq.register_npc_event("Rathe_Event", Event.combat, 222140, CouncilCombat);			--A_Rathe_Councilman (222140) 
 	eq.register_npc_event("Rathe_Event", Event.hp, 222140, CouncilHP);					--A_Rathe_Councilman (222140) 
 	eq.register_npc_event("Rathe_Event", Event.spawn, 222140, SetHP);					--A_Rathe_Councilman (222140) 
 	
-	--Council Repop Check (7 min timer)
+	--Council Repop Check (5.7 min timer)
 	eq.register_npc_event("Rathe_Event", Event.timer, 222156, CouncilRepop);			--#rathe_controller (222156)
 
 	--Avatar of Earth (Final Phase)
 	eq.register_npc_event("Rathe_Event", Event.death_complete, 222147, EventWin);		--#Avatar_of_Earth (222147)
+	eq.register_npc_event("Rathe_Event", Event.timer, 222147, AvatarTimer);		--#Avatar_of_Earth (222147)
 end
