@@ -13,8 +13,13 @@
 
 function event_say(e)
 	local qglobals = eq.get_qglobals(e.self, e.other);
+	
+	--adjust flags for players who completed hedge or killed Terris but somehow missed construct flag (should not be possible)
+	if (qglobals.pop_ponb_terris ~= nil) or (qglobals.pop_pon_construct > 1) then	
+		eq.set_global("pop_pon_construct", "1", 5, "F");
+	end
 
-	if(e.message:findi("hail") and tonumber(qglobals.pop_pon_hedge_jezith) == 1 and tonumber(qglobals.pop_pon_construct) == 1 and tonumber(qglobals.pop_ponb_terris) == 1) then
+	if(e.message:findi("hail") and qglobals.pop_pon_hedge_jezith ~= nil and qglobals.pop_pon_construct ~= nil and qglobals.pop_ponb_terris ~= nil) then
 		e.other:Message(7,"Thelin tells you, 'I apologize but I cannot stand to greet you. I am still quite weak and recovery will be a long and painful road, though it is a most welcome venture. I want you to know how much I appreciate your bravery in helping me. I am forever in your debt.'");
 		if qglobals.pop_ponb_poxbourne == nil then
 			eq.set_global("pop_ponb_poxbourne", "1", 5, "F");
@@ -30,59 +35,3 @@ function event_trade(e)		--standard item return script
 	local item_lib = require("items");
 	item_lib.return_items(e.self, e.other, e.trade)
 end
-
-
-
--- $qglobals{pop_pon_hedge_jezith}=undef;
--- $qglobals{pop_pon_construct}=undef;
--- $qglobals{pop_ponb_terris}=undef;
--- $qglobals{pop_ponb_poxbourne}=undef;
--- $qglobals{pop_poi_dragon}=undef;
--- $qglobals{pop_poi_behometh_preflag}=undef;
--- $qglobals{pop_poi_behometh_flag}=undef;
--- $qglobals{pop_pod_alder_fuirstel}=undef;
--- $qglobals{pop_pod_grimmus_planar_projection}=undef;
--- $qglobals{pop_pod_elder_fuirstel}=undef;
--- $qglobals{pop_poj_mavuin}=undef;
--- $qglobals{pop_poj_tribunal}=undef;
--- $qglobals{pop_poj_valor_storms}=undef;
--- $qglobals{pop_poj_execution}=undef;
--- $qglobals{pop_poj_flame}=undef;
--- $qglobals{pop_poj_hanging}=undef;
--- $qglobals{pop_poj_lashing}=undef;
--- $qglobals{pop_poj_stoning}=undef;
--- $qglobals{pop_poj_torture}=undef;
--- $qglobals{pop_pov_aerin_dar}=undef;
--- $qglobals{pop_pos_askr_the_lost}=undef;
--- $qglobals{pop_pos_askr_the_lost_final}=undef;
--- $qglobals{pop_cod_preflag }=undef;
--- $qglobals{pop_cod_bertox}=undef;
--- $qglobals{pop_cod_final}=undef;
--- $qglobals{pop_pot_shadyglade}=undef;
--- $qglobals{pop_pot_newleaf}=undef;
--- $qglobals{pop_pot_saryrn}=undef;
--- $qglobals{pop_pot_saryn_final}=undef;
--- $qglobals{pop_hoh_faye}=undef;
--- $qglobals{pop_hoh_trell}=undef;
--- $qglobals{pop_hoh_garn}=undef;
--- $qglobals{pop_hohb_marr}=undef;
--- $qglobals{pop_bot_agnarr}=undef;
--- $qglobals{pop_bot_karana}=undef;
--- $qglobals{pop_tactics_tallon }=undef;
--- $qglobals{pop_tactics_vallon}=undef;
--- $qglobals{pop_tactics_ralloz}=undef;
--- $qglobals{pop_elemental_grand_librarian}=undef;
--- $qglobals{pop_sol_ro_arlyxir}=undef;
--- $qglobals{pop_sol_ro_dresolik}=undef;
--- $qglobals{pop_sol_ro_jiva}=undef;
--- $qglobals{pop_sol_ro_rizlona}=undef;
--- $qglobals{pop_sol_ro_xuzl}=undef;
--- $qglobals{pop_sol_ro_solusk}=undef;
--- $qglobals{pop_fire_fennin_projection}=undef;
--- $qglobals{pop_wind_xegony_projection}=undef;
--- $qglobals{pop_water_coirnav_projection}=undef;
--- $qglobals{pop_eartha_arbitor_projection}=undef;
--- $qglobals{pop_earthb_rathe}=undef;
--- $qglobals{pop_time_maelin}=undef;
--- }
--- }
