@@ -182,7 +182,7 @@ function HandleCorpses(src_x, src_y, src_z, dist)
       for corpse in clist.entries do
          if ( corpse:IsPlayerCorpse() ) then
              if (corpse:CalculateDistance(src_x, src_y, src_z) < dist) then
-               corpse:GMMove(58, -47, 2);      
+               corpse:GMMove(58 + math.random(-10,10), -47 + math.random(-10,10), 4);      
              end
          elseif ( corpse:IsNPCCorpse() ) then
             if (corpse:CalculateDistance(src_x, src_y, src_z) < dist) then
