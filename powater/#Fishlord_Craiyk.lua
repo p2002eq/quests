@@ -7,8 +7,8 @@ local miniNamedCount = 0;
 local miniNamedMaxSpawns = 15;	--set a limit for rare mobs that can spawn
 
 local started;
-local wave_timer = 30;  --in seconds
-local final_boss_timer = 3 * 60 * 60 -- 3 hrs
+local wave_timer = 60;  --in seconds
+local final_boss_timer = 1800
 local wave = 0;
 
 --trash mob npc listing
