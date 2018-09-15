@@ -56,6 +56,7 @@ end
 
 function ZoneReset()	--depops zone and reloads controllers
 	DepopEvent();
+	eq.depop_all(217066);
 	eq.get_entity_list():GetSpawnByID(367279):Repop(2);	--#fennin_unloader (217066)
 end
 
