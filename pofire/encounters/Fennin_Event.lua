@@ -7,8 +7,6 @@ local phase2_mobs = {217418,217419,217424,217426,217439,217440,217450};
 local council_mobs = {217428,217429,217449,217453};
 
 
-
---local fail_timer = 2*60*60;	--2hr default
 local fail = false;
 local phase2;
 local council;
@@ -18,13 +16,9 @@ function event_encounter_load(e)
 	--event variables
 	EventReset();
 	controller = eq.get_entity_list():GetMobByNpcTypeID(217066);	--#fennin_unloader (217066)
-	eq.zone_emote(7,"The ground rumbles as the Guardian of Doomfire collapses to the ground dead. Then a loud booming voice is heard saying. 'Come little mortals! Feel the chaos of the fires that flame the dark rage. Test yourselves against the might of my armies!'");
 	
 	--zone crash handling - checks to resume encounter
 	CheckPhase();
-	--Phase1Setup();	--debug
-	
-	
 	
 	--registered events
 
@@ -98,6 +92,8 @@ function UpdateFailTimer(mins)
 end
 
 function Phase1Setup()
+	eq.zone_emote(7,"The ground rumbles as the Guardian of Doomfire collapses to the ground dead. Then a loud booming voice is heard saying. 'Come little mortals! Feel the chaos of the fires that flame the dark rage. Test yourselves against the might of my armies!'");
+	eq.set_global(eq.get_zone_instance_id() .. "_PoFire_FenninEvent","Phase1",3,"D3");
 	--spawn 1 (Chaosfiend Cluster #1) - 6 spawn
 	eq.spawn2(217424,0,0,-460,-1145,-205,124);	--a_rage_reaver_of_flame (217424)
 	eq.spawn2(217418,0,0,-460,-1175,-205,124);	--a_chaos_healer_of_flame (217418)
