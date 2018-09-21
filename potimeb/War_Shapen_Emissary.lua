@@ -1,4 +1,8 @@
+--War_Shapen_Emissary (223096)
+--Phase 2 Mini-boss
+--potimeb
+
 function event_death_complete(e)
-	-- send a signal to the zone_status that I died
-	eq.signal(223097,3);
+	--signal phase_two_controller
+	eq.signal(223242,1);
 end
