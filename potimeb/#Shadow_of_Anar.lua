@@ -1,4 +1,4 @@
---Anar_of_Water (223104)
+--#Shadow_of_Anar (223091)
 --Phase 1 - Anar of Water Trial
 --potimeb
 
@@ -6,11 +6,6 @@
 function event_death_complete(e)
 	-- send a signal to the #water_trigger that I died
 	eq.signal(223172,1);
-	eq.set_global(eq.get_zone_instance_id() .. "_potimeb_Anar","1",7,"H36");	
-end
-
-function event_spawn(e)
-	eq.set_next_hp_event(91);
 end
 
 function event_combat(e)
@@ -25,6 +20,10 @@ function event_timer(e)
 	if e.timer == "reset" and not e.self:IsEngaged() then
 		eq.set_next_hp_event(91);
 	end
+end
+
+function event_spawn(e)
+	eq.set_next_hp_event(91);
 end
 
 function event_hp(e)

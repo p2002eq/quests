@@ -7,6 +7,7 @@ function event_signal(e)
 		if (event_counter == 12) then
 			-- spawn real Innoruuk
 			eq.spawn2(223167,0,0,303.3,306,13.3,323);
+			eq.set_global(eq.get_zone_instance_id() .. "_potimeb_p5_inny","Active",7,"H132");
 			-- make myself go away!
 			eq.depop();
 		end

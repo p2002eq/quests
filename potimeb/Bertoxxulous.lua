@@ -7,6 +7,7 @@ function event_signal(e)
 		if (event_counter == 12) then
 			-- spawn real Bertoxxulous
 			eq.spawn2(223142,0,0,-299,-297,23.3,62);
+			eq.set_global(eq.get_zone_instance_id() .. "_potimeb_p5_bertox","Active",7,"H132");
 			-- make myself go away!
 			eq.depop();
 		end
