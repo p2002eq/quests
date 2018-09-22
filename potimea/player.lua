@@ -1,11 +1,12 @@
 --player.lua for Plane of Time A
 --original PEQ script modified by Daeron for Project 2002
 
-function event_enter_zone(e)
+function event_enter_zone(e)	
 	-- load the current qglobals
 	local qglobals = eq.get_qglobals(e.self);
 	if ( qglobals["time_emote"] == nil and e.self:Admin() < 10 ) then
 		eq.world_emote(15, "The earth rumbles, sky thunders, volcanoes erupt, and tidal waves crash as the Gods prepare their armies for battle. The first of the mortals have obtained the power to cross into the Plane of Time!");
+		e.self:CameraEffect(3000,6,e.self,true);	--flavor (3 sec earthquake)
 		eq.set_global("time_emote","TimeEntered",7,"F");
 	end
 	local discs = require('disciplines');
@@ -87,7 +88,7 @@ function event_click_door(e)
 				e.self:MovePCInstance(223, tonumber(instance_id), -27, 1103, 496, 124);
 			end
 		else
-            e.self:Message(13,"There is no instance available in this zone for your guild,");
+            e.self:Message(13,"There is no instance available in this zone for your guild.");
 		end
 	end
 end

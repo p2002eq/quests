@@ -2,13 +2,9 @@
 --Original PEQ Script modified by Daeron of Project 2002
 
 function event_enter_zone(e)
-  -- load the current qglobals
-  local qglobals = eq.get_qglobals(e.self);
-  -- if (qglobals.potimeb_lockout == nil or qglobals.potimeb_lockout == "0") then
-    -- -- set global for phase 1 player lockout to 12 hours on zone in.
-    -- eq.set_global("potimeb_lockout",tostring(instance_requests.GetLockoutEndTimeForHours(12)),5,"H12");
-  -- end
-  	local discs = require('disciplines');
+	-- load the current qglobals
+	local qglobals = eq.get_qglobals(e.self);
+	local discs = require('disciplines');
 	discs:update_discs(e, e.self:GetLevel());
 end
 
@@ -189,6 +185,7 @@ function event_say(e)
 			eq.delete_global(eq.get_zone_instance_id() .. "_potimeb_p5_cazic");
 			eq.delete_global(eq.get_zone_instance_id() .. "_potimeb_p5_inny");
 			eq.delete_global(eq.get_zone_instance_id() .. "_potimeb_p5_rallos");
+			eq.delete_global(eq.get_zone_instance_id() .. "_potimeb_Anar");
 			eq.delete_global(eq.get_zone_instance_id() .. "_potimeb_Terlok");
 			eq.delete_global(eq.get_zone_instance_id() .. "_potimeb_Rythor");
 			eq.delete_global(eq.get_zone_instance_id() .. "_potimeb_Kazrok");

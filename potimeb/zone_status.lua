@@ -29,8 +29,8 @@ function event_spawn(e)
 	end
 	
 	-- then check the value to decide what to pop - should reset to Phase 1 unless zone crash
-	if ((qglobals[instance_id.."_potimeb_status"] == nil) or (qglobals[instance_id.."_potimeb_status"] == "Phase0") or 
-		 (qglobals[instance_id.."_potimeb_status"] == "Failed") or (qglobals[instance_id.."_potimeb_status"] == "QuarmDead")) then
+	if ((qglobals[instance_id.."_potimeb_status"] == nil) or (qglobals[instance_id.."_potimeb_status"] == "Phase0") or (qglobals[instance_id.."_potimeb_status"] == "Phase1") 
+		 or (qglobals[instance_id.."_potimeb_status"] == "Failed") or (qglobals[instance_id.."_potimeb_status"] == "QuarmDead")) then
 		-- just in case the instance ID gets reused before this one expires, make sure to set phase_bit to 0
 		eq.set_global(instance_id.."_potimeb_phase_bit","0",7,"H132");
 		-- Spawn phase 1

@@ -16,14 +16,14 @@ function event_spawn(e)
 	eq.spawn2(223138,0,0,240,1115,494,387);		
 	
 	--Water trial phase 2 mobs
-	eq.spawn2(223132,0,0,130,830,495,387);		--A_Crustacean_Champion (223132)
-	eq.spawn2(223132,0,0,130,855,495,387);	
-	eq.spawn2(223132,0,0,130,880,495,387);	
-	eq.spawn2(223132,0,0,130,905,495,387);		
+	eq.spawn2(223136,0,0,130,830,495,387);		--A_Crustacean_Champion (223136)
+	eq.spawn2(223136,0,0,130,855,495,387);	
+	eq.spawn2(223136,0,0,130,880,495,387);	
+	eq.spawn2(223136,0,0,130,905,495,387);		
 
-	eq.spawn2(223153,0,0,170,820,495,387);		--A_Watercrafted_Hunter (223153)
-	eq.spawn2(223153,0,0,170,860,495,387);	
-	eq.spawn2(223153,0,0,170,900,495,387);	
+	eq.spawn2(223148,0,0,170,820,495,387);		--A_Watercrafted_Hunter (223148)
+	eq.spawn2(223148,0,0,170,860,495,387);	
+	eq.spawn2(223148,0,0,170,900,495,387);	
 
 	eq.spawn2(223141,0,0,230,805,495,387);		--A_Deepwater_Assassin (223141)
 	eq.spawn2(223141,0,0,230,875,495,387);			
@@ -79,7 +79,6 @@ end
 
 function event_timer(e)
 	if e.timer == "targetable" then
-		eq.GM_Message(18,"Activating bosses!");	--debug
 		eq.stop_timer(e.timer);
 		for n = 1,4 do
 			mob = eq.get_entity_list():GetMobByNpcTypeID(bosses[n]);
