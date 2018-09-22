@@ -31,10 +31,10 @@ function event_spawn(e)
 	eq.spawn2(223140,0,0,190,865,495,387);		--A_War_Shapen_Emissary (223140)
 
 	--Fire trial phase 2 mobs
-	eq.spawn2(223114,0,0,130,610,495,387);		--A_Fire_Etched_Doombringer (223114)
-	eq.spawn2(223114,0,0,130,585,495,387);	
-	eq.spawn2(223114,0,0,130,560,495,387);	
-	eq.spawn2(223114,0,0,130,535,495,387);	
+	eq.spawn2(223137,0,0,130,610,495,387);		--A_Fire_Etched_Doombringer (223137)
+	eq.spawn2(223137,0,0,130,585,495,387);	
+	eq.spawn2(223137,0,0,130,560,495,387);	
+	eq.spawn2(223137,0,0,130,535,495,387);	
 
 	eq.spawn2(223124,0,0,170,525,495,387);		--A_Smoldering_Elemental (223124)
 	eq.spawn2(223124,0,0,170,565,495,387);	
