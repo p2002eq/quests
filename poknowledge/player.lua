@@ -10,5 +10,5 @@ function event_enter_zone(e)
 	local discs = require('disciplines');
 	discs:update_discs(e, e.self:GetLevel());
 	-- Halloween Event
-	e.self:SetRace(eq.ChooseRandom(58,216,123,230,85,108,151,154,161,131,181,243,252));
+	e.self:SetRace(eq.ChooseRandom(469,466,464,458,455,454,420,419,418,417,414,413,412,411,406,400,398,396,393,384,355,336));
 end
