@@ -1,4 +1,7 @@
----- Quest:Search for Tergus Raslin
+--Elisah_Astari (170168)
+--Quest:Search for Tergus Raslin
+--twilight
+
 function event_say(e)
 	if(e.message:findi("Hail")) then
 		e.self:Say("Not to be rude. but I am on a very important mission right now and I cannot be bothered.");
@@ -17,8 +20,8 @@ function event_trade(e)
 		e.other:Faction(350,-1); -- validus custodus
 		e.other:Faction(206,-2); -- magus conlegium
 		e.other:QuestReward(e.self,0,0,0,0,0,1000); -- Faction and EXP
-		-- TODO: Make him spawn Tergus Raslin north of Elisah and Run south to 150,1900. He will invis himself.
-		-- TODO: http://everquest.allakhazam.com/db/quest.html?quest=1487
+		eq.spawn2(170343,6,0,1937,1467,55,256);  -- #Tergus_Raslin (170343)
+		eq.depop_with_timer();
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end

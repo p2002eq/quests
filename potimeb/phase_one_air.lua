@@ -1,5 +1,16 @@
--- NPC ID 223170
+--NPC ID 223170
+--Phase 1 - Neimon of Air Trial
+--potimeb
+
 local event_counter = 0;
+local event_mobs = {223087,223226,223111,223120,223240,223241}; 
+
+--specify trial boundaries for player check routine
+local min_x = -75;
+local max_x = 90;
+local min_y = 1290;
+local max_y = 1415;
+local player_limit = 18;	
 
 function event_spawn(e)
 	-- create a proximty to set the spawn timer
@@ -10,20 +21,23 @@ end
 
 function event_enter(e)
 	-- tell zone_status phase 1 was started
-	eq.signal(223097,1);
+	eq.signal(223097,1,5*1000);
 	-- wait 45 seconds before spawning the mobs.
 	eq.clear_proximity();
 	eq.set_timer("Phase1Air",45000);
+	eq.set_timer("player_count",5 * 1000);	--check to ensure only 18 players in trial area
 end
 
 function event_timer(e)
 	if(e.timer == "Phase1Air") then
 		-- spawn first wave of 4 An_Air_Phoenix_Noble
-		eq.spawn2(eq.ChooseRandom(223087,223226),0,0,67,1364,494.8,371);
-		eq.spawn2(eq.ChooseRandom(223087,223226),0,0,67,1347,494.8,371);
-		eq.spawn2(eq.ChooseRandom(223087,223226),0,0,62,1364,494.8,371);
-		eq.spawn2(eq.ChooseRandom(223087,223226),0,0,62,1347,494.8,371);
+		eq.spawn2(eq.ChooseRandom(223087,223226),0,0,-50,1330,494.8,59);
+		eq.spawn2(eq.ChooseRandom(223087,223226),0,0,-50,1385,494.8,189);
+		eq.spawn2(eq.ChooseRandom(223087,223226),0,0, 0,1330,494.8,458);
+		eq.spawn2(eq.ChooseRandom(223087,223226),0,0, 0,1385,494.8,320);
 		eq.stop_timer("Phase1Air");
+	elseif(e.timer == "player_count") then
+		CheckPlayerCount(e);
 	end
 end
 
@@ -32,14 +46,32 @@ function event_signal(e)
 	-- to increment a counter so we know when to spawn the next wave.
 	if (e.signal == 1) then
 		event_counter = event_counter + 1;
-		-- spawn second wave
-		if (event_counter == 4) then
-			eq.spawn2(223120,0,0,68,1355,494.8,371); -- Neimon_of_Air
-			eq.spawn2(223111,0,0,68,1365,494.8,371); -- Servitor_of_Xegony
+		--spawn untargetable birds as event progresses
+		if event_counter == 1 then
+			eq.spawn2(223241,0,0,68,1315,494.8,371); --  #Servitor_of_Xegony (223241)
+		elseif event_counter == 2 then
+			eq.spawn2(223241,0,0,68,1335,494.8,371); --  #Servitor_of_Xegony (223241)
+		elseif event_counter == 3 then
+			eq.spawn2(223241,0,0,68,1375,494.8,371); -- #Servitor_of_Xegony (223241)		
+		elseif (event_counter == 4) then
+			-- spawn targetable second wave with Boss
+			eq.depop_all(223241);
 			eq.spawn2(223111,0,0,68,1375,494.8,371); -- Servitor_of_Xegony
-			eq.spawn2(223111,0,0,68,1345,494.8,371); -- Servitor_of_Xegony
+			eq.spawn2(223111,0,0,68,1395,494.8,371); -- Servitor_of_Xegony
 			eq.spawn2(223111,0,0,68,1335,494.8,371); -- Servitor_of_Xegony
+			eq.spawn2(223111,0,0,68,1315,494.8,371); -- Servitor_of_Xegony
 			event_counter = 0;
+			
+			--check for Neimon lockout
+			local qglobals = eq.get_qglobals();
+			local instance_id = eq.get_zone_instance_id();
+			local neimon = tostring(instance_id .. "_PoTimeB_Neimon");
+			if qglobals[neimon] == nil then
+				eq.spawn2(223120,0,0,68,1355,494.8,371); -- Neimon_of_Air
+			else
+				eq.spawn2(223240,0,0,68,1355,494.8,371);	--#Shadow_of_Neimon (223240)
+			end
+			
 		end
 	-- signal 2 comes from the mobs in the final wave of the air event
 	elseif (e.signal ==2) then
@@ -47,8 +79,24 @@ function event_signal(e)
 		if (event_counter == 5) then
 			-- tell zone_status
 			eq.signal(223097,2);
+			eq.local_emote({e.self:GetX(), e.self:GetY(), e.self:GetZ()},7,80,"Ethereal mists gather at the far wall, causing it to fade in and out of focus.");
 			-- depop as my job is done.
 			eq.depop();
+		end
+	end
+end
+
+function CheckPlayerCount(e)
+	local player_list = eq.get_entity_list():GetClientList();
+	local count = 0;
+	if(player_list ~= nil) then
+		for pc in player_list.entries do
+			if pc:GetX() >= min_x and pc:GetX() <= max_x and pc:GetY() >= min_y and pc:GetY() <= max_y and not pc:GetGM() then
+				count = count + 1;
+				if count > player_limit then 
+					pc:MovePC(219,-37,-110,13,0);	--boot to Time A
+				end
+			end
 		end
 	end
 end

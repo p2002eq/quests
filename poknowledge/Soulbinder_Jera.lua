@@ -4,8 +4,8 @@ function event_say(e)
 	elseif(e.message:findi("bind my soul")) then
 		e.self:Say("Binding your soul. You will return here when you die.");
 		e.self:CastSpell(2049,e.other:GetID(),0,1);
-		--elseif(e.message:findi("illusion")) then -- Halloween Event
-		--	e.other:SetRace(eq.ChooseRandom(58,216,123,230,85,108,151,154,161,131,181,243,252));
+	elseif(e.message:findi("illusion")) then -- Halloween Event
+		e.other:SetRace(eq.ChooseRandom(58,216,123,230,85,108,151,154,161,131,181,243,252));
 	end
 end
 

@@ -33,6 +33,7 @@ function CouncilCheck(e)
 		eq.zone_emote(7,"The last of the council collapses, devoid of life. Twelve distinct voices chant, 'Time comes and time passes, for the stone is forever.  We call upon our collective power to defend our stronghold!'  When the chanting ceases, a deep throated primal scream echoes across Ragrax as the power of twelve is joined as one.  The Avatar of Earth has been summoned.");
 		avatar  = eq.unique_spawn(222147,0,0,2052,400,-210,0);	--#Avatar_of_Earth (222147)
 		eq.set_global(instance_id .. "_AvatarOfEarth_PoEarthB", "1",3,"D3");		--blowable spawn - setting flag regardless of death
+		eq.stop_timer("repop_check",controller);
 		eq.stop_all_timers();	--stops fail timer and repop check timers
 		eq.set_timer("depop", boss_depop * 1000, avatar);	--hard depop to kill boss
 		SetRespawnTimers();
@@ -44,10 +45,12 @@ function CouncilRepop(e)
 		eq.stop_timer(e.timer);
 		fallen = false;
 
-		for k,v in pairs(spawnpoints) do
-			spawn = eq.get_entity_list():GetSpawnByID(v);
-			if not spawn:NPCPointerValid() then
-				spawn:Repop(1);
+		if not eq.get_entity_list():IsMobSpawnedByNpcTypeID(222147) then
+			for k,v in pairs(spawnpoints) do
+				spawn = eq.get_entity_list():GetSpawnByID(v);
+				if not spawn:NPCPointerValid() then
+					spawn:Repop(1);
+				end
 			end
 		end
 	end
