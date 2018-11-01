@@ -26,11 +26,9 @@ function event_say(e)
 	local qglobals = eq.get_qglobals(e.other);
 	if e.message:findi("hail") and not checkTerris(e) then
 		e.other:Message(7,"Thelin Poxbourne tells you, 'Please destroy her for subjecting me to her hideous visions.'  Thelin closes his eyes and is swept away from his nightmare.  The land of pure thought begins to vanish from around you.");
-		if qglobals.pop_pon_construct == nil and counter < 18 then
-			e.other:Message(15,"You've received a character flag!");
-			eq.set_global("pop_pon_construct","1",5,"F");
-			counter = counter + 1;
-		end
+		e.other:Message(15,"You've received a character flag!");
+		eq.set_global("pop_pon_construct","1",5,"F");	--Note:  ignoring 18 flag limit given safeguards in place to boot unregistered players out of maze
+		counter = counter + 1;
 		e.other:SendSpellEffect(78,0,100,false,0);	--simulate spell effect
 		e.other:MovePC(204,-1580,1020,126,261);	--port out player 		
 	end
