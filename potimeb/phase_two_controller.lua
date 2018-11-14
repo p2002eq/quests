@@ -9,6 +9,8 @@ local tBosses = { 223146, 223096, 223134, 223118 }
 local boss_timer = 180;	 --time in seconds till bosses become targetable
 
 function event_spawn(e)
+	undead_kills = 0;
+	kills = 0;
 	eq.set_timer("targetable",boss_timer * 1000);	--5 min till bosses targetable
 
 	--Undead trial phase 2 mobs

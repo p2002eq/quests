@@ -51,7 +51,7 @@ function event_click_door(e)
 			
 			--handles porting player to specified area if raid is currently in Phase 3 or further
 			if qglobals[instance_id .. "_potimeb_status"] ~= nil then
-				e.self:Message(14,string.format("[Found raid in progress! Sending %s to %s]",e.self:GetName(),qglobals[instance_id .. "_potimeb_status"]));
+				--e.self:Message(14,string.format("[Found raid in progress! Sending %s to %s]",e.self:GetName(),qglobals[instance_id .. "_potimeb_status"]));	--debug
 				if qglobals[instance_id .. "_potimeb_status"] == "Phase3" then
 					e.self:MovePCInstance(223, tonumber(instance_id), 585,1110,496,127);
 					return;

@@ -10,6 +10,7 @@ local instance_id = 0;
 local qglobals = {};
 local player_limit;
 local echo = false;
+local p1_started = false;
 
 function event_spawn(e)
 	-- get the zone instance id
@@ -96,7 +97,8 @@ function event_signal(e)
 	-- grab the entity_list
 	local entity_list = eq.get_entity_list();
 	-- signal 1 comes from the phase 1 trigger mobs
-	if (e.signal == 1 and qglobals[instance_id.."_potimeb_status"] == "Phase0") then
+	if (e.signal == 1 and not p1_started and (qglobals[instance_id.."_potimeb_status"] == "Phase0" or qglobals[instance_id.."_potimeb_status"] == "Phase1")) then
+		p1_started = true;
 		-- npc global for status tracking.
 		current_phase = "Phase1";
 		-- send signal to flavor text NPC
@@ -467,8 +469,7 @@ function UpdateFailTimer(prior_phases,seconds_to_add)
 	eq.set_timer("fail_timer",(current_remainder + seconds_to_add) * 1000); -- * 1000 to convert to milliseconds
 	eq.stop_timer("player_check");
 	eq.set_timer("player_check", 10 * 1000);
-	--eq.set_timer("fail_timer", 120 * 1000); -- * 1000 to convert to milliseconds    --debug 
-	eq.GM_Message(14,"fail_timer set to " .. ((current_remainder + seconds_to_add) * 1000) .. " milliseconds");	--debug
+    eq.GM_Message(14,"fail_timer set to " .. ((current_remainder + seconds_to_add) * 1000) .. " milliseconds");     --debug
 end
 
 function event_timer(e)
