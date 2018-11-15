@@ -115,6 +115,7 @@ function event_signal(e)
 	
 	if kills == 40 and undead_kills == 9 then
 		eq.signal(223097,3);	--signal zone_status that phase is complete
+		eq.depop();
 	end
 end
 	

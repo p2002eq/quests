@@ -23,7 +23,7 @@ function event_click_door(e)
 	local lock_pick = entity_list:FindDoor(door_id):GetLockPick();
 	local tbl_id = nil;	--identifies slot in p1 & p2 & p3 door tables
 	local phase = qglobals[eq.get_zone_instance_id() .."_potimeb_status"]
-	--e.self:Message(14,"Door ID is: [" .. door_id .. "] Open Type: [" .. e.door:GetOpenType() .. "] Lock Pick: [" .. e.door:GetLockPick() .. "] Key Item: [" .. e.door:GetKeyItem() .. "]");   --debug to easily check door IDs
+	--e.self:Message(14,"Door ID is: [" .. door_id .. "] Open Type: [" .. e.door:GetOpenType() .. "] Phase: [" .. phase .. "]");   --debug to easily check door IDs
 	if ((door_id >= 5 and door_id <= 8) or (door_id >= 25 and door_id <= 32) or (door_id >= 42 and door_id <= 49)) then
 		local phase1_doors = {	[1] = {5,6,7,8},		--fire
 								[2] = {25,26,27,28},	--water
@@ -43,7 +43,7 @@ function event_click_door(e)
 		local phase2_doors = {	[1] = {13,14,15,16},		
 								[2] = {33,34,35,36},	
 								[3] = {38,39,40,41} };	
-		if (((phase == "Phase3") or (phase == "Phase4") or (phase == "Phase5")) or e.self:GetGM()) then
+		if (((phase == "Phase3") or (phase == "Phase4") or (phase == "Phase5") or (phase == "Phase6")) or e.self:GetGM()) then
 			tbl_id = door_check(door_id,phase2_doors);
 			if tbl_id ~= nil then
 				OpenDoors(e,door_id,phase2_doors[tbl_id]);	--open 4 door panels
@@ -146,12 +146,16 @@ function event_say(e)
 				eq.say_link("tb_pr_p4",false,"Phase 4"),eq.say_link("tb_pr_p5",false,"Phase 5"), eq.say_link("tb_pr_p6",false,"Phase 6")));
 		elseif e.message:find("tb_pr_p3") then
 			raidMove(3);
+			e.self:Message(14,"Moving raid to [Phase 3]");
 		elseif e.message:find("tb_pr_p4") then
 			raidMove(4);
+			e.self:Message(14,"Moving raid to [Phase 4]");
 		elseif e.message:find("tb_pr_p5") then
 			raidMove(5);
+			e.self:Message(14,"Moving raid to [Phase 5]");
 		elseif e.message:find("tb_pr_p6") then
 			raidMove(6);
+			e.self:Message(14,"Moving raid to [Phase 6]");
 		elseif e.message:find("tb_p1") then
 			ZoneReset(e);
 			eq.set_global(instance_id.."_potimeb_status","Phase0",7,"F");

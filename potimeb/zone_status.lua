@@ -13,6 +13,7 @@ local echo = false;
 local p1_started = false;
 
 function event_spawn(e)
+	ResetVariables();
 	-- get the zone instance id
 	instance_id = eq.get_zone_instance_id();
 	-- turn off all the spawn conditions
@@ -189,6 +190,7 @@ function event_signal(e)
 	elseif (e.signal == 7) then
 		current_phase = "QuarmDead";
 		eq.stop_timer("fail_timer");
+		eq.set_timer("lockout", 50 * 60 * 1000);
 	-- signal 8 comes from Druzzil_Ro
 	elseif (e.signal == 8) then
 		-- update the zone status
@@ -214,6 +216,15 @@ function event_signal(e)
 			eq.GM_Message(14,"Player Count Reports [ON]")
 		end
 	end
+end
+
+function ResetVariables()
+	current_phase = "Phase0";
+	event_started = 0;
+	event_counter = 0;
+	instance_id = 0;
+	echo = false;
+	p1_started = false;
 end
 
 function ResetSpawnConditions()
@@ -516,6 +527,20 @@ function event_timer(e)
 		if echo then
 			eq.GM_Message(2,string.format("Current player count: [%s/%s]", tostring(count), tostring(player_limit)));
 		end
+	elseif (e.timer == "lockout") then
+		eq.stop_timer(e.timer);
+		eq.set_global(instance_id.."_potimeb_status","QuarmDead",7,"H132");
+		eq.delete_global(instance_id.."_potimeb_progress");
+		-- port everyone in the zone back to the PoK library top floor
+		local client_list = eq.get_entity_list():GetClientList();
+		for c in client_list.entries do
+			if ((c.valid) and (not c:GetGM())) then
+				c:MovePCInstance(219,0,-37,-110,9,0);
+			end
+		end
+		ControllerDepop(true);
+		-- depop the zone nothing else to do here
+		eq.depop_zone(false);
 	end
 end
 
