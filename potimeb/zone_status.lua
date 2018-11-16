@@ -477,7 +477,7 @@ function event_timer(e)
 		
 		--echo time
 		if timer_echo then
-			eq.zone_emote(15,string.format("Time Left: [%s mins]",total_time));
+			eq.GM_Message(15,string.format("Time Left: [%s mins]",total_time));
 		end
 		
 		--check failure timer
