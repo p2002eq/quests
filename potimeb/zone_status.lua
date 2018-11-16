@@ -83,11 +83,11 @@ end
 function event_signal(e)
 	qglobals = eq.get_qglobals();
 	instance_id = eq.get_zone_instance_id();
-	eq.GM_Message(13,string.format("signal[%s]! - qglobal [%s]", e.signal,qglobals[instance_id.."_potimeb_status"]));	--debug
+	eq.GM_Message(13,string.format("signal[%s]! - qglobal [%s]", e.signal,tostring(qglobals[instance_id.."_potimeb_status"])));	--debug
 	-- grab the entity_list
 	local entity_list = eq.get_entity_list();
 	-- signal 1 comes from the phase 1 trigger mobs
-	if (e.signal == 1 and not p1_started and (qglobals[instance_id.."_potimeb_status"] == "Phase0" or qglobals[instance_id.."_potimeb_status"] == "Phase1")) then
+	if (e.signal == 1 and not p1_started) then
 		p1_started = true;
 		-- npc global for status tracking.
 		current_phase = "Phase1";
