@@ -10,6 +10,7 @@ local instance_id = 0;
 local qglobals = {};
 local player_limit;
 local echo = false;
+local timer_echo = false;
 local p1_started = false;
 
 function event_spawn(e)
@@ -22,8 +23,6 @@ function event_spawn(e)
 	qglobals = eq.get_qglobals();
 	-- grab the entity list so we can unlock doors if needed.
 	local entity_list = eq.get_entity_list();
-	-- set the start time so we know what to compare with for the fail timer.
-	event_started = os.time();
 	
 	-- if there is no phase_bit qglobal for this instance, create one
 	if (qglobals[instance_id.."_potimeb_phase_bit"] == nil) then
@@ -42,43 +41,33 @@ function event_spawn(e)
 		eq.spawn2(223172,0,0,11.5,857,492.5,0); -- water trigger
 		eq.spawn2(223173,0,0,13.2,574.2,492.3,0); -- fire trigger
 	elseif (qglobals[instance_id.."_potimeb_status"] == "Phase2") then
-		-- offset event_started by the prior phase(s) since we are not starting at 1
-		event_started = event_started - 3600;
-		UpdateFailTimer(3600,3600);
+		UpdateFailTimer(60);
 		current_phase = "Phase2";
 		-- send signal to flavor text NPC
 		eq.signal(223227,2);
 		-- spawn phase 2 controller
 		eq.unique_spawn(223242,0,0,190,1070,494,0); --phase_two_controller (223242)
 	elseif (qglobals[instance_id.."_potimeb_status"] == "Phase3") then
-		-- offset event_started by the prior phase(s) since we are not starting at 1
-		event_started = event_started - 7200;
-		UpdateFailTimer(7200,4500);
+		UpdateFailTimer(75);
 		current_phase = "Phase3";
 		-- send signal to flavor text NPC
 		eq.signal(223227,3);
 		-- begin Phase 3
 		ControlPhaseThree();
 	elseif (qglobals[instance_id.."_potimeb_status"] == "Phase4") then
-		-- offset event_started by the prior phase(s) since we are not starting at 1
-		event_started = event_started - 11700;
-		UpdateFailTimer(11700,14400);
+		UpdateFailTimer(240);
 		current_phase = "Phase4";
 		-- send signal to flavor text NPC
 		eq.signal(223227,4);
 		SpawnPhaseFour();
 	elseif (qglobals[instance_id.."_potimeb_status"] == "Phase5") then
-		-- offset event_started by the prior phase(s) since we are not starting at 1
-		event_started = event_started - 26100;
-		UpdateFailTimer(26100,14400);
+		UpdateFailTimer(240);
 		current_phase = "Phase5";
 		-- send signal to flavor text NPC
 		eq.signal(223227,5);
 		SpawnPhaseFive();
 	elseif (qglobals[instance_id.."_potimeb_status"] == "Phase6") then
-		-- offset event_started by the prior phase(s) since we are not starting at 1
-		event_started = event_started - 40500;
-		UpdateFailTimer(40500,7200);
+		UpdateFailTimer(120);
 		current_phase = "Phase6";
 		-- send signal to flavor text NPC
 		eq.signal(223227,6);
@@ -104,7 +93,7 @@ function event_signal(e)
 		current_phase = "Phase1";
 		-- send signal to flavor text NPC
 		eq.signal(223227,1);
-		UpdateFailTimer(0,3600);
+		UpdateFailTimer(60);
 	-- signal 2 comes from the mobs in the final wave of each phase 1 event
 	elseif (e.signal == 2 and qglobals[instance_id.."_potimeb_status"] == "Phase1") then
 		-- check that all 5 phase 1 events are down.
@@ -134,8 +123,8 @@ function event_signal(e)
 				eq.signal(223227,99);
 			else
 				current_phase = "Phase2";
-				-- add 1 hour (3600 seconds) to the fail timer
-				UpdateFailTimer(3600,3600);
+				-- add 1 hour to the fail timer
+				UpdateFailTimer(60);
 				-- spawn phase 2 mobs
 				eq.unique_spawn(223242,0,0,190,1070,494,0); --phase_two_controller (223242)
 				-- send signal to flavor text NPC
@@ -154,8 +143,8 @@ function event_signal(e)
 		if (event_counter == 4) then
 			eq.set_global(instance_id.."_potimeb_phase_bit","0",7,"H13");
 			current_phase = "Phase5";
-			-- add 4 hours (14400 seconds) to the fail timer
-			UpdateFailTimer(26100,14400);
+			-- add 4 hours to the fail timer
+			UpdateFailTimer(240);
 			-- send signal to flavor text NPC
 			eq.signal(223227,5);
 			-- reset counter for later use
@@ -173,8 +162,8 @@ function event_signal(e)
 			eq.spawn_condition("potimeb",instance_id,13,0);
 			eq.spawn_condition("potimeb",instance_id,14,0);
 			current_phase = "Phase6";
-			-- add 2 hours (7200 seconds) to the fail timer
-			UpdateFailTimer(40500,7200);
+			-- add 2 hours to the fail timer
+			UpdateFailTimer(120);
 			-- send signal to flavor text NPC
 			eq.signal(223227,6);
 			-- reset counter for later use
@@ -189,7 +178,7 @@ function event_signal(e)
 	-- signal 7 comes from Quarm
 	elseif (e.signal == 7) then
 		current_phase = "QuarmDead";
-		eq.stop_timer("fail_timer");
+		eq.stop_timer("event_hb");
 		eq.set_timer("lockout", 50 * 60 * 1000);
 	-- signal 8 comes from Druzzil_Ro
 	elseif (e.signal == 8) then
@@ -206,7 +195,15 @@ function event_signal(e)
 		ControllerDepop(true);
 		-- depop the zone nothing else to do here
 		eq.depop_zone(false);
-	--GM toggle reporting of player counts excluding GMs themselves
+	--GM toggle reporting of player counts/event timers 
+	elseif (e.signal == 98) then	
+		if timer_echo then
+			timer_echo = false;
+			eq.GM_Message(14,"Event Timer Reports [OFF]")
+		else
+			timer_echo = true;
+			eq.GM_Message(14,"Event Timer Reports [ON]")
+		end
 	elseif (e.signal == 99) then	
 		if echo then
 			echo = false;
@@ -224,7 +221,9 @@ function ResetVariables()
 	event_counter = 0;
 	instance_id = 0;
 	echo = false;
+	timer_echo = false;
 	p1_started = false;
+	total_time = 0;
 end
 
 function ResetSpawnConditions()
@@ -240,8 +239,8 @@ function ControlPhaseTwo()
 		ControlPhaseThree();
 		-- send signal to flavor text NPC
 		eq.signal(223227,3);
-		-- add 1 hour and 15 minutes (4500 seconds) to the fail timer
-		UpdateFailTimer(7200,4500);
+		-- add 1 hour and 15 minutes to the fail timer
+		UpdateFailTimer(75);
 	end
 end
 
@@ -373,8 +372,8 @@ function ControlPhaseThree()
 			current_phase = "Phase4";
 			-- send signal to flavor text NPC
 			eq.signal(223227,4);
-			-- add 4 hours (14400 seconds) to the fail timer
-			UpdateFailTimer(11700,14400);
+			-- add 4 hours to the fail timer
+			UpdateFailTimer(240);
 			-- spawn phase 4
 			SpawnPhaseFour();
 		end
@@ -464,44 +463,51 @@ function SpawnPhaseFive()
 	end
 end
 
-function UpdateFailTimer(prior_phases,seconds_to_add)
-	-- calculate the remaining time since the event started.
-	local current_remainder = math.max((prior_phases - os.difftime(os.time(),event_started)),0);
---[[
-	-- usefull example for showing what you are setting leaving commented out.
-	eq.zone_emote(14,"event_start = " .. event_started);
-	eq.zone_emote(14,"prior_phases = " .. prior_phases);
-	eq.zone_emote(14,"current_remainder = " .. current_remainder);
-	eq.zone_emote(14,"seconds_to_add = " .. seconds_to_add);
-	eq.zone_emote(14,"(current_remainder + seconds_to_add) = " .. (current_remainder + seconds_to_add));
---]]
-	-- stop and restart the timer with the new time added.
-	eq.stop_timer("fail_timer");
-	eq.set_timer("fail_timer",(current_remainder + seconds_to_add) * 1000); -- * 1000 to convert to milliseconds
+function UpdateFailTimer(minutes_to_add)
+	total_time = (total_time + minutes_to_add);	
 	eq.stop_timer("player_check");
 	eq.set_timer("player_check", 10 * 1000);
-    eq.GM_Message(14,"fail_timer set to " .. ((current_remainder + seconds_to_add) * 1000) .. " milliseconds");     --debug
+	eq.GM_Message(14,"fail_timer set to " .. (total_time) .. " minutes");	--debug
+	eq.set_timer("event_hb",60000);
 end
 
 function event_timer(e)
-	if (e.timer == "fail_timer") then
-		-- change the qglobal so zone status will not reset things if the zone reboots.
-		eq.set_global(instance_id.."_potimeb_status","Failed",7,"H12");
-		current_status = "Failed";
-		eq.stop_timer("fail_timer");
-		eq.zone_emote(7,"An hourglass appears in the distance, the few remaining sands trickling down.  As the last grain falls, multicolored lights erupt from it, surrounding you in a brilliant flash.")
+	if (e.timer == "event_hb") then
+		total_time = total_time - 1;
 		
-		-- port everyone in the zone back to the PoTimeA 
-		local client_list = eq.get_entity_list():GetClientList();
-		for c in client_list.entries do
-			if ((c.valid) and (not c:GetGM())) then
-				c:MovePCInstance(219,0,-37,-110,9,0);
-			end
+		--echo time
+		if timer_echo then
+			eq.zone_emote(15,string.format("Time Left: [%s mins]",total_time));
 		end
-		ResetSpawnConditions();
-		ControllerDepop(false);
-		-- depop the rest of zone on event fail.
-		eq.depop_zone(false);
+		
+		--check failure timer
+		if total_time <= 0 then
+			EventFailed();
+			return;
+		end
+		
+		
+		--announce time remaining in hourly increments
+		if ((total_time ~= nil and total_time > 0 and total_time % 60 == 0)) then
+			if (total_time / 60 == 8) then
+				hours_left = "eight hours";
+			elseif (total_time / 60 == 7) then
+				hours_left = "seven hours";
+			elseif (total_time / 60 == 6) then
+				hours_left = "six hours";
+			elseif (total_time / 60 == 5) then
+				hours_left = "five hours";
+			elseif (total_time / 60 == 4) then
+				hours_left = "four hours";
+			elseif (total_time / 60 == 3) then
+				hours_left = "three hours";
+			elseif (total_time / 60 == 2) then
+				hours_left = "two hours";
+			elseif (total_time / 60 == 1) then
+				hours_left = "one hour";
+			end
+			eq.zone_emote(7,string.format("In the distance, an hourglass appears, the grains of sand falling methodically into place.  As quickly as the image was formed, it dissipates.  You have %s left.",hours_left));
+		end
 	elseif (e.timer == "player_check") then
 		qglobals = eq.get_qglobals();
 		local player_list = eq.get_entity_list():GetClientList();
@@ -531,7 +537,7 @@ function event_timer(e)
 		eq.stop_timer(e.timer);
 		eq.set_global(instance_id.."_potimeb_status","QuarmDead",7,"H132");
 		eq.delete_global(instance_id.."_potimeb_progress");
-		-- port everyone in the zone back to the PoK library top floor
+		-- port everyone in the zone back to PoTimeA
 		local client_list = eq.get_entity_list():GetClientList();
 		for c in client_list.entries do
 			if ((c.valid) and (not c:GetGM())) then
@@ -559,4 +565,23 @@ function ControllerDepop(win)
 		--respawn = 30000;  --debug 
 	end
 	eq.update_spawn_timer(371157,respawn);
+end
+
+function EventFailed()
+	-- change the qglobal so zone status will not reset things if the zone reboots.
+	eq.set_global(instance_id.."_potimeb_status","Failed",7,"H12");
+	current_status = "Failed";
+	eq.zone_emote(7,"An hourglass appears in the distance, the few remaining sands trickling down.  As the last grain falls, multicolored lights erupt from it, surrounding you in a brilliant flash.")
+	
+	-- port everyone in the zone back to the PoTimeA 
+	local client_list = eq.get_entity_list():GetClientList();
+	for c in client_list.entries do
+		if ((c.valid) and (not c:GetGM())) then
+			c:MovePCInstance(219,0,-37,-110,9,0);
+		end
+	end
+	ResetSpawnConditions();
+	ControllerDepop(false);
+	-- depop the rest of zone on event fail.
+	eq.depop_zone(false);
 end

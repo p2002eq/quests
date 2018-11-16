@@ -6,6 +6,10 @@ function event_enter_zone(e)
 	local qglobals = eq.get_qglobals(e.self);
 	local discs = require('disciplines');
 	discs:update_discs(e, e.self:GetLevel());
+	
+	if(instance_id ~= 0) then
+        e.self:Message(15,"You have entered an Instanced Version of the zone.");
+    end
 end
 
 function event_level_up(e)
@@ -130,9 +134,10 @@ function event_say(e)
 	if e.self:GetGM() then 
 		instance_id = eq.get_zone_instance_id();
 		if e.message:find("event help") then
-			e.self:Message(18,string.format("Plane of Time B GM controls available:  [%s] [%s] [%s] [%s] [%s]",eq.say_link("tb_pcontrols",false,"Select Phase"),
+			e.self:Message(18,string.format("Plane of Time B GM controls available:  [%s] [%s] [%s] [%s] [%s] [%s]",eq.say_link("tb_pcontrols",false,"Select Phase"),
 				eq.say_link("tb_reset",false,"Zone Reset (repop only)"),eq.say_link("tb_full_reset",false,"Full Zone Reset (clears lockouts)"),
-				eq.say_link("tb_debug",false,"Toggle Player Count Reports"),eq.say_link("tb_moveraid",false,"Raid Port Options")));
+				eq.say_link("tb_debug",false,"Toggle Player Count Reports"),eq.say_link("tb_mins",false,"Toggle Event Timer Reports"),
+				eq.say_link("tb_moveraid",false,"Raid Port Options")));
 		elseif e.message:find("tb_pcontrols") then
 			e.self:Message(18,"[Phase Controls Menu]");
 			e.self:Message(18,"This option will perform a light zone reset and set itself to the chosen event phase.");
@@ -196,6 +201,8 @@ function event_say(e)
 			eq.delete_global(eq.get_zone_instance_id() .. "_potimeb_Neimon");
 			ZoneReset(e);	--depops zone and respawns controllers
 			e.self:Message(14,"[Full Zone Reset Complete]");
+		elseif e.message:findi("tb_mins") then
+			eq.signal(223097,98);
 		elseif e.message:findi("tb_debug") then
 			eq.signal(223097,99);
 		elseif e.message:findi("test") then
