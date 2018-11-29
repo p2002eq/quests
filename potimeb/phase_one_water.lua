@@ -14,6 +14,7 @@ local player_limit = 18;
 
 function event_spawn(e)
 	-- create a proximity to set the spawn timer
+	event_counter = 0;
 	local xloc = e.self:GetX();
 	local yloc = e.self:GetY();
 	eq.set_proximity(xloc - 80, xloc + 80, yloc - 60, yloc + 60);
