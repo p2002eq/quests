@@ -76,7 +76,7 @@ function event_say(e)
 end
 
 function event_death_complete(e)
-	if tracker < 2 then eq.get_entity_list():GetSpawnByID(326935):Repop(); end
+	if tracker < 2 then eq.get_entity_list():GetSpawnByID(326935):Repop(120); end
 end
 
 function spawn_adds(e_self)
