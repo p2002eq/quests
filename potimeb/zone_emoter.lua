@@ -179,8 +179,7 @@ function UpdateGlobals(phase,update)
 		if phase > 2 then lockout_phase = phase - 1 end;
 		eq.set_global(instance_id .. "_potimeb_status","Phase" .. phase,7,"H12");
 		if update then
-			--eq.set_global(instance_id .. "_potimeb_Phase" .. lockout_phase .. "_lockout","1",7,"H132");
-			eq.set_global(instance_id .. "_potimeb_Phase" .. lockout_phase .. "_lockout","1",7,"M10");
+			eq.set_global(instance_id .. "_potimeb_Phase" .. lockout_phase .. "_lockout","1",7,"H132");
 		end
 	end
 end

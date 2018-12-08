@@ -192,7 +192,6 @@ function event_say(e)
 			for n = 2,6 do
 				eq.delete_global(eq.get_zone_instance_id() .. "_potimeb_Phase" .. n .. "_lockout");	
 			end
-			--eq.delete_global(eq.get_zone_instance_id() .. "_potimeb_progress");
 			eq.delete_global(eq.get_zone_instance_id() .. "_potimeb_p5_bertox");
 			eq.delete_global(eq.get_zone_instance_id() .. "_potimeb_p5_cazic");
 			eq.delete_global(eq.get_zone_instance_id() .. "_potimeb_p5_inny");
@@ -213,9 +212,6 @@ function event_say(e)
 			eq.signal(223097,98);
 		elseif e.message:findi("tb_debug") then
 			eq.signal(223097,99);
-		elseif e.message:findi("test") then
-			--eq.set_global(eq.get_zone_instance_id() .. "_potimeb_Phase2_lockout","1",7,"M2");
-			eq.set_global(eq.get_zone_instance_id() .. "_potimeb_status","Lockout",7,"M5");
 		elseif e.message:findi("phase 2") then
 			eq.signal(223097,2);
 			eq.signal(223097,2);
