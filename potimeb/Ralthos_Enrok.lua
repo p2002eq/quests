@@ -25,6 +25,7 @@ end
 function event_death_complete(e)
 	--signal phase_two_undead	
 	eq.signal(223242,2);
+	eq.set_global(eq.get_zone_instance_id() .. "_potimeb_p2_Ralthos","1",7,"H132");
 end
 
 function event_hp(e)

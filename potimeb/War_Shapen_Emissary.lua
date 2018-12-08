@@ -5,4 +5,5 @@
 function event_death_complete(e)
 	--signal phase_two_controller
 	eq.signal(223242,1);
+	eq.set_global(eq.get_zone_instance_id() .. "_potimeb_p2_Emissary","1",7,"H132");
 end

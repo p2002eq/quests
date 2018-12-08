@@ -31,7 +31,7 @@ function event_spawn(e)
 	
 	-- then check the value to decide what to pop - should reset to Phase 1 unless zone crash
 	if ((qglobals[instance_id.."_potimeb_status"] == nil) or (qglobals[instance_id.."_potimeb_status"] == "Phase0") or (qglobals[instance_id.."_potimeb_status"] == "Phase1") 
-		 or (qglobals[instance_id.."_potimeb_status"] == "Failed") or (qglobals[instance_id.."_potimeb_status"] == "QuarmDead")) then
+		 or (qglobals[instance_id.."_potimeb_status"] == "Lockout")) then
 		-- just in case the instance ID gets reused before this one expires, make sure to set phase_bit to 0
 		eq.set_global(instance_id.."_potimeb_phase_bit","0",7,"H132");
 		-- Spawn phase 1
@@ -103,25 +103,7 @@ function event_signal(e)
 			-- reset counter for later use
 			event_counter = 0;
 			
-			progress = qglobals[instance_id .. "_potimeb_progress"];
-			if progress == "Phase3" then
-				current_phase = "Phase2"
-				ControlPhaseTwo();
-				eq.signal(223227,99);
-			elseif progress == "Phase4" then
-				current_phase = "Phase3.9"
-				event_counter = 1;
-				eq.signal(223097,4);
-				eq.signal(223227,99);
-			elseif progress == "Phase5" then
-				event_counter = 3;
-				eq.signal(223097,5);
-				eq.signal(223227,99);
-			elseif progress == "Phase6" then
-				event_counter = 3;
-				eq.signal(223097,6);
-				eq.signal(223227,99);
-			else
+			if qglobals[instance_id .. "_potimeb_Phase2_lockout"] == nil then
 				current_phase = "Phase2";
 				-- add 1 hour to the fail timer
 				UpdateFailTimer(60);
@@ -129,6 +111,23 @@ function event_signal(e)
 				eq.unique_spawn(223242,0,0,190,1070,494,0); --phase_two_controller (223242)
 				-- send signal to flavor text NPC
 				eq.signal(223227,2);
+			elseif qglobals[instance_id .. "_potimeb_Phase3_lockout"] == nil then
+				current_phase = "Phase2"
+				ControlPhaseTwo();
+				eq.signal(223227,99);
+			elseif qglobals[instance_id .. "_potimeb_Phase4_lockout"] == nil then
+				current_phase = "Phase3.9"
+				event_counter = 1;
+				eq.signal(223097,4);
+				eq.signal(223227,99);
+			elseif qglobals[instance_id .. "_potimeb_Phase5_lockout"] == nil then
+				event_counter = 3;
+				eq.signal(223097,5);
+				eq.signal(223227,99);
+			elseif qglobals[instance_id .. "_potimeb_Phase6_lockout"] == nil then
+				event_counter = 3;
+				eq.signal(223097,6);
+				eq.signal(223227,99);
 			end
 		end
 	-- signal 3 comes from the phase 2 mobs.
@@ -183,8 +182,8 @@ function event_signal(e)
 	-- signal 8 comes from Druzzil_Ro
 	elseif (e.signal == 8) then
 		-- update the zone status
-		eq.set_global(instance_id.."_potimeb_status","QuarmDead",7,"H132");
-		eq.delete_global(instance_id.."_potimeb_progress");
+		eq.set_global(instance_id .. "_potimeb_Phase6_lockout","1",7,"H132");
+		--eq.delete_global(instance_id.."_potimeb_progress");
 		-- port everyone in the zone back to the PoK library top floor
 		local client_list = entity_list:GetClientList();
 		for c in client_list.entries do
@@ -192,9 +191,7 @@ function event_signal(e)
 				c:MovePCInstance(202,0,1015,20,392,264);
 			end
 		end
-		ControllerDepop(true);
-		-- depop the zone nothing else to do here
-		eq.depop_zone(false);
+		ControllerDepop();
 	--GM toggle reporting of player counts/event timers 
 	elseif (e.signal == 98) then	
 		if timer_echo then
@@ -533,10 +530,10 @@ function event_timer(e)
 		if echo then
 			eq.GM_Message(2,string.format("Current player count: [%s/%s]", tostring(count), tostring(player_limit)));
 		end
-	elseif (e.timer == "lockout") then
+	elseif (e.timer == "lockout") then	--handles instance where Quarm killed but Zeb/Druzzil Ro script not completed
 		eq.stop_timer(e.timer);
-		eq.set_global(instance_id.."_potimeb_status","QuarmDead",7,"H132");
-		eq.delete_global(instance_id.."_potimeb_progress");
+		eq.set_global(instance_id .. "_potimeb_Phase6_lockout","1",7,"H132");
+		SetZoneLockout();
 		-- port everyone in the zone back to PoTimeA
 		local client_list = eq.get_entity_list():GetClientList();
 		for c in client_list.entries do
@@ -544,33 +541,27 @@ function event_timer(e)
 				c:MovePCInstance(219,0,-37,-110,9,0);
 			end
 		end
-		ControllerDepop(true);
-		-- depop the zone nothing else to do here
-		eq.depop_zone(false);
+		ControllerDepop();
 	end
 end
 
-function ControllerDepop(win)
+function ControllerDepop()
 	--depop zone_status and zone_emoters with timers
 	eq.depop_with_timer(223097);
 	eq.depop_with_timer(223227);
 	
-	--determine respawn of zone_status based on event win or timer expiration
-	if win then
-		--set respawn based on 5.5 day lockout + 5 sec delay
-		respawn = 475200000 + 5000;
-	else
-		--set respawn based on 12 hr lockout + 5 sec delay
-		respawn = 43200000 + 5000;  
-		--respawn = 30000;  --debug 
-	end
+	--set respawn based on 1 hr lockout + 5 sec delay
+	respawn = 3600000 + 5000;
 	eq.update_spawn_timer(371157,respawn);
+	
+	-- depop the rest of zone on event fail.
+	eq.depop_zone(false);
 end
 
 function EventFailed()
 	-- change the qglobal so zone status will not reset things if the zone reboots.
-	eq.set_global(instance_id.."_potimeb_status","Failed",7,"H12");
-	current_status = "Failed";
+	SetZoneLockout();
+	current_status = "Lockout";
 	eq.zone_emote(7,"An hourglass appears in the distance, the few remaining sands trickling down.  As the last grain falls, multicolored lights erupt from it, surrounding you in a brilliant flash.")
 	
 	-- port everyone in the zone back to the PoTimeA 
@@ -581,7 +572,10 @@ function EventFailed()
 		end
 	end
 	ResetSpawnConditions();
-	ControllerDepop(false);
-	-- depop the rest of zone on event fail.
-	eq.depop_zone(false);
+	ControllerDepop();
 end
+
+function SetZoneLockout()
+	eq.set_global(eq.get_zone_instance_id() .."_potimeb_status","Lockout",7,"M30");
+end
+	

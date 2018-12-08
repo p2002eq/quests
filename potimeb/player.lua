@@ -189,7 +189,10 @@ function event_say(e)
 			ZoneReset(e);	--depops zone and respawns controllers
 			e.self:Message(14,"[Light Zone Reset Complete]");
 		elseif e.message:find("tb_full_reset") then
-			eq.delete_global(eq.get_zone_instance_id() .. "_potimeb_progress");
+			for n = 2,6 do
+				eq.delete_global(eq.get_zone_instance_id() .. "_potimeb_Phase" .. n .. "_lockout");	
+			end
+			--eq.delete_global(eq.get_zone_instance_id() .. "_potimeb_progress");
 			eq.delete_global(eq.get_zone_instance_id() .. "_potimeb_p5_bertox");
 			eq.delete_global(eq.get_zone_instance_id() .. "_potimeb_p5_cazic");
 			eq.delete_global(eq.get_zone_instance_id() .. "_potimeb_p5_inny");
@@ -199,6 +202,11 @@ function event_say(e)
 			eq.delete_global(eq.get_zone_instance_id() .. "_potimeb_Rythor");
 			eq.delete_global(eq.get_zone_instance_id() .. "_potimeb_Kazrok");
 			eq.delete_global(eq.get_zone_instance_id() .. "_potimeb_Neimon");
+			eq.delete_global(eq.get_zone_instance_id() .. "_potimeb_p2_Emissary");
+			eq.delete_global(eq.get_zone_instance_id() .. "_potimeb_p2_WarBeast");
+			eq.delete_global(eq.get_zone_instance_id() .. "_potimeb_p2_Overseer");
+			eq.delete_global(eq.get_zone_instance_id() .. "_potimeb_p2_Windshapen");
+			eq.delete_global(eq.get_zone_instance_id() .. "_potimeb_p2_Ralthos");
 			ZoneReset(e);	--depops zone and respawns controllers
 			e.self:Message(14,"[Full Zone Reset Complete]");
 		elseif e.message:findi("tb_mins") then
@@ -206,8 +214,8 @@ function event_say(e)
 		elseif e.message:findi("tb_debug") then
 			eq.signal(223097,99);
 		elseif e.message:findi("test") then
-			instance_id = eq.get_zone_instance_id();
-			eq.set_global(instance_id .. "_potimeb_progress","Phase6",7,"H132");
+			--eq.set_global(eq.get_zone_instance_id() .. "_potimeb_Phase2_lockout","1",7,"M2");
+			eq.set_global(eq.get_zone_instance_id() .. "_potimeb_status","Lockout",7,"M5");
 		elseif e.message:findi("phase 2") then
 			eq.signal(223097,2);
 			eq.signal(223097,2);
@@ -225,7 +233,6 @@ end
 function UpdateGlobals(phase)
 	if phase ~= nil then
 		eq.set_global(instance_id .. "_potimeb_status",phase,7,"H12");
-		eq.set_global(instance_id .. "_potimeb_progress",phase,7,"H132");
 	end
 end
 

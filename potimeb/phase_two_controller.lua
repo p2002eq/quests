@@ -9,6 +9,7 @@ local tBosses = { 223146, 223096, 223134, 223118 }
 local boss_timer = 180;	 --time in seconds till bosses become targetable
 
 function event_spawn(e)
+	qglobals = eq.get_qglobals();
 	undead_kills = 0;
 	kills = 0;
 	eq.set_timer("targetable",boss_timer * 1000);	--5 min till bosses targetable
@@ -30,7 +31,11 @@ function event_spawn(e)
 	eq.spawn2(223141,0,0,230,805,495,387);		--A_Deepwater_Assassin (223141)
 	eq.spawn2(223141,0,0,230,875,495,387);			
 
-	eq.spawn2(223140,0,0,190,865,495,387);		--A_War_Shapen_Emissary (223140)
+	if qglobals[eq.get_zone_instance_id() .. "_potimeb_p2_Emissary"] == nil then
+		eq.spawn2(223140,0,0,190,865,495,387);		--A_War_Shapen_Emissary (223140)
+	else
+		kills = kills + 1;
+	end
 
 	--Fire trial phase 2 mobs
 	eq.spawn2(223137,0,0,130,610,495,387);		--A_Fire_Etched_Doombringer (223137)
@@ -45,8 +50,12 @@ function event_spawn(e)
 	eq.spawn2(223143,0,0,230,570,495,387);		--A_Ferocious_War_Boar (223143)
 	eq.spawn2(223143,0,0,230,630,495,387);	
 
-	eq.spawn2(223135,0,0,190,585,495,387);		--A_Gutripping_War_Beast (223135)
-
+	if qglobals[eq.get_zone_instance_id() .. "_potimeb_p2_WarBeast"] == nil then
+		eq.spawn2(223135,0,0,190,585,495,387);		--A_Gutripping_War_Beast (223135)
+	else
+		kills = kills + 1;
+	end
+	
 	--Air trial phase 2 mobs
 	eq.spawn2(223099,0,0,170,1315,495,387);	--Champion_of_Korascian (223099)
 	eq.spawn2(223099,0,0,170,1340,495,387);	
@@ -60,8 +69,12 @@ function event_spawn(e)
 	eq.spawn2(223102,0,0,250,1460,495,305);	--An_Elemental_Stonefist (223102)
 	eq.spawn2(223102,0,0,300,1435,495,305);
 
-	eq.spawn2(223108,0,0,180,1350,495,387);	--An_Earthen_Overseer (223108)
-
+	if qglobals[eq.get_zone_instance_id() .. "_potimeb_p2_Overseer"] == nil then
+		eq.spawn2(223108,0,0,180,1350,495,387);	--An_Earthen_Overseer (223108)
+	else
+		kills = kills + 1;
+	end
+	
 	--earth trial phase 2 mobs
 	eq.spawn2(223102,0,0,150,1605,495,387);	--An_Elemental_Stonefist (223102)
 	eq.spawn2(223102,0,0,150,1630,495,387);	
@@ -75,8 +88,11 @@ function event_spawn(e)
 	eq.spawn2(223099,0,0,285,1575,495,445);	--Champion_of_Korascian (223099)
 	eq.spawn2(223099,0,0,250,1545,495,445);
 
-	eq.spawn2(223144,0,0,175,1640,495,387);	--A_Windshapen_Warlord_of_Air (223144)
-	
+	if qglobals[eq.get_zone_instance_id() .. "_potimeb_p2_Windshapen"] == nil then
+		eq.spawn2(223144,0,0,175,1640,495,387);	--A_Windshapen_Warlord_of_Air (223144)
+	else
+		kills = kills + 1;
+	end
 end
 
 function event_timer(e)
@@ -107,7 +123,11 @@ function event_signal(e)
 			eq.spawn2(223243,0,0,295,1125,494,256);
 			eq.spawn2(223243,0,0,305,1125,494,256);	--#an_undead_guardian (223243)
 		elseif undead_kills == 8 then
-			eq.unique_spawn(223127,0,0,440,1110,494,387);	--Ralthos_Enrok (223127)
+			if qglobals[eq.get_zone_instance_id() .. "_potimeb_p2_Ralthos"] == nil then
+				eq.unique_spawn(223127,0,0,440,1110,494,387);	--Ralthos_Enrok (223127)
+			else
+				undead_kills = undead_kills + 1;
+			end
 		end
 	end
 	
