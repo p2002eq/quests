@@ -81,7 +81,7 @@ function event_signal(e)
 			--check for Neimon lockout
 			local qglobals = eq.get_qglobals();
 			local instance_id = eq.get_zone_instance_id();
-			local neimon = tostring(instance_id .. "_PoTimeB_Neimon");
+			local neimon = tostring(instance_id .. "_potimeb_Neimon");
 			if qglobals[neimon] == nil then
 				eq.spawn2(223120,0,0,68,1355,494.8,371); -- Neimon_of_Air
 			else

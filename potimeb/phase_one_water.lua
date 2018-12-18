@@ -38,7 +38,7 @@ function event_timer(e)
 		--check for Anar lockout
 		local qglobals = eq.get_qglobals();
 		local instance_id = eq.get_zone_instance_id();
-		local anar = tostring(instance_id .. "_PoTimeB_Anar");
+		local anar = tostring(instance_id .. "_potimeb_Anar");
 		if qglobals[anar] == nil then
 			eq.spawn2(223104,0,0,68,867,495,371);	--Anar_of_Water (223104)
 		else
