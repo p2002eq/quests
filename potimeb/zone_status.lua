@@ -140,39 +140,45 @@ function event_signal(e)
 	elseif (e.signal == 5) then
 		event_counter = event_counter + 1;
 		if (event_counter == 4) then
-			eq.set_global(instance_id.."_potimeb_phase_bit","0",7,"H13");
-			current_phase = "Phase5";
-			-- add 4 hours to the fail timer
-			UpdateFailTimer(240);
-			-- send signal to flavor text NPC
-			eq.signal(223227,5);
-			-- reset counter for later use
-			event_counter = 0;
-			-- spawn phase 5
-			SpawnPhaseFive();
+			eq.set_global(instance_id .. "_potimeb_Phase4_lockout","1",7,"H132");
+			if (qglobals[instance_id .. "_potimeb_Phase5_lockout"] == nil) then
+				eq.set_global(instance_id.."_potimeb_phase_bit","0",7,"H132");
+				current_phase = "Phase5";
+				-- add 4 hours to the fail timer
+				UpdateFailTimer(240);
+				-- send signal to flavor text NPC
+				eq.signal(223227,5);
+				-- reset counter for later use
+				event_counter = 0;
+				-- spawn phase 5
+				SpawnPhaseFive();
+			end
 		end
 	-- signal 6 comes from the phase 5 gods.
 	elseif (e.signal == 6) then
 		event_counter = event_counter + 1;
 		if (event_counter == 4) then
+			eq.set_global(instance_id .. "_potimeb_Phase5_lockout","1",7,"H132");
 			-- disable the spawn condition
 			eq.spawn_condition("potimeb",instance_id,11,0);
 			eq.spawn_condition("potimeb",instance_id,12,0);
 			eq.spawn_condition("potimeb",instance_id,13,0);
 			eq.spawn_condition("potimeb",instance_id,14,0);
-			current_phase = "Phase6";
-			-- add 2 hours to the fail timer
-			UpdateFailTimer(120);
-			-- send signal to flavor text NPC
-			eq.signal(223227,6);
-			-- reset counter for later use
-			event_counter = 0;
-			-- spawn Quarm
-			eq.spawn2(223201,0,0,-401,-1106,32.5,185.625);
-			-- spawn #A_Servitor_of_Peace
-			eq.spawn2(223101,0,0,244,-1106,-1.125,194.0625);
-			-- spawn untargetable Zebuxoruk's Cage
-			eq.spawn2(223228,0,0,-579,-1119,60.625,0);
+			if (qglobals[instance_id .. "_potimeb_Phase6_lockout"] == nil) then
+				current_phase = "Phase6";
+				-- add 2 hours to the fail timer
+				UpdateFailTimer(120);
+				-- send signal to flavor text NPC
+				eq.signal(223227,6);
+				-- reset counter for later use
+				event_counter = 0;
+				-- spawn Quarm
+				eq.spawn2(223201,0,0,-401,-1106,32.5,185.625);
+				-- spawn #A_Servitor_of_Peace
+				eq.spawn2(223101,0,0,244,-1106,-1.125,194.0625);
+				-- spawn untargetable Zebuxoruk's Cage
+				eq.spawn2(223228,0,0,-579,-1119,60.625,0);
+			end
 		end
 	-- signal 7 comes from Quarm
 	elseif (e.signal == 7) then
@@ -183,6 +189,7 @@ function event_signal(e)
 	elseif (e.signal == 8) then
 		-- update the zone status
 		eq.set_global(instance_id .. "_potimeb_Phase6_lockout","1",7,"H132");
+		SetZoneLockout();
 		--eq.delete_global(instance_id.."_potimeb_progress");
 		-- port everyone in the zone back to the PoK library top floor
 		local client_list = entity_list:GetClientList();
@@ -232,12 +239,15 @@ end
 
 function ControlPhaseTwo()
 	if (current_phase == "Phase2") then
-		current_phase = "Phase3";
-		ControlPhaseThree();
-		-- send signal to flavor text NPC
-		eq.signal(223227,3);
-		-- add 1 hour and 15 minutes to the fail timer
-		UpdateFailTimer(75);
+		eq.set_global(instance_id .. "_potimeb_Phase2_lockout","1",7,"H132");
+		if (qglobals[instance_id .. "_potimeb_Phase3_lockout"] == nil) then
+			current_phase = "Phase3";
+			ControlPhaseThree();
+			-- send signal to flavor text NPC
+			eq.signal(223227,3);
+			-- add 1 hour and 15 minutes to the fail timer
+			UpdateFailTimer(75);
+		end
 	end
 end
 
@@ -365,14 +375,17 @@ function ControlPhaseThree()
 	elseif (current_phase == "Phase3.9") then
 		event_counter = event_counter + 1;
 		if (event_counter == 2) then
+			eq.set_global(instance_id .. "_potimeb_Phase3_lockout","1",7,"H132");
 			event_counter = 0;
-			current_phase = "Phase4";
-			-- send signal to flavor text NPC
-			eq.signal(223227,4);
-			-- add 4 hours to the fail timer
-			UpdateFailTimer(240);
-			-- spawn phase 4
-			SpawnPhaseFour();
+			if (qglobals[instance_id .. "_potimeb_Phase4_lockout"] == nil) then
+				current_phase = "Phase4";
+				-- send signal to flavor text NPC
+				eq.signal(223227,4);
+				-- add 4 hours to the fail timer
+				UpdateFailTimer(240);
+				-- spawn phase 4
+				SpawnPhaseFour();
+			end
 		end
 	end
 end
@@ -392,25 +405,25 @@ function SpawnPhaseFour()
 	local phase_bit = tonumber(qglobals[instance_id.."_potimeb_phase_bit"]);
 	if (phase_bit == 15) then
 		-- this a rare crash handling instance. extremely hard to make happen
-		eq.set_global(instance_id.."_potimeb_phase_bit","0",7,"H13");
+		eq.set_global(instance_id.."_potimeb_phase_bit","0",7,"H132");
 		eq.repop_zone();
 	else
-		if (bit.band(phase_bit, 1) == 0) then
+		if (qglobals[instance_id .. "_potimeb_p4_terris"] == nil) then
 			eq.spawn2(223075,0,0,-310,307,365,190); -- Terris Thule
 		else
 			event_counter = event_counter + 1;
 		end
-		if (bit.band(phase_bit, 2) == 0) then
+		if (qglobals[instance_id .. "_potimeb_p4_saryrn"] == nil) then
 			eq.spawn2(223076,0,0,-320,-316,358,65); -- Saryrn
 		else
 			event_counter = event_counter + 1;
 		end
-		if (bit.band(phase_bit, 4) == 0) then
+		if (qglobals[instance_id .. "_potimeb_p4_tallon"] == nil) then
 			eq.spawn2(223077,0,0,405,-84,358,384); -- Tallon Zek
 		else
 			event_counter = event_counter + 1;
 		end
-		if (bit.band(phase_bit, 8) == 0) then
+		if (qglobals[instance_id .. "_potimeb_p4_vallon"] == nil) then
 			eq.spawn2(223078,0,0,405,75,358,384); -- Vallon Zek
 		else
 			event_counter = event_counter + 1;

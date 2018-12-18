@@ -28,8 +28,7 @@ function event_click_door(e)
         instance_id = qglobals[zoneGlobal];
         if (instance_id ~= nil) then		
 			-- check for lockout qglobal.
-			if ((not e.self:GetGM()) and ((qglobals[instance_id.."_potimeb_status"] == "Failed") or 
-				 (qglobals[instance_id.."_potimeb_status"] == "QuarmDead"))) then 
+			if ((not e.self:GetGM()) and ((qglobals[instance_id.."_potimeb_status"] == "Lockout"))) then 
 				e.self:Message(13, "A strange magical presence prevents you from entering.  It's too dangerous to enter at the moment. ");
 				return;
 			end

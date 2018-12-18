@@ -134,10 +134,11 @@ function event_say(e)
 	if e.self:GetGM() then 
 		instance_id = eq.get_zone_instance_id();
 		if e.message:find("event help") then
-			e.self:Message(18,string.format("Plane of Time B GM controls available:  [%s] [%s] [%s] [%s] [%s] [%s]",eq.say_link("tb_pcontrols",false,"Select Phase"),
+			e.self:Message(18,string.format("Plane of Time B GM controls available:  [%s] [%s] [%s] [%s] [%s] [%s] [%s] [%s]",eq.say_link("tb_pcontrols",false,"Select Phase"),
 				eq.say_link("tb_reset",false,"Zone Reset (repop only)"),eq.say_link("tb_full_reset",false,"Full Zone Reset (clears lockouts)"),
 				eq.say_link("tb_debug",false,"Toggle Player Count Reports"),eq.say_link("tb_mins",false,"Toggle Event Timer Reports"),
-				eq.say_link("tb_moveraid",false,"Raid Port Options")));
+				eq.say_link("tb_moveraid",false,"Raid Port Options"), eq.say_link("tb_addlockout",false,"Add Lockout by Phase"),
+				eq.say_link("tb_remlockout",false,"Remove Lockout by Phase")));
 		elseif e.message:find("tb_pcontrols") then
 			e.self:Message(18,"[Phase Controls Menu]");
 			e.self:Message(18,"This option will perform a light zone reset and set itself to the chosen event phase.");
@@ -192,6 +193,11 @@ function event_say(e)
 			for n = 2,6 do
 				eq.delete_global(eq.get_zone_instance_id() .. "_potimeb_Phase" .. n .. "_lockout");	
 			end
+			
+			eq.delete_global(eq.get_zone_instance_id() .. "_potimeb_p4_saryrn");
+			eq.delete_global(eq.get_zone_instance_id() .. "_potimeb_p4_terris");
+			eq.delete_global(eq.get_zone_instance_id() .. "_potimeb_p4_tallon");
+			eq.delete_global(eq.get_zone_instance_id() .. "_potimeb_p4_vallon");
 			eq.delete_global(eq.get_zone_instance_id() .. "_potimeb_p5_bertox");
 			eq.delete_global(eq.get_zone_instance_id() .. "_potimeb_p5_cazic");
 			eq.delete_global(eq.get_zone_instance_id() .. "_potimeb_p5_inny");
@@ -206,13 +212,38 @@ function event_say(e)
 			eq.delete_global(eq.get_zone_instance_id() .. "_potimeb_p2_Overseer");
 			eq.delete_global(eq.get_zone_instance_id() .. "_potimeb_p2_Windshapen");
 			eq.delete_global(eq.get_zone_instance_id() .. "_potimeb_p2_Ralthos");
+			UpdateGlobals("Phase0");
 			ZoneReset(e);	--depops zone and respawns controllers
 			e.self:Message(14,"[Full Zone Reset Complete]");
 		elseif e.message:findi("tb_mins") then
 			eq.signal(223097,98);
 		elseif e.message:findi("tb_debug") then
 			eq.signal(223097,99);
-		elseif e.message:findi("phase 2") then
+		elseif e.message:findi("tb_remlockout") then
+			e.self:Message(18,"[Remove Lockouts by Phase Menu]");
+			e.self:Message(18,"Select Phase below to remove lockout.  Boss lockouts will not be adjusted.  If you need to reset boss lockouts you must do a full reset via main menu.");
+			e.self:Message(18,string.format("Select phase: [%s] [%s] [%s] [%s] [%s]", eq.say_link("rl_p 2",false,"Phase 2"),
+				eq.say_link("rl_p 3",false,"Phase 3"),eq.say_link("rl_p 4",false,"Phase 4"),eq.say_link("rl_p 5",false,"Phase 5"),
+				eq.say_link("rl_p 6",false,"Phase 6")));
+		elseif e.message:findi("rl_p") then
+			phase = string.match(e.message, "%d+");
+			if (tonumber(phase) >= 2 and tonumber(phase) <= 6) then 
+				e.self:Message(14,"[Phase " .. phase .. "] lockout removed!");
+				eq.delete_global(eq.get_zone_instance_id() .. "_potimeb_Phase" .. phase .. "_lockout");
+			end
+		elseif e.message:findi("tb_addlockout") then
+			e.self:Message(18,"[Add Lockouts by Phase Menu]");
+			e.self:Message(18,"Select Phase below to Add lockout.  Boss lockouts will not be adjusted.  If you need to reset boss lockouts you must do a full reset via main menu.");
+			e.self:Message(18,string.format("Select phase: [%s] [%s] [%s] [%s] [%s]", eq.say_link("al_p 2",false,"Phase 2"),
+				eq.say_link("al_p 3",false,"Phase 3"),eq.say_link("al_p 4",false,"Phase 4"),eq.say_link("al_p 5",false,"Phase 5"),
+				eq.say_link("al_p 6",false,"Phase 6")));
+		elseif e.message:findi("al_p") then
+			phase = string.match(e.message, "%d+");
+			if (tonumber(phase) >= 2 and tonumber(phase) <= 6) then 
+				e.self:Message(14,"[Phase " .. phase .. "] lockout added!");
+				eq.set_global(eq.get_zone_instance_id() .. "_potimeb_Phase" .. phase .. "_lockout","1",7,"H132");
+			end
+		elseif e.message:findi("phase 2") then	--debug
 			eq.signal(223097,2);
 			eq.signal(223097,2);
 			eq.signal(223097,2);
@@ -233,7 +264,6 @@ function UpdateGlobals(phase)
 end
 
 function ZoneReset(e)	--depops zone and reloads controllers
-		eq.set_global(instance_id.."_potimeb_status","Phase0",7,"F");
 		for i = 1, 10, 1 do
 			eq.spawn_condition("potimeb",eq.get_zone_instance_id(),i,0);
 		end
