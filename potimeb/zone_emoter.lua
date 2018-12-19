@@ -20,8 +20,8 @@ function event_signal(e)
 		emote_phase = 1;
 		eq.zone_emote(7,"In the distance, an hourglass appears, the grains of sand falling methodically into place. As quickly as the image was formed, it dissipates. You have one hour left.");
 		UpdateGlobals(e.signal,false);
-	elseif (e.signal) == 99 then
-		port_raid = true;
+	--elseif (e.signal) == 99 then		
+	--	port_raid = true;
 	else
 		-- After completing a phase
 		emote_phase = e.signal;
