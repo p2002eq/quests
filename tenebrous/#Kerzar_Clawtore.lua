@@ -1,8 +1,7 @@
 ---- Quest:Vampyre Troubles
 function event_spawn(e)
-    eq.set_timer("Kerzar2", 100000)
-    e.self:SetAppearance(2);
-    e.self:Emote("crouches to the ground cowering. 'Enough, you have proven your might. I will talk! Just cease your assault!  'What knowledge do I have that the Validus Custodus is so eager to obtain? If you spare me I assure you I will answer truthfully.'");
+    eq.set_timer("Kerzar2", 600000);
+    eq.set_timer("sit", 1 * 1000);
 end
 
 function event_say(e)
@@ -17,17 +16,19 @@ function event_say(e)
         eq.spawn2(172001,0,0,e.self:GetX() -10,e.self:GetY() -10,e.self:GetZ(),e.self:GetHeading()):AddToHateList(e.other,1);
         eq.spawn2(172001,0,0,e.self:GetX() +10,e.self:GetY() +10,e.self:GetZ(),e.self:GetHeading()):AddToHateList(e.other,1);
         eq.spawn2(172001,0,0,e.self:GetX() +10,e.self:GetY() -10,e.self:GetZ(),e.self:GetHeading()):AddToHateList(e.other,1);
-        eq.set_global("vampyre_vahshir_combat","0",1,"M7");
+        eq.delete_global("vampyre_vahshir_combat");
         eq.depop();
     end
 end
 
 function event_timer(e)
     if (e.timer == "Kerzar2") then
-        eq.set_global("vampyre_vahshir_combat","0",1,"M7");
         eq.depop();
-    end
-    eq.stop_timer(e.timer)
+    elseif(e.timer == "sit") then
+		eq.stop_timer(e.timer);
+		e.self:Emote("crouches to the ground cowering. 'Enough, you have proven your might. I will talk! Just cease your assault!  'What knowledge do I have that the Validus Custodus is so eager to obtain? If you spare me I assure you I will answer truthfully.'");
+		e.self:SetAppearance(1);
+	end
 end
 
 function event_trade(e)

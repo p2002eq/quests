@@ -28,8 +28,7 @@ function event_click_door(e)
         instance_id = qglobals[zoneGlobal];
         if (instance_id ~= nil) then		
 			-- check for lockout qglobal.
-			if (e.self:Admin() <= 80 and ((qglobals[instance_id.."_potimeb_status"] == "Failed") or 
-				 (qglobals[instance_id.."_potimeb_status"] == "QuarmDead"))) then 
+			if ((not e.self:GetGM()) and ((qglobals[instance_id.."_potimeb_status"] == "Lockout"))) then 
 				e.self:Message(13, "A strange magical presence prevents you from entering.  It's too dangerous to enter at the moment. ");
 				return;
 			end
@@ -51,7 +50,7 @@ function event_click_door(e)
 			
 			--handles porting player to specified area if raid is currently in Phase 3 or further
 			if qglobals[instance_id .. "_potimeb_status"] ~= nil then
-				e.self:Message(14,string.format("[Found raid in progress! Sending %s to %s]",e.self:GetName(),qglobals[instance_id .. "_potimeb_status"]));
+				--e.self:Message(14,string.format("[Found raid in progress! Sending %s to %s]",e.self:GetName(),qglobals[instance_id .. "_potimeb_status"]));	--debug
 				if qglobals[instance_id .. "_potimeb_status"] == "Phase3" then
 					e.self:MovePCInstance(223, tonumber(instance_id), 585,1110,496,127);
 					return;
@@ -67,10 +66,7 @@ function event_click_door(e)
 				end
 			end 
 			
-			-- create a qglobal for status tracking
-			eq.set_global(instance_id.."_potimeb_status","Phase1",7,"H13");
-			
-			-- send them into their instance
+				-- send them into their instance
 			if (door_id == 8) then
 				-- GetDoorID =  8 : Air Trial
 				e.self:MovePCInstance(223, tonumber(instance_id), -36, 1352, 496, 124);

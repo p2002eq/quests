@@ -94,6 +94,16 @@ function event_say(e)
 			elseif no_expire == 1 then
 				e.self:Message(13,string.format("Instance [%s] was already set to be permanent!",tostring(result)));
 			end			
+		elseif(e.message:findi("cleartimeb")) then
+			guildid = string.match(e.message, "%d+");
+			--local zoneGlobal = "TOV-" .. guildid;  -- global format
+			local guildname = eq.get_guild_name_by_id(tonumber(guildid));
+			if guildname == "Invalid Guild" then
+				e.self:Message(13,"Please enter a valid Guild ID");
+				return;
+			end
+			eq.delete_global("POTIMEB-" .. tostring(guildid));
+			e.self:Message(14,string.format("POTIMEB instance deleted for %s", guildname));			
 		end
 	end
 end

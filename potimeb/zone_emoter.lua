@@ -19,9 +19,9 @@ function event_signal(e)
 		-- beginning of phase 1
 		emote_phase = 1;
 		eq.zone_emote(7,"In the distance, an hourglass appears, the grains of sand falling methodically into place. As quickly as the image was formed, it dissipates. You have one hour left.");
-		UpdateGlobals("Phase1",false);
-	elseif (e.signal) == 99 then
-		port_raid = true;
+		UpdateGlobals(e.signal,false);
+	--elseif (e.signal) == 99 then		
+	--	port_raid = true;
 	else
 		-- After completing a phase
 		emote_phase = e.signal;
@@ -71,7 +71,7 @@ function PhaseEmotes()
 		eq.zone_emote(7,"With a sudden jolt the wall comes into crystal clear focus.");
 		ThreadManager:Wait(4);
 		eq.zone_emote(7,"As the path before you opens up in a swirl of mystical energy, the faded image of an hourglass appears. You have one additional hour.");
-		UpdateGlobals("Phase2",true);
+		UpdateGlobals(emote_phase,true);
 		eq.stop_timer("emote_hb");
 		ThreadManager:Stop();
 	elseif (emote_phase == 3) then
@@ -104,7 +104,7 @@ function PhaseEmotes()
 		if port_raid then
 			raidMove(3);
 		end
-		UpdateGlobals("Phase3",true);
+		UpdateGlobals(emote_phase,true);
 		eq.stop_timer("emote_hb");
 		ThreadManager:Stop();
 	elseif (emote_phase == 4) then
@@ -123,7 +123,7 @@ function PhaseEmotes()
 		if port_raid then
 			raidMove(4);
 		end
-		UpdateGlobals("Phase4",true);
+		UpdateGlobals(emote_phase,true);
 		eq.stop_timer("emote_hb");
 		ThreadManager:Stop();
 	elseif (emote_phase == 5) then
@@ -146,7 +146,7 @@ function PhaseEmotes()
 		if port_raid then
 			raidMove(5);
 		end
-		UpdateGlobals("Phase5",true);
+		UpdateGlobals(emote_phase,true);
 		eq.stop_timer("emote_hb");
 		ThreadManager:Stop();
 	elseif (emote_phase == 6) then
@@ -168,7 +168,7 @@ function PhaseEmotes()
 		if port_raid then
 			raidMove(6);
 		end
-		UpdateGlobals("Phase6",true);
+		UpdateGlobals(emote_phase,true);
 		eq.stop_timer("emote_hb");
 		ThreadManager:Stop();
 	end
@@ -176,10 +176,11 @@ end
 
 function UpdateGlobals(phase,update)
 	if phase ~= nil then
-		eq.set_global(instance_id .. "_potimeb_status",phase,7,"H12");
-		if update then
-			eq.set_global(instance_id .. "_potimeb_progress",phase,7,"H132");
-		end
+		--if phase > 2 then lockout_phase = phase - 1 end;
+		eq.set_global(instance_id .. "_potimeb_status","Phase" .. phase,7,"H12");
+		--if (update and (qglobals[instance_id .. "_potimeb_Phase" .. lockout_phase .. "_lockout"] == nil)) then
+		--	eq.set_global(instance_id .. "_potimeb_Phase" .. lockout_phase .. "_lockout","1",7,"H132");
+		--end
 	end
 end
 

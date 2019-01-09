@@ -35,7 +35,7 @@ function event_click_door(e)
 	end	
 	
 	if door == 145 then		--CHECK FOR ENTRY INTO PLANE OF TIME
-		if pop_time_maelin ~= nil or e.self:GetGM() then 
+		if qglobals.pop_time_maelin ~= nil or e.self:GetGM() then 
 			e.self:SetZoneFlag(219);		--potimea
 			e.self:SetZoneFlag(223);		--potimeb
 			e.self:Message(15,"You've received a character flag!");

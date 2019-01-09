@@ -4,6 +4,6 @@ function event_signal(e)
     end
     if(e.signal == 2) then
         e.self:Say("Then we thank you. We will lure it here. But beware, it uses our cousins strength to protect itself.");
-        eq.spawn2(155422,0,0,e.self:GetX(),e.self:GetY(),e.self:GetZ(),e.self:GetHeading()):AddToHateList(e.other,1);
+        eq.spawn2(155422,0,0,715,-640,-350,420):CastToNPC():MoveTo(e.self:GetX(),e.self:GetY(),e.self:GetZ(),e.self:GetHeading(),true);
     end
 end

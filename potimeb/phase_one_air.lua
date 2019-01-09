@@ -13,7 +13,8 @@ local max_y = 1415;
 local player_limit = 18;	
 
 function event_spawn(e)
-	-- create a proximty to set the spawn timer
+	event_counter = 0;
+	-- create a proximity to set the spawn timer
 	local xloc = e.self:GetX();
 	local yloc = e.self:GetY();
 	eq.set_proximity(xloc - 80, xloc + 80, yloc - 60, yloc + 60);
@@ -56,16 +57,31 @@ function event_signal(e)
 		elseif (event_counter == 4) then
 			-- spawn targetable second wave with Boss
 			eq.depop_all(223241);
-			eq.spawn2(223111,0,0,68,1375,494.8,371); -- Servitor_of_Xegony
-			eq.spawn2(223111,0,0,68,1395,494.8,371); -- Servitor_of_Xegony
-			eq.spawn2(223111,0,0,68,1335,494.8,371); -- Servitor_of_Xegony
-			eq.spawn2(223111,0,0,68,1315,494.8,371); -- Servitor_of_Xegony
+			mob1 = eq.spawn2(223111,0,0,68,1375,494.8,371); -- Servitor_of_Xegony
+			mob2 = eq.spawn2(223111,0,0,68,1395,494.8,371); -- Servitor_of_Xegony
+			mob3 = eq.spawn2(223111,0,0,68,1335,494.8,371); -- Servitor_of_Xegony
+			mob4 = eq.spawn2(223111,0,0,68,1315,494.8,371); -- Servitor_of_Xegony
+			
+			--flag 2 out of 4 mobs as mezzable at random
+			if math.random(100) <= 50 then
+				mob1:SetSpecialAbility(13, 0);	
+			else
+				mob2:SetSpecialAbility(13, 0);	
+			end
+			
+			if math.random(100) <= 50 then
+				mob3:SetSpecialAbility(13, 0);	
+			else
+				mob4:SetSpecialAbility(13, 0);	
+			end			
+				
+			
 			event_counter = 0;
 			
 			--check for Neimon lockout
 			local qglobals = eq.get_qglobals();
 			local instance_id = eq.get_zone_instance_id();
-			local neimon = tostring(instance_id .. "_PoTimeB_Neimon");
+			local neimon = tostring(instance_id .. "_potimeb_Neimon");
 			if qglobals[neimon] == nil then
 				eq.spawn2(223120,0,0,68,1355,494.8,371); -- Neimon_of_Air
 			else

@@ -146,7 +146,7 @@ function EventWin(e)
 	eq.stop_all_timers();
 	DepopEvent();
 	eq.zone_emote(7,"The monstrous creature spasms in its last death throes sending shockwaves through the reef.  Coirnav the Avatar of Water, empowered by the focus of the Triumvirate, has fallen at the hands of the brave adventurers deep within the reef.");
-	eq.spawn2(216253,0,0,e.self:GetX(), e.self:GetY(), e.self:GetZ() - 15, e.self:GetHeading());	--#Essence_of_Water (216253)
+	eq.spawn2(216253,0,0,e.self:GetX(), e.self:GetY(), e.self:GetZ(), e.self:GetHeading());	--#Essence_of_Water (216253)
 	eq.signal(216276,1);	--signal #coirnav_unloader (216276) to unload encounter
 end
 	

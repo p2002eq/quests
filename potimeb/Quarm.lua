@@ -126,8 +126,8 @@ function event_death_complete(e)
 	eq.depop_all(223228);
 	eq.spawn2(223214,0,0,-579,-1119,60.625,0);
 	-- load the current quest globals
-	local qglobals = eq.get_qglobals(e.other);
-	if ( qglobals.time_emote == "TimeEntered" and e.other:Admin() < 10 ) then
+	local qglobals = eq.get_qglobals();
+	if ( qglobals.time_emote == "TimeEntered") then
 		eq.world_emote(15, "For a brief moment, it feels as if all time has stopped. Inside your mind, you hear a great beast screaming as it takes one last breath. It has been done. The gods have been overthrown.");
 		eq.world_emote(15,"After a short moment of peace and joy, you are swallowed by the horror of what has happened. You say, out loud for no one to hear, 'What have we done?'");
 		eq.set_global("time_emote","QuarmKilled",7,"F");

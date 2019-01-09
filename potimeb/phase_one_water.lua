@@ -14,6 +14,7 @@ local player_limit = 18;
 
 function event_spawn(e)
 	-- create a proximity to set the spawn timer
+	event_counter = 0;
 	local xloc = e.self:GetX();
 	local yloc = e.self:GetY();
 	eq.set_proximity(xloc - 80, xloc + 80, yloc - 60, yloc + 60);
@@ -37,7 +38,7 @@ function event_timer(e)
 		--check for Anar lockout
 		local qglobals = eq.get_qglobals();
 		local instance_id = eq.get_zone_instance_id();
-		local anar = tostring(instance_id .. "_PoTimeB_Anar");
+		local anar = tostring(instance_id .. "_potimeb_Anar");
 		if qglobals[anar] == nil then
 			eq.spawn2(223104,0,0,68,867,495,371);	--Anar_of_Water (223104)
 		else

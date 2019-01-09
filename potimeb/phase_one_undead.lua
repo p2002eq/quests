@@ -14,6 +14,7 @@ local player_limit = 18;
 
 function event_spawn(e)
 	-- create a proximity to set the spawn timer
+	event_counter = 0;
 	local xloc = e.self:GetX();
 	local yloc = e.self:GetY();
 	eq.set_proximity(xloc - 80, xloc + 80, yloc - 60, yloc + 60);
@@ -53,13 +54,13 @@ function event_signal(e)
 			eq.spawn2(eq.ChooseRandom(223105,223116,223121),0,0,12,1140,494.8,255);
 			eq.spawn2(eq.ChooseRandom(223105,223116,223121),0,0,22,1083,494.8,0);
 			eq.spawn2(eq.ChooseRandom(223105,223116,223121),0,0,12,1083,494.8,0);
-		-- spawn third wave consisting of 4 an_undead_guardian
+		-- spawn third wave consisting of 4 an_undead_guardian (mezzable)
 		elseif (event_counter == 7) then
 			eq.spawn2(223103,0,0,65.2,1139.7,494.8,371);	--undead protector (untargetable)
-			eq.spawn2(eq.ChooseRandom(223105,223116,223121,223122,223149),0,0,-23,1095,494.8,127); 
-			eq.spawn2(eq.ChooseRandom(223105,223116,223121,223122,223149),0,0,-23,1130,494.8,127);
-			eq.spawn2(eq.ChooseRandom(223105,223116,223121,223122,223149),0,0,45,1095,494.8,371);
-			eq.spawn2(eq.ChooseRandom(223105,223116,223121,223122,223149),0,0,45,1130,494.8,371);
+			eq.spawn2(eq.ChooseRandom(223105,223116,223121,223122,223149),0,0,-23,1095,494.8,127):SetSpecialAbility(13, 0);
+			eq.spawn2(eq.ChooseRandom(223105,223116,223121,223122,223149),0,0,-23,1130,494.8,127):SetSpecialAbility(13, 0);
+			eq.spawn2(eq.ChooseRandom(223105,223116,223121,223122,223149),0,0,45,1095,494.8,371):SetSpecialAbility(13, 0);
+			eq.spawn2(eq.ChooseRandom(223105,223116,223121,223122,223149),0,0,45,1130,494.8,371):SetSpecialAbility(13, 0);
 		-- spawn boss and grunts
 		elseif (event_counter == 11) then
 			eq.depop_all(223103);	--despawn untargetable undead protectors
@@ -68,7 +69,7 @@ function event_signal(e)
 			eq.spawn2(223150,0,0,65.2,1084.7,494.8,371); -- an_undead_protector
 			local qglobals = eq.get_qglobals();
 			local instance_id = eq.get_zone_instance_id();
-			local rythor = tostring(instance_id .. "_PoTimeB_Rythor");	--pull instance lockout qglobal
+			local rythor = tostring(instance_id .. "_potimeb_Rythor");	--pull instance lockout qglobal
 			if qglobals[rythor] == nil then
 				eq.unique_spawn(223129,0,0,65.2,1109.7,494.8,371); -- Rythor_of_the_Undead
 			else

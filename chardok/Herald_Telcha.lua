@@ -74,7 +74,8 @@ function event_trade(e)
 		eq.delete_global("RegalBandBathezid");
 		e.other:QuestReward(e.self,0,0,0,0,5727,50000); -- Regal Band of Bathezid
 	end
-	if((e.other:GetFaction(e.self)==1) and item_lib.check_turn_in(e.self, e.trade, {item1 = 5727, item2 = 5728})) then -- Regal band of Bathezid
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 5727}) and (e.other:GetFaction(e.self)==1)) then -- Regal band of Bathezid
+		e.self:Say("Here is your recharged ring, faithful minion! Return to me when you need it charged again, but keep in mind you must continue to serve us in our cause or I will not aid you any longer. Do not hand me your ring if you are not faithful to us, or I shall not return it to you again.");
 		e.other:QuestReward(e.self,0,0,0,0,5727); -- Regal Band of Bathezid
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
