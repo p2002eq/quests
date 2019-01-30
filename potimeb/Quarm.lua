@@ -113,7 +113,7 @@ end
 --resets AE timer and dispells all buffs each time a head is killed.  
 function DispellBuffs(e)
 	eq.stop_timer("AE");
-	e.self:CastSpell(3230,e.self:GetID());
+	e.self:BuffFadeAll();
 	eq.set_timer("AE",6000);
 end
 
