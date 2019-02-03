@@ -21,14 +21,11 @@ function event_trade(e)
 
 	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 13898})) then -- bag of ice necklaces
 		e.self:Say("Well done, my young apprentice. I call you apprentice for you are nothing but a spark to my fire. This is the final component for my greatest creation. AHA!! I call it - iced tea!! Never again shall I boil under the hot sun. As for you, take this. It should serve you well. Now go away. There is no iced tea for you");
-		e.other:Ding();
-		e.other:SummonItem(12208);
+		e.other:QuestReward(e.self,0,7,0,0,12208,1000); -- Servants Staff
 		e.other:Faction(60,1,0); --faction with Crimson hands increased
 		e.other:Faction(145,1,0); --faction with High Council of Erudin increased
 		e.other:Faction(143,-1,0); --faction with Heretics decreased
 		e.other:Faction(147,1,0); --faction with High Guards of Erudin increased
-		e.other:AddEXP(1000);
-		e.other:GiveCash(0,7,0,0);
 	elseif(e.other:GetClass() == 12) then
 		if(item_lib.check_turn_in(e.self, e.trade, {item1 = 12207})) then -- Half of a Spell
 			e.self:Say("'I see you found Ilanic. How is he doing? I hope he is well. As for you, you may have the spell Ice Capa... err, I mean Column of Frost. Don't go and lose it now.");
@@ -36,11 +33,8 @@ function event_trade(e)
 			e.other:Faction(145,1,0); --faction with High Council of Erudin increased
 			e.other:Faction(143,-1,0); --faction with Heretics decreased
 			e.other:Faction(147,1,0); --faction with High Guards of Erudin increased
-			e.other:QuestReward(e.self,0,7,0,0,15380,1000);
+			e.other:QuestReward(e.self,0,7,0,0,15380,1000); -- Spell: Column of Frost
 		end
-		item_lib.return_items(e.self, e.other, e.trade)
 	end
 	item_lib.return_items(e.self, e.other, e.trade);
 end
-
---END of FILE Zone:erudnint  ID:24072 -- Josper_Kenshed
