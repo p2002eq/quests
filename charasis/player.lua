@@ -23,3 +23,8 @@ function event_click_door(e)
 		end
 	end	
 end
+
+function event_level_up(e)
+    local discs = require('disciplines');
+    discs:train_discs(e, e.self:GetLevel());
+end
