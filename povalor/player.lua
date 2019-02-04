@@ -45,6 +45,16 @@ function event_click_door(e)
 			e.door:ForceClose(e.self);
 		end
 	end
+
+	if door == 9 then
+		if e.self:HasItem(25596) or e.self:KeyRingCheck(25596) or e.self:GetGM() then --check for Crystalline Globe
+			local lever = eq.get_entity_list():GetDoorsByDoorID(2);  --rotating door
+			lever:ForceOpen(e.self);
+		else
+			e.self:Message(13,"It's locked and you're not holding the key.");
+			e.door:ForceClose(e.self);
+		end
+	end
 	
 	--Aerin`Dar Platform - should remain locked while AD is still alive
 	if door == 11 then
