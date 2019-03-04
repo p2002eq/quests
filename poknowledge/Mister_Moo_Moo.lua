@@ -35,15 +35,15 @@ function event_trade(e)
 
   if(item_lib.check_turn_in(e.trade, {item1 = 19150,item2 = 19150,item3 = 19150, item4 = 19150})) then -- Bladder of Otter milk
     e.self:Say("Ahh! I feel much better now! Mooooooooooo.");
-    
+    --[[
     e.other:Ding(); -- creates quest sound
     e.other:AddEXP(10); -- gives XP
     e.other:GiveCash(0,0,4,0);
     e.other:SummonItem(13466); -- give Kabob
-    
-    --e.other:QuestReward(e.self,0,0,4,0,13466,10); -- Why is this off?
+    ]]--
+    e.other:QuestReward(e.self,0,0,4,0,13466,10); -- Why is this off?
   else
-    e.self:Say("If you call this milk, you must be a High Elf...  Can't you see these udders?")
+    e.self:Say("If you call this milk, you must be a High Elf...  Can't you see these udders?");
   end
-  item_lib.return_items(e.self, e.other, e.trade)
+  item_lib.return_items(e.self, e.other, e.trade);
 end
