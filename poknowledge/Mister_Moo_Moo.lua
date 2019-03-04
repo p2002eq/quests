@@ -45,5 +45,5 @@ function event_trade(e)
   else
     e.self:Say("If you call this milk, you must be a High Elf...  Can't you see these udders?");
   end
-  item_lib.return_items(e.self, e.other, e.trade);
+  item_lib.return_items(e.self, e.other, e.trade)
 end
