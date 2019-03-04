@@ -35,7 +35,7 @@ function event_trade(e)
 
   if(item_lib.check_turn_in(e.trade, {item1 = 19150,item2 = 19150,item3 = 19150, item4 = 19150})) then -- Bladder of Otter milk
     e.self:Say("Ahh! I feel much better now! Mooooooooooo.");
-    e.other:QuestReward(e.self,0,0,4,0,13466,10);
+    e.other:QuestReward(e.other,0,0,4,0,13466,10);
   else
     e.self:Say("If you call this milk, you must be a High Elf...  Can't you see these udders?")
   end
