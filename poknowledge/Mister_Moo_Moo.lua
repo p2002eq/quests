@@ -33,7 +33,7 @@ end
 function event_trade(e)
   local item_lib = require("items"); -- load eq item db
 
-  if(item_lib.check_turn_in(e.trade, {item1 = 19150,item2 = 19150,item3 = 19150, item4 = 19150})) then -- Bladder of Otter milk
+  if(item_lib.check_turn_in(e.self, e.trade, {item1 = 19150,item2 = 19150,item3 = 19150, item4 = 19150})) then -- Bladder of Otter milk
     e.self:Say("Ahh! I feel much better now! Mooooooooooo.");
     --[[
     e.other:Ding(); -- creates quest sound
@@ -43,7 +43,7 @@ function event_trade(e)
     ]]--
     e.other:QuestReward(e.self,0,0,4,0,13466,10); -- Why is this off?
   else
-    e.self:Say("If you call this milk, you must be a High Elf...  Can't you see these udders?");
+    e.self:Say("If you call this milk, you must be a High Elf...  Can't you see these udders?")
   end
   item_lib.return_items(e.self, e.other, e.trade)
 end
