@@ -43,7 +43,7 @@ function event_trade(e)
     ]]--
     e.other:QuestReward(e.self,0,0,4,0,13466,10); -- Why is this off?
   else
-    e.self:Say("If you call this milk, you must be a High Elf...  Can't you see these udders?")
+    e.self:Say("If you call this milk, you must be a High Elf...  Can't you see these udders?");
+    item_lib.return_items(e.self, e.other, e.trade)
   end
-  item_lib.return_items(e.self, e.other, e.trade)
 end
