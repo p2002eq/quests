@@ -7,7 +7,7 @@ function event_say(e)
 		if (qglobals[forumName .. "-Cocain19"] ~= nil and qglobals[forumName .. "-Boragar19"] ~= nil and qglobals[forumName .. "-Taian19"] ~= nil and qglobals[forumName .. "-Trust19"] ~= nil and qglobals[forumName .. "-Daeron19"] ~= nil and qglobals[forumName .. "-Chunky19"] ~= nil) then
 			if (qglobals[forumName .. "-Cocain19"] == "99" and qglobals[forumName .. "-Boragar19"] == "99" and qglobals[forumName .. "-Taian19"] == "99" and qglobals[forumName .. "-Trust19"] == "99" and qglobals[forumName .. "-Daeron19"] == "99" and qglobals[forumName .. "-Chunky19"] == "99") then
 				if (qglobals[forumName .. "-YearFour"] == nil) then
-					if (e.other:HasItem(137322) then
+					if (e.other:HasItem(137322)) then
 						e.other:Message(15,"Looks like you already have my trinket, perhaps one of your other characters would like it instead?");
 					else
 						e.other:Message(15,"Well done, to be fair, I didn't think you could finish them all.  I am a Hobo of my word, so here you go, my instant banker trinket!");
