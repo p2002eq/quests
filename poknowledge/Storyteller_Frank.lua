@@ -37,22 +37,22 @@ function event_say(e)
 				e.other:Message(14,"You have gained Chunky's approval!");
 			else
 				e.other:Message(13,"You must gain Chunky's approval.");
-				if (qglobals[forumName .. "-Yelloweyes"] ~= nil) then
+				if (qglobals[forumName .. "-Yelloweyes19"] ~= nil) then
 					e.other:Message(14,"You have stolen Yelloweyes illusion!");
 				else
 					e.other:Message(8,"You must steal Yelloweyes illusion from Paludal.");
 				end
-				if (qglobals[forumName .. "-OddMole"] ~= nil) then
+				if (qglobals[forumName .. "-OddMole19"] ~= nil) then
 					e.other:Message(14,"You have stolen an Odd Moles illusion!");
 				else
 					e.other:Message(8,"You must steal an Odd Moles illusion in Kurns.");
 				end
-				if (qglobals[forumName .. "-Torklar"] ~= nil) then
+				if (qglobals[forumName .. "-Torklar19"] ~= nil) then
 					e.other:Message(14,"You have stolen Torklars illusion!");
 				else
 					e.other:Message(8,"You must steal Torklars illusion within Unrest.");
 				end
-				if (qglobals[forumName .. "-EvilEye"] ~= nil) then
+				if (qglobals[forumName .. "-EvilEye19"] ~= nil) then
 					e.other:Message(14,"You have stolen an Evil Eyes illusion!");
 				else
 					e.other:Message(8,"You must steal an Evil Eyes illusion in the Eastern planes of Karana.");
@@ -66,17 +66,17 @@ function event_say(e)
 				e.other:Message(14,"You have gained Daeron's approval!");
 			else
 				e.other:Message(13,"You must gain Daeron's approval.");
-				if (qglobals[forumName .. "-Orb"] ~= nil) then
+				if (qglobals[forumName .. "-Orb19"] ~= nil) then
 					e.other:Message(14,"You have located the relic next to the orb within Eastern Wastes!");
 				else
 					e.other:Message(8,"You need to locate the relic next to the orb within Eastern Wastes.");
 				end
-				if (qglobals[forumName .. "-Cauldron"] ~= nil) then
+				if (qglobals[forumName .. "-Cauldron19"] ~= nil) then
 					e.other:Message(14,"You have located the relic next to the ruins in Dagnors Cauldron!");
 				else
 					e.other:Message(8,"You need to locate the relic next to the ruins in Dagnors Cauldron.");
 				end
-				if (qglobals[forumName .. "-BookCase"] ~= nil) then
+				if (qglobals[forumName .. "-BookCase19"] ~= nil) then
 					e.other:Message(14,"You have located the relic within the bookcase at the abandoned temple in Dreadlands!");
 				else
 					e.other:Message(8,"You need locate the relic within the bookcase at the abandoned temple in Dreadlands.");
@@ -106,17 +106,17 @@ function event_say(e)
 				e.other:Message(14,"You have gained Boragar's approval!");
 			else
 				e.other:Message(13,"You must gain Boragar's approval.");
-				if (qglobals[forumName .. "-Scruffy"] ~= nil) then
+				if (qglobals[forumName .. "-Scruffy19"] ~= nil) then
 					e.other:Message(14,"You have captured Scruffy!");
 				else
 					e.other:Message(8,"You need to capture Scruffy in Qeynos Hills.");
 				end
-				if (qglobals[forumName .. "-Scryer"] ~= nil) then
+				if (qglobals[forumName .. "-Scryer19"] ~= nil) then
 					e.other:Message(14,"You have captured a froglok scryer!");
 				else
 					e.other:Message(8,"You need to capture a Froglok Scryer within Upper Guk.");
 				end
-				if (qglobals[forumName .. "-CaveLord"] ~= nil) then
+				if (qglobals[forumName .. "-CaveLord19"] ~= nil) then
 					e.other:Message(14,"You have captured a cave bat lord!");
 				else
 					e.other:Message(8,"You need to capture a cave bat lord inside the Warrens.");

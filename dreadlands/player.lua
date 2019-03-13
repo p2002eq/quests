@@ -1,4 +1,5 @@
 function event_enter_zone(e)
+	eq.unique_spawn(214104, 0, 0, 8903, 1116, 1064, 0);  -- anniversary quest
 	eq.set_timer("spires", 10 * 1000);
 	e.self:SetGlobal("nexus_dre", "0", 3, "F");
 	e.self:SetGlobal("spire_dre", "0", 1, "F");
@@ -23,7 +24,3 @@ function event_level_up(e)
 	local discs = require('disciplines');
 	discs:train_discs(e, e.self:GetLevel());
 end
-
--- function event_enter_zone(e)
-	-- eq.unique_spawn(214104, 0, 0, 8903, 1116, 1064, 0);
--- end
