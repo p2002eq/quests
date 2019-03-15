@@ -5,7 +5,7 @@ end
 function event_enter(e)
 	local qglobals = eq.get_qglobals();
 	local forumName = e.other:GetForumName(e.other:AccountID());
-	local globalName = forumName .. "-Cauldron";
+	local globalName = forumName .. "-Cauldron19";
 	local num = qglobals[globalName];
 	if (num == nil) then
 		eq.set_global(globalName,"1",7,"F");

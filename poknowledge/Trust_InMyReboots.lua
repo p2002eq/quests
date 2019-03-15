@@ -59,15 +59,15 @@ end
 function event_say(e)
 	local qglobals = eq.get_qglobals();
 	local forumName = e.other:GetForumName(e.other:AccountID());
-	local globalName = forumName .. "-Trust";
+	local globalName = forumName .. "-Trust19";
 	if (qglobals[globalName] ~= nil) then
-		e.self:Say("Hey, no double dipping!");
+		e.other:Message(15,"Hey, no double dipping!");
 	elseif (e.message:findi("hail")) then
-		e.self:Say("Hello friend!  I'm sure you are here seeking my [" .. eq.say_link("approval") .. "]?");
+		e.other:Message(15,"Hello friend!  I'm sure you are here seeking my [" .. eq.say_link("approval") .. "]?");
 	elseif(e.message:findi("approval")) then
-		e.self:Say("Well lets see here.  Perhaps you could answer some trivia [" .. eq.say_link("questions") .. "] for me to show you are truly deserving?");
+		e.other:Message(15,"Well lets see here.  Perhaps you could answer some trivia [" .. eq.say_link("questions") .. "] for me to show you are truly deserving?");
 	elseif(e.message:findi("questions")) then
-		e.self:Say("You will have 30 seconds to answer each question, which will progressively get more difficult.  There will be 5 total questions, if you fail any of them, you will need to restart from the beginning.  Let me know when you are [" .. eq.say_link("ready") .. "]");
+		e.other:Message(15,"You will have 30 seconds to answer each question, which will progressively get more difficult.  There will be 5 total questions, if you fail any of them, you will need to restart from the beginning.  Let me know when you are [" .. eq.say_link("ready") .. "]");
 	elseif(e.message:findi("ready")) then
 		local playerId = e.other:GetID();
 		local questNum = math.random(1,10);
@@ -85,10 +85,10 @@ function event_say(e)
 						if (players[playerId][2] == 41) then
 							e.other:Message(13,"Congratulations, you have beat the trivia game.");	
 							e.other:Message(15,"You have earned Trusts approval");
-							local global = e.other:CastToClient():GetForumName(e.other:CastToClient():AccountID()) .. "-Trust";
+							local global = e.other:CastToClient():GetForumName(e.other:CastToClient():AccountID()) .. "-Trust19";
 							eq.set_global(global ,"99",7,"F");
 							eq.stop_timer(tostring(playerId));	
-							e.self:Say("Good job, I guess you are smarter than you look!  Here you go, don't spend it all in one place.");
+							e.other:Message(15,"Good job, I guess you are smarter than you look!  Here you go, don't spend it all in one place.");
 							e.other:SummonItem(100010, 1);
 						else
 							local newNum = players[playerId][2] + 10;

@@ -20,7 +20,7 @@ function allDeath(e)
 				for mob in hateList.entries do
 					if (mob.ent:IsClient() == true) then
 						local qglobals = eq.get_qglobals(e.self);
-						local global = mob.ent:CastToClient():GetForumName(mob.ent:CastToClient():AccountID()) .. "-Cocain";
+						local global = mob.ent:CastToClient():GetForumName(mob.ent:CastToClient():AccountID()) .. "-Cocain19";
 						local numBread = qglobals[global];				
 						if (numBread ~= nil) then
 							if (tonumber(numBread) > 20) then

@@ -8,7 +8,7 @@ end
 function event_say(e)
 	local qglobals = eq.get_qglobals();
 	local forumName = e.other:GetForumName(e.other:AccountID());
-	local globalName = forumName .. "-Taian";
+	local globalName = forumName .. "-Taian19";
 	local qglobals = eq.get_qglobals();
 	if (e.message:findi("hail") and qglobals[globalName] ~= nil) then
 		if (qglobals[globalName] == "1") then

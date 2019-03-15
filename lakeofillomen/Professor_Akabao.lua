@@ -20,6 +20,6 @@ function event_trade(e)
 	item_lib.return_items(e.self, e.other, e.trade)
 end
 
--- function event_spawn(e)
-	-- eq.load_encounter("anniversary_event");
--- end
+ function event_spawn(e)
+	eq.load_encounter("anniversary_event");
+ end
