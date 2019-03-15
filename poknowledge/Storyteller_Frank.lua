@@ -3,6 +3,10 @@ function event_spawn(e)
 end
 
 function event_say(e)
+
+	local qglobals = eq.get_qglobals();
+	local forumName = e.other:GetForumName(e.other:AccountID());
+	
 	if(e.message:findi("Hail")) then
 		if (qglobals[forumName .. "-Cocain19"] ~= nil and qglobals[forumName .. "-Boragar19"] ~= nil and qglobals[forumName .. "-Taian19"] ~= nil and qglobals[forumName .. "-Trust19"] ~= nil and qglobals[forumName .. "-Daeron19"] ~= nil and qglobals[forumName .. "-Chunky19"] ~= nil) then
 			if (qglobals[forumName .. "-Cocain19"] == "99" and qglobals[forumName .. "-Boragar19"] == "99" and qglobals[forumName .. "-Taian19"] == "99" and qglobals[forumName .. "-Trust19"] == "99" and qglobals[forumName .. "-Daeron19"] == "99" and qglobals[forumName .. "-Chunky19"] == "99") then
