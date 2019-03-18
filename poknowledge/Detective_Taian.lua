@@ -12,7 +12,7 @@ function event_say(e)
 	local qglobals = eq.get_qglobals();
 	if (e.message:findi("hail") and qglobals[globalName] ~= nil) then
 		if (qglobals[globalName] == "1") then
-			e.other:Message(15,"Good job running the gauntlet, provided me with some good laughs!  Here take this as reward.");
+			e.other:Message(15,"Good job running the gauntlet, provided me with some good laughs!  Here take this as a reward.");
 			e.other:SummonItem(100010, 1);
 			eq.set_global(globalName ,"99",7,"F");
 		else

@@ -66,5 +66,5 @@ function depop_mobs()
 			mob:Depop();
 		end
 	end
-	eq.spawn2(214104, 0, 0, -368, 341, 21, 0);
+	eq.unique_spawn(214104, 0, 0, -368, 341, 21, 0);
 end
