@@ -29,8 +29,8 @@ function event_say(e)
 	elseif (e.message:findi("capture")) then
 		e.other:Message(15,"Here, take this cage.  Once you have downed the [" .. eq.say_link("creatures") .. "], the cage will trap them.");
 		e.other:Message(15,"You have recieved Boragars magical cage.");
+		eq.set_global(globalName ,"1",7,"F");
 	elseif (e.message:findi("creatures")) then
 		e.other:Message(15,"Oh right, the creatures.  Lets see here.  I have been trying to get my hands on Scruffy in qeynos hills ever since he gave me rabies.  Also I could use the froglok scryer from upper guk and a cave bat lord from the warrens to add to my collection.  Come back to me when you have captured them all.");	
-		eq.set_global(globalName ,"1",7,"F");
 	end
 end
