@@ -27,6 +27,8 @@ function event_say(e)
     e.self:Say("Look. I need you to keep your voice down. I am not much of a cow lately because I have ran out of [" ..eq.say_link("milk") .. "]."); -- eq say link added
   elseif(e.message:findi("milk")) then
     e.self:Say("Milk. Yes. It is milk that can help me. Bring me four bladders of the coldest milk. ")
+  elseif(e.message:findi("there is no cow level")) then
+ 	  e.other:SetRace(eq.ChooseRandom(181));
   end
 end
 
@@ -41,9 +43,10 @@ function event_trade(e)
     e.other:GiveCash(0,0,4,0);
     e.other:SummonItem(13466); -- give Kabob
     ]]--
-    e.other:QuestReward(e.self,0,0,4,0,13466,10); -- Why is this off?
+    e.other:QuestReward(e.self,0,0,2,0,13466,10); -- Why is this off?
   else
-    e.self:Say("If you call this milk, you must be a High Elf...  Can't you see these udders?");
-    item_lib.return_items(e.self, e.other, e.trade)
+    e.self:Say("If you call this milk, you must be a High Elf...  Can't you see these udders?")
   end
+  item_lib.return_items(e.self, e.other, e.trade)
 end
+
