@@ -22,12 +22,12 @@ function event_say(e)
   if(e.message:findi("hail")) then
     e.self:Say(" [" .. eq.say_link("Moo") .. "] Hi, My name is Mister Moo Moo.");
   elseif(e.message:findi("moo")) then
-    e.self:Say("You speak like me, but you are no [" ..eq.say_link("cow") .. "]...");
-  elseif(e.message:findi("cow")) then
+    e.self:Say("You speak like me, but you are no [" ..eq.say_link("yakman") .. "]...");
+  elseif(e.message:findi("yakman")) then
     e.self:Say("Look. I need you to keep your voice down. I am not much of a cow lately because I have ran out of [" ..eq.say_link("milk") .. "]."); -- eq say link added
   elseif(e.message:findi("milk")) then
     e.self:Say("Milk. Yes. It is milk that can help me. Bring me four bladders of the coldest milk. ");
-  elseif(e.message:findi("there is no")) then
+  elseif(e.message:findi("there is no cow level")) then
  	  e.other:SetRace(eq.ChooseRandom(181));
     e.self:Say("...Then where do cows come from...?");
   end
