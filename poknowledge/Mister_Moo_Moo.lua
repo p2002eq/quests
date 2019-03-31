@@ -6,7 +6,7 @@ function event_timer(e)
   local random_say = math.random(2);
 
   if(random_say == 1) then
-    e.self:Say("Moooooo");
+    e.self:Say("If only there was a level where my people existed...");
   else
     e.self:Say("Is there any cold milk in this crazy town?");
   end
