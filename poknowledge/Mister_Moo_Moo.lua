@@ -6,7 +6,7 @@ function event_timer(e)
   local random_say = math.random(2);
 
   if(random_say == 1) then
-    e.self:Say("If only there was a level where my people existed...");
+    e.self:Say("The cow level is only an illusion...");
   else
     e.self:Say("Is there any cold milk in this crazy town?");
   end
@@ -27,8 +27,8 @@ function event_say(e)
     e.self:Say("Look. I need you to keep your voice down. I am not much of a cow lately because I have ran out of [" ..eq.say_link("milk") .. "]."); -- eq say link added
   elseif(e.message:findi("milk")) then
     e.self:Say("Milk. Yes. It is milk that can help me. Bring me four bladders of the coldest milk. ");
-  elseif(e.message:findi("there is no cow level")) then
- 	  e.other:SetRace(eq.ChooseRandom(181));
+  elseif(e.message:findi("illusion")) then
+ 	  e.other:SetRace(eq.ChooseRandom(181,12));
     e.self:Say("...Then where do cows come from...?");
   end
 end
