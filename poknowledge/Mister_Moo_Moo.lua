@@ -29,7 +29,6 @@ function event_say(e)
     e.self:Say("Milk. Yes. It is milk that can help me. Bring me four bladders of the coldest milk. ");
   elseif(e.message:findi("illusion")) then
  	  e.other:SetRace(eq.ChooseRandom(181,12));
-    e.self:Say("...Then where do cows come from...?");
   end
 end
 
