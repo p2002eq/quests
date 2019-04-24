@@ -17,7 +17,7 @@ items[13] = { "Breezeboots Frigid Gnasher", 10, 27310};
 items[14] = { "Holgresh Elder Beads", 10, 24890};
 items[15] = { "Circlet of Shadow", 15, 14730};
 items[16] = { "P2002's Trinket of the Banker", 15, 137322};
-
+items[17] = { "Title Scroll", 20, 137336};
 
 function event_say(e)
 	local qglobals = eq.get_qglobals();

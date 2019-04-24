@@ -6,7 +6,7 @@ function event_timer(e)
   local random_say = math.random(2);
 
   if(random_say == 1) then
-    e.self:Say("Moooooo");
+    e.self:Say("The cow level is only an illusion...");
   else
     e.self:Say("Is there any cold milk in this crazy town?");
   end
@@ -22,8 +22,8 @@ function event_say(e)
   if(e.message:findi("hail")) then
     e.self:Say(" [" .. eq.say_link("Moo") .. "] Hi, My name is Mister Moo Moo.");
   elseif(e.message:findi("moo")) then
-    e.self:Say("You speak like me, but you are no [" ..eq.say_link("cow") .. "]...");
-  elseif(e.message:findi("cow")) then
+    e.self:Say("You speak like me, but you are no [" ..eq.say_link("yakman") .. "]...");
+  elseif(e.message:findi("yakman")) then
     e.self:Say("Look. I need you to keep your voice down. I am not much of a cow lately because I have ran out of [" ..eq.say_link("milk") .. "]."); -- eq say link added
   elseif(e.message:findi("milk")) then
     e.self:Say("Milk. Yes. It is milk that can help me. Bring me four bladders of the coldest milk. ");
