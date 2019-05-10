@@ -1,5 +1,5 @@
 function event_spawn(e)
-  eq.set_timer("quips",math.random(750000));
+  eq.set_timer("quips",math.random(1500000));
 end
 
 function event_timer(e)
@@ -10,7 +10,7 @@ function event_timer(e)
   else
     e.self:Say("Is there any cold milk in this crazy town?");
   end
-  eq.set_timer("quips",math.random(750000));
+  eq.set_timer("quips",math.random(1500000));
 end
 
 

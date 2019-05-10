@@ -41,8 +41,6 @@ function event_trade(e)
     elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 31839})) then -- Resealed Runed Iron Bound Chest
         e.self:Say("It appears this situation is much more dire than we had first presumed. It would be unsafe to send this crate within the walls of Shar Vahl should another innocent be possessed and the tormented Vah Shir be resurrected once more. I shall scribe a note explaining the occurrences for you to deliver along with the crate to Spiritualist Roleko at the Vah Shir outpost in Grimling Forest");
         event_emote(e,"The runes inscribed on the chest and iron bands begin to softly glow with a golden light.");
-        e.self:Say("I will keep it safe until the courier arrives.");
-        eq.spawn2(160477,22,0,-60.64,-0.86,4.06,120); -- A Vah Shir courier
         e.other:SummonItem(31841); -- Roshawnas Report of Occurrences
         e.other:Faction(132,5); -- Guardians of Shar Vahl
         e.other:QuestReward(e.self,0,0,0,0,31839,2000); -- Resealed Runed Iron Bound Chest
