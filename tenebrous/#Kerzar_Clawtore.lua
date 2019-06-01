@@ -12,10 +12,10 @@ function event_say(e)
         e.self:Say("His vampyric abilities of course. Valdanov had either been reborn in undeath far before myself or had a powerful mentor and the time and facilities in which to train. I did my best to resist his attack but I was still subdued by his superior skills and strength. He dropped this key in the struggle. I have no use for it, consider it yours. I must be going before I'm seen by the others. Oh no! It's too late! We've been spotted! May you continue your investigations in the afterlife!");
         e.other:QuestReward(e.self,0,0,0,0,31758,2500); -- Old Bone Key
         e.self:Emote("rapidly transforms into swirling mist indistinguishable from the wind swept mountain fog as other forms begin to solidify from the fog nearby.");
-        eq.spawn2(172001,0,0,e.self:GetX() -10,e.self:GetY() +10,e.self:GetZ(),e.self:GetHeading()):AddToHateList(e.other,1);
-        eq.spawn2(172001,0,0,e.self:GetX() -10,e.self:GetY() -10,e.self:GetZ(),e.self:GetHeading()):AddToHateList(e.other,1);
-        eq.spawn2(172001,0,0,e.self:GetX() +10,e.self:GetY() +10,e.self:GetZ(),e.self:GetHeading()):AddToHateList(e.other,1);
-        eq.spawn2(172001,0,0,e.self:GetX() +10,e.self:GetY() -10,e.self:GetZ(),e.self:GetHeading()):AddToHateList(e.other,1);
+        eq.spawn2(172196,0,0,e.self:GetX() -10,e.self:GetY() +10,e.self:GetZ(),e.self:GetHeading()):AddToHateList(e.other,1);
+        eq.spawn2(172196,0,0,e.self:GetX() -10,e.self:GetY() -10,e.self:GetZ(),e.self:GetHeading()):AddToHateList(e.other,1);
+        eq.spawn2(172196,0,0,e.self:GetX() +10,e.self:GetY() +10,e.self:GetZ(),e.self:GetHeading()):AddToHateList(e.other,1);
+        eq.spawn2(172196,0,0,e.self:GetX() +10,e.self:GetY() -10,e.self:GetZ(),e.self:GetHeading()):AddToHateList(e.other,1);
         eq.delete_global("vampyre_vahshir_combat");
         eq.depop();
     end
