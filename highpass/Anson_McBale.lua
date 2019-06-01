@@ -33,7 +33,7 @@ function event_trade(e)
 			e.other:Faction(53,5,0);
 			e.other:Faction(105,5,0);
 			e.other:QuestReward(e.self,0,0,100,25,0,10000);
-			eq.spawn2(5088,0,0,336,10,45,450);
+			eq.unique_spawn(5088,0,0,336,10,45,450); -- Stanos
 		end
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
