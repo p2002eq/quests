@@ -1,4 +1,4 @@
--- a_coterie_general (172001)
+-- a_coterie_general (172196)
 --spawned adds as part of Vampyre Troubles quest
 --tenebrous
 
