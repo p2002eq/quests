@@ -36,17 +36,20 @@ function event_trade(e)
 	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 18025})) then
 		e.self:Say("Ah, very good. I'll make sure to note Quinon's report in our journals. Here's a little something for your troubles, " .. e.other:GetName() .. "."); -- not live text
 		item_check = 1;
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 359023})) then -- Faded Songbook
+		e.self:Emote("peers intently through several pages of the book, mumbling quietly under his breath as he does. His gaze falls on to one page in particular, and his eyes begin to widen as they pass over each line. He begins scribbling frantically across the pages in between the lines. 'Take this. Whoever wrote it was obviously a student of my father. The style is unmistakable. I've written some notes up for you so it should be easier to read. Take this back to Kardin and he'll teach it to you.' ");
+		e.other:QuestReward(e.self,0,0,0,0,359024,1000); -- Transcribed Songbook
 	end
-	
+
 	if(item_check == 1) then
-		e.other:Ding();
-		e.other:Faction(192,25,0); -- league of antonican bards
-		e.other:Faction(184,3,0); -- knights of truth
-		e.other:Faction(135,3,0); -- guards of qeynos
-		e.other:Faction(273,-1,0); -- ring of scale
-		e.other:Faction(207,-1,0); -- mayong mistmoore
-		e.other:AddEXP(500);
-		e.other:GiveCash(10,2,0,0);
+	e.other:Ding();
+	e.other:Faction(192,25,0); -- league of antonican bards
+	e.other:Faction(184,3,0); -- knights of truth
+	e.other:Faction(135,3,0); -- guards of qeynos
+	e.other:Faction(273,-1,0); -- ring of scale
+	e.other:Faction(207,-1,0); -- mayong mistmoore
+	e.other:AddEXP(500);
+	e.other:GiveCash(10,2,0,0);
 	end
 	item_lib.return_items(e.self, e.other, e.trade)
 end
