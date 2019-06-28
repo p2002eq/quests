@@ -2,6 +2,10 @@
 --ZONE IN/GRAVEYARD VERSION
 --povalor
 
+--Named/unique mob controls to despawn within instance
+local disable_instance = {}
+local static_named = {208157,208165,208160};	--disable these spawnpoints since they don't share other trash NPCS (also are included above in disabled instance)
+
 
 local player_list = true;
 local player_list_count = nil;
@@ -13,14 +17,14 @@ local raid = nil;
 function event_say(e)
     local instance_id = eq.get_zone_instance_id();
     if(instance_id ~= 0) then
-		e.self:Say("Hail Traveler!  I am pleased to see you made it through the rift unharmed. You must return to the original plane if you wish to access the deeper areas of the instance.");
+		e.self:Say("Hail Traveler!  I am pleased to see you made it through the rift unharmed.");
 		return;
     end
 
     local instanceId = nil;  -- from the global
     if(e.message:findi('hail')) then
         e.self:Say("Greetings Traveler, recently there has been talk of rifts in space and time. These rifts have been allowing well established groups of adventurers to explore identical instances of Norrath.");
-        e.self:Say("Unfortunately, the planar instance is segmented to where travel is only possible to this location. You must journey in further to access a rift to a deeper instance. If you desire to travel through the portal to this location then tell me when you are [" .. eq.say_link("ready") .. "].");
+        e.self:Say("If you desire to travel through the portal to this location then tell me when you are [" .. eq.say_link("ready") .. "].");
     elseif(e.message:findi('ready')) then
         local qglobals = eq.get_qglobals(e.other);
         local zoneGlobal = "POVALOR-" .. tostring(e.other:GuildID());
@@ -88,4 +92,45 @@ function check_group_guild(cur_group, guildId)
     else
         return false;
     end
+end
+
+function event_spawn(e)
+    local instance_id = eq.get_zone_instance_id();
+    if(instance_id ~= 0) then
+        local mysql = require("luasql_ext");
+        for id,name in mysql.rows(con,"SELECT id from npc_types WHERE id >= 208000 and id < 209000 and disable_instance = 1") do
+            disable_instance[id] = tonumber(id);
+        end
+        eq.set_timer("scan", 5 * 1000);
+    end
+end
+
+function event_timer(e)
+    if e.timer == "scan" then
+        local npc_list = eq.get_entity_list():GetNPCList();
+        if npc_list ~= nil then
+            for npc in npc_list.entries do
+                for k,npc_id in pairs(disable_instance) do
+                    if npc:CastToMob():GetNPCTypeID() == npc_id then
+                        local spawn = eq.get_entity_list():GetSpawnByID(npc:GetSpawnPointID());
+                        spawn:ForceDespawn();
+                        if DisableCheck(npc_id) then
+                            spawn:Disable();
+                        else
+                            spawn:Repop(1);
+                        end
+                    end
+                end
+            end
+        end
+    end
+end
+
+function DisableCheck(npc)
+    for k,v in pairs(static_named) do
+        if npc == v then
+            return true;
+        end
+    end
+    return false;
 end

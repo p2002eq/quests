@@ -2,6 +2,10 @@
 --Raid Instance Gozer - Aerin`Dar's Lair
 --povalor
 
+--Disabled - Trust - 06/28/19 for new instance rules (Not disabling trash mobs)
+
+--[[
+
 local show_debug = false;
 local disabled_npcs = {208061};	--npcs in the allowable grid that should not be killable/usable 
 
@@ -197,4 +201,8 @@ function event_timer(e)
       end
     scan_for_out_of_prox()
   end
+end ]]--
+
+function event_spawn(e)
+    e.self:Depop();
 end
