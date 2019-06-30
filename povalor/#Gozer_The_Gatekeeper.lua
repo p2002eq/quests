@@ -2,8 +2,12 @@
 --Raid Instance Gozer - Aerin`Dar's Lair
 --povalor
 
+--Disabled - Trust - 06/28/19 for new instance rules (Not disabling trash mobs)
+
+--[[
+
 local show_debug = false;
-local disabled_npcs = {208061};	--npcs in the allowable grid that should not be killable/usable 
+local disabled_npcs = {208061};	--npcs in the allowable grid that should not be killable/usable
 
 
 local player_list = true;
@@ -42,7 +46,7 @@ function event_say(e)
             else
                 eq.assign_to_instance(tonumber(instanceId));
             end
-            e.other:MovePCInstance(208, tonumber(instanceId), 360,1960,170,0); 
+            e.other:MovePCInstance(208, tonumber(instanceId), 360,1960,170,0);
         else
             e.other:Message(13,"There is no instance available in this zone for your guild,");
         end
@@ -103,7 +107,7 @@ function event_spawn(e)
 
     if (instance_id ~= 0) then
 		local table_locs = {	[1] = {max_x = 275,  min_x = 140,  max_y = -1300, min_y = -1700},
-								[2] = {max_x = 1000, min_x = -550, max_y = 5300,  min_y = 1800} 
+								[2] = {max_x = 1000, min_x = -550, max_y = 5300,  min_y = 1800}
 							};
       run_proximity_depop_timer(table_locs);
     end
@@ -134,7 +138,7 @@ function scan_for_out_of_prox()
 			local x = npc:GetX();
 			local y = npc:GetY();
 			local depopMe = true;
-			
+
 			for k,loc in pairs(proximity_rules) do
 				if (
 				(x <= loc['max_x'] and x >= loc['min_x'])
@@ -148,7 +152,7 @@ function scan_for_out_of_prox()
 			if (npc:GetCleanName() == 'zone_controller' or npc:GetCleanName() == 'zone controller') then
 				depopMe = false;
 			end
-			
+
 			if (show_debug and depopMe) then
 				eq.GM_Message(4, npc:GetCleanName() .. " NPCID: " .. npc:GetNPCTypeID() .. " is out of bounds depoping... x:" .. x .. " y: " .. y);
 			end
@@ -174,7 +178,7 @@ function scan_for_out_of_prox()
 				moveMe = false;
 				end
 			end
-			
+
 			if player:GetGM() then
 				moveMe = false;
 			end
@@ -183,7 +187,7 @@ function scan_for_out_of_prox()
 				eq.GM_Message(4, player:GetCleanName() .. " is out of bounds moving... x:" .. x .. " y: " .. y);
 				local instanceId = eq.get_zone_instance_id();
 				player:Message(15,"You were moved to safety by Gozer!  Gozer tells you,'Stay on course, adventurer.  I nearly lost you to that rift!'");
-				player:MovePCInstance(208, tonumber(instanceId), 190,-1670,70,0); 
+				player:MovePCInstance(208, tonumber(instanceId), 190,-1670,70,0);
 			end
 		end
 	end
@@ -197,4 +201,8 @@ function event_timer(e)
       end
     scan_for_out_of_prox()
   end
+end ]]--
+
+function event_spawn(e)
+    e.self:Depop();
 end

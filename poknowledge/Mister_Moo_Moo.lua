@@ -20,7 +20,7 @@ function event_say(e)
   local qglobals = eq.get_qglobals();
 
   if(e.message:findi("hail")) then
-    e.self:Say(" [" .. eq.say_link("Moo") .. "] Hi, My name is Mister Moo Moo.");
+    e.self:Say(" [" .. eq.say_link("Moo") .. "] FOO Hi, My name is Mister Moo Moo.");
   elseif(e.message:findi("moo")) then
     e.self:Say("You speak like me, but you are no [" ..eq.say_link("yakman") .. "]...");
   elseif(e.message:findi("yakman")) then
