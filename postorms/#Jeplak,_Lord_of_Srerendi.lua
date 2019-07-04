@@ -84,19 +84,7 @@ function trash_check()	--iterate through related spawnpoints for both Jeplak cam
 			return true;
 		end
 	end
-	
-	for n = 1,2 do
-		local mob_list = eq.get_entity_list():GetMobList()
-		
-		if mob_list ~= nil then
-			for mob in mob_list.entries do
-				if mob:GetID() == guards[n]:GetID() then
-					return true;
-				end
-			end
-		end
-	end
-			
+
 	return false;
 end
 
