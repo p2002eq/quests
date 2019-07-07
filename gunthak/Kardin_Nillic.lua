@@ -1,7 +1,7 @@
 function event_say(e)
     if(e.message:findi("Hail")) then
         e.self:Emote("lifts his gaze from the whitened corpse lying on the bed in front of him. He holds the pale fingers tightly in his hands. As he opens his mouth to speak you shiver as what you thought was a corpse makes a soft moaning sound on the bed next to him. 'What business do you have here? Death grows near for him, what comfort can you hope to bring him in this ["..eq.say_link("What plagues this place?", false, "plagued").."] place?");
-    elseif(e.message:findi("plagued")) then
+    elseif(e.message:findi("plagues")) then
         e.self:Say("The plague of Innoruuk has infested this island. We now know that many of the fish that can be caught here are diseased and should not be eaten. Of course this knowledge does little to abate the fevers of those already stricken. The Broken Skull pirates seem to be mysteriously ["..eq.say_link("How are they immune?",false,"immune").."] to this plague.");
     elseif(e.message:findi("immune")) then
         e.self:Say("Somehow the pirates are able to avoid becoming ill from eating the fish here. We know they're eating the same manner of fish that we are, but something else must be protecting or perhaps curing them of the toxins in the fish. In fact, they seem to always be in good spirits with the boisterous racket of ["..eq.say_link("What singing?",false,"singing").."] and fighting that echoes over the island every fortnight.");
