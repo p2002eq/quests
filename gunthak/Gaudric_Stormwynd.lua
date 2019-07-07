@@ -1,6 +1,6 @@
 function event_say(e)
     if(e.message:findi("Hail")) then
-        if(e.self:GetClass() == 4) then -- Ranger
+        if(e.other:GetClass() == 4) then -- Ranger
             e.self:Say("Greeting. What brings you to this forsaken rock? I have been sent here by the council of Surefall Glade to gather information about this Island. This place seethes with anger and hatred, and even the familiar ["..eq.say_link("winds").."] of Karana blow with a cold bite. So far the creatures have all proved very hostile, even to a follow of Karana. I suspect that the curse of Innoruuk has caused them be very aggressive towards all outsiders. I have been able to gather some information on a new race of ["..eq.say_link("insect").."] though.");
         else
             e.self:Emote("motions for silence. 'Can you hear it?  The sound of nature crying out in pain. The children of Karana long for a release from this place of torment.' Gaudric turns away and appears to begin meditating.");
@@ -23,9 +23,9 @@ function event_trade(e)
         e.self:Emote("begins to scrawl several runes on a parchment and then hands it to you. 'I believe I've worked it out now. Unfortunately, our voices won't be able to make the sounds necessary to control these creatures, but with the help of Karana's magic you'll be able to imitate the sounds enough to control the small creatures. Use their power wisely, Ninlawen. As you know their bite is quite painful.");
         e.other:QuestReward(e.self,0,0,0,0,359007,100000); -- Spell: Swarm of Pain
     elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 359040})) then -- Glowing Zraxthril Amulet
-        e.self:Emote("takes the amulet from your hands and holds it in front of his eyes. He begins to speak arcane words into the stone, holding his other hand under the amulet. The amulet begins to spasm around crazily on its cord as if some creature was trying to escape from it. Sweat begins to bead up at Gaudric's brow. Suddenly the amulet explodes with light and Gadric is thrown to the ground. You reach down and carefully pick the amulet from the ground. You notice a large crack across the face. A watery visage begins to rise from the crack and take shape before you. The tempest spriti coalesces into a vaguely humanoid form and motions toward you. He points directly to the amulet in your hands.");
+        e.self:Emote("takes the amulet from your hands and holds it in front of his eyes. He begins to speak arcane words into the stone, holding his other hand under the amulet. The amulet begins to spasm around crazily on its cord as if some creature was trying to escape from it. Sweat begins to bead up at Gaudric's brow. Suddenly the amulet explodes with light and Gadric is thrown to the ground. You reach down and carefully pick the amulet from the ground. You notice a large crack across the face. A watery visage begins to rise from the crack and take shape before you. The tempest spirit coalesces into a vaguely humanoid form and motions toward you. He points directly to the amulet in your hands.");
         e.other:QuestReward(e.self,0,0,0,0,359041,1000); -- Cracked Zraxthril Amulet
-        eq.unique_spawn(224340,0,0,-152,1583,3,e.self:GetHeading()); -- #A_Tempest_Spirit
+        eq.unique_spawn(224340,0,0,-152,1583,3,0); -- #A_Tempest_Spirit
     end
     item_lib.return_items(e.self, e.other, e.trade)
 end
