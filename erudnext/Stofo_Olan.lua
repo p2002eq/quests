@@ -1,4 +1,5 @@
 -- Enchanter epic weapon Staff of the Serpent lead-in quest
+
 function event_say(e)
 	if(e.message:findi("hail")) then
 		e.self:Say("Good day, I have [" .. eq.say_link("discovered") .. "] something truly wonderful! If I only had the materials required so I can copy my notes and send them to my teacher.");
@@ -20,13 +21,15 @@ end
 function event_trade(e)
 	local item_lib = require("items");
 
-	--  check for ink of the dark, mechanical pen and white paper
-	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 10600,item2 = 10601,item3 = 10602})) then
+	if(item_lib.check_turn_in(e.self, e.trade, {item1 = 10600,item2 = 10601,item3 = 10602})) then --  ink of the dark, mechanical pen, and white paper
 		e.self:Say("Yes, that is what I wanted. Here, take these notes. My [" .. eq.say_link("teacher") .. "] will be very interested if he is shown what I have found.");
-		e.other:Ding();
 		e.other:Faction(342,10,0);
-		e.other:SummonItem(10603);
-		e.other:AddEXP(50000);
+		e.other:QuestReward(e.self,0,0,0,0,10603,50000); -- Copy of notes
+
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 354007, item2 = 354008}) and e.other:GetClass() == 14 ) then -- Note to Stofo, Dimly Glowing Ring
+		e.self:Emote("scans the note quickly and gasps. Hardly glancing at you, he begins examining the ring, tearing through notes and books scattered about his dark room. As he pores over a scroll of parchment covered in strange texts his eyes light up, 'Yes, yes this is it! Ofala really found something quite remarkable in this one! Watch my friend.' The slim Erudite slips the ring onto his finger and the gem begins to throb, Stofo seems to draw the power into himself for a moment then carefully places the ring back onto his desk. He closes his eyes a moment then turns to you, the darkness in his eyes almost lends fear for a moment before he smiles. 'Thank you my friend, this stone is very dangerous, but I believe that I have accessed the powers within me through it. Take these words and use them well, perhaps the power shall work for you as well, and please tell my dear sister hello.'");
+		e.other:QuestReward(e.self,0,0,0,0,359016,500000); -- Spell: Scryer's Trespass, ~2% exp at lvl 52
 	end
+
 	item_lib.return_items(e.self, e.other, e.trade);
 end
