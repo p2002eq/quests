@@ -45,6 +45,11 @@ function event_trade(e)
 		e.other:Faction(320,5,0);
 		e.other:Faction(291,-1,0);
 		e.other:QuestReward(e.self,0,0,0,0,6363,1000); -- Stein of Ulissa
-	end	
+
+	elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 358003}) and e.other:GetClass() == 13) then -- Vial of Liquid (Gunthak mage spell quest)
+		e.self:Emote("swallows the liquid in the vial. After a few minutes, you notice the fire in the small gnome subside. She looks up at you and says, 'Why thank you. My twin was correct in her assumption of the power of the elements of Broken Skull. It's curious that she remained behind. Here, take this note to her so she can be assured that I am on the road to recovery.'");
+		e.other:SummonItem(358004); -- Note to Vera
+	end
+
 	item_lib.return_items(e.self, e.other, e.trade)
 end
