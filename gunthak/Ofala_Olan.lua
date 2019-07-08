@@ -20,7 +20,7 @@ function event_say(e)
             e.self:Say("What a small world! I have skill with gem setting as many of our kind do, although I am afraid my specialties lie more with other types of elements and power. There have been stories of miners down in the Torgiran Mines losing their wits or becoming near zombie like in their actions. I have a hunch that whatever is doing this is being harvested there. Take good care down there, I fear that the miners themselves may not be too friendly. Travel into the mines and bring me two chunks of whatever the ore is that they are gathering, be sure it is of the type that glows brightly. Most likely the miners will have a few samples, but their masters probably have a few as well. Bring these to me with an enchanted bar of gold and I can fashion a test ring from it. Be careful!");
         end
     else
-        e.self:Emote("glances up at you. 'Hello, " .. e.other:GetName() .. ".  I'm in no mood to talk, please leave me in peace.'  Nolwik turns and looks out across the water seemingly looking or perhaps listening for something.");
+        e.self:Emote("glances up from the book she is reading and looks you over. 'If you are looking for the... Ahem... Library, it is the building to my right.  Now if you'll excuse me I have some reading to do.");
     end
 end
 
