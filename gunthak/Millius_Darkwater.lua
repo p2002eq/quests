@@ -1,3 +1,5 @@
+-- Nolwik_Barquin for Cleric and Paladin spell quests in Gunthak
+
 function event_say(e)
     if(e.message:findi("Hail")) then
         if(e.other:HasItem() == 359028) then -- Glowing Black Skull Necklace

@@ -1,8 +1,8 @@
--- Nolwik_Barquin for Druid spell quests in Gunthak
+-- Nolwik Barquin for Druid spell quests in Gunthak
 
 -- say block
 function event_say(e)
-    if(e.other:GetClass() == 6) then-- Druid
+    if(e.other:GetClass() == 6) then -- Druid
         if(e.message:findi("Hail")) then
             e.self:Say("The salty air grows stale in this place. As if the essence of Tunare and Karana have been shut out by the dark tide of Broken Skull. The wind of Karana grows wild and restless, and the water of the mother turns black as it touches the tainted stone of Innoruuk. Were it not for my [" .. eq.say_link("promise") .. "] to Xanuusus I would not be here.");
         elseif(e.message:findi("promise")) then
