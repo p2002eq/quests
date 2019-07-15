@@ -1,5 +1,5 @@
 --Gozer_The_Gatekeeper
---ZONE IN/GRAVEYARD VERSION
+--Full zone instance version, Trust edition
 --povalor
 
 --Named/unique mob controls to despawn within instance
@@ -23,9 +23,9 @@ function event_say(e)
 
     local instanceId = nil;  -- from the global
     if(e.message:findi('hail')) then
-        e.self:Say("Greetings Traveler, recently there has been talk of rifts in space and time. These rifts have been allowing well established groups of adventurers to explore identical instances of Norrath.");
-        e.self:Say("If you desire to travel through the portal to this location then tell me when you are [" .. eq.say_link("ready") .. "].");
-    elseif(e.message:findi('ready')) then
+        e.self:Say("Greetings Traveler!  I have identified a stable rift that will allow you to explore an identical instance of this location.");
+        e.self:Say("Are you [" .. eq.say_link("brave") .. "] enough to travel through the portal?");
+    elseif(e.message:findi('brave')) then
         local qglobals = eq.get_qglobals(e.other);
         local zoneGlobal = "POVALOR-" .. tostring(e.other:GuildID());
         instanceId = qglobals[zoneGlobal];
