@@ -16,7 +16,7 @@ function event_trade(e)
 
     if(item_lib.check_turn_in(e.self, e.trade, {item1 = 362001}) or item_lib.check_turn_in(e.self, e.trade, {item1 = 362002})) then -- Ruined Trinket or Worn Trinket
         e.self:Say("Ah! This is most excellent. I was looking for this piece. Here, take this for your troubles.");
-        e.other:QuestReward(e.self, math.random(0,10), math.random(0,10), math.random(0,10), math.random(10,20), 0, math.random(500000,700000)); -- ~16pp, 2-3% of lvl 51 exp
+        e.other:QuestReward(e.self, math.random(0,10), math.random(0,10), math.random(0,10), math.random(10,20), 0, eq.ExpHelper(51)); -- ~16pp, 2-4% of lvl 51 exp
     end
 
     item_lib.return_items(e.self, e.other, e.trade)
