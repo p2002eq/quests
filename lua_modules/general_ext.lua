@@ -84,9 +84,9 @@ end
 
 function eq.ExpHelper(level, percent, range)
 	-- helper function to come up with appropriate XP rewards for quests
-	-- level -> what level experience to use?
-	-- percent -> what percentage of that level on average? (default = 3)
-	-- range -> how much randomness? (default = 1)
+	-- level -> level range to use from table
+	-- percent -> percent of exp at the level to give (default = 3)
+	-- range -> range of randomness (default = 1)
 	-- example: ExpHelper(51, 5, 1) will return a random exp value between 4% and 6% (5% average, range of 1%) of experience required to level from 51 to 52
 	
 	-- defaults
@@ -198,6 +198,6 @@ function eq.ExpHelper(level, percent, range)
 	}
 
 	-- return random between upper bound and lower bound
-	return math.random(exp[level] * (percent - range), exp[level] * (percent + range))
+	return (math.random(exp[level] * (percent - range), exp[level] * (percent + range)) * .01)
 
 end
