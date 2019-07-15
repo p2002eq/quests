@@ -26,8 +26,8 @@ function event_trade(e)
 
     elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 358013})) then -- Large Rock
         e.self:Emote("melds with the murky ocean water, and two elements of the sea appear.");
-        eq.spawn2(224345,0,0,-284.48,650,-148.25); -- Flotsam
-        eq.spawn2(224346,0,0,-267.10,665.95,-148.25); -- Jetsam
+        eq.spawn2(224345,0,0,-284.48,650,-148.25, 480); -- Flotsam
+        eq.spawn2(224346,0,0,-267.10,665.95,-148.25, 440); -- Jetsam
     
     elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 358014, item2 = 358015})) then -- Small Piece of Flotsam and Small Piece of Jetsam
         e.self:Say("Now you comprehend. This is the way things are, and the way they have always been. Your acceptance of these truths proves your worthiness.");
