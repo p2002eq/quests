@@ -24,17 +24,19 @@ function event_say(e)
                 e.other:SummonItem(317652); -- Phantasmal Tome
             else
                 newbie(e.self);
+            end
         else
             liar(e.self);
         end
 
     elseif(e.message:findi("Wizard")) then
-        if(e.other:GetClass() == 12) -- Wizard
+        if(e.other:GetClass() == 12) then -- Wizard
             if(e.other:GetSkill(58) > 100) then 
                 e.self:Say("So you too study wizardry! Isn't it the most fascinating of the four realms of magic? Well I won't keep you, here is the Sorcerer's Lexicon. Good luck to you in your studies.");
                 e.other:SummonItem(317655); -- Sorcerer's Lexicon
             else
                 newbie(e.self);
+            end
         else
             liar(e.self);
         end
@@ -46,6 +48,7 @@ function event_say(e)
                 e.other:SummonItem(317653); -- Arch Magus Grimoire
             else
                 newbie(e.self);
+            end
         else
             liar(e.self);
         end
@@ -57,6 +60,7 @@ function event_say(e)
                 e.other:SummonItem(317654); -- Warlock's Book of Binding
             else
                 newbie(e.self);
+            end
         else
             liar(e.self);
         end
