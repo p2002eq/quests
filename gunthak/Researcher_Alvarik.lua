@@ -1,8 +1,8 @@
 -- Researcher Alvarik for High Level Research quest in Gunthak
 
 -- helper function for say events
-function liar (e)
-    e.self:Say("Do you take me for a fool? It is obvious that you are not what you state. Begone from my sight, your false statements disgust me and insult the realms of the arcane.");
+function liar(speaker)
+    speaker:Say("Do you take me for a fool? It is obvious that you are not what you state. Begone from my sight, your false statements disgust me and insult the realms of the arcane.");
 end
 
 -- say block
@@ -17,7 +17,7 @@ function event_say(e)
             e.self:Say("So you fancy yourself an enchanter? I dabble a bit in it myself, though I am more interested in the art of explosions! Nevertheless, here is the Phantasmist's Tome. Good luck to you in your studies!");
             e.other:SummonItem(317652); -- Phantasmal Tome
         else
-            liar();
+            liar(e.self);
         end
 
     elseif(e.message:findi("Wizard")) then
@@ -25,7 +25,7 @@ function event_say(e)
             e.self:Say("So you too study wizardry! Isn't it the most fascinating of the four realms of magic? Well I won't keep you, here is the Sorcerer's Lexicon. Good luck to you in your studies.");
             e.other:SummonItem(317655); -- Sorcerer's Lexicon
         else
-            liar();
+            liar(e.self);
         end
 
     elseif(e.message:findi("Magician")) then
@@ -33,7 +33,7 @@ function event_say(e)
             e.self:Say("So you too study summoning! Isn't it the most fascinating of the four realms of magic? Well I won't keep you, here is the Arch Magus Grimoire. Good luck to you in your studies.");
             e.other:SummonItem(317653); -- Arch Magus Grimoire
         else
-            liar();
+            liar(e.self);
         end
     
     elseif(e.message:findi("Necromancer")) then
@@ -41,7 +41,7 @@ function event_say(e)
             e.self:Say("So you study necromancy! Isn't it the most fascinating of the four realms of magic? Well I won't keep you, here is the Warlock's Book of Binding. Good luck to you in your studies.");
             e.other:SummonItem(317654); -- Warlock's Book of Binding
         else
-            liar();
+            liar(e.self);
         end
     end
 end
