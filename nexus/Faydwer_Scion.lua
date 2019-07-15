@@ -5,7 +5,7 @@
 -- say block
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Greetings " .. e.other:GetName() .. ". I am Jucian Featherhigh, the guardian of this teleport. It will take you back to my home in the Faydark. The teleport system back to Norrath is completely automated. I can activate it for you whenever you wish to " .. eq.say_link("I wish to travel to Faydwer", false, "travel to Faydwer") .. ".");
+		e.self:Say("Greetings " .. e.other:GetName() .. ". I am Jucian Featherhigh, the guardian of this teleport. It will take you back to my home in the Faydark. The teleport system back to Norrath is completely automated. I can activate it for you whenever you wish to [" .. eq.say_link("I wish to travel to Faydwer", false, "travel to Faydwer") .. "].");
 	elseif(e.message:findi("travel to Faydwer")) then
 		e.self:Say("Good journey to you, " .. e.other:GetName() .. ".");
 		e.self:SpellFinished(2706, e.other);

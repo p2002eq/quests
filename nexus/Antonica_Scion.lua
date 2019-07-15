@@ -5,7 +5,7 @@
 -- say block
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Greetings " .. e.other:GetName() .. ". I am Horender Tevalian. I was one of the first to travel to Luclin when the secrets of the teleports were unlocked. Once here, the Midst Collective asked that I maintain vigil over the portal back to the Karanas. The teleport system back to Norrath is completely automated. I can activate it for you whenever you wish to " .. eq.say_link("I wish to travel to Antonica", false, "travel to Antonica") .. ".");
+		e.self:Say("Greetings " .. e.other:GetName() .. ". I am Horender Tevalian. I was one of the first to travel to Luclin when the secrets of the teleports were unlocked. Once here, the Midst Collective asked that I maintain vigil over the portal back to the Karanas. The teleport system back to Norrath is completely automated. I can activate it for you whenever you wish to [" .. eq.say_link("I wish to travel to Antonica", false, "travel to Antonica") .. "].");
 	elseif(e.message:findi("travel to Antonica")) then
 		e.self:Say("Good journey to you, " .. e.other:GetName() .. ".");
 		e.self:SpellFinished(2708, e.other);

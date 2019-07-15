@@ -5,7 +5,7 @@
 -- say block
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Greetings " .. e.other:GetName() .. ". Welcome to the Kunark translocation area. The teleport system back to Norrath is completely automated. I can activate it for you whenever you wish to " .. eq.say_link("I wish to travel to Kunark", false, "travel to Kunark") .. ".");
+		e.self:Say("Greetings " .. e.other:GetName() .. ". Welcome to the Kunark translocation area. The teleport system back to Norrath is completely automated. I can activate it for you whenever you wish to [" .. eq.say_link("I wish to travel to Kunark", false, "travel to Kunark") .. "].");
 	elseif(e.message:findi("travel to Kunark")) then
 		e.self:Say("Good journey to you, " .. e.other:GetName() .. ".");
 		e.self:SpellFinished(2709, e.other);
