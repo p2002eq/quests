@@ -5,7 +5,7 @@
 -- say block
 function event_say(e)
 	if(e.message:findi("hail")) then
-		e.self:Say("Greetings " .. e.other:GetName() .. ". I am here to assist and watch over those who wish to return to the continent of Odus. Due to the limited space I share this area with the portal to Velious. The teleport system back to Norrath is completely automated. I can activate it for you whenever you wish to " .. eq.say_link("I wish to travel to Odus", false, "travel to Odus") .. ".");
+		e.self:Say("Greetings " .. e.other:GetName() .. ". I am here to assist and watch over those who wish to return to the continent of Odus. Due to the limited space I share this area with the portal to Velious. The teleport system back to Norrath is completely automated. I can activate it for you whenever you wish to [" .. eq.say_link("I wish to travel to Odus", false, "travel to Odus") .. "].");
 	elseif(e.message:findi("travel to Odus")) then
 		e.self:Say("Good journey to you, " .. e.other:GetName() .. ".");
 		e.self:SpellFinished(2707, e.other);
