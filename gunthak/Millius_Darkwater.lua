@@ -29,7 +29,7 @@ function event_trade(e)
         eq.set_global("Millius_Paladin", "1", 1, "F");
         e.other:SummonItem(359027); -- Black Skull Necklace
 
-    elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 359029}) e.other:GetClass() == 2) then -- Deepwater Emblem
+    elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 359029}) and e.other:GetClass() == 2) then -- Deepwater Emblem
         e.self:Emote("bows his head quietly as his eyes bring recognition to his mind. 'Alina at least has met a bitter end. Her spirit surely lingers nearby. Find her and free her from her burden, " .. e.other:GetName() .. ". Her quest goes unfinished.'");
         e.other:SummonItem(359030); -- Alina's emblem
         eq.set_global("Millius_Cleric", "1", 1, "F");
