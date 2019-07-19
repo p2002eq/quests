@@ -8,7 +8,7 @@ function event_death_complete(e)
     local result = math.random(100);
     local cleric = false;
     local paladin = false;
-    local spirit_spawn_threshold = 80;
+    local spirit_spawn_threshold = 20;
 
     if result > spirit_spawn_threshold then return end -- if we can't spawn anything, don't bother with the rest of the logic!
 
