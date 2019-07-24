@@ -17,9 +17,9 @@ end
 function event_trade(e)
     local item_lib = require("items");
     
-    if(item_lib.check_turn_in(e.self, e.trade, {item1 = 359054}) and e.other:GetClass() == 12) then -- Gnomish Spectacles
+    if(e.other:GetClass() == 12 and item_lib.check_turn_in(e.self, e.trade, {item1 = 359054})) then -- Gnomish Spectacles
         e.self:Emote("takes the spectacles from your hands and puts them up to his eyes and blinks several times. Many thanks, Snowtop! I don't know what I would have done without you. Probably stagger around the island half blind for the rest of my life! At any rate I can repay you with a little trick I picked up along the way. If you ever get in a jam, hopefully you won't be as forgetful as I was!' He hands you a scroll with several runes scrawled across it.");
-        e.other:QuestReward(e.self,0,0,0,0,359020,150000); -- Spell: Vision Shift, ~2% exp for lvl 44
+        e.other:QuestReward(e.self,0,0,0,0,359020,eq.ExpHelper(44)); -- Spell: Vision Shift
     end
     
     item_lib.return_items(e.self, e.other, e.trade)

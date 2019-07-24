@@ -28,9 +28,9 @@ end
 function event_trade(e)
     local item_lib = require("items");
 
-    if(item_lib.check_turn_in(e.self, e.trade, {item1 = 354025}) and e.other:GetClass() == 14) then -- Swirling Vial
+    if(e.other:GetClass() == 14 and item_lib.check_turn_in(e.self, e.trade, {item1 = 354025})) then -- Swirling Vial
         e.self:Emote("takes the vial gently from your hands and begins murmuring quietly. Thick incense smoke moves lazily through the air as she works, curling about and hanging onto your clothing. The strange liquid inside the vial begins to glow a deep red and seemingly moves of its own volition. Ofala quickly smears a bit of the substance about her eyes and looks up at you. 'We have solved it! I believe I can recall this again, let me get this down for you now before the spell wears. Use it well.' Withdrawing a fine quill from a pouch at her waist, she dips the tip into the swirling potion and scrawls out the words of a spell onto parchment.");
-        e.other:QuestReward(e.self,0,0,0,0,359015,150000); -- Spell: Leviathan Eyes, ~2% exp at lvl 44
+        e.other:QuestReward(e.self,0,0,0,0,359015,eq.ExpHelper(44)); -- Spell: Leviathan Eyes
 
     elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 316506, item2 = 354006, item3 = 354006}) and e.other:GetClass() == 14 ) then -- Enchanted Gold Bar, 2x Gleaming Zraxthril Ores
         e.self:Emote("eyes you with a new measure of respect. 'Very well done! I did not think you would be successful in this. Let me harness this energy quickly then you must have Stofo take a look at it!' Being careful not to touch the gems too much with her bare hands, Ofala Olan deftly crafts a slim golden band, crossing strands of gold across the dimly pulsing stones to bind them in place and protect the wearer from harm. 'He still holes himself up in that dim room in Erudin. I don't know HOW he studies like that, but take it to him please! I am sure he will be most interested.'");

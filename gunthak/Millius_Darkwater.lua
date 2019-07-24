@@ -24,12 +24,12 @@ end
 function event_trade(e)
     local item_lib = require("items");
 
-    if(item_lib.check_turn_in(e.self, e.trade, {item1 = 359026}) and e.other:GetClass() == 3) then -- Black Medallion
+    if(e.other:GetClass() == 3 and item_lib.check_turn_in(e.self, e.trade, {item1 = 359026})) then -- Black Medallion
         e.self:Say("Taken form one of the pirates you said? Interesting. This medallion does seem to resemble what Chester described in his last letter to Erudin. I can sense the spirit of one of our order nearby. It is in terrible torment, I suspect Chester's spirit has been bound here by the dark curse of Innoruuk. You must find him and set him free. If you find him, show him this necklace to remind him of this unfinished errand. Perhaps he can help you complete what he could not do alone.");
         eq.set_global("Millius_Paladin", "1", 1, "F");
         e.other:SummonItem(359027); -- Black Skull Necklace
 
-    elseif(item_lib.check_turn_in(e.self, e.trade, {item1 = 359029}) and e.other:GetClass() == 2) then -- Deepwater Emblem
+    elseif(ie.other:GetClass() == 2 and item_lib.check_turn_in(e.self, e.trade, {item1 = 359029})) then -- Deepwater Emblem
         e.self:Emote("bows his head quietly as his eyes bring recognition to his mind. 'Alina at least has met a bitter end. Her spirit surely lingers nearby. Find her and free her from her burden, " .. e.other:GetName() .. ". Her quest goes unfinished.'");
         e.other:SummonItem(359030); -- Alina's emblem
         eq.set_global("Millius_Cleric", "1", 1, "F");

@@ -21,9 +21,9 @@ function event_trade(e)
         e.other:Message(15,"You are suddenly filled with dark warmth as the potion slides down into your stomach. You can almost sense it invading your body, battling with your defenses. You stomach turns as the venom and blood mixes in your stomach and you fight the urge to pass out. You focus all of your energy on combating the poison inside you and your body begins to turn the venom. Eventually the poison grows silent inside you and only a slight warmth is left in its place. You have conquered the poison.'")
 
         if(e.other:GetClass() == 10) then
-            e.other:QuestReward(e.self,0,0,0,0,359525,500000); -- Spell: Blood of Nadox, ~2% exp at lvl 52
+            e.other:QuestReward(e.self,0,0,0,0,359525,eq.ExpHelper(51)); -- Spell: Blood of Nadox
         elseif(e.other:GetClass() == 2 or e.other:GetClass() == 6) then
-            e.other:QuestReward(e.self,0,0,0,0,359012,500000); -- Spell: Pureblood, ~2% exp at lvl 52
+            e.other:QuestReward(e.self,0,0,0,0,359012,eq.ExpHelper(51)); -- Spell: Pureblood
         end
     end
 
