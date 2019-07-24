@@ -1,4 +1,4 @@
--- Jordan Sretin in Erudin for Sailor and Light's Glory quests
+-- Jordin Sretin in Erudin for Sailor and Light's Glory quests
 
 -- say block
 function event_say(e)
