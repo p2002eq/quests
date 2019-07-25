@@ -1,19 +1,18 @@
+-- Lairyn Debeian in Gunthak for Wizard quest (and eventually Rog epic 2.0)
+
 -- local add_waves;
 
 function event_say(e)
-	local qglobals = eq.get_qglobals(e.other);
-	if(e.message:findi("hail")) then
-		if(e.other:Class() == "Wizard") then
-			e.self:Emote("peers up from his journal and smiles at you warmly, 'Greetings, friend. I was so involved in my research that I did not hear you approaching.' He closes the leather-bound tome and pats it with one slender hand. 'Please forgive my lack of courtesy. I am Lairyn from the order of the Crimson Hands, and this little book here is my life's work. I am currently unraveling the secret of a ["..eq.say_link("new power").."] that has emerged on Broken Skull Rock.");
-		else
-			e.self:Emote("stares at you directly in the eyes. 'Greetings, "..e.other:GetName()..".  I suppose you're here like everyone else in search of fame and fortune.  Good luck to you, and good day.  I have many things to attend to.");
+	if(e.other:Class() == "Wizard") then
+		if(e.message:findi("hail")) then
+			e.self:Emote("peers up from his journal and smiles at you warmly, 'Greetings, friend. I was so involved in my research that I did not hear you approaching.' He closes the leather-bound tome and pats it with one slender hand. 'Please forgive my lack of courtesy. I am Lairyn from the order of the Crimson Hands, and this little book here is my life's work. I am currently unraveling the secret of a [" .. eq.say_link("What new power?", false, "new power") .. "] that has emerged on Broken Skull Rock.");
+		elseif(e.message:findi("new power")) then
+			e.self:Say("The strange beasts known as Luggalds that reside on Broken Skull Rock have an amazing power over the dark waters of the deep. They are able to conjure it up in the form of an immense spear of ice. I have seen them do so with my own eyes, though I was watching from afar, of course. I would not dare venture close enough to anger the foul beasts. Their grasp of this magic is simply breathtaking, and from my observations alone, I am very close to unlocking their methods. Unfortunately, I have run into an obstacle, as I cannot complete my research without something more tangible. If only I were " .. eq.say_link("I am brave enough!", false, "brave enough") .. " to get closer, or foolish enough. As you can see, I am more intellectual than adventurer.' At this, Lairyn chuckles and his spectacles slip a little further down his nose");
+		elseif(e.message:findi("brave enough")) then
+			e.self:Emote("gasps in apparent surprise, 'What? Are you certain you wish to put yourself in such a perilous position? Well I certainly can't turn down good help, so I'll tell you what I know. The Luggalds often utilize their spells against creatures in the waters of the harbor. Whether this is for practice, or for sport, or to ward off attackers I am not sure. I would suggest investigating the harbor for further evidence. Take this bag and bring me whatever you can find.");
+			e.other:SummonItem(317194); -- Small Pouch
 		end
-	elseif(e.message:findi("new power")) then
-		e.self:Say("The strange beasts known as Luggalds that reside on Broken Skull Rock have an amazing power over the dark waters of the deep. They are able to conjure it up in the form of an immense spear of ice. I have seen them do so with my own eyes, though I was watching from afar, of course. I would not dare venture close enough to anger the foul beasts. Their grasp of this magic is simply breathtaking, and from my observations alone, I am very close to unlocking their methods. Unfortunately, I have run into an obstacle, as I cannot complete my research without something more tangible. If only I were ["..eq.say_link("brave enough").."] to get closer, or foolish enough. As you can see, I am more intellectual than adventurer.");
-		e.self:Emote("chuckles and his spectacles slip a little further down his nose.");
-	elseif(e.message:findi("brave enough")) then
-		e.self:Emote("gasps in apparent surprise, 'What? Are you certain you wish to put yourself in such a perilous position? Well I certainly can't turn down good help, so I'll tell you what I know. The Luggalds often utilize their spells against creatures in the waters of the harbor. Whether this is for practice, or for sport, or to ward off attackers I am not sure. I would suggest investigating the harbor for further evidence. Take this bag and bring me whatever you can find.");
-		e.other:SummonItem(317194); -- Small Pouch
+	
 --[[	elseif(e.message:findi("lirprin sent me") and qglobals["Fatestealer"] == "3") then
 		e.self:Emote("is disturbingly pale for an Erudite. He looks terribly frightened. 'They'll return any moment! The shadows are everywhere, always watching . . . Waiting for me to rest so they can kill me. I try to fight them off but they always return. They whisper to me when I am all alone. No one else in the gulf believes me. You must help! Please believe that what I say is true!");
 		e.self:Say("Oh no, here they come - please don't let the shadows take me away!");
@@ -21,6 +20,9 @@ function event_say(e)
 		e.self:SetRunning(true);
 		e.self:MoveTo(-54.34,1584,2.9,138,true);
 		eq.set_timer("move1",2000); ]]-- Rogue Epic 1.5/2.0
+
+	else
+		e.self:Emote("stares at you directly in the eyes. 'Greetings, "..e.other:GetName()..".  I suppose you're here like everyone else in search of fame and fortune.  Good luck to you, and good day.  I have many things to attend to.");
 	end
 end
 
@@ -69,16 +71,19 @@ end ]]-- Rogue Epic 1.5/2.0
 
 function event_trade(e)
 	local item_lib = require("items");
+
 	if(item_lib.check_turn_in(e.trade, {item1 = 358009}) ) then -- Pouch of Dark Ice
 		e.self:Say("You did it. I can scarely believe my eyes! This is wonderful. Let me have a closer look. Lairyn unbuckles the leather satchel and pours out the contents then begins arranging the shards in a pattern on the ground. He slides them around like pieces of a complex puzzle, swapping them backwards and forwards faster than your eyes can track. Ah yes, very clever. I am beginning to understand. This is not such a challenge after all, once you know the trick. Enough talk, I would like you to be the first to try it! Lairyn withdraws his journal again and flips through it until he locates a blank page. He scribbles furiously with a quill for several moments, then tears the page form the binding and hands it to you.");
-		e.other:SummonItem(359021); -- Spell: Frozen Harpoon
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 14514}) ) then -- Cloudy Potion
+		e.other:QuestReward(e.self,0,0,0,0,359021,eq.ExpHelper(51)); -- Spell: Frozen Harpoon
+
+--[[	elseif(item_lib.check_turn_in(e.trade, {item1 = 14514}) ) then -- Cloudy Potion
 		e.self:SetHP(e.self:GetHP()+3000);
---[[	elseif(item_lib.check_turn_in(e.trade, {item1 = 52344}) ) then --krill head
+	elseif(item_lib.check_turn_in(e.trade, {item1 = 52344}) ) then --krill head
 		e.self:Emote("adjusts his spectacles and peers at the head, 'True enough. This is a Wayfarer . . . Errr, was at one time. I imagine he renounced his membership in the Brotherhood sometime before he took up a career of tormenting a poor scholar. They must have been trying to get to Nedaria by coming after me. I am famliar with Krill and he is a follower, not a leader. Someone else is the mastermind behind this - a person with access to magical disguises to hide their identity. ["..eq.say_link("Lirprin").."] must know of this at once, ".. e.other:GetName() .. ".");
 		eq.set_global("rogue_epic_lairyn","1",5,"F");
 		eq.depop_with_timer();
 		e.other:Message(15,"You have confirmed Lairyn's innocence."); ]]-- Rogue Epic 1.5/2.0
 	end
+
 	item_lib.return_items(e.self, e.other, e.trade);
 end
