@@ -22,7 +22,7 @@ function event_say(e)
 		eq.set_timer("move1",2000); ]]-- Rogue Epic 1.5/2.0
 
 	else
-		e.self:Emote("stares at you directly in the eyes. 'Greetings, "..e.other:GetName()..".  I suppose you're here like everyone else in search of fame and fortune.  Good luck to you, and good day.  I have many things to attend to.");
+		e.self:Emote("stares at you directly in the eyes. 'Greetings, " .. e.other:GetName() .. ".  I suppose you're here like everyone else in search of fame and fortune.  Good luck to you, and good day.  I have many things to attend to.");
 	end
 end
 
@@ -72,8 +72,8 @@ end ]]-- Rogue Epic 1.5/2.0
 function event_trade(e)
 	local item_lib = require("items");
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 358009}) ) then -- Pouch of Dark Ice
-		e.self:Say("You did it. I can scarely believe my eyes! This is wonderful. Let me have a closer look. Lairyn unbuckles the leather satchel and pours out the contents then begins arranging the shards in a pattern on the ground. He slides them around like pieces of a complex puzzle, swapping them backwards and forwards faster than your eyes can track. Ah yes, very clever. I am beginning to understand. This is not such a challenge after all, once you know the trick. Enough talk, I would like you to be the first to try it! Lairyn withdraws his journal again and flips through it until he locates a blank page. He scribbles furiously with a quill for several moments, then tears the page form the binding and hands it to you.");
+	if(e.other:Class() == "Wizard" and item_lib.check_turn_in(e.self, e.trade, {item1 = 358009})) then -- Pouch of Dark Ice
+		e.self:Say("You did it. I can scarely believe my eyes! This is wonderful. Let me have a closer look. Lairyn unbuckles the leather satchel and pours out the contents then begins arranging the shards in a pattern on the ground. He slides them around like pieces of a complex puzzle, swapping them backwards and forwards faster than your eyes can track. Ah yes, very clever. I am beginning to understand. This is not such a challenge after all, once you know the trick. Enough talk, I would like you to be the first to try it! Lairyn withdraws his journal again and flips through it until he locates a blank page. He scribbles furiously with a quill for several moments, then tears the page from the binding and hands it to you.");
 		e.other:QuestReward(e.self,0,0,0,0,359021,eq.ExpHelper(51)); -- Spell: Frozen Harpoon
 
 --[[	elseif(item_lib.check_turn_in(e.trade, {item1 = 14514}) ) then -- Cloudy Potion
