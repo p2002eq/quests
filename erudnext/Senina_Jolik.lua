@@ -1,0 +1,1 @@
+-- Senina Jolik in Erudin for Light's Glory quest
